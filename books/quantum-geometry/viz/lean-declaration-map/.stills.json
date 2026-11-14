@@ -2,64 +2,64 @@
   "schema": 1,
   "images": {
     "cover": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "6226561ef10d158e26d8b8edbe32cef983ae3530ac3df3866c9fca521b6cc0c0"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "98d1953272b7a834bc9f7bd9c5d0e05ceace8a7f5a92bcb35f292d14ef468f1c"
     },
     "fig-bedrock.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "05dbaccb201d01241d44d497ca72553769dbc144a28ef8f8cf58bc4f9834e167"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "8fb5814136a7ddc9a0471993f9ad601782c87a436d62b42a2a446f2992bb58b8"
     },
     "fig-table27.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "ba130527aa16388c3bea0f413301b467fe1b943ac05c6da037d067ddd5997d9e"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "f9c7e2f7dfd89f6b19aa224e833309a278f5297747051248d6f14e6327b5a97a"
     },
     "fig-closure.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "5bb6424f64816f11f75ea63646d4cc45b4dddc48d30e35f62885b37f6c056c8f"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "62e648ab672c19a1228263a0a37632c4ffa1e7ca1c98fc13b44bf84be2b870ef"
     },
     "fig-table28.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "e6f52544c86d127d73ea7304236e23a8a9cf059bf42868237c9bad1e6b368e22"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "8c7357a9a6c05c9b2f89259a317eb6b4635dadee2913dd0923028816e1de6e8d"
     },
     "fig-all.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "39359d6f3ce4a28a692adabdda13fcbf06a91eaf20f6794f454c1086069e17a3"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "65b3d4fddc2a70c9eed42f36dc809915d980f98a77dae13086e12b1ddcf0a58b"
     },
     "fig-inline.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "ee08e65ccf9abf270d28fbf0cfae46733a526740b98df3dd90e700fa971735f0"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "fb3a8749b9fc858b15e527d4e9489ad7a9a2361e1b6283f18455efc550af7729"
     },
     "fig-theorems.zh.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "c87fc161dc88b6ccaceead5b4cde42dac1deec155db755ce60b7d796567c9c30"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "c239196541f20a0fa04cb9ec833eec7c83af92a9f8cfc9ab433f837ee5c2013f"
     },
     "fig-bedrock.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "3898dce44341852aa4cedf3bd322402292f6984ab82faad310e23fcad594e6d5"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "6ce1617049eb845f34efd4526f9fc31837416d1d7289cf56e632677c91ad4f40"
     },
     "fig-table27.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "d08cdfc6a191f667b68d914f9d2adf809502c6fb45c39a3c67c82eee0568d77b"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "63ea8bae902b4a13199b0af754ccc8e474465597f8d4b8414b2525e534041ec8"
     },
     "fig-closure.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "355a682627613ef2ba90eee44e513015cbfcbf3bc4da9dc73b00469247f0b12c"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "80586f1233db45821f0fd0daef07580efa81ab8466d345266e3fe789105b5361"
     },
     "fig-table28.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "de32d8575b24670cee76d99b40fbc6403628066e52f8ecc0b01054e1befbfe47"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "4429cf401fae8b24982c53c817f0f2b9b334c7f78dea6f49414a07cbd1e8160d"
     },
     "fig-all.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "dac90c8a65d5f291a80b92dc38265c02753e9e9e83f4006c37f8c7bc2761c8ce"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "035e167c7006a0c7b35b09db54f6eb23b04c8a98d81a78c6c47ad00e5c027e89"
     },
     "fig-inline.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "c55df264a1550af1a3f24e1b70ea7815ad9f2c688d1343cf9c4bbe355ae31974"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "fb522188430236478f69934608f97152b8f041bbcc6d2e3711ac0c050a3499b4"
     },
     "fig-theorems.en.jpg": {
-      "input": "c613cec4e373d54690d478aa2fb1e9b92153378b3d2bab031445b08d5180a093",
-      "output": "fca917ee9fddbf2ec503bcf3ab693a402e7f521c2b73f9369b77b3e9d7d93a5d"
+      "input": "bc1838b276fab1fd3490590deefe9e1e6b22e630e7944c83d04bfd5d94f6be00",
+      "output": "868bc1baf28927f79e19a7f8dda199078d851ccf625917bbcb7f59c4d3373307"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "next": {
-    "T": 319,
+    "T": 321,
     "D": 115,
     "R": 173
   },
@@ -608,6 +608,8 @@
     "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalRight_productState": "R170",
     "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState": "R171",
     "D5/S3/Quantum/Routing/HannRouterDephasing.result": "T318",
-    "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk": "R172"
+    "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk": "R172",
+    "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_lower_bound": "T319",
+    "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_upper_bound": "T320"
   }
 }
