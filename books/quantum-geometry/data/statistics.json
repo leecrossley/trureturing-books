@@ -15,13 +15,13 @@
     "proof": 286,
     "lean_verified": 286,
     "written_proof": 3,
-    "literature": 191
+    "literature": 190
   },
-  "total": 606,
+  "total": 610,
   "kinds": {
     "def": 157,
     "inductive": 10,
-    "theorem": 439
+    "theorem": 443
   },
   "groups": {
     "theorems": [
@@ -586,6 +586,7 @@
       "D5/S3/Quantum/Divergence/DualAccountFull.entropy_freedom_segment",
       "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef",
       "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity",
+      "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein",
       "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.energy_eigenstate_variance_zero",
       "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.pureDensityState",
       "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.basisPinchingState",
@@ -608,6 +609,9 @@
       "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState",
       "D5/S3/Quantum/Information/QubitEntropyContraction.qubit_holevo_contraction",
       "D5/S3/Quantum/Information/QubitNormalFormState.qubit_state_entropy",
+      "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState",
+      "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState",
+      "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.scalarB",
       "D5/S3/Quantum/Recovery/KrausLeftInverseNecessity.left_inverse_error_products",
@@ -6818,7 +6822,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 227,
+          "line": 243,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -6872,7 +6876,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 210,
+          "line": 226,
           "id": "prop-landauer-identity-from-balances",
           "via": "environment"
         },
@@ -6902,7 +6906,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 227,
+          "line": 243,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -6932,7 +6936,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 227,
+          "line": 243,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -10148,7 +10152,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 322,
+          "line": 338,
           "id": "",
           "via": "inline"
         },
@@ -10238,13 +10242,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 323,
+          "line": 339,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 347,
+          "line": 363,
           "id": "",
           "via": "inline"
         },
@@ -10262,13 +10266,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 332,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 339,
+          "line": 355,
           "id": "",
           "via": "inline"
         }
@@ -10280,7 +10284,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 332,
           "id": "",
           "via": "inline"
         }
@@ -10292,7 +10296,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 332,
           "id": "",
           "via": "inline"
         }
@@ -10304,13 +10308,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 318,
+          "line": 334,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 347,
+          "line": 363,
           "id": "",
           "via": "inline"
         }
@@ -10322,7 +10326,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 329,
+          "line": 345,
           "id": "prop-surviving-copy-blocks-reversal",
           "via": "environment"
         },
@@ -10394,7 +10398,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 323,
+          "line": 339,
           "id": "",
           "via": "inline"
         },
@@ -12362,19 +12366,19 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 288,
+          "line": 304,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 291,
+          "line": 307,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 305,
+          "line": 321,
           "id": "",
           "via": "inline"
         },
@@ -12452,13 +12456,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 290,
+          "line": 306,
           "id": "thm-reduced-irreversibility-access-defect",
           "via": "environment"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 288,
+          "line": 304,
           "id": "",
           "via": "inline"
         },
@@ -12747,6 +12751,18 @@
         {
           "file": "ch08-erasure-and-time-arrows.md",
           "line": 201,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Divergence.SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 209,
           "id": "",
           "via": "inline"
         }
@@ -13136,7 +13152,7 @@
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 364,
+          "line": 380,
           "id": "",
           "via": "inline"
         }
@@ -14553,6 +14569,42 @@
         {
           "file": "ch03-projectors-and-duality.md",
           "line": 348,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.StrongSubadditivity.entropy_relabelState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 207,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.StrongSubadditivity.entropy_toMState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 207,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.StrongSubadditivity.strong_subadditivity",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 207,
           "id": "",
           "via": "inline"
         }
@@ -18719,6 +18771,7 @@
         "D5/S3/Quantum/Divergence/DualAccountFull.entropy_freedom_segment",
         "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef",
         "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity",
+        "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.basisPinchingState",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.cfc_diagonal",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.cfc_log_diagonal",
@@ -18729,7 +18782,10 @@
         "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change",
         "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalLeft_productState",
         "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalRight_productState",
-        "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState"
+        "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState",
+        "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState",
+        "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState",
+        "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity"
       ]
     },
     {
