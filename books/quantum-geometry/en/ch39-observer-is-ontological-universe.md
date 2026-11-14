@@ -1395,7 +1395,7 @@ $$
 =\rho^{F(W_{[s,s+m)})}.
 $$
 
-This explains why alternating charge enters estimates of hopping ratios, without yet giving a spectral bound. The exact statement and construction below come from the [source-proof PR for the Tribonacci prefix refutation](https://github.com/the-omega-institute/trureturing/pull/30577). This is an unpublished exposition draft of that source result.
+This explains why alternating charge enters estimates of hopping ratios, without yet giving a spectral bound. The exact statement and construction below come from the [source proof of the Tribonacci prefix refutation](https://github.com/the-omega-institute/trureturing/pull/30577).
 
 ::: {.theorem #thm-ch39-p2e-tribonacci-prefix-log-refutation title="Failure of a Uniform Logarithmic Interval Bound for the Actual Tribonacci Word" lean="D5/S1/Words/TribonacciPrefixRefutation.result"}
 For the fixed actual word $W$ and integer weights $w$ above,
@@ -1520,7 +1520,7 @@ $$
 \end{aligned}
 $$
 
-contradicting the uniform bound at $s=0$, $m=m_n$. This contradiction covers every positive real $K$. The explicit family starting at zero is a construction within the proof, with no extra hypothesis and no extrapolation from finite samples.
+contradicting the uniform bound at $s=0$, $m=m_n$. This contradiction covers every positive real $K$. The explicit family starting at zero is a construction within the proof, with no extra hypothesis and no extrapolation from finite samples. The full proof is checked by the Lean kernel.
 :::
 
 ::: {.remark #rem-ch39-p2e-tribonacci-refutation-boundaries title="Alternating Discrepancy, Spectral Literature, and Physical Scope"}

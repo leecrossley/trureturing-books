@@ -1395,7 +1395,7 @@ $$
 =\rho^{F(W_{[s,s+m)})}.
 $$
 
-这说明交替电荷为什么会进入跃迁比值的估计，却尚未给出谱界。下面的精确陈述与构造来自 [Tribonacci 前缀反例的源证明 PR](https://github.com/the-omega-institute/trureturing/pull/30577)；此处为该源结果的未出版阐释草稿。
+这说明交替电荷为什么会进入跃迁比值的估计，却尚未给出谱界。下面的精确陈述与构造来自 [Tribonacci 前缀反例的源证明](https://github.com/the-omega-institute/trureturing/pull/30577)。
 
 ::: {.theorem #thm-ch39-p2e-tribonacci-prefix-log-refutation title="实际 Tribonacci 词的统一对数区段界不成立" lean="D5/S1/Words/TribonacciPrefixRefutation.result"}
 对上述固定的实际词 $W$ 与整数权重 $w$，有
@@ -1520,7 +1520,7 @@ $$
 \end{aligned}
 $$
 
-与 $s=0$、$m=m_n$ 时的统一界矛盾。这个反证覆盖每个正实数 $K$；从零开始的具体反例族是证明中的构造，不是另加假设，也不是由有限样本外推的结论。
+与 $s=0$、$m=m_n$ 时的统一界矛盾。这个反证覆盖每个正实数 $K$；从零开始的具体反例族是证明中的构造，不是另加假设，也不是由有限样本外推的结论。完整证明由 Lean 内核检查。
 :::
 
 ::: {.remark #rem-ch39-p2e-tribonacci-refutation-boundaries title="交替偏差、谱文献与物理适用边界"}
