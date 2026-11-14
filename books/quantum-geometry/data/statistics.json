@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 175,
+    "theorem": 176,
     "lemma": 34,
     "proposition": 45,
     "corollary": 30,
@@ -11,17 +11,17 @@
     "conjecture": 6,
     "problem": 3,
     "example": 111,
-    "remark": 188,
-    "proof": 281,
-    "lean_verified": 282,
+    "remark": 187,
+    "proof": 282,
+    "lean_verified": 283,
     "written_proof": 2,
-    "literature": 191
+    "literature": 190
   },
-  "total": 601,
+  "total": 602,
   "kinds": {
     "def": 157,
     "inductive": 10,
-    "theorem": 434
+    "theorem": 435
   },
   "groups": {
     "theorems": [
@@ -262,6 +262,7 @@
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
       "D5/S3/Quantum/Measurement/StaticEffectSequentialSeparation.same_effects_different_two_step_joint_law",
       "D5/S3/Quantum/Measurements/FiniteMemoryHistoryCapacity.finite_memory_history_capacity",
+      "D5/S3/Quantum/Measurements/RelevantSpaceQuantumKac.pure_vector_quantum_kac",
       "D5/S3/Quantum/PureState/NoCloningInnerProductCriterion.no_cloning_inner_product_criterion",
       "D5/S3/Quantum/PureState/RecordCoherenceComplementarity.pure_record_distinguishability_coherence_complementarity",
       "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization",
@@ -14577,6 +14578,18 @@
         }
       ]
     },
+    "D5/S3/Quantum/Measurements/RelevantSpaceQuantumKac.pure_vector_quantum_kac": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurements.RelevantSpaceQuantumKac.pure_vector_quantum_kac",
+      "citations": [
+        {
+          "file": "ch07-geometric-time-and-speed-limits.md",
+          "line": 422,
+          "id": "rem-monitored-unital-kac",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S3/Quantum/PureState/NoCloningInnerProductCriterion.no_cloning_inner_product_criterion": {
       "kind": "theorem",
       "name": "D5.S3.Quantum.PureState.NoCloningInnerProductCriterion.no_cloning_inner_product_criterion",
@@ -15723,7 +15736,7 @@
         },
         {
           "file": "ch07-geometric-time-and-speed-limits.md",
-          "line": 528,
+          "line": 624,
           "id": "",
           "via": "inline"
         }
@@ -16497,13 +16510,13 @@
       "citations": [
         {
           "file": "ch07-geometric-time-and-speed-limits.md",
-          "line": 497,
+          "line": 593,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch07-geometric-time-and-speed-limits.md",
-          "line": 510,
+          "line": 606,
           "id": "",
           "via": "inline"
         }
@@ -16515,7 +16528,7 @@
       "citations": [
         {
           "file": "ch07-geometric-time-and-speed-limits.md",
-          "line": 509,
+          "line": 605,
           "id": "thm-decoherence-freeze-critical",
           "via": "environment"
         }
@@ -16527,13 +16540,13 @@
       "citations": [
         {
           "file": "ch07-geometric-time-and-speed-limits.md",
-          "line": 491,
+          "line": 587,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch07-geometric-time-and-speed-limits.md",
-          "line": 510,
+          "line": 606,
           "id": "",
           "via": "inline"
         }
@@ -18418,6 +18431,7 @@
       "environment": [
         "D5/S3/Quantum/Dynamics/CalibratedUnitaryGroup.calibrated_group",
         "D5/S3/Quantum/Dynamics/ProjectionProbabilityFlow.projection_probability_flow",
+        "D5/S3/Quantum/Measurements/RelevantSpaceQuantumKac.pure_vector_quantum_kac",
         "D5/S3/QuantumBounds/FubiniStudyRecordTime.record_time_lower_bound",
         "D5/S3/QuantumChannels/DecoherenceFreeze.decoherence_freeze_iff_above_critical",
         "D5/S3/QuantumChannels/ProjectionDiagnostics/CyclicMonitoredContraction.cyclic_future_kernel_eq_bot",

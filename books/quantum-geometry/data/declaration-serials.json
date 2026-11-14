@@ -1,6 +1,6 @@
 {
   "next": {
-    "T": 317,
+    "T": 318,
     "D": 115,
     "R": 172
   },
@@ -599,6 +599,7 @@
     "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.alternating_completion_classification": "T315",
     "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.compatible_cycle_card": "R164",
     "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredSpectralMean.monitored_spectral_mean": "T316",
+    "D5/S3/Quantum/Measurements/RelevantSpaceQuantumKac.pure_vector_quantum_kac": "T317",
     "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef": "R165",
     "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity": "R166",
     "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.gibbs_relative_entropy_energy_difference": "R167",
