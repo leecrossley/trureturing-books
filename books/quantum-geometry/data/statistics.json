@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 178,
+    "theorem": 179,
     "lemma": 34,
     "proposition": 45,
     "corollary": 30,
@@ -12,16 +12,16 @@
     "problem": 3,
     "example": 112,
     "remark": 188,
-    "proof": 284,
+    "proof": 285,
     "lean_verified": 285,
-    "written_proof": 2,
+    "written_proof": 3,
     "literature": 191
   },
-  "total": 603,
+  "total": 604,
   "kinds": {
     "def": 157,
     "inductive": 10,
-    "theorem": 436
+    "theorem": 437
   },
   "groups": {
     "theorems": [
@@ -502,6 +502,7 @@
       "D5/S3/CharacterSums/Fermat/CharacterPointCount.norm_jacobiSum",
       "D5/S3/CharacterSums/Fermat/CharacterPointCount.power_fiber_card_eq_one_add_character_sum",
       "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.compatible_cycle_card",
+      "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk",
       "D5/S3/Combinatorics/PerfectMatchings/AlternatingCyclePfaffian.NiceOdd",
       "D5/S3/Combinatorics/PerfectMatchings/AlternatingCyclePfaffian.Reverses",
       "D5/S3/Combinatorics/PerfectMatchings/AlternatingCyclePfaffian.alternating_cycle_flip",
@@ -683,7 +684,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1574,
+          "line": 1599,
           "id": "",
           "via": "inline"
         },
@@ -1955,7 +1956,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1575,
+          "line": 1600,
           "id": "",
           "via": "inline"
         },
@@ -1991,7 +1992,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1575,
+          "line": 1600,
           "id": "",
           "via": "inline"
         },
@@ -2015,7 +2016,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1574,
+          "line": 1599,
           "id": "",
           "via": "inline"
         },
@@ -2051,7 +2052,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1574,
+          "line": 1599,
           "id": "",
           "via": "inline"
         },
@@ -2093,7 +2094,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1575,
+          "line": 1600,
           "id": "",
           "via": "inline"
         },
@@ -2165,7 +2166,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1575,
+          "line": 1600,
           "id": "",
           "via": "inline"
         },
@@ -3191,7 +3192,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1412,
+          "line": 1437,
           "id": "thm-ch39-p2e-aligned-tribonacci-windows",
           "via": "environment"
         }
@@ -3353,7 +3354,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1579,
+          "line": 1604,
           "id": "",
           "via": "inline"
         },
@@ -3563,7 +3564,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1576,
+          "line": 1601,
           "id": "",
           "via": "inline"
         },
@@ -3617,7 +3618,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1576,
+          "line": 1601,
           "id": "",
           "via": "inline"
         },
@@ -3671,7 +3672,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1576,
+          "line": 1601,
           "id": "",
           "via": "inline"
         },
@@ -4202,6 +4203,18 @@
           "line": 81,
           "id": "thm-ch30-face-cycle-exact",
           "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk": {
+      "kind": "theorem",
+      "name": "D5.S3.Combinatorics.Graph.PlanarMatching.Rotation.cycle_boundary_walk",
+      "citations": [
+        {
+          "file": "ch16-qsvt-walks-and-compilation.md",
+          "line": 400,
+          "id": "",
+          "via": "inline"
         }
       ]
     },
@@ -5045,13 +5058,13 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1309,
+          "line": 1334,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1581,
+          "line": 1606,
           "id": "",
           "via": "inline"
         },
@@ -6029,7 +6042,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1576,
+          "line": 1601,
           "id": "",
           "via": "inline"
         },
@@ -6461,7 +6474,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1579,
+          "line": 1604,
           "id": "",
           "via": "inline"
         },
@@ -6497,7 +6510,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1240,
+          "line": 1341,
           "id": "def-polynomial-parity-roots",
           "via": "environment"
         }
@@ -6509,7 +6522,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1240,
+          "line": 1341,
           "id": "def-polynomial-parity-roots",
           "via": "environment"
         }
@@ -6521,7 +6534,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 672,
+          "line": 773,
           "id": "thm-phase-unitary-completion",
           "via": "environment"
         }
@@ -6533,7 +6546,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 598,
+          "line": 699,
           "id": "thm-interval-sumsq-decomposition",
           "via": "environment"
         }
@@ -6545,7 +6558,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 893,
+          "line": 994,
           "id": "thm-signed-circle-phase-factorization",
           "via": "environment"
         }
@@ -6557,13 +6570,13 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 809,
+          "line": 910,
           "id": "thm-polynomial-phase-synthesis",
           "via": "environment"
         },
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 794,
+          "line": 895,
           "id": "",
           "via": "inline"
         }
@@ -6575,7 +6588,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 864,
+          "line": 965,
           "id": "def-phase-field-product",
           "via": "environment"
         }
@@ -6587,7 +6600,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 864,
+          "line": 965,
           "id": "def-phase-field-product",
           "via": "environment"
         }
@@ -6599,7 +6612,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 798,
+          "line": 899,
           "id": "def-phase-polynomial-fold",
           "via": "environment"
         }
@@ -6611,7 +6624,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 798,
+          "line": 899,
           "id": "def-phase-polynomial-fold",
           "via": "environment"
         }
@@ -6623,7 +6636,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 842,
+          "line": 943,
           "id": "",
           "via": "inline"
         }
@@ -6635,7 +6648,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1214,
+          "line": 1315,
           "id": "def-native-reflection-phases",
           "via": "environment"
         }
@@ -6647,7 +6660,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1254,
+          "line": 1355,
           "id": "thm-native-phase-projected-lifting",
           "via": "environment"
         }
@@ -6659,7 +6672,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6671,7 +6684,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6683,7 +6696,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6695,7 +6708,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6707,7 +6720,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6719,7 +6732,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1106,
+          "line": 1207,
           "id": "thm-alternating-singular-pair-action",
           "via": "environment"
         }
@@ -6731,7 +6744,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6743,7 +6756,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6755,7 +6768,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6767,7 +6780,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6779,7 +6792,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1144,
+          "line": 1245,
           "id": "thm-projected-unitary-polynomial-lifting",
           "via": "environment"
         }
@@ -6791,7 +6804,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -8153,7 +8166,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1577,
+          "line": 1602,
           "id": "",
           "via": "inline"
         },
@@ -8189,7 +8202,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1577,
+          "line": 1602,
           "id": "",
           "via": "inline"
         },
@@ -8225,7 +8238,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1577,
+          "line": 1602,
           "id": "",
           "via": "inline"
         },
@@ -8249,7 +8262,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1577,
+          "line": 1602,
           "id": "",
           "via": "inline"
         },
@@ -8375,7 +8388,7 @@
         },
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1382,
+          "line": 1483,
           "id": "prop-two-axis-finite-word",
           "via": "environment"
         },
@@ -13187,7 +13200,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1372,
+          "line": 1397,
           "id": "thm-ch39-p2e-odd-repeat-inverse-mass",
           "via": "environment"
         }
@@ -13475,7 +13488,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1580,
+          "line": 1605,
           "id": "",
           "via": "inline"
         },
@@ -13511,7 +13524,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1580,
+          "line": 1605,
           "id": "",
           "via": "inline"
         },
@@ -14543,7 +14556,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 453,
+          "line": 554,
           "id": "thm-central-defect-spectral-gap",
           "via": "environment"
         }
@@ -14555,7 +14568,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 421,
+          "line": 522,
           "id": "thm-robin-endpoint-observability",
           "via": "environment"
         }
@@ -15059,7 +15072,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1490,
+          "line": 1591,
           "id": "cor-exact-source-query-count",
           "via": "environment"
         }
@@ -17669,13 +17682,13 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1309,
+          "line": 1334,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1581,
+          "line": 1606,
           "id": "",
           "via": "inline"
         },
@@ -17693,13 +17706,13 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1296,
+          "line": 1321,
           "id": "thm-ch39-p2e-parry-escape-laws",
           "via": "environment"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1581,
+          "line": 1606,
           "id": "",
           "via": "inline"
         },
@@ -18902,6 +18915,7 @@
       ],
       "inline": [
         "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.compatible_cycle_card",
+        "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk",
         "D5/S3/ContinuousObservables/PhaseSynthesis.exists_phases",
         "D5/S3/ContinuousObservables/PhaseSynthesis.unstepW"
       ]
