@@ -3,25 +3,25 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 177,
+    "theorem": 180,
     "lemma": 34,
     "proposition": 45,
     "corollary": 30,
     "definition": 38,
     "conjecture": 6,
     "problem": 3,
-    "example": 111,
-    "remark": 187,
-    "proof": 283,
-    "lean_verified": 284,
-    "written_proof": 2,
+    "example": 112,
+    "remark": 188,
+    "proof": 286,
+    "lean_verified": 286,
+    "written_proof": 3,
     "literature": 190
   },
-  "total": 603,
+  "total": 610,
   "kinds": {
     "def": 157,
     "inductive": 10,
-    "theorem": 436
+    "theorem": 443
   },
   "groups": {
     "theorems": [
@@ -154,6 +154,8 @@
       "D5/S3/Fourier/GoldenModelSetDelone.exists_golden_modelSet_delone",
       "D5/S3/Fourier/GoldenModelSetDelone.norm_separation",
       "D5/S3/Fourier/TorusOrbitClosure.result",
+      "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_lower_bound",
+      "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_upper_bound",
       "D5/S3/Geometry/FixedPoint/Brouwer.Brouwer",
       "D5/S3/Geometry/Orthogonality/RationalSixAxisCover.rational_six_axis_open_cover",
       "D5/S3/Geometry/Rauzy/TribonacciNullBoundary.rauzyFractal_frontier_volume_zero",
@@ -502,6 +504,7 @@
       "D5/S3/CharacterSums/Fermat/CharacterPointCount.norm_jacobiSum",
       "D5/S3/CharacterSums/Fermat/CharacterPointCount.power_fiber_card_eq_one_add_character_sum",
       "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.compatible_cycle_card",
+      "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk",
       "D5/S3/Combinatorics/PerfectMatchings/AlternatingCyclePfaffian.NiceOdd",
       "D5/S3/Combinatorics/PerfectMatchings/AlternatingCyclePfaffian.Reverses",
       "D5/S3/Combinatorics/PerfectMatchings/AlternatingCyclePfaffian.alternating_cycle_flip",
@@ -583,6 +586,7 @@
       "D5/S3/Quantum/Divergence/DualAccountFull.entropy_freedom_segment",
       "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef",
       "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity",
+      "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein",
       "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.energy_eigenstate_variance_zero",
       "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.pureDensityState",
       "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.basisPinchingState",
@@ -605,6 +609,9 @@
       "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState",
       "D5/S3/Quantum/Information/QubitEntropyContraction.qubit_holevo_contraction",
       "D5/S3/Quantum/Information/QubitNormalFormState.qubit_state_entropy",
+      "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState",
+      "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState",
+      "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.scalarB",
       "D5/S3/Quantum/Recovery/KrausLeftInverseNecessity.left_inverse_error_products",
@@ -683,7 +690,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1517,
+          "line": 1661,
           "id": "",
           "via": "inline"
         },
@@ -1115,7 +1122,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 224,
+          "line": 225,
           "id": "prop-ch34-null-cone-and-golden-cut-orientation",
           "via": "environment"
         },
@@ -1127,7 +1134,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 227,
+          "line": 228,
           "id": "",
           "via": "inline"
         },
@@ -1955,7 +1962,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1518,
+          "line": 1662,
           "id": "",
           "via": "inline"
         },
@@ -1991,7 +1998,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1518,
+          "line": 1662,
           "id": "",
           "via": "inline"
         },
@@ -2015,7 +2022,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1517,
+          "line": 1661,
           "id": "",
           "via": "inline"
         },
@@ -2051,7 +2058,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1517,
+          "line": 1661,
           "id": "",
           "via": "inline"
         },
@@ -2093,7 +2100,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1518,
+          "line": 1662,
           "id": "",
           "via": "inline"
         },
@@ -2165,7 +2172,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1518,
+          "line": 1662,
           "id": "",
           "via": "inline"
         },
@@ -2321,7 +2328,7 @@
       "citations": [
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 224,
+          "line": 225,
           "id": "prop-ch34-null-cone-and-golden-cut-orientation",
           "via": "environment"
         },
@@ -2333,7 +2340,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 233,
+          "line": 234,
           "id": "",
           "via": "inline"
         },
@@ -3191,7 +3198,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1355,
+          "line": 1499,
           "id": "thm-ch39-p2e-aligned-tribonacci-windows",
           "via": "environment"
         }
@@ -3353,7 +3360,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1522,
+          "line": 1666,
           "id": "",
           "via": "inline"
         },
@@ -3563,7 +3570,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1519,
+          "line": 1663,
           "id": "",
           "via": "inline"
         },
@@ -3617,7 +3624,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1519,
+          "line": 1663,
           "id": "",
           "via": "inline"
         },
@@ -3671,7 +3678,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1519,
+          "line": 1663,
           "id": "",
           "via": "inline"
         },
@@ -3851,7 +3858,7 @@
         },
         {
           "file": "appendix-a.md",
-          "line": 1007,
+          "line": 1021,
           "id": "",
           "via": "inline"
         }
@@ -3875,7 +3882,7 @@
         },
         {
           "file": "appendix-a.md",
-          "line": 1007,
+          "line": 1021,
           "id": "",
           "via": "inline"
         }
@@ -4202,6 +4209,18 @@
           "line": 81,
           "id": "thm-ch30-face-cycle-exact",
           "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk": {
+      "kind": "theorem",
+      "name": "D5.S3.Combinatorics.Graph.PlanarMatching.Rotation.cycle_boundary_walk",
+      "citations": [
+        {
+          "file": "ch16-qsvt-walks-and-compilation.md",
+          "line": 400,
+          "id": "",
+          "via": "inline"
         }
       ]
     },
@@ -5045,13 +5064,13 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1252,
+          "line": 1396,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1524,
+          "line": 1668,
           "id": "",
           "via": "inline"
         },
@@ -5747,13 +5766,13 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 107,
+          "line": 108,
           "id": "thm-ch34-readout-kernel-and-covariant-commutator",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 539,
+          "line": 540,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
           "via": "environment"
         },
@@ -5765,7 +5784,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 110,
+          "line": 111,
           "id": "",
           "via": "inline"
         },
@@ -6029,7 +6048,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1519,
+          "line": 1663,
           "id": "",
           "via": "inline"
         },
@@ -6220,6 +6239,24 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 653,
+          "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 16,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 670,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch39-observer-is-ontological-universe.md",
           "line": 239,
           "id": "thm-ch39-double-cover-no-section-and-720-lift",
@@ -6250,6 +6287,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -6269,6 +6312,12 @@
         },
         {
           "file": "viz/coherence-handshake-causality/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/berry-sector-path-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -6310,6 +6359,18 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 653,
+          "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 670,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch39-observer-is-ontological-universe.md",
           "line": 239,
           "id": "thm-ch39-double-cover-no-section-and-720-lift",
@@ -6328,6 +6389,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -6335,6 +6402,12 @@
         },
         {
           "file": "viz/self-sustaining-spinor-flow/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/berry-sector-path-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -6407,7 +6480,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1522,
+          "line": 1666,
           "id": "",
           "via": "inline"
         },
@@ -6443,7 +6516,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1240,
+          "line": 1341,
           "id": "def-polynomial-parity-roots",
           "via": "environment"
         }
@@ -6455,7 +6528,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1240,
+          "line": 1341,
           "id": "def-polynomial-parity-roots",
           "via": "environment"
         }
@@ -6467,7 +6540,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 672,
+          "line": 773,
           "id": "thm-phase-unitary-completion",
           "via": "environment"
         }
@@ -6479,7 +6552,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 598,
+          "line": 699,
           "id": "thm-interval-sumsq-decomposition",
           "via": "environment"
         }
@@ -6491,7 +6564,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 893,
+          "line": 994,
           "id": "thm-signed-circle-phase-factorization",
           "via": "environment"
         }
@@ -6503,13 +6576,13 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 809,
+          "line": 910,
           "id": "thm-polynomial-phase-synthesis",
           "via": "environment"
         },
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 794,
+          "line": 895,
           "id": "",
           "via": "inline"
         }
@@ -6521,7 +6594,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 864,
+          "line": 965,
           "id": "def-phase-field-product",
           "via": "environment"
         }
@@ -6533,7 +6606,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 864,
+          "line": 965,
           "id": "def-phase-field-product",
           "via": "environment"
         }
@@ -6545,7 +6618,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 798,
+          "line": 899,
           "id": "def-phase-polynomial-fold",
           "via": "environment"
         }
@@ -6557,7 +6630,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 798,
+          "line": 899,
           "id": "def-phase-polynomial-fold",
           "via": "environment"
         }
@@ -6569,7 +6642,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 842,
+          "line": 943,
           "id": "",
           "via": "inline"
         }
@@ -6581,7 +6654,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1214,
+          "line": 1315,
           "id": "def-native-reflection-phases",
           "via": "environment"
         }
@@ -6593,7 +6666,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1254,
+          "line": 1355,
           "id": "thm-native-phase-projected-lifting",
           "via": "environment"
         }
@@ -6605,7 +6678,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6617,7 +6690,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6629,7 +6702,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6641,7 +6714,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6653,7 +6726,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6665,7 +6738,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1106,
+          "line": 1207,
           "id": "thm-alternating-singular-pair-action",
           "via": "environment"
         }
@@ -6677,7 +6750,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6689,7 +6762,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6701,7 +6774,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6713,7 +6786,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1016,
+          "line": 1117,
           "id": "def-projected-unitary-word",
           "via": "environment"
         }
@@ -6725,7 +6798,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1144,
+          "line": 1245,
           "id": "thm-projected-unitary-polynomial-lifting",
           "via": "environment"
         }
@@ -6737,7 +6810,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1054,
+          "line": 1155,
           "id": "def-singular-pair-frames",
           "via": "environment"
         }
@@ -6749,7 +6822,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 227,
+          "line": 243,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -6803,7 +6876,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 210,
+          "line": 226,
           "id": "prop-landauer-identity-from-balances",
           "via": "environment"
         },
@@ -6833,7 +6906,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 227,
+          "line": 243,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -6863,7 +6936,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 227,
+          "line": 243,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -7811,7 +7884,7 @@
       "citations": [
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 410,
+          "line": 411,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
@@ -7823,7 +7896,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 413,
+          "line": 414,
           "id": "",
           "via": "inline"
         },
@@ -8033,6 +8106,30 @@
         }
       ]
     },
+    "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_lower_bound": {
+      "kind": "theorem",
+      "name": "D5.S3.Geometry.BooleanRotationCodebook.finite_codebook_lower_bound",
+      "citations": [
+        {
+          "file": "ch35-light-pulse-and-self-referential-table.md",
+          "line": 347,
+          "id": "thm-ch35-uniform-rotation-codebook-capacity",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_upper_bound": {
+      "kind": "theorem",
+      "name": "D5.S3.Geometry.BooleanRotationCodebook.finite_codebook_upper_bound",
+      "citations": [
+        {
+          "file": "ch35-light-pulse-and-self-referential-table.md",
+          "line": 347,
+          "id": "thm-ch35-uniform-rotation-codebook-capacity",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S3/Geometry/FixedPoint/Brouwer.Brouwer": {
       "kind": "theorem",
       "name": "D5.S3.Geometry.FixedPoint.Brouwer",
@@ -8099,7 +8196,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1520,
+          "line": 1664,
           "id": "",
           "via": "inline"
         },
@@ -8135,7 +8232,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1520,
+          "line": 1664,
           "id": "",
           "via": "inline"
         },
@@ -8171,7 +8268,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1520,
+          "line": 1664,
           "id": "",
           "via": "inline"
         },
@@ -8195,7 +8292,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1520,
+          "line": 1664,
           "id": "",
           "via": "inline"
         },
@@ -8267,13 +8364,13 @@
       "citations": [
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 410,
+          "line": 411,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 539,
+          "line": 540,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
           "via": "environment"
         },
@@ -8285,7 +8382,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 419,
+          "line": 420,
           "id": "",
           "via": "inline"
         },
@@ -8321,7 +8418,7 @@
         },
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1382,
+          "line": 1483,
           "id": "prop-two-axis-finite-word",
           "via": "environment"
         },
@@ -8333,7 +8430,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 49,
+          "line": 50,
           "id": "thm-ch34-perpendicular-axis-and-pullback",
           "via": "environment"
         },
@@ -8345,7 +8442,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 58,
+          "line": 59,
           "id": "",
           "via": "inline"
         },
@@ -8441,13 +8538,13 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 49,
+          "line": 50,
           "id": "thm-ch34-perpendicular-axis-and-pullback",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 539,
+          "line": 540,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
           "via": "environment"
         },
@@ -8459,7 +8556,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 52,
+          "line": 53,
           "id": "",
           "via": "inline"
         },
@@ -8728,6 +8825,24 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 653,
+          "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 16,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 674,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 330,
           "id": "",
@@ -8736,6 +8851,12 @@
         {
           "file": "appendix-a.md",
           "line": 638,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 918,
           "id": "",
           "via": "inline"
         },
@@ -8768,6 +8889,12 @@
           "line": 0,
           "id": "",
           "via": "media"
+        },
+        {
+          "file": "viz/berry-sector-path-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -8782,6 +8909,24 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 653,
+          "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 672,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -8789,6 +8934,12 @@
         },
         {
           "file": "viz/lattice-gauge-loop/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/berry-sector-path-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -10001,7 +10152,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 322,
+          "line": 338,
           "id": "",
           "via": "inline"
         },
@@ -10091,13 +10242,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 323,
+          "line": 339,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 347,
+          "line": 363,
           "id": "",
           "via": "inline"
         },
@@ -10115,13 +10266,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 332,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 339,
+          "line": 355,
           "id": "",
           "via": "inline"
         }
@@ -10133,7 +10284,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 332,
           "id": "",
           "via": "inline"
         }
@@ -10145,7 +10296,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 332,
           "id": "",
           "via": "inline"
         }
@@ -10157,13 +10308,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 318,
+          "line": 334,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 347,
+          "line": 363,
           "id": "",
           "via": "inline"
         }
@@ -10175,7 +10326,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 329,
+          "line": 345,
           "id": "prop-surviving-copy-blocks-reversal",
           "via": "environment"
         },
@@ -10247,7 +10398,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 323,
+          "line": 339,
           "id": "",
           "via": "inline"
         },
@@ -10691,7 +10842,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 107,
+          "line": 108,
           "id": "thm-ch34-readout-kernel-and-covariant-commutator",
           "via": "environment"
         },
@@ -10703,7 +10854,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 116,
+          "line": 117,
           "id": "",
           "via": "inline"
         },
@@ -10793,19 +10944,19 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 410,
+          "line": 411,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 539,
+          "line": 540,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 423,
+          "line": 424,
           "id": "",
           "via": "inline"
         },
@@ -12215,19 +12366,19 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 288,
+          "line": 304,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 291,
+          "line": 307,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 305,
+          "line": 321,
           "id": "",
           "via": "inline"
         },
@@ -12305,13 +12456,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 290,
+          "line": 306,
           "id": "thm-reduced-irreversibility-access-defect",
           "via": "environment"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 288,
+          "line": 304,
           "id": "",
           "via": "inline"
         },
@@ -12600,6 +12751,18 @@
         {
           "file": "ch08-erasure-and-time-arrows.md",
           "line": 201,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Divergence.SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 209,
           "id": "",
           "via": "inline"
         }
@@ -12989,7 +13152,7 @@
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 364,
+          "line": 380,
           "id": "",
           "via": "inline"
         }
@@ -13025,13 +13188,13 @@
       "citations": [
         {
           "file": "ch11-pulses-and-virtual-z.md",
-          "line": 227,
+          "line": 371,
           "id": "cor-frame-pullback-readout",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 49,
+          "line": 50,
           "id": "thm-ch34-perpendicular-axis-and-pullback",
           "via": "environment"
         },
@@ -13043,7 +13206,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 64,
+          "line": 65,
           "id": "",
           "via": "inline"
         },
@@ -13079,7 +13242,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1315,
+          "line": 1459,
           "id": "thm-ch39-p2e-odd-repeat-inverse-mass",
           "via": "environment"
         }
@@ -13175,7 +13338,7 @@
       "citations": [
         {
           "file": "ch11-pulses-and-virtual-z.md",
-          "line": 150,
+          "line": 294,
           "id": "prop-ordered-pulse-error",
           "via": "environment"
         },
@@ -13367,7 +13530,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1523,
+          "line": 1667,
           "id": "",
           "via": "inline"
         },
@@ -13403,7 +13566,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1523,
+          "line": 1667,
           "id": "",
           "via": "inline"
         },
@@ -14224,6 +14387,30 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 653,
+          "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 16,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 662,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -14231,6 +14418,12 @@
         },
         {
           "file": "viz/repeated-projection/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/berry-sector-path-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -14282,6 +14475,42 @@
           "line": 78,
           "id": "thm-qubit-bargmann-bloch",
           "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 653,
+          "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 16,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 656,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/berry-sector-path-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -14345,6 +14574,42 @@
         }
       ]
     },
+    "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.StrongSubadditivity.entropy_relabelState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 207,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.StrongSubadditivity.entropy_toMState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 207,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.StrongSubadditivity.strong_subadditivity",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 207,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
     "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result": {
       "kind": "theorem",
       "name": "D5.S3.Quantum.Magic.ReflectionDiagonalCNOTLowerBound.result",
@@ -14369,7 +14634,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 453,
+          "line": 554,
           "id": "thm-central-defect-spectral-gap",
           "via": "environment"
         }
@@ -14381,7 +14646,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 421,
+          "line": 522,
           "id": "thm-robin-endpoint-observability",
           "via": "environment"
         }
@@ -14885,7 +15150,7 @@
       "citations": [
         {
           "file": "ch16-qsvt-walks-and-compilation.md",
-          "line": 1490,
+          "line": 1591,
           "id": "cor-exact-source-query-count",
           "via": "environment"
         }
@@ -15959,13 +16224,13 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 410,
+          "line": 411,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 421,
+          "line": 422,
           "id": "",
           "via": "inline"
         },
@@ -17495,13 +17760,13 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1252,
+          "line": 1396,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1524,
+          "line": 1668,
           "id": "",
           "via": "inline"
         },
@@ -17519,13 +17784,13 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1239,
+          "line": 1383,
           "id": "thm-ch39-p2e-parry-escape-laws",
           "via": "environment"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1524,
+          "line": 1668,
           "id": "",
           "via": "inline"
         },
@@ -18506,6 +18771,7 @@
         "D5/S3/Quantum/Divergence/DualAccountFull.entropy_freedom_segment",
         "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef",
         "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity",
+        "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.basisPinchingState",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.cfc_diagonal",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.cfc_log_diagonal",
@@ -18516,7 +18782,10 @@
         "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change",
         "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalLeft_productState",
         "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalRight_productState",
-        "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState"
+        "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState",
+        "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState",
+        "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState",
+        "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity"
       ]
     },
     {
@@ -18728,6 +18997,7 @@
       ],
       "inline": [
         "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.compatible_cycle_card",
+        "D5/S3/Combinatorics/Graph/PlanarMatching/RotationFaces.cycle_boundary_walk",
         "D5/S3/ContinuousObservables/PhaseSynthesis.exists_phases",
         "D5/S3/ContinuousObservables/PhaseSynthesis.unstepW"
       ]
@@ -19646,26 +19916,38 @@
         "D5/S0/Certificates/MinkowskiNullConeRigidity.null_cone_spatial_rigidity",
         "D5/S1/Deficit/ModelSet/GoldenCutAndProject.golden_model_set_subset_cut_and_project",
         "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel",
+        "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift",
+        "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverNoSection.no_continuous_global_section",
         "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness",
         "D5/S3/Geometry/TwoAxisFiniteRotation.moving_axis_invariance",
         "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word",
         "D5/S3/Geometry/TwoAxisFiniteRotation.unit_perpendicular_pair",
+        "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification",
+        "D5/S3/Observer/AgencyHolonomy/NamedTreePhaseTransport.selected_tree_transport",
         "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
         "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
         "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity",
+        "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
       ],
       "inline": [
         "D5/S0/Certificates/MinkowskiNullConeRigidity.null_cone_spatial_rigidity",
         "D5/S1/Deficit/ModelSet/GoldenCutAndProject.golden_model_set_subset_cut_and_project",
         "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel",
+        "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift",
+        "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverNoSection.no_continuous_global_section",
         "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness",
         "D5/S3/Geometry/TwoAxisFiniteRotation.moving_axis_invariance",
         "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word",
         "D5/S3/Geometry/TwoAxisFiniteRotation.unit_perpendicular_pair",
+        "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification",
+        "D5/S3/Observer/AgencyHolonomy/NamedTreePhaseTransport.selected_tree_transport",
         "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
         "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
         "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity",
+        "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
       ]
     },
@@ -19680,6 +19962,8 @@
         "D5/S0/Diagonal/Lawvere/QualitativeEscape.self_application_fragment_package",
         "D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_ne_listed_decode",
         "D5/S3/ConceptDynamics/Restoration/TargetRecoveryCriterion.target_recovery_criterion",
+        "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_lower_bound",
+        "D5/S3/Geometry/BooleanRotationCodebook.finite_codebook_upper_bound",
         "D5/S3/ObserverMemory/JointCoherentReversal.surviving_copy_blocks_reversal",
         "D5/S3/Quantum/Decoherence/CanonicalRecordAccessRecovery.canonical_copied_address_record_eq_prior",
         "D5/S3/Quantum/Measurements/FiniteMemoryHistoryCapacity.finite_memory_history_capacity",
@@ -20111,6 +20395,7 @@
         "D5/S3/Geometry/TwoAxisFiniteRotation.unit_perpendicular_pair",
         "D5/S3/Midline/CayleyCriticalLine.cayley_ratio_norm_one_iff_critical_line",
         "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification",
+        "D5/S3/Observer/AgencyHolonomy/NamedTreePhaseTransport.selected_tree_transport",
         "D5/S3/Observer/BornReduction.rank_one_pure_state_modulus_square_reduction",
         "D5/S3/Observer/Conditioning.conditionalState_isState",
         "D5/S3/Observer/Conditioning.unreadState_fixed_iff",
@@ -20163,6 +20448,8 @@
         "D5/S3/Quantum/Foundation/RayPhaseRigidity.unitary_phase_of_connected_ray_tests",
         "D5/S3/Quantum/Information/ActualPureQubitGeometry.bloch_geometry_of_isHermitian",
         "D5/S3/Quantum/Information/ActualPureQubitGeometry.norm_bloch_le_trace_of_posSemidef",
+        "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
         "D5/S3/Quantum/Measurements/FiniteMemoryHistoryCapacity.finite_memory_history_capacity",
         "D5/S3/Quantum/PureState/NoCloningInnerProductCriterion.no_cloning_inner_product_criterion",

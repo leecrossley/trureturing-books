@@ -1116,7 +1116,70 @@ $$
 B_a=[a,a+\ell-1]\cap[1,N],\qquad M=N+\ell-1.
 $$
 
-Even when two truncated intervals coincide, retain their separate indices. Each site belongs to exactly $\ell$ blocks: those containing $u$ have indices $u-\ell+1,\ldots,u$. Let $E_B$ refresh the entire block from the uniform legal-word conditional law with all exterior bits fixed, and define
+Even when two truncated intervals coincide, retain their separate indices. Each site belongs to exactly $\ell$ blocks: those containing $u$ have indices $u-\ell+1,\ldots,u$.
+
+First write one conditional refresh as a matrix on the actual legal words. For any finite set of sites $B\subseteq[1,N]$, take complements in $[1,N]$. Put $Z=\#W_N=z_N>0$ (the all-zero word is legal), and for $x,y\in W_N$ define
+
+$$
+\begin{aligned}
+\mathcal A_B(x)&=\{y\in W_N:y|_{B^c}=x|_{B^c}\},\\
+m_B(x)&=\#\mathcal A_B(x)>0,\\
+T_B(x,y)&=\frac{\mathbf1_{\{y\in\mathcal A_B(x)\}}}{m_B(x)},\\
+(E_Bf)(x)&=\sum_{y\in W_N}T_B(x,y)f(y).
+\end{aligned}
+$$
+
+The denominator is nonzero because $x\in\mathcal A_B(x)$. Given the entire exterior $x|_{B^c}$, the fiber has probability $m_B(x)/Z$, and each full word in it has conditional probability exactly $(1/Z)/(m_B(x)/Z)=1/m_B(x)$. Thus $T_B$ is precisely the uniform legal-word refresh with every exterior bit fixed; restricting to $B$ gives the block update law.
+
+Equal exterior data partition $W_N$ into disjoint nonempty fibers. If $y\in\mathcal A_B(x)$, then $\mathcal A_B(y)=\mathcal A_B(x)$ and $m_B(y)=m_B(x)$; if the words lie in different fibers, both matrix entries vanish. Hence $T_B$ is a nonnegative real symmetric matrix. Each row distributes unit mass uniformly over its fiber, and symmetry gives unit column sums as well. In particular, both marginals of the joint law $\pi(x)T_B(x,y)$ are exactly the original uniform law:
+
+$$
+\begin{aligned}
+\sum_yT_B(x,y)&=1, &\sum_xT_B(x,y)&=1,\\
+\sum_y\pi(x)T_B(x,y)&=\frac1Z,
+&\sum_x\pi(x)T_B(x,y)&=\frac1Z.
+\end{aligned}
+$$
+
+For each such fiber $C$, write $\bar f_C=(\#C)^{-1}\sum_{x\in C}f(x)$. The function $E_Bf$ equals $\bar f_C$ throughout $C$, so averaging again changes nothing: $E_B^2=E_B$. For arbitrary complex-valued $f,g$, group the finite sums by fibers to obtain
+
+$$
+\begin{aligned}
+\langle f,E_Bg\rangle_\pi
+&=\frac1Z\sum_C(\#C)\overline{\bar f_C}\,\bar g_C\\
+&=\langle E_Bf,g\rangle_\pi,\\
+\langle f,E_Bf\rangle_\pi
+&=\frac1Z\sum_C(\#C)|\bar f_C|^2\ge0.
+\end{aligned}
+$$
+
+Thus $E_B$ is self-adjoint, positive semidefinite, and the orthogonal projection onto functions constant on each fiber. These properties follow from the actual fiber averages. The residual energy can also be computed directly on each fiber: expand squared complex moduli and use $\sum_{x\in C}f(x)=(\#C)\bar f_C$ to get
+
+$$
+\begin{aligned}
+\sum_{x\in C}\overline{f(x)}(f(x)-\bar f_C)
+&=\sum_{x\in C}|f(x)|^2
+-\frac{\left|\sum_{x\in C}f(x)\right|^2}{\#C}\\
+&=\sum_{x\in C}|f(x)-\bar f_C|^2\\
+&=\frac1{2\#C}\sum_{x,y\in C}|f(x)-f(y)|^2.
+\end{aligned}
+$$
+
+The last step is another finite expansion, with conjugate cross terms paired into real parts. Here conditional variance means $\operatorname{Var}(f\mid B^c)=E_B(|f-E_Bf|^2)$, using squared complex modulus. Sum the identity over all fibers and divide by the global word count $Z$ to obtain
+
+$$
+\begin{aligned}
+\operatorname{Re}\langle f,(I-E_B)f\rangle_\pi
+&=\frac1{2Z}\sum_x\sum_yT_B(x,y)|f(x)-f(y)|^2\\
+&=\frac1Z\sum_x\sum_yT_B(x,y)
+|f(y)-(E_Bf)(x)|^2\\
+&=\pi\!\left[\operatorname{Var}(f\mid B^c)\right].
+\end{aligned}
+$$
+
+The inner product on the left is already real and nonnegative, and also equals $\|f-E_Bf\|_\pi^2$. The exterior data of a fiber $C$ occur with probability $\#C/Z$, and its conditional variance is $(\#C)^{-1}\sum_{x\in C}|f(x)-\bar f_C|^2$; this explains the global factor $1/Z$ after averaging over the exterior. For $B=\varnothing$, $E_B=I$; for $B=[1,N]$, $E_Bf=\pi f$. These fiber identities also hold for the single empty word at $N=0$, without assigning an excited gap to the empty chain.
+
+Now define, using the original block indices,
 
 $$
 P_B=\frac1M\sum_a E_{B_a},\qquad
@@ -1124,17 +1187,11 @@ L_B=M(P_B-I),\qquad
 \mathcal E_B(f,f)=\sum_a\pi\!\left[\operatorname{Var}(f\mid B_a^c)\right].
 $$
 
-Each indexed block has its own rate-one clock, so $\mathcal E_B(f,f)=\langle f,-L_Bf\rangle_\pi$.
+Each indexed block has its own rate-one clock. Thus $-L_B=\sum_a(I-E_{B_a})$; summing the energy identity just proved over these indices gives $\mathcal E_B(f,f)=\langle f,-L_Bf\rangle_\pi$. Repeated block values still contribute once per clock index, with no additional $1/M$.
 
 **One boundary disagreement has a bounded cost.** Start with two legal words $x,y$ agreeing at every site other than $u$ (allowing $x=y$), and choose the same block index for both chains. If the block contains $u$, their exteriors agree, and identical whole-block refreshes erase the disagreement.
 
-For a distant block, we must compare the laws restricted to the block after conditioning on every exterior bit. More generally, take any finite set of sites $B\subseteq[1,N]\setminus\{u\}$ with $|v-u|\ge K$ for every $v\in B$. For $z=x,y$, write
-
-$$
-\mathcal A_B(z)=\{w\in W_N:w|_{B^c}=z|_{B^c}\},
-$$
-
-where the complement is taken in $[1,N]$. Since $\pi$ is uniform on $W_N$, conditioning on the entire exterior $z|_{B^c}$ gives the uniform law on the full words in $\mathcal A_B(z)$. Denote its restriction to $B$ by $\mu_B^z$. The two completion sets contain $x$ and $y$, respectively, so their normalizing denominators are nonzero.
+For a distant block, we must compare the laws restricted to the block after conditioning on every exterior bit. More generally, take any finite set of sites $B\subseteq[1,N]\setminus\{u\}$ with $|v-u|\ge K$ for every $v\in B$. For $z=x,y$, use $\mathcal A_B(z)$ as defined above, and denote the restriction to $B$ of the uniform full-word conditional law on this fiber by $\mu_B^z$. The two completion sets contain $x$ and $y$, respectively, so their normalizing denominators are nonzero.
 
 For $w\in\mathcal A_B(x)$, replace its bit at $u$ by $y_u$ and leave all other bits unchanged, obtaining $\Phi(w)$. A length-$K$ window avoiding $u$ is unchanged. A window containing $u$ cannot meet $B$, so after the replacement it agrees throughout with the legal word $y$. Thus $\Phi(w)$ is legal and agrees with $y$ on the entire exterior $B^c$. Replacing the bit at $u$ by $x_u$ gives the inverse map. This bijection preserves every bit in $B$, so it preserves both the total number of completions and the number with each assignment $b\in\{0,1\}^B$. Consequently,
 
@@ -1162,7 +1219,32 @@ $$
 \mathbb E\!\left[\sum_{j=1}^{|B|}\mathbf1_{X_j\ne Y_j}\right]\le1.
 $$
 
-Reverse the scan for a left block. Writing $d$ for Hamming distance, the complete one-step block refresh consequently satisfies
+Reverse the scan for a left block. Write $d$ for Hamming distance on full words.
+
+To turn the block coupling into one joint law of full words, restore the exterior data. For any block $B$, likewise let $\mu_B^z$ denote the restriction of $T_B(z,\cdot)$ to the block. For $z=x,y$ and an assignment $b\in\{0,1\}^B$, define
+
+$$
+R_z(b)_i=
+\begin{cases}
+b_i,&i\in B,\\
+z_i,&i\notin B.
+\end{cases}
+$$
+
+Restriction $w\mapsto w|_B$ is a bijection from $\mathcal A_B(z)$ onto the support of $\mu_B^z$, with inverse $R_z$: once the exterior is fixed, each feasible block assignment has exactly one full-word completion. Drawing from $\mu_B^z$ and restoring the exterior therefore gives exactly the full-word law $T_B(z,\cdot)$, supported on legal words. Let $J$ be the joint law of the two block updates constructed above. Draw $(b,c)\sim J$ and set $(X',Y')=(R_x(b),R_y(c))$ simultaneously. This defines one joint law $Q$ of legal full-word pairs, with marginals $T_B(x,\cdot)$ and $T_B(y,\cdot)$.
+
+When $u\notin B$, the exteriors agree everywhere except possibly at $u$. Write $\delta=\mathbf1_{\{x_u\ne y_u\}}$ and $d_B(b,c)=\sum_{i\in B}\mathbf1_{\{b_i\ne c_i\}}$. The pointwise distance identity and its expectation under this joint law are
+
+$$
+\begin{aligned}
+d(R_x(b),R_y(c))&=d_B(b,c)+\delta,\\
+\mathbb E_Q[d(X',Y')]&=\mathbb E_J[d_B(b,c)]+\delta.
+\end{aligned}
+$$
+
+Thus the synchronous coupling of a distant block leaves full-word distance exactly $\delta$. The scan coupling of an affected block has expected full-word distance at most $1+\delta$, hence at most $2$ for adjacent inputs. If the block contains $u$, the common full-word draw chosen earlier has distance $0$. For $x=y$, identical refreshes can be chosen for every block, keeping the full-word distance at $0$.
+
+Averaging these three cases over the block indices, the complete one-step block refresh satisfies
 
 $$
 \mathbb E[d(X',Y')]
@@ -1185,13 +1267,42 @@ $$
 \operatorname{Lip}(P_Bg)\le\left(1-\frac1M\right)\operatorname{Lip}(g).
 $$
 
-Each $E_B$ is an orthogonal conditional projection in $L^2(\pi)$, so $P_B$ is self-adjoint. A nonconstant eigenfunction $g$ has a finite positive Lipschitz seminorm. If $P_Bg=\mu g$, the last inequality yields $|\mu|\le1-1/M$, also excluding additional eigenfunctions at eigenvalue $1$. Thus the nonconstant spectrum of $-L_B$ is at least $1$. Its orthogonal eigendecomposition gives, for every complex-valued function,
+The fiber calculation above proves that each $E_B$ is an orthogonal conditional projection in $L^2(\pi)$, so $P_B$ is self-adjoint. A nonconstant eigenfunction $g$ has a finite positive Lipschitz seminorm. If $P_Bg=\mu g$, the last inequality yields $|\mu|\le1-1/M$, also excluding additional eigenfunctions at eigenvalue $1$. Thus the nonconstant spectrum of $-L_B$ is at least $1$. Its orthogonal eigendecomposition and the proved energy identity give, for every complex-valued function,
 
 $$
 \operatorname{Var}_\pi(f)\le\mathcal E_B(f,f).
 $$
 
-**Return the block energy to the single-site clocks.** Fix the exterior of one block, and let its conditional support $A$ have size $m$. This support is nonempty, closed under deletions, and satisfies $m\le2^\ell$. The legal path through the intersection between any $x,y\in A$ has length at most $\ell$. For a complex-valued function $g$, use the uniform variance identity, Cauchy–Schwarz along each path, and the bound of $m(m-1)/2$ on the number of unordered-pair paths using any edge:
+**Return the block energy to the single-site clocks.** Fix a block $B=B_a$. For a realizable exterior assignment $e\in\{0,1\}^{B^c}$, write $e\sqcup b$ for the full word obtained by joining $e$ to a block assignment $b$, and define
+
+$$
+\begin{aligned}
+A_e&=\{b\in\{0,1\}^B:e\sqcup b\in W_N\},\\
+m_e&=\#A_e,\qquad \pi_e(b)=\frac1{m_e}\quad(b\in A_e),\\
+f_e(b)&=f(e\sqcup b),\\
+\Pr_\pi(w|_{B^c}=e)&=\frac{m_e}{Z}.
+\end{aligned}
+$$
+
+Realizability gives $m_e>0$. With the exterior fixed, each block assignment determines exactly one full word, so $\pi_e$ is the actual conditional law inside the block. Deletion closure here applies only to coordinates in $B$: changing any of the ones in $b$ to zeros cannot create a forbidden window, and leaves the entire exterior $e$ unchanged. Thus $A_e$ is a nonempty family closed under deletions, with $m_e\le2^{|B|}\le2^\ell$.
+
+Next fix all block bits other than $i\in B$, using data realizable in $A_e$. The conditional support of bit $i$ is either $\{0\}$ or $\{0,1\}$, never $\{1\}$: if $1$ is allowed, deleting it gives an allowed $0$ with the same exterior and all other bits unchanged. The uniform law $\pi_e$ gives probability $1/2$ to each point of a two-point fiber and leaves a singleton fixed. Hence the conditional heat-bath clock of rate $1$ at each site has jump rate exactly $1/2$ along every legal flip edge.
+
+Let $\mathscr D_e$ be the set of ordered pairs in $A_e$ differing at exactly one site, and $\mathscr U_e$ the corresponding unordered edges, each counted once. For any complex-valued function $g:A_e\to\mathbb C$, the conditional single-site energy is therefore
+
+$$
+\begin{aligned}
+\mathcal E_{\mathrm{site},A_e}(g,g)
+&:=\sum_{i\in B}\mathbb E_{\pi_e}
+\operatorname{Var}_{\pi_e}(g\mid B\setminus\{i\})\\
+&=\frac1{4m_e}\sum_{(b,c)\in\mathscr D_e}|g(b)-g(c)|^2\\
+&=\frac1{2m_e}\sum_{\{b,c\}\in\mathscr U_e}|g(b)-g(c)|^2.
+\end{aligned}
+$$
+
+Variance still uses the squared complex modulus. A two-point fiber has conditional variance $|g(b)-g(c)|^2/4$ and $\pi_e$ mass $2/m_e$, giving coefficient $1/(2m_e)$ to each unordered edge; a singleton fiber contributes zero.
+
+Temporarily write $A=A_e$ and $m=m_e$ to apply the preceding path estimate for families closed under deletions. The legal path through the intersection between any $x,y\in A$ has length at most $\ell$. The uniform variance identity, Cauchy–Schwarz along each path, and the bound of $m(m-1)/2$ on the number of unordered-pair paths using any edge give
 
 $$
 \begin{aligned}
@@ -1203,10 +1314,43 @@ $$
 \end{aligned}
 $$
 
-The equality uses the permitted flip rate $1/2$: each unordered edge has coefficient $1/(2m)$ in the conditional single-site energy. When $m=1$, both sides vanish. Average over the block exterior and sum over all block indices. Conditioning further on the other bits inside a block gives exactly the original single-site conditional law. Each site is counted $\ell$ times, so
+When $m_e=1$, the variance and all energies vanish. If $B=\varnothing$, $A_e$ contains only the empty assignment, and the empty sum defining the single-site energy is also zero.
+
+We can now identify the conditional single-site energy with that of the original chain. Fixing $e$ and $b|_{B\setminus\{i\}}$ fixes the entire exterior $i^c=[1,N]\setminus\{i\}$ of site $i$ in the full word. Both the conditional support and its point probabilities therefore agree exactly with the original site-$i$ conditional law. Write $v_i(w)=\operatorname{Var}_\pi(f\mid i^c)(w)$. Then
 
 $$
-\mathcal E_B(f,f)\le\ell^2 2^\ell\mathcal E(f,f).
+\mathcal E_{\mathrm{site},A_e}(f_e,f_e)
+=\sum_{i\in B}\frac1{m_e}\sum_{b\in A_e}v_i(e\sqcup b).
+$$
+
+Regard $e=w|_{B^c}$ as the random exterior sampled from the original chain. Averaging with its actual probability $m_e/Z$ gives
+
+$$
+\begin{aligned}
+\mathbb E_\pi[\mathcal E_{\mathrm{site},A_e}(f_e,f_e)]
+&=\sum_e\frac{m_e}{Z}\mathcal E_{\mathrm{site},A_e}(f_e,f_e)\\
+&=\frac1Z\sum_e\sum_{b\in A_e}\sum_{i\in B}v_i(e\sqcup b)\\
+&=\sum_{i\in B}\mathbb E_\pi[\operatorname{Var}_\pi(f\mid i^c)].
+\end{aligned}
+$$
+
+The sum over $e$ includes only realizable exteriors, and the words $e\sqcup b$ enumerate $W_N$ exactly once. The factor $1/m_e$ in the conditional average has already canceled the $m_e$ in the exterior probability, so there is no further normalization. Apply the variance bound for deletion-closed families to $f_e$ and average with this same exterior law to obtain the comparison for each block:
+
+$$
+\mathbb E_\pi[\operatorname{Var}_\pi(f\mid B^c)]
+\le\ell2^\ell\sum_{i\in B}
+\mathbb E_\pi[\operatorname{Var}_\pi(f\mid i^c)].
+$$
+
+Finally sum over all original block indices $a$. Each site $i$ belongs to exactly the $\ell$ blocks indexed by $a=i-\ell+1,\ldots,i$. Even on a short chain where several blocks equal the whole chain, their clocks each have rate $1$ and contribute separately. Thus
+
+$$
+\begin{aligned}
+\mathcal E_B(f,f)
+&\le\ell2^\ell\sum_a\sum_{i\in B_a}
+\mathbb E_\pi[\operatorname{Var}_\pi(f\mid i^c)]\\
+&=\ell^2 2^\ell\mathcal E(f,f).
+\end{aligned}
 $$
 
 Combine this with the block variance bound to obtain the stated Poincaré inequality and $\lambda_{K,N}\ge C_K^{-1}$. The full-space spectral comparison in [@ex-ch39-p2e-heatbath-scale] then gives $\Delta_{K,N}\ge2/C_K$, since $2/C_K<1$ for $K\ge2$. For example, $K=2$ gives $1/36$, and $K=3$ gives $1/400$. The empty chain $N=0$ still has no excited gap; the exact gap for a short chain $1\le N<K$ remains $2$.
