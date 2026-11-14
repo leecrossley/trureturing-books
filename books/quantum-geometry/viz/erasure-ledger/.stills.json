@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "images": {
+    "cover": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "a5ccad6b80f8128839975c6cf80de4f477394f8ae14c69a80cc991d57224b4c7"
+    },
+    "fig-pinch.zh.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "d2bf78476b58d91ecdc17ff1718c684f2cd8d4b6a9d1d93476def515af1f32a3"
+    },
+    "fig-dpi.zh.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "054ff4481b2cacda192773560f3ef992923bf42621689ea9fca9863bcb1f3857"
+    },
+    "fig-steps.zh.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "17eee8b59004d5a10ae6a5edb8f0255b55e09a4a931b8d37de9aee7e13c8caf9"
+    },
+    "fig-cycle.zh.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "b21e81be5135a35dcc2c0bbd43983dfc1bad5e97180bf87898f7b6a48c82c29a"
+    },
+    "fig-bath.zh.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "ebb673d529f30286757a8ba64ff5aeee7cdfb3c296c2793e3615a51745b4c84f"
+    },
+    "fig-copy.zh.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "e3507a4d9722f688c9488b2041586d70bccc56a94f0aac0b8645e401b50835ce"
+    },
+    "fig-pinch.en.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "76665411d5adf298a697cc567d9591ab6e5134e5f49b70e1c5f658df1cfa666f"
+    },
+    "fig-dpi.en.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "6b9bb75a93fd2b9c841b6adba0b1685f67d9d9d4fa209f1585616592cef6233a"
+    },
+    "fig-steps.en.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "da86317850fa74d36ae862634c7a82c74064fca7876ecc7b7246d328f16185f1"
+    },
+    "fig-cycle.en.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "70d3c5cff193e22765ba0194055d411d967db3c7bab27e8956f66ac1f12fd9a5"
+    },
+    "fig-bath.en.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "0c60aad00a70910dec8983be0f74a4947a6b89a16cb7d0bf2bf422e949f49bf4"
+    },
+    "fig-copy.en.jpg": {
+      "input": "26290b3c486c5f820d938d5b134dc6933aa6a621eef22cf4c3aaaea666f79060",
+      "output": "76c4074dd8b21f84675d75fd3ab100d53c34fe8f3ad512bd0b2676a3d87a70a7"
+    }
+  }
+}
