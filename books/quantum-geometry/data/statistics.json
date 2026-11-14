@@ -15,13 +15,13 @@
     "proof": 282,
     "lean_verified": 283,
     "written_proof": 2,
-    "literature": 192
+    "literature": 190
   },
-  "total": 595,
+  "total": 602,
   "kinds": {
     "def": 157,
     "inductive": 10,
-    "theorem": 428
+    "theorem": 435
   },
   "groups": {
     "theorems": [
@@ -580,6 +580,8 @@
       "D5/S3/Quantum/Completion/IncreasingProjectionStrongLimit.increasing_projection_strong_limit",
       "D5/S3/Quantum/Decoherence/EnvironmentMarginalChannel.environment_marginal_channel",
       "D5/S3/Quantum/Divergence/DualAccountFull.entropy_freedom_segment",
+      "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef",
+      "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity",
       "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.energy_eigenstate_variance_zero",
       "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.pureDensityState",
       "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.basisPinchingState",
@@ -595,6 +597,11 @@
       "D5/S3/Quantum/FiniteDimensional.QubitMatrix",
       "D5/S3/Quantum/Foundation/LeastConfirmationGeneration.zeroSpan",
       "D5/S3/Quantum/Foundation/RayPhaseRigidity.RaySupportConnected",
+      "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.gibbs_relative_entropy_energy_difference",
+      "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change",
+      "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalLeft_productState",
+      "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalRight_productState",
+      "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState",
       "D5/S3/Quantum/Information/QubitEntropyContraction.qubit_holevo_contraction",
       "D5/S3/Quantum/Information/QubitNormalFormState.qubit_state_entropy",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B",
@@ -6741,7 +6748,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 225,
+          "line": 227,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -6795,7 +6802,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 208,
+          "line": 210,
           "id": "prop-landauer-identity-from-balances",
           "via": "environment"
         },
@@ -6825,7 +6832,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 225,
+          "line": 227,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -6855,7 +6862,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 225,
+          "line": 227,
           "id": "cor-landauer-bound-saturation",
           "via": "environment"
         },
@@ -9993,7 +10000,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 320,
+          "line": 322,
           "id": "",
           "via": "inline"
         },
@@ -10083,13 +10090,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 321,
+          "line": 323,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 345,
+          "line": 347,
           "id": "",
           "via": "inline"
         },
@@ -10107,13 +10114,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 314,
+          "line": 316,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 337,
+          "line": 339,
           "id": "",
           "via": "inline"
         }
@@ -10125,7 +10132,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 314,
+          "line": 316,
           "id": "",
           "via": "inline"
         }
@@ -10137,7 +10144,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 314,
+          "line": 316,
           "id": "",
           "via": "inline"
         }
@@ -10149,13 +10156,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 316,
+          "line": 318,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 345,
+          "line": 347,
           "id": "",
           "via": "inline"
         }
@@ -10167,7 +10174,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 327,
+          "line": 329,
           "id": "prop-surviving-copy-blocks-reversal",
           "via": "environment"
         },
@@ -10239,7 +10246,7 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 321,
+          "line": 323,
           "id": "",
           "via": "inline"
         },
@@ -12207,19 +12214,19 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 286,
+          "line": 288,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 289,
+          "line": 291,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 303,
+          "line": 305,
           "id": "",
           "via": "inline"
         },
@@ -12297,13 +12304,13 @@
       "citations": [
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 288,
+          "line": 290,
           "id": "thm-reduced-irreversibility-access-defect",
           "via": "environment"
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 286,
+          "line": 288,
           "id": "",
           "via": "inline"
         },
@@ -12568,6 +12575,30 @@
         {
           "file": "ch08-erasure-and-time-arrows.md",
           "line": 49,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Divergence.GibbsVariationalIdentity.gibbs_state_posDef",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 201,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Divergence.GibbsVariationalIdentity.gibbs_variational_identity",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 201,
           "id": "",
           "via": "inline"
         }
@@ -12957,7 +12988,7 @@
         },
         {
           "file": "ch08-erasure-and-time-arrows.md",
-          "line": 362,
+          "line": 364,
           "id": "",
           "via": "inline"
         }
@@ -14205,6 +14236,30 @@
         }
       ]
     },
+    "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.gibbs_relative_entropy_energy_difference": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.CorrelatedGibbsEnergyIdentity.gibbs_relative_entropy_energy_difference",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 201,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 202,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
     "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.explicit_qubit_orientation": {
       "kind": "theorem",
       "name": "D5.S3.Quantum.Information.GroupInvariantPsi.C129QubitBargmann.explicit_qubit_orientation",
@@ -14226,6 +14281,42 @@
           "line": 78,
           "id": "thm-qubit-bargmann-bloch",
           "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalLeft_productState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.marginalLeft_productState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 202,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalRight_productState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.marginalRight_productState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 202,
+          "id": "",
+          "via": "inline"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.quantumMutualInformation_productState",
+      "citations": [
+        {
+          "file": "ch08-erasure-and-time-arrows.md",
+          "line": 202,
+          "id": "",
+          "via": "inline"
         }
       ]
     },
@@ -18400,12 +18491,19 @@
         "D5/S3/Quantum/Decoherence/CanonicalRecordAccessRecovery.canonical_copied_address_record_eq_prior",
         "D5/S3/Quantum/Decoherence/CanonicalRecordAccessRecovery.reduced_irreversibility_is_canonical_record_access_defect",
         "D5/S3/Quantum/Divergence/DualAccountFull.entropy_freedom_segment",
+        "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_state_posDef",
+        "D5/S3/Quantum/Divergence/GibbsVariationalIdentity.gibbs_variational_identity",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.basisPinchingState",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.cfc_diagonal",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.cfc_log_diagonal",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.unitaryConjugateState",
-        "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.von_neumann_entropy_basisPinchingState"
+        "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.von_neumann_entropy_basisPinchingState",
+        "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.gibbs_relative_entropy_energy_difference",
+        "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change",
+        "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalLeft_productState",
+        "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalRight_productState",
+        "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState"
       ]
     },
     {
