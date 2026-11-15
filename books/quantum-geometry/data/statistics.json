@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 199,
+    "theorem": 205,
     "lemma": 34,
     "proposition": 45,
     "corollary": 31,
@@ -11,17 +11,17 @@
     "conjecture": 6,
     "problem": 3,
     "example": 124,
-    "remark": 201,
-    "proof": 305,
-    "lean_verified": 306,
+    "remark": 204,
+    "proof": 310,
+    "lean_verified": 312,
     "written_proof": 3,
     "literature": 198
   },
-  "total": 664,
+  "total": 674,
   "kinds": {
     "def": 201,
     "inductive": 11,
-    "theorem": 452
+    "theorem": 462
   },
   "groups": {
     "theorems": [
@@ -54,6 +54,8 @@
       "D5/S1/Recurrence/PellCompanionGcd.pell_companion_step",
       "D5/S1/Scale/Fibonacci.fib_cassini_from_golden_norm",
       "D5/S1/Scale/MinkowskiModelSet.minkowski_model_set_spec",
+      "D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail",
+      "D5/S1/Words/AdmissibleWords/KBonacciSupportedCoalescence.prefix_coupling_supported_coalescence",
       "D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silverPell_determinant",
       "D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silverPell_error_formula",
       "D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silver_best_approximation",
@@ -196,6 +198,8 @@
       "D5/S3/PrimeForms/SumTwoSquares.prime_eq_sq_add_sq_of_mod_four_eq_one",
       "D5/S3/PrimeForms/SumTwoSquaresClassification.eq_sq_add_sq_iff_even_factorization",
       "D5/S3/PrimeForms/ThreeModFourDescent.prime_dvd_dvd_of_dvd_sq_add_sq",
+      "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion",
+      "D5/S3/QuadraticForms/RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le",
       "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem",
       "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
       "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
@@ -265,6 +269,9 @@
       "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
       "D5/S3/Quantum/Matrix/CentralSqrtTwoDefectGap.central_spectral_gap",
       "D5/S3/Quantum/Matrix/CentralSqrtTwoDefectGap.recurrence_endpoint_observability",
+      "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator",
+      "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal",
+      "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisOuter_eq_implies_parallel",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
       "D5/S3/Quantum/Measurement/StaticEffectSequentialSeparation.same_effects_different_two_step_joint_law",
       "D5/S3/Quantum/Measurements/FiniteMemoryHistoryCapacity.finite_memory_history_capacity",
@@ -285,6 +292,9 @@
       "D5/S3/Quantum/Routing/HannRouterProfiles.profile_separation_iff",
       "D5/S3/Quantum/Routing/HannSignedCertificate.signed_event",
       "D5/S3/Quantum/Routing/HannSpatialQram.correctness",
+      "D5/S3/Quantum/Routing/HannUniformSection.binary_conformal_kernel",
+      "D5/S3/Quantum/Routing/HannUniformSection.uniform_section",
+      "D5/S3/Quantum/Routing/HannUniformSection.zero_certificate",
       "D5/S3/Quantum/Routing/ReversibleQram.correctness",
       "D5/S3/Quantum/ShorCountingMarginal.qpe_arbitrary_phase_lower_bound",
       "D5/S3/Quantum/ShorCountingMarginal.shor_distribution_normalized",
@@ -3300,6 +3310,30 @@
         }
       ]
     },
+    "D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail": {
+      "kind": "theorem",
+      "name": "D5.S1.Words.AdmissibleWords.KBonacciConditionalBlockCoupling.prefix_coupling_emitted_tail",
+      "citations": [
+        {
+          "file": "ch39-s05-s07-cut-entanglement.md",
+          "line": 814,
+          "id": "thm-ch39-p2e-native-emitted-tail",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S1/Words/AdmissibleWords/KBonacciSupportedCoalescence.prefix_coupling_supported_coalescence": {
+      "kind": "theorem",
+      "name": "D5.S1.Words.AdmissibleWords.KBonacciConditionalBlockCoupling.prefix_coupling_supported_coalescence",
+      "citations": [
+        {
+          "file": "ch39-s05-s07-cut-entanglement.md",
+          "line": 830,
+          "id": "thm-ch39-p2e-native-supported-coalescence",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S1/Words/Mechanical/MechanicalBalance.lowerMechanicalWindowTrueCount_eq_floor": {
       "kind": "theorem",
       "name": "D5.S1.Words.Mechanical.lowerMechanicalWindowTrueCount_eq_floor",
@@ -3990,13 +4024,13 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 168,
+          "line": 254,
           "id": "thm-ch29-gram-rigidity-and-pell",
           "via": "environment"
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 171,
+          "line": 257,
           "id": "",
           "via": "inline"
         },
@@ -6624,13 +6658,13 @@
       "citations": [
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 189,
+          "line": 206,
           "id": "thm-ch33-consensus-revision-and-escape",
           "via": "environment"
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 192,
+          "line": 209,
           "id": "",
           "via": "inline"
         },
@@ -12144,6 +12178,30 @@
         }
       ]
     },
+    "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion": {
+      "kind": "theorem",
+      "name": "D5.S3.QuadraticForms.ChordalPsdCompletion.exists_posSemidef_completion",
+      "citations": [
+        {
+          "file": "ch29-s03-timeless-gram-causality.md",
+          "line": 141,
+          "id": "thm-ch29-chordal-psd-completion",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/QuadraticForms/RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le": {
+      "kind": "theorem",
+      "name": "D5.S3.QuadraticForms.RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le",
+      "citations": [
+        {
+          "file": "ch29-s03-timeless-gram-causality.md",
+          "line": 155,
+          "id": "thm-ch29-rank-bounded-chordal-psd-completion",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem": {
       "kind": "theorem",
       "name": "D5.S3.Quantum.Algebra.PhasePolynomial.complete_common_phase_polynomial_theorem",
@@ -12450,13 +12508,13 @@
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 189,
+          "line": 206,
           "id": "thm-ch33-consensus-revision-and-escape",
           "via": "environment"
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 199,
+          "line": 216,
           "id": "",
           "via": "inline"
         },
@@ -14166,13 +14224,13 @@
         },
         {
           "file": "ch38-s01-static-qram.md",
-          "line": 1100,
+          "line": 1134,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch38-s01-static-qram.md",
-          "line": 1130,
+          "line": 1164,
           "id": "",
           "via": "inline"
         },
@@ -14226,7 +14284,7 @@
         },
         {
           "file": "ch38-s01-static-qram.md",
-          "line": 1099,
+          "line": 1133,
           "id": "thm-ch38-copied-address-dereference-and-access-defect",
           "via": "environment"
         },
@@ -14352,7 +14410,7 @@
         },
         {
           "file": "ch38-s01-static-qram.md",
-          "line": 1099,
+          "line": 1133,
           "id": "thm-ch38-copied-address-dereference-and-access-defect",
           "via": "environment"
         },
@@ -16890,6 +16948,42 @@
         }
       ]
     },
+    "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurement.Bloch.axisContraction_commutator",
+      "citations": [
+        {
+          "file": "ch33-s05-consensus-and-pointer-bases.md",
+          "line": 187,
+          "id": "thm-ch33-axis-contraction-commutator",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurement.Bloch.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal",
+      "citations": [
+        {
+          "file": "ch33-s05-consensus-and-pointer-bases.md",
+          "line": 187,
+          "id": "thm-ch33-axis-contraction-commutator",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisOuter_eq_implies_parallel": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurement.Bloch.axisOuter_eq_implies_parallel",
+      "citations": [
+        {
+          "file": "ch33-s05-consensus-and-pointer-bases.md",
+          "line": 187,
+          "id": "thm-ch33-axis-contraction-commutator",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B": {
       "kind": "def",
       "name": "D5.S3.Quantum.Measurement.FourQubitParentConstruction.B",
@@ -17292,7 +17386,7 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 168,
+          "line": 254,
           "id": "thm-ch29-gram-rigidity-and-pell",
           "via": "environment"
         },
@@ -17304,7 +17398,7 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 177,
+          "line": 263,
           "id": "",
           "via": "inline"
         },
@@ -18242,6 +18336,42 @@
           "file": "ch38-s01-static-qram.md",
           "line": 143,
           "id": "thm-ch38-spatial-qutrit-qram-correctness",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Routing/HannUniformSection.binary_conformal_kernel": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Routing.HannUniformSection.binary_conformal_kernel",
+      "citations": [
+        {
+          "file": "ch38-s01-static-qram.md",
+          "line": 1077,
+          "id": "thm-ch38-hann-uniform-original-section",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Routing/HannUniformSection.uniform_section": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Routing.HannUniformSection.uniform_section",
+      "citations": [
+        {
+          "file": "ch38-s01-static-qram.md",
+          "line": 1077,
+          "id": "thm-ch38-hann-uniform-original-section",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Routing/HannUniformSection.zero_certificate": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Routing.HannUniformSection.zero_certificate",
+      "citations": [
+        {
+          "file": "ch38-s01-static-qram.md",
+          "line": 1077,
+          "id": "thm-ch38-hann-uniform-original-section",
           "via": "environment"
         }
       ]
@@ -23384,6 +23514,8 @@
       "depth": 1,
       "environment": [
         "D5/S3/Arith/GoldenPell.pell_form_eq_four_mul_norm",
+        "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion",
+        "D5/S3/QuadraticForms/RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le",
         "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization"
       ],
       "inline": [
@@ -23929,6 +24061,9 @@
         "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities",
         "D5/S3/Quantum/Decoherence/ReducedRecordAccessDefect.reduced_irreversibility_is_access_defect",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
+        "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator",
+        "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal",
+        "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisOuter_eq_implies_parallel",
         "D5/S3/QuantumBounds/GramRealizability.gram_realizability",
         "D5/S3/QuantumChannels/PinchingProjection.pinching_hilbert_schmidt_pythagorean"
       ],
@@ -24683,6 +24818,9 @@
         "D5/S3/Quantum/Routing/HannSignedCertificate.synthesis",
         "D5/S3/Quantum/Routing/HannSignedCertificate.vacuumRecord",
         "D5/S3/Quantum/Routing/HannSpatialQram.correctness",
+        "D5/S3/Quantum/Routing/HannUniformSection.binary_conformal_kernel",
+        "D5/S3/Quantum/Routing/HannUniformSection.uniform_section",
+        "D5/S3/Quantum/Routing/HannUniformSection.zero_certificate",
         "D5/S3/Quantum/Routing/ReversibleQram.correctness"
       ],
       "inline": [
@@ -24998,6 +25136,8 @@
       "number": "39.5.7",
       "depth": 2,
       "environment": [
+        "D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail",
+        "D5/S1/Words/AdmissibleWords/KBonacciSupportedCoalescence.prefix_coupling_supported_coalescence",
         "D5/S3/Quantum/Entanglement/KBonacciDirectRankEntropy.complete_original_direct_rank_entropy"
       ],
       "inline": [

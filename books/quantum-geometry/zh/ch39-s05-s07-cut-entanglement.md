@@ -775,12 +775,150 @@ $$
 
 每一步使用一个新的共同均匀随机数，按两条链各自的条件概率决定下一位。条件于双方完整的已抽历史，两边同时得到 $0$ 的概率至少为 $1/2$。第一次共同得到 $0$ 后，余下后缀的两个条件分布完全相同：任何连接先前历史与未抽后缀的连续窗口都经过这个零，故相应禁戒已自动满足；未抽后缀另一端的块外数据又相同。因此此后可同步抽取整个后缀。这一构造每一步都保留各自的条件抽样律，停止事件不会改变两条链的边缘分布。
 
-设 $T$ 是第一个共同零的位置。第 $j$ 个抽样位发生分歧，必有 $T>j$，所以
+令 $m=|B|$，按扫描次序把输出比特对记为 $(X_j,Y_j)$，$1\le j\le m$。把“首个共同零的位置”补成一个在所有输出上都有定义的随机变量：若块内存在共同零，取最早的扫描位置；若始终没有，令 $T=m+1$。记 $\mathcal G_j$ 为前 $j$ 对已抽样比特所生成的信息，并令 $A_j=\{T>j\}$，其中 $A_0$ 是整个样本空间。这里所有关于已抽样历史的条件概率陈述都只针对正概率历史。
+
+在首个共同零之前，即使两条剩余条件律已经相同，也仍逐步使用新的共同均匀随机数；共同零之后只需从共同的后缀分布同步完成。在 $A_{j-1}$ 上，下一步出现共同零的条件概率至少为 $1/2$，所以对 $1\le j\le m$，
 
 $$
-\Pr(X_j\ne Y_j)\le\Pr(T>j)\le2^{-j},\qquad
-\mathbb E\!\left[\sum_{j=1}^{|B|}\mathbf1_{X_j\ne Y_j}\right]\le1.
+\begin{aligned}
+\Pr(A_j)
+&=\mathbb E\!\left[\mathbf1_{A_{j-1}}
+  \Pr\!\left((X_j,Y_j)\ne(0,0)\mid\mathcal G_{j-1}\right)\right]\\
+&\le\frac12\Pr(A_{j-1})
+\le2^{-j}.
+\end{aligned}
 $$
+
+事件 $A_j$ 只排除前 $j$ 步中的共同零，仍允许 $(1,1)$，并不等于“每一步都有分歧”。一旦出现共同零，该位置两位相同且后缀同步，故扫描位置 $j$ 上的分歧要求 $T>j$。于是同一个联合分布同时满足
+
+$$
+\begin{aligned}
+\Pr(X_j\ne Y_j)&\le\Pr(T>j)\le2^{-j}
+&& (1\le j\le m),\\
+\mathbb E\!\left[\sum_{j=1}^{m}\mathbf1_{X_j\ne Y_j}\right]
+&\le\sum_{j=1}^{m}2^{-j}=1-2^{-m}\le1.
+\end{aligned}
+$$
+
+期望的估计只用有限和的线性性，不要求不同位置的分歧事件独立。$j=m$ 时，$A_m=\{T=m+1\}$ 正是整块没有共同零的事件。本例使用非空块；若把这一纸面构造延伸到 $m=0$，则 $T=1$，和为空且代价为零。若初始两条条件块分布已经相同，也可以直接作同步抽样；此时比特分歧代价为零，并不需要块中实际出现一个零。
+
+为把“原生输出”与上面的纸面共享阈值构造分开，先固定有限坐标。令 $W_n=\operatorname{Fin}(n)	o\{\mathrm{false},\mathrm{true}\}$，$C(k,n,F,z)$ 是所有满足原始 `DBonacciAdmissible` 扫描且在有限集 $F\subseteq\operatorname{Fin}(n)$ 上等于 $z$ 的完整字；若该纤维有见证 $h$，令 $L(F,z,h)=\operatorname{completionLaw}(F,z,h)$。对两个非空纤维，记原始定义的 $P(s,F,x,y,h_x,h_y)=\operatorname{prefixCoupling}(s,F,x,y,h_x,h_y)$。对输出对 $w=(w_1,w_2)$，定义
+
+$$
+A_j(w)\;:\Longleftrightarrow\;\forall i\in\operatorname{take}(j,s),\;
+\neg\bigl(w_1(i)=\mathrm{false}\land w_2(i)=\mathrm{false}\bigr).
+$$
+
+这里的 `take` 按列表顺序取前 $j$ 个坐标；坐标只要求 `Nodup`，不要求递增、覆盖补集或组成区间。于是原生输出事件得到精确的 Lean 归属：
+
+::: {.theorem #thm-ch39-p2e-native-emitted-tail title="原始条件耦合完整输出的共同零尾界" lean="D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail"}
+对任意 $k,n\in\mathbb N$ 且 $0<k$，任意无重复坐标表 $s:\operatorname{List}(\operatorname{Fin}(n))$，任意有限固定集 $F:\operatorname{Finset}(\operatorname{Fin}(n))$，只要 $s$ 中每个坐标都不在 $F$ 内；再任取 $x,y:W_n$，并假设 $C(k,n,F,x)$ 与 $C(k,n,F,y)$ 都非空。对每个 $j\le |s|$，在原始联合分布 $P(s,F,x,y,h_x,h_y)$ 下，事件 $A_j$ 的指示函数均值满足
+
+$$
+\operatorname{mean}\!\left(P(s,F,x,y,h_x,h_y),\;w\mapsto\mathbf 1_{A_j(w)}\right)\le 2^{-j}.
+$$
+
+这一定义保留 `prefixCoupling` 的初始 `resetReady` 检查、递归分支与不可能细化时的独立回退；事件允许 $(\mathrm{true},\mathrm{true})$，并包含 $j=0$、空扫描、整张扫描、$x=y$ 以及初始重置分支。
+:::
+
+::: proof
+对每个固定纤维作计数归纳：任取 $s$ 中的一个自由坐标，把该位为 `true` 的完成字改为 `false`，得到单射，故所有前 $j$ 位均为 `true` 的事件至多占 $2^{-j}$。在 `resetReady` 分支，两份输出在自由坐标逐位相同，事件恰化为这个全 `true` 计数界；在递归分支，首个输出对是采样到的比特对，`(false,false)` 子分支对事件贡献为零，其余有正质量的子分支进入相应细化纤维并使用归纳假设，而半失败预算给出下一步再乘 $1/2$。零质量或不可能的细化不贡献均值。整个归纳直接作用于原始 `prefixCoupling`，没有替换其初始测试或独立回退。完整证明由 Lean 内核检查。
+:::
+
+共同零尾界只控制“尚未遇到共同零”的概率；要把它用于后续分歧，还需要知道完整输出在共同零之后确实相同。对于递增且扫尽全部自由坐标的扫描，头部共同为 `false` 后，其左侧已全部固定；若更远的固定数据也相同，原始重置条件便成立。下面把这一机制直接落实到同一个 $P$ 的输出支撑上。
+
+::: {.theorem #thm-ch39-p2e-native-supported-coalescence title="原始条件耦合完整输出支撑上的共同零汇合" lean="D5/S1/Words/AdmissibleWords/KBonacciSupportedCoalescence.prefix_coupling_supported_coalescence"}
+对任意 $k,n\in\mathbb N$ 且 $0<k$，取无重复（`Nodup`）且按坐标值严格递增的列表 $s:\operatorname{List}(\operatorname{Fin}(n))$，以及有限固定集 $F:\operatorname{Finset}(\operatorname{Fin}(n))$，满足对每个 $i\in\operatorname{Fin}(n)$，$i\in s$ 当且仅当 $i\notin F$。任取历史 $x,y:W_n$ 及原始完成纤维 $C(k,n,F,x)$、$C(k,n,F,y)$ 非空的见证 $h_x,h_y$，并假设
+
+$$
+\forall i\in s,\;\forall t\in F,\quad i<t\ \Longrightarrow\ x(t)=y(t).
+$$
+
+对每个完整输出对 $w=(w_1,w_2)\in W_n\times W_n$，若 $P(s,F,x,y,h_x,h_y)(w)\ne0$，则对所有 $r,q\in\operatorname{Fin}(|s|)$ 且 $r\le q$，
+
+$$
+w_1(s[r])=\mathrm{false}\ \land\ w_2(s[r])=\mathrm{false}
+\quad\Longrightarrow\quad w_1(s[q])=w_2(s[q]).
+$$
+
+这里 $s[r]$ 是从零开始编号的第 $r$ 个扫描坐标；历史 $x,y$ 自身不必是可容许字。空扫描及 $n=0$ 时结论为空量化；$F=\varnothing$、$x=y$、初始即满足重置条件、$r=q$ 与 $k=1$ 的情形均包含在上述陈述中。
+:::
+
+::: proof
+对扫描列表归纳，始终保留同一个完整输出对 $w$。若初始 `resetReady` 已成立，原始定义先选重置坐标 $z$，并从 $y$ 的完成纤维选取实际的合法代表 $v$。重置分布的映射支撑把 $w$ 写成 $(u,\operatorname{resetMap}(z,v,u))$：不超过 $z$ 的坐标全在固定集内，所以每个自由扫描坐标都严格大于 $z$，而 `resetMap` 在那里保留 $u$；两份完整输出因而在全部扫描坐标上一致。这里不把任意历史本身当作合法代表，也不要求所选重置坐标就是刚扫描的头部。
+
+若初始不重置，非空扫描按原始下一位耦合采样头部比特对。绑定分布的支撑给出一个有非零质量的比特对，并把同一个 $w$ 留在对应子分布的支撑内。该比特对的两个细化完成纤维均非空；原始定义中任一纤维不可能时的两个独立回退分支仍保留，只是它们的比特对没有正质量。子耦合的精确完成律边缘与固定坐标性质共同保证：$w$ 的头部正是这次采样的比特对。若共同零出现在头部，两边采样值于是都为 `false`；严格递增、补集覆盖和更远固定坐标上的一致性使细化历史满足 `resetReady`，由前一段得到所有剩余扫描位置相同。若共同零在后续位置，则严格次序、补集覆盖与更远固定一致性随细化历史传给子问题，归纳适用于同一个 $w$，包括子问题已经重置的情形。$r=q$ 直接由共同为 `false` 得到，空扫描没有可选的有限索引。完整证明由 Lean 内核检查。
+:::
+
+在 [@thm-ch39-p2e-native-supported-coalescence] 的全部假设下，可以把它与 [@thm-ch39-p2e-native-emitted-tail] 用于同一个原生联合分布，得到逐点分歧与有限汉明代价的估计。具体地，保持 $k>0$、$n\in\mathbb N$，令 $s$ 无重复、按坐标值严格递增并恰好枚举 $F$ 的补集；任意历史 $x,y$ 的两个原始完成纤维均非空，且对 $i\in s$、$t\in F$，有 $i<t\Rightarrow x(t)=y(t)$。历史本身不必可容许。固定
+
+$$
+\begin{aligned}
+m&=|s|,\qquad a=\tfrac12\in\mathbb R_{\ge0}\cup\{\infty\},\\
+P&=P(s,F,x,y,h_x,h_y).
+\end{aligned}
+$$
+
+这里的 $P$ 始终是上述原始 `prefixCoupling`，包括初始 `resetReady` 检查、实际完成代表的选择以及不可能细化时的两个独立回退分支。对从零开始的 $q\in\operatorname{Fin}(m)$，定义取值为扩展非负实数的分歧指标与扫描代价
+
+$$
+\begin{aligned}
+D_q(w)&=\mathbf1_{\{w_1(s[q])\ne w_2(s[q])\}},\\
+H_s(w)&=\sum_{q\in\operatorname{Fin}(m)}D_q(w)
+=\operatorname{scanHamming}(s,w).
+\end{aligned}
+$$
+
+$H_s$ 只数扫描坐标上的分歧；列表无重复，所以每个自由坐标恰计一次。与前面纸面构造的一基编号对应时，这里的 $q$ 对应 $j=q+1$；这一编号对应本身不识别两种联合律。
+
+固定 $q$，并取 $P(w)\ne0$ 的完整输出。若前 $q+1$ 个扫描位置中有共同 `false`，其零基索引就是某个 $r\le q$，支撑汇合结论便给出第 $q$ 位相同。取其逆否命题，得到
+
+$$
+\{w:D_q(w)=1\}\cap\operatorname{supp}(P)
+\subseteq A_{q+1}\cap\operatorname{supp}(P).
+$$
+
+这里仍用前面定义的 $A_j$：它排除共同零，允许 $(\mathrm{true},\mathrm{true})$，并不要求每一位都有分歧。支撑之外 $P(w)=0$，因此即使该处不满足事件包含，相应加权项也为零。于是对所有完整输出，均有
+
+$$
+P(w)D_q(w)\le P(w)\mathbf1_{A_{q+1}(w)}.
+$$
+
+把这些非负项求和，再将尾界用于同一个 $P$ 和 $j=q+1\le m$，便有
+
+$$
+\begin{aligned}
+\Pr_P(D_q=1)
+&=\operatorname{mean}(P,D_q)\\
+&\le\operatorname{mean}(P,\mathbf1_{A_{q+1}})
+\le a^{q+1}.
+\end{aligned}
+$$
+
+现在把同一联合律下的逐点界相加。完整字对集合 $W_n\times W_n$ 和扫描索引集都有限；将 `mean` 中的非负求和写成有限和，逐项分配乘法，再交换两个有限和，得到
+
+$$
+\begin{aligned}
+\operatorname{mean}(P,H_s)
+&=\sum_{w\in W_n\times W_n}P(w)
+  \sum_{q\in\operatorname{Fin}(m)}D_q(w)\\
+&=\sum_{q\in\operatorname{Fin}(m)}\operatorname{mean}(P,D_q)\\
+&\le\sum_{q=0}^{m-1}a^{q+1}=1-a^m.
+\end{aligned}
+$$
+
+最后的几何和在扩展非负实数中也按合法的减法解释。先在 $\mathbb R_{\ge0}$ 中令 $b=1/2$；有限几何和恒等式给出
+
+$$
+\left(\sum_{q=0}^{m-1}b^q\right)(1-b)=1-b^m,
+\qquad 1-b=b.
+$$
+
+所以 $\sum_{q=0}^{m-1}b^{q+1}=1-b^m$。再沿 $\mathbb R_{\ge0}\hookrightarrow\mathbb R_{\ge0}\cup\{\infty\}$ 的标准嵌入，利用它保持有限和、幂和截断减法的性质，得到上面的 $a$ 恒等式。这里 $b^m\le1$，所有项及结果均有限，没有对无穷量作消去。整个均值计算只用有限和，不要求不同位置的分歧事件独立。
+
+当 $m=0$ 时，逐点陈述为空量化，$H_s=0$，右端为 $1-a^0=0$；$n=0$ 也包含在内。非空扫描的末端 $q=m-1$ 使用的恰是整张扫描事件 $A_m$，得到 $a^m$，没有丢掉最后一位。$F=\varnothing$、$x=y$、初始即重置以及 $k=1$ 都保留在同一组假设内，既不排除退化情形，也不另换耦合。
+
+以上是两条所引结果在同一原生联合律上的应用推导；它们各自的 Lean 声明并未单独陈述这组组合不等式。原始 `prefixCoupling` 的两个完成律边缘已经确立，所缺的不是这两个原生边缘。要接到本例后续的实际块刷新，还须把所用完成纤维及其限制、补回外部后的分布精确识别为这里的 $\mu_B^z$ 与 $T_B(z,\cdot)$；对左侧块，还须通过 `Fin.rev` 同时搬运两份输出、支撑和事件。上面的纸面共享阈值构造与原生联合律是否同律也未由此给出，且不从这些估计推出。因此此前纸面推导的完整 P2E 应用边界仍保留；这里也没有建立任何实验哈密顿量的物理识别。
 
 左侧块反向抽样即可。以下用 $d$ 表示完整字的汉明距离。
 

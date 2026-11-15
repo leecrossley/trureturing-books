@@ -138,6 +138,92 @@ $$
    - 当观察者站在当前点 $\mathbf{P}_k$、手握 $M$ 个有限历史记忆锚点时，挑选下一个点 $\mathbf{P}_{k+1}$ 在数学上等价于求解一个**半正定矩阵补全问题（PSD Matrix Completion，$G_{M+1} \succeq 0$）**：新的内积坐标必须落在前 $M$ 个记忆锚点共同围出的绿色因果相容泡泡内部；
    - 一旦观察者在相容泡泡中选定具体的 $\mathbf{P}_{k+1}^*$，原本游移的二面角选择自由度 $\phi_k$ 当场凝结为一条新的一维内积历史主干（动词 `量 liáng` 化为名词 `量 liàng`），并立刻为下一步 $\mathbf{P}_{k+2}$ 撑开下一枚相容椭圆体！
 
+::: {.theorem #thm-ch29-chordal-psd-completion title="有限弦图的实半正定补全" lean="D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion"}
+设 $V$ 为任意有限顶点集，$G$ 为 $V$ 上的简单弦图，$A$ 为以 $V$ 为行列指标的实矩阵。弦图指不存在长度至少为四的诱导圈的图。若对每个团 $C\subseteq V$，主块 $A[C,C]$ 均半正定，则存在同指标的实半正定矩阵 $B$，满足
+
+$$
+B_{ij}=A_{ij}\qquad\text{只要 }i=j\text{ 或 }\{i,j\}\in E(G).
+$$
+
+这里的团包括空集与单点集；允许 $V$ 为空、图不连通以及团块奇异。未指定的非边条目不必保留，输入 $A$ 也不必在这些条目上对称。
+:::
+
+::: proof
+按顶点数归纳。非空弦图存在一个剩余邻居两两相邻的单纯顶点 $v$；删去它以后，归纳假设给出其余顶点的补全。把这个补全与由 $v$ 及其邻居组成的团块分别作实 Gram 分解。邻居向量的两组 Gram 表相等，因此存在把局部邻居向量送到旧向量的压缩算子。邻居上的范数取等使其伴随把旧邻居向量送回局部向量，保证新顶点经压缩后的向量具有全部指定交叠。压缩只会缩短范数；再添一个与旧空间正交的实坐标，补足新顶点的指定平方范数，便得到所求 Gram 矩阵。空顶点集取空零矩阵，奇异块不需要取逆。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-ch29-rank-bounded-chordal-psd-completion title="弦图上的秩有界实半正定补全" lean="D5/S3/QuadraticForms/RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le"}
+设 $V$ 为任意有限顶点集，$d\in\mathbb N$（包括 $d=0$），$G$ 为 $V$ 上的简单弦图，$A$ 为以 $V$ 为指标的实矩阵。若每个团 $C\subseteq V$ 的主块 $A[C,C]$ 半正定且实矩阵秩不超过 $d$，则存在实矩阵 $B$，使 $B$ 半正定、$\operatorname{rank}(B)\le d$，并且
+
+$$
+B_{ij}=A_{ij}\qquad\text{只要 }i=j\text{ 或 }\{i,j\}\in E(G).
+$$
+
+这包括空集、单点团、空顶点集、不连通图和奇异团块；未指定的非边条目无需保留，输入 $A$ 在那里也无需对称。
+:::
+
+::: proof
+对有限顶点数作归纳。取弦图的单纯顶点，递归删去它并在同一个 $\mathbb R^d$ 中补全余下图。该顶点及其邻居组成的团块由局部秩界给出秩受控的 Gram 分解；局部邻居向量与旧邻居向量有相同的 Gram 表，故存在把前者送到后者的环境等距。施加等距于根向量而固定旧向量，保留所有边和对角线内积；最终 Gram 矩阵半正定，且因子在 $\mathbb R^d$ 中所以秩不超过 $d$。空集使用零矩阵，奇异情形不取逆。完整证明由 Lean 内核检查。
+:::
+
+::: {.remark #rem-ch29-local-windows-common-history title="局部记忆窗口与共同历史：条件模型及其文献边界"}
+**条件模型（`MODEL`）及一般定理的应用边界。** 上面的图示先给出同一空间里的实际向量，再读取它们的 Gram 表；这些数据已有共同实现。另一个问题是：只收到若干局部记忆表，尚未给出向量时，能否把它们拼成同一段历史？为使问题精确，固定有限时域 $N\ge0$ 和记忆宽度 $M\ge0$，取指标 $0,\ldots,N$。用一张实对称表 $A$ 表示记录，令 $A_{ii}=1$，仅保留 $|i-j|\le M$ 的条目；更远的内积允许自由补入。对每个 $k=0,\ldots,N$，定义窗口
+
+$$
+W_k=\{k,k+1,\ldots,\min(N,k+M)\},
+$$
+
+并要求 $A[W_k,W_k]\succeq0$。这里使用同一张表，已经要求重叠窗口的共同条目相等；如果分别输入各窗口的表，必须另外核对这一相等条件。
+
+这组条件足以得到一张完整的实半正定矩阵 $B$，满足 $B_{ij}=A_{ij}$（$|i-j|\le M$）。存在性由 [@thm-ch29-chordal-psd-completion] 供应。对应的经典文献是 Vandenberghe–Andersen，*Chordal Graphs and Semidefinite Optimization*，[DOI: 10.1561/2400000006](https://doi.org/10.1561/2400000006)，[作者全文](https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf)，定理 10.1：有限弦图上的部分实对称矩阵可半正定补全，当且仅当每个团的指定主块半正定。该结论允许奇异团块与奇异交叠，不需要取逆或正定假设。
+
+本模型与该定理的对应如下：把 $0,\ldots,N$ 看成顶点，以 $0<|i-j|\le M$ 连边。按递增顺序删去顶点时，当前顶点的剩余邻居两两相邻，因此这是一个完美消去序，图为弦图。每个非空团都包含于以其最小顶点起始的某个 $W_k$，所以窗口半正定供应所有团条件。对补全后的 $B$ 作实 Gram 分解，可取共同的单位向量 $P_0,\ldots,P_N\in\mathbb R^{N+1}$，使 $\langle P_i,P_j\rangle=A_{ij}$ 对所有保留条目成立。这里的图对应与 $N+1$ 维 Gram 推导是一般定理的书面应用；上面的 Lean 引用验证一般补全存在性，不单独验证这个维数表述或整个应用。
+
+这给出的是**某个有限维空间中的共同实现**。它不保证能放进图示固定的 $\mathbb R^3$ 或 $\mathbb R^6$；固定维数还需控制补全矩阵的秩，见 [@thm-ch29-rank-bounded-chordal-psd-completion] 及下述窗口秩条件。它也不选择唯一的远距内积、不规定演化概率或动力学，更不把有限时域存在性直接当作无限历史或物理因果性的证明。带状记忆掩码是这里显式增加的条件模型；原来的具体图示并未声称任意独立局部表都可在其固定空间中拼接。
+
+若每个局部窗口还满足实矩阵秩 $\le d$，则主块取子矩阵的秩单调性把窗口条件传给每个团；上面的秩有界弦图定理于是给出秩 $\le d$ 的补全及 $\mathbb R^d$ 中的 Gram 因子。对角线为 $1$ 时因子向量为单位向量。这是对一般定理的书面应用，并非单独编译的带状图/窗口秩端到端定理；固定 $\mathbb R^3$ 或 $\mathbb R^6$ 仍须这一局部秩前提，不能自动得到固定维数。Laurent–Varvitsiotis (2014), DOI [10.1007/s10107-013-0648-x](https://doi.org/10.1007/s10107-013-0648-x)，及作者版本 [arXiv:1204.0734](https://arxiv.org/abs/1204.0734) 给出这一秩有界延伸；其引言与 Lemma 2 讨论局部因子和对齐。这里的 $d=0$ 仍有意义：非空且对角线为 $1$ 的数据不可能满足秩零前提。
+:::
+
+::: {.remark #rem-ch29-continuous-gram-selection title="逐点 Gram 存在不保证连续选取"}
+有限秩受控补全定理针对每张固定表给出存在性。即使完整表组成连续矩阵族且秩恒定，也未必能在最小环境维数中连续选取因子。下面是 [@thm-circle-double-cover-history-lift] 圆周二重覆盖障碍的书面应用，不是矩阵变体的独立 Lean 定理。
+
+令 $S=\{z\in\mathbb C:|z|=1\}$ 具有继承拓扑，并定义
+
+$$
+A(z)=\frac12\begin{pmatrix}1+\operatorname{Re}z&\operatorname{Im}z\\\operatorname{Im}z&1-\operatorname{Re}z\end{pmatrix}.
+$$
+
+这是连续实矩阵族。记 $x=\operatorname{Re}z$、$y=\operatorname{Im}z$，由 $x^2+y^2=1$ 得 $A^T=A$、$A^2=A$ 及 $\operatorname{tr}A=1$。因此 $A=A^TA$ 半正定；投影的实秩等于其迹，故每一点的秩恰为一。
+
+然而，不存在连续函数 $p_0,p_1:S\to\mathbb R$ 在每一点同时满足
+
+$$
+\begin{aligned}
+p_0(z)^2&=(1+x)/2,\\
+p_0(z)p_1(z)&=y/2,\\
+p_1(z)^2&=(1-x)/2.
+\end{aligned}
+$$
+
+否则 $w=p_0+ip_1$ 连续，且 $|w|=1$、$w^2=z$，正是 [@thm-circle-double-cover-history-lift] 排除的整体截面。这里字面的范数一载体与该定理的度量单位球面载体，经复数值上的恒等映射同胚。
+
+对每个单独的 $z$，平方根存在，故单行 Gram 因子逐点存在。允许两行时，连续选取 $P(z)=A(z)$ 满足 $P(z)^TP(z)=A(z)$。因此，秩恒定与逐点存在本身不足以保证连续单行选取；本例不排除更大环境维数的连续因子，也不给出概率律、动力学、物理实现或对所有参数空间的断言。经典背景见 Hatcher 的 [*Algebraic Topology* 第 1 章](https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf)，印刷页 56、61，以及 [*Vector Bundles & K-Theory* 第 2.2 版](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf)，印刷页 7–8。矩阵对应及其边界详见所属的 [Blueprint 应用说明](https://github.com/the-omega-institute/trureturing/pull/30885)。
+:::
+
+::: {.remark #rem-ch29-planar-cycle-compatibility title="平面环图数据的联合角度条件"}
+把局部重叠表换成环形掩码时，弦图前提不可忽略。固定按环形排列的 $n\ge3$ 个顶点，给定顶点 $i$ 与其模 $n$ 后继之间的实重叠 $a_i\in[-1,1]$，记 $\theta_i=\arccos(a_i)\in[0,\pi]$。存在单位向量 $p_i\in\mathbb R^2$ 恰好实现这些相邻内积，当且仅当存在符号 $\varepsilon_i\in\{-1,1\}$ 与 $k\in\mathbb Z$，使
+
+$$
+\sum_{i=0}^{n-1}\varepsilon_i\theta_i=2\pi k.
+$$
+
+必须有同一套符号使整个环闭合；各条边单独允许的重叠不提供这一联合条件。判据包含 $a_i=\pm1$、重复向量与非张满族：对应 Gram 秩是**至多二**，不要求恰好为二。$n\ge4$ 时环图不是弦图；这是单独的平面判据，不是弦图补全定理的应用。
+
+两个方向可如下看出。把实平面等距认作 $\mathbb C$，用单位圆上的 $z_i$ 表示单位向量。商 $q_i=z_{i+1}/z_i$ 的实部为 $a_i$，故其辐角可写成某个符号下的 $\varepsilon_i\arccos(a_i)$，实轴端点也包括在内。商的乘积望远镜相消为一，圆周指数的周期为 $2\pi$，于是得到整数绕行条件。反过来，以 $\exp(i\varepsilon_i\theta_i)$ 的前缀积作为顶点。总乘积为一，保证最后一条边回到起点；余弦的偶性给出每个指定重叠。
+
+这是现有圆周、内积与有限乘积接口的书面应用，不为环图变体另立保留的 Lean 声明或新增验证徽章。完整判据与推导见源仓补全结果的 [Blueprint 应用说明](https://github.com/the-omega-institute/trureturing/pull/30905)。经典来源为 Eisenberg-Nagy–Laurent–Varvitsiotis 的 [arXiv:1203.6602v2](https://arxiv.org/abs/1203.6602v2)，定义 1.1、引理 2.1，以及 Laurent–Varvitsiotis 的 [arXiv:1112.5960v1](https://arxiv.org/abs/1112.5960v1)，引理 7；后者定位专指 v1。这里不主张唯一性、动力学、概率律、物理实现或更高维补全判据。
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **多记一层，窗口窄一圈。** 时间轴把记住的历史从 $M = 1$ 加到 $M = 5$：每多一个更早的锚点，截面里就多一圈品红的椭圆，套在上一圈里面；穿过琥珀色 $\mathbf{Q}$ 的青色窗口随之收窄，从整个 $[-1, 1]$ 缩到约原来的四分之一，$\mathbf{Q}$ 始终在里面。事件取在 $\mathbb{R}^6$ 中，每一层都还留有内部；把相容空间读作有限观察者的选择余地是本书的诠释（`MODEL`）。
 :::

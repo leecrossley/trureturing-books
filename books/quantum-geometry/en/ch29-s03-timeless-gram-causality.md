@@ -138,6 +138,92 @@ If the global time field is a timeless geometric crystal and local causality pos
    - Carrying $M$ finite historical memory anchors at $\mathbf{P}_k$, picking the next point $\mathbf{P}_{k+1}$ is mathematically a **Positive-Semidefinite (PSD) Matrix Completion ($G_{M+1} \succeq 0$)** inside the green compatible bubble carved out by those $M$ anchors;
    - Once $\mathbf{P}_{k+1}^*$ is chosen, the dihedral angle $\phi_k$ solidifies into a new 1D inner-product coordinate (the verb `liáng` crystallizing into the noun `liàng`), immediately framing the compatible bubble for step $k + 2$.
 
+::: {.theorem #thm-ch29-chordal-psd-completion title="Real PSD completion on finite chordal graphs" lean="D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion"}
+Let $V$ be any finite vertex set, $G$ a simple chordal graph on $V$, and $A$ a real matrix indexed by $V$. A graph is chordal when it has no induced cycle of length at least four. If the principal block $A[C,C]$ is positive semidefinite for every clique $C\subseteq V$, there exists a real positive-semidefinite matrix $B$ on the same index set such that
+
+$$
+B_{ij}=A_{ij}\qquad\text{whenever }i=j\text{ or }\{i,j\}\in E(G).
+$$
+
+Cliques include the empty set and singletons. The vertex set may be empty, the graph disconnected, and the clique blocks singular. Unspecified nonedge entries need not be preserved, and the input $A$ need not be symmetric on those entries.
+:::
+
+::: proof
+Induct on the number of vertices. A nonempty chordal graph has a simplicial vertex $v$, whose remaining neighbors are pairwise adjacent. After deleting it, the induction hypothesis completes the remaining graph. Take real Gram factorizations of that completion and of the clique block formed by $v$ and its neighbors. The two neighbor families have equal Gram tables, so a contraction carries the local neighbor vectors to the old ones. Equality of neighbor norms makes its adjoint carry the old neighbors back to the local ones, ensuring that the contracted new vector has every prescribed overlap. A contraction can shorten its norm; one extra real coordinate orthogonal to the old space restores the prescribed squared norm. The resulting Gram matrix is the desired completion. Use the empty zero matrix for an empty vertex set; singular blocks require no inverse. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-ch29-rank-bounded-chordal-psd-completion title="Rank-bounded real PSD completion on chordal graphs" lean="D5/S3/QuadraticForms/RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le"}
+Let $V$ be any finite vertex set, let $d\in\mathbb N$ (including $d=0$), let $G$ be a simple chordal graph on $V$, and let $A$ be a real matrix indexed by $V$. If every clique block $A[C,C]$ is positive semidefinite and has real matrix rank at most $d$, then there is a real matrix $B$ such that $B$ is positive semidefinite, $\operatorname{rank}(B)\le d$, and
+
+$$
+B_{ij}=A_{ij}\qquad\text{whenever }i=j\text{ or }\{i,j\}\in E(G).
+$$
+
+Empty and singleton cliques, empty or disconnected graphs, and singular blocks are included. Unspecified nonedges need not be preserved, and $A$ need not be symmetric there.
+:::
+
+::: proof
+Induct on the finite vertex count. Remove a simplicial vertex of the chordal graph and recursively complete the remainder in the same $\mathbb R^d$. The clique consisting of the removed vertex and its neighbours has a rank-controlled Gram factorization. Its local neighbour vectors and the old neighbour vectors have the same Gram table, so an ambient isometry carries the local family to the old one. Apply it to the root vector while leaving the old vectors fixed; all prescribed edge and diagonal inner products remain unchanged. The resulting Gram matrix is positive semidefinite, and its factor in $\mathbb R^d$ gives rank at most $d$. The empty case uses the zero matrix, and singular cases require no inverse. The full proof is checked by the Lean kernel.
+:::
+
+::: {.remark #rem-ch29-local-windows-common-history title="Local memory windows and a common history: a conditional model and its literature boundary"}
+**Conditional model (`MODEL`) and the application boundary of the general theorem.** The pictures above start with actual vectors in one space and read their Gram entries; those data already have a common realization. A different question arises when only local memory tables are supplied, with no vectors given: can they be assembled into one history? Fix a finite horizon $N\ge0$ and memory width $M\ge0$, with indices $0,\ldots,N$. Let one real symmetric table $A$ have $A_{ii}=1$, retaining only entries with $|i-j|\le M$; more distant overlaps are free to be completed. For each $k=0,\ldots,N$, set
+
+$$
+W_k=\{k,k+1,\ldots,\min(N,k+M)\},
+$$
+
+and require $A[W_k,W_k]\succeq0$. Using one table already requires agreement on shared entries. If window tables are supplied separately, that agreement must be checked explicitly.
+
+These conditions suffice for a complete real positive-semidefinite matrix $B$ with $B_{ij}=A_{ij}$ whenever $|i-j|\le M$. Existence is supplied by [@thm-ch29-chordal-psd-completion]. The corresponding classical source is Vandenberghe–Andersen, *Chordal Graphs and Semidefinite Optimization*, [DOI: 10.1561/2400000006](https://doi.org/10.1561/2400000006), [author text](https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf), Theorem 10.1: a partial real symmetric matrix on a finite chordal graph has a PSD completion if and only if every specified clique principal block is PSD. Singular clique and overlap blocks are included; neither inverses nor positive definiteness are required.
+
+The correspondence is explicit. Use vertices $0,\ldots,N$ and edges $0<|i-j|\le M$. Deleting vertices in increasing order leaves each current vertex with pairwise adjacent remaining neighbors, giving a perfect elimination ordering and hence a chordal graph. Every nonempty clique lies in the window $W_k$ starting at its smallest vertex, so window positivity supplies every clique condition. A real Gram factorization of the completed $B$ then gives common unit vectors $P_0,\ldots,P_N\in\mathbb R^{N+1}$ with $\langle P_i,P_j\rangle=A_{ij}$ on all retained entries. This graph correspondence and the $N+1$-dimensional Gram argument are a written application of the general theorem. The Lean citation above verifies general completion existence; it does not separately verify this dimension statement or the entire application.
+
+The conclusion is a **common realization in some finite-dimensional space**. It does not guarantee realization in the pictures' fixed $\mathbb R^3$ or $\mathbb R^6$; fixed dimension additionally requires control of the completed matrix's rank, as in [@thm-ch29-rank-bounded-chordal-psd-completion] and the window-rank condition below. It selects neither unique distant overlaps nor a probability law or dynamics, and finite-horizon existence is not by itself a proof about infinite histories or physical causality. The band memory mask is an explicit additional model assumption here. The original pictures do not assert that arbitrary independently supplied local tables can be assembled in their fixed space.
+
+If every local window also has real matrix rank $\le d$, principal-block rank monotonicity supplies the clique rank hypotheses; the rank-bounded chordal theorem then gives a rank-$\le d$ completion and a Gram factor in $\mathbb R^d$. With diagonal one, the factor vectors are unit vectors. This is a written application of the general theorem, not a separately compiled end-to-end theorem for the band graph and window ranks; fixed $\mathbb R^3$ or $\mathbb R^6$ still requires that local rank premise, so fixed dimension does not follow automatically. The rank extension is the Laurent–Varvitsiotis (2014) result, DOI [10.1007/s10107-013-0648-x](https://doi.org/10.1007/s10107-013-0648-x), author version [arXiv:1204.0734](https://arxiv.org/abs/1204.0734), discussed in its introduction and Lemma 2. The case $d=0$ remains meaningful: nonempty diagonal-one data cannot satisfy the rank-zero premise.
+:::
+
+::: {.remark #rem-ch29-continuous-gram-selection title="Pointwise Gram existence does not imply a continuous choice"}
+The finite rank-bounded completion theorem is an existence statement for each fixed table. Even for a continuous family of full tables of constant rank, a continuous factor in the smallest ambient dimension need not exist. Here is a written application of the circle double-cover obstruction in [@thm-circle-double-cover-history-lift], rather than a separate Lean theorem for the matrix variant.
+
+Give $S=\{z\in\mathbb C:|z|=1\}$ its inherited topology and set
+
+$$
+A(z)=\frac12\begin{pmatrix}1+\operatorname{Re}z&\operatorname{Im}z\\\operatorname{Im}z&1-\operatorname{Re}z\end{pmatrix}.
+$$
+
+This is a continuous real matrix field. Writing $x=\operatorname{Re}z$ and $y=\operatorname{Im}z$, the identity $x^2+y^2=1$ gives $A^T=A$, $A^2=A$ and $\operatorname{tr}A=1$. Hence $A=A^TA$ is positive semidefinite; as a projection its real rank equals its trace, so the rank is exactly one everywhere.
+
+Nevertheless, there are no continuous functions $p_0,p_1:S\to\mathbb R$ satisfying
+
+$$
+\begin{aligned}
+p_0(z)^2&=(1+x)/2,\\
+p_0(z)p_1(z)&=y/2,\\
+p_1(z)^2&=(1-x)/2
+\end{aligned}
+$$
+
+at every point. Such a pair would give a continuous $w=p_0+ip_1$ with $|w|=1$ and $w^2=z$, exactly the global section excluded by [@thm-circle-double-cover-history-lift]. The literal norm-one carrier here and the metric unit-sphere carrier of that theorem are homeomorphic by the identity on complex values.
+
+For each individual $z$, a square root exists, so a one-row Gram factor exists pointwise. With two rows, the continuous choice $P(z)=A(z)$ satisfies $P(z)^TP(z)=A(z)$. Thus constant rank and pointwise existence alone do not provide a continuous one-row choice; the example does not obstruct larger ambient dimensions. It supplies no probability law, dynamics, physical realization or claim about all parameter spaces. Classical context: Hatcher, [*Algebraic Topology*, Chapter 1](https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf), printed pp. 56 and 61, and [*Vector Bundles & K-Theory*, version 2.2](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf), printed pp. 7–8. The matrix correspondence and its boundaries are detailed in the owning [Blueprint application](https://github.com/the-omega-institute/trureturing/pull/30885).
+:::
+
+::: {.remark #rem-ch29-planar-cycle-compatibility title="A joint angle condition for planar cycle data"}
+The chordal hypothesis matters when local overlap tables are replaced by a cycle mask. Fix $n\ge3$ cyclically ordered vertices, prescribe a real overlap $a_i\in[-1,1]$ between vertex $i$ and its successor modulo $n$, and put $\theta_i=\arccos(a_i)\in[0,\pi]$. Unit vectors $p_i\in\mathbb R^2$ with exactly those adjacent inner products exist if and only if there are signs $\varepsilon_i\in\{-1,1\}$ and $k\in\mathbb Z$ such that
+
+$$
+\sum_{i=0}^{n-1}\varepsilon_i\theta_i=2\pi k.
+$$
+
+One common signing must close the entire cycle. Individually admissible edge overlaps do not supply this joint condition. The criterion includes $a_i=\pm1$, repeated vectors and nonspanning families: the associated Gram rank is **at most two**, not necessarily exactly two. For $n\ge4$, the cycle is nonchordal; this is a separate planar criterion, not an application of the chordal-completion theorem.
+
+To see both directions, identify the real plane isometrically with $\mathbb C$ and represent each unit vector by $z_i$ on the unit circle. The quotient $q_i=z_{i+1}/z_i$ has real part $a_i$, so its argument is $\varepsilon_i\arccos(a_i)$ for one of the two signs, including the real-axis endpoints. The quotient product telescopes to one, and the circle exponential has period $2\pi$, giving the integer winding condition. Conversely, use the prefix products of $\exp(i\varepsilon_i\theta_i)$ as vertex points. The total product is one, so the final edge wraps back to the initial point; cosine evenness gives each prescribed overlap.
+
+This is a written application of the existing circle, inner-product and finite-product APIs, without a separate retained Lean statement or new verification badge for the cycle variant. The full criterion and derivation are in the [source completion Blueprint application](https://github.com/the-omega-institute/trureturing/pull/30905). Classical sources are Eisenberg-Nagy–Laurent–Varvitsiotis, [arXiv:1203.6602v2](https://arxiv.org/abs/1203.6602v2), Definition 1.1 and Lemma 2.1, and Laurent–Varvitsiotis, [arXiv:1112.5960v1](https://arxiv.org/abs/1112.5960v1), Lemma 7; the latter locator refers specifically to v1. No uniqueness, dynamics, probability law, physical realization or larger-dimensional completion criterion is asserted here.
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **One more step remembered, one ring narrower.** The rail adds history from $M = 1$ to $M = 5$: each older anchor adds a magenta ellipse to the slice, nested inside the last, and the cyan window through the amber $\mathbf{Q}$ narrows with it, from all of $[-1, 1]$ to about a quarter of that, with $\mathbf{Q}$ inside throughout. The events live in $\mathbb{R}^6$, so every depth keeps an inside; reading the compatible space as a finite observer's room for choice is this book's interpretation (`MODEL`).
 :::
