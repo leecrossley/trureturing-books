@@ -252,10 +252,92 @@ $$
 **峰距是 $Q/r$，不是 $r$。** $Q = 32$、周期 $r = 8$：寄存器上青色的梳子 $H = \{0, 8, 16, 24\}$ 只有 $4$ 格，间距 $8$；扫完之后谱上留下 $8$ 根等高的柱子，每根 $\frac{1}{8}$，落在 $0, 4, 8, \dots, 28$，正是 $H^\perp$ 的 $8$ 个频率，间距 $Q/r = 4$。看 $k = 4$ 时四支青色箭头全部朝右，链长 $4$；$\lvert H\rvert \cdot \lvert H^\perp\rvert = 4 \cdot 8 = 32$（[@cor-finite-poisson-period]）。例中的 $Q = 16$、$r = 4$ 恰好 $r = Q/r = 4$，两把梳子重合。
 :::
 ::: {.remark #rem-shor-divisibility-boundary-literature title="有限泊松求和与一般非整除 Shor 周期恢复的边界（文献结果，未在本书形式化）"}
-**文献结果，未在本书形式化。** 在将 [@cor-finite-poisson-period] 与 Shor 大数分解算法对接时，先分清两条边界，再从实际输入推导非整除情形的计数寄存器分布。下面的应用推导仍属文献说明；完整算法的结论另见 [@rem-grover-qft-shor-literature]。
+**文献结果，未在本书形式化。** 在将 [@cor-finite-poisson-period] 与 Shor 大数分解算法对接时，先分清两条边界，再从实际输入推导非整除情形的计数寄存器分布。下面紧随冻结声明给出精确边缘分布；后面的推导解释这些陈述，完整算法的结论仍见 [@rem-grover-qft-shor-literature]。
 
 1. **有限泊松恒等式不等于完整 Shor 算法的成功概率或多项式复杂度定理**：[@cor-finite-poisson-period] 是 $\mathrm{ZMod}\,m$ 上的精确调和分析恒等式，它本身并不包含模幂电路构造、连分数有理逼近恢复定理、欧拉函数互素概率下界或大数分解的多项式门复杂度（这些完整算法环节列于 [@rem-grover-qft-shor-literature]）。
 2. **整除情形（$r \mid Q$）与一般非整除情形（$r \nmid Q$）的本质区别**：当 $r \mid Q$ 时，完整的周期梳子是 $\mathrm{ZMod}\,Q$ 中子群的陪集，非共振频点按 [@prop-finite-character-cancellation] **精确为零**。当 $r \nmid Q$ 时，截在寄存器边界上的梳子不能这样套用子群恒等式。此时要计算有限几何和；得到某个峰附近的概率下界之后，从频率逼近恢复阶仍是另一项数论任务。
+
+:::
+
+::: {.theorem #thm-shor-qpe-probability-mixture title="实际输入的 Shor 计数寄存器边缘分布" lean="D5/S3/Quantum/ShorCountingMarginal.shor_qpe_probability_mixture"}
+对每个参数记录 $c$（其模数至少为 $2$、底数为与模数互素的自然数、目标宽度给出包含模数的维数 $D=2^{\mathrm{width}}$，且周期 $r=\operatorname{orderOf}(a:\mathrm{ZMod}\,N)>0$），每个控制宽度 $n\in\mathbb N$，以及每个 $y\in\mathrm{Fin}(2^n)$，都有
+
+$$
+\operatorname{normSquared}\!\left(\operatorname{runQPE}\,c.\operatorname{modularOperator}\,n\,c.\operatorname{input}\,y\right)
+=\frac{1}{r}\sum_{s\in\mathrm{Fin}\,r}
+\operatorname{probability}\!\left(2^n,\frac{s.\operatorname{val}}{r},y\right)。
+$$
+
+这里的 `normSquared` 对 $D$ 个物理工作坐标的平方模全部求和；输入是记录中坐标 $1$ 的计算基向量，右端是指定计数结果的完整工作寄存器边缘分布。
+:::
+
+::: proof
+冻结声明把实际基态输入展开为模乘轨道的正交傅里叶本征态，施加受控幂与逆傅里叶变换，再用正交性消去交叉项。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-shor-distribution-normalized title="实际 Shor 计数边缘分布的归一化" lean="D5/S3/Quantum/ShorCountingMarginal.shor_distribution_normalized"}
+对每个参数记录 $c$，记 $r=c.\operatorname{period}$，以及每个 $n\in\mathbb N$，都有
+
+$$
+\sum_{y\in\mathrm{Fin}(2^n)}
+\operatorname{normSquared}\!\left(\operatorname{runQPE}\,c.\operatorname{modularOperator}\,n\,c.\operatorname{input}\,y\right)=1。
+$$
+
+这包括边界情形 $n=0$：此时控制寄存器只有 $y=0$ 一个结果。
+:::
+
+::: proof
+对实际输入的混合式在所有计数结果上求和，使用任意相位核的归一化；周期为正，因而混合权重恰好相消。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-shor-mixture-peak-lower-bound title="实际边缘分布的逐点最近格点下界" lean="D5/S3/Quantum/ShorCountingMarginal.shor_mixture_peak_lower_bound"}
+对每个参数记录 $c$，记 $r=c.\operatorname{period}$，以及每个 $n\in\mathbb N$、每个 $s\in\mathrm{Fin}\,r$ 与 $b\in\mathrm{Fin}(2^n)$，若
+
+$$
+\operatorname{Nearest}\!\left(2^n,\frac{s.\operatorname{val}}{r},b\right)
+\quad\Longleftrightarrow\quad
+\exists z\in\mathbb Z,\ \left|\frac{s.\operatorname{val}}{r}-\frac{b.\operatorname{val}}{2^n}-z\right|\le\frac{1}{2\cdot2^n},
+$$
+
+则
+
+$$
+\frac{1}{r}\,\frac{4}{\pi^2}
+\le
+\operatorname{normSquared}\!\left(\operatorname{runQPE}\,c.\operatorname{modularOperator}\,n\,c.\operatorname{input}\,b\right)。
+$$
+
+这是所选相位与格点标签的逐点结论；不同相位可能选中同一标签，所以它不是总事件成功概率。
+:::
+
+::: proof
+任意相位下界给出所选本征相位的 $4/\pi^2$；实际混合中该分量的权重是 $1/r$，其余平方范数均非负。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-qpe-arbitrary-phase-lower-bound title="单个相位的圆周最近格点下界" lean="D5/S3/Quantum/ShorCountingMarginal.qpe_arbitrary_phase_lower_bound"}
+对每个满足 $0<N$ 的 $N\in\mathbb N$、每个实相位 $\theta$ 与 $b\in\mathrm{Fin}\,N$，若
+
+$$
+\operatorname{Nearest}(N,\theta,b)
+\quad\Longleftrightarrow\quad
+\exists z\in\mathbb Z,\ \left|\theta-\frac{b.\operatorname{val}}{N}-z\right|\le\frac{1}{2N},
+$$
+
+则
+
+$$
+\frac{4}{\pi^2}\le\operatorname{probability}(N,\theta,b)。
+$$
+
+整数移位使这个条件是圆周距离，包含 $0/1$ 接缝以及两种中点并列选择。
+:::
+
+::: proof
+证明把相位按给定整数移位，计算有限几何和，在最近区间使用正弦不等式，再将 $2/\pi$ 的振幅估计平方。完整证明由 Lean 内核检查。
+:::
+
+::: {.remark #rem-shor-actual-input-marginal title="实际输入推导与 Shor 的剩余边界"}
+下面的推导解释上述四条冻结声明。范围仍严格小于完整 Shor 算法：总事件成功概率、连分数恢复、互素采样、因子提取与门复杂度仍见 [@rem-grover-qft-shor-literature]。
 
 **实际装入的是 $|1\rangle$。** 设模数 $N \ge 2$、自然数底数 $a$ 满足 $\gcd(a,N)=1$。工作寄存器有 $w$ 个比特，维数 $D=2^w$，只要求 $N\le D$；计数寄存器独立地取 $Q=2^n$，$n$ 为任意自然数，包括 $0$。工作基标号是 $t\in\mathrm{Fin}\,D$，补齐后的模乘置换及其线性作用为
 
@@ -384,7 +466,7 @@ $$
 
 工作输出 $1,2,4$ 的概率依次为 $1/2,1/4,1/4$；把各自的条件分布按这些权重平均才得到实际边缘分布。这里 $3\nmid4$ 且 $Q<r^2$，仍满足上述公式；这个算例不承担连分数恢复或分解整数的结论。
 
-本段的精确数学来源是 aicyberg，*Finite-register phase estimation and spectral Shor order finding*，[`solanaqubits/leanbook` 固定源版本 `9b742770a2a5dbcf30cf9abc44e711194e957a00`](https://github.com/solanaqubits/leanbook/tree/9b742770a2a5dbcf30cf9abc44e711194e957a00)：[`Verification/QuantumPhaseEstimationGeneral.lean`](https://github.com/solanaqubits/leanbook/blob/9b742770a2a5dbcf30cf9abc44e711194e957a00/Verification/QuantumPhaseEstimationGeneral.lean) 中的 `amplitude`、`Nearest` 与 `qpe_arbitrary_phase_lower_bound`，以及 [`Verification/QuantumShorOrderFindingCore.lean`](https://github.com/solanaqubits/leanbook/blob/9b742770a2a5dbcf30cf9abc44e711194e957a00/Verification/QuantumShorOrderFindingCore.lean) 中的 `Parameters.shor_qpe_probability_mixture`、`shor_distribution_normalized` 与 `shor_mixture_peak_lower_bound`。源参数 `modulus, base, width, dimension, period` 分别对应 $N,a,w,D,r$，`runQPE` 使用上述 $\mathcal F_-$，`normSquared` 是全部工作坐标的平方模之和。其文献依据为 R. Cleve、A. Ekert、C. Macchiavello 与 M. Mosca，*Quantum Algorithms Revisited*，[arXiv:quant-ph/9708016](https://arxiv.org/abs/quant-ph/9708016)，§§5–6，式 (5.2)–(5.4)、(6.1)–(6.4)；这里显式补齐归一化与工作空间坐标。
+冻结的数学来源是合入后的 trureturing 提交 `0ee6636c21a9d8fb2bafd11c91a8fb6247154a25` 中的 [`D5/S3/Quantum/ShorCountingMarginal.lean`](https://github.com/the-omega-institute/trureturing/blob/0ee6636c21a9d8fb2bafd11c91a8fb6247154a25/D5/S3/Quantum/ShorCountingMarginal.lean)：上面的 `Parameters.shor_qpe_probability_mixture`、`shor_distribution_normalized`、`shor_mixture_peak_lower_bound`，以及提供单相位估计的 `QuantumPhaseEstimationGeneral.qpe_arbitrary_phase_lower_bound`。源码参数 `modulus, base, width, dimension, period` 分别对应 $N,a,w,D,r$；`runQPE` 使用 $\mathcal F_-$，`normSquared` 对整个工作寄存器的坐标平方模求和。移植保留 Lean 源文件中的 Apache 2.0 许可与来源注记。周边算法讨论的文献依据是 R. Cleve、A. Ekert、C. Macchiavello 与 M. Mosca，*Quantum Algorithms Revisited*，[arXiv:quant-ph/9708016](https://arxiv.org/abs/quant-ph/9708016)，§§5–6，式 (5.2)–(5.4)、(6.1)–(6.4)。
 
 这一应用说明的范围是实际输入的边缘分布、归一化和最近格点的逐点下界。测量事件的总成功概率、连分数恢复、互素采样、整数分解与门复杂度仍保留 [@rem-grover-qft-shor-literature] 的文献身份；也没有由此给出任意非二幂 $Q$、每一条条件后验梳子或硬件实现的保证。
 :::
