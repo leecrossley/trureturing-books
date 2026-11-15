@@ -802,7 +802,30 @@ $$
 
 期望的估计只用有限和的线性性，不要求不同位置的分歧事件独立。$j=m$ 时，$A_m=\{T=m+1\}$ 正是整块没有共同零的事件。本例使用非空块；若把这一纸面构造延伸到 $m=0$，则 $T=1$，和为空且代价为零。若初始两条条件块分布已经相同，也可以直接作同步抽样；此时比特分歧代价为零，并不需要块中实际出现一个零。
 
-这个几何尾界是对上述共享阈值、共同零后同步的构造所作的书面推导。现有原生耦合声明给出的条件边缘律与期望块内汉明代价不超过 $1$，并不提供原 Lean `prefixCoupling` 实际输出上这个事件的尾界；这里也不将它计入 Lean 内核验证。
+为把“原生输出”与上面的纸面共享阈值构造分开，先固定有限坐标。令 $W_n=\operatorname{Fin}(n)	o\{\mathrm{false},\mathrm{true}\}$，$C(k,n,F,z)$ 是所有满足原始 `DBonacciAdmissible` 扫描且在有限集 $F\subseteq\operatorname{Fin}(n)$ 上等于 $z$ 的完整字；若该纤维有见证 $h$，令 $L(F,z,h)=\operatorname{completionLaw}(F,z,h)$。对两个非空纤维，记原始定义的 $P(s,F,x,y,h_x,h_y)=\operatorname{prefixCoupling}(s,F,x,y,h_x,h_y)$。对输出对 $w=(w_1,w_2)$，定义
+
+$$
+A_j(w)\;:\Longleftrightarrow\;\forall i\in\operatorname{take}(j,s),\;
+\neg\bigl(w_1(i)=\mathrm{false}\land w_2(i)=\mathrm{false}\bigr).
+$$
+
+这里的 `take` 按列表顺序取前 $j$ 个坐标；坐标只要求 `Nodup`，不要求递增、覆盖补集或组成区间。于是原生输出事件得到精确的 Lean 归属：
+
+::: {.theorem #thm-ch39-p2e-native-emitted-tail title="原始条件耦合完整输出的共同零尾界" lean="D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail"}
+对任意 $k,n\in\mathbb N$ 且 $0<k$，任意无重复坐标表 $s:\operatorname{List}(\operatorname{Fin}(n))$，任意有限固定集 $F:\operatorname{Finset}(\operatorname{Fin}(n))$，只要 $s$ 中每个坐标都不在 $F$ 内；再任取 $x,y:W_n$，并假设 $C(k,n,F,x)$ 与 $C(k,n,F,y)$ 都非空。对每个 $j\le |s|$，在原始联合分布 $P(s,F,x,y,h_x,h_y)$ 下，事件 $A_j$ 的指示函数均值满足
+
+$$
+\operatorname{mean}\!\left(P(s,F,x,y,h_x,h_y),\;w\mapsto\mathbf 1_{A_j(w)}\right)\le 2^{-j}.
+$$
+
+这一定义保留 `prefixCoupling` 的初始 `resetReady` 检查、递归分支与不可能细化时的独立回退；事件允许 $(\mathrm{true},\mathrm{true})$，并包含 $j=0$、空扫描、整张扫描、$x=y$ 以及初始重置分支。
+:::
+
+::: proof
+对每个固定纤维作计数归纳：任取 $s$ 中的一个自由坐标，把该位为 `true` 的完成字改为 `false`，得到单射，故所有前 $j$ 位均为 `true` 的事件至多占 $2^{-j}$。在 `resetReady` 分支，两份输出在自由坐标逐位相同，事件恰化为这个全 `true` 计数界；在递归分支，首个输出对是采样到的比特对，`(false,false)` 子分支对事件贡献为零，其余有正质量的子分支进入相应细化纤维并使用归纳假设，而半失败预算给出下一步再乘 $1/2$。零质量或不可能的细化不贡献均值。整个归纳直接作用于原始 `prefixCoupling`，没有替换其初始测试或独立回退。完整证明由 Lean 内核检查。
+:::
+
+这个尾界只涉及原生完整输出上“前 $j$ 个坐标没有共同零”的事件。它没有证明上面的纸面共享阈值构造与原生分布相同，也没有证明输出共同零后在分布支撑上的汇合、同时反射的支撑搬运或完整逐点组装；这些仍须分别核验。
 
 左侧块反向抽样即可。以下用 $d$ 表示完整字的汉明距离。
 
