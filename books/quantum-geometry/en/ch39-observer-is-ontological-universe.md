@@ -917,6 +917,31 @@ $$
 
 Sums over empty index sets are $0$ and products are the identity, so there are no windows when $N<K$. The diagonal projector $C_i$ does not depend on the central bit and commutes with $X_i$. It examines only sites within distance $K-1$ of $i$: each $h_i$ is supported on at most $2K-1$ consecutive sites, truncated at the boundary, while each $B_a$ acts on $K$ sites. For $K=2$, $C_i$ is the product of vacancy projectors at the neighbors that lie within the chain.
 
+**First expand in the full word basis.** Write $\Omega_N=\{0,1\}^N$, number sites from $1$ to $N$, and let $\sigma_iw$ flip only bit $i$. The diagonal entry of the original control projector is
+
+$$
+\begin{aligned}
+c_i(w)&:=\langle w|C_i|w\rangle\\
+&=\prod_{a\in\mathcal W_i}
+\left(1-\prod_{\substack{a\le j<a+K\\j\ne i}}w_j\right)\in\{0,1\},\\
+c_i(\sigma_iw)&=c_i(w),\qquad \sigma_i^2w=w.
+\end{aligned}
+$$
+
+No factor reads $w_i$, so the last two identities hold for every full word, including illegal words. With row $v$ and column $w$, the permutation matrix of $X_i$ has entry $\langle v|X_i|w\rangle=\delta_{v,\sigma_iw}$. Insert resolutions of the identity in the full word basis to expand the operator product already defined above:
+
+$$
+\begin{aligned}
+\langle v|h_i|w\rangle
+&=\sum_{r,s\in\Omega_N}
+\langle v|C_i|r\rangle\langle r|I-X_i|s\rangle
+\langle s|C_i|w\rangle\\
+&=c_i(v)\bigl(\delta_{v,w}-\delta_{v,\sigma_iw}\bigr)c_i(w).
+\end{aligned}
+$$
+
+If $c_i(w)=1$, every full window containing $i$ has a zero away from the center, and that zero remains after the flip. All other windows are unchanged. Thus $w\in W_N$ if and only if $\sigma_iw\in W_N$, without any initial legality assumption. Enabled flips therefore preserve both the legal and illegal sectors. An enabled control does not certify global legality: take $K=2,N=4,w=1100,i=4$. The only window containing the center, $[3,4]$, passes the test because site $3$ is zero, so $c_4(1100)=1$; nevertheless, both $1100$ and $1101$ retain the forbidden window $[1,2]=11$. The local term $h_4$ still has diagonal entries $1$ and flip entries $-1$ on this illegal pair.
+
 **How does the energy recognize legal words?** Fix a configuration $\eta$ outside site $i$, and write $\eta0,\eta1$ for the two words obtained by inserting the central bit at site $i$. Then $C_i(\eta)=1$ exactly when setting that bit to $1$ creates no forbidden window containing $i$. On this two-dimensional block, $h_i$ is
 
 $$
@@ -967,6 +992,17 @@ F_i(\eta)&=\{w\in W_N:w_{-i}=\eta\},\\
 \end{aligned}
 $$
 
+Here the exterior fixes all $N-1$ bits other than bit $i$. For a legal word $w$, denote this actual completion fiber also by
+
+$$
+\begin{aligned}
+A_i(w)&:=F_i(w_{-i})\\
+&=\{u\in W_N:u_j=w_j\ \forall j\ne i\}.
+\end{aligned}
+$$
+
+A Boolean word with the same exterior can only be $w$ or $\sigma_iw$. If $c_i(w)=1$, the parent example's equivalence of legality puts both in $W_N$. Their bits at site $i$ differ, so $A_i(w)=\{w,\sigma_iw\}$ has cardinality exactly $2$. If $c_i(w)=0$, some full window containing $i$ has all its other bits equal to $1$. Legality of $w$ forces $w_i=0$, and flipping it to $1$ violates that window. Thus $A_i(w)=\{w\}$ has cardinality exactly $1$. This identifies the actual fibers using the original control condition.
+
 This is conditional expectation given $\mathrm{outside}_i$. Setting any bit of a legal word to zero preserves legality, so each nonempty fiber is either $\{\eta0,\eta1\}$ or the forced-zero singleton $\{\eta0\}$; the central bit is inserted at site $i$. On a two-word fiber $C_i=1$, while on a forced-zero singleton $C_i=0$. The corresponding matrices are therefore
 
 $$
@@ -977,6 +1013,41 @@ h_i&=\begin{pmatrix}1&-1\\-1&1\end{pmatrix}=2(I-E_i),
 $$
 
 where the last equality uses the identification of function values with legal basis amplitudes. On a singleton $E_i=I$, and both sides vanish.
+
+**Check the factor two entry by entry.** Define the refresh kernel on legal words, with row $v$ the current word and column $w$ the refreshed word. The uniform law $\pi$ gives
+
+$$
+\begin{aligned}
+T_i(v,w)&=\frac{\mathbf1_{\{w\in A_i(v)\}}}{|A_i(v)|},\\
+(E_if)(v)&=\sum_{w\in W_N}T_i(v,w)f(w),\\
+\sum_{w\in W_N}T_i(v,w)&=1.
+\end{aligned}
+$$
+
+When the control is enabled, each of the two words in the fiber has mass $1/2$, including a probability $1/2$ of drawing the current word again. When it is disabled, only $T_i(v,v)=1$ is nonzero. Words in the same fiber have the same $A_i$, so $T_i(v,w)=T_i(w,v)$. Operator rows and columns, by contrast, index output and input amplitudes. To compare that array with the refresh kernel acting on functions here, the flip involution gives $\delta_{v,\sigma_iw}=\delta_{w,\sigma_iv}$, while control invariance gives $c_i(\sigma_iv)=c_i(v)$.
+
+Now take legal $v,w$. On the diagonal, the original product has entry $c_i(v)^2=c_i(v)$: this is $2(1-1/2)=1$ when enabled and $2(1-1)=0$ when disabled. If $w=\sigma_iv$, legality of both words forces the control to be enabled, since otherwise the window just described would exclude one of them. The product entry is then $-1=2(0-1/2)$. If the words are neither equal nor related by this flip, both the product entry and refresh mass vanish. Hence, in the same legal word basis,
+
+$$
+\langle v|h_i|w\rangle
+=2\bigl(\delta_{v,w}-T_i(v,w)\bigr)
+\qquad(v,w\in W_N).
+$$
+
+Each legal word in $W_N\subseteq\Omega_N$ still labels its original full word basis vector; equality and the Kronecker symbols are unchanged. This is precisely the restricted-space meaning of $h_i=2(I-E_i)$ above. The domain of $T_i$ consists of legal words, so this stochastic kernel identity does not directly extend to the native operator on illegal words.
+
+For example, take $K=N=2$ and $i=2$. In legal basis order $(00,01,10)$, the actual fibers are $\{00,01\}$ and $\{10\}$, giving
+
+$$
+\begin{aligned}
+T_2&=\begin{pmatrix}1/2&1/2&0\\1/2&1/2&0\\0&0&1\end{pmatrix},\\
+h_2|_{\mathcal H_{\mathrm{legal}}}
+&=\begin{pmatrix}1&-1&0\\-1&1&0\\0&0&0\end{pmatrix}
+=2(I-T_2).
+\end{aligned}
+$$
+
+The three row sums are $1/2+1/2=1$, $1/2+1/2=1$, and $1=1$. Site $1$ similarly connects $00$ with $10$. Adding the two local matrices and restoring penalty $1$ on the illegal basis vector $11$ gives exactly the parent example's original full $H_{2,2}$, still with spectrum $0,1,1,3$. For $N<K$, every $c_i=1$ and every actual single-site fiber has two words. For $N=0$, there are no sites or site entries, and this calculation makes no excited-gap assertion.
 
 Give each site an independent Poisson clock of rate $1$. When its clock rings, resample that bit from the conditional law above, allowing the old value to be drawn again. The continuous-time generator of this heat-bath chain, acting on functions, is
 
