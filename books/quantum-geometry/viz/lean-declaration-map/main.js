@@ -8,7 +8,8 @@
      rail    the reading position: the cells of the chapters read so far have landed, the rest are outlines.
      look back from a chapter: cyan lines from the foot of that column to every cell it cites.
      choose a cell: amber lines from it to every other chapter that cites it.
-   The data block below is written by gen-data.py from the lock and the chapters, never by hand.
+   The data come from data.generated.json, written by gen-data.py from the lock and the chapters (never by hand, never
+   committed); the page fetches it together with the publication lock before it builds anything.
    Colours: green = the lock's kind is `theorem`, grey = definition, cyan = cited by the chosen chapter,
    amber = the chosen declaration and the reading position. Read-only probe for the browser suite: LEANMAP_DEBUG. */
 (async () => {
@@ -16,9 +17,10 @@
   const { kit, L } = TRV, P = TRV.palette;
   const $ = (id) => document.getElementById(id);
 
-const mapResponse = await fetch('data.generated.json', { cache: 'no-store' });
-  if (!mapResponse.ok) throw new Error(`Cannot load declaration map: ${mapResponse.status}`);
-  const DATA = await mapResponse.json();
+  // The clock, its keys, autoplay and the probe exist only once both files are in: kit.pending lets kit.ready() (the
+  // suites' settle()) wait for them. Both are fetched at once, so the page starts no later than with the lock alone.
+  const load = (url, what) => fetch(url, { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error(`Cannot load ${what}: ${r.status}`); return r.json(); });
+  const [DATA, PIN] = await kit.pending(Promise.all([load('data.generated.json', 'declaration map'), load('../assets/trureturing.json', 'publication lock')]));
 
   /* ---------- the declarations ---------- */
   const IDX = DATA.index;                                               // the unit of Appendix C
@@ -26,9 +28,6 @@ const mapResponse = await fetch('data.generated.json', { cache: 'no-store' });
   const NC = COLS.length, colOf = {};
   $('src').max = String(NC - 1);
   COLS.forEach((u, c) => { colOf[u] = c; });
-  const response = await fetch('../assets/trureturing.json', { cache: 'no-store' });
-  if (!response.ok) throw new Error(`Cannot load publication lock: ${response.status}`);
-  const PIN = await response.json();
   const D = DATA.decls.map(([gid, home, cites, serial], i) => {
     const declaration = PIN.declarations[gid];
     if (!declaration) throw new Error(`Declaration missing from publication lock: ${gid}`);

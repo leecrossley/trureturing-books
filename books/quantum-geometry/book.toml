@@ -35,7 +35,7 @@ embed_fonts = false
 [numbering.unnumbered]
 "coda.md" = "Coda"
 
-# 统计索引是输出，不作为统计来源；校验只比对，构建自动刷新。
+# 统计索引是输出；从论述模板统计，校验与构建自动刷新。
 [statistics]
 exclude = ["appendix-c.md"]
 templates = { "appendix-c.md" = "data/appendix-c.{lang}.md.in" }

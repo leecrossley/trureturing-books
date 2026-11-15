@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从正式解析器刷新声明索引、地图与统计图；--check 只检查，不写入。"""
+"""从正式解析器刷新声明索引、统计与地图 JSON；--check 只检查，不写入。"""
 import argparse
 from collections import Counter
 import importlib.util
