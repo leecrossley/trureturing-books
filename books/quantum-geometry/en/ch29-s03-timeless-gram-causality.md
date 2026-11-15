@@ -210,6 +210,20 @@ at every point. Such a pair would give a continuous $w=p_0+ip_1$ with $|w|=1$ an
 For each individual $z$, a square root exists, so a one-row Gram factor exists pointwise. With two rows, the continuous choice $P(z)=A(z)$ satisfies $P(z)^TP(z)=A(z)$. Thus constant rank and pointwise existence alone do not provide a continuous one-row choice; the example does not obstruct larger ambient dimensions. It supplies no probability law, dynamics, physical realization or claim about all parameter spaces. Classical context: Hatcher, [*Algebraic Topology*, Chapter 1](https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf), printed pp. 56 and 61, and [*Vector Bundles & K-Theory*, version 2.2](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf), printed pp. 7–8. The matrix correspondence and its boundaries are detailed in the owning [Blueprint application](https://github.com/the-omega-institute/trureturing/pull/30885).
 :::
 
+::: {.remark #rem-ch29-planar-cycle-compatibility title="A joint angle condition for planar cycle data"}
+The chordal hypothesis matters when local overlap tables are replaced by a cycle mask. Fix $n\ge3$ cyclically ordered vertices, prescribe a real overlap $a_i\in[-1,1]$ between vertex $i$ and its successor modulo $n$, and put $\theta_i=\arccos(a_i)\in[0,\pi]$. Unit vectors $p_i\in\mathbb R^2$ with exactly those adjacent inner products exist if and only if there are signs $\varepsilon_i\in\{-1,1\}$ and $k\in\mathbb Z$ such that
+
+$$
+\sum_{i=0}^{n-1}\varepsilon_i\theta_i=2\pi k.
+$$
+
+One common signing must close the entire cycle. Individually admissible edge overlaps do not supply this joint condition. The criterion includes $a_i=\pm1$, repeated vectors and nonspanning families: the associated Gram rank is **at most two**, not necessarily exactly two. For $n\ge4$, the cycle is nonchordal; this is a separate planar criterion, not an application of the chordal-completion theorem.
+
+To see both directions, identify the real plane isometrically with $\mathbb C$ and represent each unit vector by $z_i$ on the unit circle. The quotient $q_i=z_{i+1}/z_i$ has real part $a_i$, so its argument is $\varepsilon_i\arccos(a_i)$ for one of the two signs, including the real-axis endpoints. The quotient product telescopes to one, and the circle exponential has period $2\pi$, giving the integer winding condition. Conversely, use the prefix products of $\exp(i\varepsilon_i\theta_i)$ as vertex points. The total product is one, so the final edge wraps back to the initial point; cosine evenness gives each prescribed overlap.
+
+This is a written application of the existing circle, inner-product and finite-product APIs, without a separate retained Lean statement or new verification badge for the cycle variant. The full criterion and derivation are in the [source completion Blueprint application](https://github.com/the-omega-institute/trureturing/pull/30905). Classical sources are Eisenberg-Nagy–Laurent–Varvitsiotis, [arXiv:1203.6602v2](https://arxiv.org/abs/1203.6602v2), Definition 1.1 and Lemma 2.1, and Laurent–Varvitsiotis, [arXiv:1112.5960v1](https://arxiv.org/abs/1112.5960v1), Lemma 7; the latter locator refers specifically to v1. No uniqueness, dynamics, probability law, physical realization or larger-dimensional completion criterion is asserted here.
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **One more step remembered, one ring narrower.** The rail adds history from $M = 1$ to $M = 5$: each older anchor adds a magenta ellipse to the slice, nested inside the last, and the cyan window through the amber $\mathbf{Q}$ narrows with it, from all of $[-1, 1]$ to about a quarter of that, with $\mathbf{Q}$ inside throughout. The events live in $\mathbb{R}^6$, so every depth keeps an inside; reading the compatible space as a finite observer's room for choice is this book's interpretation (`MODEL`).
 :::

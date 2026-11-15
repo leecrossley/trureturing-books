@@ -210,6 +210,20 @@ $$
 对每个单独的 $z$，平方根存在，故单行 Gram 因子逐点存在。允许两行时，连续选取 $P(z)=A(z)$ 满足 $P(z)^TP(z)=A(z)$。因此，秩恒定与逐点存在本身不足以保证连续单行选取；本例不排除更大环境维数的连续因子，也不给出概率律、动力学、物理实现或对所有参数空间的断言。经典背景见 Hatcher 的 [*Algebraic Topology* 第 1 章](https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf)，印刷页 56、61，以及 [*Vector Bundles & K-Theory* 第 2.2 版](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf)，印刷页 7–8。矩阵对应及其边界详见所属的 [Blueprint 应用说明](https://github.com/the-omega-institute/trureturing/pull/30885)。
 :::
 
+::: {.remark #rem-ch29-planar-cycle-compatibility title="平面环图数据的联合角度条件"}
+把局部重叠表换成环形掩码时，弦图前提不可忽略。固定按环形排列的 $n\ge3$ 个顶点，给定顶点 $i$ 与其模 $n$ 后继之间的实重叠 $a_i\in[-1,1]$，记 $\theta_i=\arccos(a_i)\in[0,\pi]$。存在单位向量 $p_i\in\mathbb R^2$ 恰好实现这些相邻内积，当且仅当存在符号 $\varepsilon_i\in\{-1,1\}$ 与 $k\in\mathbb Z$，使
+
+$$
+\sum_{i=0}^{n-1}\varepsilon_i\theta_i=2\pi k.
+$$
+
+必须有同一套符号使整个环闭合；各条边单独允许的重叠不提供这一联合条件。判据包含 $a_i=\pm1$、重复向量与非张满族：对应 Gram 秩是**至多二**，不要求恰好为二。$n\ge4$ 时环图不是弦图；这是单独的平面判据，不是弦图补全定理的应用。
+
+两个方向可如下看出。把实平面等距认作 $\mathbb C$，用单位圆上的 $z_i$ 表示单位向量。商 $q_i=z_{i+1}/z_i$ 的实部为 $a_i$，故其辐角可写成某个符号下的 $\varepsilon_i\arccos(a_i)$，实轴端点也包括在内。商的乘积望远镜相消为一，圆周指数的周期为 $2\pi$，于是得到整数绕行条件。反过来，以 $\exp(i\varepsilon_i\theta_i)$ 的前缀积作为顶点。总乘积为一，保证最后一条边回到起点；余弦的偶性给出每个指定重叠。
+
+这是现有圆周、内积与有限乘积接口的书面应用，不为环图变体另立保留的 Lean 声明或新增验证徽章。完整判据与推导见源仓补全结果的 [Blueprint 应用说明](https://github.com/the-omega-institute/trureturing/pull/30905)。经典来源为 Eisenberg-Nagy–Laurent–Varvitsiotis 的 [arXiv:1203.6602v2](https://arxiv.org/abs/1203.6602v2)，定义 1.1、引理 2.1，以及 Laurent–Varvitsiotis 的 [arXiv:1112.5960v1](https://arxiv.org/abs/1112.5960v1)，引理 7；后者定位专指 v1。这里不主张唯一性、动力学、概率律、物理实现或更高维补全判据。
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **多记一层，窗口窄一圈。** 时间轴把记住的历史从 $M = 1$ 加到 $M = 5$：每多一个更早的锚点，截面里就多一圈品红的椭圆，套在上一圈里面；穿过琥珀色 $\mathbf{Q}$ 的青色窗口随之收窄，从整个 $[-1, 1]$ 缩到约原来的四分之一，$\mathbf{Q}$ 始终在里面。事件取在 $\mathbb{R}^6$ 中，每一层都还留有内部；把相容空间读作有限观察者的选择余地是本书的诠释（`MODEL`）。
 :::
