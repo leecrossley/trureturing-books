@@ -15,6 +15,13 @@ const ROOT = path.resolve(HERE, '../../../..'), BOOK = path.join(ROOT, 'books/qu
 const lock = JSON.parse(fs.readFileSync(path.join(ROOT, 'trureturing.lock.json'), 'utf8'));
 const GIDS = Object.keys(lock.declarations);
 
+/* ---------- generated inputs ---------- */
+// Appendix C (both languages), the statistics and the page's data.generated.json are ignored build outputs; a clean
+// checkout has none of them. The book's own generator writes exactly these four text/JSON files from the chapters,
+// data/appendix-c.*.md.in, data/declaration-serials.json and gen-data.py (no browser, serials left as registered).
+const VENV_PY = path.join(ROOT, '.venv/bin/python');
+execFileSync(fs.existsSync(VENV_PY) ? VENV_PY : 'python3', [path.join(BOOK, 'sync-statistics.py')], { cwd: ROOT, stdio: ['ignore', 'inherit', 'inherit'] });
+
 /* ---------- the independent reading of the book ---------- */
 const summary = fs.readFileSync(path.join(BOOK, 'zh/SUMMARY.md'), 'utf8');
 const files = [];
