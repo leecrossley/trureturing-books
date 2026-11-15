@@ -1233,7 +1233,6 @@
       "@citations",
       "books/*/book.toml",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/viz/*/thumb.jpg",
       "books/quantum-geometry/viz/visualizations.json",
       "i18n/en.toml",
       "i18n/zh.toml",
