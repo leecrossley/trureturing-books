@@ -850,6 +850,7 @@
       "tools/tbook/mdscan.py",
       "tools/tbook/model.py",
       "tools/tbook/paths.py",
+      "tools/tbook/stats.py",
       "tools/tbook/summary.py",
       "tools/tbook/viz.py",
       "trureturing.lock.json"
