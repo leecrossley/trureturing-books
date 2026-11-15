@@ -2,8 +2,8 @@
 
 本附录是全书认识论边界的**总账本（Master Audit Ledger）**。根据本书序曲确立的“认识论契约”，Lean 验证、书面证明与开放问题分别声明证据。下列 C.1–C.3 逐条核对 `trureturing.lock.json` 中的冻结声明（所钉 `trureturing@dev` 提交为 [{commit}](trureturing:)），C.4 另列开放问题与选定文献边界：
 
-1. **C.1 冻结定理总索引（321 条唯一 `theorem` 声明）**：凡在中文正文任一 `:::` 环境头中以 `lean="<GID>"` 引用、且锁文件种类为 `theorem` 的声明，均列入本节；每条引用必须解析为所钉提交中已由 Lean 4 内核验证并冻结的定理。
-2. **C.2 形式化定义与代数载体总索引（114 项唯一声明：104 项 `def` + 10 项 `inductive`）**：列出被中文正文 `:::` 环境头以 `lean=` 引用的定义与归纳类型；**C.3 行内辅助定理与定义索引（176 项声明：123 项 `theorem` + 53 项 `def`）**列出其余未被环境头引用的锁定声明。三节互不重叠，完整覆盖 `trureturing.lock.json` 的 **611 项唯一声明**（$321 + 114 + 176 = 611$）。媒体引用在各行末尾另列，不改变上述分区。
+1. **C.1 冻结定理总索引（324 条唯一 `theorem` 声明）**：凡在中文正文任一 `:::` 环境头中以 `lean="<GID>"` 引用、且锁文件种类为 `theorem` 的声明，均列入本节；每条引用必须解析为所钉提交中已由 Lean 4 内核验证并冻结的定理。
+2. **C.2 形式化定义与代数载体总索引（159 项唯一声明：148 项 `def` + 11 项 `inductive`）**：列出被中文正文 `:::` 环境头以 `lean=` 引用的定义与归纳类型；**C.3 行内辅助定理与定义索引（176 项声明：123 项 `theorem` + 53 项 `def`）**列出其余未被环境头引用的锁定声明。三节互不重叠，完整覆盖 `trureturing.lock.json` 的 **659 项唯一声明**（$324 + 159 + 176 = 659$）。媒体引用在各行末尾另列，不改变上述分区。
 3. **C.4 开放问题与未形式化前沿边界台账**：9 个开放环境均不带 `lean` 属性；另外两项明确标为外部文献边界，绝不与 Lean 已验证声明混计。
 
 第 7.3 节的 [@prob-monitored-spectral-mean] 已证明有限维酉监测纯态的四项结论：占据谱有限，其基数等于循环空间维数，加权首次返回概率之和等于该基数，总返回概率为一。同节的 [@rem-monitored-unital-kac] 还证明任意有限维复内积空间上、保实际相关空间恒等算子的 CPTP 通道的占据算子和、返回概率非负性、总概率一与均值等于相关维数。两者列入 C.1；一般量子仪器、无限维与物理时钟仍在这两条定理的范围之外。
@@ -11,23 +11,23 @@
 第 16.3 节的 [@thm-central-defect-endpoint-average] 及其 [书面证明](ch16-qsvt-walks-and-compilation.md#pf-central-defect-endpoint-average) 不属于冻结声明，也不是开放问题。其 DOI、原文定位与[形式化请求 #10](https://github.com/the-omega-institute/trureturing-requests/issues/10) 随正文及自动生成的书面证明账本单列；不增加上述锁定声明、绿色图表或 C.4 的条数。
 
 ::: {.viz src="lean-declaration-map" preset="all" height="500"}
-**611 格，一格一条锁定声明。** 时间轴从序曲读到附录 E（附录 C 本身不作落点），每条声明落在最先引用它的单元：444 格是定理，167 格是定义或归纳类型；435 个实心格被环境头以 `lean=` 引用，176 个空心格只在行内出现。每条声明只占一格，跨章复用不另计；下文 C.1 的柱状图则只数各章环境头引用的定理，并在不同章重复计数。
+**659 格，一格一条锁定声明。** 时间轴从序曲读到附录 E（附录 C 本身不作落点），每条声明落在最先引用它的单元：447 格是定理，212 格是定义或归纳类型；483 个实心格被环境头以 `lean=` 引用，176 个空心格只在行内出现。每条声明只占一格，跨章复用不另计；下文 C.1 的柱状图则只数各章环境头引用的定理，并在不同章重复计数。
 :::
 
 ---
 
-## C.1 已验证并冻结的 Lean 4 定理总索引（321 条唯一 `theorem` GID） {#sec-appendix-c-theorems}
+## C.1 已验证并冻结的 Lean 4 定理总索引（324 条唯一 `theorem` GID） {#sec-appendix-c-theorems}
 
-下表列出正文环境头引用的 321 条唯一冻结定理。行内引用与媒体消费者另列在最后一栏，不增加柱高。序号在声明继续留在同一分区时保持不变，新声明追加序号；各行按模块路径排序。
+下表列出正文环境头引用的 324 条唯一冻结定理。行内引用与媒体消费者另列在最后一栏，不增加柱高。序号在声明继续留在同一分区时保持不变，新声明追加序号；各行按模块路径排序。
 
 ::: {.figure src="appc-theorems-by-chapter"}
-**每一章带 `lean=` 的环境头引用了多少条冻结定理。** 横轴按阅读顺序列出主章与终章，按部加浅色底纹。柱高合计 $462$，由正式正文解析器与锁文件计算；本节 $321$ 条定理均至少出现在一根柱子中。实心下段是在该章第一次出场的定理，共 $310$ 条；空心上段是在此前单元已出场、本章再次引用的定理，共 $152$ 条。同一定理在不同主章重复计，子页面并入所属主章，定义与仅行内引用不计。
+**每一章带 `lean=` 的环境头引用了多少条冻结定理。** 横轴按阅读顺序列出主章与终章，按部加浅色底纹。柱高合计 $465$，由正式正文解析器与锁文件计算；本节 $324$ 条定理均至少出现在一根柱子中。实心下段是在该章第一次出场的定理，共 $313$ 条；空心上段是在此前单元已出场、本章再次引用的定理，共 $152$ 条。同一定理在不同主章重复计，子页面并入所属主章，定义与仅行内引用不计。
 :::
 
 下表按模块路径排序；下面的计数格显示各模块族与首次出场的部分布，条数随正文引用自动更新。
 
 ::: {.figure src="appc-modules-by-part"}
-**C.1 的 $321$ 条定理按模块族与首次出场的部分组。** 行是模块路径的前三段，较小的族合并为末行；列是第一至第十部与终章、附录。每条定理只计一次，放在中文正文最先引用它的部分；格中数字为条数，底色越深条数越多，空格为零。图不表示模块间的证明依赖。
+**C.1 的 $324$ 条定理按模块族与首次出场的部分组。** 行是模块路径的前三段，较小的族合并为末行；列是第一至第十部与终章、附录。每条定理只计一次，放在中文正文最先引用它的部分；格中数字为条数，底色越深条数越多，空格为零。图不表示模块间的证明依赖。
 :::
 
 | 序号 | Lean 声明（点击跳转源码） | 所属模块与行号 | 种类 | 引用章节与环境 ID |
@@ -66,7 +66,7 @@
 | `T030` | [`D5.S1.Words.Mechanical.silver_best_approximation`](lean:D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silver_best_approximation) | [{source}](lean:D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silver_best_approximation) | `theorem` | Ch 29 `#thm-ch29-silver-best-approximation`; media `slides/overview/slides.en.md`, `slides/overview/slides.md` |
 | `T031` | [`D5.S1.Words.Mechanical.silver_phase_mass`](lean:D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silver_phase_mass) | [{source}](lean:D5/S1/Words/Mechanical/SilverSlopeAbelianPellArithmetic.silver_phase_mass) | `theorem` | Ch 29 `#thm-ch29-silver-pell-remainder` |
 | `T307` | [`D5.S1.Words.TribonacciAlignedWindows.aligned_windows`](lean:D5/S1/Words/TribonacciAlignedWindows.aligned_windows) | [{source}](lean:D5/S1/Words/TribonacciAlignedWindows.aligned_windows) | `theorem` | Ch 39 `#thm-ch39-p2e-aligned-tribonacci-windows` |
-| `T321` | [`D5.S1.Words.TribonacciPrefixRefutation.result`](lean:D5/S1/Words/TribonacciPrefixRefutation.result) | [{source}](lean:D5/S1/Words/TribonacciPrefixRefutation.result) | `theorem` | Ch 39 `#thm-ch39-p2e-tribonacci-prefix-log-refutation` |
+| `T324` | [`D5.S1.Words.TribonacciPrefixRefutation.result`](lean:D5/S1/Words/TribonacciPrefixRefutation.result) | [{source}](lean:D5/S1/Words/TribonacciPrefixRefutation.result) | `theorem` | Ch 39 `#thm-ch39-p2e-tribonacci-prefix-log-refutation` |
 | `T032` | [`D5.S3.Analytic.Characterizations.GoldenInverseBranchFixedPoint.golden_inverse_branch_positive_fixed_point_iff`](lean:D5/S3/Analytic/Characterizations/GoldenInverseBranchFixedPoint.golden_inverse_branch_positive_fixed_point_iff) | [{source}](lean:D5/S3/Analytic/Characterizations/GoldenInverseBranchFixedPoint.golden_inverse_branch_positive_fixed_point_iff) | `theorem` | Ch 24 `#lem-golden-inverse-branch-fixed-point`; media `viz/dottie-fibonacci-spirals/index.html`, `viz/visualizations.json` |
 | `T033` | [`D5.S3.Analytic.Isolation.RiemannZetaPositiveRealSign.riemannZeta_ofReal_sign`](lean:D5/S3/Analytic/Isolation/RiemannZetaPositiveRealSign.riemannZeta_ofReal_sign) | [{source}](lean:D5/S3/Analytic/Isolation/RiemannZetaPositiveRealSign.riemannZeta_ofReal_sign) | `theorem` | Ch 22 `#prop-zeta-real-axis-sign` |
 | `T034` | [`D5.S3.Analytic.OriginalHalfBinomialIntegral.b_le_one`](lean:D5/S3/Analytic/OriginalHalfBinomialIntegral.b_le_one) | [{source}](lean:D5/S3/Analytic/OriginalHalfBinomialIntegral.b_le_one) | `theorem` | Ch 24 `#lem-arcsin-binomial-kernel` |
@@ -285,6 +285,9 @@
 | `T225` | [`D5.S3.Quantum.Recovery.FiniteKrausReversibility.scalar_products_construct_left_inverse`](lean:D5/S3/Quantum/Recovery/FiniteKrausReversibility.scalar_products_construct_left_inverse) | [{source}](lean:D5/S3/Quantum/Recovery/FiniteKrausReversibility.scalar_products_construct_left_inverse) | `theorem` | Ch 14 `#thm-finite-kraus-recovery-sufficiency` |
 | `T226` | [`D5.S3.Quantum.Recovery.OrthogonalSyndromeDecoding.orthogonal_syndrome_recovery`](lean:D5/S3/Quantum/Recovery/OrthogonalSyndromeDecoding.orthogonal_syndrome_recovery) | [{source}](lean:D5/S3/Quantum/Recovery/OrthogonalSyndromeDecoding.orthogonal_syndrome_recovery) | `theorem` | Ch 14 `#prop-orthogonal-syndrome-recovery`, Ch 28; media `viz/syndrome-decoding/index.html`, `viz/visualizations.json` |
 | `T318` | [`D5.S3.Quantum.Routing.HannRouterDephasing.result`](lean:D5/S3/Quantum/Routing/HannRouterDephasing.result) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterDephasing.result) | `theorem` | Ch 38 `#thm-ch38-single-hold-router-dephasing` |
+| `T321` | [`D5.S3.Quantum.Routing.HannRouterProfiles.physical_profile_event`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.physical_profile_event) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.physical_profile_event) | `theorem` | Ch 38 `#thm-ch38-physical-profile-event` |
+| `T322` | [`D5.S3.Quantum.Routing.HannRouterProfiles.profile_separation_iff`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.profile_separation_iff) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.profile_separation_iff) | `theorem` | Ch 38 `#thm-ch38-profile-separation` |
+| `T323` | [`D5.S3.Quantum.Routing.HannSignedCertificate.signed_event`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.signed_event) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.signed_event) | `theorem` | Ch 38 `#thm-ch38-signed-coefficient-event` |
 | `T305` | [`D5.S3.Quantum.Routing.HannSpatialQram.correctness`](lean:D5/S3/Quantum/Routing/HannSpatialQram.correctness) | [{source}](lean:D5/S3/Quantum/Routing/HannSpatialQram.correctness) | `theorem` | Ch 38 `#thm-ch38-spatial-qutrit-qram-correctness` |
 | `T306` | [`D5.S3.Quantum.Routing.ReversibleQram.correctness`](lean:D5/S3/Quantum/Routing/ReversibleQram.correctness) | [{source}](lean:D5/S3/Quantum/Routing/ReversibleQram.correctness) | `theorem` | Ch 38 `#thm-ch38-reversible-qram-correctness` |
 | `T227` | [`D5.S3.Quantum.SpinChains.SupersymmetricFermion.JordanWigner.fullC_CAR`](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_CAR) | [{source}](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_CAR) | `theorem` | Ch 14 `#thm-jordan-wigner-car` |
@@ -356,9 +359,9 @@
 
 ---
 
-## C.2 形式化定义、结构与归纳类型索引（114 项唯一声明） {#sec-appendix-c-definitions}
+## C.2 形式化定义、结构与归纳类型索引（159 项唯一声明） {#sec-appendix-c-definitions}
 
-下表列出被中文正文 `definition` 与 `example` 环境头以 `lean=` 引用的 **114 项唯一声明（104 项 `def`、10 项 `inductive`）**；它们与 C.1 的 321 条定理共同构成 **435 项被环境头引用的锁定声明**。媒体消费者在最后一栏另列，不决定分区。
+下表列出被中文正文 `definition` 与 `example` 环境头以 `lean=` 引用的 **159 项唯一声明（148 项 `def`、11 项 `inductive`）**；它们与 C.1 的 324 条定理共同构成 **483 项被环境头引用的锁定声明**。媒体消费者在最后一栏另列，不决定分区。
 
 | 序号 | Lean 声明（点击跳转源码） | 所属模块与行号 | 种类 | 引用章节与环境 ID |
 | :--- | :--- | :--- | :--- | :--- |
@@ -448,6 +451,51 @@
 | `D067` | [`D5.S3.Quantum.Foundation.LeastConfirmationGeneration.ConfirmationSystem`](lean:D5/S3/Quantum/Foundation/LeastConfirmationGeneration.ConfirmationSystem) | [{source}](lean:D5/S3/Quantum/Foundation/LeastConfirmationGeneration.ConfirmationSystem) | `inductive` | Ch 2 `#def-confirmation-system` |
 | `D068` | [`D5.S3.Quantum.Foundation.LeastConfirmationGeneration.Positive`](lean:D5/S3/Quantum/Foundation/LeastConfirmationGeneration.Positive) | [{source}](lean:D5/S3/Quantum/Foundation/LeastConfirmationGeneration.Positive) | `def` | Ch 2 `#def-confirmation-system` |
 | `D069` | [`D5.S3.Quantum.Foundation.RayPhaseRigidity.PreservesRay`](lean:D5/S3/Quantum/Foundation/RayPhaseRigidity.PreservesRay) | [{source}](lean:D5/S3/Quantum/Foundation/RayPhaseRigidity.PreservesRay) | `def` | Ch 1 `#def-preserves-ray` |
+| `D115` | [`D5.S3.Quantum.Routing.HannRouterProfiles.AddressDistribution`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.AddressDistribution) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.AddressDistribution) | `def` | Ch 38 `#def-ch38-profile-laws` |
+| `D116` | [`D5.S3.Quantum.Routing.HannRouterProfiles.ClassDistribution`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.ClassDistribution) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.ClassDistribution) | `def` | Ch 38 `#def-ch38-profile-laws` |
+| `D117` | [`D5.S3.Quantum.Routing.HannRouterProfiles.DeepestActive`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.DeepestActive) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.DeepestActive) | `def` | Ch 38 `#def-ch38-profile-laws` |
+| `D118` | [`D5.S3.Quantum.Routing.HannRouterProfiles.Environment`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Environment) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Environment) | `def` | Ch 38 `#def-ch38-profile-records` |
+| `D119` | [`D5.S3.Quantum.Routing.HannRouterProfiles.Profile`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Profile) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Profile) | `def` | Ch 38 `#def-ch38-active-profiles` |
+| `D120` | [`D5.S3.Quantum.Routing.HannRouterProfiles.Router`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Router) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Router) | `def` | Ch 38 `#def-ch38-profile-routers` |
+| `D121` | [`D5.S3.Quantum.Routing.HannRouterProfiles.SameProfile`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.SameProfile) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.SameProfile) | `def` | Ch 38 `#def-ch38-active-profiles` |
+| `D122` | [`D5.S3.Quantum.Routing.HannRouterProfiles.Separates`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Separates) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.Separates) | `def` | Ch 38 `#def-ch38-active-profiles` |
+| `D123` | [`D5.S3.Quantum.Routing.HannRouterProfiles.addressEnergy`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.addressEnergy) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.addressEnergy) | `def` | Ch 38 `#def-ch38-profile-gram-energy` |
+| `D124` | [`D5.S3.Quantum.Routing.HannRouterProfiles.classEnergy`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classEnergy) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classEnergy) | `def` | Ch 38 `#def-ch38-profile-gram-energy` |
+| `D125` | [`D5.S3.Quantum.Routing.HannRouterProfiles.classMass`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classMass) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classMass) | `def` | Ch 38 `#def-ch38-profile-laws` |
+| `D126` | [`D5.S3.Quantum.Routing.HannRouterProfiles.classRecord`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classRecord) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classRecord) | `def` | Ch 38 `#def-ch38-active-profiles` |
+| `D127` | [`D5.S3.Quantum.Routing.HannRouterProfiles.classSum`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classSum) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.classSum) | `def` | Ch 38 `#def-ch38-profile-gram-energy` |
+| `D128` | [`D5.S3.Quantum.Routing.HannRouterProfiles.deepest`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.deepest) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.deepest) | `def` | Ch 38 `#def-ch38-profile-routers` |
+| `D129` | [`D5.S3.Quantum.Routing.HannRouterProfiles.distributionInput`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.distributionInput) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.distributionInput) | `def` | Ch 38 `#def-ch38-profile-laws` |
+| `D130` | [`D5.S3.Quantum.Routing.HannRouterProfiles.gram`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.gram) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.gram) | `def` | Ch 38 `#def-ch38-profile-gram-energy` |
+| `D131` | [`D5.S3.Quantum.Routing.HannRouterProfiles.inputDistribution`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.inputDistribution) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.inputDistribution) | `def` | Ch 38 `#def-ch38-profile-laws` |
+| `D132` | [`D5.S3.Quantum.Routing.HannRouterProfiles.jointOutput`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.jointOutput) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.jointOutput) | `def` | Ch 38 `#def-ch38-profile-output` |
+| `D133` | [`D5.S3.Quantum.Routing.HannRouterProfiles.loadedLabel`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.loadedLabel) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.loadedLabel) | `def` | Ch 38 `#def-ch38-profile-routers` |
+| `D134` | [`D5.S3.Quantum.Routing.HannRouterProfiles.noisyOutput`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.noisyOutput) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.noisyOutput) | `def` | Ch 38 `#def-ch38-profile-output` |
+| `D135` | [`D5.S3.Quantum.Routing.HannRouterProfiles.profile`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.profile) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.profile) | `def` | Ch 38 `#def-ch38-active-profiles` |
+| `D136` | [`D5.S3.Quantum.Routing.HannRouterProfiles.record`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.record) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.record) | `def` | Ch 38 `#def-ch38-profile-records` |
+| `D137` | [`D5.S3.Quantum.Routing.HannRouterProfiles.routerLabel`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.routerLabel) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.routerLabel) | `def` | Ch 38 `#def-ch38-profile-routers` |
+| `D138` | [`D5.S3.Quantum.Routing.HannRouterProfiles.snoc`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.snoc) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.snoc) | `def` | Ch 38 `#def-ch38-profile-routers` |
+| `D139` | [`D5.S3.Quantum.Routing.HannRouterProfiles.squaredFidelity`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.squaredFidelity) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.squaredFidelity) | `def` | Ch 38 `#def-ch38-profile-output` |
+| `D140` | [`D5.S3.Quantum.Routing.HannRouterProfiles.treeRecord`](lean:D5/S3/Quantum/Routing/HannRouterProfiles.treeRecord) | [{source}](lean:D5/S3/Quantum/Routing/HannRouterProfiles.treeRecord) | `def` | Ch 38 `#def-ch38-profile-records` |
+| `D141` | [`D5.S3.Quantum.Routing.HannSignedCertificate.Coeff`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Coeff) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Coeff) | `def` | Ch 38 `#def-ch38-signed-fourier-records` |
+| `D142` | [`D5.S3.Quantum.Routing.HannSignedCertificate.Environment`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Environment) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Environment) | `def` | Ch 38 `#def-ch38-signed-fourier-records` |
+| `D143` | [`D5.S3.Quantum.Routing.HannSignedCertificate.Output`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Output) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Output) | `inductive` | Ch 38 `#def-ch38-signed-recursion` |
+| `D144` | [`D5.S3.Quantum.Routing.HannSignedCertificate.Output.flag`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Output.flag) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.Output.flag) | `def` | Ch 38 `#def-ch38-signed-recursion` |
+| `D145` | [`D5.S3.Quantum.Routing.HannSignedCertificate.childEnvironment`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.childEnvironment) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.childEnvironment) | `def` | Ch 38 `#def-ch38-signed-synthesis` |
+| `D146` | [`D5.S3.Quantum.Routing.HannSignedCertificate.densityGram`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.densityGram) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.densityGram) | `def` | Ch 38 `#def-ch38-signed-gram-orientations` |
+| `D147` | [`D5.S3.Quantum.Routing.HannSignedCertificate.embed`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.embed) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.embed) | `def` | Ch 38 `#def-ch38-signed-synthesis` |
+| `D148` | [`D5.S3.Quantum.Routing.HannSignedCertificate.inherited`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.inherited) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.inherited) | `def` | Ch 38 `#def-ch38-signed-recursion` |
+| `D149` | [`D5.S3.Quantum.Routing.HannSignedCertificate.labelIndex`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.labelIndex) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.labelIndex) | `def` | Ch 38 `#def-ch38-signed-fourier-records` |
+| `D150` | [`D5.S3.Quantum.Routing.HannSignedCertificate.localRecord`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.localRecord) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.localRecord) | `def` | Ch 38 `#def-ch38-signed-fourier-records` |
+| `D151` | [`D5.S3.Quantum.Routing.HannSignedCertificate.omega`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.omega) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.omega) | `def` | Ch 38 `#def-ch38-signed-fourier-records` |
+| `D152` | [`D5.S3.Quantum.Routing.HannSignedCertificate.outputs`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.outputs) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.outputs) | `def` | Ch 38 `#def-ch38-signed-recursion` |
+| `D153` | [`D5.S3.Quantum.Routing.HannSignedCertificate.record`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.record) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.record) | `def` | Ch 38 `#def-ch38-signed-synthesis` |
+| `D154` | [`D5.S3.Quantum.Routing.HannSignedCertificate.recordMatrix`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.recordMatrix) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.recordMatrix) | `def` | Ch 38 `#def-ch38-signed-gram-orientations` |
+| `D155` | [`D5.S3.Quantum.Routing.HannSignedCertificate.restrict`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.restrict) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.restrict) | `def` | Ch 38 `#def-ch38-signed-synthesis` |
+| `D156` | [`D5.S3.Quantum.Routing.HannSignedCertificate.standardGram`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.standardGram) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.standardGram) | `def` | Ch 38 `#def-ch38-signed-gram-orientations` |
+| `D157` | [`D5.S3.Quantum.Routing.HannSignedCertificate.step`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.step) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.step) | `def` | Ch 38 `#def-ch38-signed-recursion` |
+| `D158` | [`D5.S3.Quantum.Routing.HannSignedCertificate.synthesis`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.synthesis) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.synthesis) | `def` | Ch 38 `#def-ch38-signed-synthesis` |
+| `D159` | [`D5.S3.Quantum.Routing.HannSignedCertificate.vacuumRecord`](lean:D5/S3/Quantum/Routing/HannSignedCertificate.vacuumRecord) | [{source}](lean:D5/S3/Quantum/Routing/HannSignedCertificate.vacuumRecord) | `def` | Ch 38 `#def-ch38-signed-synthesis` |
 | `D070` | [`D5.S3.QuantumBounds.ClassicalFiberBound.DeterministicFiberModel`](lean:D5/S3/QuantumBounds/ClassicalFiberBound.DeterministicFiberModel) | [{source}](lean:D5/S3/QuantumBounds/ClassicalFiberBound.DeterministicFiberModel) | `inductive` | Ch 13 `#def-deterministic-fiber-model`, Ch 13 |
 | `D071` | [`D5.S3.QuantumBounds.ClassicalFiberBound.boolValue`](lean:D5/S3/QuantumBounds/ClassicalFiberBound.boolValue) | [{source}](lean:D5/S3/QuantumBounds/ClassicalFiberBound.boolValue) | `def` | Ch 13 `#def-deterministic-fiber-model`, Ch 13 |
 | `D072` | [`D5.S3.QuantumBounds.ClassicalFiberBound.chshAt`](lean:D5/S3/QuantumBounds/ClassicalFiberBound.chshAt) | [{source}](lean:D5/S3/QuantumBounds/ClassicalFiberBound.chshAt) | `def` | Ch 13 `#def-deterministic-fiber-model`, Ch 13 |
@@ -481,7 +529,7 @@
 
 ## C.3 行内引用的辅助定理与定义索引（176 项唯一声明） {#sec-appendix-c-inline}
 
-除 C.1 与 C.2 的 435 项环境引用声明外，另有 **176 项声明（123 项定理、53 项定义）**在中文正文各单元中只通过行内链接出现，未被任何 `:::` 环境头以 `lean=` 引用。它们包括旧版 C.1 中仅由媒体消费的三项定理；媒体引用保留在行末，但不改变本节的行内分区。三节共同覆盖锁文件全部 **611 项唯一声明**（$321 + 114 + 176 = 611$）。
+除 C.1 与 C.2 的 483 项环境引用声明外，另有 **176 项声明（123 项定理、53 项定义）**在中文正文各单元中只通过行内链接出现，未被任何 `:::` 环境头以 `lean=` 引用。它们包括旧版 C.1 中仅由媒体消费的三项定理；媒体引用保留在行末，但不改变本节的行内分区。三节共同覆盖锁文件全部 **659 项唯一声明**（$324 + 159 + 176 = 659$）。
 
 | 序号 | Lean 声明（点击跳转源码） | 所属模块与行号 | 种类 | 行内引用章节 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -699,22 +747,22 @@
 | :--- | :--- | :--- | :---: |
 | **上游仓库与分支** | `the-omega-institute/trureturing` 分支 `dev` | `site.toml` `[trureturing]` 配置与 `git merge-base --is-ancestor` | `PASS` |
 | **所钉提交 SHA** | [{commit}](trureturing:) | `trureturing.lock.json` `commit` 字段精确锁定 | `PASS` |
-| **冻结定理总数** | `321` 项环境引用定理（含行内共 `444` 项 `kind == "theorem"`） | 核对 `Golden/Frozen/state/<module>.lean.json` 中每项状态片与 `statement_id` 哈希 | `PASS` |
-| **辅助定义与结构数** | `114` 项环境定义/归纳类型；含行内共 `167` 项（`157` `def` + `10` `inductive`） | 单独归入第 C.2 节，绝不与 `theorem / lemma / proposition / corollary` 混计 | `PASS` |
+| **冻结定理总数** | `324` 项环境引用定理（含行内共 `447` 项 `kind == "theorem"`） | 核对 `Golden/Frozen/state/<module>.lean.json` 中每项状态片与 `statement_id` 哈希 | `PASS` |
+| **辅助定义与结构数** | `159` 项环境定义/归纳类型；含行内共 `212` 项（`201` `def` + `11` `inductive`） | 单独归入第 C.2 节，绝不与 `theorem / lemma / proposition / corollary` 混计 | `PASS` |
 | **多语言结构对齐** | `zh` 与 `en` 章节序列、环境 ID、Lean 引用序列 100% 一致 | `./tbook check` 跨版本逐项比对（`0 error(s)`） | `PASS` |
 
 ::: {.figure src="appc-ledger"}
-**$611$ 条锁定声明的对账：种类 × 出现方式。** 两行是定理与定义，三列是环境头的 `lean=` 引用、仅行内出现但有媒体消费者、仅有行内链接。定理一行 $321 + 9 + 114 = 444$，定义一行 $114 + 0 + 53 = 167$。虚线框按本附录的环境引用分区：C.1 $= 321$，C.2 $= 114$，C.3 $= 9 + 114 + 0 + 53 = 176$；媒体消费者不改变索引分区。
+**$659$ 条锁定声明的对账：种类 × 出现方式。** 两行是定理与定义，三列是环境头的 `lean=` 引用、仅行内出现但有媒体消费者、仅有行内链接。定理一行 $324 + 9 + 114 = 447$，定义一行 $159 + 0 + 53 = 212$。虚线框按本附录的环境引用分区：C.1 $= 324$，C.2 $= 159$，C.3 $= 9 + 114 + 0 + 53 = 176$；媒体消费者不改变索引分区。
 :::
 
-这张账的第一行在声明地图上是 $444$ 格绿色：被环境头引用的 $321$ 格画成实心，其余 $9 + 114 = 123$ 格空心。
+这张账的第一行在声明地图上是 $447$ 格绿色：被环境头引用的 $324$ 格画成实心，其余 $9 + 114 = 123$ 格空心。
 
 ::: {.viz src="lean-declaration-map" preset="theorems" height="500"}
-**只看定理。** 地图只保留锁文件里种类为 `theorem` 的 444 格：321 个实心格被环境头以 `lean=` 引用，123 个空心格只在中文正文的行内链接里出现。
+**只看定理。** 地图只保留锁文件里种类为 `theorem` 的 447 格：324 个实心格被环境头以 `lean=` 引用，123 个空心格只在中文正文的行内链接里出现。
 :::
 
 ::: {.remark #rem-appendix-c-epistemic-boundary title="完整声明索引的验证边界说明"}
-本附录 C.1 的 321 条环境引用定理、C.2 的 114 项环境引用定义/归纳类型与 C.3 的 176 项行内声明，互不重叠地覆盖 `trureturing.lock.json` 的全部 611 项声明（444 项 `theorem` + 157 项 `def` + 10 项 `inductive`），源码链接均指向所钉的 `trureturing@dev` 提交 [{commit}](trureturing:)。C.4 的 9 个开放环境与 2 项文献边界不计入这些锁定声明；索引登记、正文解释与内核证明各有明确边界。
+本附录 C.1 的 324 条环境引用定理、C.2 的 159 项环境引用定义/归纳类型与 C.3 的 176 项行内声明，互不重叠地覆盖 `trureturing.lock.json` 的全部 659 项声明（447 项 `theorem` + 201 项 `def` + 11 项 `inductive`），源码链接均指向所钉的 `trureturing@dev` 提交 [{commit}](trureturing:)。C.4 的 9 个开放环境与 2 项文献边界不计入这些锁定声明；索引登记、正文解释与内核证明各有明确边界。
 :::
 
 ::: {.viz src="lean-declaration-map" height="560"}
