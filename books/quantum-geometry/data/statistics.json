@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 201,
+    "theorem": 203,
     "lemma": 34,
     "proposition": 45,
     "corollary": 31,
@@ -11,17 +11,17 @@
     "conjecture": 6,
     "problem": 3,
     "example": 124,
-    "remark": 201,
-    "proof": 306,
-    "lean_verified": 308,
+    "remark": 202,
+    "proof": 308,
+    "lean_verified": 310,
     "written_proof": 3,
     "literature": 198
   },
-  "total": 670,
+  "total": 672,
   "kinds": {
     "def": 201,
     "inductive": 11,
-    "theorem": 458
+    "theorem": 460
   },
   "groups": {
     "theorems": [
