@@ -854,7 +854,7 @@ $$
 
 This probability uses **uniform sampling of the full actual unit group**. The identity remains sampled and has false Good, since its order is $1$. If $N$ is not a prime power, its prime-factor set is nonempty and does not have cardinality $1$ (`isPrimePow_iff_card_primeFactors_eq_one`), so $k\ge2$. The failure proportion is then at most $1/2$ and success at least $1/2$. Prime powers with $k=1$ remain covered by the count, which gives only the lower bound $0$ for success. Every actual exponent is retained, with no squarefree restriction.
 
-**The same Good gives both proper factors.** This deterministic step requires only natural $N>2$ and $\gcd(a,N)=1$; it also applies to even $N$. Let $u$ be the unit represented by $a$, put $r=\operatorname{ord}(u)$, and assume $\operatorname{Good}(u)$. Finiteness gives $r>0$, and evenness gives $0<m=r/2<r$. Minimality of the true order excludes $u^m=1$, Good excludes $u^m=-1$, and
+**The same Good gives both proper factors.** This deterministic step requires only natural $N>2$ and $\gcd(a,N)=1$; it also applies to even $N$. Let $u$ be the unit represented by $a$, put $r=\operatorname{ord}(u)$, and assume $\operatorname{Good}(u)$. Finiteness gives $r>0$, and evenness gives $m=r/2$ with $0<m<r$. Minimality of the true order excludes $u^m=1$, Good excludes $u^m=-1$, and
 
 $$
 (u^m)^2=u^{2m}=u^r=1.
