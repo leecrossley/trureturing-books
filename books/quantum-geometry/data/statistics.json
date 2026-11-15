@@ -11,11 +11,11 @@
     "conjecture": 6,
     "problem": 3,
     "example": 124,
-    "remark": 201,
+    "remark": 202,
     "proof": 305,
     "lean_verified": 307,
     "written_proof": 3,
-    "literature": 198
+    "literature": 199
   },
   "total": 667,
   "kinds": {
@@ -3993,13 +3993,13 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 168,
+          "line": 184,
           "id": "thm-ch29-gram-rigidity-and-pell",
           "via": "environment"
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 171,
+          "line": 187,
           "id": "",
           "via": "inline"
         },
@@ -17295,7 +17295,7 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 168,
+          "line": 184,
           "id": "thm-ch29-gram-rigidity-and-pell",
           "via": "environment"
         },
@@ -17307,7 +17307,7 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 177,
+          "line": 193,
           "id": "",
           "via": "inline"
         },

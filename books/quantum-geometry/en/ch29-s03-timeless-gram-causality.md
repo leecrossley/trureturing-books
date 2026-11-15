@@ -138,6 +138,22 @@ If the global time field is a timeless geometric crystal and local causality pos
    - Carrying $M$ finite historical memory anchors at $\mathbf{P}_k$, picking the next point $\mathbf{P}_{k+1}$ is mathematically a **Positive-Semidefinite (PSD) Matrix Completion ($G_{M+1} \succeq 0$)** inside the green compatible bubble carved out by those $M$ anchors;
    - Once $\mathbf{P}_{k+1}^*$ is chosen, the dihedral angle $\phi_k$ solidifies into a new 1D inner-product coordinate (the verb `liáng` crystallizing into the noun `liàng`), immediately framing the compatible bubble for step $k + 2$.
 
+::: {.remark #rem-ch29-local-windows-common-history title="Local memory windows and a common history: a conditional model and its literature boundary"}
+**Conditional model (`MODEL`) and literature result, not formalized in this book.** The pictures above start with actual vectors in one space and read their Gram entries; those data already have a common realization. A different question arises when only local memory tables are supplied, with no vectors given: can they be assembled into one history? Fix a finite horizon $N\ge0$ and memory width $M\ge0$, with indices $0,\ldots,N$. Let one real symmetric table $A$ have $A_{ii}=1$, retaining only entries with $|i-j|\le M$; more distant overlaps are free to be completed. For each $k=0,\ldots,N$, set
+
+$$
+W_k=\{k,k+1,\ldots,\min(N,k+M)\},
+$$
+
+and require $A[W_k,W_k]\succeq0$. Using one table already requires agreement on shared entries. If window tables are supplied separately, that agreement must be checked explicitly.
+
+These conditions suffice for a complete real positive-semidefinite matrix $B$ with $B_{ij}=A_{ij}$ whenever $|i-j|\le M$. The literature source is Vandenberghe–Andersen, *Chordal Graphs and Semidefinite Optimization*, [DOI: 10.1561/2400000006](https://doi.org/10.1561/2400000006), [author text](https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf), Theorem 10.1: a partial real symmetric matrix on a finite chordal graph has a PSD completion if and only if every specified clique principal block is PSD. Singular clique and overlap blocks are included; neither inverses nor positive definiteness are required.
+
+The correspondence is explicit. Use vertices $0,\ldots,N$ and edges $0<|i-j|\le M$. Deleting vertices in increasing order leaves each current vertex with pairwise adjacent remaining neighbors, giving a perfect elimination ordering and hence a chordal graph. Every nonempty clique lies in the window $W_k$ starting at its smallest vertex, so window positivity supplies every clique condition. A real Gram factorization of the completed $B$ then gives common unit vectors $P_0,\ldots,P_N\in\mathbb R^{N+1}$ with $\langle P_i,P_j\rangle=A_{ij}$ on all retained entries. This graph correspondence and Gram argument are a written application of the literature theorem, not a new Lean-verified declaration.
+
+The conclusion is a **common realization in some finite-dimensional space**. It does not guarantee realization in the pictures' fixed $\mathbb R^3$ or $\mathbb R^6$; fixed dimension additionally requires control of the completed matrix's rank. It selects neither unique distant overlaps nor a probability law or dynamics, and finite-horizon existence is not by itself a proof about infinite histories or physical causality. The band memory mask is an explicit additional model assumption here. The original pictures do not assert that arbitrary independently supplied local tables can be assembled in their fixed space.
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **One more step remembered, one ring narrower.** The rail adds history from $M = 1$ to $M = 5$: each older anchor adds a magenta ellipse to the slice, nested inside the last, and the cyan window through the amber $\mathbf{Q}$ narrows with it, from all of $[-1, 1]$ to about a quarter of that, with $\mathbf{Q}$ inside throughout. The events live in $\mathbb{R}^6$, so every depth keeps an inside; reading the compatible space as a finite observer's room for choice is this book's interpretation (`MODEL`).
 :::
