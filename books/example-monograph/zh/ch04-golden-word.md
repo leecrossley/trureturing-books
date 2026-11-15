@@ -157,7 +157,7 @@ $$
 
 Fibonacci 时刻给出一个极限；如果允许所有回归时刻，还能得到哪些有限极限？对固定的实二次无理数，这已有文献中的完整答案。下面先陈述 Dhanda–Haynes 的一般定理，再把它换成本章的最近整数距离[^dhanda-haynes]。
 
-::: {.theorem #thm-quadratic-accumulation title="实二次无理数的归一化逼近聚点" status="written-proof" proof="pf-quadratic-accumulation" doi="10.1016/j.jnt.2024.09.002" source="Theorem 4" request="https://github.com/the-omega-institute/trureturing-requests/issues/111"}
+::: {.theorem #thm-quadratic-accumulation title="实二次无理数的归一化逼近聚点" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulationClassification.derivedSet_eq_signed_norm_values"}
 设 $D\ge2$ 是无平方因子的整数，$A,B\in\mathbb Q$，$B\ne0$，$\alpha=A+B\sqrt D$，$K=\mathbb Q(\alpha)$。令
 
 $$
@@ -185,7 +185,7 @@ $$
 :::
 
 ::: {.proof #pf-quadratic-accumulation}
-以下展开原文第 6 节引理 18–19 与第 7 节式 (35)–(36) 的论证。记 $\alpha_0^*,\alpha_1^*$ 为基 $1,\alpha$ 关于迹配对的对偶基。原文第 2.3 节考虑乘子环
+先保留原文第 6 节引理 18–19 与第 7 节式 (35)–(36) 的单位论证，作为文献证明的解释；随后说明 Lean 用来证明聚点到范数方向的离散格论证。两者证明同一分类，但这里并不声称 Lean 逐行验证了论文的单位约化。记 $\alpha_0^*,\alpha_1^*$ 为基 $1,\alpha$ 关于迹配对的对偶基。原文第 2.3 节考虑乘子环
 
 $$
 \mathcal Z_\Lambda=\{v\in\mathcal O_K:v\Lambda\subseteq\Lambda\},
@@ -222,9 +222,55 @@ $$
 先证聚点集包含在所述范数集合中。取趋于某个聚点的互异归一化逼近值。它们有界；若 $|q|$ 有界，则相应的 $p$ 也只有有限多个，与互异性矛盾。因此可取 $|q|\to\infty$ 的子序列。变换 $(q,p)\mapsto(-q,-p)$ 把归一化值变号，所以只需处理正分母序列及其相反数。用引理 18 的有限集再取子序列，可固定非零的 $s$，相应的主导单位满足 $|u|\to\infty$。上式给出的极限只能是 $\pm2B\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$，属于定理右边。
 
 反过来，固定任意非零 $s\in\Lambda^*$，令 $u=u_k\to\infty$。此时 $q_{u_k}$ 最终非零，上式的绝对值趋于 $2|B|\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$。还须保证这给出集合的真正聚点，而非重复同一个值。原文式 (33) 的上述表达式保证 $\gamma_u\ne|\operatorname N_{K/\mathbb Q}(s)|$：若相等，则非零实数 $t'/t$ 只能是 $-2$；但 $t'=-2t$ 再取共轭会给出 $t=4t$，与 $t\ne0$ 矛盾。取符号固定的子序列，便有不同于极限的集合元素趋于两种符号之一的极限；再用 $\mathrm{NA}_1(\alpha)$ 关于 $0$ 的对称性，两个符号都成为聚点。这证明了反向包含。上述两种符号也使范数取绝对值与否给出同一个集合。
+
+Lean 的逆向包含直接从任意真正聚点 $x$ 出发。有界归一化值若又有有界的 $|q|$，就只有有限多个整数 $p,q$；去心邻域可以避开这个有限集。因此可选 $q_n\ne0,p_n\in\mathbb Z$，使 $|q_n|>n$ 且 $y_n=|q_n|(q_n\alpha-p_n)\to x$。置 $e_n=q_n\alpha-p_n=y_n/|q_n|$，便有 $e_n\to0$。令 $\delta=2B\sqrt D\ne0$，并在 $K$ 中取
+
+$$
+s_n=\frac{q_n}{2}+\frac{p_n-Aq_n}{2DB}\sqrt D.
+$$
+
+直接计算得 $\operatorname{Tr}(s_n)=q_n$、$\operatorname{Tr}(s_n\alpha)=p_n$，所以 $s_n\in\Lambda^*$；其常数坐标 $q_n/2\ne0$，故 $s_n\ne0$。其范数满足
+
+$$
+\begin{aligned}
+\operatorname N(s_n)
+&=\left(\frac14-\frac{A^2}{4DB^2}\right)q_n^2
+ +\frac{A}{2DB^2}q_np_n-\frac{p_n^2}{4DB^2},\\
+\delta\operatorname N(s_n)&=q_ne_n-\frac{e_n^2}{\delta}.
+\end{aligned}
+$$
+
+这个二次型的三个系数都是固定有理数。取正整数 $m$ 清除它们的分母，则 $m\operatorname N(s_n)\in\mathbb Z$。记 $\varepsilon_n=\operatorname{sgn}(q_n)\in\{1,-1\}$，得到整数序列
+
+$$
+j_n:=m\varepsilon_n\operatorname N(s_n)
+=\frac m\delta\left(y_n-\frac{\varepsilon_ne_n^2}{\delta}\right)
+\longrightarrow\frac m\delta x.
+$$
+
+整数在实数中是闭且离散的，故极限也是整数，且 $j_n$ 最终恒等于该极限。取尾部任一项便得 $x=\varepsilon_n\delta\operatorname N(s_n)$，即所需的两种符号之一。Lean 在坐标二次代数中完成这些计算，再经保持迹与范数的代数同构送入实际子域 $\mathbb Q(\alpha)\subset\mathbb R$。另一包含方向调用下一个定理的 Pell 乘子构造，它还给出单射且避开极限的逼近序列。完整证明由 Lean 内核检查。
 :::
 
 [^dhanda-haynes]: Kavita Dhanda, Alan Haynes, *Accumulation points of normalized approximations*, *Journal of Number Theory* 268 (2025), 1–38，DOI：[10.1016/j.jnt.2024.09.002](https://doi.org/10.1016/j.jnt.2024.09.002)。一般陈述见 Theorem 4，迹对偶见第 2.3 节，证明见第 6 节引理 18–19 与第 7 节；可读[原文版本](https://arxiv.org/html/2310.00173v2)。
+
+下列定理给出完整分类中范数到聚点的包含方向，并保留比集合等式更强的单射序列数据。
+
+::: {.theorem #thm-quadratic-norm-inclusion title="非零迹对偶范数产生真正聚点" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulation.signed_norm_values_accumulate"}
+设 $D\ge2$ 是无平方因子的整数，$A,B\in\mathbb Q$，$B\ne0$，$\alpha=A+B\sqrt D$。在实际子域 $K=\mathbb Q(\alpha)\subset\mathbb R$ 中，令 $\Lambda^*$ 为 $\mathbb Z+\alpha\mathbb Z$ 关于域迹的对偶。对每个 $s\in\Lambda^*\setminus\{0\}$，置 $c=2B\sqrt D\,\operatorname N_{K/\mathbb Q}(s)$。对每个 $x\in\{c,-c\}$，存在单射序列 $f:\mathbb N\to\mathbb R$，使得
+
+$$
+\begin{aligned}
+f(n)&\in\mathrm{NA}_1(\alpha),& f(n)&\ne x\quad(n\in\mathbb N),\\
+\lim_{n\to\infty}f(n)&=x,& x&\in\mathcal A_1(\alpha).
+\end{aligned}
+$$
+
+此处保留 $B<0$ 的情形、两种符号与所有非零整数分母；分子分母不要求互素。
+:::
+
+::: proof
+选取一个范数为 $1$、在正平方根嵌入下大于 $1$ 的 Pell 乘子，使其乘法保持同一个迹对偶格。对固定非零对偶向量取该乘子的幂，迹坐标给出整数分子、分母。去掉有限个初项后，归一化逼近值等于目标范数值加上非零几何递减修正项，因此各项互异且避开极限；同时变号分子、分母给出另一种符号。坐标二次代数与实际生成域之间的代数同构保持迹与范数，把这条构造送到陈述中的原始格。完整证明由 Lean 内核检查。
+:::
 
 现在专门取 $\alpha=\varphi$。先核对两种问题的参数：令 $\mathcal C_\varphi$ 为沿严格递增正整数 $q_j$ 的 $q_j\norm{q_j\varphi}$ 的所有有限极限组成的集合。从 $x\in\mathcal A_1(\varphi)$ 出发，取互异集合值趋于 $x$；有界归一化误差在有限多个分母处只能给出有限多个值，故可抽取 $|q_j|$ 严格递增的子序列。必要时同时把 $q_j,p_j$ 变号，使分母为正，绝对误差不变。由于 $|q_j\varphi-p_j|=O(1/q_j)<1/2$ 最终成立，$p_j$ 最终就是最近整数，所以 $q_j\norm{q_j\varphi}\to|x|$。
 
@@ -263,12 +309,12 @@ $$
 \end{aligned}
 $$
 
-非零整数对的范数不会为零，因为 $a-b\varphi$ 及其共轭都非零。这里仍不加互素条件；这些公式是一般文献定理的黄金比特例与上述双向对应所得的书面推导。
+非零整数对的范数不会为零，因为 $a-b\varphi$ 及其共轭都非零。这里仍不加互素条件；这些公式是一般分类定理的黄金比特例与上述双向对应所得的书面推导；最近整数距离的换算和黄金迹对偶的手算本身未作为这里引用的 Lean 声明。
 
 ::: {.remark #prob-revival-spectrum title="回归谱的文献结论与形式化边界"}
-[@thm-revival-score] 的 Lean 验证只处理 Fibonacci 时刻；固定 $\varphi$ 的所有实聚点则由 [@thm-quadratic-accumulation] 及上面的换算给出，不能再把这个分类列为数学开放问题。本章引用的 `GoldenRevivalScore` 与 `GoldenHurwitzBound` 冻结声明都不包含这个完整聚点集等式。
+[@thm-revival-score] 的 Lean 验证只处理 Fibonacci 时刻；固定 $\varphi$ 的所有实聚点则由 [@thm-quadratic-accumulation] 及上面的换算给出，不能再把这个分类列为数学开放问题。[@thm-quadratic-accumulation] 已由 Lean 给出一般二次无理数的完整带符号聚点集等式；[@thm-quadratic-norm-inclusion] 另保留单射逼近序列。`GoldenRevivalScore` 与 `GoldenHurwitzBound` 本身仍不包含这个等式，最近整数距离与黄金迹对偶的专门换算仍是上面的书面推导。
 
-`Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` 所说的“完整回归谱”与“全局最优性”没有精确定义[^hurwitz]；对应 Lean 文件也明确不声称完整的 Lagrange–Markov 谱分类。固定一个二次无理数的聚点集与让 $\alpha$ 变化的谱问题不同，前者的文献结果并不自动解决这些更宽泛、尚未写成命题的表述。一般二次聚点定理的形式化需求及相关声明的适用范围见[形式化请求](https://github.com/the-omega-institute/trureturing-requests/issues/111)。
+`Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` 所说的“完整回归谱”与“全局最优性”没有精确定义[^hurwitz]；对应 Lean 文件也明确不声称完整的 Lagrange–Markov 谱分类。固定一个二次无理数的聚点集与让 $\alpha$ 变化的谱问题不同，前者的分类定理并不自动解决这些更宽泛、尚未写成命题的表述。一般二次聚点定理的形式化记录及相关声明的适用范围见[形式化请求](https://github.com/the-omega-institute/trureturing-requests/issues/111)。
 :::
 
 [^hurwitz]: trureturing 没有说明这里的“全局最优”具体指什么，下面只是一种读法。若把它理解为“对全体正整数 $q$，$q\norm{q\varphi}$ 的下极限等于 $1/\sqrt5$”，这是经典结果（A. Hurwitz, Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche, *Math. Ann.* 39 (1891), 279–284）。trureturing 已冻结其中一半所需的界：模块 `D5/S1/Depth/GoldenHurwitzBound` 中的 `golden_hurwitz_bound` 说，对每个既约分母为 $d$ 的有理数 $r$，$|\varphi - r| > 1/(\sqrt5 d^2 + d)$，由此用纸面推理可得这个下极限不小于 $1/\sqrt5$；另一方面，$n \ge 2$ 时 $\norm{F_n\varphi} = |F_n\varphi - F_{n+1}|$，所以 [@thm-revival-score] 给出它不大于 $1/\sqrt5$。把两者合成的下极限陈述不在上述引用的冻结声明中，本书也未把它形式化。
@@ -355,7 +401,107 @@ O-5 是开放问题，不是定理，本书不为它引用任何 Lean 声明。t
 
 trureturing 在 `GoldenWindowZeroObstruction` 模块中证明了两条与 O-5 有关的结果，都不决定它。一条说：若某个函数在半平面 $\operatorname{Re} s > r$（$0 < r < 1/\varphi^2$）上解析、在 $\operatorname{Re} s > 1/\varphi^2$ 上等于 $E$，并在这个半平面内、条件 3 的带中有一个实部不等于 $1/(2\varphi^2)$ 的零点，那么满足条件 1、2 且在 $\operatorname{Re} s > r$ 上额外满足一种正规形式条件（Mathlib 的 `MeromorphicNFOn`）的候选，都不满足条件 3。另一条说：只改动一点的函数值，就能让亚纯的候选在该点不解析，从而避开条件 3 在这一点的检验。Blueprint 据此说明，前者并不否定原始的 O-5 陈述，后者则把原陈述的一个局限写成了定理。
 
-以上关于 O-5 的说法出自 trureturing 所钉提交中的下列文件：
+::: {.remark #rem-o5-continuation-route title="O-5 的延拓路线与剩余接口"}
+**文献结果，未在本书形式化。** Bhowmik–Essouabri–Lichtin（BEL）的多变量 Euler 乘积方法提供了一条延拓路线[^bel-continuation]。对有限个解析函数 $\ell_j$ 和整数 $a_j$，其引理 1 的证明允许局部因子形如 $1+\sum_j a_jp^{-\ell_j(s)}+R_p(s)$，其中 $R_p$ 在目标域上解析，且对素数 $p$ 和域内的 $s$ 一致为 $O(p^{-2})$。在 $W(\ell;\delta)=\{s:\operatorname{Re}\ell_j(s)>\delta\text{ 对所有 }j\}$（$\delta>0$）上，反复消去低阶项可提取有限个整数次幂的 $\zeta$ 因子，留下全纯、绝对收敛的余项乘积。整数幂保证提取的因子仍是亚纯函数；这是一种已知的文献方法，并不是本书已经完成的 O-5 应用。
+
+具体的参数对应从 $\beta(v)=\lfloor(v+1)/\varphi\rfloor+v\varphi\ge\sqrt5\,v-1$ 出发。记 $H_\epsilon=\{s:\operatorname{Re}s>\epsilon\}$。给定 $0<\epsilon<1/\varphi^2$，取 $M\ge1$ 使 $\epsilon(\sqrt5(M+1)-1)\ge2$；待建立的截断接口是在 $H_\epsilon$ 上证明尾项解析，并一致满足
+
+$$
+\left|\sum_{v>M}p^{-s\beta(v)}\right|
+\le \frac{p^{-2}}{1-2^{-\epsilon\sqrt5}}.
+$$
+
+这一估计的纸面依据是用 $p^{-\epsilon(\sqrt5\,v-1)}$ 控制各项，再求比值为 $p^{-\epsilon\sqrt5}$ 的几何级数；解析性则需衔接局部一致收敛。保留的权重为 $b_v=\beta(v)$（$1\le v\le M$），取 $\ell_v(s)=b_vs$、$a_v=1$。其最小权重为 $\beta(1)=\varphi^2$，因此 BEL 的域在此对应为
+
+$$
+W(\ell;\epsilon\varphi^2)=H_\epsilon,
+\qquad W(\ell;1)=H_{1/\varphi^2}.
+$$
+
+这给出待核验应用的参数与截断目标；下条评注补出任意有限阶的整数多变量消去及其无除法的复数求值恒等式。尚须把该恒等式接到上述解析尾项，实现一致 $O(p^{-2})$ 估计，并在多重指标到权重的对应中处理同权重项的合并，以及重新引入商式时负校正指数带来的分母；形式的一元系数恒等式或固定阶消去式不能单独完成这一步。随后还须证明余项素数乘积局部一致收敛，为**每个** $\epsilon>0$ 构造延拓，并使重叠半平面上的正规形式亚纯代表相容，拼成 $H_0$ 上的函数；一个固定截断不够。条件 2 还要求在原始域 $H_{1/\varphi^2}$ 的**每一点**都等于 $E(s)$，包括表面奇点可去时应取的值。亚纯函数胚相等，并不保证任意仅满足 `MeromorphicOn` 的函数逐点相等，所以上述正规形式与单点改值的限制仍须保留。这些解析实现与拼接尚未在本书中形式化；该路线也不给出局部因子或乘积的非零性，更不给出条件 3 的零点定位。O-5 仍然开放，条件 3 仍需另行研究。
+:::
+
+::: {.remark #rem-o5-finite-cancellation title="整数 Euler 消去的有限代数形式"}
+**文献展开与书面有限推论，未在本书形式化。** Delabarre 在第 2.2 节引理 2 中给出已发表的整数指数展开[^delabarre-cancellation]。用有限变量集 $J$ 重记其变量，令 $a_j\in\mathbb Z$、$S=\sum_{j\in J}|a_j|$。当 $S>0$ 且每个 $|Y_j|<1/S$ 时，
+
+$$
+Q(Y):=1+\sum_{j\in J}a_jY_j
+=\prod_{\nu\in\mathbb N^J\setminus\{0\}}(1-Y^\nu)^{\gamma(\nu)},
+\qquad \gamma(\nu)\in\mathbb Z,
+$$
+
+这里 $Y^\nu=\prod_jY_j^{\nu_j}$，右侧绝对收敛；原文式 (6) 给出指数公式，评注 4 指出可按总次数归纳证明其整数性。若 $S=0$（包括 $J$ 为空），则 $Q=1$，可直接取所有指数为零，不使用 $1/S$。若把展开写成 $Q\prod_\nu(1-Y^\nu)^{c_\nu}=1$，校正指数的符号约定就是 $c_\nu=-\gamma(\nu)$。下面是这种消去法清除分母后的**书面有限推论及证明**，并非引理 2 的逐字陈述，也不主张新的文献方法或已完成 Lean 验证。
+
+在 $\mathbb Z[X_j:j\in J]$ 中，记 $|\nu|=\sum_j\nu_j$、$X^\nu=\prod_jX_j^{\nu_j}$，并任取 $N\in\mathbb N$。有限集
+
+$$
+E_N=\{\nu\in\mathbb N^J:1\le|\nu|\le N\}
+$$
+
+上存在整数 $c_\nu$。令 $c_\nu^+=\max(c_\nu,0)$、$c_\nu^-=\max(-c_\nu,0)$，则可得到以下有限多项式恒等式：
+
+$$
+\begin{aligned}
+U&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^+},\\
+V&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^-},\\
+QU&=V+\sum_{t\in T}h_tX^t,
+\qquad |t|\ge N+1\quad(t\in T).
+\end{aligned}
+$$
+
+这里 $T$ 有限、$h_t\in\mathbb Z$，所有幂的指数都是自然数；负的 $c_\nu$ 只使相应因子进入 $V$。特别地，$N=0$ 时 $E_N$ 为空，$U=V=1$，余项为 $Q-1$，其常数项为零，但余项一般不为零。
+
+为证明此式，令 $\mathcal F_d$ 为总次数小于 $d$ 的系数全为零的多项式集合。有限系数卷积中每一项的次数相加，故 $\mathcal F_d$ 对加减和任意多项式乘法封闭，且
+
+$$
+\mathcal F_r\mathcal F_s\subseteq\mathcal F_{r+s},
+\qquad \mathcal F_{d+1}\subseteq\mathcal F_d.
+$$
+
+从 $U=V=1$ 开始，$H=QU-V=Q-1\in\mathcal F_1$，且 $U,V$ 的常数项均为 $1$。设已到第 $d\ge1$ 层，$H\in\mathcal F_d$。因 $J$ 有限，$L_d=\{\nu:|\nu|=d\}$ 有限。置 $r_\nu=[X^\nu]H$、$h_d=\sum_{\nu\in L_d}r_\nu X^\nu$，并取
+
+$$
+\begin{aligned}
+A&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(r_\nu,0)},\\
+B&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(-r_\nu,0)}.
+\end{aligned}
+$$
+
+自然数次幂的二项展开给出 $(1-X^\nu)^m=1-mX^\nu$ 加上属于 $\mathcal F_{2d}$ 的项。有限乘积中选取两个或更多非常数项，也至少有次数 $2d$。由于 $2d\ge d+1$，得到
+
+$$
+A-1,\ B-1\in\mathcal F_d,
+\qquad A-B+h_d\in\mathcal F_{d+1}.
+$$
+
+把 $U,V$ 分别更新为 $UA,VB$。处理旧分母因子 $V$ 与新层的相互作用，需用精确恒等式
+
+$$
+\begin{aligned}
+QUA-VB
+&=HA+V(A-B)\\
+&=H+(A-B)+H(A-1)+(V-1)(A-B).
+\end{aligned}
+$$
+
+其中 $H-h_d\in\mathcal F_{d+1}$，故 $H+(A-B)\in\mathcal F_{d+1}$；又有 $H(A-1)\in\mathcal F_{2d}\subseteq\mathcal F_{d+1}$。旧 $V$ 的常数项为 $1$，于是 $V-1\in\mathcal F_1$，从而 $(V-1)(A-B)\in\mathcal F_{d+1}$。新 $H$ 因此属于 $\mathcal F_{d+1}$，而更新后的 $U,V$ 常数项仍为 $1$。这同时消去第 $d$ 层并保留全部较低次数的消去结果。
+
+依次做 $d=1,\ldots,N$，在互不相交的层上指定 $c_\nu=r_\nu$，即得所列 $U,V$，且 $H=QU-V\in\mathcal F_{N+1}$。取 $T$ 为最终 $H$ 的有限支集、$h_t=[X^t]H$，便得余项及其次数界。每层校正指数由该层残差系数唯一确定，这也与文献展开中 $c=-\gamma$ 的符号相合。作为手算检查，$Q=1+X$ 时，$N=1$ 给出 $c_1=1$、$H=-X^2$；$N=2$ 再取 $c_2=-1$，则 $U=1-X$、$V=1-X^2$、$H=0$。
+
+上述选择全在引入解析权重之前完成。对任意 $z=(z_j)_{j\in J}\in\mathbb C^J$，多项式求值保持有限和、积与自然数次幂，故
+
+$$
+Q(z)U(z)=V(z)+\sum_{t\in T}h_tz^t
+$$
+
+在每个 $z$ 都成立，即使某个 $1-z^\nu=0$；这里没有除法。代入 $z_j=p^{-b_js}$ 后，不同多重指标可能因权重的有理关系而合并，但不会破坏这个恒等式。它尚不提供余项的一致解析估计、可除性或非零性，也不完成上条评注的素数乘积、正规形式拼接和逐点相等义务。有限代数证明与其 Lean 形式化应分别核验；本书尚未把这一任意阶结论列为 Lean 结果，O-5 的条件 2、3 仍未由此解决。
+:::
+
+[^bel-continuation]: G. Bhowmik, D. Essouabri, B. Lichtin, *Meromorphic continuation of multivariable Euler products*, [DOI: 10.1515/forum.2007.044](https://doi.org/10.1515/forum.2007.044)。这里的原文定位采用[作者预印本](https://arxiv.org/pdf/math/0502508v1)第 1.1 节：引理 1 及其证明，第 5–8 页，尤其式 (2)–(4) 中的一致解析扰动；定理 1 及其证明，第 8–10 页，将方法用于单位多圆盘上常数项为零、Taylor 系数为整数的解析幂级数。这些文献结论未在本书形式化。
+
+[^delabarre-cancellation]: L. Delabarre, *Extension of Estermann's theorem to Euler products associated to a multivariate polynomial*, *Bulletin de la Société Mathématique de France* **141**(2) (2013), 225–265，[DOI: 10.24033/bsmf.2647](https://doi.org/10.24033/bsmf.2647)，[期刊原文](https://www.numdam.org/item/BSMF_2013__141_2_225_0.pdf)。第 1.1 节规定系数为整数；第 2.2 节引理 2、式 (5)–(6) 与评注 4 见印刷页 233，证明见 234–235 页。这里引用的是已发表的整数指数展开；本评注另行完整写出其有限消去形式的证明。
+
+O-5 的原始陈述及上述正规形式和单点改值限制，出自 trureturing 所钉提交中的下列文件：
 
 - `D5/X_Frontier/Hearts.lean`：O-5 的陈述 `o5_independence` 及其中的定义；
 - `README.md` 与 `docs/VISION.md`：把 O-5 列为开放问题；

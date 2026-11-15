@@ -157,7 +157,7 @@ The table gives the values for $n = 1, \dots, 12$; $1/\sqrt5 \approx 0.4472136$.
 
 Fibonacci times give one limit. Which other finite limits become possible if we allow all return times? For a fixed real quadratic irrational, the literature gives a complete answer. We first state the general theorem of Dhanda and Haynes, then translate it into the nearest-integer distance used in this chapter[^dhanda-haynes].
 
-::: {.theorem #thm-quadratic-accumulation title="Accumulation points of normalized approximations to a real quadratic irrational" status="written-proof" proof="pf-quadratic-accumulation" doi="10.1016/j.jnt.2024.09.002" source="Theorem 4" request="https://github.com/the-omega-institute/trureturing-requests/issues/111"}
+::: {.theorem #thm-quadratic-accumulation title="Accumulation points of normalized approximations to a real quadratic irrational" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulationClassification.derivedSet_eq_signed_norm_values"}
 Let $D\ge2$ be a squarefree integer, $A,B\in\mathbb Q$ with $B\ne0$, $\alpha=A+B\sqrt D$, and $K=\mathbb Q(\alpha)$. Put
 
 $$
@@ -185,7 +185,7 @@ Here the trace and norm are $\operatorname{Tr}_{K/\mathbb Q}(x)=x+x'$ and $\oper
 :::
 
 ::: {.proof #pf-quadratic-accumulation}
-We expand the argument of Section 6, Lemmas 18–19, and Section 7, equations (35)–(36), of the source. Write $\alpha_0^*,\alpha_1^*$ for the basis dual to $1,\alpha$ under the trace pairing. Section 2.3 considers the multiplier ring
+We retain the unit argument of Section 6, Lemmas 18–19, and Section 7, equations (35)–(36), as an explanation of the published proof, then explain the discrete-grid argument Lean uses for the accumulation-to-norm direction. Both establish the same classification; this does not claim that Lean verifies the paper’s unit reduction line by line. Write $\alpha_0^*,\alpha_1^*$ for the basis dual to $1,\alpha$ under the trace pairing. Section 2.3 considers the multiplier ring
 
 $$
 \mathcal Z_\Lambda=\{v\in\mathcal O_K:v\Lambda\subseteq\Lambda\},
@@ -222,9 +222,55 @@ A unit has norm of absolute value $1$. As $|u|\to\infty$, we have $t'/t\to0$, so
 First we show that every accumulation point belongs to the stated norm set. Choose distinct normalized approximation values tending to an accumulation point. They are bounded. Bounded $|q|$ would allow only finitely many corresponding $p$, contradicting distinctness, so we can pass to a subsequence with $|q|\to\infty$. The map $(q,p)\mapsto(-q,-p)$ negates the normalized value, so it suffices to treat positive-denominator sequences and their negatives. Using the finite set in Lemma 18, pass to a further subsequence with a fixed nonzero $s$; the corresponding dominant units satisfy $|u|\to\infty$. The formulas above allow only the limits $\pm2B\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$, which belong to the right-hand side of the theorem.
 
 Conversely, fix any nonzero $s\in\Lambda^*$ and let $u=u_k\to\infty$. Then $q_{u_k}$ is eventually nonzero, and the absolute values of the normalized approximations tend to $2|B|\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$. We must ensure a genuine accumulation point of the set, rather than repetition of a single value. The expression above from equation (33) guarantees $\gamma_u\ne|\operatorname N_{K/\mathbb Q}(s)|$: equality would force the nonzero real number $t'/t$ to be $-2$, but conjugating $t'=-2t$ would give $t=4t$, contradicting $t\ne0$. On a subsequence with constant sign, set elements different from their limit therefore tend to one of the two signed limits. Symmetry of $\mathrm{NA}_1(\alpha)$ about $0$ gives the other sign as well. This proves the reverse inclusion. Allowing both signs also makes the norm set unchanged when the norm is replaced by its absolute value.
+
+For the converse in Lean, start directly with any genuine accumulation point $x$. Bounded normalized values with bounded $|q|$ allow only finitely many integer pairs $p,q$; a punctured neighborhood can avoid this finite set. We can therefore choose $q_n\ne0,p_n\in\mathbb Z$ with $|q_n|>n$ and $y_n=|q_n|(q_n\alpha-p_n)\to x$. Set $e_n=q_n\alpha-p_n=y_n/|q_n|$, so $e_n\to0$. Write $\delta=2B\sqrt D\ne0$ and take, in $K$,
+
+$$
+s_n=\frac{q_n}{2}+\frac{p_n-Aq_n}{2DB}\sqrt D.
+$$
+
+Direct calculation gives $\operatorname{Tr}(s_n)=q_n$ and $\operatorname{Tr}(s_n\alpha)=p_n$, hence $s_n\in\Lambda^*$. Its constant coordinate $q_n/2$ is nonzero, so $s_n\ne0$. Its norm satisfies
+
+$$
+\begin{aligned}
+\operatorname N(s_n)
+&=\left(\frac14-\frac{A^2}{4DB^2}\right)q_n^2
+ +\frac{A}{2DB^2}q_np_n-\frac{p_n^2}{4DB^2},\\
+\delta\operatorname N(s_n)&=q_ne_n-\frac{e_n^2}{\delta}.
+\end{aligned}
+$$
+
+The three coefficients of this quadratic form are fixed rational numbers. Choose a positive integer $m$ clearing their denominators; then $m\operatorname N(s_n)\in\mathbb Z$. With $\varepsilon_n=\operatorname{sgn}(q_n)\in\{1,-1\}$, the integer sequence
+
+$$
+j_n:=m\varepsilon_n\operatorname N(s_n)
+=\frac m\delta\left(y_n-\frac{\varepsilon_ne_n^2}{\delta}\right)
+\longrightarrow\frac m\delta x.
+$$
+
+The integers form a closed discrete subset of the reals, so the limit is an integer and $j_n$ eventually equals it. Any index in this tail gives $x=\varepsilon_n\delta\operatorname N(s_n)$, one of the required signed values. Lean performs these calculations in the coordinate quadratic algebra and transports them through an algebra equivalence preserving traces and norms to the actual subfield $\mathbb Q(\alpha)\subset\mathbb R$. The other inclusion uses the Pell multiplier construction of the next theorem, which also supplies an injective approximation sequence avoiding the limit. The full proof is checked by the Lean kernel.
 :::
 
 [^dhanda-haynes]: Kavita Dhanda and Alan Haynes, *Accumulation points of normalized approximations*, *Journal of Number Theory* 268 (2025), 1–38, DOI: [10.1016/j.jnt.2024.09.002](https://doi.org/10.1016/j.jnt.2024.09.002). The general statement is Theorem 4; the trace dual is defined in Section 2.3, and the proof uses Section 6, Lemmas 18–19, and Section 7. An accessible [primary version](https://arxiv.org/html/2310.00173v2) is available.
+
+The following theorem gives the norm-to-accumulation inclusion in the complete classification and retains injective sequence data stronger than the set equality.
+
+::: {.theorem #thm-quadratic-norm-inclusion title="Nonzero trace-dual norms give genuine accumulation points" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulation.signed_norm_values_accumulate"}
+Let $D\ge2$ be a squarefree integer, $A,B\in\mathbb Q$ with $B\ne0$, and $\alpha=A+B\sqrt D$. In the actual subfield $K=\mathbb Q(\alpha)\subset\mathbb R$, let $\Lambda^*$ be the field-trace dual of $\mathbb Z+\alpha\mathbb Z$. For every $s\in\Lambda^*\setminus\{0\}$, put $c=2B\sqrt D\,\operatorname N_{K/\mathbb Q}(s)$. For each $x\in\{c,-c\}$ there is an injective sequence $f:\mathbb N\to\mathbb R$ such that
+
+$$
+\begin{aligned}
+f(n)&\in\mathrm{NA}_1(\alpha),& f(n)&\ne x\quad(n\in\mathbb N),\\
+\lim_{n\to\infty}f(n)&=x,& x&\in\mathcal A_1(\alpha).
+\end{aligned}
+$$
+
+This includes negative $B$, both signs and every nonzero integer denominator, with no coprimality condition.
+:::
+
+::: proof
+Choose a Pell multiplier of norm $1$ whose positive-root embedding exceeds $1$ and whose multiplication preserves the same trace-dual lattice. Powers of this multiplier acting on a fixed nonzero dual vector give integer numerators and denominators through their trace coordinates. After finitely many initial terms, the normalized approximations equal the target norm value plus a nonzero geometrically decreasing correction. Their values are therefore distinct and avoid the limit. Negating numerator and denominator together supplies the other sign. An algebra isomorphism from the coordinate quadratic algebra to the actual generated field preserves trace and norm and transports the construction to the original lattice in the statement. The full proof is checked by the Lean kernel.
+:::
 
 Now specialize to $\alpha=\varphi$. First compare the parameters in the two questions. Let $\mathcal C_\varphi$ be the set of all finite limits of $q_j\norm{q_j\varphi}$ along strictly increasing positive integers $q_j$. Given $x\in\mathcal A_1(\varphi)$, choose distinct set values tending to $x$. Bounded normalized errors allow only finitely many values at any finite collection of denominators, so we can extract a subsequence with strictly increasing $|q_j|$. Negate $q_j,p_j$ together when necessary to make the denominators positive, leaving the absolute errors unchanged. Since eventually $|q_j\varphi-p_j|=O(1/q_j)<1/2$, the integer $p_j$ is eventually the nearest integer. Thus $q_j\norm{q_j\varphi}\to|x|$.
 
@@ -263,12 +309,12 @@ $$
 \end{aligned}
 $$
 
-A nonzero integer pair has nonzero norm, since both $a-b\varphi$ and its conjugate are nonzero. No coprimality condition is imposed here either. These formulas are written deductions from the golden specialization of the general literature theorem and the two-way correspondence above.
+A nonzero integer pair has nonzero norm, since both $a-b\varphi$ and its conjugate are nonzero. No coprimality condition is imposed here either. These formulas are written deductions from the golden specialization of the general classification theorem and the two-way correspondence above. The nearest-integer conversion and the golden trace-dual calculation themselves are not Lean declarations cited here.
 
 ::: {.remark #prob-revival-spectrum title="The literature result and the formalization boundary"}
-The Lean verification in [@thm-revival-score] covers only Fibonacci times. The complete set of finite accumulation points for fixed $\varphi$ follows from [@thm-quadratic-accumulation] and the conversion above; this classification should therefore not be listed as a mathematically open problem. Neither of the frozen declarations in `GoldenRevivalScore` and `GoldenHurwitzBound` cited here contains the full accumulation-set equality.
+The Lean verification in [@thm-revival-score] covers only Fibonacci times. The complete set of finite accumulation points for fixed $\varphi$ follows from [@thm-quadratic-accumulation] and the conversion above; this classification should therefore not be listed as a mathematically open problem. [@thm-quadratic-accumulation] now gives the complete signed accumulation-set equality for general quadratic irrationals in Lean; [@thm-quadratic-norm-inclusion] additionally retains injective approximation sequences. `GoldenRevivalScore` and `GoldenHurwitzBound` themselves still do not contain this equality. The specialized nearest-integer conversion and golden trace-dual calculation remain the written deductions above.
 
-The phrases "full revival spectrum" and "global optimality" in `Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` are not precisely defined[^hurwitz]; the corresponding Lean file also explicitly disclaims a full Lagrange–Markov spectrum classification. The accumulation set for a fixed quadratic irrational differs from a spectrum problem in which $\alpha$ varies. The literature result for the former does not automatically settle those broader, unformulated statements. The [formalization request](https://github.com/the-omega-institute/trureturing-requests/issues/111) records the need for the general quadratic accumulation theorem and the scope of related declarations.
+The phrases "full revival spectrum" and "global optimality" in `Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` are not precisely defined[^hurwitz]; the corresponding Lean file also explicitly disclaims a full Lagrange–Markov spectrum classification. The accumulation set for a fixed quadratic irrational differs from a spectrum problem in which $\alpha$ varies. The classification theorem for the former does not automatically settle those broader, unformulated statements. The [formalization request](https://github.com/the-omega-institute/trureturing-requests/issues/111) records the formalization of the general quadratic accumulation theorem and the scope of related declarations.
 :::
 
 [^hurwitz]: trureturing does not say exactly what "global optimality" means here; what follows is one possible reading. If it is read as "the lower limit of $q\norm{q\varphi}$ over all positive integers $q$ is $1/\sqrt5$", it is a classical result (A. Hurwitz, Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche, *Math. Ann.* 39 (1891), 279–284). trureturing has frozen the bound needed for one half of it: `golden_hurwitz_bound` in the module `D5/S1/Depth/GoldenHurwitzBound` says that every rational number $r$ with reduced denominator $d$ satisfies $|\varphi - r| > 1/(\sqrt5 d^2 + d)$, from which a paper argument gives a lower limit of at least $1/\sqrt5$; on the other hand, $\norm{F_n\varphi} = |F_n\varphi - F_{n+1}|$ for $n \ge 2$, so [@thm-revival-score] gives at most $1/\sqrt5$. The combined statement about the lower limit is not contained in those cited frozen declarations and is not formalized in this book.
@@ -355,7 +401,107 @@ O-5 is an open problem, not a theorem, and this book cites no Lean declaration f
 
 trureturing proves two results about O-5 in the module `GoldenWindowZeroObstruction`, and neither settles it. One says: if some function is analytic on a half-plane $\operatorname{Re} s > r$ (with $0 < r < 1/\varphi^2$), equals $E$ for $\operatorname{Re} s > 1/\varphi^2$, and has a zero inside that half-plane and inside the band of condition 3 whose real part differs from $1/(2\varphi^2)$, then no candidate that satisfies conditions 1 and 2 and, on $\operatorname{Re} s > r$, also a normal-form condition (Mathlib's `MeromorphicNFOn`) satisfies condition 3. The other says: changing the value of a meromorphic candidate at a single point makes it non-analytic there, which evades condition 3 at that point. The Blueprint concludes that the first does not refute the original O-5 statement, and that the second turns a limitation of that statement into a theorem.
 
-What this section says about O-5 comes from these files at the pinned trureturing commit:
+::: {.remark #rem-o5-continuation-route title="A continuation route for O-5 and its remaining interfaces"}
+**Literature result, not formalized in this book.** The multivariable Euler product method of Bhowmik–Essouabri–Lichtin (BEL) offers a route to continuation[^bel-continuation]. For finitely many analytic functions $\ell_j$ and integers $a_j$, the proof of their Lemma 1 allows local factors of the form $1+\sum_j a_jp^{-\ell_j(s)}+R_p(s)$, where $R_p$ is analytic on the target domain and uniformly $O(p^{-2})$ in both the prime $p$ and $s$ in that domain. On $W(\ell;\delta)=\{s:\operatorname{Re}\ell_j(s)>\delta\text{ for all }j\}$ ($\delta>0$), repeated cancellation of low-order terms extracts finitely many integer powers of $\zeta$ functions, leaving a holomorphic, absolutely convergent remainder product. Integer powers keep the extracted factors meromorphic; this is an established literature method whose application to O-5 has not been completed in this book.
+
+The parameter correspondence starts from $\beta(v)=\lfloor(v+1)/\varphi\rfloor+v\varphi\ge\sqrt5\,v-1$. Write $H_\epsilon=\{s:\operatorname{Re}s>\epsilon\}$. Given $0<\epsilon<1/\varphi^2$, choose $M\ge1$ with $\epsilon(\sqrt5(M+1)-1)\ge2$; the truncation interface still to establish is analyticity of the tail on $H_\epsilon$ together with the uniform bound
+
+$$
+\left|\sum_{v>M}p^{-s\beta(v)}\right|
+\le \frac{p^{-2}}{1-2^{-\epsilon\sqrt5}}.
+$$
+
+The paper reasoning behind this estimate bounds each term by $p^{-\epsilon(\sqrt5\,v-1)}$ and sums a geometric series with ratio $p^{-\epsilon\sqrt5}$; analyticity requires a connection to locally uniform convergence. The retained weights are $b_v=\beta(v)$ ($1\le v\le M$), with $\ell_v(s)=b_vs$ and $a_v=1$. Their minimum is $\beta(1)=\varphi^2$, so BEL's domains correspond here to
+
+$$
+W(\ell;\epsilon\varphi^2)=H_\epsilon,
+\qquad W(\ell;1)=H_{1/\varphi^2}.
+$$
+
+This supplies parameters and a truncation target for an application still to be checked; the next remark supplies integer multivariate cancellation to any finite order and its identity under complex evaluation without division. That identity must still be connected to the analytic tail above to obtain a uniform $O(p^{-2})$ bound, with equal-weight terms grouped under the map from multi-indices to weights and denominators from negative correction exponents handled when quotients are reintroduced; formal univariate coefficient identities or fixed-order cancellation formulas alone do not supply this step. One must then prove locally uniform convergence of the remainder product over primes, construct a continuation for **every** $\epsilon>0$, and make normal-form meromorphic representatives compatible on overlapping half-planes to obtain a function on $H_0$; one fixed truncation does not suffice. Condition 2 also requires equality with $E(s)$ at **every point** of the original domain $H_{1/\varphi^2}$, including the values assigned at apparent singularities that are removable. Equality of meromorphic germs does not ensure pointwise equality of arbitrary functions satisfying only `MeromorphicOn`, so the normal-form and single-point modification limitations above remain relevant. These analytic realizations and gluing steps have not been formalized in this book; the route also gives no nonvanishing assertion for local factors or the product, and no zero localization as required by condition 3. O-5 remains open, and condition 3 requires separate study.
+:::
+
+::: {.remark #rem-o5-finite-cancellation title="A finite algebraic form of integer Euler cancellation"}
+**Published expansion and written finite deduction, not formalized in this book.** Delabarre's §2.2, Lemma 2, gives a published expansion with integer exponents[^delabarre-cancellation]. Relabel its variables by a finite set $J$, with $a_j\in\mathbb Z$ and $S=\sum_{j\in J}|a_j|$. If $S>0$ and every $|Y_j|<1/S$, then
+
+$$
+Q(Y):=1+\sum_{j\in J}a_jY_j
+=\prod_{\nu\in\mathbb N^J\setminus\{0\}}(1-Y^\nu)^{\gamma(\nu)},
+\qquad \gamma(\nu)\in\mathbb Z,
+$$
+
+where $Y^\nu=\prod_jY_j^{\nu_j}$, with absolute convergence on the right. Equation (6) gives the exponents explicitly, and Remark 4 notes that their integrality can be proved by induction on total degree. If $S=0$ (including empty $J$), then $Q=1$ and all exponents may be taken to be zero, without using $1/S$. Writing the expansion as $Q\prod_\nu(1-Y^\nu)^{c_\nu}=1$ sets the correction sign convention $c_\nu=-\gamma(\nu)$. What follows is a **written finite deduction and proof** of this cancellation method after clearing denominators, rather than the literal statement of Lemma 2. It claims neither a new literature method nor completed Lean verification.
+
+Work in $\mathbb Z[X_j:j\in J]$, write $|\nu|=\sum_j\nu_j$ and $X^\nu=\prod_jX_j^{\nu_j}$, and take any $N\in\mathbb N$. Consider the finite set
+
+$$
+E_N=\{\nu\in\mathbb N^J:1\le|\nu|\le N\}
+$$
+
+There are integers $c_\nu$ on this set. Put $c_\nu^+=\max(c_\nu,0)$ and $c_\nu^-=\max(-c_\nu,0)$. They give a finite polynomial identity
+
+$$
+\begin{aligned}
+U&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^+},\\
+V&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^-},\\
+QU&=V+\sum_{t\in T}h_tX^t,
+\qquad |t|\ge N+1\quad(t\in T).
+\end{aligned}
+$$
+
+Here $T$ is finite, $h_t\in\mathbb Z$, and every power has a natural-number exponent; a negative $c_\nu$ places its factor in $V$. In particular, for $N=0$, $E_N$ is empty, $U=V=1$, and the remainder is $Q-1$. Its constant coefficient is zero, but the remainder need not vanish.
+
+For a proof, let $\mathcal F_d$ consist of polynomials whose coefficients in total degrees below $d$ vanish. Degrees add in every term of the finite coefficient convolution, so $\mathcal F_d$ is closed under addition, subtraction and multiplication by any polynomial, and
+
+$$
+\mathcal F_r\mathcal F_s\subseteq\mathcal F_{r+s},
+\qquad \mathcal F_{d+1}\subseteq\mathcal F_d.
+$$
+
+Start with $U=V=1$, so $H=QU-V=Q-1\in\mathcal F_1$, and both $U,V$ have constant coefficient $1$. Suppose we have reached layer $d\ge1$ with $H\in\mathcal F_d$. Since $J$ is finite, so is $L_d=\{\nu:|\nu|=d\}$. Set $r_\nu=[X^\nu]H$ and $h_d=\sum_{\nu\in L_d}r_\nu X^\nu$, and take
+
+$$
+\begin{aligned}
+A&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(r_\nu,0)},\\
+B&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(-r_\nu,0)}.
+\end{aligned}
+$$
+
+The binomial expansion for natural powers gives $(1-X^\nu)^m=1-mX^\nu$ plus terms in $\mathcal F_{2d}$. Choosing two or more nonconstant terms in the finite products also gives degree at least $2d$. Since $2d\ge d+1$,
+
+$$
+A-1,\ B-1\in\mathcal F_d,
+\qquad A-B+h_d\in\mathcal F_{d+1}.
+$$
+
+Update $U,V$ to $UA,VB$. To account for interactions between the old denominator factors in $V$ and the new layer, use the exact identity
+
+$$
+\begin{aligned}
+QUA-VB
+&=HA+V(A-B)\\
+&=H+(A-B)+H(A-1)+(V-1)(A-B).
+\end{aligned}
+$$
+
+Here $H-h_d\in\mathcal F_{d+1}$, so $H+(A-B)\in\mathcal F_{d+1}$, while $H(A-1)\in\mathcal F_{2d}\subseteq\mathcal F_{d+1}$. The old $V$ has constant coefficient $1$, giving $V-1\in\mathcal F_1$ and hence $(V-1)(A-B)\in\mathcal F_{d+1}$. Thus the new $H$ belongs to $\mathcal F_{d+1}$, and the updated $U,V$ still have constant coefficient $1$. This cancels degree $d$ while preserving all cancellations in lower degrees.
+
+Perform the steps $d=1,\ldots,N$, assigning $c_\nu=r_\nu$ on the disjoint layers. This gives the displayed $U,V$ and $H=QU-V\in\mathcal F_{N+1}$. Taking $T$ to be the finite support of the final $H$, with $h_t=[X^t]H$, gives the remainder and its degree bound. Each layer's correction exponents are determined uniquely by its residual coefficients, consistently with the literature sign $c=-\gamma$. For a hand calculation, $Q=1+X$ at $N=1$ gives $c_1=1$ and $H=-X^2$; at $N=2$, taking $c_2=-1$ then gives $U=1-X$, $V=1-X^2$, and $H=0$.
+
+All these choices precede the introduction of analytic weights. For any $z=(z_j)_{j\in J}\in\mathbb C^J$, polynomial evaluation preserves finite sums, products and natural powers, so
+
+$$
+Q(z)U(z)=V(z)+\sum_{t\in T}h_tz^t
+$$
+
+holds at every $z$, even when some $1-z^\nu=0$; there is no division. After substituting $z_j=p^{-b_js}$, rational relations among weights may make distinct multi-indices coincide in weight, but do not invalidate this identity. It supplies no uniform analytic remainder estimate, divisibility or nonvanishing assertion, and does not complete the preceding remark's obligations concerning prime products, normal-form gluing and pointwise agreement. The finite algebraic proof and its Lean formalization require separate verification; this book does not yet list this arbitrary-order conclusion as a Lean result, and it settles neither condition 2 nor condition 3 of O-5.
+:::
+
+[^bel-continuation]: G. Bhowmik, D. Essouabri, B. Lichtin, *Meromorphic continuation of multivariable Euler products*, [DOI: 10.1515/forum.2007.044](https://doi.org/10.1515/forum.2007.044). Source locations here refer to the [authors' preprint](https://arxiv.org/pdf/math/0502508v1), §1.1: Lemma 1 and its proof, pp. 5–8, especially the uniform analytic perturbations in equations (2)–(4); Theorem 1 and its proof, pp. 8–10, apply the method to analytic power series on the unit polydisc with zero constant term and integer Taylor coefficients. These literature results are not formalized in this book.
+
+[^delabarre-cancellation]: L. Delabarre, *Extension of Estermann's theorem to Euler products associated to a multivariate polynomial*, *Bulletin de la Société Mathématique de France* **141**(2) (2013), 225–265, [DOI: 10.24033/bsmf.2647](https://doi.org/10.24033/bsmf.2647), [journal article](https://www.numdam.org/item/BSMF_2013__141_2_225_0.pdf). Section 1.1 specifies integer coefficients; §2.2, Lemma 2, equations (5)–(6) and Remark 4 are on printed p. 233, with the proof on pp. 234–235. The cited result is the published integer-exponent expansion; this remark separately gives a complete proof of its finite cancellation form.
+
+The original statement of O-5 and the normal-form and single-point modification limitations above come from these files at the pinned trureturing commit:
 
 - `D5/X_Frontier/Hearts.lean`: the statement `o5_independence` and the definitions it uses;
 - `README.md` and `docs/VISION.md`: O-5 listed as open;
