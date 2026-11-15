@@ -285,7 +285,7 @@ $$
 非零整数对的范数不会为零，因为 $a-b\varphi$ 及其共轭都非零。这里仍不加互素条件；这些公式是一般文献定理的黄金比特例与上述双向对应所得的书面推导。
 
 ::: {.remark #prob-revival-spectrum title="回归谱的文献结论与形式化边界"}
-[@thm-revival-score] 的 Lean 验证只处理 Fibonacci 时刻；固定 $\varphi$ 的所有实聚点则由 [@thm-quadratic-accumulation] 及上面的换算给出，不能再把这个分类列为数学开放问题。本章引用的 `GoldenRevivalScore` 与 `GoldenHurwitzBound` 冻结声明都不包含这个完整聚点集等式。
+[@thm-revival-score] 的 Lean 验证只处理 Fibonacci 时刻；固定 $\varphi$ 的所有实聚点则由 [@thm-quadratic-accumulation] 及上面的换算给出，不能再把这个分类列为数学开放问题。本章引用的 `GoldenRevivalScore` 与 `GoldenHurwitzBound` 冻结声明都不包含这个完整聚点集等式。 [@thm-quadratic-norm-inclusion] 则把每个非零迹对偶范数送入真正聚点集；任意聚点都来自这种范数的反向包含仍未包含在这里引用的 Lean 声明中。
 
 `Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` 所说的“完整回归谱”与“全局最优性”没有精确定义[^hurwitz]；对应 Lean 文件也明确不声称完整的 Lagrange–Markov 谱分类。固定一个二次无理数的聚点集与让 $\alpha$ 变化的谱问题不同，前者的文献结果并不自动解决这些更宽泛、尚未写成命题的表述。一般二次聚点定理的形式化需求及相关声明的适用范围见[形式化请求](https://github.com/the-omega-institute/trureturing-requests/issues/111)。
 :::
