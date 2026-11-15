@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 200,
+    "theorem": 201,
     "lemma": 34,
     "proposition": 45,
     "corollary": 31,
@@ -12,16 +12,16 @@
     "problem": 3,
     "example": 124,
     "remark": 202,
-    "proof": 305,
-    "lean_verified": 307,
+    "proof": 306,
+    "lean_verified": 308,
     "written_proof": 3,
-    "literature": 199
+    "literature": 198
   },
-  "total": 667,
+  "total": 668,
   "kinds": {
     "def": 201,
     "inductive": 11,
-    "theorem": 455
+    "theorem": 456
   },
   "groups": {
     "theorems": [
@@ -196,6 +196,7 @@
       "D5/S3/PrimeForms/SumTwoSquares.prime_eq_sq_add_sq_of_mod_four_eq_one",
       "D5/S3/PrimeForms/SumTwoSquaresClassification.eq_sq_add_sq_iff_even_factorization",
       "D5/S3/PrimeForms/ThreeModFourDescent.prime_dvd_dvd_of_dvd_sq_add_sq",
+      "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion",
       "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem",
       "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
       "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
@@ -3993,13 +3994,13 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 184,
+          "line": 198,
           "id": "thm-ch29-gram-rigidity-and-pell",
           "via": "environment"
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 187,
+          "line": 201,
           "id": "",
           "via": "inline"
         },
@@ -12147,6 +12148,18 @@
         }
       ]
     },
+    "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion": {
+      "kind": "theorem",
+      "name": "D5.S3.QuadraticForms.ChordalPsdCompletion.exists_posSemidef_completion",
+      "citations": [
+        {
+          "file": "ch29-s03-timeless-gram-causality.md",
+          "line": 141,
+          "id": "thm-ch29-chordal-psd-completion",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem": {
       "kind": "theorem",
       "name": "D5.S3.Quantum.Algebra.PhasePolynomial.complete_common_phase_polynomial_theorem",
@@ -17295,7 +17308,7 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 184,
+          "line": 198,
           "id": "thm-ch29-gram-rigidity-and-pell",
           "via": "environment"
         },
@@ -17307,7 +17320,7 @@
         },
         {
           "file": "ch29-s03-timeless-gram-causality.md",
-          "line": 193,
+          "line": 207,
           "id": "",
           "via": "inline"
         },
@@ -23423,6 +23436,7 @@
       "depth": 1,
       "environment": [
         "D5/S3/Arith/GoldenPell.pell_form_eq_four_mul_norm",
+        "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion",
         "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization"
       ],
       "inline": [
