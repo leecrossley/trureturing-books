@@ -168,6 +168,32 @@ $$
 这给出的是**某个有限维空间中的共同实现**。它不保证能放进图示固定的 $\mathbb R^3$ 或 $\mathbb R^6$；固定维数还需控制补全矩阵的秩。它也不选择唯一的远距内积、不规定演化概率或动力学，更不把有限时域存在性直接当作无限历史或物理因果性的证明。带状记忆掩码是这里显式增加的条件模型；原来的具体图示并未声称任意独立局部表都可在其固定空间中拼接。
 :::
 
+::: {.remark #rem-ch29-continuous-gram-selection title="逐点 Gram 存在不保证连续选取"}
+有限秩受控补全定理针对每张固定表给出存在性。即使完整表组成连续矩阵族且秩恒定，也未必能在最小环境维数中连续选取因子。下面是 [@thm-circle-double-cover-history-lift] 圆周二重覆盖障碍的书面应用，不是矩阵变体的独立 Lean 定理。
+
+令 $S=\{z\in\mathbb C:|z|=1\}$ 具有继承拓扑，并定义
+
+$$
+A(z)=\frac12\begin{pmatrix}1+\operatorname{Re}z&\operatorname{Im}z\\\operatorname{Im}z&1-\operatorname{Re}z\end{pmatrix}.
+$$
+
+这是连续实矩阵族。记 $x=\operatorname{Re}z$、$y=\operatorname{Im}z$，由 $x^2+y^2=1$ 得 $A^T=A$、$A^2=A$ 及 $\operatorname{tr}A=1$。因此 $A=A^TA$ 半正定；投影的实秩等于其迹，故每一点的秩恰为一。
+
+然而，不存在连续函数 $p_0,p_1:S\to\mathbb R$ 在每一点同时满足
+
+$$
+\begin{aligned}
+p_0(z)^2&=(1+x)/2,\\
+p_0(z)p_1(z)&=y/2,\\
+p_1(z)^2&=(1-x)/2.
+\end{aligned}
+$$
+
+否则 $w=p_0+ip_1$ 连续，且 $|w|=1$、$w^2=z$，正是 [@thm-circle-double-cover-history-lift] 排除的整体截面。这里字面的范数一载体与该定理的度量单位球面载体，经复数值上的恒等映射同胚。
+
+对每个单独的 $z$，平方根存在，故单行 Gram 因子逐点存在。允许两行时，连续选取 $P(z)=A(z)$ 满足 $P(z)^TP(z)=A(z)$。因此，秩恒定与逐点存在本身不足以保证连续单行选取；本例不排除更大环境维数的连续因子，也不给出概率律、动力学、物理实现或对所有参数空间的断言。经典背景见 Hatcher 的 [*Algebraic Topology* 第 1 章](https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf)，印刷页 56、61，以及 [*Vector Bundles & K-Theory* 第 2.2 版](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf)，印刷页 7–8。矩阵对应及其边界详见所属的 [Blueprint 应用说明](https://github.com/the-omega-institute/trureturing/pull/30885)。
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **多记一层，窗口窄一圈。** 时间轴把记住的历史从 $M = 1$ 加到 $M = 5$：每多一个更早的锚点，截面里就多一圈品红的椭圆，套在上一圈里面；穿过琥珀色 $\mathbf{Q}$ 的青色窗口随之收窄，从整个 $[-1, 1]$ 缩到约原来的四分之一，$\mathbf{Q}$ 始终在里面。事件取在 $\mathbb{R}^6$ 中，每一层都还留有内部；把相容空间读作有限观察者的选择余地是本书的诠释（`MODEL`）。
 :::

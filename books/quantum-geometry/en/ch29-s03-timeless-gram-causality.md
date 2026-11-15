@@ -168,6 +168,32 @@ The correspondence is explicit. Use vertices $0,\ldots,N$ and edges $0<|i-j|\le 
 The conclusion is a **common realization in some finite-dimensional space**. It does not guarantee realization in the pictures' fixed $\mathbb R^3$ or $\mathbb R^6$; fixed dimension additionally requires control of the completed matrix's rank. It selects neither unique distant overlaps nor a probability law or dynamics, and finite-horizon existence is not by itself a proof about infinite histories or physical causality. The band memory mask is an explicit additional model assumption here. The original pictures do not assert that arbitrary independently supplied local tables can be assembled in their fixed space.
 :::
 
+::: {.remark #rem-ch29-continuous-gram-selection title="Pointwise Gram existence does not imply a continuous choice"}
+The finite rank-bounded completion theorem is an existence statement for each fixed table. Even for a continuous family of full tables of constant rank, a continuous factor in the smallest ambient dimension need not exist. Here is a written application of the circle double-cover obstruction in [@thm-circle-double-cover-history-lift], rather than a separate Lean theorem for the matrix variant.
+
+Give $S=\{z\in\mathbb C:|z|=1\}$ its inherited topology and set
+
+$$
+A(z)=\frac12\begin{pmatrix}1+\operatorname{Re}z&\operatorname{Im}z\\\operatorname{Im}z&1-\operatorname{Re}z\end{pmatrix}.
+$$
+
+This is a continuous real matrix field. Writing $x=\operatorname{Re}z$ and $y=\operatorname{Im}z$, the identity $x^2+y^2=1$ gives $A^T=A$, $A^2=A$ and $\operatorname{tr}A=1$. Hence $A=A^TA$ is positive semidefinite; as a projection its real rank equals its trace, so the rank is exactly one everywhere.
+
+Nevertheless, there are no continuous functions $p_0,p_1:S\to\mathbb R$ satisfying
+
+$$
+\begin{aligned}
+p_0(z)^2&=(1+x)/2,\\
+p_0(z)p_1(z)&=y/2,\\
+p_1(z)^2&=(1-x)/2
+\end{aligned}
+$$
+
+at every point. Such a pair would give a continuous $w=p_0+ip_1$ with $|w|=1$ and $w^2=z$, exactly the global section excluded by [@thm-circle-double-cover-history-lift]. The literal norm-one carrier here and the metric unit-sphere carrier of that theorem are homeomorphic by the identity on complex values.
+
+For each individual $z$, a square root exists, so a one-row Gram factor exists pointwise. With two rows, the continuous choice $P(z)=A(z)$ satisfies $P(z)^TP(z)=A(z)$. Thus constant rank and pointwise existence alone do not provide a continuous one-row choice; the example does not obstruct larger ambient dimensions. It supplies no probability law, dynamics, physical realization or claim about all parameter spaces. Classical context: Hatcher, [*Algebraic Topology*, Chapter 1](https://pi.math.cornell.edu/~hatcher/AT/ATch1.pdf), printed pp. 56 and 61, and [*Vector Bundles & K-Theory*, version 2.2](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf), printed pp. 7–8. The matrix correspondence and its boundaries are detailed in the owning [Blueprint application](https://github.com/the-omega-institute/trureturing/pull/30885).
+:::
+
 ::: {.viz src="gram-causal-elliptope" preset="narrow" height="500"}
 **One more step remembered, one ring narrower.** The rail adds history from $M = 1$ to $M = 5$: each older anchor adds a magenta ellipse to the slice, nested inside the last, and the cyan window through the amber $\mathbf{Q}$ narrows with it, from all of $[-1, 1]$ to about a quarter of that, with $\mathbf{Q}$ inside throughout. The events live in $\mathbb{R}^6$, so every depth keeps an inside; reading the compatible space as a finite observer's room for choice is this book's interpretation (`MODEL`).
 :::
