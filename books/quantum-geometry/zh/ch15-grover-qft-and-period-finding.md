@@ -291,11 +291,15 @@ $$
 :::
 
 ::: {.theorem #thm-shor-mixture-peak-lower-bound title="实际边缘分布的逐点最近格点下界" lean="D5/S3/Quantum/ShorCountingMarginal.shor_mixture_peak_lower_bound"}
-对每个参数记录 $c$，记 $r=c.\operatorname{period}$，以及每个 $n\in\mathbb N$、每个 $s\in\mathrm{Fin}\,r$ 与 $b\in\mathrm{Fin}(2^n)$，若
+对每个参数记录 $c$，记 $r=c.\operatorname{period}$，以及每个 $n\in\mathbb N$、每个 $s\in\mathrm{Fin}\,r$ 与 $b\in\mathrm{Fin}(2^n)$，假设
 
 $$
-\operatorname{Nearest}\!\left(2^n,\frac{s.\operatorname{val}}{r},b\right)
-\quad\Longleftrightarrow\quad
+\operatorname{Nearest}\!\left(2^n,\frac{s.\operatorname{val}}{r},b\right)。
+$$
+
+按定义，这个假设的含义是
+
+$$
 \exists z\in\mathbb Z,\ \left|\frac{s.\operatorname{val}}{r}-\frac{b.\operatorname{val}}{2^n}-z\right|\le\frac{1}{2\cdot2^n},
 $$
 
@@ -315,11 +319,15 @@ $$
 :::
 
 ::: {.theorem #thm-qpe-arbitrary-phase-lower-bound title="单个相位的圆周最近格点下界" lean="D5/S3/Quantum/ShorCountingMarginal.qpe_arbitrary_phase_lower_bound"}
-对每个满足 $0<N$ 的 $N\in\mathbb N$、每个实相位 $\theta$ 与 $b\in\mathrm{Fin}\,N$，若
+对每个满足 $0<N$ 的 $N\in\mathbb N$、每个实相位 $\theta$ 与 $b\in\mathrm{Fin}\,N$，假设
 
 $$
-\operatorname{Nearest}(N,\theta,b)
-\quad\Longleftrightarrow\quad
+\operatorname{Nearest}(N,\theta,b)。
+$$
+
+按定义，这个假设的含义是
+
+$$
 \exists z\in\mathbb Z,\ \left|\theta-\frac{b.\operatorname{val}}{N}-z\right|\le\frac{1}{2N},
 $$
 

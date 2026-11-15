@@ -275,11 +275,15 @@ Summing the actual-input mixture over all counting outcomes invokes the normaliz
 :::
 
 ::: {.theorem #thm-shor-mixture-peak-lower-bound title="Pointwise nearest-grid lower bound for the actual marginal" lean="D5/S3/Quantum/ShorCountingMarginal.shor_mixture_peak_lower_bound"}
-For every parameter record $c$, writing $r=c.\operatorname{period}$, every $n\in\mathbb N$, every $s\in\mathrm{Fin}\,r$, and every $b\in\mathrm{Fin}(2^n)$, if
+For every parameter record $c$, writing $r=c.\operatorname{period}$, every $n\in\mathbb N$, every $s\in\mathrm{Fin}\,r$, and every $b\in\mathrm{Fin}(2^n)$, assume
 
 $$
-\operatorname{Nearest}\!\left(2^n,\frac{s.\operatorname{val}}{r},b\right)
-\quad\Longleftrightarrow\quad
+\operatorname{Nearest}\!\left(2^n,\frac{s.\operatorname{val}}{r},b\right).
+$$
+
+By definition, this assumption means
+
+$$
 \exists z\in\mathbb Z,\ \left|\frac{s.\operatorname{val}}{r}-\frac{b.\operatorname{val}}{2^n}-z\right|\le\frac{1}{2\cdot2^n},
 $$
 
@@ -299,11 +303,15 @@ The arbitrary-phase bound supplies $4/\pi^2$ for the selected eigenphase. The ac
 :::
 
 ::: {.theorem #thm-qpe-arbitrary-phase-lower-bound title="Circular nearest-grid bound for one phase" lean="D5/S3/Quantum/ShorCountingMarginal.qpe_arbitrary_phase_lower_bound"}
-For every $N\in\mathbb N$ with $0<N$, every real phase $\theta$, and every $b\in\mathrm{Fin}\,N$ satisfying
+For every $N\in\mathbb N$ with $0<N$, every real phase $\theta$, and every $b\in\mathrm{Fin}\,N$, assume
 
 $$
-\operatorname{Nearest}(N,\theta,b)
-\quad\Longleftrightarrow\quad
+\operatorname{Nearest}(N,\theta,b).
+$$
+
+By definition, this assumption means
+
+$$
 \exists z\in\mathbb Z,\ \left|\theta-\frac{b.\operatorname{val}}{N}-z\right|\le\frac{1}{2N},
 $$
 
