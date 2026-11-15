@@ -6,14 +6,14 @@
     "theorem": 199,
     "lemma": 34,
     "proposition": 45,
-    "corollary": 30,
+    "corollary": 31,
     "definition": 48,
     "conjecture": 6,
     "problem": 3,
     "example": 124,
     "remark": 201,
-    "proof": 304,
-    "lean_verified": 305,
+    "proof": 305,
+    "lean_verified": 306,
     "written_proof": 3,
     "literature": 198
   },
@@ -797,6 +797,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-e.md",
           "line": 111,
           "id": "",
@@ -1121,6 +1127,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-b.md",
           "line": 207,
           "id": "",
@@ -1146,7 +1158,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 274,
+          "line": 278,
           "id": "",
           "via": "inline"
         },
@@ -1367,14 +1379,20 @@
           "via": "inline"
         },
         {
-          "file": "appendix-e.md",
-          "line": 253,
+          "file": "appendix-a.md",
+          "line": 1072,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-e.md",
-          "line": 275,
+          "line": 257,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 279,
           "id": "",
           "via": "inline"
         }
@@ -3708,7 +3726,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 270,
+          "line": 274,
           "id": "",
           "via": "inline"
         },
@@ -4074,7 +4092,7 @@
         },
         {
           "file": "appendix-a.md",
-          "line": 1161,
+          "line": 1175,
           "id": "",
           "via": "inline"
         }
@@ -4098,7 +4116,7 @@
         },
         {
           "file": "appendix-a.md",
-          "line": 1161,
+          "line": 1175,
           "id": "",
           "via": "inline"
         }
@@ -4254,7 +4272,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 270,
+          "line": 274,
           "id": "",
           "via": "inline"
         },
@@ -5045,6 +5063,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-e.md",
           "line": 89,
           "id": "",
@@ -5052,7 +5076,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 275,
+          "line": 279,
           "id": "",
           "via": "inline"
         },
@@ -6275,6 +6299,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-e.md",
           "line": 86,
           "id": "",
@@ -6282,7 +6312,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 267,
+          "line": 271,
           "id": "",
           "via": "inline"
         },
@@ -6462,7 +6492,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 267,
+          "line": 271,
           "id": "",
           "via": "inline"
         },
@@ -8483,6 +8513,18 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 272,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -8659,6 +8701,12 @@
         {
           "file": "appendix-a.md",
           "line": 1058,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1072,
           "id": "",
           "via": "inline"
         },
@@ -9467,6 +9515,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-b.md",
           "line": 205,
           "id": "",
@@ -9803,6 +9857,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -10013,14 +10073,20 @@
           "via": "inline"
         },
         {
-          "file": "appendix-e.md",
-          "line": 243,
+          "file": "appendix-a.md",
+          "line": 1072,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-e.md",
-          "line": 274,
+          "line": 244,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 278,
           "id": "",
           "via": "inline"
         },
@@ -10872,7 +10938,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 272,
+          "line": 276,
           "id": "",
           "via": "inline"
         },
@@ -12497,6 +12563,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-d.md",
           "line": 168,
           "id": "",
@@ -12516,7 +12588,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 270,
+          "line": 274,
           "id": "",
           "via": "inline"
         },
@@ -12603,6 +12675,12 @@
           "line": 862,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 271,
+          "id": "",
+          "via": "inline"
         }
       ]
     },
@@ -12666,7 +12744,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 269,
+          "line": 273,
           "id": "",
           "via": "inline"
         },
@@ -13253,6 +13331,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-b.md",
           "line": 201,
           "id": "",
@@ -13278,7 +13362,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 270,
+          "line": 274,
           "id": "",
           "via": "inline"
         },
@@ -13621,6 +13705,24 @@
         {
           "file": "appendix-a.md",
           "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 247,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 279,
           "id": "",
           "via": "inline"
         },
@@ -14777,6 +14879,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-d.md",
           "line": 168,
           "id": "",
@@ -14790,13 +14898,13 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 251,
+          "line": 255,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-e.md",
-          "line": 274,
+          "line": 278,
           "id": "",
           "via": "inline"
         },
@@ -15749,6 +15857,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-e.md",
           "line": 167,
           "id": "",
@@ -15756,7 +15870,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 271,
+          "line": 275,
           "id": "",
           "via": "inline"
         }
@@ -16007,6 +16121,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-e.md",
           "line": 176,
           "id": "",
@@ -16014,7 +16134,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 272,
+          "line": 276,
           "id": "",
           "via": "inline"
         },
@@ -16271,6 +16391,18 @@
           "via": "environment"
         },
         {
+          "file": "ch32-s03-axioms-as-corollaries.md",
+          "line": 102,
+          "id": "cor-ch32-bargmann-holonomy-and-path-product",
+          "via": "environment"
+        },
+        {
+          "file": "ch32-s03-axioms-as-corollaries.md",
+          "line": 117,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
           "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
@@ -16321,6 +16453,24 @@
         {
           "file": "appendix-a.md",
           "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 246,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 279,
           "id": "",
           "via": "inline"
         },
@@ -16389,6 +16539,36 @@
           "line": 78,
           "id": "thm-qubit-bargmann-bloch",
           "via": "environment"
+        },
+        {
+          "file": "ch32-s03-axioms-as-corollaries.md",
+          "line": 102,
+          "id": "cor-ch32-bargmann-holonomy-and-path-product",
+          "via": "environment"
+        },
+        {
+          "file": "ch32-s03-axioms-as-corollaries.md",
+          "line": 111,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 243,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 278,
+          "id": "",
+          "via": "inline"
         }
       ]
     },
@@ -16401,6 +16581,18 @@
           "line": 78,
           "id": "thm-qubit-bargmann-bloch",
           "via": "environment"
+        },
+        {
+          "file": "ch32-s03-axioms-as-corollaries.md",
+          "line": 102,
+          "id": "cor-ch32-bargmann-holonomy-and-path-product",
+          "via": "environment"
+        },
+        {
+          "file": "ch32-s03-axioms-as-corollaries.md",
+          "line": 105,
+          "id": "",
+          "via": "inline"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
@@ -16495,6 +16687,30 @@
         {
           "file": "appendix-a.md",
           "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1072,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 24,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 243,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-e.md",
+          "line": 278,
           "id": "",
           "via": "inline"
         },
@@ -19278,7 +19494,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 268,
+          "line": 272,
           "id": "",
           "via": "inline"
         },
@@ -20496,7 +20712,7 @@
         },
         {
           "file": "appendix-e.md",
-          "line": 269,
+          "line": 273,
           "id": "",
           "via": "inline"
         },
@@ -23171,6 +23387,9 @@
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
         "D5/S3/Quantum/Foundation/EffectProbabilityExtension.effect_density_representation",
         "D5/S3/Quantum/Foundation/RayPhaseRigidity.unitary_phase_of_connected_ray_tests",
+        "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.explicit_qubit_orientation",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
         "D5/S3/QuantumBounds/RobertsonSchrodinger.robertson_schrodinger",
         "D5/S3/QuantumContext/ParallelogramNormLaw.inner_product_norm_parallelogram_law"
@@ -23193,6 +23412,9 @@
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
         "D5/S3/Quantum/Foundation/EffectProbabilityExtension.effect_density_representation",
         "D5/S3/Quantum/Foundation/RayPhaseRigidity.unitary_phase_of_connected_ray_tests",
+        "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.explicit_qubit_orientation",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
         "D5/S3/QuantumBounds/RobertsonSchrodinger.robertson_schrodinger",
         "D5/S3/QuantumContext/ParallelogramNormLaw.inner_product_norm_parallelogram_law"
@@ -23963,10 +24185,12 @@
         "D5/S3/Quantum/Entanglement/LocalMarginalCorrelationBlindSpot.local_marginal_correlation_blind_spot",
         "D5/S3/Quantum/FiniteDimensional.born_probability_skeleton",
         "D5/S3/Quantum/FiniteDimensional.qubit_weyl_star",
+        "D5/S3/Quantum/Foundation/EffectProbabilityExtension.effect_density_representation",
         "D5/S3/Quantum/Foundation/RayPhaseRigidity.unitary_phase_of_connected_ray_tests",
         "D5/S3/Quantum/Information/ActualPureQubitGeometry.bloch_geometry_of_isHermitian",
         "D5/S3/Quantum/Information/ActualPureQubitGeometry.norm_bloch_le_trace_of_posSemidef",
         "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.explicit_qubit_orientation",
         "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
         "D5/S3/Quantum/Measurements/FiniteMemoryHistoryCapacity.finite_memory_history_capacity",
@@ -24076,15 +24300,21 @@
         "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel",
         "D5/S3/ConceptDynamics/ObservationTopology/TargetContinuityFactorization.target_factors_iff_continuous_partition",
         "D5/S3/Factorization/Embeddings/RationalPadicProductFormula.rational_padic_product_formula",
+        "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness",
         "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification",
         "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight",
         "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem",
         "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
+        "D5/S3/Quantum/Algebra/FutureWordOrthogonalResidual.future_word_orthogonal_residual",
         "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq",
         "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary",
+        "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
         "D5/S3/Quantum/Foundation/EffectProbabilityExtension.effect_density_representation",
         "D5/S3/Quantum/Foundation/RayPhaseRigidity.unitary_phase_of_connected_ray_tests",
+        "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.explicit_qubit_orientation",
+        "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
         "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
         "D5/S3/QuantumBounds/RobertsonSchrodinger.robertson_schrodinger",
         "D5/S3/QuantumContext/ParallelogramNormLaw.inner_product_norm_parallelogram_law"
