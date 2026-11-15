@@ -25284,7 +25284,7 @@
       "file": "coda.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40",
+      "number": "",
       "depth": 0,
       "environment": [],
       "inline": []
@@ -25293,7 +25293,7 @@
       "file": "coda-s01-polyhedral-remainders.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40.1",
+      "number": "",
       "depth": 1,
       "environment": [],
       "inline": []
@@ -25302,7 +25302,7 @@
       "file": "coda-s02-spatial-attractors.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40.2",
+      "number": "",
       "depth": 1,
       "environment": [
         "D5/S3/Analytic/Probability/BirkhoffPointwise.birkhoff_pointwise_ergodic"
@@ -25313,7 +25313,7 @@
       "file": "coda-s03-golden-cut-observers.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40.3",
+      "number": "",
       "depth": 1,
       "environment": [
         "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes",
@@ -25355,7 +25355,7 @@
       "file": "coda-s04-fixed-point-anchors.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40.4",
+      "number": "",
       "depth": 1,
       "environment": [
         "D5/S1/FixedPoints/FiniteContractingStability.finite_contracting_updates_stabilize"
@@ -25398,7 +25398,7 @@
       "file": "coda-s05-bilingual-glossary.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40.5",
+      "number": "",
       "depth": 1,
       "environment": [],
       "inline": [
@@ -25435,7 +25435,7 @@
       "file": "coda-s06-reading-map.md",
       "top": 40,
       "part": "终章与附录",
-      "number": "40.6",
+      "number": "",
       "depth": 1,
       "environment": [],
       "inline": []
@@ -25444,7 +25444,7 @@
       "file": "appendix-a.md",
       "top": 41,
       "part": "终章与附录",
-      "number": "41",
+      "number": "40",
       "depth": 0,
       "environment": [],
       "inline": []
@@ -25453,7 +25453,7 @@
       "file": "appendix-a-s01-master-dictionary.md",
       "top": 41,
       "part": "终章与附录",
-      "number": "41.1",
+      "number": "40.1",
       "depth": 1,
       "environment": [],
       "inline": [
@@ -25637,7 +25637,7 @@
       "file": "appendix-a-s02-symbols-and-operators.md",
       "top": 41,
       "part": "终章与附录",
-      "number": "41.2",
+      "number": "40.2",
       "depth": 1,
       "environment": [],
       "inline": []
@@ -25646,7 +25646,7 @@
       "file": "appendix-a-s03-verbatim-ledger.md",
       "top": 41,
       "part": "终章与附录",
-      "number": "41.3",
+      "number": "40.3",
       "depth": 1,
       "environment": [],
       "inline": [
@@ -25658,7 +25658,7 @@
       "file": "appendix-b.md",
       "top": 42,
       "part": "终章与附录",
-      "number": "42",
+      "number": "41",
       "depth": 0,
       "environment": [],
       "inline": [
@@ -25679,7 +25679,7 @@
       "file": "appendix-d.md",
       "top": 44,
       "part": "终章与附录",
-      "number": "44",
+      "number": "43",
       "depth": 0,
       "environment": [],
       "inline": [
@@ -25717,7 +25717,7 @@
       "file": "appendix-e.md",
       "top": 45,
       "part": "终章与附录",
-      "number": "45",
+      "number": "44",
       "depth": 0,
       "environment": [],
       "inline": [
