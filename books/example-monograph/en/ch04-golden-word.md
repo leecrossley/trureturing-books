@@ -374,7 +374,29 @@ O-5 is an open problem, not a theorem, and this book cites no Lean declaration f
 
 trureturing proves two results about O-5 in the module `GoldenWindowZeroObstruction`, and neither settles it. One says: if some function is analytic on a half-plane $\operatorname{Re} s > r$ (with $0 < r < 1/\varphi^2$), equals $E$ for $\operatorname{Re} s > 1/\varphi^2$, and has a zero inside that half-plane and inside the band of condition 3 whose real part differs from $1/(2\varphi^2)$, then no candidate that satisfies conditions 1 and 2 and, on $\operatorname{Re} s > r$, also a normal-form condition (Mathlib's `MeromorphicNFOn`) satisfies condition 3. The other says: changing the value of a meromorphic candidate at a single point makes it non-analytic there, which evades condition 3 at that point. The Blueprint concludes that the first does not refute the original O-5 statement, and that the second turns a limitation of that statement into a theorem.
 
-What this section says about O-5 comes from these files at the pinned trureturing commit:
+::: {.remark #rem-o5-continuation-route title="A continuation route for O-5 and its remaining interfaces"}
+**Literature result, not formalized in this book.** The multivariable Euler product method of Bhowmik–Essouabri–Lichtin (BEL) offers a route to continuation[^bel-continuation]. For finitely many analytic functions $\ell_j$ and integers $a_j$, the proof of their Lemma 1 allows local factors of the form $1+\sum_j a_jp^{-\ell_j(s)}+R_p(s)$, where $R_p$ is analytic on the target domain and uniformly $O(p^{-2})$ in both the prime $p$ and $s$ in that domain. On $W(\ell;\delta)=\{s:\operatorname{Re}\ell_j(s)>\delta\text{ for all }j\}$ ($\delta>0$), repeated cancellation of low-order terms extracts finitely many integer powers of $\zeta$ functions, leaving a holomorphic, absolutely convergent remainder product. Integer powers keep the extracted factors meromorphic; this is an established literature method whose application to O-5 has not been completed in this book.
+
+The parameter correspondence starts from $\beta(v)=\lfloor(v+1)/\varphi\rfloor+v\varphi\ge\sqrt5\,v-1$. Write $H_\epsilon=\{s:\operatorname{Re}s>\epsilon\}$. Given $0<\epsilon<1/\varphi^2$, choose $M\ge1$ with $\epsilon(\sqrt5(M+1)-1)\ge2$; the truncation interface still to establish is analyticity of the tail on $H_\epsilon$ together with the uniform bound
+
+$$
+\left|\sum_{v>M}p^{-s\beta(v)}\right|
+\le \frac{p^{-2}}{1-2^{-\epsilon\sqrt5}}.
+$$
+
+The paper reasoning behind this estimate bounds each term by $p^{-\epsilon(\sqrt5\,v-1)}$ and sums a geometric series with ratio $p^{-\epsilon\sqrt5}$; analyticity requires a connection to locally uniform convergence. The retained weights are $b_v=\beta(v)$ ($1\le v\le M$), with $\ell_v(s)=b_vs$ and $a_v=1$. Their minimum is $\beta(1)=\varphi^2$, so BEL's domains correspond here to
+
+$$
+W(\ell;\epsilon\varphi^2)=H_\epsilon,
+\qquad W(\ell;1)=H_{1/\varphi^2}.
+$$
+
+This supplies parameters and a truncation target for an application still to be checked. Integer multivariate cancellation at arbitrary order must still be realized under complex evaluation with a uniform $O(p^{-2})$ bound, including cases where distinct multi-indices give the same weight and where correction exponents are negative; formal univariate coefficient identities or fixed-order cancellation formulas alone do not supply this step. One must then prove locally uniform convergence of the remainder product over primes, construct a continuation for **every** $\epsilon>0$, and make normal-form meromorphic representatives compatible on overlapping half-planes to obtain a function on $H_0$; one fixed truncation does not suffice. Condition 2 also requires equality with $E(s)$ at **every point** of the original domain $H_{1/\varphi^2}$, including the values assigned at apparent singularities that are removable. Equality of meromorphic germs does not ensure pointwise equality of arbitrary functions satisfying only `MeromorphicOn`, so the normal-form and single-point modification limitations above remain relevant. These analytic realizations and gluing steps have not been formalized in this book; the route also gives no nonvanishing assertion for local factors or the product, and no zero localization as required by condition 3. O-5 remains open, and condition 3 requires separate study.
+:::
+
+[^bel-continuation]: G. Bhowmik, D. Essouabri, B. Lichtin, *Meromorphic continuation of multivariable Euler products*, [DOI: 10.1515/forum.2007.044](https://doi.org/10.1515/forum.2007.044). Source locations here refer to the [authors' preprint](https://arxiv.org/pdf/math/0502508v1), §1.1: Lemma 1 and its proof, pp. 5–8, especially the uniform analytic perturbations in equations (2)–(4); Theorem 1 and its proof, pp. 8–10, apply the method to analytic power series on the unit polydisc with zero constant term and integer Taylor coefficients. These literature results are not formalized in this book.
+
+The original statement of O-5 and the normal-form and single-point modification limitations above come from these files at the pinned trureturing commit:
 
 - `D5/X_Frontier/Hearts.lean`: the statement `o5_independence` and the definitions it uses;
 - `README.md` and `docs/VISION.md`: O-5 listed as open;

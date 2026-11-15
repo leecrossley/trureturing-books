@@ -374,7 +374,29 @@ O-5 是开放问题，不是定理，本书不为它引用任何 Lean 声明。t
 
 trureturing 在 `GoldenWindowZeroObstruction` 模块中证明了两条与 O-5 有关的结果，都不决定它。一条说：若某个函数在半平面 $\operatorname{Re} s > r$（$0 < r < 1/\varphi^2$）上解析、在 $\operatorname{Re} s > 1/\varphi^2$ 上等于 $E$，并在这个半平面内、条件 3 的带中有一个实部不等于 $1/(2\varphi^2)$ 的零点，那么满足条件 1、2 且在 $\operatorname{Re} s > r$ 上额外满足一种正规形式条件（Mathlib 的 `MeromorphicNFOn`）的候选，都不满足条件 3。另一条说：只改动一点的函数值，就能让亚纯的候选在该点不解析，从而避开条件 3 在这一点的检验。Blueprint 据此说明，前者并不否定原始的 O-5 陈述，后者则把原陈述的一个局限写成了定理。
 
-以上关于 O-5 的说法出自 trureturing 所钉提交中的下列文件：
+::: {.remark #rem-o5-continuation-route title="O-5 的延拓路线与剩余接口"}
+**文献结果，未在本书形式化。** Bhowmik–Essouabri–Lichtin（BEL）的多变量 Euler 乘积方法提供了一条延拓路线[^bel-continuation]。对有限个解析函数 $\ell_j$ 和整数 $a_j$，其引理 1 的证明允许局部因子形如 $1+\sum_j a_jp^{-\ell_j(s)}+R_p(s)$，其中 $R_p$ 在目标域上解析，且对素数 $p$ 和域内的 $s$ 一致为 $O(p^{-2})$。在 $W(\ell;\delta)=\{s:\operatorname{Re}\ell_j(s)>\delta\text{ 对所有 }j\}$（$\delta>0$）上，反复消去低阶项可提取有限个整数次幂的 $\zeta$ 因子，留下全纯、绝对收敛的余项乘积。整数幂保证提取的因子仍是亚纯函数；这是一种已知的文献方法，并不是本书已经完成的 O-5 应用。
+
+具体的参数对应从 $\beta(v)=\lfloor(v+1)/\varphi\rfloor+v\varphi\ge\sqrt5\,v-1$ 出发。记 $H_\epsilon=\{s:\operatorname{Re}s>\epsilon\}$。给定 $0<\epsilon<1/\varphi^2$，取 $M\ge1$ 使 $\epsilon(\sqrt5(M+1)-1)\ge2$；待建立的截断接口是在 $H_\epsilon$ 上证明尾项解析，并一致满足
+
+$$
+\left|\sum_{v>M}p^{-s\beta(v)}\right|
+\le \frac{p^{-2}}{1-2^{-\epsilon\sqrt5}}.
+$$
+
+这一估计的纸面依据是用 $p^{-\epsilon(\sqrt5\,v-1)}$ 控制各项，再求比值为 $p^{-\epsilon\sqrt5}$ 的几何级数；解析性则需衔接局部一致收敛。保留的权重为 $b_v=\beta(v)$（$1\le v\le M$），取 $\ell_v(s)=b_vs$、$a_v=1$。其最小权重为 $\beta(1)=\varphi^2$，因此 BEL 的域在此对应为
+
+$$
+W(\ell;\epsilon\varphi^2)=H_\epsilon,
+\qquad W(\ell;1)=H_{1/\varphi^2}.
+$$
+
+这只给出待核验应用的参数与截断目标。尚须把任意阶的整数多变量消去实现为复数求值下的一致 $O(p^{-2})$ 估计，处理不同多重指标给出同一权重的情形以及负的校正指数；形式的一元系数恒等式或固定阶消去式不能单独完成这一步。随后还须证明余项素数乘积局部一致收敛，为**每个** $\epsilon>0$ 构造延拓，并使重叠半平面上的正规形式亚纯代表相容，拼成 $H_0$ 上的函数；一个固定截断不够。条件 2 还要求在原始域 $H_{1/\varphi^2}$ 的**每一点**都等于 $E(s)$，包括表面奇点可去时应取的值。亚纯函数胚相等，并不保证任意仅满足 `MeromorphicOn` 的函数逐点相等，所以上述正规形式与单点改值的限制仍须保留。这些解析实现与拼接尚未在本书中形式化；该路线也不给出局部因子或乘积的非零性，更不给出条件 3 的零点定位。O-5 仍然开放，条件 3 仍需另行研究。
+:::
+
+[^bel-continuation]: G. Bhowmik, D. Essouabri, B. Lichtin, *Meromorphic continuation of multivariable Euler products*, [DOI: 10.1515/forum.2007.044](https://doi.org/10.1515/forum.2007.044)。这里的原文定位采用[作者预印本](https://arxiv.org/pdf/math/0502508v1)第 1.1 节：引理 1 及其证明，第 5–8 页，尤其式 (2)–(4) 中的一致解析扰动；定理 1 及其证明，第 8–10 页，将方法用于单位多圆盘上常数项为零、Taylor 系数为整数的解析幂级数。这些文献结论未在本书形式化。
+
+O-5 的原始陈述及上述正规形式和单点改值限制，出自 trureturing 所钉提交中的下列文件：
 
 - `D5/X_Frontier/Hearts.lean`：O-5 的陈述 `o5_independence` 及其中的定义；
 - `README.md` 与 `docs/VISION.md`：把 O-5 列为开放问题；
