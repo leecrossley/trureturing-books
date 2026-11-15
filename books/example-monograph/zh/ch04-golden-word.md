@@ -226,6 +226,25 @@ $$
 
 [^dhanda-haynes]: Kavita Dhanda, Alan Haynes, *Accumulation points of normalized approximations*, *Journal of Number Theory* 268 (2025), 1–38，DOI：[10.1016/j.jnt.2024.09.002](https://doi.org/10.1016/j.jnt.2024.09.002)。一般陈述见 Theorem 4，迹对偶见第 2.3 节，证明见第 6 节引理 18–19 与第 7 节；可读[原文版本](https://arxiv.org/html/2310.00173v2)。
 
+Lean 已覆盖下列一个包含方向；完整分类中的聚点到范数方向仍由上面的书面证明承担。
+
+::: {.theorem #thm-quadratic-norm-inclusion title="非零迹对偶范数产生真正聚点" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulation.signed_norm_values_accumulate"}
+设 $D\ge2$ 是无平方因子的整数，$A,B\in\mathbb Q$，$B\ne0$，$\alpha=A+B\sqrt D$。在实际子域 $K=\mathbb Q(\alpha)\subset\mathbb R$ 中，令 $\Lambda^*$ 为 $\mathbb Z+\alpha\mathbb Z$ 关于域迹的对偶。对每个 $s\in\Lambda^*\setminus\{0\}$，置 $c=2B\sqrt D\,\operatorname N_{K/\mathbb Q}(s)$。对每个 $x\in\{c,-c\}$，存在单射序列 $f:\mathbb N\to\mathbb R$，使得
+
+$$
+\begin{aligned}
+f(n)&\in\mathrm{NA}_1(\alpha),& f(n)&\ne x\quad(n\in\mathbb N),\\
+\lim_{n\to\infty}f(n)&=x,& x&\in\mathcal A_1(\alpha).
+\end{aligned}
+$$
+
+此处保留 $B<0$ 的情形、两种符号与所有非零整数分母；分子分母不要求互素。
+:::
+
+::: proof
+选取一个范数为 $1$、在正平方根嵌入下大于 $1$ 的 Pell 乘子，使其乘法保持同一个迹对偶格。对固定非零对偶向量取该乘子的幂，迹坐标给出整数分子、分母。去掉有限个初项后，归一化逼近值等于目标范数值加上非零几何递减修正项，因此各项互异且避开极限；同时变号分子、分母给出另一种符号。坐标二次代数与实际生成域之间的代数同构保持迹与范数，把这条构造送到陈述中的原始格。完整证明由 Lean 内核检查。
+:::
+
 现在专门取 $\alpha=\varphi$。先核对两种问题的参数：令 $\mathcal C_\varphi$ 为沿严格递增正整数 $q_j$ 的 $q_j\norm{q_j\varphi}$ 的所有有限极限组成的集合。从 $x\in\mathcal A_1(\varphi)$ 出发，取互异集合值趋于 $x$；有界归一化误差在有限多个分母处只能给出有限多个值，故可抽取 $|q_j|$ 严格递增的子序列。必要时同时把 $q_j,p_j$ 变号，使分母为正，绝对误差不变。由于 $|q_j\varphi-p_j|=O(1/q_j)<1/2$ 最终成立，$p_j$ 最终就是最近整数，所以 $q_j\norm{q_j\varphi}\to|x|$。
 
 反过来，若正整数 $q_j$ 严格递增且 $q_j\norm{q_j\varphi}\to L$，为每个 $q_j$ 取最近整数 $p_j$，再取误差符号固定的子序列，就有 $q_j(q_j\varphi-p_j)\to x$ 且 $|x|=L$。这些带符号的值互不相同：若正分母 $q,r$ 与对应整数 $p,s$ 给出同一个值，则

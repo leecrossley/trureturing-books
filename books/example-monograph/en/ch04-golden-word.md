@@ -226,6 +226,25 @@ Conversely, fix any nonzero $s\in\Lambda^*$ and let $u=u_k\to\infty$. Then $q_{u
 
 [^dhanda-haynes]: Kavita Dhanda and Alan Haynes, *Accumulation points of normalized approximations*, *Journal of Number Theory* 268 (2025), 1–38, DOI: [10.1016/j.jnt.2024.09.002](https://doi.org/10.1016/j.jnt.2024.09.002). The general statement is Theorem 4; the trace dual is defined in Section 2.3, and the proof uses Section 6, Lemmas 18–19, and Section 7. An accessible [primary version](https://arxiv.org/html/2310.00173v2) is available.
 
+Lean covers the following inclusion. The accumulation-to-norm direction of the complete classification still rests on the written proof above.
+
+::: {.theorem #thm-quadratic-norm-inclusion title="Nonzero trace-dual norms give genuine accumulation points" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulation.signed_norm_values_accumulate"}
+Let $D\ge2$ be a squarefree integer, $A,B\in\mathbb Q$ with $B\ne0$, and $\alpha=A+B\sqrt D$. In the actual subfield $K=\mathbb Q(\alpha)\subset\mathbb R$, let $\Lambda^*$ be the field-trace dual of $\mathbb Z+\alpha\mathbb Z$. For every $s\in\Lambda^*\setminus\{0\}$, put $c=2B\sqrt D\,\operatorname N_{K/\mathbb Q}(s)$. For each $x\in\{c,-c\}$ there is an injective sequence $f:\mathbb N\to\mathbb R$ such that
+
+$$
+\begin{aligned}
+f(n)&\in\mathrm{NA}_1(\alpha),& f(n)&\ne x\quad(n\in\mathbb N),\\
+\lim_{n\to\infty}f(n)&=x,& x&\in\mathcal A_1(\alpha).
+\end{aligned}
+$$
+
+This includes negative $B$, both signs and every nonzero integer denominator, with no coprimality condition.
+:::
+
+::: proof
+Choose a Pell multiplier of norm $1$ whose positive-root embedding exceeds $1$ and whose multiplication preserves the same trace-dual lattice. Powers of this multiplier acting on a fixed nonzero dual vector give integer numerators and denominators through their trace coordinates. After finitely many initial terms, the normalized approximations equal the target norm value plus a nonzero geometrically decreasing correction. Their values are therefore distinct and avoid the limit. Negating numerator and denominator together supplies the other sign. An algebra isomorphism from the coordinate quadratic algebra to the actual generated field preserves trace and norm and transports the construction to the original lattice in the statement. The full proof is checked by the Lean kernel.
+:::
+
 Now specialize to $\alpha=\varphi$. First compare the parameters in the two questions. Let $\mathcal C_\varphi$ be the set of all finite limits of $q_j\norm{q_j\varphi}$ along strictly increasing positive integers $q_j$. Given $x\in\mathcal A_1(\varphi)$, choose distinct set values tending to $x$. Bounded normalized errors allow only finitely many values at any finite collection of denominators, so we can extract a subsequence with strictly increasing $|q_j|$. Negate $q_j,p_j$ together when necessary to make the denominators positive, leaving the absolute errors unchanged. Since eventually $|q_j\varphi-p_j|=O(1/q_j)<1/2$, the integer $p_j$ is eventually the nearest integer. Thus $q_j\norm{q_j\varphi}\to|x|$.
 
 Conversely, suppose positive integers $q_j$ increase strictly and $q_j\norm{q_j\varphi}\to L$. Choose a nearest integer $p_j$ for each $q_j$, and pass to a subsequence on which the error has constant sign. Then $q_j(q_j\varphi-p_j)\to x$ with $|x|=L$. These signed values are distinct: equality of values at positive denominators $q,r$ with corresponding integers $p,s$ would imply
