@@ -418,10 +418,88 @@ W(\ell;\epsilon\varphi^2)=H_\epsilon,
 \qquad W(\ell;1)=H_{1/\varphi^2}.
 $$
 
-This supplies parameters and a truncation target for an application still to be checked. Integer multivariate cancellation at arbitrary order must still be realized under complex evaluation with a uniform $O(p^{-2})$ bound, including cases where distinct multi-indices give the same weight and where correction exponents are negative; formal univariate coefficient identities or fixed-order cancellation formulas alone do not supply this step. One must then prove locally uniform convergence of the remainder product over primes, construct a continuation for **every** $\epsilon>0$, and make normal-form meromorphic representatives compatible on overlapping half-planes to obtain a function on $H_0$; one fixed truncation does not suffice. Condition 2 also requires equality with $E(s)$ at **every point** of the original domain $H_{1/\varphi^2}$, including the values assigned at apparent singularities that are removable. Equality of meromorphic germs does not ensure pointwise equality of arbitrary functions satisfying only `MeromorphicOn`, so the normal-form and single-point modification limitations above remain relevant. These analytic realizations and gluing steps have not been formalized in this book; the route also gives no nonvanishing assertion for local factors or the product, and no zero localization as required by condition 3. O-5 remains open, and condition 3 requires separate study.
+This supplies parameters and a truncation target for an application still to be checked; the next remark supplies integer multivariate cancellation to any finite order and its identity under complex evaluation without division. That identity must still be connected to the analytic tail above to obtain a uniform $O(p^{-2})$ bound, with equal-weight terms grouped under the map from multi-indices to weights and denominators from negative correction exponents handled when quotients are reintroduced; formal univariate coefficient identities or fixed-order cancellation formulas alone do not supply this step. One must then prove locally uniform convergence of the remainder product over primes, construct a continuation for **every** $\epsilon>0$, and make normal-form meromorphic representatives compatible on overlapping half-planes to obtain a function on $H_0$; one fixed truncation does not suffice. Condition 2 also requires equality with $E(s)$ at **every point** of the original domain $H_{1/\varphi^2}$, including the values assigned at apparent singularities that are removable. Equality of meromorphic germs does not ensure pointwise equality of arbitrary functions satisfying only `MeromorphicOn`, so the normal-form and single-point modification limitations above remain relevant. These analytic realizations and gluing steps have not been formalized in this book; the route also gives no nonvanishing assertion for local factors or the product, and no zero localization as required by condition 3. O-5 remains open, and condition 3 requires separate study.
+:::
+
+::: {.remark #rem-o5-finite-cancellation title="A finite algebraic form of integer Euler cancellation"}
+**Published expansion and written finite deduction, not formalized in this book.** Delabarre's §2.2, Lemma 2, gives a published expansion with integer exponents[^delabarre-cancellation]. Relabel its variables by a finite set $J$, with $a_j\in\mathbb Z$ and $S=\sum_{j\in J}|a_j|$. If $S>0$ and every $|Y_j|<1/S$, then
+
+$$
+Q(Y):=1+\sum_{j\in J}a_jY_j
+=\prod_{\nu\in\mathbb N^J\setminus\{0\}}(1-Y^\nu)^{\gamma(\nu)},
+\qquad \gamma(\nu)\in\mathbb Z,
+$$
+
+where $Y^\nu=\prod_jY_j^{\nu_j}$, with absolute convergence on the right. Equation (6) gives the exponents explicitly, and Remark 4 notes that their integrality can be proved by induction on total degree. If $S=0$ (including empty $J$), then $Q=1$ and all exponents may be taken to be zero, without using $1/S$. Writing the expansion as $Q\prod_\nu(1-Y^\nu)^{c_\nu}=1$ sets the correction sign convention $c_\nu=-\gamma(\nu)$. What follows is a **written finite deduction and proof** of this cancellation method after clearing denominators, rather than the literal statement of Lemma 2. It claims neither a new literature method nor completed Lean verification.
+
+Work in $\mathbb Z[X_j:j\in J]$, write $|\nu|=\sum_j\nu_j$ and $X^\nu=\prod_jX_j^{\nu_j}$, and take any $N\in\mathbb N$. Consider the finite set
+
+$$
+E_N=\{\nu\in\mathbb N^J:1\le|\nu|\le N\}
+$$
+
+There are integers $c_\nu$ on this set. Put $c_\nu^+=\max(c_\nu,0)$ and $c_\nu^-=\max(-c_\nu,0)$. They give a finite polynomial identity
+
+$$
+\begin{aligned}
+U&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^+},\\
+V&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^-},\\
+QU&=V+\sum_{t\in T}h_tX^t,
+\qquad |t|\ge N+1\quad(t\in T).
+\end{aligned}
+$$
+
+Here $T$ is finite, $h_t\in\mathbb Z$, and every power has a natural-number exponent; a negative $c_\nu$ places its factor in $V$. In particular, for $N=0$, $E_N$ is empty, $U=V=1$, and the remainder is $Q-1$. Its constant coefficient is zero, but the remainder need not vanish.
+
+For a proof, let $\mathcal F_d$ consist of polynomials whose coefficients in total degrees below $d$ vanish. Degrees add in every term of the finite coefficient convolution, so $\mathcal F_d$ is closed under addition, subtraction and multiplication by any polynomial, and
+
+$$
+\mathcal F_r\mathcal F_s\subseteq\mathcal F_{r+s},
+\qquad \mathcal F_{d+1}\subseteq\mathcal F_d.
+$$
+
+Start with $U=V=1$, so $H=QU-V=Q-1\in\mathcal F_1$, and both $U,V$ have constant coefficient $1$. Suppose we have reached layer $d\ge1$ with $H\in\mathcal F_d$. Since $J$ is finite, so is $L_d=\{\nu:|\nu|=d\}$. Set $r_\nu=[X^\nu]H$ and $h_d=\sum_{\nu\in L_d}r_\nu X^\nu$, and take
+
+$$
+\begin{aligned}
+A&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(r_\nu,0)},\\
+B&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(-r_\nu,0)}.
+\end{aligned}
+$$
+
+The binomial expansion for natural powers gives $(1-X^\nu)^m=1-mX^\nu$ plus terms in $\mathcal F_{2d}$. Choosing two or more nonconstant terms in the finite products also gives degree at least $2d$. Since $2d\ge d+1$,
+
+$$
+A-1,\ B-1\in\mathcal F_d,
+\qquad A-B+h_d\in\mathcal F_{d+1}.
+$$
+
+Update $U,V$ to $UA,VB$. To account for interactions between the old denominator factors in $V$ and the new layer, use the exact identity
+
+$$
+\begin{aligned}
+QUA-VB
+&=HA+V(A-B)\\
+&=H+(A-B)+H(A-1)+(V-1)(A-B).
+\end{aligned}
+$$
+
+Here $H-h_d\in\mathcal F_{d+1}$, so $H+(A-B)\in\mathcal F_{d+1}$, while $H(A-1)\in\mathcal F_{2d}\subseteq\mathcal F_{d+1}$. The old $V$ has constant coefficient $1$, giving $V-1\in\mathcal F_1$ and hence $(V-1)(A-B)\in\mathcal F_{d+1}$. Thus the new $H$ belongs to $\mathcal F_{d+1}$, and the updated $U,V$ still have constant coefficient $1$. This cancels degree $d$ while preserving all cancellations in lower degrees.
+
+Perform the steps $d=1,\ldots,N$, assigning $c_\nu=r_\nu$ on the disjoint layers. This gives the displayed $U,V$ and $H=QU-V\in\mathcal F_{N+1}$. Taking $T$ to be the finite support of the final $H$, with $h_t=[X^t]H$, gives the remainder and its degree bound. Each layer's correction exponents are determined uniquely by its residual coefficients, consistently with the literature sign $c=-\gamma$. For a hand calculation, $Q=1+X$ at $N=1$ gives $c_1=1$ and $H=-X^2$; at $N=2$, taking $c_2=-1$ then gives $U=1-X$, $V=1-X^2$, and $H=0$.
+
+All these choices precede the introduction of analytic weights. For any $z=(z_j)_{j\in J}\in\mathbb C^J$, polynomial evaluation preserves finite sums, products and natural powers, so
+
+$$
+Q(z)U(z)=V(z)+\sum_{t\in T}h_tz^t
+$$
+
+holds at every $z$, even when some $1-z^\nu=0$; there is no division. After substituting $z_j=p^{-b_js}$, rational relations among weights may make distinct multi-indices coincide in weight, but do not invalidate this identity. It supplies no uniform analytic remainder estimate, divisibility or nonvanishing assertion, and does not complete the preceding remark's obligations concerning prime products, normal-form gluing and pointwise agreement. The finite algebraic proof and its Lean formalization require separate verification; this book does not yet list this arbitrary-order conclusion as a Lean result, and it settles neither condition 2 nor condition 3 of O-5.
 :::
 
 [^bel-continuation]: G. Bhowmik, D. Essouabri, B. Lichtin, *Meromorphic continuation of multivariable Euler products*, [DOI: 10.1515/forum.2007.044](https://doi.org/10.1515/forum.2007.044). Source locations here refer to the [authors' preprint](https://arxiv.org/pdf/math/0502508v1), §1.1: Lemma 1 and its proof, pp. 5–8, especially the uniform analytic perturbations in equations (2)–(4); Theorem 1 and its proof, pp. 8–10, apply the method to analytic power series on the unit polydisc with zero constant term and integer Taylor coefficients. These literature results are not formalized in this book.
+
+[^delabarre-cancellation]: L. Delabarre, *Extension of Estermann's theorem to Euler products associated to a multivariate polynomial*, *Bulletin de la Société Mathématique de France* **141**(2) (2013), 225–265, [DOI: 10.24033/bsmf.2647](https://doi.org/10.24033/bsmf.2647), [journal article](https://www.numdam.org/item/BSMF_2013__141_2_225_0.pdf). Section 1.1 specifies integer coefficients; §2.2, Lemma 2, equations (5)–(6) and Remark 4 are on printed p. 233, with the proof on pp. 234–235. The cited result is the published integer-exponent expansion; this remark separately gives a complete proof of its finite cancellation form.
 
 The original statement of O-5 and the normal-form and single-point modification limitations above come from these files at the pinned trureturing commit:
 

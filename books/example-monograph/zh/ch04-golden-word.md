@@ -418,10 +418,88 @@ W(\ell;\epsilon\varphi^2)=H_\epsilon,
 \qquad W(\ell;1)=H_{1/\varphi^2}.
 $$
 
-这只给出待核验应用的参数与截断目标。尚须把任意阶的整数多变量消去实现为复数求值下的一致 $O(p^{-2})$ 估计，处理不同多重指标给出同一权重的情形以及负的校正指数；形式的一元系数恒等式或固定阶消去式不能单独完成这一步。随后还须证明余项素数乘积局部一致收敛，为**每个** $\epsilon>0$ 构造延拓，并使重叠半平面上的正规形式亚纯代表相容，拼成 $H_0$ 上的函数；一个固定截断不够。条件 2 还要求在原始域 $H_{1/\varphi^2}$ 的**每一点**都等于 $E(s)$，包括表面奇点可去时应取的值。亚纯函数胚相等，并不保证任意仅满足 `MeromorphicOn` 的函数逐点相等，所以上述正规形式与单点改值的限制仍须保留。这些解析实现与拼接尚未在本书中形式化；该路线也不给出局部因子或乘积的非零性，更不给出条件 3 的零点定位。O-5 仍然开放，条件 3 仍需另行研究。
+这给出待核验应用的参数与截断目标；下条评注补出任意有限阶的整数多变量消去及其无除法的复数求值恒等式。尚须把该恒等式接到上述解析尾项，实现一致 $O(p^{-2})$ 估计，并在多重指标到权重的对应中处理同权重项的合并，以及重新引入商式时负校正指数带来的分母；形式的一元系数恒等式或固定阶消去式不能单独完成这一步。随后还须证明余项素数乘积局部一致收敛，为**每个** $\epsilon>0$ 构造延拓，并使重叠半平面上的正规形式亚纯代表相容，拼成 $H_0$ 上的函数；一个固定截断不够。条件 2 还要求在原始域 $H_{1/\varphi^2}$ 的**每一点**都等于 $E(s)$，包括表面奇点可去时应取的值。亚纯函数胚相等，并不保证任意仅满足 `MeromorphicOn` 的函数逐点相等，所以上述正规形式与单点改值的限制仍须保留。这些解析实现与拼接尚未在本书中形式化；该路线也不给出局部因子或乘积的非零性，更不给出条件 3 的零点定位。O-5 仍然开放，条件 3 仍需另行研究。
+:::
+
+::: {.remark #rem-o5-finite-cancellation title="整数 Euler 消去的有限代数形式"}
+**文献展开与书面有限推论，未在本书形式化。** Delabarre 在第 2.2 节引理 2 中给出已发表的整数指数展开[^delabarre-cancellation]。用有限变量集 $J$ 重记其变量，令 $a_j\in\mathbb Z$、$S=\sum_{j\in J}|a_j|$。当 $S>0$ 且每个 $|Y_j|<1/S$ 时，
+
+$$
+Q(Y):=1+\sum_{j\in J}a_jY_j
+=\prod_{\nu\in\mathbb N^J\setminus\{0\}}(1-Y^\nu)^{\gamma(\nu)},
+\qquad \gamma(\nu)\in\mathbb Z,
+$$
+
+这里 $Y^\nu=\prod_jY_j^{\nu_j}$，右侧绝对收敛；原文式 (6) 给出指数公式，评注 4 指出可按总次数归纳证明其整数性。若 $S=0$（包括 $J$ 为空），则 $Q=1$，可直接取所有指数为零，不使用 $1/S$。若把展开写成 $Q\prod_\nu(1-Y^\nu)^{c_\nu}=1$，校正指数的符号约定就是 $c_\nu=-\gamma(\nu)$。下面是这种消去法清除分母后的**书面有限推论及证明**，并非引理 2 的逐字陈述，也不主张新的文献方法或已完成 Lean 验证。
+
+在 $\mathbb Z[X_j:j\in J]$ 中，记 $|\nu|=\sum_j\nu_j$、$X^\nu=\prod_jX_j^{\nu_j}$，并任取 $N\in\mathbb N$。有限集
+
+$$
+E_N=\{\nu\in\mathbb N^J:1\le|\nu|\le N\}
+$$
+
+上存在整数 $c_\nu$。令 $c_\nu^+=\max(c_\nu,0)$、$c_\nu^-=\max(-c_\nu,0)$，则可得到以下有限多项式恒等式：
+
+$$
+\begin{aligned}
+U&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^+},\\
+V&=\prod_{\nu\in E_N}(1-X^\nu)^{c_\nu^-},\\
+QU&=V+\sum_{t\in T}h_tX^t,
+\qquad |t|\ge N+1\quad(t\in T).
+\end{aligned}
+$$
+
+这里 $T$ 有限、$h_t\in\mathbb Z$，所有幂的指数都是自然数；负的 $c_\nu$ 只使相应因子进入 $V$。特别地，$N=0$ 时 $E_N$ 为空，$U=V=1$，余项为 $Q-1$，其常数项为零，但余项一般不为零。
+
+为证明此式，令 $\mathcal F_d$ 为总次数小于 $d$ 的系数全为零的多项式集合。有限系数卷积中每一项的次数相加，故 $\mathcal F_d$ 对加减和任意多项式乘法封闭，且
+
+$$
+\mathcal F_r\mathcal F_s\subseteq\mathcal F_{r+s},
+\qquad \mathcal F_{d+1}\subseteq\mathcal F_d.
+$$
+
+从 $U=V=1$ 开始，$H=QU-V=Q-1\in\mathcal F_1$，且 $U,V$ 的常数项均为 $1$。设已到第 $d\ge1$ 层，$H\in\mathcal F_d$。因 $J$ 有限，$L_d=\{\nu:|\nu|=d\}$ 有限。置 $r_\nu=[X^\nu]H$、$h_d=\sum_{\nu\in L_d}r_\nu X^\nu$，并取
+
+$$
+\begin{aligned}
+A&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(r_\nu,0)},\\
+B&=\prod_{\nu\in L_d}(1-X^\nu)^{\max(-r_\nu,0)}.
+\end{aligned}
+$$
+
+自然数次幂的二项展开给出 $(1-X^\nu)^m=1-mX^\nu$ 加上属于 $\mathcal F_{2d}$ 的项。有限乘积中选取两个或更多非常数项，也至少有次数 $2d$。由于 $2d\ge d+1$，得到
+
+$$
+A-1,\ B-1\in\mathcal F_d,
+\qquad A-B+h_d\in\mathcal F_{d+1}.
+$$
+
+把 $U,V$ 分别更新为 $UA,VB$。处理旧分母因子 $V$ 与新层的相互作用，需用精确恒等式
+
+$$
+\begin{aligned}
+QUA-VB
+&=HA+V(A-B)\\
+&=H+(A-B)+H(A-1)+(V-1)(A-B).
+\end{aligned}
+$$
+
+其中 $H-h_d\in\mathcal F_{d+1}$，故 $H+(A-B)\in\mathcal F_{d+1}$；又有 $H(A-1)\in\mathcal F_{2d}\subseteq\mathcal F_{d+1}$。旧 $V$ 的常数项为 $1$，于是 $V-1\in\mathcal F_1$，从而 $(V-1)(A-B)\in\mathcal F_{d+1}$。新 $H$ 因此属于 $\mathcal F_{d+1}$，而更新后的 $U,V$ 常数项仍为 $1$。这同时消去第 $d$ 层并保留全部较低次数的消去结果。
+
+依次做 $d=1,\ldots,N$，在互不相交的层上指定 $c_\nu=r_\nu$，即得所列 $U,V$，且 $H=QU-V\in\mathcal F_{N+1}$。取 $T$ 为最终 $H$ 的有限支集、$h_t=[X^t]H$，便得余项及其次数界。每层校正指数由该层残差系数唯一确定，这也与文献展开中 $c=-\gamma$ 的符号相合。作为手算检查，$Q=1+X$ 时，$N=1$ 给出 $c_1=1$、$H=-X^2$；$N=2$ 再取 $c_2=-1$，则 $U=1-X$、$V=1-X^2$、$H=0$。
+
+上述选择全在引入解析权重之前完成。对任意 $z=(z_j)_{j\in J}\in\mathbb C^J$，多项式求值保持有限和、积与自然数次幂，故
+
+$$
+Q(z)U(z)=V(z)+\sum_{t\in T}h_tz^t
+$$
+
+在每个 $z$ 都成立，即使某个 $1-z^\nu=0$；这里没有除法。代入 $z_j=p^{-b_js}$ 后，不同多重指标可能因权重的有理关系而合并，但不会破坏这个恒等式。它尚不提供余项的一致解析估计、可除性或非零性，也不完成上条评注的素数乘积、正规形式拼接和逐点相等义务。有限代数证明与其 Lean 形式化应分别核验；本书尚未把这一任意阶结论列为 Lean 结果，O-5 的条件 2、3 仍未由此解决。
 :::
 
 [^bel-continuation]: G. Bhowmik, D. Essouabri, B. Lichtin, *Meromorphic continuation of multivariable Euler products*, [DOI: 10.1515/forum.2007.044](https://doi.org/10.1515/forum.2007.044)。这里的原文定位采用[作者预印本](https://arxiv.org/pdf/math/0502508v1)第 1.1 节：引理 1 及其证明，第 5–8 页，尤其式 (2)–(4) 中的一致解析扰动；定理 1 及其证明，第 8–10 页，将方法用于单位多圆盘上常数项为零、Taylor 系数为整数的解析幂级数。这些文献结论未在本书形式化。
+
+[^delabarre-cancellation]: L. Delabarre, *Extension of Estermann's theorem to Euler products associated to a multivariate polynomial*, *Bulletin de la Société Mathématique de France* **141**(2) (2013), 225–265，[DOI: 10.24033/bsmf.2647](https://doi.org/10.24033/bsmf.2647)，[期刊原文](https://www.numdam.org/item/BSMF_2013__141_2_225_0.pdf)。第 1.1 节规定系数为整数；第 2.2 节引理 2、式 (5)–(6) 与评注 4 见印刷页 233，证明见 234–235 页。这里引用的是已发表的整数指数展开；本评注另行完整写出其有限消去形式的证明。
 
 O-5 的原始陈述及上述正规形式和单点改值限制，出自 trureturing 所钉提交中的下列文件：
 
