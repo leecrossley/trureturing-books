@@ -192,10 +192,16 @@ $$
 = (1-c)(1-d)(\mathbf{n}\cdot\mathbf{m})\bigl(\mathbf{n}\mathbf{m}^{\mathsf T}-\mathbf{m}\mathbf{n}^{\mathsf T}\bigr).
 $$
 
-因此，只要第一根轴非零、第二根轴不平行、两轴点积非零且 $c,d\ne 1$，换位子就非零。在单比特信道解释中，轴是单位向量、因子取通常的物理范围；Lean 结果本身是代数矩阵命题，不单独声称某个 CPTP 实现。精确取 $\mathbf{e}=(1,0,0)$、$\mathbf{m}=(3/5,4/5,0)$、$c=1/2$、$d=1/3$ 时，两次乘积的 $(0,1)$ 元分别为 $8/25$ 与 $4/25$。
+因此，只要第一根轴非零、第二根轴不平行、两轴点积非零且 $c,d\ne 1$，换位子就非零。
 :::
 
-它在平行（$\mathbf{n}\cdot\mathbf{m} = \pm 1,\; \mathbf{n}\mathbf{m}^{\mathsf{T}} = \mathbf{m}\mathbf{n}^{\mathsf{T}}$）**与严格正交**（$\mathbf{n}\cdot\mathbf{m} = 0$）两处均精确为零（唯有斜交如 $45^\circ$ 时未读信道才不对易）！因此，$90^\circ$ 正交双泡的先后次序冲突**并非**来自未读退相干信道，而是来自**选择性条件更新（selective instrument）** $\mathcal{J}_{\mathbf{n},+}(\rho) = P_{\mathbf{n},+}\rho P_{\mathbf{n},+}$（其中 $P_{\mathbf{n},+} = \frac{1}{2}(I_2 + \mathbf{n}\cdot\vec{\sigma})$）：从最大混态 $\frac{1}{2}I_2$ 出发，先读 $Z_+$ 再读 $X_+$ 得到 $\mathcal{J}_{X,+}(\mathcal{J}_{Z,+}(\frac{1}{2}I_2)) = \frac{1}{4}P_{X,+}$，而先读 $X_+$ 再读 $Z_+$ 得到 $\mathcal{J}_{Z,+}(\mathcal{J}_{X,+}(\frac{1}{2}I_2)) = \frac{1}{4}P_{Z,+}$——两条分支发生概率同为 $\frac{1}{4}$，归一化条件终态却分别落在 $|+X\rangle$ 与 $|+Z\rangle$（未归一化希尔伯特—施密特范数差恰为 $\frac{1}{4}$）。在离散信念集合修正层面，冲突重置更新的非对易性与有限共识子空间外的单位正交逃逸则由以下两条冻结定理精确刻画：
+::: proof
+第一条事实选取 $n_i\ne 0$ 的坐标 $i$。外积相等给出对每个 $j$ 都有 $n_i m_j=m_i n_j$，因而 $\mathbf{m}=(m_i/n_i)\mathbf{n}$。恒等式逐元展开两个矩阵乘积与有限的三坐标点积，再将所得多项式表达式归一化。对于非对易结论，第一条事实与不平行假设说明反对称外积差非零；非零点积与 $c,d\ne 1$ 又使其标量系数非零。完整证明由 Lean 内核检查。
+:::
+
+在 §33.5.2 的单比特信道解释中，轴是单位向量，且 $c=\cos\alpha_n$、$d=\cos\alpha_m$ 位于 $[0,1]$；Lean 结果本身是代数矩阵命题，不声称某个 CPTP 实现。作为精确代数实例，取 $\mathbf{e}=(1,0,0)$、$\mathbf{m}=(3/5,4/5,0)$、$c=1/2$、$d=1/3$。$\mathbf{K}(\mathbf{e},c)\mathbf{K}(\mathbf{m},d)$ 与 $\mathbf{K}(\mathbf{m},d)\mathbf{K}(\mathbf{e},c)$ 的 $(0,1)$ 元分别为 $8/25$ 与 $4/25$。
+
+对于单位轴，这一换位子在平行（$\mathbf{n}\cdot\mathbf{m} = \pm 1$）**与严格正交**（$\mathbf{n}\cdot\mathbf{m} = 0$）两处均精确为零；在 $45^\circ$ 等斜交情形且两个因子均不等于 $1$ 时则非零。因此，$90^\circ$ 正交双泡的先后次序冲突**并非**来自未读退相干信道，而是来自**选择性条件更新（selective instrument）** $\mathcal{J}_{\mathbf{n},+}(\rho) = P_{\mathbf{n},+}\rho P_{\mathbf{n},+}$（其中 $P_{\mathbf{n},+} = \frac{1}{2}(I_2 + \mathbf{n}\cdot\vec{\sigma})$）：从最大混态 $\frac{1}{2}I_2$ 出发，先读 $Z_+$ 再读 $X_+$ 得到 $\mathcal{J}_{X,+}(\mathcal{J}_{Z,+}(\frac{1}{2}I_2)) = \frac{1}{4}P_{X,+}$，而先读 $X_+$ 再读 $Z_+$ 得到 $\mathcal{J}_{Z,+}(\mathcal{J}_{X,+}(\frac{1}{2}I_2)) = \frac{1}{4}P_{Z,+}$——两条分支发生概率同为 $\frac{1}{4}$，归一化条件终态却分别落在 $|+X\rangle$ 与 $|+Z\rangle$（未归一化希尔伯特—施密特范数差恰为 $\frac{1}{4}$）。在离散信念集合修正层面，冲突重置更新的非对易性与有限共识子空间外的单位正交逃逸则由以下两条冻结定理精确刻画：
 
 ::: {.theorem #thm-ch33-consensus-revision-and-escape title="冲突信念修正次序非对易性与闭子空间正交余项单位逃逸定理" lean="D5/S3/ConceptDynamics/Revision/RevisionConflictNoncommutation.revision_conflict_noncommutation D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape"}
 在 `trureturing` 冻结的概念冲突修正与有限层投影逃逸模块中，以下两项定理同时成立：
@@ -259,7 +265,7 @@ $$
 至此，我们将“预设绝对客观实在观”与本章建立的“多观察者共识去相干观”收束为下框五维对照总表：
 
 ::: {.remark #rem-ch33-consensus-vs-absolute-objectivity title="预设绝对客观实在观与多观察者共识去相干观的五维对照及分布式共识类比"}
-**模型综合与三层依据边界说明（`MODEL` / `LEAN ✓` / `文献结果`）。** 下表汇总本节五重机制：凡涉共同相位二次厄米表出、格拉姆算子分解、正交补投影、单比特捏合勾股、全捏合相对熵增、未读不动点、参数化斜交轴收缩换位子、幸存副本阻断、偏迹访问缺陷、划分拓扑核、冲突修正非对易与正交逃逸之处均由 [@thm-ch33-consensus-quadratic-and-gram]、[@thm-ch33-axis-contraction-commutator] 与 [@thm-ch33-consensus-revision-and-escape] 锚定（`LEAN ✓`）；凡涉量子达尔文主义与真正局域友好性不等式之处归入 [@rem-ch33-quantum-darwinism-local-friendliness-literature]（`文献结果`）；而将经典客观性类比于分布式容错账本（如 L. Lamport, R. Shostak & M. Pease, *ACM Trans. Program. Lang. Syst.* **4**, 382–401, 1982 拜占庭将军法定人数共识：没有凌驾网络之上的中央上帝时钟，稳定的公共历史由多数诚实副本的冗余一致锁定，但量子共识通过半正定并矢收缩 $\mathbf{M}_{\mathrm{cons}}$ 与受控分支纠缠运作而非经典签名投票）则明确归属本书诠释模型（`MODEL`）：
+**模型综合与三层依据边界说明（`MODEL` / `LEAN ✓` / `文献结果`）。** 下表汇总本节五重机制：凡涉共同相位二次厄米表出、格拉姆算子分解、正交补投影、单比特捏合勾股、全捏合相对熵增、未读不动点、参数化斜交轴收缩换位子、幸存副本阻断、偏迹访问缺陷、划分拓扑核、冲突修正非对易与正交逃逸之处均由 [@thm-ch33-consensus-quadratic-and-gram]、[@thm-ch33-consensus-pinching-and-fixed-points]、[@thm-ch33-consensus-redundant-records-and-kernel]、[@thm-ch33-axis-contraction-commutator] 与 [@thm-ch33-consensus-revision-and-escape] 锚定（`LEAN ✓`）；凡涉量子达尔文主义与真正局域友好性不等式之处归入 [@rem-ch33-quantum-darwinism-local-friendliness-literature]（`文献结果`）；而将经典客观性类比于分布式容错账本（如 L. Lamport, R. Shostak & M. Pease, *ACM Trans. Program. Lang. Syst.* **4**, 382–401, 1982 拜占庭将军法定人数共识：没有凌驾网络之上的中央上帝时钟，稳定的公共历史由多数诚实副本的冗余一致锁定，但量子共识通过半正定并矢收缩 $\mathbf{M}_{\mathrm{cons}}$ 与受控分支纠缠运作而非经典签名投票）则明确归属本书诠释模型（`MODEL`）：
 
 | 对照维度 | 预设绝对客观实在观（隐含“外部第 3 点 $C$”） | 多观察者共识去相干观（本书形式—几何综合） |
 | :--- | :--- | :--- |
@@ -273,7 +279,7 @@ $$
 请进入下方完整交互实验室 `ORTHO//CONSENSUS`，在同一座三维椭球、冗余片段圆弧与双编码实验室舞台上自由切换全部六个预设场景，亲手拨动观察者轴分布、去相干耦合角、已读片段规模、白噪声可见度与拓荒倾角，核验共识指针基如何从无特权的平权球面中涌现：
 
 ::: {.viz src="observer-consensus-decoherence" height="640"}
-**交互实验室 `ORTHO//CONSENSUS`**：多观察者共识张量、去相干指针基涌现与无绝对客观事实综合沙盘。集成 `isotropic-fog`（六轴均分 $\mathbf{M}_{\mathrm{cons}}=\frac{1}{3}I_3$ 无优选指针轴球心收缩）、`axis-consensus`（共线共识纵向守恒 $\Gamma_\parallel=1$、横向 $(\cos\alpha)^k$ 衰减与 $\alpha=\pi/2$ 完全捏合）、`phase-gauge`（轴端正负翻转不改张量元与复态矢共同相位二次厄米小窗）、`darwinism-plateau`（$N=16$ 纯双分支精确互信息平台、受控逆门残余相干与四步相位证书）、`dual-wigner-bubbles`（正交双泡未读对易、斜交轴换位子开关、选择性分岔、冲突修正非对易及真正局域友好性 $F_{\mathrm{LF}} \approx 7.0838 > 6$ 违背见证）与 `new-axis-pioneers`（平面外正交残差 $\sin\beta$ 升秩 $2 \to 3$ 与旧生成元 $e^{-t}$ 最快阻尼对照）六大场景。绿色徽章严格限定于本节引用的十五条 Lean 冻结定理；量子达尔文主义、LF 禁行界与分布式共识类比分别标示文献、数值与模型依据。
+**交互实验室 `ORTHO//CONSENSUS`**：多观察者共识张量、去相干指针基涌现与无绝对客观事实综合沙盘。集成 `isotropic-fog`（六轴均分 $\mathbf{M}_{\mathrm{cons}}=\frac{1}{3}I_3$ 无优选指针轴球心收缩）、`axis-consensus`（共线共识纵向守恒 $\Gamma_\parallel=1$、横向 $(\cos\alpha)^k$ 衰减与 $\alpha=\pi/2$ 完全捏合）、`phase-gauge`（轴端正负翻转不改张量元与复态矢共同相位二次厄米小窗）、`darwinism-plateau`（$N=16$ 纯双分支精确互信息平台、受控逆门残余相干与四步相位证书）、`dual-wigner-bubbles`（正交双泡未读对易、斜交轴换位子开关、选择性分岔、冲突修正非对易及真正局域友好性 $F_{\mathrm{LF}} \approx 7.0838 > 6$ 违背见证）与 `new-axis-pioneers`（平面外正交残差 $\sin\beta$ 升秩 $2 \to 3$ 与旧生成元 $e^{-t}$ 最快阻尼对照）六大场景。绿色方框覆盖本实验室已经呈现的十二条冻结声明；本节总共引用十五条冻结声明。量子达尔文主义与 LF 禁行界标示文献依据；数值曲线及 LF 违背值标示数值依据；分布式共识类比标示模型依据。
 :::
 
 然而，当万物都在没有外部参考点 $C$ 的单位球面上彼此丈量、结成互吸引子双螺旋并由多观察者共识涌现局部指针轴时，一个紧迫的几何追问也随之浮出水面：**在一颗处处对称、没有中心刻度的球面上，一位观察者究竟是如何确定自己此刻所处的“位置”的？为什么单凭一个方向的内积读数还会留下一整圈赤道的迷茫，而偏偏只有“正交（$90^\circ$）”的退化与破缺，才能在茫茫状态空间里为观察者钉下唯一的坐标？** 下一章（[第 34 章](ch34-orthogonality-degeneracy-and-observer-position.md)），我们将推开这道关于“正交性如何定位观察者位置”的几何之门。

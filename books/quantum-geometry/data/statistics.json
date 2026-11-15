@@ -12,7 +12,7 @@
     "problem": 3,
     "example": 124,
     "remark": 201,
-    "proof": 305,
+    "proof": 306,
     "lean_verified": 308,
     "written_proof": 3,
     "literature": 198
@@ -6630,13 +6630,13 @@
       "citations": [
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 200,
+          "line": 206,
           "id": "thm-ch33-consensus-revision-and-escape",
           "via": "environment"
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 203,
+          "line": 209,
           "id": "",
           "via": "inline"
         },
@@ -12456,13 +12456,13 @@
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 200,
+          "line": 206,
           "id": "thm-ch33-consensus-revision-and-escape",
           "via": "environment"
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 210,
+          "line": 216,
           "id": "",
           "via": "inline"
         },
