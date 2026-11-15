@@ -38,6 +38,8 @@ embed_fonts = false
 # 统计索引是输出，不作为统计来源；校验只比对，构建自动刷新。
 [statistics]
 exclude = ["appendix-c.md"]
+templates = { "appendix-c.md" = "data/appendix-c.{lang}.md.in" }
 
 [derived]
 command = ["python3", "books/quantum-geometry/sync-statistics.py"]
+outputs = ["data/statistics.json", "zh/appendix-c.md", "en/appendix-c.md", "viz/lean-declaration-map/data.generated.json"]
