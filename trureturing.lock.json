@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "3c9c0d321db99a051c5644eae53b7c67d020a7b1",
-  "pinned_at": "2026-11-15T11:41:47Z",
+  "commit": "9f5f5604274beb5d1bd27ac45f4d30abd419162b",
+  "pinned_at": "2026-11-15T12:46:17Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -596,6 +596,14 @@
       "statement_id": "sha256:072706fdc38d68c71dd04ac461b5f728248c44a55179226a3925e895ae875a22",
       "line": 39,
       "signature": "theorem minkowski_model_set_spec (window : Set ℝ) (y : ℝ) (label : JointCoordinates) : Function.Injective minkowskiEmbedding ∧ (goldenLattice : Set (ℝ × ℝ)) = Set.range minkowskiEmbedding ∧ (y ∈ modelSet window ↔ ∃ x : GoldenInt, embedding x = y ∧ embedding (conj x) ∈ window) ∧ ((y, label) ∈ labeledModelSet window ↔ ∃ (x : GoldenInt) (n : ℕ), embedding x = y ∧ embedding (conj x) ∈ window ∧ jointCoordinates x n = label)"
+    },
+    "D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail": {
+      "module": "D5/S1/Words/AdmissibleWords/KBonacciEmittedTail",
+      "name": "D5.S1.Words.AdmissibleWords.KBonacciConditionalBlockCoupling.prefix_coupling_emitted_tail",
+      "kind": "theorem",
+      "statement_id": "sha256:b921e468076960d8b3ee3e317d044b06929f945991acdd40a455f0945a8b14c1",
+      "line": 153,
+      "signature": "theorem prefix_coupling_emitted_tail {k n : ℕ} (hk : 0 < k) (sites : List (Fin n)) (hn : sites.Nodup) (fixed : Finset (Fin n)) (hfree : ∀ i ∈ sites, i ∉ fixed) (x y : Fin n → Bool) (hx : (completions k n fixed x).Nonempty) (hy : (completions k n fixed y).Nonempty) (j : ℕ) (hj : j ≤ sites.length) : mean (prefixCoupling sites fixed x y hx hy) (fun w => if ∀ i ∈ sites.take j, ¬ (w.1 i = false ∧ w.2 i = false) then 1 else 0) ≤ (1 / 2 : ℝ≥0∞)^j"
     },
     "D5/S1/Words/Mechanical/MechanicalBalance.lowerMechanicalWindowTrueCount_eq_floor": {
       "module": "D5/S1/Words/Mechanical/MechanicalBalance",

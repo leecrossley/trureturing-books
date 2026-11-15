@@ -802,7 +802,30 @@ $$
 
 The expectation bound uses only linearity of finite sums, with no independence assumption on disagreements at different positions. At $j=m$, $A_m=\{T=m+1\}$ is exactly the event of no common zero anywhere in the block. This example uses nonempty blocks; extending this paper construction to $m=0$ gives $T=1$, an empty sum, and zero cost. If the two initial conditional block laws already coincide, they may instead be sampled synchronously: their disagreement cost is zero without requiring an actual zero anywhere in the block.
 
-This geometric tail bound is a paper derivation for the shared-threshold construction above, with a synchronous suffix after a common zero. The existing native coupling declarations give conditional marginals and an expected block Hamming cost at most $1$; they do not supply this event's tail bound on the actual emitted outputs of the original Lean `prefixCoupling`. No Lean kernel verification of that refinement is claimed here.
+To separate the native emitted law from the paper's shared-threshold construction, fix the finite coordinates explicitly. Let $W_n=\operatorname{Fin}(n)	o\{\mathrm{false},\mathrm{true}\}$, and let $C(k,n,F,z)$ be the set of complete words accepted by the original `DBonacciAdmissible` scan and agreeing with $z$ on the finite set $F\subseteq\operatorname{Fin}(n)$. When this fiber has witness $h$, write $L(F,z,h)=\operatorname{completionLaw}(F,z,h)$. For two nonempty fibers, write the original definition as $P(s,F,x,y,h_x,h_y)=\operatorname{prefixCoupling}(s,F,x,y,h_x,h_y)$. For an emitted pair $w=(w_1,w_2)$, define
+
+$$
+A_j(w)\;:\Longleftrightarrow\;\forall i\in\operatorname{take}(j,s),\;
+\neg\bigl(w_1(i)=\mathrm{false}\land w_2(i)=\mathrm{false}\bigr).
+$$
+
+Here `take` takes the first $j$ coordinates in list order; the coordinates are only required to be duplicate-free, with no increasing-order, complement-cover, or interval assumption. The native emitted event therefore has the following exact Lean attribution:
+
+::: {.theorem #thm-ch39-p2e-native-emitted-tail title="Geometric Tail for the Original Conditional Coupling's Complete Emitted Output" lean="D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail"}
+For every $k,n\in\mathbb N$ with $0<k$, every duplicate-free list $s:\operatorname{List}(\operatorname{Fin}(n))$, and every finite fixed set $F:\operatorname{Finset}(\operatorname{Fin}(n))$ whose elements are disjoint from $s$, take arbitrary $x,y:W_n$ with nonempty fibers $C(k,n,F,x)$ and $C(k,n,F,y)$. For each $j\le |s|$, under the original joint law $P(s,F,x,y,h_x,h_y)$, the mean of the indicator of $A_j$ satisfies
+
+$$
+\operatorname{mean}\!\left(P(s,F,x,y,h_x,h_y),\;w\mapsto\mathbf 1_{A_j(w)}\right)\le 2^{-j}.
+$$
+
+This retains `prefixCoupling`'s initial `resetReady` test, recursive branch, and independent fallback for impossible refinements. The event permits $(\mathrm{true},\mathrm{true})$ and includes $j=0$, empty scans, the whole scan, $x=y$, and the initial reset branch.
+:::
+
+::: proof
+Use counting induction in each fixed completion fiber: changing a selected free coordinate from `true` to `false` is an injection, so the event that the first $j$ selected coordinates are all `true` has mass at most $2^{-j}$. In the `resetReady` branch the two outputs agree coordinatewise on free sites, so the event reduces exactly to that all-`true` counting bound. In the recursive branch the emitted head is the sampled bit pair; the `(false,false)` child contributes zero to the event, while every positive-mass other child enters the corresponding refined fibers and uses the induction hypothesis, with the half-failure budget supplying the next factor $1/2$. Zero-mass and impossible refinements contribute nothing. The induction applies directly to the original `prefixCoupling`, without replacing its initial test or independent fallback. The full proof is checked by the Lean kernel.
+:::
+
+This bound concerns only the native complete output event “the first $j$ selected coordinates contain no common zero.” It does not prove that the paper's shared-threshold construction has the same law as the native coupling, supported coalescence after an emitted common zero, simultaneous reflection support transport, or complete pointwise assembly; each still requires separate verification.
 
 Reverse the scan for a left block. Write $d$ for Hamming distance on full words.
 
