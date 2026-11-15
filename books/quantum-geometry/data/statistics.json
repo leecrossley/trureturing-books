@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 200,
+    "theorem": 201,
     "lemma": 34,
     "proposition": 45,
     "corollary": 31,
@@ -13,15 +13,15 @@
     "example": 124,
     "remark": 201,
     "proof": 305,
-    "lean_verified": 307,
+    "lean_verified": 308,
     "written_proof": 3,
     "literature": 198
   },
-  "total": 667,
+  "total": 670,
   "kinds": {
     "def": 201,
     "inductive": 11,
-    "theorem": 455
+    "theorem": 458
   },
   "groups": {
     "theorems": [
@@ -265,6 +265,9 @@
       "D5/S3/Quantum/Magic/ReflectionDiagonalCNOTLowerBound.result",
       "D5/S3/Quantum/Matrix/CentralSqrtTwoDefectGap.central_spectral_gap",
       "D5/S3/Quantum/Matrix/CentralSqrtTwoDefectGap.recurrence_endpoint_observability",
+      "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator",
+      "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal",
+      "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisOuter_eq_implies_parallel",
       "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
       "D5/S3/Quantum/Measurement/StaticEffectSequentialSeparation.same_effects_different_two_step_joint_law",
       "D5/S3/Quantum/Measurements/FiniteMemoryHistoryCapacity.finite_memory_history_capacity",
@@ -6627,13 +6630,13 @@
       "citations": [
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 189,
+          "line": 200,
           "id": "thm-ch33-consensus-revision-and-escape",
           "via": "environment"
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 192,
+          "line": 203,
           "id": "",
           "via": "inline"
         },
@@ -12453,13 +12456,13 @@
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 189,
+          "line": 200,
           "id": "thm-ch33-consensus-revision-and-escape",
           "via": "environment"
         },
         {
           "file": "ch33-s05-consensus-and-pointer-bases.md",
-          "line": 199,
+          "line": 210,
           "id": "",
           "via": "inline"
         },
@@ -16889,6 +16892,42 @@
           "file": "ch16-s03-central-defect-spectrum.md",
           "line": 18,
           "id": "thm-robin-endpoint-observability",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurement.Bloch.axisContraction_commutator",
+      "citations": [
+        {
+          "file": "ch33-s05-consensus-and-pointer-bases.md",
+          "line": 187,
+          "id": "thm-ch33-axis-contraction-commutator",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurement.Bloch.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal",
+      "citations": [
+        {
+          "file": "ch33-s05-consensus-and-pointer-bases.md",
+          "line": 187,
+          "id": "thm-ch33-axis-contraction-commutator",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisOuter_eq_implies_parallel": {
+      "kind": "theorem",
+      "name": "D5.S3.Quantum.Measurement.Bloch.axisOuter_eq_implies_parallel",
+      "citations": [
+        {
+          "file": "ch33-s05-consensus-and-pointer-bases.md",
+          "line": 187,
+          "id": "thm-ch33-axis-contraction-commutator",
           "via": "environment"
         }
       ]
@@ -23968,6 +24007,9 @@
         "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities",
         "D5/S3/Quantum/Decoherence/ReducedRecordAccessDefect.reduced_irreversibility_is_access_defect",
         "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
+        "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator",
+        "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisContraction_commutator_ne_zero_of_nonparallel_nonorthogonal",
+        "D5/S3/Quantum/Measurement/Bloch/AxisContractionCommutator.axisOuter_eq_implies_parallel",
         "D5/S3/QuantumBounds/GramRealizability.gram_realizability",
         "D5/S3/QuantumChannels/PinchingProjection.pinching_hilbert_schmidt_pythagorean"
       ],
