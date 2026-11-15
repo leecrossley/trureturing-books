@@ -190,3 +190,7 @@
 - [Appendix C Master Index of Formalized Lean 4 Theorems and Open Problems](appendix-c.md)
 - [Appendix D Six Classical Open Quantum Puzzles and the Five-Interpretation Geometric Duel](appendix-d.md)
 - [Appendix E From the Axiom of Comparison to Mathematical and Physical Axiom Systems: Complete Deduction Chains, Intermediate-Hypothesis Audit, and Minimal Countermodels](appendix-e.md)
+- [Appendix F Exclusion Balls, Face Polarity, and Spin-Factor State-Cone Reconstruction](appendix-f.md)
+- [Appendix G Beyond the Stabilizer Polytope: Majorana Codes, Clifford Magic, and Steering Contextuality](appendix-g.md)
+- [Appendix H Finite-Horizon Observers, Prediction Depth, Solenoid Memory, and History Ledgers](appendix-h.md)
+- [Appendix I Quantum Information Divergences, Reverse-Test Attainment, Subentropy, and Approximate Recovery Duality](appendix-i.md)
