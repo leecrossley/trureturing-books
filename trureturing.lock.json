@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "5b3983872e985e751d7e738940f41937b2157caa",
-  "pinned_at": "2026-11-15T15:02:54Z",
+  "commit": "0f44c839f5dfd63fb2555576812593d951073110",
+  "pinned_at": "2026-11-15T16:46:26Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -473,40 +473,40 @@
       "module": "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents",
       "name": "QuantumShorContinuedFractions.candidates",
       "kind": "def",
-      "statement_id": "sha256:5bef337afb07b0b221226a0967cb9df1ef964fc417cf6a1e49d452f979ffec93",
-      "line": 86,
+      "statement_id": "sha256:7db5d6c02eefbe475c837c7fb8b344784be3e5d83f1abafc6171e2e1e7dd1c6a",
+      "line": 87,
       "signature": "def candidates (y Q N : ℕ) : List ℚ"
     },
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.convergents": {
       "module": "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents",
       "name": "QuantumShorContinuedFractions.convergents",
       "kind": "def",
-      "statement_id": "sha256:5bef337afb07b0b221226a0967cb9df1ef964fc417cf6a1e49d452f979ffec93",
-      "line": 36,
+      "statement_id": "sha256:7db5d6c02eefbe475c837c7fb8b344784be3e5d83f1abafc6171e2e1e7dd1c6a",
+      "line": 37,
       "signature": "def convergents (x : ℚ) : List ℚ"
     },
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.mem_convergents_iff": {
       "module": "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents",
       "name": "QuantumShorContinuedFractions.mem_convergents_iff",
       "kind": "theorem",
-      "statement_id": "sha256:5bef337afb07b0b221226a0967cb9df1ef964fc417cf6a1e49d452f979ffec93",
-      "line": 66,
+      "statement_id": "sha256:7db5d6c02eefbe475c837c7fb8b344784be3e5d83f1abafc6171e2e1e7dd1c6a",
+      "line": 67,
       "signature": "theorem mem_convergents_iff (x z : ℚ) : z ∈ convergents x ↔ ∃ k, Real.convergent (x : ℝ) k = z"
     },
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.reduced": {
       "module": "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents",
       "name": "QuantumShorContinuedFractions.reduced",
       "kind": "def",
-      "statement_id": "sha256:5bef337afb07b0b221226a0967cb9df1ef964fc417cf6a1e49d452f979ffec93",
-      "line": 90,
+      "statement_id": "sha256:7db5d6c02eefbe475c837c7fb8b344784be3e5d83f1abafc6171e2e1e7dd1c6a",
+      "line": 91,
       "signature": "def reduced (s r : ℕ) : ℚ"
     },
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.reduced_den": {
       "module": "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents",
       "name": "QuantumShorContinuedFractions.reduced_den",
       "kind": "theorem",
-      "statement_id": "sha256:5bef337afb07b0b221226a0967cb9df1ef964fc417cf6a1e49d452f979ffec93",
-      "line": 92,
+      "statement_id": "sha256:7db5d6c02eefbe475c837c7fb8b344784be3e5d83f1abafc6171e2e1e7dd1c6a",
+      "line": 93,
       "signature": "theorem reduced_den (s r : ℕ) (hr : 0 < r) : (reduced s r).den = r / Nat.gcd s r"
     },
     "D5/S1/Depth/GoldenHurwitzBound.golden_hurwitz_bound": {
@@ -644,6 +644,14 @@
       "statement_id": "sha256:b921e468076960d8b3ee3e317d044b06929f945991acdd40a455f0945a8b14c1",
       "line": 153,
       "signature": "theorem prefix_coupling_emitted_tail {k n : ℕ} (hk : 0 < k) (sites : List (Fin n)) (hn : sites.Nodup) (fixed : Finset (Fin n)) (hfree : ∀ i ∈ sites, i ∉ fixed) (x y : Fin n → Bool) (hx : (completions k n fixed x).Nonempty) (hy : (completions k n fixed y).Nonempty) (j : ℕ) (hj : j ≤ sites.length) : mean (prefixCoupling sites fixed x y hx hy) (fun w => if ∀ i ∈ sites.take j, ¬ (w.1 i = false ∧ w.2 i = false) then 1 else 0) ≤ (1 / 2 : ℝ≥0∞)^j"
+    },
+    "D5/S1/Words/AdmissibleWords/KBonacciSupportedCoalescence.prefix_coupling_supported_coalescence": {
+      "module": "D5/S1/Words/AdmissibleWords/KBonacciSupportedCoalescence",
+      "name": "D5.S1.Words.AdmissibleWords.KBonacciConditionalBlockCoupling.prefix_coupling_supported_coalescence",
+      "kind": "theorem",
+      "statement_id": "sha256:abc37ee6575537e1da447d559caa5775ba6146bd0912cbb3d81d81fa8381a75b",
+      "line": 37,
+      "signature": "theorem prefix_coupling_supported_coalescence {k n : ℕ} (hk : 0 < k) (sites : List (Fin n)) (hn : sites.Nodup) (horder : sites.Pairwise (fun i j => i.val < j.val)) (fixed : Finset (Fin n)) (hfree : ∀ i ∈ sites, i ∉ fixed) (hcover : ∀ i : Fin n, i ∉ fixed → i ∈ sites) (x y : Fin n → Bool) (hx : (completions k n fixed x).Nonempty) (hy : (completions k n fixed y).Nonempty) (hfar : ∀ i ∈ sites, ∀ j ∈ fixed, i.val < j.val → x j = y j) : ∀ w : (Fin n → Bool) × (Fin n → Bool), prefixCoupling sites fixed x y hx hy w ≠ 0 → ∀ r q : Fin sites.length, r ≤ q → w.1 (sites.get r) = false → w.2 (sites.get r) "
     },
     "D5/S1/Words/Mechanical/MechanicalBalance.lowerMechanicalWindowTrueCount_eq_floor": {
       "module": "D5/S1/Words/Mechanical/MechanicalBalance",
