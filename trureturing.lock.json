@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "9f5f5604274beb5d1bd27ac45f4d30abd419162b",
-  "pinned_at": "2026-11-15T12:46:17Z",
+  "commit": "6a50b8f5bb4f5bf8b46d270a2bca1ccc4a3e3f85",
+  "pinned_at": "2026-11-15T13:42:30Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -2812,6 +2812,14 @@
       "statement_id": "sha256:1bc6080d42258c1006c2391ec26678c526a3bbf287ec92ba8acfce9d9c1d46c9",
       "line": 24,
       "signature": "theorem prime_dvd_dvd_of_dvd_sq_add_sq (q a b : ℕ) (hq : q.Prime) (h3 : q % 4 = 3) (h : q ∣ a ^ 2 + b ^ 2) : q ∣ a ∧ q ∣ b"
+    },
+    "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion": {
+      "module": "D5/S3/QuadraticForms/ChordalPsdCompletion",
+      "name": "D5.S3.QuadraticForms.ChordalPsdCompletion.exists_posSemidef_completion",
+      "kind": "theorem",
+      "statement_id": "sha256:9e836481bacd3e34dabe5fd9912111b7f5ca9c0841d80801d261f038b9430a10",
+      "line": 145,
+      "signature": "theorem exists_posSemidef_completion {V : Type u} [Finite V] (G : SimpleGraph V) (hG : G.IsChordal) (A : Matrix V V ℝ) (hA : ∀ C : Set V, G.IsClique C → (A.submatrix (Subtype.val : C → V) Subtype.val).PosSemidef) : ∃ B : Matrix V V ℝ, B.PosSemidef ∧ ∀ i j, i = j ∨ G.Adj i j → B i j = A i j"
     },
     "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem": {
       "module": "D5/S3/Quantum/Algebra/CommonPhasePolynomial",

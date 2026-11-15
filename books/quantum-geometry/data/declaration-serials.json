@@ -1,6 +1,6 @@
 {
   "next": {
-    "T": 339,
+    "T": 340,
     "D": 161,
     "R": 181
   },
@@ -673,8 +673,9 @@
     "D5/S3/Quantum/Routing/HannUniformSection.uniform_section": "T334",
     "D5/S3/Quantum/Routing/HannUniformSection.zero_certificate": "T335",
     "D5/S1/Words/AdmissibleWords/KBonacciEmittedTail.prefix_coupling_emitted_tail": "T336",
-    "D5/S3/Quantum/ShorContinuedFractions.shor_coprime_candidate": "T337",
-    "D5/S3/Quantum/ShorContinuedFractions.shor_nearest_candidate": "T338",
+    "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion": "T337",
+    "D5/S3/Quantum/ShorContinuedFractions.shor_coprime_candidate": "T338",
+    "D5/S3/Quantum/ShorContinuedFractions.shor_nearest_candidate": "T339",
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.candidates": "D160",
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.convergents": "R177",
     "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.mem_convergents_iff": "R178",
