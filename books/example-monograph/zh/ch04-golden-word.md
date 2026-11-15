@@ -157,7 +157,7 @@ $$
 
 Fibonacci 时刻给出一个极限；如果允许所有回归时刻，还能得到哪些有限极限？对固定的实二次无理数，这已有文献中的完整答案。下面先陈述 Dhanda–Haynes 的一般定理，再把它换成本章的最近整数距离[^dhanda-haynes]。
 
-::: {.theorem #thm-quadratic-accumulation title="实二次无理数的归一化逼近聚点" status="written-proof" proof="pf-quadratic-accumulation" doi="10.1016/j.jnt.2024.09.002" source="Theorem 4" request="https://github.com/the-omega-institute/trureturing-requests/issues/111"}
+::: {.theorem #thm-quadratic-accumulation title="实二次无理数的归一化逼近聚点" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulationClassification.derivedSet_eq_signed_norm_values"}
 设 $D\ge2$ 是无平方因子的整数，$A,B\in\mathbb Q$，$B\ne0$，$\alpha=A+B\sqrt D$，$K=\mathbb Q(\alpha)$。令
 
 $$
@@ -185,7 +185,7 @@ $$
 :::
 
 ::: {.proof #pf-quadratic-accumulation}
-以下展开原文第 6 节引理 18–19 与第 7 节式 (35)–(36) 的论证。记 $\alpha_0^*,\alpha_1^*$ 为基 $1,\alpha$ 关于迹配对的对偶基。原文第 2.3 节考虑乘子环
+先保留原文第 6 节引理 18–19 与第 7 节式 (35)–(36) 的单位论证，作为文献证明的解释；随后说明 Lean 用来证明聚点到范数方向的离散格论证。两者证明同一分类，但这里并不声称 Lean 逐行验证了论文的单位约化。记 $\alpha_0^*,\alpha_1^*$ 为基 $1,\alpha$ 关于迹配对的对偶基。原文第 2.3 节考虑乘子环
 
 $$
 \mathcal Z_\Lambda=\{v\in\mathcal O_K:v\Lambda\subseteq\Lambda\},
@@ -222,11 +222,38 @@ $$
 先证聚点集包含在所述范数集合中。取趋于某个聚点的互异归一化逼近值。它们有界；若 $|q|$ 有界，则相应的 $p$ 也只有有限多个，与互异性矛盾。因此可取 $|q|\to\infty$ 的子序列。变换 $(q,p)\mapsto(-q,-p)$ 把归一化值变号，所以只需处理正分母序列及其相反数。用引理 18 的有限集再取子序列，可固定非零的 $s$，相应的主导单位满足 $|u|\to\infty$。上式给出的极限只能是 $\pm2B\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$，属于定理右边。
 
 反过来，固定任意非零 $s\in\Lambda^*$，令 $u=u_k\to\infty$。此时 $q_{u_k}$ 最终非零，上式的绝对值趋于 $2|B|\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$。还须保证这给出集合的真正聚点，而非重复同一个值。原文式 (33) 的上述表达式保证 $\gamma_u\ne|\operatorname N_{K/\mathbb Q}(s)|$：若相等，则非零实数 $t'/t$ 只能是 $-2$；但 $t'=-2t$ 再取共轭会给出 $t=4t$，与 $t\ne0$ 矛盾。取符号固定的子序列，便有不同于极限的集合元素趋于两种符号之一的极限；再用 $\mathrm{NA}_1(\alpha)$ 关于 $0$ 的对称性，两个符号都成为聚点。这证明了反向包含。上述两种符号也使范数取绝对值与否给出同一个集合。
+
+Lean 的逆向包含直接从任意真正聚点 $x$ 出发。有界归一化值若又有有界的 $|q|$，就只有有限多个整数 $p,q$；去心邻域可以避开这个有限集。因此可选 $q_n\ne0,p_n\in\mathbb Z$，使 $|q_n|>n$ 且 $y_n=|q_n|(q_n\alpha-p_n)\to x$。置 $e_n=q_n\alpha-p_n=y_n/|q_n|$，便有 $e_n\to0$。令 $\delta=2B\sqrt D\ne0$，并在 $K$ 中取
+
+$$
+s_n=\frac{q_n}{2}+\frac{p_n-Aq_n}{2DB}\sqrt D.
+$$
+
+直接计算得 $\operatorname{Tr}(s_n)=q_n$、$\operatorname{Tr}(s_n\alpha)=p_n$，所以 $s_n\in\Lambda^*$；其常数坐标 $q_n/2\ne0$，故 $s_n\ne0$。其范数满足
+
+$$
+\begin{aligned}
+\operatorname N(s_n)
+&=\left(\frac14-\frac{A^2}{4DB^2}\right)q_n^2
+ +\frac{A}{2DB^2}q_np_n-\frac{p_n^2}{4DB^2},\\
+\delta\operatorname N(s_n)&=q_ne_n-\frac{e_n^2}{\delta}.
+\end{aligned}
+$$
+
+这个二次型的三个系数都是固定有理数。取正整数 $m$ 清除它们的分母，则 $m\operatorname N(s_n)\in\mathbb Z$。记 $\varepsilon_n=\operatorname{sgn}(q_n)\in\{1,-1\}$，得到整数序列
+
+$$
+j_n:=m\varepsilon_n\operatorname N(s_n)
+=\frac m\delta\left(y_n-\frac{\varepsilon_ne_n^2}{\delta}\right)
+\longrightarrow\frac m\delta x.
+$$
+
+整数在实数中是闭且离散的，故极限也是整数，且 $j_n$ 最终恒等于该极限。取尾部任一项便得 $x=\varepsilon_n\delta\operatorname N(s_n)$，即所需的两种符号之一。Lean 在坐标二次代数中完成这些计算，再经保持迹与范数的代数同构送入实际子域 $\mathbb Q(\alpha)\subset\mathbb R$。另一包含方向调用下一个定理的 Pell 乘子构造，它还给出单射且避开极限的逼近序列。完整证明由 Lean 内核检查。
 :::
 
 [^dhanda-haynes]: Kavita Dhanda, Alan Haynes, *Accumulation points of normalized approximations*, *Journal of Number Theory* 268 (2025), 1–38，DOI：[10.1016/j.jnt.2024.09.002](https://doi.org/10.1016/j.jnt.2024.09.002)。一般陈述见 Theorem 4，迹对偶见第 2.3 节，证明见第 6 节引理 18–19 与第 7 节；可读[原文版本](https://arxiv.org/html/2310.00173v2)。
 
-Lean 已覆盖下列一个包含方向；完整分类中的聚点到范数方向仍由上面的书面证明承担。
+下列定理给出完整分类中范数到聚点的包含方向，并保留比集合等式更强的单射序列数据。
 
 ::: {.theorem #thm-quadratic-norm-inclusion title="非零迹对偶范数产生真正聚点" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulation.signed_norm_values_accumulate"}
 设 $D\ge2$ 是无平方因子的整数，$A,B\in\mathbb Q$，$B\ne0$，$\alpha=A+B\sqrt D$。在实际子域 $K=\mathbb Q(\alpha)\subset\mathbb R$ 中，令 $\Lambda^*$ 为 $\mathbb Z+\alpha\mathbb Z$ 关于域迹的对偶。对每个 $s\in\Lambda^*\setminus\{0\}$，置 $c=2B\sqrt D\,\operatorname N_{K/\mathbb Q}(s)$。对每个 $x\in\{c,-c\}$，存在单射序列 $f:\mathbb N\to\mathbb R$，使得
@@ -282,12 +309,12 @@ $$
 \end{aligned}
 $$
 
-非零整数对的范数不会为零，因为 $a-b\varphi$ 及其共轭都非零。这里仍不加互素条件；这些公式是一般文献定理的黄金比特例与上述双向对应所得的书面推导。
+非零整数对的范数不会为零，因为 $a-b\varphi$ 及其共轭都非零。这里仍不加互素条件；这些公式是一般分类定理的黄金比特例与上述双向对应所得的书面推导；最近整数距离的换算和黄金迹对偶的手算本身未作为这里引用的 Lean 声明。
 
 ::: {.remark #prob-revival-spectrum title="回归谱的文献结论与形式化边界"}
-[@thm-revival-score] 的 Lean 验证只处理 Fibonacci 时刻；固定 $\varphi$ 的所有实聚点则由 [@thm-quadratic-accumulation] 及上面的换算给出，不能再把这个分类列为数学开放问题。本章引用的 `GoldenRevivalScore` 与 `GoldenHurwitzBound` 冻结声明都不包含这个完整聚点集等式。 [@thm-quadratic-norm-inclusion] 则把每个非零迹对偶范数送入真正聚点集；任意聚点都来自这种范数的反向包含仍未包含在这里引用的 Lean 声明中。
+[@thm-revival-score] 的 Lean 验证只处理 Fibonacci 时刻；固定 $\varphi$ 的所有实聚点则由 [@thm-quadratic-accumulation] 及上面的换算给出，不能再把这个分类列为数学开放问题。[@thm-quadratic-accumulation] 已由 Lean 给出一般二次无理数的完整带符号聚点集等式；[@thm-quadratic-norm-inclusion] 另保留单射逼近序列。`GoldenRevivalScore` 与 `GoldenHurwitzBound` 本身仍不包含这个等式，最近整数距离与黄金迹对偶的专门换算仍是上面的书面推导。
 
-`Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` 所说的“完整回归谱”与“全局最优性”没有精确定义[^hurwitz]；对应 Lean 文件也明确不声称完整的 Lagrange–Markov 谱分类。固定一个二次无理数的聚点集与让 $\alpha$ 变化的谱问题不同，前者的文献结果并不自动解决这些更宽泛、尚未写成命题的表述。一般二次聚点定理的形式化需求及相关声明的适用范围见[形式化请求](https://github.com/the-omega-institute/trureturing-requests/issues/111)。
+`Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` 所说的“完整回归谱”与“全局最优性”没有精确定义[^hurwitz]；对应 Lean 文件也明确不声称完整的 Lagrange–Markov 谱分类。固定一个二次无理数的聚点集与让 $\alpha$ 变化的谱问题不同，前者的分类定理并不自动解决这些更宽泛、尚未写成命题的表述。一般二次聚点定理的形式化记录及相关声明的适用范围见[形式化请求](https://github.com/the-omega-institute/trureturing-requests/issues/111)。
 :::
 
 [^hurwitz]: trureturing 没有说明这里的“全局最优”具体指什么，下面只是一种读法。若把它理解为“对全体正整数 $q$，$q\norm{q\varphi}$ 的下极限等于 $1/\sqrt5$”，这是经典结果（A. Hurwitz, Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche, *Math. Ann.* 39 (1891), 279–284）。trureturing 已冻结其中一半所需的界：模块 `D5/S1/Depth/GoldenHurwitzBound` 中的 `golden_hurwitz_bound` 说，对每个既约分母为 $d$ 的有理数 $r$，$|\varphi - r| > 1/(\sqrt5 d^2 + d)$，由此用纸面推理可得这个下极限不小于 $1/\sqrt5$；另一方面，$n \ge 2$ 时 $\norm{F_n\varphi} = |F_n\varphi - F_{n+1}|$，所以 [@thm-revival-score] 给出它不大于 $1/\sqrt5$。把两者合成的下极限陈述不在上述引用的冻结声明中，本书也未把它形式化。

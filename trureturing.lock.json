@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "cb1e3d3c2de46b67bc6760046efec19eeaf78af6",
-  "pinned_at": "2026-11-15T09:04:55Z",
+  "commit": "3c9c0d321db99a051c5644eae53b7c67d020a7b1",
+  "pinned_at": "2026-11-15T11:41:47Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -4332,6 +4332,30 @@
       "statement_id": "sha256:535492acd5585141a50f634a6c31134a749d52d58728b88ab5396e4185c507a3",
       "line": 303,
       "signature": "theorem correctness : (∀ (n : ℕ) (a : Address n) (b : Qutrit) (k : ℕ), k ≤ n → load n k (loading n a b 0) = loading n a b k) ∧ (∀ (n : ℕ) (a : Address n) (p : Qutrit), transport n (input n (programmed n a n) p) = arrived n a p ∧ ∀ i : Address n, leaf n (transport n (input n (programmed n a n) p)) i = if i = a then p else wait) ∧ (∀ (n : ℕ) (D : Address n → Bool) (a : Address n) (b : Bool), query n D (clean n a b) = clean n a (xor b (D a))) ∧ (∀ (n : ℕ) (D : Address n → Bool), (queryMatrix n D)ᴴ * queryMatrix n D = 1 ∧ queryMatrix n D * (queryMatrix n D)ᴴ = 1 ∧ ∀ ψ : Address n × Bool → ℂ, query"
+    },
+    "D5/S3/Quantum/Routing/HannUniformSection.binary_conformal_kernel": {
+      "module": "D5/S3/Quantum/Routing/HannUniformSection",
+      "name": "D5.S3.Quantum.Routing.HannUniformSection.binary_conformal_kernel",
+      "kind": "theorem",
+      "statement_id": "sha256:88a64587fddf0d9468390a936427674e96d030bbdfcc14ca017d4ee5d01fc586",
+      "line": 313,
+      "signature": "theorem binary_conformal_kernel (n : ℕ) (q : Router n → ℝ) (x : Address n → ℝ) (c : Node n → ℝ) (hx : ∀ a, 0 ≤ x a) (hxn : x ≠ 0) (hk : (matrix n q).mulVec (Sum.elim x c) = 0) : ∃ (u : Address n → ℝ) (d : Node n → ℝ), (matrix n q).mulVec (Sum.elim u d) = 0 ∧ u ≠ 0 ∧ (∀ a, u a = 0 ∨ u a = 1) ∧ (∀ a, u a ≠ 0 → 0 < x a) ∧ (∀ v, d v = 0 ∨ d v = -1 ∨ d v = 1) ∧ (∀ v, d v ≠ 0 → SignType.sign (d v) = SignType.sign (c v)) ∧ SignType.sign (d (root n)) = SignType.sign (c (root n))"
+    },
+    "D5/S3/Quantum/Routing/HannUniformSection.uniform_section": {
+      "module": "D5/S3/Quantum/Routing/HannUniformSection",
+      "name": "D5.S3.Quantum.Routing.HannUniformSection.uniform_section",
+      "kind": "theorem",
+      "statement_id": "sha256:88a64587fddf0d9468390a936427674e96d030bbdfcc14ca017d4ee5d01fc586",
+      "line": 593,
+      "signature": "theorem uniform_section (n : ℕ) (q : Router n → ℝ) (bus : Qutrit) (hq : ∀ v, -(1 / 2 : ℝ) ≤ q v ∧ q v ≤ 1) : (Section n q bus = ∅ ∨ ∃ l r : ℝ, l ≤ r ∧ Section n q bus = Set.Icc l r ∧ UniformEndpoint n q bus l ∧ UniformEndpoint n q bus r) ∧ (0 ∈ Section n q bus → ∃ S : Finset (Address n), S.Nonempty ∧ (∑ a ∈ S, record n q bus a) = 0)"
+    },
+    "D5/S3/Quantum/Routing/HannUniformSection.zero_certificate": {
+      "module": "D5/S3/Quantum/Routing/HannUniformSection",
+      "name": "D5.S3.Quantum.Routing.HannUniformSection.zero_certificate",
+      "kind": "theorem",
+      "statement_id": "sha256:88a64587fddf0d9468390a936427674e96d030bbdfcc14ca017d4ee5d01fc586",
+      "line": 344,
+      "signature": "theorem zero_certificate (n : ℕ) (q : Router n → ℝ) (bus : Qutrit) (hq : ∀ v, -(1 / 2 : ℝ) ≤ q v ∧ q v ≤ 1) (p : Address n → ℝ) (hp : ∀ a, 0 ≤ p a) (hm : (∑ a, p a) = 1) (hz : synthesis n q bus (fun a => (p a : ℂ)) = 0) : ∃ S : Finset (Address n), S.Nonempty ∧ (∀ a ∈ S, 0 < p a) ∧ (∑ a ∈ S, record n q bus a) = 0"
     },
     "D5/S3/Quantum/Routing/ReversibleQram.correctness": {
       "module": "D5/S3/Quantum/Routing/ReversibleQram",

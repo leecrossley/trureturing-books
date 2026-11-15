@@ -157,7 +157,7 @@ The table gives the values for $n = 1, \dots, 12$; $1/\sqrt5 \approx 0.4472136$.
 
 Fibonacci times give one limit. Which other finite limits become possible if we allow all return times? For a fixed real quadratic irrational, the literature gives a complete answer. We first state the general theorem of Dhanda and Haynes, then translate it into the nearest-integer distance used in this chapter[^dhanda-haynes].
 
-::: {.theorem #thm-quadratic-accumulation title="Accumulation points of normalized approximations to a real quadratic irrational" status="written-proof" proof="pf-quadratic-accumulation" doi="10.1016/j.jnt.2024.09.002" source="Theorem 4" request="https://github.com/the-omega-institute/trureturing-requests/issues/111"}
+::: {.theorem #thm-quadratic-accumulation title="Accumulation points of normalized approximations to a real quadratic irrational" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulationClassification.derivedSet_eq_signed_norm_values"}
 Let $D\ge2$ be a squarefree integer, $A,B\in\mathbb Q$ with $B\ne0$, $\alpha=A+B\sqrt D$, and $K=\mathbb Q(\alpha)$. Put
 
 $$
@@ -185,7 +185,7 @@ Here the trace and norm are $\operatorname{Tr}_{K/\mathbb Q}(x)=x+x'$ and $\oper
 :::
 
 ::: {.proof #pf-quadratic-accumulation}
-We expand the argument of Section 6, Lemmas 18–19, and Section 7, equations (35)–(36), of the source. Write $\alpha_0^*,\alpha_1^*$ for the basis dual to $1,\alpha$ under the trace pairing. Section 2.3 considers the multiplier ring
+We retain the unit argument of Section 6, Lemmas 18–19, and Section 7, equations (35)–(36), as an explanation of the published proof, then explain the discrete-grid argument Lean uses for the accumulation-to-norm direction. Both establish the same classification; this does not claim that Lean verifies the paper’s unit reduction line by line. Write $\alpha_0^*,\alpha_1^*$ for the basis dual to $1,\alpha$ under the trace pairing. Section 2.3 considers the multiplier ring
 
 $$
 \mathcal Z_\Lambda=\{v\in\mathcal O_K:v\Lambda\subseteq\Lambda\},
@@ -222,11 +222,38 @@ A unit has norm of absolute value $1$. As $|u|\to\infty$, we have $t'/t\to0$, so
 First we show that every accumulation point belongs to the stated norm set. Choose distinct normalized approximation values tending to an accumulation point. They are bounded. Bounded $|q|$ would allow only finitely many corresponding $p$, contradicting distinctness, so we can pass to a subsequence with $|q|\to\infty$. The map $(q,p)\mapsto(-q,-p)$ negates the normalized value, so it suffices to treat positive-denominator sequences and their negatives. Using the finite set in Lemma 18, pass to a further subsequence with a fixed nonzero $s$; the corresponding dominant units satisfy $|u|\to\infty$. The formulas above allow only the limits $\pm2B\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$, which belong to the right-hand side of the theorem.
 
 Conversely, fix any nonzero $s\in\Lambda^*$ and let $u=u_k\to\infty$. Then $q_{u_k}$ is eventually nonzero, and the absolute values of the normalized approximations tend to $2|B|\sqrt D\,|\operatorname N_{K/\mathbb Q}(s)|$. We must ensure a genuine accumulation point of the set, rather than repetition of a single value. The expression above from equation (33) guarantees $\gamma_u\ne|\operatorname N_{K/\mathbb Q}(s)|$: equality would force the nonzero real number $t'/t$ to be $-2$, but conjugating $t'=-2t$ would give $t=4t$, contradicting $t\ne0$. On a subsequence with constant sign, set elements different from their limit therefore tend to one of the two signed limits. Symmetry of $\mathrm{NA}_1(\alpha)$ about $0$ gives the other sign as well. This proves the reverse inclusion. Allowing both signs also makes the norm set unchanged when the norm is replaced by its absolute value.
+
+For the converse in Lean, start directly with any genuine accumulation point $x$. Bounded normalized values with bounded $|q|$ allow only finitely many integer pairs $p,q$; a punctured neighborhood can avoid this finite set. We can therefore choose $q_n\ne0,p_n\in\mathbb Z$ with $|q_n|>n$ and $y_n=|q_n|(q_n\alpha-p_n)\to x$. Set $e_n=q_n\alpha-p_n=y_n/|q_n|$, so $e_n\to0$. Write $\delta=2B\sqrt D\ne0$ and take, in $K$,
+
+$$
+s_n=\frac{q_n}{2}+\frac{p_n-Aq_n}{2DB}\sqrt D.
+$$
+
+Direct calculation gives $\operatorname{Tr}(s_n)=q_n$ and $\operatorname{Tr}(s_n\alpha)=p_n$, hence $s_n\in\Lambda^*$. Its constant coordinate $q_n/2$ is nonzero, so $s_n\ne0$. Its norm satisfies
+
+$$
+\begin{aligned}
+\operatorname N(s_n)
+&=\left(\frac14-\frac{A^2}{4DB^2}\right)q_n^2
+ +\frac{A}{2DB^2}q_np_n-\frac{p_n^2}{4DB^2},\\
+\delta\operatorname N(s_n)&=q_ne_n-\frac{e_n^2}{\delta}.
+\end{aligned}
+$$
+
+The three coefficients of this quadratic form are fixed rational numbers. Choose a positive integer $m$ clearing their denominators; then $m\operatorname N(s_n)\in\mathbb Z$. With $\varepsilon_n=\operatorname{sgn}(q_n)\in\{1,-1\}$, the integer sequence
+
+$$
+j_n:=m\varepsilon_n\operatorname N(s_n)
+=\frac m\delta\left(y_n-\frac{\varepsilon_ne_n^2}{\delta}\right)
+\longrightarrow\frac m\delta x.
+$$
+
+The integers form a closed discrete subset of the reals, so the limit is an integer and $j_n$ eventually equals it. Any index in this tail gives $x=\varepsilon_n\delta\operatorname N(s_n)$, one of the required signed values. Lean performs these calculations in the coordinate quadratic algebra and transports them through an algebra equivalence preserving traces and norms to the actual subfield $\mathbb Q(\alpha)\subset\mathbb R$. The other inclusion uses the Pell multiplier construction of the next theorem, which also supplies an injective approximation sequence avoiding the limit. The full proof is checked by the Lean kernel.
 :::
 
 [^dhanda-haynes]: Kavita Dhanda and Alan Haynes, *Accumulation points of normalized approximations*, *Journal of Number Theory* 268 (2025), 1–38, DOI: [10.1016/j.jnt.2024.09.002](https://doi.org/10.1016/j.jnt.2024.09.002). The general statement is Theorem 4; the trace dual is defined in Section 2.3, and the proof uses Section 6, Lemmas 18–19, and Section 7. An accessible [primary version](https://arxiv.org/html/2310.00173v2) is available.
 
-Lean covers the following inclusion. The accumulation-to-norm direction of the complete classification still rests on the written proof above.
+The following theorem gives the norm-to-accumulation inclusion in the complete classification and retains injective sequence data stronger than the set equality.
 
 ::: {.theorem #thm-quadratic-norm-inclusion title="Nonzero trace-dual norms give genuine accumulation points" lean="D5/S3/Arith/QuadraticFields/QuadraticAccumulation.signed_norm_values_accumulate"}
 Let $D\ge2$ be a squarefree integer, $A,B\in\mathbb Q$ with $B\ne0$, and $\alpha=A+B\sqrt D$. In the actual subfield $K=\mathbb Q(\alpha)\subset\mathbb R$, let $\Lambda^*$ be the field-trace dual of $\mathbb Z+\alpha\mathbb Z$. For every $s\in\Lambda^*\setminus\{0\}$, put $c=2B\sqrt D\,\operatorname N_{K/\mathbb Q}(s)$. For each $x\in\{c,-c\}$ there is an injective sequence $f:\mathbb N\to\mathbb R$ such that
@@ -282,12 +309,12 @@ $$
 \end{aligned}
 $$
 
-A nonzero integer pair has nonzero norm, since both $a-b\varphi$ and its conjugate are nonzero. No coprimality condition is imposed here either. These formulas are written deductions from the golden specialization of the general literature theorem and the two-way correspondence above.
+A nonzero integer pair has nonzero norm, since both $a-b\varphi$ and its conjugate are nonzero. No coprimality condition is imposed here either. These formulas are written deductions from the golden specialization of the general classification theorem and the two-way correspondence above. The nearest-integer conversion and the golden trace-dual calculation themselves are not Lean declarations cited here.
 
 ::: {.remark #prob-revival-spectrum title="The literature result and the formalization boundary"}
-The Lean verification in [@thm-revival-score] covers only Fibonacci times. The complete set of finite accumulation points for fixed $\varphi$ follows from [@thm-quadratic-accumulation] and the conversion above; this classification should therefore not be listed as a mathematically open problem. Neither of the frozen declarations in `GoldenRevivalScore` and `GoldenHurwitzBound` cited here contains the full accumulation-set equality. [@thm-quadratic-norm-inclusion] sends every nonzero trace-dual norm into the genuine accumulation set; the converse asserting that every accumulation point arises this way is still absent from the Lean declarations cited here.
+The Lean verification in [@thm-revival-score] covers only Fibonacci times. The complete set of finite accumulation points for fixed $\varphi$ follows from [@thm-quadratic-accumulation] and the conversion above; this classification should therefore not be listed as a mathematically open problem. [@thm-quadratic-accumulation] now gives the complete signed accumulation-set equality for general quadratic irrationals in Lean; [@thm-quadratic-norm-inclusion] additionally retains injective approximation sequences. `GoldenRevivalScore` and `GoldenHurwitzBound` themselves still do not contain this equality. The specialized nearest-integer conversion and golden trace-dual calculation remain the written deductions above.
 
-The phrases "full revival spectrum" and "global optimality" in `Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` are not precisely defined[^hurwitz]; the corresponding Lean file also explicitly disclaims a full Lagrange–Markov spectrum classification. The accumulation set for a fixed quadratic irrational differs from a spectrum problem in which $\alpha$ varies. The literature result for the former does not automatically settle those broader, unformulated statements. The [formalization request](https://github.com/the-omega-institute/trureturing-requests/issues/111) records the need for the general quadratic accumulation theorem and the scope of related declarations.
+The phrases "full revival spectrum" and "global optimality" in `Blueprint/D5/S3/ObserverMemory/GoldenRevivalScore.md` are not precisely defined[^hurwitz]; the corresponding Lean file also explicitly disclaims a full Lagrange–Markov spectrum classification. The accumulation set for a fixed quadratic irrational differs from a spectrum problem in which $\alpha$ varies. The classification theorem for the former does not automatically settle those broader, unformulated statements. The [formalization request](https://github.com/the-omega-institute/trureturing-requests/issues/111) records the formalization of the general quadratic accumulation theorem and the scope of related declarations.
 :::
 
 [^hurwitz]: trureturing does not say exactly what "global optimality" means here; what follows is one possible reading. If it is read as "the lower limit of $q\norm{q\varphi}$ over all positive integers $q$ is $1/\sqrt5$", it is a classical result (A. Hurwitz, Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche, *Math. Ann.* 39 (1891), 279–284). trureturing has frozen the bound needed for one half of it: `golden_hurwitz_bound` in the module `D5/S1/Depth/GoldenHurwitzBound` says that every rational number $r$ with reduced denominator $d$ satisfies $|\varphi - r| > 1/(\sqrt5 d^2 + d)$, from which a paper argument gives a lower limit of at least $1/\sqrt5$; on the other hand, $\norm{F_n\varphi} = |F_n\varphi - F_{n+1}|$ for $n \ge 2$, so [@thm-revival-score] gives at most $1/\sqrt5$. The combined statement about the lower limit is not contained in those cited frozen declarations and is not formalized in this book.
