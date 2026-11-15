@@ -284,10 +284,10 @@ $$
 By definition, this assumption means
 
 $$
-\exists z\in\mathbb Z,\ \left|\frac{s.\operatorname{val}}{r}-\frac{b.\operatorname{val}}{2^n}-z\right|\le\frac{1}{2\cdot2^n},
+\exists z\in\mathbb Z,\ \left|\frac{s.\operatorname{val}}{r}-\frac{b.\operatorname{val}}{2^n}-z\right|\le\frac{1}{2\cdot2^n}.
 $$
 
-then
+Then
 
 $$
 \frac{1}{r}\,\frac{4}{\pi^2}
@@ -312,10 +312,10 @@ $$
 By definition, this assumption means
 
 $$
-\exists z\in\mathbb Z,\ \left|\theta-\frac{b.\operatorname{val}}{N}-z\right|\le\frac{1}{2N},
+\exists z\in\mathbb Z,\ \left|\theta-\frac{b.\operatorname{val}}{N}-z\right|\le\frac{1}{2N}.
 $$
 
-we have
+We have
 
 $$
 \frac{4}{\pi^2}\le\operatorname{probability}(N,\theta,b).
