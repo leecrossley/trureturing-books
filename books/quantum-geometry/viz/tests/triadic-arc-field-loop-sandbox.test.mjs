@@ -103,10 +103,9 @@ const stageShare = (p) => p.locator('#stage').evaluate(el => {
   const r = el.getBoundingClientRect();
   return Math.max(0, Math.min(innerHeight, r.bottom) - Math.max(0, r.top)) / r.height;
 });
-// 先滚到播放键并等可见性裁决，再按读数决定是否按下；读与按之间不再有滚动，按键不会把已暂停的时钟重新播放。
+// 在页面内同步检查播放键状态并按需按下，不触发滚动或滚动后的可见性暂停。
 async function pause(p = page) {
-  await p.locator('#play').scrollIntoViewIfNeeded(); await visibilityJudged(p);
-  if ((await state(p)).playing) await p.click('#play');
+  await p.locator('#play').evaluate(button => { if (button.getAttribute('aria-pressed') === 'true') button.click(); });
   await settle(p);
 }
 async function pick(card, p = page) {
