@@ -3,19 +3,19 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 188,
+    "theorem": 198,
     "lemma": 34,
     "proposition": 45,
     "corollary": 30,
     "definition": 48,
     "conjecture": 6,
     "problem": 3,
-    "example": 113,
-    "remark": 191,
-    "proof": 294,
-    "lean_verified": 294,
+    "example": 123,
+    "remark": 201,
+    "proof": 304,
+    "lean_verified": 304,
     "written_proof": 3,
-    "literature": 190
+    "literature": 200
   },
   "total": 663,
   "kinds": {
@@ -184,6 +184,7 @@
       "D5/S3/Observer/Tomography/FiniteRankConcentrationModeBound.finite_rank_concentration_mode_bound",
       "D5/S3/ObserverMemory/Dynamics/ObservableKrylovGrowthBound.observable_krylov_strict_growth_bound",
       "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.golden_helix_fourier_readout_step",
+      "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.level_fourier_joint_readout_detects_step",
       "D5/S3/ObserverMemory/JointCoherentReversal.joint_coherent_reversal",
       "D5/S3/ObserverMemory/JointCoherentReversal.surviving_copy_blocks_reversal",
       "D5/S3/ObserverMemory/JointCoherentReversal.two_copy_joint_reversal_certificate",
@@ -197,6 +198,7 @@
       "D5/S3/PrimeForms/ThreeModFourDescent.prime_dvd_dvd_of_dvd_sq_add_sq",
       "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem",
       "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
+      "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
       "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
       "D5/S3/Quantum/Algebra/FutureWordOrthogonalResidual.future_word_orthogonal_residual",
       "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq",
@@ -302,6 +304,7 @@
       "D5/S3/QuantumBounds/ClassicalFiberBound.classical_chsh_bound_is_exact",
       "D5/S3/QuantumBounds/CollisionEntropyUncertainty.collision_entropy_uncertainty",
       "D5/S3/QuantumBounds/Designs/MixedStateRobertson.mixed_state_robertson_uncertainty",
+      "D5/S3/QuantumBounds/FubiniStudyRecordTime.fs_angle_triangle",
       "D5/S3/QuantumBounds/FubiniStudyRecordTime.record_time_lower_bound",
       "D5/S3/QuantumBounds/GramRealizability.gram_realizability",
       "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
@@ -616,13 +619,11 @@
       "D5/S3/Observer/Tomography/FiniteStageExpansion.finite_stage_expansion",
       "D5/S3/ObserverMemory/Dynamics/ObservableKrylovPermanentStability.observable_krylov_once_stable_permanently",
       "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.golden_helix_step_changes_level",
-      "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.level_fourier_joint_readout_detects_step",
       "D5/S3/ObserverMemory/JointCoherentReversal.one_surviving_copy_composition_apply",
       "D5/S3/ObserverMemory/JointCoherentReversal.reverseChannelOn",
       "D5/S3/ObserverMemory/JointCoherentReversal.reverseOn",
       "D5/S3/ObserverMemory/JointCoherentReversal.reverseRecord",
       "D5/S3/ObserverMemory/JointCoherentReversal.reverse_record_overlap",
-      "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
       "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure",
       "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure_conjTranspose_mul",
       "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure_is_skewAdjoint",
@@ -670,7 +671,6 @@
       "D5/S3/Quantum/Recovery/KrausLeftInverseNecessity.left_inverse_error_products",
       "D5/S3/Quantum/Tomography/ComplementaryContextProbabilityPythagoras.residualMass",
       "D5/S3/QuantumBounds/FubiniStudyRecordTime.fsAngle",
-      "D5/S3/QuantumBounds/FubiniStudyRecordTime.fs_angle_triangle",
       "D5/S3/QuantumBounds/FubiniStudyRecordTime.record_count_upper_bound",
       "D5/S3/QuantumBounds/RobertsonSchrodinger.gram_wedge_identity",
       "D5/S3/QuantumChannels/AmplitudeDampingContraction.HasPureBoundaryEndpoint",
@@ -743,7 +743,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1921,
+          "line": 1992,
           "id": "",
           "via": "inline"
         },
@@ -1018,6 +1018,48 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2552,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2861,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2879,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3143,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch35-light-pulse-and-self-referential-table.md",
           "line": 66,
           "id": "thm-ch35-null-pulse-and-record-blocking",
@@ -1056,6 +1098,24 @@
         {
           "file": "appendix-a.md",
           "line": 820,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -1126,6 +1186,24 @@
           "via": "media"
         },
         {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
           "file": "films/005-hyperbolic-rotation/film.json",
           "line": 0,
           "id": "",
@@ -1175,7 +1253,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 225,
+          "line": 235,
           "id": "prop-ch34-null-cone-and-golden-cut-orientation",
           "via": "environment"
         },
@@ -1187,7 +1265,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 228,
+          "line": 238,
           "id": "",
           "via": "inline"
         },
@@ -2015,7 +2093,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1922,
+          "line": 1993,
           "id": "",
           "via": "inline"
         },
@@ -2051,7 +2129,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1922,
+          "line": 1993,
           "id": "",
           "via": "inline"
         },
@@ -2075,7 +2153,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1921,
+          "line": 1992,
           "id": "",
           "via": "inline"
         },
@@ -2111,7 +2189,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1921,
+          "line": 1992,
           "id": "",
           "via": "inline"
         },
@@ -2153,7 +2231,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1922,
+          "line": 1993,
           "id": "",
           "via": "inline"
         },
@@ -2225,7 +2303,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1922,
+          "line": 1993,
           "id": "",
           "via": "inline"
         },
@@ -2381,7 +2459,7 @@
       "citations": [
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 225,
+          "line": 235,
           "id": "prop-ch34-null-cone-and-golden-cut-orientation",
           "via": "environment"
         },
@@ -2393,7 +2471,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 234,
+          "line": 244,
           "id": "",
           "via": "inline"
         },
@@ -2888,6 +2966,60 @@
           "line": 232,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 871,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2070,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -3251,7 +3383,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1759,
+          "line": 1830,
           "id": "thm-ch39-p2e-aligned-tribonacci-windows",
           "via": "environment"
         }
@@ -3263,7 +3395,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1565,
+          "line": 1636,
           "id": "thm-ch39-p2e-tribonacci-prefix-log-refutation",
           "via": "environment"
         }
@@ -3418,6 +3550,18 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3167,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3274,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch39-observer-is-ontological-universe.md",
           "line": 534,
           "id": "",
@@ -3425,7 +3569,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1926,
+          "line": 1997,
           "id": "",
           "via": "inline"
         },
@@ -3444,6 +3588,12 @@
         {
           "file": "appendix-a.md",
           "line": 834,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -3635,7 +3785,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1923,
+          "line": 1994,
           "id": "",
           "via": "inline"
         },
@@ -3689,7 +3839,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1923,
+          "line": 1994,
           "id": "",
           "via": "inline"
         },
@@ -3743,7 +3893,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1923,
+          "line": 1994,
           "id": "",
           "via": "inline"
         },
@@ -3923,7 +4073,7 @@
         },
         {
           "file": "appendix-a.md",
-          "line": 1021,
+          "line": 1161,
           "id": "",
           "via": "inline"
         }
@@ -3947,7 +4097,7 @@
         },
         {
           "file": "appendix-a.md",
-          "line": 1021,
+          "line": 1161,
           "id": "",
           "via": "inline"
         }
@@ -4274,6 +4424,60 @@
           "line": 81,
           "id": "thm-ch30-face-cycle-exact",
           "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1080,
+          "id": "thm-ch34-clifford-monad-and-boundary-cancellation",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1089,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1621,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 946,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/clifford-monad-tiling-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -4798,6 +5002,18 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1348,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch35-light-pulse-and-self-referential-table.md",
           "line": 228,
           "id": "thm-ch35-lawvere-diagonal-and-homoiconic-closure",
@@ -4818,6 +5034,12 @@
         {
           "file": "appendix-a.md",
           "line": 680,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 960,
           "id": "",
           "via": "inline"
         },
@@ -4847,6 +5069,12 @@
         },
         {
           "file": "viz/self-referential-table/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -4906,6 +5134,18 @@
       "name": "D5.S3.ConceptDynamics.DefinitionEscape.Adjudication.lookup_copy_zero_loss_and_nonanticipating_failure",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2867,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2999,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch38-observer-memory-pointer-and-ontological-qram.md",
           "line": 1431,
           "id": "thm-ch38-retrospective-lookup-failure",
@@ -4956,6 +5196,12 @@
         {
           "file": "appendix-a.md",
           "line": 904,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
           "id": "",
           "via": "inline"
         },
@@ -5038,6 +5284,18 @@
       "name": "D5.S3.ConceptDynamics.InformationEscape.Catalog.escapePairs_without_eq_union",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2867,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2999,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch38-observer-memory-pointer-and-ontological-qram.md",
           "line": 1592,
           "id": "thm-ch38-escape-pairs-and-structural-novelty",
@@ -5052,6 +5310,12 @@
         {
           "file": "appendix-a.md",
           "line": 778,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
           "id": "",
           "via": "inline"
         },
@@ -5129,13 +5393,13 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1499,
+          "line": 1570,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1928,
+          "line": 1999,
           "id": "",
           "via": "inline"
         },
@@ -5236,6 +5500,18 @@
       "name": "D5.S3.ConceptDynamics.InformationEscape.Catalog.lowersEscape_iff_strict_kernel_novelty",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1324,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch38-observer-memory-pointer-and-ontological-qram.md",
           "line": 1592,
           "id": "thm-ch38-escape-pairs-and-structural-novelty",
@@ -5260,6 +5536,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -5267,6 +5549,12 @@
         },
         {
           "file": "viz/observer-escape-ledger/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -5548,6 +5836,30 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2868,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2999,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3147,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch39-observer-is-ontological-universe.md",
           "line": 302,
           "id": "prop-ch39-orthogonal-folding-and-objective-common-factor",
@@ -5578,6 +5890,18 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-d.md",
           "line": 37,
           "id": "",
@@ -5597,6 +5921,12 @@
         },
         {
           "file": "viz/quantum-interpretations-duel/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -5698,6 +6028,18 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1350,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch38-observer-memory-pointer-and-ontological-qram.md",
           "line": 1783,
           "id": "thm-ch38-uncompleted-horizon-diagonal-refinement",
@@ -5716,7 +6058,19 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -5831,14 +6185,20 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 108,
+          "line": 118,
           "id": "thm-ch34-readout-kernel-and-covariant-commutator",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 540,
+          "line": 550,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
           "via": "environment"
         },
         {
@@ -5849,7 +6209,25 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 111,
+          "line": 121,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3026,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3103,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3147,
           "id": "",
           "via": "inline"
         },
@@ -5886,6 +6264,12 @@
         {
           "file": "appendix-a.md",
           "line": 904,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -5927,6 +6311,12 @@
         },
         {
           "file": "viz/triadic-nameless-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -6113,7 +6503,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1923,
+          "line": 1994,
           "id": "",
           "via": "inline"
         },
@@ -6305,8 +6695,20 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 653,
+          "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
           "via": "environment"
         },
         {
@@ -6317,7 +6719,25 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 670,
+          "line": 680,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1878,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2880,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2886,
           "id": "",
           "via": "inline"
         },
@@ -6358,6 +6778,18 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -6383,6 +6815,18 @@
         },
         {
           "file": "viz/berry-sector-path-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -6425,13 +6869,13 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 653,
+          "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 670,
+          "line": 680,
           "id": "",
           "via": "inline"
         },
@@ -6545,7 +6989,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1926,
+          "line": 1997,
           "id": "",
           "via": "inline"
         },
@@ -7949,8 +8393,32 @@
       "citations": [
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 411,
+          "line": 421,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1080,
+          "id": "thm-ch34-clifford-monad-and-boundary-cancellation",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
           "via": "environment"
         },
         {
@@ -7961,7 +8429,25 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 414,
+          "line": 424,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1083,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1655,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2109,
           "id": "",
           "via": "inline"
         },
@@ -7970,6 +8456,60 @@
           "line": 876,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 946,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/clifford-monad-tiling-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -7990,6 +8530,90 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2063,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2149,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2373,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2613,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2824,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2857,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2878,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3146,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3149,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch36-hyperbolic-steps-and-quotienting-reincarnation.md",
           "line": 287,
           "id": "thm-ch36-quotient-annihilator-and-factorization",
@@ -8006,6 +8630,72 @@
           "line": 288,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -8018,6 +8708,48 @@
           "line": 181,
           "id": "prop-finite-character-cancellation",
           "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 877,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2070,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2149,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2373,
+          "id": "",
+          "via": "inline"
         },
         {
           "file": "ch36-hyperbolic-steps-and-quotienting-reincarnation.md",
@@ -8038,6 +8770,24 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -8048,6 +8798,24 @@
           "line": 0,
           "id": "",
           "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -8055,6 +8823,30 @@
       "kind": "theorem",
       "name": "D5.S3.Fourier.GoldenModelSetDelone.exists_golden_modelSet_delone",
       "citations": [
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1822,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2366,
+          "id": "",
+          "via": "inline"
+        },
         {
           "file": "ch37-dreams-quantum-eraser-and-nonlocal-observer.md",
           "line": 253,
@@ -8096,6 +8888,36 @@
           "line": 722,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -8261,7 +9083,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1924,
+          "line": 1995,
           "id": "",
           "via": "inline"
         },
@@ -8297,7 +9119,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1924,
+          "line": 1995,
           "id": "",
           "via": "inline"
         },
@@ -8333,7 +9155,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1924,
+          "line": 1995,
           "id": "",
           "via": "inline"
         },
@@ -8357,7 +9179,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1924,
+          "line": 1995,
           "id": "",
           "via": "inline"
         },
@@ -8429,13 +9251,13 @@
       "citations": [
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 411,
+          "line": 421,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 540,
+          "line": 550,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
           "via": "environment"
         },
@@ -8447,7 +9269,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 420,
+          "line": 430,
           "id": "",
           "via": "inline"
         },
@@ -8495,8 +9317,38 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 50,
+          "line": 60,
           "id": "thm-ch34-perpendicular-axis-and-pullback",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
           "via": "environment"
         },
         {
@@ -8507,7 +9359,61 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 59,
+          "line": 69,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1591,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2108,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2129,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2567,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2766,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2844,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2876,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3055,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3144,
           "id": "",
           "via": "inline"
         },
@@ -8526,6 +9432,36 @@
         {
           "file": "appendix-a.md",
           "line": 442,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -8555,6 +9491,36 @@
         },
         {
           "file": "viz/spherical-trihedron-cell/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -8603,14 +9569,20 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 50,
+          "line": 60,
           "id": "thm-ch34-perpendicular-axis-and-pullback",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 540,
+          "line": 550,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1080,
+          "id": "thm-ch34-clifford-monad-and-boundary-cancellation",
           "via": "environment"
         },
         {
@@ -8621,13 +9593,25 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 53,
+          "line": 63,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1116,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-a.md",
           "line": 666,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 946,
           "id": "",
           "via": "inline"
         },
@@ -8651,6 +9635,12 @@
         },
         {
           "file": "viz/triadic-nameless-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/clifford-monad-tiling-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -8891,8 +9881,32 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 653,
+          "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
           "via": "environment"
         },
         {
@@ -8903,7 +9917,55 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 674,
+          "line": 684,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 853,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2577,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2850,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2877,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3055,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3105,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3144,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3146,
           "id": "",
           "via": "inline"
         },
@@ -8922,6 +9984,30 @@
         {
           "file": "appendix-a.md",
           "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -8960,6 +10046,30 @@
           "line": 0,
           "id": "",
           "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -8975,19 +10085,61 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 653,
+          "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 672,
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 682,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 851,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2566,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2576,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-a.md",
           "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
           "id": "",
           "via": "inline"
         },
@@ -9005,6 +10157,18 @@
         },
         {
           "file": "viz/berry-sector-path-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -9460,6 +10624,30 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2331,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2598,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch37-dreams-quantum-eraser-and-nonlocal-observer.md",
           "line": 64,
           "id": "thm-ch37-known-data-pinching-and-entropy-tax",
@@ -9514,6 +10702,18 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-d.md",
           "line": 31,
           "id": "",
@@ -9563,6 +10763,18 @@
         },
         {
           "file": "viz/coherence-handshake-causality/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -9778,6 +10990,18 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1822,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch36-hyperbolic-steps-and-quotienting-reincarnation.md",
           "line": 124,
           "id": "thm-ch36-taylor-tail-and-cayley-boundary",
@@ -9796,6 +11020,12 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -9803,6 +11033,12 @@
         },
         {
           "file": "viz/sphere-escape/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -10138,8 +11374,38 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2332,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2598,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2729,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 624,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
           "id": "",
           "via": "inline"
         },
@@ -10151,6 +11417,12 @@
         },
         {
           "file": "viz/fairness-square-uncertainty-expansion/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -10192,8 +11464,38 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2332,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2598,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2729,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 624,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
           "id": "",
           "via": "inline"
         },
@@ -10205,6 +11507,12 @@
         },
         {
           "file": "viz/fairness-square-uncertainty-expansion/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -10907,8 +12215,14 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 108,
+          "line": 118,
           "id": "thm-ch34-readout-kernel-and-covariant-commutator",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
           "via": "environment"
         },
         {
@@ -10919,13 +12233,49 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 117,
+          "line": 127,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2576,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2729,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3055,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3104,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3145,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-a.md",
           "line": 666,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -10943,6 +12293,12 @@
         },
         {
           "file": "viz/spherical-trihedron-cell/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -10966,10 +12322,40 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1374,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 624,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -11009,19 +12395,31 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 411,
+          "line": 421,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 540,
+          "line": 550,
           "id": "prop-ch34-triadic-bootstrap-and-lexical-pinching",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 424,
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 434,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1316,
           "id": "",
           "via": "inline"
         },
@@ -11088,6 +12486,12 @@
         {
           "file": "appendix-a.md",
           "line": 890,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 960,
           "id": "",
           "via": "inline"
         },
@@ -11164,6 +12568,12 @@
           "via": "media"
         },
         {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
           "file": "viz/uncompleted-horizon-sandbox/index.html",
           "line": 0,
           "id": "",
@@ -11230,6 +12640,24 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1604,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-e.md",
           "line": 142,
           "id": "",
@@ -11240,6 +12668,18 @@
           "line": 269,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         },
         {
           "file": "slides/overview/slides.md",
@@ -11416,6 +12856,48 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1367,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2080,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2149,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2331,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch37-dreams-quantum-eraser-and-nonlocal-observer.md",
           "line": 342,
           "id": "thm-ch37-p2g-open-escape-and-krylov",
@@ -11452,6 +12934,24 @@
           "via": "inline"
         },
         {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -11471,6 +12971,24 @@
         },
         {
           "file": "viz/observer-consensus-decoherence/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -12088,6 +13606,24 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1838,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -12095,6 +13631,12 @@
         },
         {
           "file": "viz/two-angle-addressing/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -12130,8 +13672,44 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2552,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3143,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 316,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -12155,6 +13733,18 @@
         },
         {
           "file": "viz/rapidity-lightcone/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -13072,6 +14662,42 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2867,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2880,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3147,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch37-dreams-quantum-eraser-and-nonlocal-observer.md",
           "line": 64,
           "id": "thm-ch37-known-data-pinching-and-entropy-tax",
@@ -13128,6 +14754,24 @@
         {
           "file": "appendix-a.md",
           "line": 848,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -13196,6 +14840,24 @@
           "line": 0,
           "id": "",
           "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -13259,7 +14921,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 50,
+          "line": 60,
           "id": "thm-ch34-perpendicular-axis-and-pullback",
           "via": "environment"
         },
@@ -13271,7 +14933,7 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 65,
+          "line": 75,
           "id": "",
           "via": "inline"
         },
@@ -13307,7 +14969,7 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1719,
+          "line": 1790,
           "id": "thm-ch39-p2e-odd-repeat-inverse-mass",
           "via": "environment"
         }
@@ -13492,8 +15154,26 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1080,
+          "id": "thm-ch34-clifford-monad-and-boundary-cancellation",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1100,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 246,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 946,
           "id": "",
           "via": "inline"
         },
@@ -13505,6 +15185,12 @@
         },
         {
           "file": "viz/parameter-shift/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/clifford-monad-tiling-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -13546,6 +15232,30 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2801,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2844,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2876,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 190,
           "id": "",
@@ -13554,6 +15264,12 @@
         {
           "file": "appendix-a.md",
           "line": 582,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
           "id": "",
           "via": "inline"
         },
@@ -13580,6 +15296,12 @@
           "line": 0,
           "id": "",
           "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -13595,7 +15317,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1927,
+          "line": 1998,
           "id": "",
           "via": "inline"
         },
@@ -13631,7 +15353,7 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1927,
+          "line": 1998,
           "id": "",
           "via": "inline"
         },
@@ -13894,6 +15616,42 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2519,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2757,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2839,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2875,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "coda.md",
           "line": 570,
           "id": "",
@@ -13902,6 +15660,18 @@
         {
           "file": "appendix-a.md",
           "line": 428,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
           "id": "",
           "via": "inline"
         },
@@ -13925,6 +15695,18 @@
         },
         {
           "file": "viz/blade-multiplication/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -14326,8 +16108,26 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1590,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 36,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
           "id": "",
           "via": "inline"
         },
@@ -14345,6 +16145,12 @@
         },
         {
           "file": "viz/zyz-compile/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -14453,8 +16259,20 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 653,
+          "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
           "via": "environment"
         },
         {
@@ -14465,13 +16283,31 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 662,
+          "line": 672,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 859,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-a.md",
           "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
           "id": "",
           "via": "inline"
         },
@@ -14489,6 +16325,18 @@
         },
         {
           "file": "viz/berry-sector-path-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -14543,8 +16391,32 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 653,
+          "line": 663,
           "id": "thm-ch34-berry-sector-holonomy-and-bargmann-lift",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1080,
+          "id": "thm-ch34-clifford-monad-and-boundary-cancellation",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
           "via": "environment"
         },
         {
@@ -14555,13 +16427,61 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 656,
+          "line": 666,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 865,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1118,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2129,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2323,
           "id": "",
           "via": "inline"
         },
         {
           "file": "appendix-a.md",
           "line": 918,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 946,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
           "id": "",
           "via": "inline"
         },
@@ -14573,6 +16493,30 @@
         },
         {
           "file": "viz/berry-sector-path-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/clifford-monad-tiling-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -14746,6 +16690,42 @@
           "via": "environment"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2535,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2757,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2839,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2875,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "coda.md",
           "line": 570,
           "id": "",
@@ -14754,6 +16734,18 @@
         {
           "file": "appendix-a.md",
           "line": 428,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
           "id": "",
           "via": "inline"
         },
@@ -14771,6 +16763,18 @@
         },
         {
           "file": "viz/blade-multiplication/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -15076,6 +17080,30 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1301,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2331,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 218,
           "id": "",
@@ -15086,6 +17114,36 @@
           "line": 498,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         },
         {
           "file": "films/008-gram-window/film.json",
@@ -16028,6 +18086,66 @@
           "line": 482,
           "id": "thm-jordan-wigner-car",
           "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2575,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2848,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2877,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -16040,6 +18158,36 @@
           "line": 482,
           "id": "thm-jordan-wigner-car",
           "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2575,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -16706,6 +18854,36 @@
           "line": 624,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1564,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -16913,13 +19091,79 @@
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 411,
+          "line": 421,
           "id": "thm-ch34-trihedron-cochain-and-moving-axis",
           "via": "environment"
         },
         {
           "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
-          "line": 422,
+          "line": 1080,
+          "id": "thm-ch34-clifford-monad-and-boundary-cancellation",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 432,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1110,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1816,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2123,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2838,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2875,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3041,
           "id": "",
           "via": "inline"
         },
@@ -16974,6 +19218,36 @@
         {
           "file": "appendix-a.md",
           "line": 876,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 946,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
           "id": "",
           "via": "inline"
         },
@@ -17056,6 +19330,36 @@
           "via": "media"
         },
         {
+          "file": "viz/clifford-monad-tiling-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
           "file": "films/001-qubit-bloch-rotor/film.json",
           "line": 0,
           "id": "",
@@ -17092,6 +19396,36 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2782,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2844,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2876,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -17099,6 +19433,12 @@
         },
         {
           "file": "viz/chsh-dial/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -17218,6 +19558,18 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1886,
+          "id": "thm-ch34-quantum-arc-differential-and-macro-integral",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1865,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "appendix-a.md",
           "line": 624,
           "id": "",
@@ -17226,6 +19578,12 @@
         {
           "file": "appendix-a.md",
           "line": 820,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 988,
           "id": "",
           "via": "inline"
         },
@@ -17267,6 +19625,12 @@
         },
         {
           "file": "viz/comparison-oisc-engine/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-arc-macro-integral-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -17908,6 +20272,24 @@
           "via": "inline"
         },
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3041,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "viz/visualizations.json",
           "line": 0,
           "id": "",
@@ -17915,6 +20297,12 @@
         },
         {
           "file": "viz/speed-limit-zeno/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
           "line": 0,
           "id": "",
           "via": "media"
@@ -18166,6 +20554,30 @@
       "name": "D5.S3.QuantumContext.ThreeAnchorGram.three_anchor_gram_det_formula",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2389,
+          "id": "thm-ch34-point-volume-octave-and-particle-field",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1565,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2323,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch37-dreams-quantum-eraser-and-nonlocal-observer.md",
           "line": 107,
           "id": "ex-ch37-gram-constraint-release",
@@ -18176,6 +20588,36 @@
           "line": 108,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1016,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/octave-point-volume-field-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -18184,6 +20626,102 @@
       "name": "D5.S3.QuantumContext.ThreeAnchorGram.three_anchor_gram_det_pos_iff",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1675,
+          "id": "thm-ch34-trihedron-rigidity-and-complete-graph",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2169,
+          "id": "thm-ch34-triadic-duality-and-field-loop",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2634,
+          "id": "thm-ch34-lorentz-pseudoscalar-and-sm-octave",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2896,
+          "id": "thm-ch34-quantum-gate-and-cosmic-concept-tower",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3177,
+          "id": "thm-ch34-coset-breaking-conservation-towers",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1309,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1565,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1590,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2129,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2568,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2592,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2851,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 2877,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3106,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 3145,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch37-dreams-quantum-eraser-and-nonlocal-observer.md",
           "line": 107,
           "id": "ex-ch37-gram-constraint-release",
@@ -18194,6 +20732,84 @@
           "line": 108,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 974,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1002,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1030,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1044,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 1058,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/trihedron-rigidity-truss-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/triadic-arc-field-loop-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/lorentz-pseudoscalar-sm-octave-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/quantum-gate-cosmic-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/coset-breaking-conservation-tower-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -18220,6 +20836,12 @@
       "name": "D5.S3.QuantumContext.TwoAnchorGram.two_anchor_gram_det_formula",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1302,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch35-light-pulse-and-self-referential-table.md",
           "line": 44,
           "id": "ex-ch35-two-anchor-gram-corridor",
@@ -18238,6 +20860,18 @@
       "name": "D5.S3.QuantumContext.TwoAnchorGram.two_anchor_gram_det_pos_iff",
       "citations": [
         {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1394,
+          "id": "thm-ch34-reversal-diagonal-and-gram-cascade",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 1302,
+          "id": "",
+          "via": "inline"
+        },
+        {
           "file": "ch35-light-pulse-and-self-referential-table.md",
           "line": 44,
           "id": "ex-ch35-two-anchor-gram-corridor",
@@ -18248,6 +20882,24 @@
           "line": 45,
           "id": "",
           "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 960,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/reversal-diagonal-cascade-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -18260,6 +20912,36 @@
           "line": 227,
           "id": "prop-phase-locked-overlap",
           "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 848,
+          "id": "thm-ch34-phase-cancellation-and-standing-sieve",
+          "via": "environment"
+        },
+        {
+          "file": "ch34-orthogonality-degeneracy-and-observer-position.md",
+          "line": 887,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "appendix-a.md",
+          "line": 932,
+          "id": "",
+          "via": "inline"
+        },
+        {
+          "file": "viz/visualizations.json",
+          "line": 0,
+          "id": "",
+          "via": "media"
+        },
+        {
+          "file": "viz/standing-wave-volume-sandbox/index.html",
+          "line": 0,
+          "id": "",
+          "via": "media"
         }
       ]
     },
@@ -18449,13 +21131,13 @@
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1499,
+          "line": 1570,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1928,
+          "line": 1999,
           "id": "",
           "via": "inline"
         },
@@ -18473,13 +21155,13 @@
       "citations": [
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1486,
+          "line": 1557,
           "id": "thm-ch39-p2e-parry-escape-laws",
           "via": "environment"
         },
         {
           "file": "ch39-observer-is-ontological-universe.md",
-          "line": 1928,
+          "line": 1999,
           "id": "",
           "via": "inline"
         },
@@ -20606,42 +23288,118 @@
       "number": "34",
       "depth": 0,
       "environment": [
+        "D5/S0/Certificates/MinkowskiNullConeRigidity.eq_smul_minkowski_of_null",
         "D5/S0/Certificates/MinkowskiNullConeRigidity.null_cone_spatial_rigidity",
         "D5/S1/Deficit/ModelSet/GoldenCutAndProject.golden_model_set_subset_cut_and_project",
+        "D5/S1/Phase/ContinuousAverage.continuous_average_tendsto_haar",
+        "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.face_cycle_exact",
+        "D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_ne_listed_decode",
+        "D5/S3/ConceptDynamics/InformationEscape/StructuralNovelty.lowersEscape_iff_strict_kernel_novelty",
+        "D5/S3/ConceptDynamics/Interpretation/InterpretationFixedPoint.objective_claim_requires_invariant_common_factor",
+        "D5/S3/ConceptDynamics/ObservationTopology/DiagonalTopologicalEscape.complete_diagonal_strict_topology_refinement",
         "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel",
         "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift",
         "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverNoSection.no_continuous_global_section",
         "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness",
+        "D5/S3/Fourier/FinitePoisson.finite_poisson_summation",
+        "D5/S3/Fourier/FinitePoisson.sum_annihilator_character",
+        "D5/S3/Fourier/GoldenModelSetDelone.exists_golden_modelSet_delone",
         "D5/S3/Geometry/TwoAxisFiniteRotation.moving_axis_invariance",
         "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word",
         "D5/S3/Geometry/TwoAxisFiniteRotation.unit_perpendicular_pair",
         "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification",
         "D5/S3/Observer/AgencyHolonomy/NamedTreePhaseTransport.selected_tree_transport",
+        "D5/S3/Observer/Conditioning/FiniteRecordPinchingIdempotence.finite_record_pinching_idempotent",
+        "D5/S3/Observer/Linear/ExactTaylorObservationRemainder.exp_tail_le",
+        "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.golden_helix_fourier_readout_step",
+        "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.level_fourier_joint_readout_detects_step",
         "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
+        "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
         "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
+        "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq",
+        "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities",
+        "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product",
+        "D5/S3/Quantum/Bogoliubov/BogoliubovNormConservation.bogoliubov_norm_conservation",
+        "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
         "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity",
+        "D5/S3/Quantum/Dynamics/ProjectionProbabilityFlow.projection_probability_flow",
+        "D5/S3/Quantum/Entanglement/BellPureStateMixedMarginal.bell_pure_state_has_maximally_mixed_marginal",
+        "D5/S3/Quantum/FiniteDimensional.qubit_weyl_star",
+        "D5/S3/Quantum/Information/ActualPureQubitGeometry.bloch_geometry_of_isHermitian",
         "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
         "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
-        "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
+        "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization",
+        "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_CAR",
+        "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_anticomm_of_lt",
+        "D5/S3/QuantumBounds/FubiniStudyRecordTime.fs_angle_triangle",
+        "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
+        "D5/S3/QuantumBounds/LandauCommutingCollapse.chsh_square_eq_four_of_local_pair_commutes",
+        "D5/S3/QuantumBounds/RobertsonSchrodinger.robertson_schrodinger",
+        "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation",
+        "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_formula",
+        "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_pos_iff",
+        "D5/S3/QuantumContext/TwoAnchorGram.two_anchor_gram_det_pos_iff",
+        "D5/S3/QuantumStates/PhaseLockedOverlap.phase_locked_overlap_is_rotated_real"
       ],
       "inline": [
+        "D5/S0/Certificates/MinkowskiNullConeRigidity.eq_smul_minkowski_of_null",
         "D5/S0/Certificates/MinkowskiNullConeRigidity.null_cone_spatial_rigidity",
         "D5/S1/Deficit/ModelSet/GoldenCutAndProject.golden_model_set_subset_cut_and_project",
+        "D5/S1/Phase/ContinuousAverage.continuous_average_tendsto_haar",
+        "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint",
+        "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.face_cycle_exact",
+        "D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_ne_listed_decode",
+        "D5/S3/ConceptDynamics/DefinitionEscapeAdjudication/RetrospectiveLookupFailure.lookup_copy_zero_loss_and_nonanticipating_failure",
+        "D5/S3/ConceptDynamics/InformationEscape/EscapePairs.escapePairs_without_eq_union",
+        "D5/S3/ConceptDynamics/InformationEscape/StructuralNovelty.lowersEscape_iff_strict_kernel_novelty",
+        "D5/S3/ConceptDynamics/Interpretation/InterpretationFixedPoint.objective_claim_requires_invariant_common_factor",
+        "D5/S3/ConceptDynamics/ObservationTopology/DiagonalTopologicalEscape.complete_diagonal_strict_topology_refinement",
         "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel",
         "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift",
         "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverNoSection.no_continuous_global_section",
         "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness",
+        "D5/S3/Fourier/FinitePoisson.finite_poisson_summation",
+        "D5/S3/Fourier/FinitePoisson.sum_annihilator_character",
+        "D5/S3/Fourier/GoldenModelSetDelone.exists_golden_modelSet_delone",
         "D5/S3/Geometry/TwoAxisFiniteRotation.moving_axis_invariance",
         "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word",
         "D5/S3/Geometry/TwoAxisFiniteRotation.unit_perpendicular_pair",
         "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification",
         "D5/S3/Observer/AgencyHolonomy/NamedTreePhaseTransport.selected_tree_transport",
+        "D5/S3/Observer/Conditioning/FiniteRecordPinchingIdempotence.finite_record_pinching_idempotent",
+        "D5/S3/Observer/Linear/ExactTaylorObservationRemainder.exp_tail_le",
+        "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.golden_helix_fourier_readout_step",
+        "D5/S3/ObserverMemory/FourierFibers/GoldenScaleCharacterDeckBlindness.level_fourier_joint_readout_detects_step",
         "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula",
+        "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
         "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
+        "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq",
+        "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities",
+        "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product",
+        "D5/S3/Quantum/Bogoliubov/BogoliubovNormConservation.bogoliubov_norm_conservation",
+        "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity",
         "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity",
+        "D5/S3/Quantum/Dynamics/ProjectionProbabilityFlow.projection_probability_flow",
+        "D5/S3/Quantum/Entanglement/BellPureStateMixedMarginal.bell_pure_state_has_maximally_mixed_marginal",
+        "D5/S3/Quantum/FiniteDimensional.qubit_weyl_star",
+        "D5/S3/Quantum/Information/ActualPureQubitGeometry.bloch_geometry_of_isHermitian",
         "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product",
         "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch",
-        "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        "D5/S3/Quantum/Measurement/Bloch/QubitBloch.B_formula_core",
+        "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization",
+        "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_CAR",
+        "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_anticomm_of_lt",
+        "D5/S3/QuantumBounds/FubiniStudyRecordTime.fs_angle_triangle",
+        "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
+        "D5/S3/QuantumBounds/LandauCommutingCollapse.chsh_square_eq_four_of_local_pair_commutes",
+        "D5/S3/QuantumBounds/RobertsonSchrodinger.robertson_schrodinger",
+        "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation",
+        "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_formula",
+        "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_pos_iff",
+        "D5/S3/QuantumContext/TwoAnchorGram.two_anchor_gram_det_formula",
+        "D5/S3/QuantumContext/TwoAnchorGram.two_anchor_gram_det_pos_iff",
+        "D5/S3/QuantumStates/PhaseLockedOverlap.phase_locked_overlap_is_rotated_real"
       ]
     },
     {
@@ -21077,6 +23835,7 @@
         "D5/S1/Digit/ZeckendorfCarryBarrier.lower_support_carry_barrier",
         "D5/S1/FixedPoints/Algebraic/GoldenFixedPoint.golden_fixed_point_unique",
         "D5/S1/FixedPoints/FiniteContractingStability.finite_contracting_updates_stabilize",
+        "D5/S1/Phase/ContinuousAverage.continuous_average_tendsto_haar",
         "D5/S1/Recurrence/NormOneTraceAddition.trace_recurrence",
         "D5/S1/Scale/Fibonacci.fib_cassini_from_golden_norm",
         "D5/S1/Scale/MinkowskiModelSet.minkowski_model_set_spec",
@@ -21090,6 +23849,7 @@
         "D5/S3/Arith/RepeatingDecimal/RepeatingDecimalQuotient.long_division_period",
         "D5/S3/Arith/RepeatingDecimal/RepeatingDecimalQuotient.long_division_value",
         "D5/S3/Axis/PrimeAxisEscape.prime_axis_escape",
+        "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.face_cycle_exact",
         "D5/S3/CompletionDynamics/GoldenMobius/GoldenHelixParityReadout.golden_helix_two_step_orientation_complete_state_distinct",
         "D5/S3/ConceptDynamics/ConceptFiberDecomposition.concept_fiber_decomposition",
         "D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_ne_listed_decode",
@@ -21163,10 +23923,12 @@
         "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure",
         "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape",
         "D5/S3/Quantum/Algebra/FutureWordOrthogonalResidual.future_word_orthogonal_residual",
+        "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq",
         "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities",
         "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure_square",
         "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary",
         "D5/S3/Quantum/Algebra/Unitary/BalancedUnitarySum.crossProduct_is_skewAdjoint_of_balanced_sum",
+        "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product",
         "D5/S3/Quantum/Bogoliubov/BogoliubovNormConservation.bogoliubov_norm_conservation",
         "D5/S3/Quantum/Codes/StabilizerGenuineEntanglementCommutationRank.pauli_word_mul",
         "D5/S3/Quantum/Completion/IncreasingProjectionStrongLimit.increasing_projection_strong_limit",
@@ -21197,17 +23959,26 @@
         "D5/S3/Quantum/PureState/NoCloningInnerProductCriterion.no_cloning_inner_product_criterion",
         "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization",
         "D5/S3/Quantum/Recovery/CoherentUniformAmplification.uniform_operator_rotation",
+        "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_CAR",
+        "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_anticomm_of_lt",
         "D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowMinCut.result",
         "D5/S3/Quantum/Tomography/ComplementaryContextProbabilityPythagoras.complementary_context_probability_pythagoras",
         "D5/S3/Quantum/Tomography/DiagonalPhaseBlindness.diagonal_prime_observables_cannot_recover_relative_phase",
+        "D5/S3/QuantumBounds/FubiniStudyRecordTime.fs_angle_triangle",
         "D5/S3/QuantumBounds/GramRealizability.gram_realizability",
         "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity",
+        "D5/S3/QuantumBounds/LandauCommutingCollapse.chsh_square_eq_four_of_local_pair_commutes",
         "D5/S3/QuantumBounds/PeritoTsirelson.bell_value_le",
         "D5/S3/QuantumBounds/RobertsonSchrodinger.robertson_schrodinger",
         "D5/S3/QuantumBounds/TsirelsonTightness.bell_chsh_state_expectation_is_greatest",
         "D5/S3/QuantumChannels/PinchingProjection.pinching_discarded_coherence_mass",
         "D5/S3/QuantumChannels/PinchingProjection.pinching_hilbert_schmidt_pythagorean",
+        "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation",
         "D5/S3/QuantumContext/ParallelogramNormLaw.inner_product_norm_parallelogram_law",
+        "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_formula",
+        "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_pos_iff",
+        "D5/S3/QuantumContext/TwoAnchorGram.two_anchor_gram_det_pos_iff",
+        "D5/S3/QuantumStates/PhaseLockedOverlap.phase_locked_overlap_is_rotated_real",
         "D5/S3/TotalVariation/ParryBoundaryCylinderBound.parry_boundary_cylinder_bound",
         "D5/S3/TotalVariation/ParryResetLaw.parry_stationary_law",
         "D5/S3/Zeros/ZetaUpgrade.riemann_zeta_dirichlet_sum_eq_euler_product"
