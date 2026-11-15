@@ -2,12 +2,9 @@
   "schema": "tbook-ci-dependencies-v1",
   "suites": {
     "berry-loop.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -29,12 +26,11 @@
       "trureturing.lock.json"
     ],
     "blade-multiplication.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch25-rewriting-and-xor.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch25-rewriting-and-xor.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -56,12 +52,9 @@
       "trureturing.lock.json"
     ],
     "bloch-noise.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -86,12 +79,9 @@
       "trureturing.lock.json"
     ],
     "braiding.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -116,9 +106,10 @@
       "trureturing.lock.json"
     ],
     "chsh-dial.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch13-entanglement-and-chsh.md",
+      "books/quantum-geometry/viz/comparison-oisc-engine/**",
       "books/quantum-geometry/viz/dream-decoherence-unpinning/**",
       "books/quantum-geometry/viz/entanglement-entropy-complexity/**",
       "books/quantum-geometry/viz/eth-horizon-crossover/**",
@@ -131,10 +122,10 @@
       "books/quantum-geometry/viz/self-referential-table/**",
       "books/quantum-geometry/viz/sphere-escape/**",
       "books/quantum-geometry/viz/spherical-degeneracy-radar/**",
+      "books/quantum-geometry/viz/spherical-trihedron-cell/**",
       "books/quantum-geometry/viz/timeless-causal-crystal/**",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch13-entanglement-and-chsh.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -156,17 +147,12 @@
       "tools/tbook/paths.py",
       "tools/tbook/summary.py",
       "tools/tbook/viz.py",
-      "trureturing.lock.json",
-      "books/quantum-geometry/viz/comparison-oisc-engine/**",
-      "books/quantum-geometry/viz/spherical-trihedron-cell/**"
+      "trureturing.lock.json"
     ],
     "coherence-handshake-causality.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -188,12 +174,11 @@
       "trureturing.lock.json"
     ],
     "complexity-growth.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch20-complexity-and-spacetime.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch20-complexity-and-spacetime.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -215,12 +200,9 @@
       "trureturing.lock.json"
     ],
     "critical-mirror.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -242,12 +224,9 @@
       "trureturing.lock.json"
     ],
     "dottie-fibonacci-spirals.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -269,12 +248,9 @@
       "trureturing.lock.json"
     ],
     "double-slit-marker.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -296,12 +272,9 @@
       "trureturing.lock.json"
     ],
     "dream-decoherence-unpinning.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -326,12 +299,9 @@
       "trureturing.lock.json"
     ],
     "dream-pre-decoherence-deja-vu.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -353,12 +323,9 @@
       "trureturing.lock.json"
     ],
     "entanglement-entropy-complexity.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -380,12 +347,9 @@
       "trureturing.lock.json"
     ],
     "equator-concentration.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -407,12 +371,9 @@
       "trureturing.lock.json"
     ],
     "erasure-ledger.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -434,12 +395,9 @@
       "trureturing.lock.json"
     ],
     "eth-horizon-crossover.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -461,12 +419,9 @@
       "trureturing.lock.json"
     ],
     "euler-product-sieve.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -488,12 +443,9 @@
       "trureturing.lock.json"
     ],
     "fairness-square-uncertainty-expansion.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -515,12 +467,9 @@
       "trureturing.lock.json"
     ],
     "fixed-point-convergence.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -542,12 +491,9 @@
       "trureturing.lock.json"
     ],
     "forgetting-rebirth-attractor.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -572,12 +518,11 @@
       "trureturing.lock.json"
     ],
     "gate-word-polytope.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch16-qsvt-walks-and-compilation.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch16-qsvt-walks-and-compilation.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -602,12 +547,9 @@
       "trureturing.lock.json"
     ],
     "golden-cut-observer.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -632,12 +574,9 @@
       "trureturing.lock.json"
     ],
     "gram-causal-elliptope.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -662,12 +601,9 @@
       "trureturing.lock.json"
     ],
     "grover-reflections.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -689,12 +625,9 @@
       "trureturing.lock.json"
     ],
     "hairy-ball-normal-escape.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -719,12 +652,9 @@
       "trureturing.lock.json"
     ],
     "lattice-gauge-loop.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -746,12 +676,9 @@
       "trureturing.lock.json"
     ],
     "layered-network-cut.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -773,12 +700,37 @@
       "trureturing.lock.json"
     ],
     "lean-declaration-map.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
       "books/quantum-geometry/en/**/*.md",
       "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/appendix-c.md",
+      "books/quantum-geometry/en/appendix-e.md",
+      "books/quantum-geometry/en/ch01-measurement.md",
+      "books/quantum-geometry/en/ch02-born-rule.md",
+      "books/quantum-geometry/en/ch03-projectors-and-duality.md",
+      "books/quantum-geometry/en/ch13-entanglement-and-chsh.md",
+      "books/quantum-geometry/en/ch22-primes-euler-products-and-zeros.md",
+      "books/quantum-geometry/en/ch23-diophantine-definability.md",
+      "books/quantum-geometry/en/ch27-reading-frozen-proofs-i.md",
+      "books/quantum-geometry/en/ch28-reading-frozen-proofs-ii.md",
+      "books/quantum-geometry/en/ch30-s04-navier-stokes.md",
+      "books/quantum-geometry/en/coda.md",
       "books/quantum-geometry/viz/visualizations.json",
       "books/quantum-geometry/zh/**/*.md",
       "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/appendix-c.md",
+      "books/quantum-geometry/zh/appendix-e.md",
+      "books/quantum-geometry/zh/ch01-measurement.md",
+      "books/quantum-geometry/zh/ch02-born-rule.md",
+      "books/quantum-geometry/zh/ch03-projectors-and-duality.md",
+      "books/quantum-geometry/zh/ch13-entanglement-and-chsh.md",
+      "books/quantum-geometry/zh/ch22-primes-euler-products-and-zeros.md",
+      "books/quantum-geometry/zh/ch23-diophantine-definability.md",
+      "books/quantum-geometry/zh/ch27-reading-frozen-proofs-i.md",
+      "books/quantum-geometry/zh/ch28-reading-frozen-proofs-ii.md",
+      "books/quantum-geometry/zh/ch30-s04-navier-stokes.md",
+      "books/quantum-geometry/zh/coda.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -800,12 +752,9 @@
       "trureturing.lock.json"
     ],
     "meta-unification-compass.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -830,12 +779,9 @@
       "trureturing.lock.json"
     ],
     "mutual-observer-attractors.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -857,12 +803,9 @@
       "trureturing.lock.json"
     ],
     "navier-stokes-p-np.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -887,12 +830,9 @@
       "trureturing.lock.json"
     ],
     "norm-lattice.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -914,12 +854,9 @@
       "trureturing.lock.json"
     ],
     "observer-consensus-decoherence.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -941,12 +878,9 @@
       "trureturing.lock.json"
     ],
     "observer-escape-ledger.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -968,12 +902,9 @@
       "trureturing.lock.json"
     ],
     "padic-prime-table-tree.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -995,12 +926,9 @@
       "trureturing.lock.json"
     ],
     "pairwise-shutter.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1022,12 +950,9 @@
       "trureturing.lock.json"
     ],
     "parameter-shift.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1049,12 +974,11 @@
       "trureturing.lock.json"
     ],
     "phase-gears.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch15-grover-qft-and-period-finding.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch15-grover-qft-and-period-finding.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1076,12 +1000,9 @@
       "trureturing.lock.json"
     ],
     "pisot-clifford-rauzy-sandtable.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1103,12 +1024,9 @@
       "trureturing.lock.json"
     ],
     "pnp-lookup-degradation.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1130,12 +1048,9 @@
       "trureturing.lock.json"
     ],
     "pointer-ontology-deref.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1160,14 +1075,11 @@
       "trureturing.lock.json"
     ],
     "pulse-area-virtual-z.test.mjs": [
+      "@citations",
       "books/*/book.toml",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/*/thumb.jpg",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "i18n/en.toml",
       "i18n/zh.toml",
       "package-lock.json",
@@ -1195,12 +1107,9 @@
       "trureturing.lock.json"
     ],
     "pythagoras-number-escape.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1222,12 +1131,9 @@
       "trureturing.lock.json"
     ],
     "quantum-fairness-ledger.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1252,12 +1158,9 @@
       "trureturing.lock.json"
     ],
     "quantum-interpretations-duel.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1279,12 +1182,9 @@
       "trureturing.lock.json"
     ],
     "qubit-geometry.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1306,12 +1206,9 @@
       "trureturing.lock.json"
     ],
     "rapidity-lightcone.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1333,12 +1230,9 @@
       "trureturing.lock.json"
     ],
     "repeated-projection.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1360,12 +1254,9 @@
       "trureturing.lock.json"
     ],
     "self-referential-table.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1390,12 +1281,9 @@
       "trureturing.lock.json"
     ],
     "self-sustaining-spinor-flow.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1420,12 +1308,9 @@
       "trureturing.lock.json"
     ],
     "spatial-attractor-deja-vu.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1450,12 +1335,9 @@
       "trureturing.lock.json"
     ],
     "speed-limit-zeno.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1477,12 +1359,9 @@
       "trureturing.lock.json"
     ],
     "sphere-escape.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1504,12 +1383,9 @@
       "trureturing.lock.json"
     ],
     "spherical-degeneracy-radar.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1534,12 +1410,11 @@
       "trureturing.lock.json"
     ],
     "syndrome-decoding.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch14-cloning-codes-and-braids.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch14-cloning-codes-and-braids.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1561,12 +1436,9 @@
       "trureturing.lock.json"
     ],
     "timeless-causal-crystal.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1588,12 +1460,9 @@
       "trureturing.lock.json"
     ],
     "two-angle-addressing.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1618,12 +1487,9 @@
       "trureturing.lock.json"
     ],
     "unified-field-slice.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1648,12 +1514,9 @@
       "trureturing.lock.json"
     ],
     "vortex-polygon.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1675,12 +1538,9 @@
       "trureturing.lock.json"
     ],
     "walk-spreading.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1702,12 +1562,11 @@
       "trureturing.lock.json"
     ],
     "zyz-compile.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
+      "books/quantum-geometry/en/ch26-single-qubit-rotor-compilation.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
+      "books/quantum-geometry/zh/ch26-single-qubit-rotor-compilation.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1729,12 +1588,9 @@
       "trureturing.lock.json"
     ],
     "comparison-oisc-engine.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1756,12 +1612,9 @@
       "trureturing.lock.json"
     ],
     "spherical-trihedron-cell.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
@@ -1783,12 +1636,9 @@
       "trureturing.lock.json"
     ],
     "triadic-nameless-sandbox.test.mjs": [
+      "@citations",
       "books/quantum-geometry/book.toml",
-      "books/quantum-geometry/en/**/*.md",
-      "books/quantum-geometry/en/*.md",
       "books/quantum-geometry/viz/visualizations.json",
-      "books/quantum-geometry/zh/**/*.md",
-      "books/quantum-geometry/zh/*.md",
       "package-lock.json",
       "package.json",
       "site.toml",
