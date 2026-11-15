@@ -1,6 +1,6 @@
 {
   "next": {
-    "T": 321,
+    "T": 322,
     "D": 115,
     "R": 177
   },
@@ -614,6 +614,7 @@
     "D5/S3/Quantum/Divergence/SpectralCeilingRelativeEntropy.actual_matrix_spectral_ceiling_strong_klein": "R173",
     "D5/S3/Quantum/Information/StrongSubadditivity.entropy_relabelState": "R174",
     "D5/S3/Quantum/Information/StrongSubadditivity.entropy_toMState": "R175",
-    "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity": "R176"
+    "D5/S3/Quantum/Information/StrongSubadditivity.strong_subadditivity": "R176",
+    "D5/S1/Words/TribonacciPrefixRefutation.result": "T321"
   }
 }
