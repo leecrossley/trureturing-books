@@ -379,6 +379,15 @@ $$
 
 乘积取遍全体素数 $p$。
 
+这里的 $\beta(v)=S(v)-v\psi$ 正是源码中的 `o5Beta v`。对素数 $p$，原始局部因子定义为
+
+$$
+\operatorname{germLocalFactor}(s,p)
+=\sum_{v=0}^{\infty}p^{-s\beta(v)}.
+$$
+
+这沿用源码 `germLocalFactor` 的参数顺序 $s,p$，包含 $v=0$ 的常数项 $1$，没有提取或除去任何校正因子。
+
 ::: {.conjecture #conj-independence title="独立性猜想 O-5"}
 存在函数 $Z \colon \mathbb{C} \to \mathbb{C}$，同时满足：
 
@@ -400,6 +409,41 @@ $$
 O-5 是开放问题，不是定理，本书不为它引用任何 Lean 声明。trureturing 把它写成 `Hearts.lean` 中的 `o5_independence`，证明体是 `sorry`；模块注释说明，这一声明只记录开放的断言，并不表示它已被证明。trureturing 的 README 与 VISION 文档也都把 O-5 列为仍有未完成证明义务的问题。
 
 trureturing 在 `GoldenWindowZeroObstruction` 模块中证明了两条与 O-5 有关的结果，都不决定它。一条说：若某个函数在半平面 $\operatorname{Re} s > r$（$0 < r < 1/\varphi^2$）上解析、在 $\operatorname{Re} s > 1/\varphi^2$ 上等于 $E$，并在这个半平面内、条件 3 的带中有一个实部不等于 $1/(2\varphi^2)$ 的零点，那么满足条件 1、2 且在 $\operatorname{Re} s > r$ 上额外满足一种正规形式条件（Mathlib 的 `MeromorphicNFOn`）的候选，都不满足条件 3。另一条说：只改动一点的函数值，就能让亚纯的候选在该点不解析，从而避开条件 3 在这一点的检验。Blueprint 据此说明，前者并不否定原始的 O-5 陈述，后者则把原陈述的一个局限写成了定理。
+
+对单个素数的局部因子，可以给出一个无条件的精确零点结论。
+
+::: {.theorem #thm-o5-prime-two-local-zero title="素数 $2$ 的原始局部因子零点" lean="D5/S3/Analytic/GermWindow/GermZeroCertificate.germLocalFactor_two_has_zero_near_candidate"}
+令复数圆心
+
+$$
+c=\frac{23815329946211908}{10^{17}}
++\frac{5256712292901926}{10^{15}}\,i.
+$$
+
+存在 $z\in\mathbb C$，使得
+
+$$
+\|z-c\|<10^{-8},\qquad
+\operatorname{germLocalFactor}(z,2)=0.
+$$
+:::
+
+::: proof
+令 $G(s)=\sum_{v=0}^{60}2^{-s\beta(v)}$，即源码中的 `g 60 s`。对这 $61$ 项及其导数的实部、虚部逐项建立有理上下界，求和后得到 $\|G(c)\|<4/10^{10}$ 与 $\operatorname{Re}G'(c)>187/100$。在以 $c$ 为中心、半边长为 $1/(2\cdot10^8)$ 的闭矩形上，曲率界 $\|G''(s)\|\le400$ 控制一次 Taylor 余项，而一致尾界 $\|\operatorname{germLocalFactor}(s,2)-G(s)\|<58/10^{11}$ 控制截断误差。仿射比较函数 $G(c)+G'(c)(s-c)$ 在矩形内有一个单零点，其边界模长大于两种误差之和。`GermZeroCertificateReduction` 中已有的矩形 Rouché 归约因此给出原始局部因子在该矩形内的零点；矩形包含于所述开球。完整证明由 Lean 内核检查。
+:::
+
+定理盒只陈述这个精确开球内的存在性。球的位置还可由初等有理界直接确定：圆心与半径满足
+
+$$
+\begin{aligned}
+\frac15&<\operatorname{Re}c-10^{-8},\\
+\operatorname{Re}c+10^{-8}&<\frac14.
+\end{aligned}
+$$
+
+由 $|\operatorname{Re}z-\operatorname{Re}c|\le\|z-c\|<10^{-8}$，球中每一点的实部都在 $(1/5,1/4)$ 内。再用 $8/5<\varphi<5/3$、$\varphi^2=\varphi+1$ 与 $\varphi^3=2\varphi+1$，得到 $1/(2\varphi^3)<1/8$、$1/(2\varphi^2)<1/5$ 和 $1/\varphi^2>1/3$。因此整个球都在条件 3 的原始窗口内，且在结构线 $\operatorname{Re}s=1/(2\varphi^2)$ 的右侧；这是定理盒之外的位置推论。
+
+这里确实发生了局部因子消零，但定理没有断言原始无穷乘积 `tprod` 所定义的 $E(z)$ 为零，也没有断言某个延拓胚在该点为零。这个球位于条件 2 的原始相等域之外；若要把局部零点传递给延拓后的整体乘积，还须建立相应的因子分解与解析或亚纯延拓等式，并核对余下乘积在该点的行为及可能的零极点相消。上述正规形式与单点改值的限制仍然适用：本定理不否定只要求 `MeromorphicOn` 的原始 O-5，也不证明或反驳 Riemann 猜想。
 
 ::: {.remark #rem-o5-continuation-route title="O-5 的延拓路线与剩余接口"}
 **文献结果，未在本书形式化。** Bhowmik–Essouabri–Lichtin（BEL）的多变量 Euler 乘积方法提供了一条延拓路线[^bel-continuation]。对有限个解析函数 $\ell_j$ 和整数 $a_j$，其引理 1 的证明允许局部因子形如 $1+\sum_j a_jp^{-\ell_j(s)}+R_p(s)$，其中 $R_p$ 在目标域上解析，且对素数 $p$ 和域内的 $s$ 一致为 $O(p^{-2})$。在 $W(\ell;\delta)=\{s:\operatorname{Re}\ell_j(s)>\delta\text{ 对所有 }j\}$（$\delta>0$）上，反复消去低阶项可提取有限个整数次幂的 $\zeta$ 因子，留下全纯、绝对收敛的余项乘积。整数幂保证提取的因子仍是亚纯函数；这是一种已知的文献方法，并不是本书已经完成的 O-5 应用。
@@ -501,11 +545,13 @@ $$
 
 [^delabarre-cancellation]: L. Delabarre, *Extension of Estermann's theorem to Euler products associated to a multivariate polynomial*, *Bulletin de la Société Mathématique de France* **141**(2) (2013), 225–265，[DOI: 10.24033/bsmf.2647](https://doi.org/10.24033/bsmf.2647)，[期刊原文](https://www.numdam.org/item/BSMF_2013__141_2_225_0.pdf)。第 1.1 节规定系数为整数；第 2.2 节引理 2、式 (5)–(6) 与评注 4 见印刷页 233，证明见 234–235 页。这里引用的是已发表的整数指数展开；本评注另行完整写出其有限消去形式的证明。
 
-O-5 的原始陈述及上述正规形式和单点改值限制，出自 trureturing 所钉提交中的下列文件：
+O-5 的原始陈述、上述局部零点结果及正规形式和单点改值限制，出自 trureturing 所钉提交中的下列文件：
 
 - `D5/X_Frontier/Hearts.lean`：O-5 的陈述 `o5_independence` 及其中的定义；
 - `README.md` 与 `docs/VISION.md`：把 O-5 列为开放问题；
 - `Blueprint/D5/X_Frontier/GoldenWindowZeroObstruction.md`：上面两条已证结果；
-- `Blueprint/D5/S1/Deficit/Beatty/GoldenSpectralCoordinate.md`：换算 $\varphi^2 \cdot 1/(2\varphi^2) = 1/2$。
+- `Blueprint/D5/S1/Deficit/Beatty/GoldenSpectralCoordinate.md`：换算 $\varphi^2 \cdot 1/(2\varphi^2) = 1/2$；
+- `D5/S3/Analytic/GoldenEulerBeta.lean` 与 `D5/S3/Analytic/EulerGerm/GoldenLocalFactor.lean`：`o5Beta` 与原始局部因子 `germLocalFactor` 的定义；
+- [`GermZeroCertificate`](lean:D5/S3/Analytic/GermWindow/GermZeroCertificate.germLocalFactor_two_has_zero_near_candidate)：[@thm-o5-prime-two-local-zero] 的公开声明；圆心与矩形归约在同目录的 `GermZeroCertificateReduction.lean`，曲率界在 `GermZeroCertificateJet.lean`。
 
 [^conv]: 在 `Hearts.lean` 中，$Z$ 的亚纯性是 Mathlib 的 `MeromorphicOn`，它不约束函数在极点处取什么值；条件 3 要求 $Z$ 在 $s$ 处解析（`AnalyticAt`），正是为了让零点的判断不受这些值影响。$E$ 中的无穷和与无穷积是 Lean 的无条件和与无条件积，不收敛时 Lean 赋予约定值（和为 $0$，积为 $1$）；猜想只在 $\operatorname{Re} s > 1/\varphi^2$ 上用到 $E$。

@@ -379,6 +379,15 @@ $$
 
 the product running over all primes $p$.
 
+Here $\beta(v)=S(v)-v\psi$ is exactly `o5Beta v` in the source. For a prime $p$, the original local factor is defined by
+
+$$
+\operatorname{germLocalFactor}(s,p)
+=\sum_{v=0}^{\infty}p^{-s\beta(v)}.
+$$
+
+This follows the argument order $s,p$ of `germLocalFactor` in the source and includes the constant term $1$ at $v=0$; no correction factors have been extracted or divided out.
+
 ::: {.conjecture #conj-independence title="The independence conjecture O-5"}
 There is a function $Z \colon \mathbb{C} \to \mathbb{C}$ such that:
 
@@ -400,6 +409,41 @@ This is only a formal manipulation; the book does not discuss where it holds.
 O-5 is an open problem, not a theorem, and this book cites no Lean declaration for it. trureturing records it as `o5_independence` in `Hearts.lean`, whose proof is `sorry`; the module comment says the declaration records the open claim without asserting that it has been proved. The trureturing README and VISION documents both list O-5 as still having open obligations.
 
 trureturing proves two results about O-5 in the module `GoldenWindowZeroObstruction`, and neither settles it. One says: if some function is analytic on a half-plane $\operatorname{Re} s > r$ (with $0 < r < 1/\varphi^2$), equals $E$ for $\operatorname{Re} s > 1/\varphi^2$, and has a zero inside that half-plane and inside the band of condition 3 whose real part differs from $1/(2\varphi^2)$, then no candidate that satisfies conditions 1 and 2 and, on $\operatorname{Re} s > r$, also a normal-form condition (Mathlib's `MeromorphicNFOn`) satisfies condition 3. The other says: changing the value of a meromorphic candidate at a single point makes it non-analytic there, which evades condition 3 at that point. The Blueprint concludes that the first does not refute the original O-5 statement, and that the second turns a limitation of that statement into a theorem.
+
+For one local factor, the following theorem locates a zero without additional hypotheses.
+
+::: {.theorem #thm-o5-prime-two-local-zero title="A zero of the original local factor at prime $2$" lean="D5/S3/Analytic/GermWindow/GermZeroCertificate.germLocalFactor_two_has_zero_near_candidate"}
+Let the complex center be
+
+$$
+c=\frac{23815329946211908}{10^{17}}
++\frac{5256712292901926}{10^{15}}\,i.
+$$
+
+There exists $z\in\mathbb C$ such that
+
+$$
+\|z-c\|<10^{-8},\qquad
+\operatorname{germLocalFactor}(z,2)=0.
+$$
+:::
+
+::: proof
+Put $G(s)=\sum_{v=0}^{60}2^{-s\beta(v)}$, written `g 60 s` in the source. Rational enclosures for the real and imaginary parts of all $61$ terms and their derivatives give $\|G(c)\|<4/10^{10}$ and $\operatorname{Re}G'(c)>187/100$ after summation. On the closed square centered at $c$ with half-side $1/(2\cdot10^8)$, the curvature bound $\|G''(s)\|\le400$ controls the first-order Taylor remainder, while the uniform tail bound $\|\operatorname{germLocalFactor}(s,2)-G(s)\|<58/10^{11}$ controls the truncation error. The affine comparison function $G(c)+G'(c)(s-c)$ has a simple zero in the square, and its modulus on the boundary exceeds the sum of these errors. The existing rectangle Rouché reduction in `GermZeroCertificateReduction` therefore gives a zero of the original local factor in that square, which lies inside the stated open ball. The full proof is checked by the Lean kernel.
+:::
+
+The theorem states only existence in this exact open ball. Its position also follows directly from elementary rational bounds: the center and radius satisfy
+
+$$
+\begin{aligned}
+\frac15&<\operatorname{Re}c-10^{-8},\\
+\operatorname{Re}c+10^{-8}&<\frac14.
+\end{aligned}
+$$
+
+Since $|\operatorname{Re}z-\operatorname{Re}c|\le\|z-c\|<10^{-8}$, every point in the ball has real part in $(1/5,1/4)$. Using $8/5<\varphi<5/3$, $\varphi^2=\varphi+1$ and $\varphi^3=2\varphi+1$ gives $1/(2\varphi^3)<1/8$, $1/(2\varphi^2)<1/5$ and $1/\varphi^2>1/3$. The entire ball therefore lies in the original window of condition 3, to the right of the structural line $\operatorname{Re}s=1/(2\varphi^2)$; this placement is a consequence stated outside the theorem box.
+
+There is indeed cancellation within the local factor, but the theorem asserts neither $E(z)=0$ for the original infinite product defined by `tprod` nor a zero of a continued germ. The ball lies outside the original agreement domain in condition 2. Transferring a local zero to a continuation of the full product still requires a suitable factorization and analytic or meromorphic continuation identities, together with control of the remaining product at that point and any cancellation between zeros and poles. The normal-form and single-point modification limitations above still apply: this theorem does not refute the original O-5 statement with its bare `MeromorphicOn` requirement, and it neither proves nor refutes the Riemann hypothesis.
 
 ::: {.remark #rem-o5-continuation-route title="A continuation route for O-5 and its remaining interfaces"}
 **Literature result, not formalized in this book.** The multivariable Euler product method of Bhowmik–Essouabri–Lichtin (BEL) offers a route to continuation[^bel-continuation]. For finitely many analytic functions $\ell_j$ and integers $a_j$, the proof of their Lemma 1 allows local factors of the form $1+\sum_j a_jp^{-\ell_j(s)}+R_p(s)$, where $R_p$ is analytic on the target domain and uniformly $O(p^{-2})$ in both the prime $p$ and $s$ in that domain. On $W(\ell;\delta)=\{s:\operatorname{Re}\ell_j(s)>\delta\text{ for all }j\}$ ($\delta>0$), repeated cancellation of low-order terms extracts finitely many integer powers of $\zeta$ functions, leaving a holomorphic, absolutely convergent remainder product. Integer powers keep the extracted factors meromorphic; this is an established literature method whose application to O-5 has not been completed in this book.
@@ -501,11 +545,13 @@ holds at every $z$, even when some $1-z^\nu=0$; there is no division. After subs
 
 [^delabarre-cancellation]: L. Delabarre, *Extension of Estermann's theorem to Euler products associated to a multivariate polynomial*, *Bulletin de la Société Mathématique de France* **141**(2) (2013), 225–265, [DOI: 10.24033/bsmf.2647](https://doi.org/10.24033/bsmf.2647), [journal article](https://www.numdam.org/item/BSMF_2013__141_2_225_0.pdf). Section 1.1 specifies integer coefficients; §2.2, Lemma 2, equations (5)–(6) and Remark 4 are on printed p. 233, with the proof on pp. 234–235. The cited result is the published integer-exponent expansion; this remark separately gives a complete proof of its finite cancellation form.
 
-The original statement of O-5 and the normal-form and single-point modification limitations above come from these files at the pinned trureturing commit:
+The original statement of O-5, the local zero result above, and the normal-form and single-point modification limitations come from these files at the pinned trureturing commit:
 
 - `D5/X_Frontier/Hearts.lean`: the statement `o5_independence` and the definitions it uses;
 - `README.md` and `docs/VISION.md`: O-5 listed as open;
 - `Blueprint/D5/X_Frontier/GoldenWindowZeroObstruction.md`: the two proved results above;
-- `Blueprint/D5/S1/Deficit/Beatty/GoldenSpectralCoordinate.md`: the change of scale $\varphi^2 \cdot 1/(2\varphi^2) = 1/2$.
+- `Blueprint/D5/S1/Deficit/Beatty/GoldenSpectralCoordinate.md`: the change of scale $\varphi^2 \cdot 1/(2\varphi^2) = 1/2$;
+- `D5/S3/Analytic/GoldenEulerBeta.lean` and `D5/S3/Analytic/EulerGerm/GoldenLocalFactor.lean`: the definitions of `o5Beta` and the original local factor `germLocalFactor`;
+- [`GermZeroCertificate`](lean:D5/S3/Analytic/GermWindow/GermZeroCertificate.germLocalFactor_two_has_zero_near_candidate): the public declaration for [@thm-o5-prime-two-local-zero]; the center and rectangle reduction are in `GermZeroCertificateReduction.lean` in the same directory, and the curvature bound is in `GermZeroCertificateJet.lean`.
 
 [^conv]: In `Hearts.lean`, meromorphy of $Z$ is Mathlib's `MeromorphicOn`, which places no constraint on the values a function takes at its poles; condition 3 asks for $Z$ to be analytic at $s$ (`AnalyticAt`) precisely so that the zero test does not depend on those values. The infinite sum and product in $E$ are Lean's unconditional sum and product, which take conventional values when they do not converge (sum $0$, product $1$); the conjecture uses $E$ only where $\operatorname{Re} s > 1/\varphi^2$.
