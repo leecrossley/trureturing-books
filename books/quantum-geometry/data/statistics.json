@@ -3,25 +3,25 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 216,
+    "theorem": 217,
     "lemma": 34,
     "proposition": 45,
     "corollary": 31,
     "definition": 49,
     "conjecture": 6,
     "problem": 3,
-    "example": 130,
+    "example": 131,
     "remark": 214,
-    "proof": 321,
-    "lean_verified": 323,
+    "proof": 322,
+    "lean_verified": 324,
     "written_proof": 3,
-    "literature": 199
+    "literature": 198
   },
-  "total": 688,
+  "total": 689,
   "kinds": {
     "def": 204,
     "inductive": 11,
-    "theorem": 473
+    "theorem": 474
   },
   "groups": {
     "theorems": [
@@ -131,6 +131,7 @@
       "D5/S3/DivergenceSupport/LandauerSaturation.landauer_strict_iff",
       "D5/S3/Factorization/Embeddings/RationalPadicProductFormula.rational_padic_product_formula",
       "D5/S3/Factorization/PrimeLogIndependence.prime_log_indep",
+      "D5/S3/FiniteGroups/Cyclic/HalfOrderSynchronization.failure_count_le",
       "D5/S3/FluidDynamics/Fourier/AdvectionClosureInstance.no_exact_closure",
       "D5/S3/FluidDynamics/Vortices/AlternatingPolygonCartesianChain.cartesian_chain",
       "D5/S3/FluidDynamics/Vortices/AlternatingPolygonCartesianChain.unbounded_linear_drift",
@@ -7892,6 +7893,18 @@
           "file": "ch22-s03-finite-prime-sieves.md",
           "line": 17,
           "id": "thm-prime-log-independence",
+          "via": "environment"
+        }
+      ]
+    },
+    "D5/S3/FiniteGroups/Cyclic/HalfOrderSynchronization.failure_count_le": {
+      "kind": "theorem",
+      "name": "HalfOrderSynchronization.failure_count_le",
+      "citations": [
+        {
+          "file": "ch15-grover-qft-and-period-finding.md",
+          "line": 783,
+          "id": "thm-half-order-family-failure-count",
           "via": "environment"
         }
       ]
@@ -24028,6 +24041,7 @@
       "environment": [
         "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergents.candidates",
         "D5/S1/Depth/ContinuedFractions/FiniteRationalConvergentsLength.convergents_length_log",
+        "D5/S3/FiniteGroups/Cyclic/HalfOrderSynchronization.failure_count_le",
         "D5/S3/Fourier/FinitePoisson.finite_poisson_summation",
         "D5/S3/Fourier/FinitePoisson.sum_annihilator_character",
         "D5/S3/Quantum/Algebra/WeylDisplacementConjugation.displacement_conjugation",
