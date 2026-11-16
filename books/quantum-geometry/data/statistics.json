@@ -3,7 +3,7 @@
   "book": "quantum-geometry",
   "lang": "zh",
   "environments": {
-    "theorem": 216,
+    "theorem": 217,
     "lemma": 34,
     "proposition": 45,
     "corollary": 31,
@@ -12,16 +12,16 @@
     "problem": 3,
     "example": 130,
     "remark": 213,
-    "proof": 321,
-    "lean_verified": 323,
+    "proof": 322,
+    "lean_verified": 324,
     "written_proof": 3,
     "literature": 199
   },
-  "total": 688,
+  "total": 689,
   "kinds": {
     "def": 204,
     "inductive": 11,
-    "theorem": 473
+    "theorem": 474
   },
   "groups": {
     "theorems": [
@@ -352,6 +352,7 @@
       "D5/S3/QuantumStates/PhaseLockedOverlap.phase_locked_overlap_is_rotated_real",
       "D5/S3/Topology/QuandleMarkovColoring.quandle_coloring_markov_invariant",
       "D5/S3/Topology/SphereOrthogonalityCover.sphere_two_open_orthogonality_free_cover_lower_six",
+      "D5/S3/TotalVariation/ParryBilateralLaw.bilateral_parry_law",
       "D5/S3/TotalVariation/ParryBilateralLaw.bilateral_reset_coding",
       "D5/S3/TotalVariation/ParryResetLaw.parry_stationary_law",
       "D5/S3/Weil/Mertens/Cryptids/VonMangoldtCount/Foundation.mem_criticalStrip_of_isNontrivialZetaZero",
@@ -768,7 +769,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 563,
+          "line": 687,
           "id": "",
           "via": "inline"
         },
@@ -2136,7 +2137,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 564,
+          "line": 688,
           "id": "",
           "via": "inline"
         },
@@ -2172,7 +2173,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 564,
+          "line": 688,
           "id": "",
           "via": "inline"
         },
@@ -2196,7 +2197,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 563,
+          "line": 687,
           "id": "",
           "via": "inline"
         },
@@ -2232,7 +2233,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 563,
+          "line": 687,
           "id": "",
           "via": "inline"
         },
@@ -2274,7 +2275,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 564,
+          "line": 688,
           "id": "",
           "via": "inline"
         },
@@ -2346,7 +2347,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 564,
+          "line": 688,
           "id": "",
           "via": "inline"
         },
@@ -3522,7 +3523,7 @@
       "citations": [
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 354,
+          "line": 478,
           "id": "thm-ch39-p2e-aligned-tribonacci-windows",
           "via": "environment"
         }
@@ -3534,7 +3535,7 @@
       "citations": [
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 160,
+          "line": 284,
           "id": "thm-ch39-p2e-tribonacci-prefix-log-refutation",
           "via": "environment"
         }
@@ -3720,7 +3721,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 568,
+          "line": 692,
           "id": "",
           "via": "inline"
         },
@@ -3948,7 +3949,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 565,
+          "line": 689,
           "id": "",
           "via": "inline"
         },
@@ -4002,7 +4003,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 565,
+          "line": 689,
           "id": "",
           "via": "inline"
         },
@@ -4056,7 +4057,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 565,
+          "line": 689,
           "id": "",
           "via": "inline"
         },
@@ -5604,13 +5605,13 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 92,
+          "line": 216,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 570,
+          "line": 694,
           "id": "",
           "via": "inline"
         },
@@ -6768,7 +6769,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 565,
+          "line": 689,
           "id": "",
           "via": "inline"
         },
@@ -7272,7 +7273,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 568,
+          "line": 692,
           "id": "",
           "via": "inline"
         },
@@ -9480,7 +9481,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 566,
+          "line": 690,
           "id": "",
           "via": "inline"
         },
@@ -9516,7 +9517,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 566,
+          "line": 690,
           "id": "",
           "via": "inline"
         },
@@ -9552,7 +9553,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 566,
+          "line": 690,
           "id": "",
           "via": "inline"
         },
@@ -9576,7 +9577,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 566,
+          "line": 690,
           "id": "",
           "via": "inline"
         },
@@ -15810,7 +15811,7 @@
       "citations": [
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 314,
+          "line": 438,
           "id": "thm-ch39-p2e-odd-repeat-inverse-mass",
           "via": "environment"
         }
@@ -16206,7 +16207,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 569,
+          "line": 693,
           "id": "",
           "via": "inline"
         },
@@ -16242,7 +16243,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 569,
+          "line": 693,
           "id": "",
           "via": "inline"
         },
@@ -22734,6 +22735,18 @@
         }
       ]
     },
+    "D5/S3/TotalVariation/ParryBilateralLaw.bilateral_parry_law": {
+      "kind": "theorem",
+      "name": "D5.S3.TotalVariation.ParryBilateralLaw.bilateral_parry_law",
+      "citations": [
+        {
+          "file": "ch39-s05-s08-parry-law-and-entropy.md",
+          "line": 120,
+          "id": "thm-ch39-p2e-native-bilateral-parry-law",
+          "via": "environment"
+        }
+      ]
+    },
     "D5/S3/TotalVariation/ParryBilateralLaw.bilateral_reset_coding": {
       "kind": "theorem",
       "name": "D5.S3.TotalVariation.ParryBilateralLaw.bilateral_reset_coding",
@@ -22758,13 +22771,13 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 92,
+          "line": 216,
           "id": "",
           "via": "inline"
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 570,
+          "line": 694,
           "id": "",
           "via": "inline"
         },
@@ -22788,7 +22801,7 @@
         },
         {
           "file": "ch39-s05-s08-parry-law-and-entropy.md",
-          "line": 570,
+          "line": 694,
           "id": "",
           "via": "inline"
         },
@@ -26549,6 +26562,7 @@
         "D5/S1/Words/TribonacciAlignedWindows.aligned_windows",
         "D5/S1/Words/TribonacciPrefixRefutation.result",
         "D5/S3/Quantum/Dynamics/OddSquareGreenMass.odd_square_inverse_paired_mass",
+        "D5/S3/TotalVariation/ParryBilateralLaw.bilateral_parry_law",
         "D5/S3/TotalVariation/ParryBilateralLaw.bilateral_reset_coding",
         "D5/S3/TotalVariation/ParryResetLaw.parry_stationary_law"
       ],
