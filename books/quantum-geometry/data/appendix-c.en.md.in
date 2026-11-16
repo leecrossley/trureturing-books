@@ -11,7 +11,7 @@ Section 7.3’s [@prob-monitored-spectral-mean] proves four conclusions for fini
 Section 16.3's [@thm-central-defect-endpoint-average] and its [written proof](ch16-s03-central-defect-spectrum.md#pf-central-defect-endpoint-average) are neither frozen declarations nor open problems. Their DOI, source locator, and [formalization request #10](https://github.com/the-omega-institute/trureturing-requests/issues/10) appear in the text and the automatically generated written-proof ledger. They add nothing to the locked-declaration totals, green charts, or C.4 counts above.
 
 ::: {.viz src="lean-declaration-map" preset="all" height="500"}
-**{{total}} cells, one for each locked declaration.** The timeline runs from the Prelude to Appendix E, with Appendix C itself excluded as a landing column. Each declaration lands in the first unit that cites it: {{theorems}} cells are theorems and {{definitions}} are definitions or inductive types; {{env}} filled cells are cited by `lean=` on environment headers, while {{R}} hollow cells appear only inline. Each declaration occupies one cell regardless of reuse. The C.1 chart below instead counts only the theorems cited by each chapter’s environment headers, counting them again in different chapters.
+**{{total}} cells, one for each locked declaration.** The timeline runs from the Prelude to Appendix I, with Appendix C itself excluded as a landing column. Each declaration lands in the first unit that cites it: {{theorems}} cells are theorems and {{definitions}} are definitions or inductive types; {{env}} filled cells are cited by `lean=` on environment headers, while {{R}} hollow cells appear only inline. Each declaration occupies one cell regardless of reuse. The C.1 chart below instead counts only the theorems cited by each chapter’s environment headers, counting them again in different chapters.
 :::
 
 ---
@@ -22,7 +22,7 @@ The table lists {{T}} distinct frozen theorems cited by environment headers. Inl
 
 
 ::: {.figure src="appc-theorems-by-chapter"}
-**Frozen theorems cited by each chapter’s `lean=` environment headers.** Bars follow the reading order of the main chapters and Coda, with part bands behind them. Heights sum to ${{chapter_total}}$, computed by the publication parser and lock file; all ${{T}}$ indexed theorems appear in at least one bar. Solid sections count ${{chapter_new}}$ theorems first appearing in that chapter; hollow sections count ${{chapter_reused}}$ previously encountered citations. Reuse across main chapters counts again; child pages are grouped with their parent, and definitions and inline-only citations are excluded.
+**Frozen theorems cited by each chapter’s `lean=` environment headers.** Bars follow the reading order of the main chapters and Coda, with part bands behind them. Heights sum to ${{chapter_total}}$, computed by the publication parser and lock file; theorems cited only in standalone appendix environment headers appear in the C.1 index table and module-by-part grid below rather than as main-chapter bars. Solid sections count ${{chapter_new}}$ theorems first appearing in that chapter; hollow sections count ${{chapter_reused}}$ previously encountered citations. Reuse across main chapters counts again; child pages are grouped with their parent, and definitions and inline-only citations are excluded.
 :::
 
 Rows are sorted by module path. The grid below shows their distribution across module families and parts of first appearance; counts follow the chapter citations automatically.
