@@ -40,7 +40,7 @@
 <rect x="170.92" y="239.78" width="7.54" height="6.22" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
 <rect x="182.02" y="227.32" width="7.54" height="18.68" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
 <rect x="193.11" y="216.95" width="7.54" height="29.05" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
-<rect x="204.21" y="216.95" width="7.54" height="29.05" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
+<rect x="204.21" y="214.88" width="7.54" height="31.12" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
 <rect x="215.3" y="214.88" width="7.54" height="2.08" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.08"/>
 <rect x="215.3" y="216.95" width="7.54" height="29.05" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
 <rect x="226.4" y="237.7" width="7.54" height="8.3" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
@@ -81,9 +81,9 @@
 <rect x="481.57" y="219.03" width="7.54" height="14.53" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.08"/>
 <rect x="481.57" y="233.55" width="7.54" height="12.45" class="ts-ok tf-ok" stroke-width="1.1" fill-opacity="0.6"/>
 <text class="tf-ok" x="85.94" y="203.65" font-size="14" text-anchor="middle" font-weight="600">18</text>
-<line x1="193.78" y1="214.45" x2="211.09" y2="214.45" class="ts-ok" stroke-width="1" fill="none"/>
-<text class="tf-ok" x="202.43" y="210.95" font-size="14" text-anchor="middle" font-weight="600">14</text>
-<text class="tf-ok" x="219.07" y="209.88" font-size="14" text-anchor="middle" font-weight="600">15</text>
+<text class="tf-ok" x="200.66" y="211.95" font-size="14" text-anchor="end" font-weight="600">14</text>
+<line x1="204.87" y1="212.38" x2="222.18" y2="212.38" class="ts-ok" stroke-width="1" fill="none"/>
+<text class="tf-ok" x="213.53" y="208.88" font-size="14" text-anchor="middle" font-weight="600">15</text>
 <text class="tf-ok" x="285.64" y="168.38" font-size="14" text-anchor="middle" font-weight="600">35</text>
 <text class="tf-ok" x="307.83" y="207.8" font-size="14" text-anchor="middle" font-weight="600">16</text>
 <text class="tf-ok" x="363.3" y="171.28" font-size="14" text-anchor="middle" font-weight="600">29</text>
