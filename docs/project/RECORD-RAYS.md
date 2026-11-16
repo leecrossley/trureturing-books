@@ -608,6 +608,8 @@ $$
 
 一般窗口的精确最小维数、一般相容迹矩实现与完整近似资源—误差权衡继续开放；后节保存小泄漏下的加权历史接口。第五步失效只限制这里的矩阵。源理论卷的十维信道没有从本节获得新的上构造。没有实验、物理普适律、无限时间窗、完整联合历史或中间干预规律随本节得到。既有方法、普通推导、部分形式核验及全球新颖性是不同层次；本节给出完整普通推导，并严格保留上述形式证据边界，不作全球新颖性声明。
 
+Farenick，*Matrix convexity and unitary power dilations of Toeplitz-contractive operator tuples*，DOI [10.1007/s44146-024-00170-6](https://doi.org/10.1007/s44146-024-00170-6)，Corollary 3.2，供应任意收缩在指定有限幂窗上的酉压缩膨胀；原空间有限维时可取有限维膨胀空间。原文的幂数参数不指定膨胀空间维数。这里所需的三维环境、两组分支谱及同一个半正定单位迹初态，并未由该结论同时给出；不能据此断言三维环境足够。原文出版社页面可直接阅读该推论及其证明；它是已知供应的边界，不是第五步共同实现问题的解答，也不构成本书新增的 Lean 验证。
+
 ## 实际加权历史的小泄漏接口与完整资源边界
 
 本节接续三能级四步构造之后的近似问题，详见对应[第四章中文注记](../../books/quantum-geometry/zh/ch04-s02-quantum-noise.md#rem-weighted-history-stability)与[英文注记](../../books/quantum-geometry/en/ch04-s02-quantum-noise.md#rem-weighted-history-stability)。保存的是已完成的普通 C4 论证；四步三能级构造与其部分形式检查保持原有范围，不作为 C4 的证据。
@@ -1036,3 +1038,28 @@ $$
 本文件“最大混合环境的有限前缀维数障碍”说明满秩初态下一步基态投影保持如何迫使实际联合酉受控；上文再次写出了零泄漏分块计算。本文件“任意密度的二态手工应用与剩余边界”及[相应正文](../../books/quantum-geometry/zh/ch04-s02-quantum-noise.md#rem-arbitrary-density-prefix)保留复权重 Prony 必要界；它们不把任意密度变成这里的正概率测度。“混合量子比特环境的三步构造”提供二级边界的已有见证；“三能级环境的四步共同构造”提供另一窗口的见证，均不被本节扩张为一般饱和可达性。
 
 完整形式事件 [#31099](https://github.com/the-omega-institute/trureturing/issues/31099) 的唯一终态为 `unresolved`。这个普通数学反例不改变该形式结算，也不将其计为形式否定。完整精确 Lean 证明、完整公理闭包核验、证明形状及准入依据均未由本节提供。这里没有新增定理、冻结声明或验证身份。任意初始密度下的一般最小维数、一般相容迹矩的实现与定量近似资源问题继续保留其原有边界。
+
+### 全部正内部参数的谱网格排除
+
+[研究问题 #31174](https://github.com/the-omega-institute/trureturing/issues/31174)固定同一对矩阵与最大混合初态的量词。在同一饱和矩引理下可以把单点反例推广为整个严格内部区间。假设 $0<r<1$，同一对 $A,B\in U(3)$ 满足 $f_n=r^n$（$0\le n\le8$）。由本节前面的满秩与相位论证，九个互异比值节点 $z_{ij}=a_i b_j^{-1}$ 的首一消去多项式为
+
+$$
+P(z)=z^9-rz^8+c(1-rz),\qquad |c|=1.
+$$
+
+Newton 恒等式给出无权网格和 $S_k=\sum_{i,j}z_{ij}^k=r^k$（$k=1,2,3$）。写 $d_j=b_j^{-1}$，并令
+
+$$
+x=\sum_i a_i,\quad y=\sum_j d_j,\quad
+\alpha=\prod_i a_i,\quad\beta=\prod_j d_j,
+$$
+
+则 $xy=r\ne0$。对三个单位圆数，第二、第三幂和分别为 $x^2-2\alpha\overline{x}$ 与 $x^3-3\alpha|x|^2+3\alpha$，对 $y,\beta$ 同理。定义 $u=x^2/(\alpha\overline{x})$、$v=y^2/(\beta\overline{y})$、$s=|x|^2=|u|^2$、$t=|y|^2=|v|^2$，因而 $|uv|=r$。将 $S_2=r^2$、$S_3=r^3$ 代入并约去非零因子，得到
+
+$$
+u+v=2,\qquad us+vt+st+3-3(s+t)=0.
+$$
+
+若 $\operatorname{Im}u\ne0$，虚部给出 $s=t$；再由 $v=2-u$ 和 $|u|=|v|$ 得 $\operatorname{Re}u=1$，从而 $r=|uv|=|u|^2>1$。若 $u,v$ 为实数，则 $s=u^2,t=v^2$，令 $q=uv$ 后第二式化为 $q^2=1$，从而 $r=|uv|=1$。两种情形都与 $0<r<1$ 矛盾。因此，在该饱和矩引理的普通证明前提下，所有严格内部 $r$ 均被排除；这不是 Lean 验证。
+
+这个推导保持同一三维环境、同一对不必交换的分支酉及最大混合初态。它不推出 $r=0$、端点或负参数的结论，不涉及任意初态的 $n\le5$ 问题，也不改变 [#31099](https://github.com/the-omega-institute/trureturing/issues/31099) 的唯一形式终态 `unresolved`。完整 Lean 证明、公理闭包、证明形状、准入依据及书稿冻结身份仍未取得。

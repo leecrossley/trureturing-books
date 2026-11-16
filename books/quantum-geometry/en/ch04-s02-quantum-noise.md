@@ -731,6 +731,8 @@ $$
 
 Thus these matrices fail at the fifth step; they do not exclude another qutrit construction. Exact minimum dimensions for general windows, realization of general compatible trace moments, and the full approximate resource–error tradeoff remain unresolved; the next remark preserves the weighted history interface under small leakage. This construction does not extend to the balanced ten-dimensional source channel. It supplies neither a full retained-environment joint-history identity nor a process-tensor identity with inserted interventions, and it establishes no experimental support or model universality.
 
+**What finite unitary dilation still leaves to prove.** Farenick's [finite-power unitary dilation theorem, Corollary 3.2](https://doi.org/10.1007/s44146-024-00170-6), represents any prescribed finite window of powers of a contraction as compressions of the powers of one unitary on a containing space. If the original space is finite-dimensional, the dilating space can also be chosen finite-dimensional. This is a literature result, not formalized in this book. The theorem permits a choice of dilating space; it does not fix the three-dimensional environment required here or supply one pair of branch unitaries and one positive semidefinite initial state. Finite-power dilatability therefore does not yet answer the fifth-step question. The missing construction must preserve these common-realization constraints, beyond the existence of scalar moments.
+
 :::
 
 ::: {.remark #rem-weighted-history-stability title="Weighted histories under small leakage with fixed unitaries (written derivation)"}
@@ -1059,6 +1061,42 @@ $$
 $$
 
 Thus no pair $A,B\in U(3)$ satisfies $f_n=r^n$ for $0\le n\le8$. This excludes every unitary pair, including noncommuting pairs; it is not a failed parametrization or numerical optimization. The argument does not even use all the compatibility conditions imposed by the grid of spectral ratios and weights that are squared moduli of a unitary.
+
+**Spectral-grid exclusion for every positive interior parameter.** The following ordinary written derivation is also not formalized in this book. Let $0<r<1$ and suppose the same $A,B\in U(3)$ satisfy $f_n=r^n$ for $0\le n\le8$. The [research question](https://github.com/the-omega-institute/trureturing/issues/31174) fixes this common-pair quantifier. The saturated-moment argument above supplies nine distinct ratio nodes $z_{ij}=a_i b_j^{-1}$ and their monic annihilator
+
+$$
+P(z)=z^9-rz^8+c(1-rz),\qquad |c|=1.
+$$
+
+Newton's identities therefore give the **unweighted** grid sums $S_k=\sum_{i,j}z_{ij}^k=r^k$ for $k=1,2,3$. These are root identities for $P$; they do not replace the original weighted trace moments. Put $d_j=b_j^{-1}$ and
+
+$$
+x=\sum_i a_i,\quad y=\sum_j d_j,\quad
+\alpha=\prod_i a_i,\quad\beta=\prod_j d_j.
+$$
+
+Then $xy=S_1=r\ne0$. For three unit-modulus numbers, the second and third power sums are
+
+$$
+p_2=x^2-2\alpha\overline{x},\qquad
+p_3=x^3-3\alpha|x|^2+3\alpha,
+$$
+
+with the same formulas for $y,\beta$. Define
+
+$$
+u=\frac{x^2}{\alpha\overline{x}},\quad
+v=\frac{y^2}{\beta\overline{y}},\quad
+s=|x|^2=|u|^2,\quad t=|y|^2=|v|^2,\quad |uv|=r.
+$$
+
+The equations $S_2=r^2$ and $S_3=r^3$, together with $|\alpha|=|\beta|=1$ and $xy=r$, allow cancellation of nonzero factors and give
+
+$$
+u+v=2,\qquad us+vt+st+3-3(s+t)=0.
+$$
+
+If $\operatorname{Im}u\ne0$, the imaginary part of the second identity gives $s=t$. Since $v=2-u$ and $|u|=|v|$, this forces $\operatorname{Re}u=1$, and then $r=|uv|=|u|^2>1$, a contradiction. If $u,v$ are real, then $s=u^2$ and $t=v^2$; setting $q=uv$ and using $u+v=2$ reduces the second identity to $q^2=1$, so $r=|uv|=1$, again a contradiction. Thus, conditional on the preceding saturated-moment lemma, every strictly interior parameter $0<r<1$ is excluded. The argument keeps one common pair of possibly noncommuting branch unitaries on the same three-dimensional environment and the maximally mixed initial state. It says nothing about $r=0$, endpoints, negative parameters, arbitrary initial densities, or the general-density window $n\le5$; it is an ordinary proof proposal, not Lean verification or a full physical-history result.
 
 **Zero and negative parameters, and a two-level environment.** Replacing $A$ by $-A$ replaces $f_n$ by $(-1)^nf_n$, so the parameter $r=-999/1000$ is also impossible in the same dimension. Zero has a different boundary: a saturated window exists for every positive integer $d$. Set
 
