@@ -11,7 +11,7 @@
     "conjecture": 6,
     "problem": 3,
     "example": 130,
-    "remark": 214,
+    "remark": 215,
     "proof": 321,
     "lean_verified": 323,
     "written_proof": 3,
@@ -16722,7 +16722,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 888,
+          "line": 1056,
           "id": "def-trace-distance",
           "via": "environment"
         },
@@ -16740,7 +16740,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 898,
+          "line": 1066,
           "id": "prop-trace-distance-metric-contraction",
           "via": "environment"
         },
@@ -16770,7 +16770,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 898,
+          "line": 1066,
           "id": "prop-trace-distance-metric-contraction",
           "via": "environment"
         },
@@ -16788,7 +16788,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 898,
+          "line": 1066,
           "id": "prop-trace-distance-metric-contraction",
           "via": "environment"
         },
@@ -16806,7 +16806,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 898,
+          "line": 1066,
           "id": "prop-trace-distance-metric-contraction",
           "via": "environment"
         },
@@ -16824,7 +16824,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 898,
+          "line": 1066,
           "id": "prop-trace-distance-metric-contraction",
           "via": "environment"
         },
@@ -21204,7 +21204,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 757,
+          "line": 925,
           "id": "",
           "via": "inline"
         }
@@ -21216,7 +21216,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 744,
+          "line": 912,
           "id": "prop-amplitude-damping-contraction",
           "via": "environment"
         }
@@ -21228,7 +21228,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 742,
+          "line": 910,
           "id": "",
           "via": "inline"
         }
@@ -21240,7 +21240,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 736,
+          "line": 904,
           "id": "",
           "via": "inline"
         }
@@ -21300,7 +21300,7 @@
       "citations": [
         {
           "file": "ch04-s02-quantum-noise.md",
-          "line": 789,
+          "line": 957,
           "id": "thm-north-pole-ball-criterion",
           "via": "environment"
         },

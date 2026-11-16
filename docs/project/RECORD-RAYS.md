@@ -606,4 +606,207 @@ $$
 - [Radau Quadrature 的二级说明](https://mathworld.wolfram.com/RadauQuadrature.html)：用于说明指定端点的已知标量求积方法。此链接不承担物理实现证明；未独立阅读的 Gautschi、Golub 原始论文不作为本节的证明依据。
 - 本文件的“混合量子比特环境的三步构造”供应已有的 Pauli 迹机制及参考矩阵块扩展思路；本节将明确的三能级四步见证保存为同一研究主题的接续，不重新包装这些基础步骤为新定理。
 
-一般窗口的精确最小维数、一般相容迹矩实现与近似资源—误差关系继续开放。第五步失效只限制这里的矩阵。源理论卷的十维信道没有从本节获得新的上构造。没有实验、物理普适律、无限时间窗、完整联合历史或中间干预规律随本节得到。既有方法、普通推导、部分形式核验及全球新颖性是不同层次；本节给出完整普通推导，并严格保留上述形式证据边界，不作全球新颖性声明。
+一般窗口的精确最小维数、一般相容迹矩实现与完整近似资源—误差权衡继续开放；后节保存小泄漏下的加权历史接口。第五步失效只限制这里的矩阵。源理论卷的十维信道没有从本节获得新的上构造。没有实验、物理普适律、无限时间窗、完整联合历史或中间干预规律随本节得到。既有方法、普通推导、部分形式核验及全球新颖性是不同层次；本节给出完整普通推导，并严格保留上述形式证据边界，不作全球新颖性声明。
+
+## 实际加权历史的小泄漏接口与完整资源边界
+
+本节接续三能级四步构造之后的近似问题，详见对应[第四章中文注记](../../books/quantum-geometry/zh/ch04-s02-quantum-noise.md#rem-weighted-history-stability)与[英文注记](../../books/quantum-geometry/en/ch04-s02-quantum-noise.md#rem-weighted-history-stability)。保存的是已完成的普通 C4 论证；四步三能级构造与其部分形式检查保持原有范围，不作为 C4 的证据。
+
+### 来源、证据与既有供应
+
+直接输入是 [trureturing #31078 的结果与边界](https://github.com/the-omega-institute/trureturing/issues/31078#issuecomment-6904102516)，以及本次写作之前完成的普通论证与独立评阅结论。它们是可出错的普通数学证据。本节忠实展开其代数，不新增独立验证结论；未读取诊断正文。
+
+按所提供的来源核对，`D5/S3/Quantum/Matrix/AbedNikolaevaNovikovTwoContrastYoung.lean` 中私有的 `exists_polar_abs` 已经供应任意复方阵的原维数极补全，底层使用 `D5/S3/Quantum/Algebra/GramUnitaryExtension.lean` 的等 Gram 酉延拓。私有可见性不构成缺失数学。`D5/S3/Weil/ZetaLinear/RankTrace.lean` 中的 `RHLinalg.trace_mul_nonneg_of_posSemidef`，连同半正定合同变换与迹正性，供应不要求交换的正迹配对。这里复用这些来源，不重证、改名或建立包装声明；也不由组成供应推出完整事件已形式化。
+
+Higham，*Computing the Polar Decomposition—with Applications*，DOI [10.1137/0907079](https://doi.org/10.1137/0907079)，[全文](https://eprints.maths.manchester.ac.uk/694/1/high86p.pdf)，Theorem 1.1 与 Lemma 2.1，只承担静态方阵极补全及正平方根识别。所提供的评阅记录已核对这两个段落；本次作者未重新验证原始论文。加权实际历史估计、带权最优性与全幂稳定性均不归于该文。没有全球新颖性或常数最优性结论。
+
+### 完整普通推导
+
+**普通书面推导，未在本书形式化。** 把联合演化看成在两条系统分支之间转动：压回原分支的部分会缩短，漏出的部分仍留在实际联合历史中，之后可能返回。极分解把这次压缩拆成“正的缩短”与“酉的转动”；即使压缩有零方向，也能在原环境空间内补齐那次转动。下面用同一固定转动逐步跟随真实历史，误差按步数相加。这里保存的是[已有完整普通论证](https://github.com/the-omega-institute/trureturing/issues/31078#issuecomment-6904102516)，不是新的形式化结论。
+
+**对象、范数与完整量词。** 任取整数 $d,N\ge1$、作用于 $\mathbb C^2\otimes\mathbb C^d$ 的酉矩阵 $W\in M_{2d}(\mathbb C)$，以及任意半正定单位迹矩阵 $\sigma\in M_d(\mathbb C)$。星号表示共轭转置。对任意矩形复矩阵 $M$，希尔伯特—施密特范数与算子范数分别约定为
+
+$$
+\begin{aligned}
+\|M\|_{\mathrm{HS}}^2&=\Tr(M^*M)=\sum_{i,j}|M_{ij}|^2,\\
+\|M\|_{\mathrm{op}}&=\sup_{\|v\|_2\le1}\|Mv\|_2.
+\end{aligned}
+$$
+
+后者衡量对向量的最大放大倍数；下文说一个分块是收缩时，指算子范数至多为一，不是该分块的希尔伯特—施密特范数至多为一。令 $e_0,e_1$ 为系统标准基，定义
+
+$$
+\begin{aligned}
+S&=\sqrt{\sigma}\in M_d(\mathbb C),\qquad S^*=S,\quad S^2=\sigma,\\
+J_b&:\mathbb C^d\longrightarrow\mathbb C^2\otimes\mathbb C^d,
+\qquad J_bv=e_b\otimes v,\\
+P_b&=J_bJ_b^*,\qquad Q_b=I_{2d}-P_b
+\qquad(b\in\{0,1\}),\\
+L_N&=\max_{\substack{b\in\{0,1\}\\0\le k\le N}}
+\|Q_bW^kJ_bS\|_{\mathrm{HS}}^2,\qquad
+\epsilon=\sqrt{L_N}.
+\end{aligned}
+$$
+
+这里的 $k$ 为整数；$P_b,Q_b\in M_{2d}(\mathbb C)$ 是正交投影，$J_b^*J_b=I_d$，且 $\|S\|_{\mathrm{HS}}^2=\Tr\sigma=1$。$L_N$ 使用同一个 $W,\sigma$ 在两个分支上从第零步到第 $N$ 步的**实际加权历史**，不是单步泄漏、各时刻另选实现，或某个无权算子范数。对每组上述数据，存在原 $\mathbb C^d$ 上的酉矩阵 $A_0,A_1$，选定后对所有整数 $0\le n\le N$ 同时满足
+
+$$
+\max_{\substack{b\in\{0,1\}\\0\le n\le N}}
+\|W^nJ_bS-J_bA_b^nS\|_{\mathrm{HS}}
+\le4N\sqrt{L_N}.
+$$
+
+常数 $4$ 与 $d,N,W,\sigma$ 无关；这里不声称它最优。以下给出完整推导。
+
+**压缩与一次极补全。** 固定任一分支 $b\in\{0,1\}$，简写 $J=J_b,P=P_b,Q=Q_b$，并在原有空间上定义
+
+$$
+\begin{aligned}
+K&=J^*WJ\in M_d(\mathbb C),&
+R&=QWJ\in M_{2d\times d}(\mathbb C),\\
+B&=J^*WQ\in M_{d\times2d}(\mathbb C),&
+E&=QWQ\in M_{2d}(\mathbb C).
+\end{aligned}
+$$
+
+$J$ 为等距嵌入，$Q$ 为正交投影，$W$ 酉，所以 $K,R,B,E$ 的算子范数均不超过一。尤其 $B,E$ 左乘任意列数相容的矩阵时，希尔伯特—施密特范数不会增大：这是逐列应用向量收缩后求平方和。直接分块计算给出
+
+$$
+\begin{aligned}
+K^*K+R^*R
+&=J^*W^*(P+Q)WJ\\
+&=J^*W^*WJ=I_d.
+\end{aligned}
+$$
+
+有限维方阵的极分解可在奇异情形下补全为
+
+$$
+K=AH,\qquad A^*A=AA^*=I_d,\qquad
+H=(K^*K)^{1/2},\qquad 0\le H\le I_d.
+$$
+
+这里 $A,H\in M_d(\mathbb C)$；$H$ 的每个特征值 $h$ 非负，且 $h^2\le1$，所以 $h\in[0,1]$。$A$ 仅从固定的 $K$ 选取一次。静态极分解的文献依据是 Higham，*Computing the Polar Decomposition—with Applications*，DOI [10.1137/0907079](https://doi.org/10.1137/0907079)，[全文](https://eprints.maths.manchester.ac.uk/694/1/high86p.pdf)，Theorem 1.1 与 Lemma 2.1；它们供应方阵酉补全及正平方根的识别，不供应下面的加权历史界。
+
+**任意矩形权重上的极误差。** 在 $H$ 的酉特征基中，$2H(I_d-H)$ 的特征值为 $2h(1-h)\ge0$，故
+
+$$
+D:=(I_d-H^2)-(I_d-H)^2=2H(I_d-H)\ge0.
+$$
+
+对每个自然数 $r$ 和每个矩形矩阵 $X\in M_{d\times r}(\mathbb C)$，合同变换给出 $X^*DX\ge0$，其迹非负（等于各列 $x_j$ 的非负二次型 $\sum_j x_j^*Dx_j$）。因此，不要求 $X$ 与 $H$ 交换，便有
+
+$$
+\begin{aligned}
+\|(K-A)X\|_{\mathrm{HS}}^2
+&=\Tr\bigl(X^*(I_d-H)^2X\bigr)\\
+&\le\Tr\bigl(X^*(I_d-H^2)X\bigr)\\
+&=\Tr(X^*R^*RX)=\|RX\|_{\mathrm{HS}}^2.
+\end{aligned}
+$$
+
+第一式用了 $K-A=A(H-I_d)$ 与 $A^*A=I_d$，末式用了 $I_d-H^2=R^*R$。这里取迹的半正定矩阵均给出实数。特别地，对 $T_k=J^*W^kJ\in M_d(\mathbb C)$ 代入实际权重 $X=T_kS$，由 $S^2=\sigma$ 与迹循环性，
+
+$$
+\begin{aligned}
+\|(K-A)T_kS\|_{\mathrm{HS}}^2
+&=\Tr\bigl(\sigma T_k^*(I_d-H)^2T_k\bigr)\\
+&\le\Tr\bigl(\sigma T_k^*(I_d-H^2)T_k\bigr)\\
+&=\|RT_kS\|_{\mathrm{HS}}^2.
+\end{aligned}
+$$
+
+这是先作半正定合同变换再取迹的比较；只循环移动迹内因子，没有交换 $\sigma,T_k,H$，也没有除以 $\sigma$ 的特征值。
+
+**实际轨迹的递推。** 对所有整数 $0\le k\le N$ 定义
+
+$$
+\begin{aligned}
+x_k&=J^*W^kJS=T_kS\in M_d(\mathbb C),\\
+y_k&=QW^kJS\in M_{2d\times d}(\mathbb C),\\
+W^kJS&=Jx_k+y_k,\qquad Qy_k=y_k,\\
+x_0&=S,\qquad y_0=0,\qquad
+\|y_k\|_{\mathrm{HS}}\le\epsilon.
+\end{aligned}
+$$
+
+对该分解施加同一个 $W$，再分别投影，对所有整数 $0\le k<N$ 得到
+
+$$
+\begin{aligned}
+x_{k+1}&=Kx_k+By_k,\\
+y_{k+1}&=Rx_k+Ey_k,\\
+\|Rx_k\|_{\mathrm{HS}}
+&=\|y_{k+1}-Ey_k\|_{\mathrm{HS}}\\
+&\le\|y_{k+1}\|_{\mathrm{HS}}+\|y_k\|_{\mathrm{HS}}
+\le2\epsilon.
+\end{aligned}
+$$
+
+令 $r_k=x_{k+1}-Ax_k\in M_d(\mathbb C)$。把前面的矩形比较用于实际的 $X=x_k$，再利用 $B$ 的收缩性，便有
+
+$$
+\begin{aligned}
+r_k&=(K-A)x_k+By_k,\\
+\|r_k\|_{\mathrm{HS}}
+&\le\|(K-A)x_k\|_{\mathrm{HS}}+\|By_k\|_{\mathrm{HS}}\\
+&\le\|Rx_k\|_{\mathrm{HS}}+\|y_k\|_{\mathrm{HS}}
+\le3\epsilon.
+\end{aligned}
+$$
+
+**固定酉矩阵的加法望远镜。** 固定整数 $1\le n\le N$，令 $f(k)=A^{n-k}x_k$（$0\le k\le n$）。对 $k<n$，
+
+$$
+\begin{aligned}
+f(k+1)-f(k)&=A^{n-1-k}(x_{k+1}-Ax_k)
+=A^{n-1-k}r_k,\\
+x_n-A^nS&=f(n)-f(0)
+=\sum_{k=0}^{n-1}A^{n-1-k}r_k,\\
+\|x_n-A^nS\|_{\mathrm{HS}}
+&\le\sum_{k=0}^{n-1}\|r_k\|_{\mathrm{HS}}
+\le3n\epsilon.
+\end{aligned}
+$$
+
+这里只把矩阵的连续差在加法群中相加，并用酉左乘保持希尔伯特—施密特范数。最后由 $J$ 的等距性与三角不等式，
+
+$$
+\begin{aligned}
+\|W^nJS-JA^nS\|_{\mathrm{HS}}
+&=\|J(x_n-A^nS)+y_n\|_{\mathrm{HS}}\\
+&\le3n\epsilon+\epsilon=(3n+1)\epsilon\\
+&\le4N\epsilon\qquad(1\le n\le N).
+\end{aligned}
+$$
+
+最后一步用了 $3n+1\le3N+1\le4N$；$n=0$ 时误差直接为零。对两个分支独立选取各自的极补全 $A_0,A_1$，并共用 $\epsilon=\sqrt{L_N}$，即得到所述最大值界。
+
+**适用范围与尚存边界。** $L_N=0$ 时全部误差精确为零；论证没有除以 $\epsilon$。秩亏的 $\sigma$ 以及正特征值任意接近零的 $\sigma$ 都包含在内：只使用 $S=\sqrt\sigma$，不使用逆、满秩或谱隙。环境始终为原 $\mathbb C^d$，没有纯化、增维、重置、干预或随时间变化的 $A_b$，也不假设后续联合态因子化。压缩 $K$ 无需正规；不把 $T_k$ 认作 $K^k$，漏出后返回的部分由实际 $y_k$ 保留。
+
+已有来源中的静态极补全与半正定迹正性是可复用供应，不在这里重新计作新数学。完整结果的 Lean 形式化证明尚未经验证；上述普通推导不构成 Lean 验证。这个历史接口也没有给出相对于目标去相位信道的 diamond 范数或任意有限未触碰参考的一致定量比较，没有给出实际可实现共同幂频率历史的定量下界与上构造。一般窗口的完整资源—误差权衡仍开放；这里不选择或证明后继事件，不作全球新颖性或物理普适性声明。
+
+### 完整资源问题尚缺什么
+
+为明确上述“完整资源—误差权衡”的对象，固定任意实数 $-1<\lambda<1$ 与整数 $d,N\ge1$。令 $\mathcal D_\mu(X)$ 保持 $X\in M_2(\mathbb C)$ 的对角元，并把两个非对角元乘以实数 $\mu$。同一环境只初始制备一次，初始独立于输入，所有时刻使用同一个 $W\in U(2d)$ 与同一个半正定单位迹 $\sigma\in M_d(\mathbb C)$；没有重置或中间干预。结果说明保留的目标量是
+
+$$
+\begin{aligned}
+\Psi_n^{W,\sigma}(X)
+&=\Tr_E\bigl(W^n(X\otimes\sigma)W^{*n}\bigr),\\
+\Delta_{d,N}(\lambda)
+&=\inf_{\substack{W\in U(2d)\\\sigma\ge0,\ \Tr\sigma=1}}
+\max_{0\le n\le N}
+\|\Psi_n^{W,\sigma}-\mathcal D_{\lambda^n}\|_\diamond.
+\end{aligned}
+$$
+
+其中 $n$ 取整数，第零幂为恒等；对线性映射 $\Lambda:M_2(\mathbb C)\to M_2(\mathbb C)$，$\|\Lambda\|_\diamond=\sup_{s\ge1}\sup_{0\ne Z\in M_{2s}(\mathbb C)}\|(\Lambda\otimes\operatorname{id}_{M_s})(Z)\|_1/\|Z\|_1$，$s$ 为正整数，$\|Z\|_1=\Tr\sqrt{Z^*Z}$，参考不受演化触碰。这一范数约定使用全迹范数，不含半迹距离的因子。取下确界的量词是先选一组 $W,\sigma$ 再取整个窗口的最大值，不能拼接各时刻分别达到的最优实现。
+
+C4 保存了从实际泄漏到固定分支共同幂的局部接口。它没有建立原实际信道、分支共同幂信道与目标 $\mathcal D_{\lambda^n}$ 之间对所有输入和任意有限参考一致的定量误差传递，也没有为实际可实现的共同幂迹频率历史给出定量障碍与匹配上构造。一般标量频率拟合或求积规则不自动满足同一 $d$ 维环境内两套酉矩阵及同一初态的相容性；不能把它们的最优误差直接当作 $\Delta_{d,N}(\lambda)$。一般紧致性或多项式 Hölder 存在性是既有方法供应，不能仅因没有明确常数就当作新的数学内容。本节不给出该目标量的新界，不增加锐性问题。
+
+### 形式边界与接续状态
+
+完整 C4 事件没有保留精确 Lean 证明，没有已接受的完整公理闭包；`proof_shape` 仍为 `unknown`，准入依据未建立。待核对的完整形式对应包括谱多项式的半正定比较、算子收缩作用于希尔伯特—施密特范数的混合范数事实及其全量词组合。缺少这些精确应用证据既不证明有新数学内容，也不证明完整事件必为纯供应组合。
+
+已结束的 [#31078 结论记录](https://github.com/the-omega-institute/trureturing/issues/31078#issuecomment-6904103065)保持唯一终态 `unresolved`；原事件、预测及截止时间不变。其普通 C4 数学问题已有完整答案，不再为它安排新的实质求解。本节没有选择后继事件。未来若研究完整资源问题，须由负责选择的一方先核对来源与重复成果，说明剩余定量推论为何未被供应，再完成事前筛查；本节不作通过筛查的承诺。书面解释、完整形式证据、准入与持续研究目标分别记账，本次片段交付不表示持续研究目标完成。

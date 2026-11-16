@@ -729,7 +729,175 @@ f_5-\lambda^5&=1-\lambda^2>0.
 \end{aligned}
 $$
 
-Thus these matrices fail at the fifth step; they do not exclude another qutrit construction. Exact minimum dimensions for general windows, realization of general compatible trace moments, and approximate resource–error relations remain unresolved. This construction does not extend to the balanced ten-dimensional source channel. It supplies neither a full retained-environment joint-history identity nor a process-tensor identity with inserted interventions, and it establishes no experimental support or model universality.
+Thus these matrices fail at the fifth step; they do not exclude another qutrit construction. Exact minimum dimensions for general windows, realization of general compatible trace moments, and the full approximate resource–error tradeoff remain unresolved; the next remark preserves the weighted history interface under small leakage. This construction does not extend to the balanced ten-dimensional source channel. It supplies neither a full retained-environment joint-history identity nor a process-tensor identity with inserted interventions, and it establishes no experimental support or model universality.
+
+:::
+
+::: {.remark #rem-weighted-history-stability title="Weighted histories under small leakage with fixed unitaries (written derivation)"}
+
+**Ordinary written derivation, not formalized in this book.** View the joint evolution as motion between two system branches. Compression back into a branch can shorten a vector; the escaped part remains in the actual joint history and may return later. Polar decomposition separates this compression into a positive shortening and a unitary motion. Even with zero directions, the unitary motion can be completed within the original environment. A single such motion follows the actual history, with errors accumulating additively in the number of steps. This remark preserves the [existing complete ordinary argument](https://github.com/the-omega-institute/trureturing/issues/31078#issuecomment-6904102516), without asserting a new formal result.
+
+**Objects, norms, and quantifiers.** Let $d,N\ge1$ be arbitrary integers, take a unitary on $\mathbb C^2\otimes\mathbb C^d$, denoted $W\in M_{2d}(\mathbb C)$, and let $\sigma\in M_d(\mathbb C)$ be any positive semidefinite matrix of trace one. A star denotes the adjoint. For any rectangular complex matrix $M$, the Hilbert–Schmidt and operator norms mean, respectively,
+
+$$
+\begin{aligned}
+\|M\|_{\mathrm{HS}}^2&=\Tr(M^*M)=\sum_{i,j}|M_{ij}|^2,\\
+\|M\|_{\mathrm{op}}&=\sup_{\|v\|_2\le1}\|Mv\|_2.
+\end{aligned}
+$$
+
+The operator norm measures the largest amplification of a vector. Calling a block a contraction below means that its operator norm is at most one, rather than imposing a bound of one on its Hilbert–Schmidt norm. With $e_0,e_1$ the standard system basis, define
+
+$$
+\begin{aligned}
+S&=\sqrt{\sigma}\in M_d(\mathbb C),\qquad S^*=S,\quad S^2=\sigma,\\
+J_b&:\mathbb C^d\longrightarrow\mathbb C^2\otimes\mathbb C^d,
+\qquad J_bv=e_b\otimes v,\\
+P_b&=J_bJ_b^*,\qquad Q_b=I_{2d}-P_b
+\qquad(b\in\{0,1\}),\\
+L_N&=\max_{\substack{b\in\{0,1\}\\0\le k\le N}}
+\|Q_bW^kJ_bS\|_{\mathrm{HS}}^2,\qquad
+\epsilon=\sqrt{L_N}.
+\end{aligned}
+$$
+
+Here $k$ is an integer. The matrices $P_b,Q_b\in M_{2d}(\mathbb C)$ are orthogonal projections, $J_b^*J_b=I_d$, and $\|S\|_{\mathrm{HS}}^2=\Tr\sigma=1$. The quantity $L_N$ uses the **actual weighted history** of the same $W,\sigma$ on both branches from time zero through time $N$. It is neither one-step leakage, a collection of separately chosen realizations, nor an unweighted operator norm. For every set of these data, the original $\mathbb C^d$ admits unitaries $A_0,A_1$ that, once chosen, simultaneously satisfy for every integer $0\le n\le N$
+
+$$
+\max_{\substack{b\in\{0,1\}\\0\le n\le N}}
+\|W^nJ_bS-J_bA_b^nS\|_{\mathrm{HS}}
+\le4N\sqrt{L_N}.
+$$
+
+The constant $4$ is independent of $d,N,W,\sigma$; no optimality is claimed. The full derivation follows.
+
+**Compression and one polar completion.** Fix either branch $b\in\{0,1\}$, abbreviate $J=J_b,P=P_b,Q=Q_b$, and define blocks on the original spaces by
+
+$$
+\begin{aligned}
+K&=J^*WJ\in M_d(\mathbb C),&
+R&=QWJ\in M_{2d\times d}(\mathbb C),\\
+B&=J^*WQ\in M_{d\times2d}(\mathbb C),&
+E&=QWQ\in M_{2d}(\mathbb C).
+\end{aligned}
+$$
+
+Since $J$ is an isometry, $Q$ an orthogonal projection, and $W$ unitary, the operator norms of $K,R,B,E$ are at most one. In particular, left multiplication by either of $B,E$ cannot increase the Hilbert–Schmidt norm of a matrix with compatible rows: apply vector contraction to each column and sum the squared norms. Direct block multiplication gives
+
+$$
+\begin{aligned}
+K^*K+R^*R
+&=J^*W^*(P+Q)WJ\\
+&=J^*W^*WJ=I_d.
+\end{aligned}
+$$
+
+Finite-dimensional square polar decomposition admits a unitary completion even in the singular case:
+
+$$
+K=AH,\qquad A^*A=AA^*=I_d,\qquad
+H=(K^*K)^{1/2},\qquad 0\le H\le I_d.
+$$
+
+Here $A,H\in M_d(\mathbb C)$. Each of the eigenvalues of $H$, denoted $h$, is nonnegative and satisfies $h^2\le1$, hence satisfies $h\in[0,1]$. Choose $A$ once from the fixed matrix $K$. The static polar step is supported by Higham, *Computing the Polar Decomposition—with Applications*, DOI [10.1137/0907079](https://doi.org/10.1137/0907079), [full text](https://eprints.maths.manchester.ac.uk/694/1/high86p.pdf), Theorem 1.1 and Lemma 2.1. These supply square unitary completion and identify the positive square root; they do not supply the weighted history bound below.
+
+**Polar error for any rectangular weight.** In a unitary eigenbasis of $H$, the eigenvalues of $2H(I_d-H)$ are $2h(1-h)\ge0$, so
+
+$$
+D:=(I_d-H^2)-(I_d-H)^2=2H(I_d-H)\ge0.
+$$
+
+For every natural number $r$ and every rectangular matrix $X\in M_{d\times r}(\mathbb C)$, congruence gives $X^*DX\ge0$, with nonnegative trace equal to the sum over columns $x_j$ of their quadratic forms $\sum_j x_j^*Dx_j$. Thus, without requiring $X$ to commute with $H$, we obtain
+
+$$
+\begin{aligned}
+\|(K-A)X\|_{\mathrm{HS}}^2
+&=\Tr\bigl(X^*(I_d-H)^2X\bigr)\\
+&\le\Tr\bigl(X^*(I_d-H^2)X\bigr)\\
+&=\Tr(X^*R^*RX)=\|RX\|_{\mathrm{HS}}^2.
+\end{aligned}
+$$
+
+The first equality uses $K-A=A(H-I_d)$ and $A^*A=I_d$; the last uses $I_d-H^2=R^*R$. Traces of the positive semidefinite matrices here are real. In particular, set $T_k=J^*W^kJ\in M_d(\mathbb C)$ and substitute the actual weight $X=T_kS$. Since $S^2=\sigma$, cyclicity of trace gives
+
+$$
+\begin{aligned}
+\|(K-A)T_kS\|_{\mathrm{HS}}^2
+&=\Tr\bigl(\sigma T_k^*(I_d-H)^2T_k\bigr)\\
+&\le\Tr\bigl(\sigma T_k^*(I_d-H^2)T_k\bigr)\\
+&=\|RT_kS\|_{\mathrm{HS}}^2.
+\end{aligned}
+$$
+
+This comparison uses positive semidefinite congruence followed by trace. Factors are moved only cyclically inside the trace; $\sigma,T_k,H$ are never commuted, and no eigenvalue of $\sigma$ is divided out.
+
+**Recurrence along the actual trajectory.** For every integer $0\le k\le N$, define
+
+$$
+\begin{aligned}
+x_k&=J^*W^kJS=T_kS\in M_d(\mathbb C),\\
+y_k&=QW^kJS\in M_{2d\times d}(\mathbb C),\\
+W^kJS&=Jx_k+y_k,\qquad Qy_k=y_k,\\
+x_0&=S,\qquad y_0=0,\qquad
+\|y_k\|_{\mathrm{HS}}\le\epsilon.
+\end{aligned}
+$$
+
+Apply the same $W$ to this decomposition and project onto its two components. For every integer $0\le k<N$ this gives
+
+$$
+\begin{aligned}
+x_{k+1}&=Kx_k+By_k,\\
+y_{k+1}&=Rx_k+Ey_k,\\
+\|Rx_k\|_{\mathrm{HS}}
+&=\|y_{k+1}-Ey_k\|_{\mathrm{HS}}\\
+&\le\|y_{k+1}\|_{\mathrm{HS}}+\|y_k\|_{\mathrm{HS}}
+\le2\epsilon.
+\end{aligned}
+$$
+
+Put $r_k=x_{k+1}-Ax_k\in M_d(\mathbb C)$. Apply the rectangular comparison to the actual matrix $X=x_k$ and use contraction by $B$ to obtain
+
+$$
+\begin{aligned}
+r_k&=(K-A)x_k+By_k,\\
+\|r_k\|_{\mathrm{HS}}
+&\le\|(K-A)x_k\|_{\mathrm{HS}}+\|By_k\|_{\mathrm{HS}}\\
+&\le\|Rx_k\|_{\mathrm{HS}}+\|y_k\|_{\mathrm{HS}}
+\le3\epsilon.
+\end{aligned}
+$$
+
+**Additive telescoping with a fixed unitary.** Fix an integer $1\le n\le N$ and put $f(k)=A^{n-k}x_k$ for $0\le k\le n$. For $k<n$, we have
+
+$$
+\begin{aligned}
+f(k+1)-f(k)&=A^{n-1-k}(x_{k+1}-Ax_k)
+=A^{n-1-k}r_k,\\
+x_n-A^nS&=f(n)-f(0)
+=\sum_{k=0}^{n-1}A^{n-1-k}r_k,\\
+\|x_n-A^nS\|_{\mathrm{HS}}
+&\le\sum_{k=0}^{n-1}\|r_k\|_{\mathrm{HS}}
+\le3n\epsilon.
+\end{aligned}
+$$
+
+This sums consecutive matrix differences in the additive group and uses invariance of the Hilbert–Schmidt norm under unitary left multiplication. Finally, the isometry $J$ and the triangle inequality give
+
+$$
+\begin{aligned}
+\|W^nJS-JA^nS\|_{\mathrm{HS}}
+&=\|J(x_n-A^nS)+y_n\|_{\mathrm{HS}}\\
+&\le3n\epsilon+\epsilon=(3n+1)\epsilon\\
+&\le4N\epsilon\qquad(1\le n\le N).
+\end{aligned}
+$$
+
+The last step uses $3n+1\le3N+1\le4N$; at $n=0$ the error is exactly zero. Choose the two polar completions $A_0,A_1$ independently and use their common $\epsilon=\sqrt{L_N}$ to obtain the stated maximum bound.
+
+**Scope and remaining boundary.** If $L_N=0$, all errors are exactly zero; the argument never divides by $\epsilon$. It includes rank-deficient $\sigma$ and $\sigma$ with arbitrarily small positive eigenvalues: it uses only $S=\sqrt\sigma$, with no inverse, full-rank condition, or spectral gap. The environment remains the original $\mathbb C^d$, with no purification, enlargement, reset, intervention, or time-dependent $A_b$, and no assumption of later factorization of the joint state. The compression $K$ need not be normal. No identification of $T_k$ with $K^k$ is made; excursions and returns remain in the actual $y_k$.
+
+Static polar completion and positivity of positive semidefinite trace pairing are reusable supplies in the existing sources and are not counted here as new mathematics. A complete Lean formalization of the result has not been verified; the ordinary derivation does not constitute Lean verification. This history interface also supplies no uniform quantitative comparison with the target dephasing channel in diamond norm or over arbitrary finite untouched references, and no quantitative lower bound or realizing upper construction for actually realizable common-power frequency histories. The full resource–error tradeoff for general windows remains open. No successor event is selected or proved here, and no worldwide novelty or physical universality is claimed.
 
 :::
 
