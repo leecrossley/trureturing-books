@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "eea23ac5dbd7fdffd0c8aa2c043f9d4da308936c",
-  "pinned_at": "2026-11-16T22:56:44Z",
+  "commit": "29e991dc166e9c19e8a26733ced125bde0007a7c",
+  "pinned_at": "2026-11-17T04:14:41Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1073,9 +1073,17 @@
       "module": "D5/S3/Combinatorics/Graph/LinearForests/DirectedForestCompletion",
       "name": "D5.S3.Combinatorics.Graph.LinearForests.DirectedForestCompletion.directed_forest_completion",
       "kind": "theorem",
-      "statement_id": "sha256:45630fb648c515265463484176cf3229b57b5cec864b273c64f391d19e58b608",
+      "statement_id": "sha256:fdfe078d2aec36a0e7fd271d7842bbc4261d6d59a44852c946c52accbff9e94d",
       "line": 595,
       "signature": "theorem directed_forest_completion [Finite V] (E : V → V → Prop) (hout : Relator.RightUnique E) (hin : Relator.LeftUnique E) (ha : ∀ x, ¬ TransGen E x x) (hc : 2 ≤ Nat.card (Component E)) : ∃ (q : Component E ≃ Tail E) (h : Component E ≃ Head E) (Φ : CycleCompletion E ≃ FullCycle (Component E)), (∀ A, Quotient.mk (EqvGen.setoid E) (q A).1 = A) ∧ (∀ A, Quotient.mk (EqvGen.setoid E) (h A).1 = A) ∧ (∀ σ A, σ.1 (q A) = h ((Φ σ).1 A)) ∧ Nonempty (CycleCompletion E) ∧ Nat.card (CycleCompletion E) = (Nat.card (Component E) - 1).factorial ∧ UniformCompletionLaw E q h Φ"
+    },
+    "D5/S3/Combinatorics/Graph/LinearForests/DirectedForestPathOrder.component_path_order": {
+      "module": "D5/S3/Combinatorics/Graph/LinearForests/DirectedForestPathOrder",
+      "name": "D5.S3.Combinatorics.Graph.LinearForests.DirectedForestPathOrder.component_path_order",
+      "kind": "theorem",
+      "statement_id": "sha256:bf77cd8b966db22d542a0a49adabcecce29ed191bf139518c9465306173f3f75",
+      "line": 161,
+      "signature": "theorem component_path_order [Finite V] (E : V → V → Prop) (hout : Relator.RightUnique E) (hin : Relator.LeftUnique E) (ha : ∀ x, ¬ TransGen E x x) (A : Component E) : ∃! e : Fin (Nat.card (ComponentFiber E A)) ≃ ComponentFiber E A, ∀ i j, E (e i).1 (e j).1 ↔ i.1 + 1 = j.1"
     },
     "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.Face": {
       "module": "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary",
