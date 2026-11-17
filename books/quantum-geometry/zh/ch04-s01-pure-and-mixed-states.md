@@ -121,7 +121,7 @@ $$
 :::
 
 ::: {.remark #rem-stinespring-literature title="极小扩张、幺正延拓与微观热浴欠定性（文献结果，未在本书形式化）"}
-**文献结果，未在本书形式化。** [@thm-finite-channel-stinespring] 给出任意有限矩阵 CPTP 信道的等距偏迹扩张及 $dd'$ 环境维数界。以下更强结论沿用经典 Stinespring 扩张理论文献（W. F. Stinespring, *Positive functions on $C^*$-algebras*, Proc. Amer. Math. Soc. **6**, 211–216, 1955）；此处取输入输出维数 $d,d'>0$：
+**文献结果，未在本书形式化。** [@thm-finite-channel-stinespring] 给出任意有限矩阵 CPTP 信道的等距偏迹扩张及 $dd'$ 环境维数界。以下更强结论沿用经典 Stinespring 扩张理论文献（W. F. Stinespring, *Positive functions on $C^*$-algebras*, Proc. Amer. Math. Soc. **6**, 211–216, 1955）。此处取 $d,d'>0$，并在文献陈述中交换前一定理的两个因子，采用输出在前、环境在后的次序 $\mathcal H_{\mathrm S'}\otimes\mathcal H_{\mathrm E}$：
 
 1. **极小环境维数**：$\mathcal E:M_d(\mathbb C)\to M_{d'}(\mathbb C)$ 的极小等距扩张环境维数等于其 Choi 秩。[@thm-finite-channel-stinespring] 的 $dd'$ 个环境标签给出一个可用扩张，其最小性不包含在该定理中。
 2. **极小扩张的环境幺正等价唯一性与物理热浴欠定性**：在极小扩张条件下（即 Kraus 算子线性无关、无冗余未耦合环境维数），同一信道 $\mathcal E$ 的任意两个极小等距扩张 $(\mathcal H_{\mathrm E_1},V_1)$ 与 $(\mathcal H_{\mathrm E_2},V_2)$ 之间存在唯一的环境幺正算子 $W:\mathcal H_{\mathrm E_1}\to\mathcal H_{\mathrm E_2}$，满足 $(I_{\mathrm S'}\otimes W)V_1=V_2$。然而，仅凭局部约化信道 $\mathcal E$，真实微观环境的非极小冗余维数、环境基旋转及产生该映射的连续时间系统—热浴哈密顿量 $H_{\mathrm{SE}}(t)$ 或相互作用历史均保持欠定。
