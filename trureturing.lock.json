@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "2e46b890e7befe502497de7e253e062ab7b9b392",
-  "pinned_at": "2026-11-17T11:21:04Z",
+  "commit": "285d9db079252fb0940f7a7700bc2addf7605828",
+  "pinned_at": "2026-11-17T12:23:14Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -3796,6 +3796,14 @@
       "statement_id": "sha256:9ef86e623a3b8a4bfc44f4e69b1ec7aa2509d172ceba176d20ab2ba40581a844",
       "line": 83,
       "signature": "theorem bell_pure_state_has_maximally_mixed_marginal : star bellVector ⬝ᵥ bellVector = 1 /\\ bellDensity.PosSemidef /\\ Matrix.trace bellDensity = 1 /\\ Matrix.rank bellDensity = 1 /\\ bellDensity * bellDensity = bellDensity /\\ traceEnvironment bellDensity = (1 / 2 : Complex) • (1 : QubitMatrix) /\\ Not (traceEnvironment bellDensity * traceEnvironment bellDensity = traceEnvironment bellDensity)"
+    },
+    "D5/S3/Quantum/Entanglement/FiniteSectorPhysicalConstruction.channel_kraus_stinespring": {
+      "module": "D5/S3/Quantum/Entanglement/FiniteSectorPhysicalConstruction",
+      "name": "D5.S3.Quantum.Entanglement.FiniteSectorChannelOptimality.channel_kraus_stinespring",
+      "kind": "theorem",
+      "statement_id": "sha256:f578477301c179c8221514cd0d92dbce5aeea609c94c118ce4435497400cbe1b",
+      "line": 53,
+      "signature": "theorem channel_kraus_stinespring : (∀ {a b : Type u} [Fintype a] [DecidableEq a] [Fintype b] [DecidableEq b] (channel : QuantumChannel a b), ∃ K : (b × a) → Matrix b a ℂ, (∑ k, (K k).conjTranspose * K k) = 1 ∧ ∀ rho : Matrix a a ℂ, CStarMatrix.ofMatrix.symm (channel.toCompletelyPositiveMap (CStarMatrix.ofMatrix rho)) = ∑ k, K k * rho * (K k).conjTranspose) ∧ (∀ {a b : Type u} [Fintype a] [DecidableEq a] [Fintype b] [DecidableEq b] (channel : QuantumChannel a b), ∃ V : Matrix ((b × a) × b) a ℂ, V.conjTranspose * V = 1 ∧ ∀ rho : Matrix a a ℂ, partialTraceLeft (V * rho * V.conjTranspose) = CStar"
     },
     "D5/S3/Quantum/Entanglement/KBonacciDirectRankEntropy.complete_original_direct_rank_entropy": {
       "module": "D5/S3/Quantum/Entanglement/KBonacciDirectRankEntropy",
