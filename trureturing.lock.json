@@ -5333,6 +5333,14 @@
       "line": 116,
       "signature": "theorem result : claim"
     },
+    "D5/S3/Quantum/TensorNetworks/BridgeGraph/RectangularBlockPartition.unitary_exact_width": {
+      "module": "D5/S3/Quantum/TensorNetworks/BridgeGraph/RectangularBlockPartition",
+      "name": "D5.S3.Quantum.TensorNetworks.BridgeGraph.RectangularBlockPartition.unitary_exact_width",
+      "kind": "theorem",
+      "statement_id": "sha256:cfc696ee4ef771dcb64cc0287dbd10ce4720101a316842281207cb07757dbca7",
+      "line": 221,
+      "signature": "theorem unitary_exact_width (h : ∀ x y, ∃! t, x ∈ I t ∧ y ∈ J t) : (operator I J φ)ᴴ * operator I J φ = 1 ∧ operator I J φ * (operator I J φ)ᴴ = 1 ∧ (realign (operator I J φ)).rank = Fintype.card (Active J) ∧ operator I J φ = ∑ t : Active J, kronecker (block I J φ t.val) (block I J φ t.val)ᴴ ∧ (∃ (rows : Active J → X × Y) (cols : Active J → Y × X), (realign (operator I J φ)).submatrix rows cols = 1) ∧ ∀ (R : Type z) [Fintype R] (M : R → Matrix X Y ℂ) (N : R → Matrix Y X ℂ), operator I J φ = ∑ r, kronecker (M r) (N r) → Fintype.card (Active J) ≤ Fintype.card R"
+    },
     "D5/S3/Quantum/TensorNetworks/BridgeGraph/RestrictedFlatSpectrum.obstruction": {
       "module": "D5/S3/Quantum/TensorNetworks/BridgeGraph/RestrictedFlatSpectrum",
       "name": "D5.S3.Quantum.TensorNetworks.BridgeGraph.RestrictedFlatSpectrum.obstruction",
