@@ -131,9 +131,29 @@ $$
 
 更贴近下面端点、计数与概率表述的出处是 Boaz Tsaban，*Permutation graphs, fast forward permutations, and sampling the cycle structure of a permutation*，*Journal of Algorithms* **47**（2003），104–121，[doi:10.1016/S0196-6774(03)00017-8](https://doi.org/10.1016/S0196-6774(03)00017-8)。该文第 107–109 页的 Lemma 1.1 从无有向循环的部分置换图得到路径分量及其唯一最小、最大端点；Lemma 1.2 通过连接这些端点穷尽单环补全，给出阶乘计数；Lemma 1.3 区分同分量封口与异分量合并；Definition 1.4 与 Lemma 1.5 则给出正、逆向置换查询中的均匀端点选择与查询序列概率。这些端点、计数与概率规律已有文献依据，并非始于本书。
 
-下面将这些经典结果写成同一顶点集上的实际补全集、端点双射与静态条件分布，并保留完整书面证明。Tsaban 的查询模型只涉及置换及逆置换的取值，并不直接覆盖黏合树的完整自适应查询历史。不主张数学新颖性；形式化需求登记于[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11)；下文先给出端点补全的 Lean 核心，再列出范围更广的书面结论。
+下面将这些经典结果写成同一顶点集上的实际补全集、端点双射与静态条件分布，并保留完整书面证明。Tsaban 的查询模型只涉及置换及逆置换的取值，并不直接覆盖黏合树的完整自适应查询历史。不主张数学新颖性；形式化需求登记于[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11)；下文先给出唯一有向路径次序与端点补全的 Lean 结论，再列出范围更广的书面结论。
 
 把每个弱连通分量缩成一点，补全后的整圈就对应分量之间的一个整圈。下面直接从原始边关系定义分量、头尾和补全集；这里的整圈是顶点集上只有一个轨道的置换。
+
+::: {.theorem #thm-directed-forest-component-path-order title="真实分量的唯一有向路径次序" lean="D5/S3/Combinatorics/Graph/LinearForests/DirectedForestPathOrder.component_path_order"}
+设 $V$ 为有限类型，$E:V\to V\to\operatorname{Prop}$ 满足右唯一、左唯一，且 `Relation.TransGen E` 无自反点。令 $\operatorname{Component}(E)=V/\operatorname{EqvGen}(E)$。对每个实际分量 $A\in\operatorname{Component}(E)$，定义其顶点纤维
+
+$$
+V_A=\{x\in V:[x]_E=A\},\qquad m_A=|V_A|.
+$$
+
+则存在唯一的双射 $e_A:\{0,\ldots,m_A-1\}\simeq V_A$，使对任意序位 $i,j$ 都有
+
+$$
+E\bigl(e_A(i),e_A(j)\bigr)\quad\Longleftrightarrow\quad i+1=j.
+$$
+
+这里将纤维元素视为其底层顶点。双射遍历分量的全部顶点且不重复，等价式同时刻画全部有向边。本结论不要求分量数至少为二；孤立分量给出单顶点枚举，空载体没有分量 $A$。
+:::
+
+::: proof
+同一分量的任意两个顶点都能沿有向路径到达该分量的尾。把这两条路径反向，利用前驱唯一性可比较两个顶点；无环性于是使有向可达关系成为纤维上的严格全序。按此序枚举有限纤维。原始边不能跨过中间序位，否则后继唯一性会迫使产生非空有向循环；反之，相邻序位间的非空路径不能含中间顶点，故必是一条原始边。两个满足等价式的枚举之间的序位变换严格递增，而有限全序上的严格递增自映射必为恒等，因此枚举唯一。完整证明由 Lean 内核检查。
+:::
 
 ::: {.theorem #thm-directed-forest-completion-core title="有向线性森林的端点补全核心" lean="D5/S3/Combinatorics/Graph/LinearForests/DirectedForestCompletion.directed_forest_completion"}
 设 $V$ 为有限类型，$E:V\to V\to\operatorname{Prop}$ 同时满足右唯一（每个顶点至多一个出邻点）、左唯一（每个顶点至多一个入邻点）以及 `Relation.TransGen E` 无自反点；再设真实弱连通分量商集 $\operatorname{Component}(E)$ 至少有两个元素。令 $\operatorname{Tail}(E)$ 与 $\operatorname{Head}(E)$ 分别是没有出边与没有入边的顶点子类型，令
@@ -153,7 +173,7 @@ $(|\operatorname{Component}(E)|-1)!$（按自然数截断减法与阶乘），�
 先由有限性、无环性和后继的唯一性确定每个弱分量的尾，对反向关系作同样处理得到头。延拓置换把所有尾双射到所有头；沿头的首次返回识别原置换与分量置换的轨道，从而得到整圈补全之间的等价。等价给出阶乘计数及非空性，有限均匀概率质量的条件化与推前给出同一补全分布；端点等式再把分量后继的边缘概率传回原始顶点。完整证明由 Lean 内核检查。
 :::
 
-下面书面结论中的边数恒等式 $|E|=N-c$ 与显式事件概率比值 $(c-1)!/(N-1)!$ 未在所引 Lean 声明中陈述或核验，仍由后面的完整书面证明承担。交替约束下的静态分类与计数见下一小节；普通无向整圈的实际定向纤维与同图对应见 [@thm-undirected-cycle-orientation-fibers]。交替条件分布、无向概率分布、自适应历史、查询或 `EXIT` 的桥梁仍另需相应的分布与对应证明。
+上述两个 Lean 结论给出唯一的完整有向路径次序及端点补全核心。下面书面结论中的边数恒等式 $|E|=N-c$ 与显式事件概率比值 $(c-1)!/(N-1)!$ 未在这些 Lean 声明中陈述或核验，仍由后面的完整书面证明承担。交替约束下的静态分类与计数见下一小节；普通无向整圈的实际定向纤维与同图对应见 [@thm-undirected-cycle-orientation-fibers]。交替条件分布、无向概率分布、自适应历史、查询或 `EXIT` 的桥梁仍另需相应的分布与对应证明。
 
 ::: {.theorem #thm-directed-forest-cycle-completion title="有向森林的单环补全与静态均匀律" status="written-proof" proof="pf-directed-forest-cycle-completion" doi="10.1007/978-1-4684-0637-5_13" source="Section 8, p. 11" request="https://github.com/the-omega-institute/trureturing-requests/issues/11"}
 设 $V$ 为有 $N\ge2$ 个元素的有限标号集，$E\subseteq V\times V$。假定每个顶点在 $E$ 中至多有一条入边、至多有一条出边，且 $E$ 无有向循环。令 $\mathcal C$ 为 $(V,E)$ 的全部弱连通分量组成的集合，包含每一个孤立顶点，并假定 $c=|\mathcal C|\ge2$。
