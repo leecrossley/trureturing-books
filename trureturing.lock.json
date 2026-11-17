@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "d7a4895532a9e7c6cd83826c3dcd2b83511159bd",
-  "pinned_at": "2026-11-17T19:16:30Z",
+  "commit": "8afb0feee71a6b3473e8f5abb91f225f536e97b2",
+  "pinned_at": "2026-11-17T21:46:50Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -4524,6 +4524,22 @@
       "statement_id": "sha256:61fd6d3805dfd0f4d09e70de984b976a1a83cb0a390091d6762ae40f261700ad",
       "line": 57,
       "signature": "theorem fourier_phase_damping_fixed_iff (c : DampingCoefficient) (hCoefficient : (c : Real) ≠ 1) (rho : QubitMatrix) : fourierPhaseDamping c rho = rho ↔ ∀ i j, i ≠ j -> hadamardCoordinates rho i j = 0"
+    },
+    "D5/S3/Quantum/PureState/BargmannRealRephasing.exists_real_gram_rephasing_iff_triple_products_real": {
+      "module": "D5/S3/Quantum/PureState/BargmannRealRephasing",
+      "name": "D5.S3.Quantum.PureState.BargmannRealRephasing.exists_real_gram_rephasing_iff_triple_products_real",
+      "kind": "theorem",
+      "statement_id": "sha256:7d9b5d2da3264553d2abfeacadcdd5fcfae6898abe391bb4f991c279b5f8babb",
+      "line": 112,
+      "signature": "theorem exists_real_gram_rephasing_iff_triple_products_real {N : ℕ} (G : Matrix (Fin N) (Fin N) ℂ) (hG : G.PosSemidef) (i₀ : Fin N) (hne : ∀ j, G i₀ j ≠ 0) : (∃ θ : Fin N → ℝ, ∃ B : Matrix (Fin N) (Fin N) ℝ, ∀ i j, Complex.exp (θ i * I) * G i j * Complex.exp (-(θ j) * I) = ((Bᵀ * B) i j : ℂ)) ↔ ∀ i j k, (G i j * G j k * G k i).im = 0"
+    },
+    "D5/S3/Quantum/PureState/BargmannRealRephasing.exists_real_rephasing_iff_triple_products_real": {
+      "module": "D5/S3/Quantum/PureState/BargmannRealRephasing",
+      "name": "D5.S3.Quantum.PureState.BargmannRealRephasing.exists_real_rephasing_iff_triple_products_real",
+      "kind": "theorem",
+      "statement_id": "sha256:7d9b5d2da3264553d2abfeacadcdd5fcfae6898abe391bb4f991c279b5f8babb",
+      "line": 86,
+      "signature": "theorem exists_real_rephasing_iff_triple_products_real {N : ℕ} (G : Matrix (Fin N) (Fin N) ℂ) (hG : G.IsHermitian) (i₀ : Fin N) (hne : ∀ j, G i₀ j ≠ 0) : (∃ θ : Fin N → ℝ, ∀ i j, (Complex.exp (θ i * I) * G i j * Complex.exp (-(θ j) * I)).im = 0) ↔ ∀ i j k, (G i j * G j k * G k i).im = 0"
     },
     "D5/S3/Quantum/PureState/NoCloningInnerProductCriterion.no_cloning_inner_product_criterion": {
       "module": "D5/S3/Quantum/PureState/NoCloningInnerProductCriterion",
