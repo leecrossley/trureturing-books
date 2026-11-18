@@ -472,16 +472,69 @@ $$
 
 Peschel，[*Calculation of reduced density matrices from correlation functions*](https://arxiv.org/pdf/cond-mat/0212631v1)，式 (8)–(11)，给出约化自由费米密度矩阵的模式描述。Klich，[*Lower entropy bounds and particle number fluctuations in a Fermi sea*](https://arxiv.org/pdf/quant-ph/0406068v2)，式 (4)、(7) 及其后的 $\operatorname{diag}(1-d_i,d_i)$ 因子与式 (11)，给出对应的投影模式分解、乘积谱与熵公式；这里 $d_i=\nu_i$，而 $\ell$ 是空间区域的格点数。Klich 的式 (7) 使用适当的费米张量积；上面的前缀推导另外明确了自然格点次序与字面张量部分迹之间的对应。
 
-**二点函数与物理接口的独立范围。** 令 $\rho_V=\lvert\Psi_V\rangle\langle\Psi_V\rvert$，$c_i$ 为按原始格点顺序定义的费米湮灭算符。以下二点函数等式仍按文献结果阅读，不由上述前缀谱应用宣称完成：
+**同一 Slater 态的二点函数。** 仍取上述实际向量，记 $\psi_V(x)=\langle x\mid\Psi_V\rangle$、$\rho_V=\lvert\Psi_V\rangle\langle\Psi_V\rvert$，并使用原格点顺序下的 [`JordanWigner.fullC`](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC) 作为 $c_i$。其[占据基矩阵元](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/HardCoreCompression.fullC_entry) 在且仅在输入占据 $i$、输出将该位清空时非零，系数为 $(-1)^{n_S(i)}$，其中 $n_S(i)=|\{a\in S:a<i\}|$。由这些原始算符与行列式振幅可直接得到
 
 $$
 \begin{aligned}
-K_{ij}&=\Tr(\rho_V c_j^\dagger c_i)=P_{ij},\\
-C_{ij}&=\Tr(\rho_V c_i^\dagger c_j)=P_{ji},\qquad C=P^{\mathsf T}.
+K_{ij}&=\Tr\bigl((\rho_V c_j^\dagger)c_i\bigr)=P_{ij},\\
+C_{ij}&=\Tr\bigl((\rho_V c_i^\dagger)c_j\bigr)
+=P_{ji}=\overline{P_{ij}},\\
+C&=P^{\mathsf T}.
 \end{aligned}
 $$
 
-Dereziński 的定理 8.1，特别是式 (8.103) 的 $\omega_\pi(d\Gamma(h))=\Tr(\pi h)$，支持这一约定。Peschel 的式 (7)、(9)–(10) 使用 $C$；其式 (12) 中的转置对复模式不能略去。Peschel 还指出，对非 Slater 态，按同一二点函数重建的自由费米密度矩阵一般不能复现其他期望值，故关联矩阵相合不能确定一般密度矩阵。更一般的粒子数规范不变高斯密度矩阵也有上述谱配方，但须另给高斯性假设；这与从指定行列式振幅出发的推导范围不同。含 $0$ 或 $1$ 时，不能直接套用 Peschel 式 (12) 的矩阵对数。任意非前缀格点子集还涉及 Jordan–Wigner 字符串与费米子系统选择，须另行建立对应；地址数位切口也仍不能充当物理空间切口。
+为看清交换符号，令 $E_{j,i}$ 只有第 $j$ 行、第 $i$ 列为 $1$，其余为零；在复系数多项式环中置
+
+$$
+\begin{aligned}
+W(X)&=(I_N+XE_{j,i})V,\\
+W(X)_{j,b}&=V_{j,b}+XV_{i,b}.
+\end{aligned}
+$$
+
+其他行不变，$\psi_{W(X)}(x)$ 仍按同一递增行次序取子式，无须假定 $W(X)$ 的列正交。逐个占据词有
+
+$$
+[X]\psi_{W(X)}(x)
+=\bigl(c_j^\dagger c_i\Psi_V\bigr)(x).
+$$
+
+这里 $[X]$ 取一次项系数。错误粒子数的词在两边均为零，因为该算符保持粒子数。以下设 $|S(x)|=k$。若 $j\notin S(x)$，所取子式不含变动行，产生算符在该输出处也为零。若 $j\in S(x)$，置 $R=S(x)\setminus\{j\}$；当 $i\in R$ 时，替换行产生重复行，行列式与湮灭作用都为零。其余情形把替换行移回递增位置，双方都给出
+
+$$
+(-1)^{n_R(j)+n_R(i)}\det V_{R\cup\{i\}}.
+$$
+
+两次计数分别记录移出 $j$ 与插入 $i$ 的行交换次数，因此也覆盖 $i=j$。这一符号对应可由[所钉源码根](trureturing:)中的 `D5/S3/Quantum/Fermionic/PeriodicSshExcessPseudoEntropyRefutation.lean` 的私有 `fullC_sparse`、`fullC_create_sparse`，以及 `D5/S3/Quantum/FermionicCorrelationalBound/PhysicalContractionRdmBridge.lean` 的私有 `sorted_position_count`、`sorted_removeNth` 读出：前两者给出上述稀疏作用，后两者把递增排列中的位置识别为较小元素个数，并保持删去一行后的递增顺序。后两者原以自然数下标陈述；将有限格点映到其自然数值，保持次序，即得到这里的行排列符号。这些是原始源码中的辅助声明，不另设公开声明链接。
+
+现在对 $V^\dagger,W(X)$ 使用同一[柯西–比内恒等式](lean:D5/S3/Quantum/Schatten/CompoundMatrices.cauchyBinet)，这次系数环为 $\mathbb C[X]$，得到
+
+$$
+\begin{aligned}
+F(X)&:=\det\bigl(V^\dagger W(X)\bigr)\\
+&=\sum_{x\in\{0,1\}^N}
+\overline{\psi_V(x)}\,\psi_{W(X)}(x)\\
+&=\det\bigl(I_k+XV^\dagger E_{j,i}V\bigr).
+\end{aligned}
+$$
+
+最后一行只用了 $V^\dagger V=I_k$。行列式展开中一次项来自恰好选取一个对角位置，故 $[X]\det(I+XB)=\Tr B$。在求和一侧提取系数，再将秩一密度矩阵的迹展开，给出
+
+$$
+\begin{aligned}
+[X]F(X)
+&=\sum_x\overline{\psi_V(x)}
+\bigl(c_j^\dagger c_i\Psi_V\bigr)(x)\\
+&=\Tr\bigl((\rho_V c_j^\dagger)c_i\bigr),\\
+[X]F(X)
+&=\Tr\bigl(V^\dagger E_{j,i}V\bigr)\\
+&=\Tr\bigl(E_{j,i}VV^\dagger\bigr)=P_{ij}.
+\end{aligned}
+$$
+
+这证明了同一实际态的 $K_{ij}=P_{ij}$；交换 $i,j$ 并用 $P^\dagger=P$ 得到 $C$ 的公式。没有预设关联矩阵、高斯性或归一化，也没有用另一密度矩阵替换 $\rho_V$。复相位不能丢掉：例如 $N=2,k=1$、$V=(3/5,4\mathrm{i}/5)^{\mathsf T}$ 时，$K_{01}=-12\mathrm{i}/25$ 而 $C_{01}=12\mathrm{i}/25$。上述有限求和同样覆盖真空（$K=0$）、满填充（$K=I_N$）、相同格点与两种不同格点次序；$N=0$ 时没有可选的 $i,j$。这是原始结果的标准应用，不另立完整端点定理或独立验证徽章。
+
+Dereziński 的 [§§7.1–7.2、式 (7.51)–(7.54)](https://www.fuw.edu.pl/~derezins/clifford.pdf) 给出占据基与 Slater 约定；其定理 8.1，特别是式 (8.103) 的 $\omega_\pi(d\Gamma(h))=\Tr(\pi h)$，给出对应的一体期望公式。Peschel 的式 (7)、(9)–(10) 使用 $C$；其式 (12) 中的转置对复模式不能略去。Peschel 还指出，对非 Slater 态，按同一二点函数重建的自由费米密度矩阵一般不能复现其他期望值，故关联矩阵相合不能确定一般密度矩阵。更一般的粒子数规范不变高斯密度矩阵也有上述谱配方，但须另给高斯性假设；这与从指定行列式振幅出发的推导范围不同。含 $0$ 或 $1$ 时，不能直接套用 Peschel 式 (12) 的矩阵对数。任意非前缀格点子集还涉及 Jordan–Wigner 字符串与费米子系统选择，须另行建立对应；地址数位切口也仍不能充当物理空间切口。
 
 Moustaj–Krebbekx–Morais Smith 的 *Anomalous Polarization in One-dimensional Aperiodic Insulators*（[doi:10.3390/condmat10010003](https://doi.org/10.3390/condmat10010003)，§IV–V、§V.C 与附录 B）讨论含在位项的泵浦族及指定填充，其关联矩阵方法依赖所选 Slater／高斯态与子系统，不能直接移用于任意编码态。$\delta_{\rho,j}$ 只是单粒子能量到零的距离；多体激发隙还需填充、粒子数扇区与间隙约定。上述极限只处理这一单粒子谱前提：物理长度 $R$ 与内部窗坐标的对应、空间切口与劳齐边界的联系及熵标度，仍需另外建立；[@prob-ch39-p2e-fractal-horizon] 的完整问题仍然保留。
 :::

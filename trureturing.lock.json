@@ -5261,6 +5261,22 @@
       "line": 26,
       "signature": "theorem sorkin_third_order_cancellation (v : α → R) (A B C : Finset α) (hAB : Disjoint A B) (hAC : Disjoint A C) (hBC : Disjoint B C) : amplitudeWeight v (A ∪ B ∪ C) - amplitudeWeight v (A ∪ B) - amplitudeWeight v (A ∪ C) - amplitudeWeight v (B ∪ C) + amplitudeWeight v A + amplitudeWeight v B + amplitudeWeight v C = 0"
     },
+    "D5/S3/Quantum/SpinChains/SupersymmetricFermion/HardCoreCompression.fullC_entry": {
+      "module": "D5/S3/Quantum/SpinChains/SupersymmetricFermion/HardCoreCompression",
+      "name": "D5.S3.Quantum.SpinChains.SupersymmetricFermion.HardCoreCompression.fullC_entry",
+      "kind": "theorem",
+      "statement_id": "sha256:3e65d07cfb35654cbc7ee9b13bc26b8e6e44b46c3406a6601f069007e48f8906",
+      "line": 118,
+      "signature": "theorem fullC_entry {N : ℕ} (j : Fin N) (s t : Assignment N) : fullC j s t = if t j = true ∧ s = Function.update t j false then (-1 : ℂ) ^ prefixCount t j else 0"
+    },
+    "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC": {
+      "module": "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner",
+      "name": "D5.S3.Quantum.SpinChains.SupersymmetricFermion.JordanWigner.fullC",
+      "kind": "def",
+      "statement_id": "sha256:8a81638a530816f83b4da59a0f897af918ed0c6f692bcf286a433be6a5dfa377",
+      "line": 57,
+      "signature": "def fullC {N : ℕ} (j : Fin N) : FullOperator N"
+    },
     "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC_CAR": {
       "module": "D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner",
       "name": "D5.S3.Quantum.SpinChains.SupersymmetricFermion.JordanWigner.fullC_CAR",

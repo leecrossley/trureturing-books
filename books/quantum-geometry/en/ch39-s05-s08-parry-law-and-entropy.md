@@ -472,16 +472,69 @@ The density matrix used here is $R_V$ in the original basis, rather than a separ
 
 Peschel, [*Calculation of reduced density matrices from correlation functions*](https://arxiv.org/pdf/cond-mat/0212631v1), Eqs. (8)–(11), gives the mode description of the reduced free-fermion density matrix. Klich, [*Lower entropy bounds and particle number fluctuations in a Fermi sea*](https://arxiv.org/pdf/quant-ph/0406068v2), Eq. (4), Eq. (7) and its subsequent factors $\operatorname{diag}(1-d_i,d_i)$, and Eq. (11), supplies the corresponding projected-mode decomposition, product spectrum, and entropy formula. Here $d_i=\nu_i$, and $\ell$ counts sites in the spatial region. Klich's Eq. (7) uses an appropriate fermionic tensor product; the prefix derivation above additionally makes the correspondence with the literal tensor partial trace in natural site order explicit.
 
-**The separate scope of two-point functions and the physical interface.** Set $\rho_V=\lvert\Psi_V\rangle\langle\Psi_V\rvert$, and let $c_i$ be the fermionic annihilator defined using the original site order. The following two-point identities remain literature results; their completion is not claimed by the prefix-spectrum application above:
+**Two-point functions of the same Slater state.** Keep the actual vector above, write $\psi_V(x)=\langle x\mid\Psi_V\rangle$ and $\rho_V=\lvert\Psi_V\rangle\langle\Psi_V\rvert$, and use the original site order's [`JordanWigner.fullC`](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC) as $c_i$. Its [occupation-basis entry](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/HardCoreCompression.fullC_entry) is nonzero exactly when the input occupies $i$ and the output empties that site, with coefficient $(-1)^{n_S(i)}$, where $n_S(i)=|\{a\in S:a<i\}|$. These original operators and determinant amplitudes directly give
 
 $$
 \begin{aligned}
-K_{ij}&=\Tr(\rho_V c_j^\dagger c_i)=P_{ij},\\
-C_{ij}&=\Tr(\rho_V c_i^\dagger c_j)=P_{ji},\qquad C=P^{\mathsf T}.
+K_{ij}&=\Tr\bigl((\rho_V c_j^\dagger)c_i\bigr)=P_{ij},\\
+C_{ij}&=\Tr\bigl((\rho_V c_i^\dagger)c_j\bigr)
+=P_{ji}=\overline{P_{ij}},\\
+C&=P^{\mathsf T}.
 \end{aligned}
 $$
 
-Dereziński's Theorem 8.1, particularly $\omega_\pi(d\Gamma(h))=\Tr(\pi h)$ in Eq. (8.103), supports this convention. Peschel's Eqs. (7), (9)–(10) use $C$; the transpose in his Eq. (12) cannot be omitted for complex modes. Peschel also notes that, for a non-Slater state, the free-fermion density matrix reconstructed from the same two-point function generally fails to reproduce other expectation values. Correlation agreement therefore does not determine a general density matrix. More general gauge-invariant Gaussian density matrices have the same spectral recipe, but require a separate Gaussianity hypothesis; their scope differs from the derivation starting with the specified determinant amplitudes. When $0$ or $1$ occurs, Peschel's matrix-logarithm formula (12) cannot be applied directly. Arbitrary nonprefix site subsets also involve Jordan–Wigner strings and a choice of fermionic subsystem, whose correspondence requires a separate argument. An address-digit cut still cannot substitute for a physical spatial cut.
+To track the exchange signs, let $E_{j,i}$ have its sole nonzero entry $1$ in row $j$, column $i$. Over the complex polynomial ring, set
+
+$$
+\begin{aligned}
+W(X)&=(I_N+XE_{j,i})V,\\
+W(X)_{j,b}&=V_{j,b}+XV_{i,b}.
+\end{aligned}
+$$
+
+All other rows stay fixed. Define $\psi_{W(X)}(x)$ by the same increasing-row minor rule, without requiring column orthonormality of $W(X)$. For every occupation word,
+
+$$
+[X]\psi_{W(X)}(x)
+=\bigl(c_j^\dagger c_i\Psi_V\bigr)(x).
+$$
+
+Here $[X]$ extracts the linear coefficient. Words of the wrong particle number give zero on both sides because the operator preserves particle number. Now suppose $|S(x)|=k$. If $j\notin S(x)$, the selected minor contains no changing row, and the creation action also vanishes at that output. If $j\in S(x)$, put $R=S(x)\setminus\{j\}$. When $i\in R$, the replacement produces a repeated row, so both the determinant and annihilation action vanish. Otherwise, returning the replacement row to increasing order gives, on both sides,
+
+$$
+(-1)^{n_R(j)+n_R(i)}\det V_{R\cup\{i\}}.
+$$
+
+The two counts record the row exchanges for removing $j$ and inserting $i$, respectively; this includes $i=j$. The original suppliers for this sign correspondence are the private `fullC_sparse` and `fullC_create_sparse` in `D5/S3/Quantum/Fermionic/PeriodicSshExcessPseudoEntropyRefutation.lean`, and the private `sorted_position_count` and `sorted_removeNth` in `D5/S3/Quantum/FermionicCorrelationalBound/PhysicalContractionRdmBridge.lean`, accessible from the [pinned source root](trureturing:). The first pair gives the sparse actions above. The second identifies a row's position in increasing order with the number of smaller elements and preserves increasing order after removal. Its statements use natural-number indices; sending finite site indices to their natural-number values preserves order and gives the row permutation signs used here. These are helpers in the original source, without separate public declaration links.
+
+Now apply the same [Cauchy–Binet identity](lean:D5/S3/Quantum/Schatten/CompoundMatrices.cauchyBinet) to $V^\dagger,W(X)$, this time over $\mathbb C[X]$:
+
+$$
+\begin{aligned}
+F(X)&:=\det\bigl(V^\dagger W(X)\bigr)\\
+&=\sum_{x\in\{0,1\}^N}
+\overline{\psi_V(x)}\,\psi_{W(X)}(x)\\
+&=\det\bigl(I_k+XV^\dagger E_{j,i}V\bigr).
+\end{aligned}
+$$
+
+The last line uses only $V^\dagger V=I_k$. In the determinant expansion, linear terms select exactly one diagonal position, so $[X]\det(I+XB)=\Tr B$. Extracting the coefficient on the sum side and expanding the trace of the rank-one density matrix gives
+
+$$
+\begin{aligned}
+[X]F(X)
+&=\sum_x\overline{\psi_V(x)}
+\bigl(c_j^\dagger c_i\Psi_V\bigr)(x)\\
+&=\Tr\bigl((\rho_V c_j^\dagger)c_i\bigr),\\
+[X]F(X)
+&=\Tr\bigl(V^\dagger E_{j,i}V\bigr)\\
+&=\Tr\bigl(E_{j,i}VV^\dagger\bigr)=P_{ij}.
+\end{aligned}
+$$
+
+This proves $K_{ij}=P_{ij}$ for the same actual state. Exchanging $i,j$ and using $P^\dagger=P$ gives the formula for $C$. No covariance, Gaussianity, or normalization is assumed, and no other density matrix replaces $\rho_V$. Complex phases matter: for $N=2,k=1$ and $V=(3/5,4\mathrm{i}/5)^{\mathsf T}$, $K_{01}=-12\mathrm{i}/25$ whereas $C_{01}=12\mathrm{i}/25$. These finite sums also cover the vacuum ($K=0$), full filling ($K=I_N$), equal sites, and both orders of distinct sites. For $N=0$ there are no site indices $i,j$ to choose. This is a standard application of the original results, without a separate full endpoint theorem or independent verification badge.
+
+Dereziński's [§§7.1–7.2, Eqs. (7.51)–(7.54)](https://www.fuw.edu.pl/~derezins/clifford.pdf) gives the occupation-basis and Slater conventions. His Theorem 8.1, particularly $\omega_\pi(d\Gamma(h))=\Tr(\pi h)$ in Eq. (8.103), gives the corresponding one-body expectation formula. Peschel's Eqs. (7), (9)–(10) use $C$; the transpose in his Eq. (12) cannot be omitted for complex modes. Peschel also notes that, for a non-Slater state, the free-fermion density matrix reconstructed from the same two-point function generally fails to reproduce other expectation values. Correlation agreement therefore does not determine a general density matrix. More general gauge-invariant Gaussian density matrices have the same spectral recipe, but require a separate Gaussianity hypothesis; their scope differs from the derivation starting with the specified determinant amplitudes. When $0$ or $1$ occurs, Peschel's matrix-logarithm formula (12) cannot be applied directly. Arbitrary nonprefix site subsets also involve Jordan–Wigner strings and a choice of fermionic subsystem, whose correspondence requires a separate argument. An address-digit cut still cannot substitute for a physical spatial cut.
 
 Moustaj–Krebbekx–Morais Smith, *Anomalous Polarization in One-dimensional Aperiodic Insulators* ([doi:10.3390/condmat10010003](https://doi.org/10.3390/condmat10010003), §§IV–V, §V.C, and Appendix B), study a pumping family with on-site terms and specified fillings; their correlation-matrix method depends on the chosen Slater/Gaussian state and subsystem and does not transfer directly to arbitrary encoded states. Here $\delta_{\rho,j}$ is only the single-particle distance to zero energy; a many-body excitation gap also requires a filling, particle-number sector, and gap convention. The limit addresses only this single-particle spectral premise. Relating physical length $R$ to internal window coordinates, spatial cuts to the Rauzy boundary, and these objects to entropy scaling requires further work; the full question in [@prob-ch39-p2e-fractal-horizon] remains.
 :::
