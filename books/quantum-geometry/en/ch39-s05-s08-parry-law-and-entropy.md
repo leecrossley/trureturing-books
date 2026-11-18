@@ -704,15 +704,54 @@ If four alternating sites exist, put the two orbitals from the example above on 
 
 **The criterion at a given filling.** For a given particle number $k$, the product formula holds for every Slater state at every cut if $k\le 1$ or $N-k\le 1$. For $2\le k\le N-2$, it holds for every Slater state at a cut exactly when $I$ or $J$ is an interval.
 
-When $k\le 1$, every nonzero amplitude has $c(a,b)=0$. At full filling there is just one occupation string, so the reordering sign is a global phase. When $k=N-1$, each nonzero amplitude satisfies $a=I$ or $b=J$, depending on which side contains the single hole. In either case,
+Write the holes as $a^{\mathrm h}=I\setminus a$ and $b^{\mathrm h}=J\setminus b$. Partition $I\times J$ according to whether each endpoint is occupied or empty, and count the pairs with $j<i$. This gives
 
 $$
-c(a,b)=c(a,J)+c(I,b)-c(I,J).
+c(a,b)+c(I,J)=c(a,J)+c(I,b)+c(a^{\mathrm h},b^{\mathrm h}).
 $$
 
-The reordering sign thus factors into $(-1)^{c(a,J)}$ on the retained side and $(-1)^{c(I,b)+c(I,J)}$ on the traced side. The retained factor acts by diagonal unitary conjugation, and the traced factor cancels in the partial trace.
+The reordering sign of an occupation string and that of the corresponding hole string therefore differ by the separate factors $(-1)^{c(a,J)}$ and $(-1)^{c(I,b)+c(I,J)}$. The first gives diagonal unitary conjugation on the retained side, and the second cancels in the trace over $b$. This accounts for the two filling limits. When $k\le1$, every nonzero amplitude has $c(a,b)=0$. When $N-k\le1$, at least one side has no holes, so the hole term $c(a^{\mathrm h},b^{\mathrm h})$ vanishes.
 
-For $2\le k\le N-2$, choose $k-2$ sites outside the four alternating sites and call their set $T$. Append the unit vectors at those sites to the original two orbitals. A nonzero determinant must occupy all of $T$ and two of the four alternating sites. In computing it, move the rows from $T$ to the end in the order of the appended columns. Each occupied alternating site $i$ contributes a phase $(-1)^{|\{s\in T\mid s<i\}|}$. These phases factor by side, so the two nonzero eigenvalues $1/2,1/2$ of the four-site calculation are preserved. The sites with fixed occupation only pad the ordinary reduced spectrum with zeros. The compression $P_I$ is a projection of rank $1+|T\cap I|$. All its eigenvalues are $0$ or $1$, so the fermionic product spectrum still has just one nonzero eigenvalue, $1$.
+For $2\le k\le N-2$, choose $k-2$ sites outside the four alternating sites and call their set $T$. In increasing site order, append the corresponding unit vectors to the two original orbitals. The appended orbitals are mutually orthogonal and have support disjoint from the original orbitals. If an occupation set omits a site of $T$, the corresponding appended column in its determinant is zero. If the occupation set contains $T$, its two remaining sites must come from the original four, since any other row is zero.
+
+Write such an occupation set as $a\cup b\cup T$, where $a$ and $b$ are the occupied subsets of the four original sites on sides $I$ and $J$. Move the rows of $T$ to the end in increasing order. They form an identity block on the appended columns, leaving the determinant for the four-site amplitude. The row move crosses each pair $s\in T$, $i\in a\cup b$ with $s<i$ once. With $m_T(i)=|\{s\in T\mid s<i\}|$, the sign is
+
+$$
+(-1)^{\sum_{i\in a}m_T(i)}\,(-1)^{\sum_{j\in b}m_T(j)}.
+$$
+
+Let $D_I,D_J$ be the diagonal sign matrices given by these two factors on the respective occupation bases of the four-site example. Let $E_I$ send the retained basis vector $\lvert a\rangle$ to $\lvert a\cup(T\cap I)\rangle$, and define $E_J$ on the traced side in the same way. The remaining sites stay empty. Both maps send distinct basis vectors to distinct basis vectors and are therefore isometries. Writing $M_0$ and $M_T$ for the four-site and extended amplitude matrices gives
+
+$$
+\begin{aligned}
+M_T&=E_I D_I M_0 D_J E_J^\dagger,\\
+M_T M_T^\dagger&=E_I D_I M_0M_0^\dagger D_I^\dagger E_I^\dagger.
+\end{aligned}
+$$
+
+The ordinary reduced state has the four-site spectrum on the image of $E_I$ and is zero on its orthogonal complement. Its full spectrum therefore still has exactly two nonzero eigenvalues, $1/2,1/2$. The compression $P_I$ adds the coordinate projections for the sites in $T\cap I$ to the original rank-one projection. These projections have mutually orthogonal ranges, so $P_I$ is a projection of rank $1+|T\cap I|$ and all its eigenvalues are $0$ or $1$. The fermionic product spectrum therefore has just one nonzero eigenvalue, $1$.
+
+**When does the one-particle compression determine the reduced spectrum?** Fix the cut and the particle number $k$. Whenever the product-spectrum criterion above holds, $P_I$ determines the full spectrum of the ordinary tensor partial trace. For intermediate fillings at a cut containing four alternating sites, use the four-site construction with the same fixed occupied set $T$. Replace the orbital supported entirely on $J$ with the unit vector at either site in its support. The two orbital matrices agree column by column on $I$, so they give the same $P_I$. After the replacement, every nonzero amplitude has the same occupation string on $J$, consisting of $T\cap J$ and the site of the new orbital. Grouping by the occupation string on $J$ leaves a single amplitude vector, so the reduced state is pure.
+
+Write $D=2^{|I|}$. The two reduced states, before and after the replacement, have characteristic polynomials $x^{D-2}(x-1/2)^2$ and $x^{D-1}(x-1)$, respectively, and entropies $\log 2$ and $0$. This written argument shows that, when the filling and the cut are known, the product-spectrum criterion above is also the exact criterion for $P_I$ to determine the reduced spectrum for every Slater state.
+
+**The alternation matrix for several two-site orbitals.** Take $a$ orbitals supported entirely in $I$ and $b$ supported entirely in $J$, each with amplitude $1/\sqrt{2}$ at its two sites. All pairs of sites are disjoint. Order the retained columns first. Use $x\in\mathbb F_2^a$ and $y\in\mathbb F_2^b$ to encode a choice of the earlier or later endpoint of each pair. Every nonzero determinant selects exactly one site from each pair, so the amplitude matrix vanishes on all other occupations. Let $A_{ij}\in\mathbb F_2$ indicate whether retained pair $i$ and discarded pair $j$ have alternating endpoints.
+
+On these occupations, the row permutation contributes its inversion sign. Inversions within either side depend only on that side's choices. For two pairs across the cut, the sum modulo $2$ of the inversion indicators over the four endpoint choices equals the parity of the number of discarded endpoints strictly between the retained endpoints. Thus the mixed coefficient of $x_i,y_j$ is precisely $A_{ij}$. Absorbing the signs that depend on one side alone gives the amplitude matrix
+
+$$
+M_{xy}=2^{-(a+b)/2}(-1)^{x^\mathsf T A y}.
+$$
+
+Summing over $y$ gives $(MM^\dagger)_{xx'}=2^{-a}$ when $A^\mathsf T x=A^\mathsf T x'$. Otherwise, pair each $y$ with the result of flipping a coordinate that reverses the sign, so the sum vanishes. Put $r=\operatorname{rank}_{\mathbb F_2} A$. Each nonempty fiber of $A^\mathsf T$ has $2^{a-r}$ elements. The marginal therefore has $2^r$ constant blocks, each contributing one eigenvalue $2^{-r}$. Including the zero space on all other occupations gives the full characteristic polynomial
+
+$$
+x^{\,2^{|I|}-2^r}(x-2^{-r})^{2^r}.
+$$
+
+The same binary-rank calculation appears for bipartitions of graph states. Here the matrix entries come from the site order in the Slater determinants. [Hein, Eisert and Briegel, Proposition 3](https://arxiv.org/abs/quant-ph/0307130)
+
+Replace each discarded orbital by the coordinate vector at its earlier endpoint. The retained compression stays the same. The discarded side now has one occupation string, so the ordinary marginal is pure and the entropy difference is $r\log 2$. For example, concatenate $m$ four-site blocks ordered $I,J,I,J$. Endpoints from distinct blocks do not alternate, so $A$ is the $m$-dimensional identity. This gives two $2m$-particle Slater states with equal retained compression at the same cut and ordinary marginal entropies $m\log 2$ and zero.
 
 For this literal word, ordinary letter-count balance and a sum weighted by position parity are different observables. Retain the letter encoding $A=0$, $B=1$, $C=2$ and take integer weights
 
