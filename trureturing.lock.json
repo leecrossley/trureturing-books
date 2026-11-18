@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "09e37017337791363db2a0603f26c397753d7f5a",
-  "pinned_at": "2026-11-18T07:46:51Z",
+  "commit": "532d4d86f1b1f614b1653aab838d27d0ee3f0f41",
+  "pinned_at": "2026-11-18T11:00:54Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -4361,7 +4361,7 @@
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.marginalLeft_productState",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 145,
       "signature": "theorem marginalLeft_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : marginalLeft (productState rho sigma) = sigma"
     },
@@ -4369,7 +4369,7 @@
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.marginalRight_productState",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 155,
       "signature": "theorem marginalRight_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : marginalRight (productState rho sigma) = rho"
     },
@@ -4377,7 +4377,7 @@
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.quantumMutualInformation_productState",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 322,
       "signature": "theorem quantumMutualInformation_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : quantumMutualInformation (productState rho sigma) = 0"
     },
