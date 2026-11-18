@@ -3,7 +3,7 @@
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
   "commit": "621ecdf71780ec39cfb9b4a002f89b17aa534784",
-  "pinned_at": "2026-11-18T01:26:38Z",
+  "pinned_at": "2026-11-18T02:40:39Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -4613,6 +4613,22 @@
       "line": 30,
       "signature": "theorem no_cloning_inner_product_criterion {H : Type*} [NormedAddCommGroup H] [InnerProductSpace Complex H] (U : (H ⊗[Complex] H) ≃ₗᵢ[Complex] (H ⊗[Complex] H)) (psi phi blank : H) (psiNormalized : ‖psi‖ = 1) (phiNormalized : ‖phi‖ = 1) (blankNormalized : ‖blank‖ = 1) (clonesPsi : U (psi ⊗ₜ[Complex] blank) = psi ⊗ₜ[Complex] psi) (clonesPhi : U (phi ⊗ₜ[Complex] blank) = phi ⊗ₜ[Complex] phi) : inner Complex phi psi = inner Complex phi psi ^ 2 ∧ (phi = psi ∨ inner Complex phi psi = 0)"
     },
+    "D5/S3/Quantum/PureState/PureStateHandshake.pure_state_handshake": {
+      "module": "D5/S3/Quantum/PureState/PureStateHandshake",
+      "name": "D5.S3.Quantum.PureState.PureStateHandshake.pure_state_handshake",
+      "kind": "theorem",
+      "statement_id": "sha256:d0b30bfdc4f51dc80a7b7acc6ecc28c8aca99f8eaa4a9d48683e3e57908a6639",
+      "line": 37,
+      "signature": "theorem pure_state_handshake (v : n → ℂ) (hv : star v ⬝ᵥ v = 1) (X : Matrix n n ℂ) : rankOneDensity v * rankOneDensity v = rankOneDensity v ∧ rankOneDensity v * X * rankOneDensity v = (star v ⬝ᵥ X *ᵥ v) • rankOneDensity v ∧ star v ⬝ᵥ X *ᵥ v = trace (X * rankOneDensity v)"
+    },
+    "D5/S3/Quantum/PureState/PureStateHandshake.rankOneDensity": {
+      "module": "D5/S3/Quantum/PureState/PureStateHandshake",
+      "name": "D5.S3.Quantum.PureState.PureStateHandshake.rankOneDensity",
+      "kind": "def",
+      "statement_id": "sha256:d0b30bfdc4f51dc80a7b7acc6ecc28c8aca99f8eaa4a9d48683e3e57908a6639",
+      "line": 18,
+      "signature": "noncomputable def rankOneDensity (v : n → ℂ) : Matrix n n ℂ"
+    },
     "D5/S3/Quantum/PureState/RecordCoherenceComplementarity.pure_record_distinguishability_coherence_complementarity": {
       "module": "D5/S3/Quantum/PureState/RecordCoherenceComplementarity",
       "name": "D5.S3.Quantum.PureState.RecordCoherenceComplementarity.pure_record_distinguishability_coherence_complementarity",
@@ -4660,6 +4676,14 @@
       "statement_id": "sha256:c2b14fbf2c35fd368aa547b3e3f4ffaa8759d34332920a0dcae9df55862166f7",
       "line": 231,
       "signature": "theorem finite_record_cosine_obstruction {ι : Type*} [Fintype ι] [DecidableEq ι] (N : ℕ) (c : ℤ → ℂ) (q : ι → ℤ) (hsupport : ∀ k : ℤ, k < 0 ∨ (N : ℤ) < k → c k = 0) (hnorm : (∑' k : ℤ, ‖c k‖ ^ 2) = (1 : ℝ)) : let gamma : ℤ → ℂ"
+    },
+    "D5/S3/Quantum/QuantumChannels/PositiveFilterTransposeRefutation.Matrix.PosSemidef.trace_mul_nonneg": {
+      "module": "D5/S3/Quantum/QuantumChannels/PositiveFilterTransposeRefutation",
+      "name": "Matrix.PosSemidef.trace_mul_nonneg",
+      "kind": "theorem",
+      "statement_id": "sha256:07d67c9ccf2476503e5d393ac25ed48d1c7995ac049aae4d9ee4c17bee1c8c75",
+      "line": 228,
+      "signature": "theorem _root_.Matrix.PosSemidef.trace_mul_nonneg {n : Type*} [Fintype n] [DecidableEq n] {A B : Matrix n n 𝕜} (hA : A.PosSemidef) (hB : B.PosSemidef) : 0 ≤ (A * B).trace"
     },
     "D5/S3/Quantum/QubitWitnesses.pauli_observables_have_no_common_eigenvector": {
       "module": "D5/S3/Quantum/QubitWitnesses",
