@@ -3885,6 +3885,14 @@
       "line": 251,
       "signature": "lemma von_neumann_entropy_basisPinchingState (rho : DensityState n) : vonNeumannEntropy (basisPinchingState rho) = -(∑ i, (densityMatrix rho i i).re * Real.log (densityMatrix rho i i).re)"
     },
+    "D5/S3/Quantum/Dynamics/KickedIsingNegativityRefutation.trace_local_right": {
+      "module": "D5/S3/Quantum/Dynamics/KickedIsingNegativityRefutation",
+      "name": "D5.S3.Quantum.Dynamics.KickedIsingNegativityRefutation.trace_local_right",
+      "kind": "theorem",
+      "statement_id": "sha256:5ee5a971fd145e8c6c54ef40177972f9d1a4cc122920eafbf838fa88672f3124",
+      "line": 209,
+      "signature": "theorem trace_local_right {a b : Type} [Fintype a] [Fintype b] [DecidableEq a] [DecidableEq b] (ρ : Matrix (a × b) (a × b) ℂ) (U : Matrix a a ℂ) (V : Matrix b b ℂ) (hV : Vᴴ * V = 1) : partialTraceRight ((U ⊗ₖ V) * ρ * (U ⊗ₖ V)ᴴ) = U * partialTraceRight ρ * Uᴴ"
+    },
     "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity": {
       "module": "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity",
       "name": "D5.S3.Quantum.Dynamics.ObserverPullbackTraceIdentity.observer_pullback_trace_identity",
@@ -4348,6 +4356,14 @@
       "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
       "line": 155,
       "signature": "theorem marginalRight_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : marginalRight (productState rho sigma) = rho"
+    },
+    "D5/S3/Quantum/Information/PartialTraceMutualInformation.partialTraceRight_posSemidef": {
+      "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
+      "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.partialTraceRight_posSemidef",
+      "kind": "theorem",
+      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "line": 88,
+      "signature": "theorem partialTraceRight_posSemidef {A B : Type*} [Fintype B] {joint : Matrix (A × B) (A × B) ℂ} (h : joint.PosSemidef) : (partialTraceRight joint).PosSemidef"
     },
     "D5/S3/Quantum/Information/PartialTraceMutualInformation.quantumMutualInformation_productState": {
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
@@ -5156,6 +5172,22 @@
       "statement_id": "sha256:07ebdbb032c2a26a85df415803daff40fa76a8bbf442745abc31db865e604f59",
       "line": 208,
       "signature": "theorem correctness : (∀ (n : ℕ) (a i : Address n) (e : Bool), leaf n (route n a (clean n e)) i = if i = a then e else false) ∧ (∀ (n : ℕ) (G : Type) [AddCommGroup G] (D : Address n → G) (a : Address n) (w : Wires n) (r : G), query n D (a, w, r) = (a, w, r + readAmount n D (route n a w))) ∧ (∀ (n : ℕ) (G : Type) [AddCommGroup G] (D : Address n → G) (a : Address n) (r : G), query n D (a, clean n true, r) = (a, clean n true, r + D a)) ∧ (∀ (n : ℕ) (G : Type) [AddCommGroup G] [Fintype G] [DecidableEq G] (D : Address n → G), (queryMatrix n D)ᴴ * queryMatrix n D = 1 ∧ queryMatrix n D * (queryMatrix"
+    },
+    "D5/S3/Quantum/Schatten/CompoundMatrices.cauchyBinet": {
+      "module": "D5/S3/Quantum/Schatten/CompoundMatrices",
+      "name": "cauchyBinet",
+      "kind": "theorem",
+      "statement_id": "sha256:8398f8b23ac0815231125a1304c91754b658ebb26e9e24af0ace9c2147f696ce",
+      "line": 149,
+      "signature": "lemma cauchyBinet {m : ℕ} {n : Type*} [Fintype n] [DecidableEq n] [LinearOrder n] {R : Type*} [CommRing R] (A : Matrix (Fin m) n R) (B : Matrix n (Fin m) R) : (A * B).det = ∑ S : {S : Finset n // S.card = m}, (A.submatrix id (S.1.orderEmbOfFin S.2)).det * (B.submatrix (S.1.orderEmbOfFin S.2) id).det"
+    },
+    "D5/S3/Quantum/Schatten/MatrixSimilarity.IsHermitian.eigenvalues_eq_of_unitary_similarity_diagonal": {
+      "module": "D5/S3/Quantum/Schatten/MatrixSimilarity",
+      "name": "Matrix.IsHermitian.eigenvalues_eq_of_unitary_similarity_diagonal",
+      "kind": "theorem",
+      "statement_id": "sha256:626bf96eb08a590ce199c61559a161285de04b90f168f7d8e7cc3452945fc6d5",
+      "line": 73,
+      "signature": "lemma IsHermitian.eigenvalues_eq_of_unitary_similarity_diagonal {d 𝕜 : Type*} [Fintype d] [DecidableEq d] [RCLike 𝕜] {A : Matrix d d 𝕜} (hA : A.IsHermitian) {U : Matrix d d 𝕜} (hU : U ∈ Matrix.unitaryGroup d 𝕜) {f : d → ℝ} (h : A = U * Matrix.diagonal (fun i => (RCLike.ofReal (f i) : 𝕜)) * Matrix.conjTranspose U) : ∃ σ : d ≃ d, hA.eigenvalues ∘ σ = f"
     },
     "D5/S3/Quantum/ShorContinuedFractions.shor_coprime_candidate": {
       "module": "D5/S3/Quantum/ShorContinuedFractions",
