@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "0bebd19bdce4ec6d874d487726e4026fb6d05de5",
-  "pinned_at": "2026-11-18T21:52:31Z",
+  "commit": "b27df86c308cff8d61ce830d3ddcc3fd595b9d44",
+  "pinned_at": "2026-11-18T22:46:53Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1173,6 +1173,14 @@
       "line": 28,
       "signature": "theorem IsChordal.exists_approximate_gain_potential [Finite V] {G : SimpleGraph V} (hG : G.IsChordal) (g : V → V → H) (ε : ℝ) (hε : 0 ≤ ε) (hrev : ∀ i j, G.Adj i j → g j i = (g i j)⁻¹) (htri : ∀ i j k, G.Adj i j → G.Adj j k → G.Adj i k → Dist.dist (g i j * g j k) (g i k) ≤ ε) : ∃ φ : V → H, ∀ i j, G.Adj i j → Dist.dist (g i j) ((φ i)⁻¹ * φ j) ≤ ((Nat.card V - 2 : ℕ) : ℝ) * ε"
     },
+    "D5/S3/Combinatorics/Graph/Incidence/FixedSizeCutVariance.fixed_size_cut_variance": {
+      "module": "D5/S3/Combinatorics/Graph/Incidence/FixedSizeCutVariance",
+      "name": "D5.S3.Combinatorics.Graph.Incidence.FixedSizeCutVariance.fixed_size_cut_variance",
+      "kind": "theorem",
+      "statement_id": "sha256:a29fc41ab465d59ea86c812160c2018d1337c494ad06d841ed56619c21c54c5b",
+      "line": 747,
+      "signature": "theorem fixed_size_cut_variance (m : ℕ) (hn : 4 ≤ Fintype.card A) (hm : 2 ≤ m) (hmn : m ≤ Fintype.card A - 2) (w : Edge A → ℝ) : let n"
+    },
     "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.alternating_completion_classification": {
       "module": "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory",
       "name": "D5.S3.Combinatorics.Graph.LinearForests.CompatibleCycleInventory.alternating_completion_classification",
@@ -1525,11 +1533,35 @@
       "line": 32,
       "signature": "@[reducible] def partitionTopology {X B : Type _} (readout : Concept X B) : TopologicalSpace X"
     },
+    "D5/S3/ConceptDynamics/Information/ConditionalGiniDefect.conditional_gini_exact_defect": {
+      "module": "D5/S3/ConceptDynamics/Information/ConditionalGiniDefect",
+      "name": "D5.S3.ConceptDynamics.Information.ConditionalGiniDefect.conditional_gini_exact_defect",
+      "kind": "theorem",
+      "statement_id": "sha256:94cefef229687aea6b9dcfa7b69d86b0cd5bf042bccdbcdc0c856d748b7aae55",
+      "line": 323,
+      "signature": "theorem conditional_gini_exact_defect {X C D A : Type*} (p : PMF X) (r : Concept X D) (t : Concept X A) (f : D → C) : conditionalLogicalImpurity p (f ∘ r) t = conditionalLogicalImpurity p r t + ∑' d, ∑' a, conceptFiberMass p r d * ENNReal.ofReal (((targetFiberMass p r t d a / conceptFiberMass p r d).toReal - (targetFiberMass p (f ∘ r) t (f d) a / conceptFiberMass p (f ∘ r) (f d)).toReal)^2)"
+    },
+    "D5/S3/ConceptDynamics/Information/ConditionalGiniTV.conditional_gini_tv_attained": {
+      "module": "D5/S3/ConceptDynamics/Information/ConditionalGiniTV",
+      "name": "D5.S3.ConceptDynamics.Information.ConditionalGiniTV.conditional_gini_tv_attained",
+      "kind": "theorem",
+      "statement_id": "sha256:5e3d643d309e47322ffdbcbf5d2f49a73e385165fedfdf61e8fd364eb7da1093",
+      "line": 482,
+      "signature": "theorem conditional_gini_tv_attained {A : Type*} [Fintype A] (hA : 2 ≤ Fintype.card A) : ∃ (p : PMF A) (r : Concept A Bool), let f : Bool → Unit"
+    },
+    "D5/S3/ConceptDynamics/Information/ConditionalGiniTV.weighted_posterior_totalVariation_sq_le_gini_defect": {
+      "module": "D5/S3/ConceptDynamics/Information/ConditionalGiniTV",
+      "name": "D5.S3.ConceptDynamics.Information.ConditionalGiniTV.weighted_posterior_totalVariation_sq_le_gini_defect",
+      "kind": "theorem",
+      "statement_id": "sha256:5e3d643d309e47322ffdbcbf5d2f49a73e385165fedfdf61e8fd364eb7da1093",
+      "line": 148,
+      "signature": "theorem weighted_posterior_totalVariation_sq_le_gini_defect {X C D A : Type*} [Fintype A] (hcard : 2 ≤ Fintype.card A) (p : PMF X) (r : Concept X D) (t : Concept X A) (f : D → C) : (∑' d, (conceptFiberMass p r d).toReal * D5.S3.TotalVariation.Pinsker.totalVariation (fun a => (targetFiberMass p r t d a / conceptFiberMass p r d).toReal) (fun a => (targetFiberMass p (f ∘ r) t (f d) a / conceptFiberMass p (f ∘ r) (f d)).toReal)) ^ 2 ≤ (((Fintype.card A ^ 2 / 4 : ℕ) : ℝ) / (Fintype.card A : ℝ)) * ((conditionalLogicalImpurity p (f ∘ r) t).toReal - (conditionalLogicalImpurity p r t).toReal)"
+    },
     "D5/S3/ConceptDynamics/Information/RefinementImpurityMonotonicity.refinement_impurity_monotone": {
       "module": "D5/S3/ConceptDynamics/Information/RefinementImpurityMonotonicity",
       "name": "D5.S3.ConceptDynamics.Information.RefinementImpurityMonotonicity.refinement_impurity_monotone",
       "kind": "theorem",
-      "statement_id": "sha256:2c70048ce03100ccbb2cd7befe9f7709f4de0319f2455ea3fbf0499e73e34dc4",
+      "statement_id": "sha256:129c3d448f1c2f9b088be4bedd1b46771d93abd8d3d27960c5a83c1f6d193a79",
       "line": 536,
       "signature": "theorem refinement_impurity_monotone {X C D A : Type*} (mu : PMF X) (coarse : Concept X C) (refined : Concept X D) (target : Concept X A) (refinement : Refines coarse refined) : conditionalLogicalImpurity mu refined target ≤ conditionalLogicalImpurity mu coarse target"
     },
