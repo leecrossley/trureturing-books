@@ -457,7 +457,7 @@ The last line returns to the same $R_V$ in the original site basis. The [spectra
 
 The $k\times k$ occupied-mode Gram matrix $X^\dagger X$ and $A$ share only their nonzero spectrum; their dimensions can differ. The complete spatial spectrum requires all $\ell$ spatial modes: retain the multiplicities of the nonzero compressed eigenvalues and pad with zeros to $\ell$ entries. The particle-mode count $k$ cannot replace the spatial-mode count. The derivation also covers $N=0$, the vacuum $k=0$, full filling $k=N$, and the full prefix $\ell=N$. The full prefix is still pure, with one density eigenvalue $1$ and all others zero.
 
-**Entropy of the actual density state and correspondence with the literature.** For this $\rho_I$ constructed by partial trace, spectral decomposition and finite-dimensional functional calculus give its von Neumann entropy. Extend $x\log x$ continuously to zero at the origin. Then
+**Entropy of the actual density state and correspondence with the literature.** For this $\rho_I$ constructed by partial trace, the [spectral entropy identity](lean:D5/S3/Quantum/Information/PartialTraceMutualInformation.entropy_eq_spectral) gives its von Neumann entropy. Extend $x\log x$ continuously to zero at the origin. Then
 
 $$
 \begin{aligned}
