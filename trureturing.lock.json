@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "9ae93154462c0f1b4d3b48919a2b847c8293589e",
-  "pinned_at": "2026-11-18T01:29:35Z",
+  "commit": "621ecdf71780ec39cfb9b4a002f89b17aa534784",
+  "pinned_at": "2026-11-18T02:40:39Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -5860,6 +5860,14 @@
       "statement_id": "sha256:39bcfa26c19a9b2e02629b0d2cfac639d73a751e262b2e279fdc6550c39d3fdf",
       "line": 259,
       "signature": "theorem separable_cone_residual_witness {R : CompositeMatrix m n} (hR : R.PosSemidef) : let P"
+    },
+    "D5/S3/StatisticalMechanics/ZTwoHighTemperatureExpansion.sum_sgn_mul_prod_one_add_eq": {
+      "module": "D5/S3/StatisticalMechanics/ZTwoHighTemperatureExpansion",
+      "name": "D5.S3.StatisticalMechanics.ZTwoHighTemperatureExpansion.sum_sgn_mul_prod_one_add_eq",
+      "kind": "theorem",
+      "statement_id": "sha256:1007e54a32b81432975d2a2398584ad4e7bd887f2b8bc12276738d1ecd71ac96",
+      "line": 115,
+      "signature": "theorem sum_sgn_mul_prod_one_add_eq {E P : Type*} [Fintype E] [DecidableEq E] [Fintype P] [DecidableEq P] (M : Matrix P E (ZMod 2)) (t : P → R) (c : E → ZMod 2) : ∑ σ : E → ZMod 2, sgn R (c ⬝ᵥ σ) * ∏ p, (1 + t p * sgn R ((M *ᵥ σ) p)) = 2 ^ Fintype.card E * ∑ S ∈ Finset.univ.filter (fun S : P → ZMod 2 => Mᵀ *ᵥ S = c), ∏ p ∈ Finset.univ.filter (fun p => S p ≠ 0), t p"
     },
     "D5/S3/Topology/QuandleMarkovColoring.ClosedColorings": {
       "module": "D5/S3/Topology/QuandleMarkovColoring",
