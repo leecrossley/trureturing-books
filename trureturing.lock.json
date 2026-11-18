@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "0bebd19bdce4ec6d874d487726e4026fb6d05de5",
-  "pinned_at": "2026-11-18T21:52:31Z",
+  "commit": "3140b5ba326c84f9e179218fd3968f3a0c6d7f1e",
+  "pinned_at": "2026-11-18T22:27:16Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1529,7 +1529,7 @@
       "module": "D5/S3/ConceptDynamics/Information/RefinementImpurityMonotonicity",
       "name": "D5.S3.ConceptDynamics.Information.RefinementImpurityMonotonicity.refinement_impurity_monotone",
       "kind": "theorem",
-      "statement_id": "sha256:2c70048ce03100ccbb2cd7befe9f7709f4de0319f2455ea3fbf0499e73e34dc4",
+      "statement_id": "sha256:129c3d448f1c2f9b088be4bedd1b46771d93abd8d3d27960c5a83c1f6d193a79",
       "line": 536,
       "signature": "theorem refinement_impurity_monotone {X C D A : Type*} (mu : PMF X) (coarse : Concept X C) (refined : Concept X D) (target : Concept X A) (refinement : Refines coarse refined) : conditionalLogicalImpurity mu refined target ≤ conditionalLogicalImpurity mu coarse target"
     },
@@ -3588,6 +3588,14 @@
       "statement_id": "sha256:075eec65bcc56a391500706f213ef3bc1b27041f36952fc4c71abd4ade27a9ab",
       "line": 94,
       "signature": "theorem displacement_conjugation (a b c d : ZMod M) : displacement M a b * displacement M c d * star (displacement M a b) = windowRoot M ^ (b * c - a * d).val • displacement M c d"
+    },
+    "D5/S3/Quantum/Analysis/PositiveInteriorGridObstruction.positive_interior_grid_algebraic_obstruction": {
+      "module": "D5/S3/Quantum/Analysis/PositiveInteriorGridObstruction",
+      "name": "D5.S3.Quantum.Analysis.PositiveInteriorGridObstruction.positive_interior_grid_algebraic_obstruction",
+      "kind": "theorem",
+      "statement_id": "sha256:68093d979a2b5e6cf767dcfc4b877ade7ad13096e4203d4f59b09e8dbe576925",
+      "line": 28,
+      "signature": "theorem positive_interior_grid_algebraic_obstruction (r ur ui vr vi s t : ℝ) (hr_pos : 0 < r) (hr_lt_one : r < 1) (hsum_re : ur + vr = 2) (hsum_im : ui + vi = 0) (he_re : ur * s + vr * t + s * t + 3 - 3 * (s + t) = 0) (he_im : ui * s + vi * t = 0) (hs : s = ur ^ 2 + ui ^ 2) (ht : t = vr ^ 2 + vi ^ 2) (hnorm : (ur * vr - ui * vi) ^ 2 + (ur * vi + ui * vr) ^ 2 = r ^ 2) : False"
     },
     "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product": {
       "module": "D5/S3/Quantum/Analysis/TrotterProduct",
