@@ -6133,6 +6133,14 @@
       "line": 31,
       "signature": "theorem parry_boundary_cylinder_bound (k : ℕ) (hk : 2 ≤ k) (R n : ℕ) (hn : 1 ≤ n) (C : Finset (List (ℕ × ℕ))) (hlen : ∀ cs ∈ C, cs.length = n) (hvalid : ∀ cs ∈ C, ∀ c ∈ cs, 1 ≤ c.1 ∧ 1 ≤ c.2 ∧ c.2 < k) (hfit : ∀ cs ∈ C, 2 + (cs.map (fun c => c.1 + c.2)).sum ≤ R) : let p"
     },
+    "D5/S3/TotalVariation/ParryFirstReturn.actual_first_return_system": {
+      "module": "D5/S3/TotalVariation/ParryFirstReturn",
+      "name": "D5.S3.TotalVariation.ParryFirstReturn.actual_first_return_system",
+      "kind": "theorem",
+      "statement_id": "sha256:c0a36482d676bb3916240d58945aebd74c4dd371419b3fecae75835330b875bb",
+      "line": 417,
+      "signature": "theorem actual_first_return_system (hk : 2 ≤ k) (e : (Bool × RelationPath k) ≃ᵐ ResetPath k) (μ : ProbabilityMeasure (RelationPath k)) (hsuffix : ∀ (z : Bool × RelationPath k) (t : ℤ), let j"
+    },
     "D5/S3/TotalVariation/ParryResetLaw.parry_stationary_law": {
       "module": "D5/S3/TotalVariation/ParryResetLaw",
       "name": "D5.S3.TotalVariation.ParryResetLaw.parry_stationary_law",
