@@ -1159,6 +1159,8 @@ The Lean statement splits the first two complex equations into real and imaginar
 
 ::: {.proof #pf-positive-interior-grid-algebraic-obstruction}
 If $\operatorname{Im}u\ne0$, then $v=2-u$ and the imaginary part of the second equation give $s=t$. Equal squared moduli force $\operatorname{Re}u=1$, so $r=|uv|=s>1$. If $u$ is real, then $v$ is real as well. Set $q=uv$ and use $u+v=2$ to write $s+t=4-2q$, $us+vt=u^3+v^3=8-6q$, and $st=q^2$. The second equation reduces to $q^2=1$, contradicting $r<1$.
+
+The full proof is checked by the Lean kernel.
 :::
 
 In the maximally mixed spectral grid above, suppose saturation identifies nine distinct ratio nodes as the roots of $P(z)=z^9-rz^8+\eta(1-rz)$. Newton's identities give the unweighted grid sums $S_k=r^k$ for $k=1,2,3$. Write the two triples of unit-circle factors as $a_i,d_j$, with $d_j=b_j^{-1}$, and set $x=\sum_i a_i$, $y=\sum_j d_j$, $\alpha=\prod_i a_i$, and $\beta=\prod_j d_j$. Since $xy=r$, we can set $u=x^2/(\alpha\overline{x})$ and $v=y^2/(\beta\overline{y})$. The two second power sums are $x^2-2\alpha\overline x$ and $y^2-2\beta\overline y$. The third power sums are $x^3-3\alpha|x|^2+3\alpha$ and $y^3-3\beta|y|^2+3\beta$. Set $s=|x|^2$ and $t=|y|^2$, so $s=|u|^2$, $t=|v|^2$, and $|uv|=r$. Dividing $S_2=r^2$ by $x^2y^2$ gives $(1-2/u)(1-2/v)=1$, hence $u+v=2$. Dividing $S_3=r^3$ by $x^3y^3$ and multiplying by $uvst$ gives
