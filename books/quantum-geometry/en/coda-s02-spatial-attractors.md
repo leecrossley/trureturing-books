@@ -78,16 +78,41 @@ The Lean proof follows the textbook route of R. Durrett, *Probability: Theory an
 (3) The lower bound and the finish. The same argument for $-g$ gives $\liminf_n A_n g \ge \int g\,d\mu$ almost everywhere; together these are convergence. The theorem assumes only that $g$ is integrable, not that it is measurable everywhere: the proof first passes to a measurable $g'$ equal to $g$ almost everywhere, which has the same integral. Because $T$ preserves $\mu$, $A_n g$ and $A_n g'$ agree almost everywhere for each $n$, and the exceptional sets for countably many $n$ still union to a null set. The full proof is checked by the Lean kernel.
 :::
 
-Note what the theorem does not say. The exceptional null set depends on $g$; there is no single exceptional set that serves every $g$. It gives no rate of convergence. And it does not tell you whether any particular starting point is exceptional. The simplest chaotic map puts all three on the table.
+The theorem fixes one observable $g$ before it gives a conclusion for almost every starting point. If we keep two counts along the same orbit, can we recover both limits at once?
 
-::: {.example #ex-coda-doubling-map-averages title="The Doubling Map: Almost Every Start Averages to 1/2, and Every Floating-Point Start Is an Exception"}
-Take $\alpha = [0, 1)$, $\mu$ the length (Lebesgue measure), and $T(x) = 2x \bmod 1$.
+::: {.example #ex-coda-doubling-map-averages title="Two Visit Frequencies for the Doubling Map"}
+Start in the unit interval and repeatedly double the current value, subtracting $1$ whenever the result reaches or exceeds $1$. How often does the orbit visit the left half? How often does it visit the leftmost quarter? Take $I=[0,1)$ and write $\lambda$ for Lebesgue measure on the real line. The restriction $\mu(B)=\lambda(B\cap I)$ is a probability measure since $\mu(\mathbb R)=\lambda(I)=1$. The real map $F(x)=\operatorname{fract}(2x)=2x-\lfloor 2x\rfloor$ sends every real number into $I$. To work within the interval, take the subtype $X=\{x\in\mathbb R\mid 0\le x<1\}$. Give $X$ the measure $\nu$ obtained by pulling $\lambda$ back along the inclusion $\iota:X\to\mathbb R$. This inclusion pushes $\nu$ forward to $\mu$. The interval map $U$ is defined by $\iota(Uu)=F(\iota u)$.
 
-**Measure preservation (manual derivation).** The preimage of an interval $[a, b)$ is the two pieces $[a/2,\, b/2)$ and $[(1+a)/2,\, (1+b)/2)$, whose lengths still add up to $b - a$; passing from intervals to all measurable sets is a standard step in measure theory. **Ergodicity (literature result, not formalized in this book).** If $f \circ T = f$, comparing Fourier coefficients gives $\hat f(2k) = \hat f(k)$, hence $\hat f(k) = \hat f(2^m k) \to 0$ by the Riemann–Lebesgue lemma. So every coefficient with $k \ne 0$ vanishes and $f$ is constant almost everywhere.
+**Which interval step corresponds to doubling on the circle?** Identify real numbers that differ by an integer to form the circle $C=\mathbb R/\mathbb Z$. Write $\pi$ for the quotient map and $d(y)=2y$ for circle doubling. Each point $y$ on the circle has a unique representative in $I$. Mathlib's measurable equivalence $e:C\to X$ selects it. Write $r(y)=\iota(e(y))$ for its real value. Then $r(\pi(x))=\operatorname{fract}(x)$ for every real $x$, and $\pi(r(y))=y$ for every circle point $y$. The quotient respects addition, so $d(y)=\pi(2r(y))$. Taking the representative gives $r(d(y))=F(r(y))$. Iterating this pointwise identity gives, for every natural number $n$,
 
-Write $x$ in binary as $0.b_1 b_2 b_3 \ldots$ (never using an expansion that ends in infinitely many $1$s). Then $T$ just moves the binary point one place to the right: $T^k x = 0.b_{k+1} b_{k+2} \ldots$. Take $g = \mathbf{1}_{[0,1/2)}$, with $\int g\,d\mu = 1/2$. Since $g(T^k x) = 1$ exactly when $b_{k+1} = 0$, $A_N g(x)$ is the fraction of zeros among the first $N$ binary digits. [@thm-coda-birkhoff-ergodic] says that for almost every $x$, the fraction of zeros among its binary digits tends to $1/2$.
+$$
+\begin{aligned}
+e(d^n y)&=U^n(e(y)) &&(y\in C),\\
+\iota(U^n u)&=F^n(\iota u) &&(u\in X),\\
+r(d^n(\pi(x)))&=F^n(x) &&(x\in I).
+\end{aligned}
+$$
 
-**Exceptional starts.** A rational start has an eventually periodic orbit, so its time average can be computed exactly over one period. Also take $h = \mathbf{1}_{[0,1/4)}$, with $\int h\,d\mu = 1/4$ and $h(T^k x) = 1$ exactly when $b_{k+1} = b_{k+2} = 0$:
+The identities include step $0$ and orbits that reach the cut. For instance, $F(1/2)=0$ and the next step gives $F(0)=0$.
+
+**How does uniform measure on the circle return to the interval?** Write $m$ for length measure on the circle, of total mass one. Mathlib's measure-preservation result for the quotient uses representatives in $(0,1]$. Each endpoint has Lebesgue measure zero, so restricting to $(0,1]$ gives the same real measure as restricting to $[0,1)$. Hence $\pi_*\mu=m$. In the other direction, $r\circ\pi$ is the identity at every point of $I$, where $\mu$ is concentrated. It follows that $r_*m=\mu$. Since $r=\iota\circ e$ and pushforward along the measurable embedding $\iota$ is injective on measures, $e_*m=\nu$.
+
+In the version of Mathlib used here, `AddCircle.ergodic_nsmul` gives ergodicity of circle doubling by taking the natural multiplier $2$ and observing that $1<2$. Doubling and taking the fractional part are both measurable, so $F$ and its lift $U$ are measurable. The pointwise identities above intertwine the maps at each step. Ergodicity therefore passes along the measure-preserving maps $e$ and $\iota$ in turn. Thus $U$ is ergodic for $\nu$, and $F$ on the real line is ergodic for $\mu$. In particular, $\mu(F^{-1}(B))=\mu(B)$ for every measurable set $B$.
+
+**Two visit frequencies.** Take $g=\mathbf{1}_{[0,1/2)}$ and $h=\mathbf{1}_{[0,1/4)}$ on the real line. Each is integrable because it equals the integrable constant $1$ on a measurable interval and vanishes elsewhere. Its integral is the measure of the interval. Both intervals lie in $I$, so their $\mu$-measures are their lengths, giving $\int g\,d\mu=1/2$ and $\int h\,d\mu=1/4$. Apply [@thm-coda-birkhoff-ergodic] on $(\mathbb R,\mu)$ with $T=F$, once for $g$ and once for $h$. Intersecting the two sets of full measure gives a set of measure $1$ on which both visit frequencies converge as $N\to\infty$ through all positive integers.
+
+$$
+\begin{aligned}
+A_N g(x)&=\frac{1}{N}\sum_{k=0}^{N-1}g(F^k(x))\longrightarrow \frac{1}{2},\\
+A_N h(x)&=\frac{1}{N}\sum_{k=0}^{N-1}h(F^k(x))\longrightarrow \frac{1}{4}.
+\end{aligned}
+$$
+
+At $N=0$ both sums and averages are zero by convention. This set of full measure serves the two fixed indicators. Changing the observable can change the exceptional set. The theorem gives no guarantee for a prescribed start and no rate of convergence.
+
+**Reading the counts in binary (hand calculation).** The formal application above gives the frequencies of interval visits by real orbits. The digit coding, rational-orbit table, floating-point iterations and pseudo-random counts below lie outside that application. Write $x\in I$ as $0.b_1b_2b_3\ldots$, choosing the expansion ending in zeros whenever there are two. Doubling and taking the fractional part drops the first digit, so $F^k(x)=0.b_{k+1}b_{k+2}\ldots$. The observable $g$ counts a visit when the next digit is $0$, and $h$ counts a visit when the next two digits are both $0$. Thus $A_N g(x)$ is the fraction of zeros in the first $N$ digits. For $A_N h(x)$, count the pairs of adjacent zeros starting at those $N$ positions and divide by $N$.
+
+A rational orbit eventually repeats. Counting visits over one full period of the repeating part gives the exact limits.
 
 | Start $x$ | Binary | Time average of $g = \mathbf{1}_{[0,1/2)}$ | Time average of $h = \mathbf{1}_{[0,1/4)}$ |
 | :--- | :--- | ---: | ---: |
@@ -101,7 +126,7 @@ The start $1/3$ gets the right answer $1/2$ for $g$ and the wrong answer $0$ for
 
 **Every floating-point number is an exception.** Every double-precision number is a dyadic fraction $m/2^e$, and on $[0, 1)$ the floating-point evaluation of $2x \bmod 1$ is exact (doubling and subtracting $1$ never round). So a floating-point simulation is an exact shift of a dyadic fraction. Starting from $0.1$ the orbit lands exactly on $0$ at step $55$; from $\sqrt{2}/2$, at step $53$; from $\pi - 3$, at step $53$. It then stays at $0$ forever, and the time average of $g$ tends to $1$, not $1/2$. (Here $0.1$, $\sqrt{2}/2$ and $\pi - 3$ mean the nearest double-precision numbers to those exact real values; rounding $\pi$ first and then subtracting $3$ instead gives zero at step $48$.) Iterating the doubling map in floating point lands you exactly in the null set where the theorem is allowed to fail.
 
-**A start that “looks typical”.** To avoid floating point, generate the binary digits directly: take the first $10^6$ bits produced by the Python standard-library pseudo-random generator with seed $20261111$ as $b_1 b_2 \ldots$. This is one definite number, and the theorem does not promise that it lies outside the exceptional set; it is only an illustration:
+**A start that “looks typical”.** Seed Python's standard-library pseudo-random generator with $20261111$ and call `getrandbits(1)` once per digit for $10^6$ digits. This finite prefix determines every entry in the table. A limiting frequency depends on the infinite sequence.
 
 | $N$ | Zeros among the first $N$ digits | $A_N g(x)$ | $A_N g(x) - 1/2$ |
 | ---: | ---: | ---: | ---: |
@@ -116,7 +141,7 @@ The deviation does not shrink monotonically ($N = 10^5$ is further off than $N =
 :::
 
 ::: {.figure src="coda-doubling-averages"}
-**The theorem speaks of almost every start, and floating-point starts fall into the exceptions.** The doubling map $T(x) = 2x \bmod 1$ with $g = \mathbf{1}_{[0,1/2)}$: across, the number of steps $N$ (log scale, from $10$ to $10^6$); up, the time average $A_N g$, the share of $0$s among the first $N$ binary digits; the dashed line is the space average $1/2$. Cyan is the start given by the pseudo-random digits of the table above, swinging around $1/2$ with a deviation that grows and shrinks; grey, $1/3$, settles onto $1/2$ quickly; magenta, the floating-point number $0.1$, reaches $0$ at step $55$, and from then on its time average climbs towards $1$. The limit is [@thm-coda-birkhoff-ergodic]; the three curves are numerical computations.
+**The theorem speaks of almost every start, and floating-point starts fall into the exceptions.** The doubling map $F(x) = 2x \bmod 1$ with $g = \mathbf{1}_{[0,1/2)}$: across, the number of steps $N$ (log scale, from $10$ to $10^6$); up, the time average $A_N g$, the share of $0$s among the first $N$ binary digits; the dashed line is the space average $1/2$. Cyan is the start given by the pseudo-random digits of the table above, swinging around $1/2$ with a deviation that grows and shrinks; grey, $1/3$, settles onto $1/2$ quickly; magenta, the floating-point number $0.1$, reaches $0$ at step $55$, and from then on its time average climbs towards $1$. The limit is [@thm-coda-birkhoff-ergodic]; the three curves are numerical computations.
 :::
 
 **Back to Lorenz: how far the theorem reaches.** To apply [@thm-coda-birkhoff-ergodic] to the Lorenz flow, one can take its time-$1$ map $T = \varphi_1$, but first one needs an invariant probability measure for which $T$ is ergodic. The existence of $\mu_{\mathrm{SRB}}$, and the mixing of the flow (mixing implies that $T$ is ergodic), are literature results from item 2 of [@rem-coda-lorenz-srb-literature]. For a bounded continuous ambient observable $g$, apply the theorem to $\widetilde g(x)=\int_0^1 g(\varphi_s x)\,ds$. This gives convergence of continuous-time averages to $\int g\,d\mu_{\mathrm{SRB}}$ for $\mu_{\mathrm{SRB}}$-almost every start: at integer times the sums are exactly the integrated unit intervals, and the remaining fractional interval contributes a vanishing error. But $\mu_{\mathrm{SRB}}$ lives on the attractor, and the attractor has zero volume (item 1: phase-space volume shrinks like $e^{-41t/3}$).
