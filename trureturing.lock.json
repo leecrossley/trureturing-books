@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "09e37017337791363db2a0603f26c397753d7f5a",
-  "pinned_at": "2026-11-18T07:46:51Z",
+  "commit": "949227b3222e969559631b3a961a5f77fb7ffc04",
+  "pinned_at": "2026-11-18T10:58:36Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -4341,11 +4341,19 @@
       "line": 276,
       "signature": "theorem triangle_gram (a b c : Fin 3 → ℝ) (ha : a ⬝ᵥ a = 1) (hb : b ⬝ᵥ b = 1) (hc : c ⬝ᵥ c = 1) : triangleD a b c ^ 2 = 1 + 2 * (a ⬝ᵥ b) * (b ⬝ᵥ c) * (c ⬝ᵥ a) - (a ⬝ᵥ b) ^ 2 - (b ⬝ᵥ c) ^ 2 - (c ⬝ᵥ a) ^ 2"
     },
+    "D5/S3/Quantum/Information/PartialTraceMutualInformation.entropy_eq_spectral": {
+      "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
+      "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.entropy_eq_spectral",
+      "kind": "theorem",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
+      "line": 291,
+      "signature": "theorem entropy_eq_spectral (rho : DensityState n) : vonNeumannEntropy rho = spectralEntropy (density_posSemidef rho).isHermitian"
+    },
     "D5/S3/Quantum/Information/PartialTraceMutualInformation.marginalLeft_productState": {
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.marginalLeft_productState",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 145,
       "signature": "theorem marginalLeft_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : marginalLeft (productState rho sigma) = sigma"
     },
@@ -4353,7 +4361,7 @@
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.marginalRight_productState",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 155,
       "signature": "theorem marginalRight_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : marginalRight (productState rho sigma) = rho"
     },
@@ -4361,7 +4369,7 @@
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.partialTraceRight_posSemidef",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 88,
       "signature": "theorem partialTraceRight_posSemidef {A B : Type*} [Fintype B] {joint : Matrix (A × B) (A × B) ℂ} (h : joint.PosSemidef) : (partialTraceRight joint).PosSemidef"
     },
@@ -4369,7 +4377,7 @@
       "module": "D5/S3/Quantum/Information/PartialTraceMutualInformation",
       "name": "D5.S3.Quantum.Information.PartialTraceMutualInformation.quantumMutualInformation_productState",
       "kind": "theorem",
-      "statement_id": "sha256:9ec1df9721285fac407a0803347b9035cea2b264d6c4f81851e81c97a0eb7dd3",
+      "statement_id": "sha256:1ec1d44fa5a10033cc4269b8e0a429a87e0ddc4511a8b9ca19889b4572ad4fd0",
       "line": 322,
       "signature": "theorem quantumMutualInformation_productState {A B : Type*} [Fintype A] [DecidableEq A] [Fintype B] [DecidableEq B] (rho : DensityState A) (sigma : DensityState B) : quantumMutualInformation (productState rho sigma) = 0"
     },
