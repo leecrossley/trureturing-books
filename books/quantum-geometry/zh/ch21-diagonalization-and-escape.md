@@ -10,7 +10,7 @@
 
 请回想[序曲](README.md)与[第三章](ch03-projectors-and-duality.md)揭示的那条基本几何铁律：当你在二维赤道平面 $\operatorname{span}\{\vv{e}_1, \vv{e}_2\}$ 内旋转了一块有向面积 $\vv{e}_1 \wedge \vv{e}_2$，并试图把这块“面积”指认为一根确凿无疑的一维“存在轴”（粒子态或已定命题）时，你的目光绝不可能停留在那张二维平面内部——因为平面内的任何向量都与该平面共面，无法充当它的法线。你之所以能把二维面积压缩为一根一维法向箭头 $\vv{e}_3 = \star_3(\vv{e}_1 \wedge \vv{e}_2)$，唯一的原因是你已经站在了**三维外围空间** $\mathbb{R}^3$ 的内部！同样地，在定向三维空间 $\mathbb{R}^3$ 内部，最高阶体积元 $I_3 = \vv{e}_1 \wedge \vv{e}_2 \wedge \vv{e}_3$ 的三维霍奇对偶只是一个零阶标量 $\star_3 I_3 = 1$；要想把整座三维系统本身指认为一根新的正交法向存在线 $\vv{e}_4 = \star_4 I_3$，数学迫使你必须先踏入包含它的**四维外围空间** $\mathbb{R}^4 = \mathbb{R}^3 \oplus \mathbb{R}\vv{e}_4$，从而把原有的二维球面 $S^2$ 变成三维超球面 $S^3$ 的赤道切片！
 
-在本章中，我们将看到：这种“要表达当前系统的整体存在，就必须跳进更大外围空间”的法向逃逸现象，绝不仅是一则优美的微分几何比喻；在集合论与观测拓扑的底层，它的抽象骨架直接具象化为本书经 Lean 4 内核形式化验证的**相对语义对角线与观测拓扑加细四重奏**（`DiagonalTopologicalEscape`），并与经典元数学中的对角线不完备文献遥相呼应（严格前提对比见 [@rem-godel-tarski-comparison-literature]）。只要一台完备解码器试图在非空地址集与固定潜坐标（latent coordinate）的纤维划分下穷尽所有输出映射，任何无不动点的翻转算子（twist）都会沿着相对语义对角线当场刺穿旧观测拓扑，强迫概念读出向“球外之球”严格加细！
+在本章中，我们将看到：这种“要表达当前系统的整体存在，就必须跳进更大外围空间”的法向逃逸现象，绝不仅是一则优美的微分几何比喻；照本书的读法，在集合论与观测拓扑的底层，它的抽象骨架直接具象化为本书经 Lean 4 内核形式化验证的**相对语义对角线与观测拓扑加细四重奏**（`DiagonalTopologicalEscape`），并与经典元数学中的对角线不完备文献遥相呼应（严格前提对比见 [@rem-godel-tarski-comparison-literature]）。只要一台完备解码器试图在非空地址集与固定潜坐标（latent coordinate）的纤维划分下穷尽所有输出映射，任何无不动点的翻转算子（twist）都会沿着相对语义对角线当场刺穿旧观测拓扑，强迫概念读出向“球外之球”严格加细！
 
 ::: {.figure src="ch21-overview"}
 **图 21。** 本章地图：第 I 栏，潜坐标的两根纤维，品红虚线把左边那根劈成 $g = 1$ 的 $a_0, a_1$ 与 $g = 0$ 的 $a_2$（[@ex-cantor-godel-diagonal-table]）；第 II 栏，品红的开口螺旋绕紫色的轴 $\vv{e}_{n+1}$ 上升，青色的影子绕一圈就闭合，螺旋却已高出 $2\pi c$（这一栏是本章的诠释意象，不是定理）；第 III 栏，$S^0$ 到 $S^8$ 中只有紫色的 $S^0, S^1, S^3, S^7$ 可平行化，$S^2$ 上的切向量场必有零点（文献结果，未在本书形式化，见 [@rem-hairy-ball-adams-literature]）。
@@ -158,7 +158,7 @@ $$
 将 [`relative_semantic_diagonal_target_inadequate_of_surjective`](lean:D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_target_inadequate_of_surjective) 与 [@thm-complete-diagonal-not-continuous]、[@lem-complete-diagonal-separation-deficit]、[@prop-complete-diagonal-strict-refinement] 逐项合取即得。完整证明由 Lean 内核检查。
 :::
 
-为了让这四条抽象定理变成你指尖可以触摸的具体算术，让我们亲手在一个最小的有限布尔模型上把这张对角线逃逸表一格一格算出来。
+为了让这四条抽象定理变成你指尖可以触摸的具体算术，让我们亲手在一个四地址有限布尔模型上把这张对角线逃逸表一格一格算出来。当潜坐标与输出均为单比特布尔集时，完备解码目录必须容纳全部 $2^2 = 4$ 个函数，四个地址才是这一设定下的最少所需。
 
 ::: {.example #ex-cantor-godel-diagonal-table title="四地址一比特潜坐标下的相对对角线逃逸与纤维劈裂手算"}
 取潜坐标空间为单比特布尔集 $\mathrm{Coordinate} = \{0, 1\}$，输出空间亦为 $\mathrm{Output} = \{0, 1\}$，无不动点翻转取逻辑非 $\operatorname{twist}(o) = 1 - o$（满足 $\operatorname{twist}(0) = 1 \neq 0$，$\operatorname{twist}(1) = 0 \neq 1$）。从 $\mathrm{Coordinate}$ 到 $\mathrm{Output}$ 的函数共有 $2^2 = 4$ 个，故取四元地址集 $\mathrm{Address} = \{a_0, a_1, a_2, a_3\}$ 以构成满射解码目录：
@@ -186,7 +186,7 @@ $$
 **换一种潜坐标，纤维照样被劈开。** 四个地址的解码器是常零、恒等、取反、常一；潜坐标取 $(0, 0, 0, 1)$ 时，左边那根纤维里 $a_0$、$a_1$ 的 $g$ 是 $1$，$a_2$ 的是 $0$，品红线连起 $g$ 不同的两对 $(a_0, a_2)$、$(a_1, a_2)$；把 $g$ 立成紫色的第二根轴，两块变成三块。点任一地址换它的潜坐标，$16$ 种排法里品红线总在（[@cor-complete-diagonal-topological-settlement]；这四个解码器恰是 $\{0, 1\}$ 上的全部映射，目录满射）。
 :::
 
-这正是抽象对角线不动点模式在观测拓扑中的纯粹骨架（与元数学文献的精确边界对照见 [@rem-godel-tarski-comparison-literature]）。在我们的抽象拓扑框架中，每当一个系统把某类候选解码映射装进一部关于当前潜坐标满射的目录 `decoderCatalog`，并用无不动点算子 `twist` 构造自指对角线 $g$ 时，$g$ 必然劈开原系统的某根等价类余纤维。若要同时保留旧读出并让 $g$ 连续，联合读出 $\operatorname{conceptJoin}(\operatorname{latent}, g)$ 给出所需的最小共同加细，任何同时完成这两项任务的读出都能恢复它；而若想在新坐标空间 $\mathrm{Coordinate}_{k+1} = \mathrm{Coordinate}_k \times \mathrm{Output}$ 上继续触发下一轮对角线逃逸 $g'$，则**必须以在新一轮（通常需要扩容的）地址空间 $\mathrm{Address}_{k+1}$ 上重新建立新的满射解码目录 $\operatorname{decoderCatalog}_{k+1} : \mathrm{Address}_{k+1} \twoheadrightarrow (\mathrm{Coordinate}_{k+1} \to \mathrm{Output})$ 为前提**——例如在 [@ex-cantor-godel-diagonal-table] 的四地址布尔模型中，合并后的坐标空间有 $4$ 个坐标对（对应 $2^4 = 16$ 个布尔函数，即便只看实际命中的 $3$ 根非空联合纤维也有 $2^3 = 8 > 4$ 个布尔函数），原来的 $4$ 个地址已不足以构成新阶段的满射目录，唯有连同地址空间一起向外扩容，才能开启下一层“球外之球”的攀升！
+这正是抽象对角线不动点模式在观测拓扑中的纯粹骨架（与元数学文献的精确边界对照见 [@rem-godel-tarski-comparison-literature]）。在我们的抽象拓扑框架中，每当一个系统把某类候选解码映射装进一部关于当前潜坐标满射的目录 `decoderCatalog`，并用无不动点算子 `twist` 构造自指对角线 $g$ 时，$g$ 必然劈开原系统的某根等价类余纤维。若要同时保留旧读出并让 $g$ 连续，联合读出 $\operatorname{conceptJoin}(\operatorname{latent}, g)$ 给出所需的最小共同加细，任何同时完成这两项任务的读出都能恢复它；而若想借本定理在新坐标空间 $\mathrm{Coordinate}_{k+1} = \mathrm{Coordinate}_k \times \mathrm{Output}$ 上继续触发下一轮对角线逃逸 $g'$，则**必须以在新一轮（通常需要扩容的）地址空间 $\mathrm{Address}_{k+1}$ 上重新建立新的满射解码目录 $\operatorname{decoderCatalog}_{k+1} : \mathrm{Address}_{k+1} \twoheadrightarrow (\mathrm{Coordinate}_{k+1} \to \mathrm{Output})$ 为前提**——例如在 [@ex-cantor-godel-diagonal-table] 的四地址布尔模型中，合并后的坐标空间有 $4$ 个坐标对（对应 $2^4 = 16$ 个布尔函数，即便只看实际命中的 $3$ 根非空联合纤维也有 $2^3 = 8 > 4$ 个布尔函数），原来的 $4$ 个地址已不足以构成新阶段的满射目录，唯有连同地址空间一起向外扩容，才能开启下一层“球外之球”的攀升！
 
 ::: {.viz src="sphere-escape" preset="absorb" height="500"}
 **收编了，它再逃一次。** 把翻出的品红色串 $d$ 收进清单当第 $7$ 行，再补一列让表保持方形；沿新的对角线读一遍、翻一遍，立刻又拼出一个不在清单里的品红色串。收编多少次都一样（[`relative_semantic_diagonal_ne_listed_decode`](lean:D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_ne_listed_decode)）。
@@ -290,7 +290,7 @@ $\exp z$ 是级数 $\sum_k z^k/k!$ 的和（`NormedSpace.exp_series_hasSum_exp'`
 每一行的实际余项都落在界内，也都严格为正。
 :::
 
-**有限记录的弓形残差。** 第 2 条论断说，有限步操作得到的只是内接多面体，平坦的面与球皮之间留着弓形残差。所钉仓库里有两条冻结定理，给这句话一个字面意义上的版本：把“有限的门计数”换成“只有有限格的记录指针”，残差的下界恰好由正多边形的弓高给出（相干损失至少为弓高，恢复误差至少为弓高的一半）。
+**有限记录的弓形残差。** 第 2 条论断说，有限步操作得到的只是内接多面体，平坦的面与球皮之间留着弓形残差。所钉仓库里有两条冻结定理，给这句话一个字面意义上的版本：把“有限的门计数”换成“只有有限格的记录指针”，在下文 $m \ge 1$ 的情形，重叠模长的上界是正多边形的边心距，相干模长的相对损失至少为弓高，而每个恢复信道的最坏输入误差至少为弓高的一半。
 
 物理图像是这样的。一台记录指针有 $N + 1$ 格，振幅为 $c(0), \dots, c(N)$。系统的第 $i$ 个分支带一个整数标签 $q_i$，记录的方式是把指针平移 $q_i$ 格。两个标签相差 $\ell$ 的分支，记录之后它们之间的相干项被乘上一个因子：指针与它自己平移 $\ell$ 格之后的重叠
 
@@ -298,7 +298,7 @@ $$
 \gamma(\ell) \;=\; \sum_{k \in \mathbb{Z}} c(k + \ell)\,\overline{c(k)} .
 $$
 
-若 $\lvert\gamma(\ell)\rvert = 1$，平移前后的指针无法区分，这次记录什么也没记下，相干性完好；若 $\lvert\gamma(\ell)\rvert < 1$，相干性受损。问题是：有限格的指针能不能让 $\lvert\gamma(\ell)\rvert$ 等于 $1$？
+若 $\lvert\gamma(\ell)\rvert = 1$，两分支对应的指针态无法区分，这次记录无法区分它们，相干项的模长不变；若 $\lvert\gamma(\ell)\rvert < 1$，两分支间的非零相干项便被压低。问题是：有限格的指针在非零平移后能不能让 $\lvert\gamma(\ell)\rvert$ 等于 $1$？
 
 ::: {.lemma #lem-finite-support-autocorrelation-cosine title="有限支撑单位序列的自相关模长不超过割圆角的余弦" lean="D5/S3/Quantum/QuantumChannels/FiniteRecordCosineObstruction.coefficient_gamma_le_cosine"}
 设 $N \in \mathbb{N}$，$c : \mathbb{Z} \to \mathbb{C}$ 满足：
@@ -319,7 +319,7 @@ $$
 记 $d = \lvert\ell\rvert$，$m = \lfloor N/d\rfloor$。把支撑 $\{0, \dots, N\}$ 按模 $d$ 的剩余类分成 $d$ 条链，每条链上相邻两个下标恰好相差 $d$，链长不超过 $m + 1$；自相关的模长不超过各链上“相邻两项模长乘积之和”的总和，而各链的模长平方和加起来等于 $\sum_k \lVert c(k)\rVert^2$（`residue_block_bounds`）。在每条链上使用路径不等式 $\sum_{k<m} x_k x_{k+1} \le \cos\frac{\pi}{m+2}\sum_{k \le m} x_k^2$（`path_correlation_le_cos`，由最近邻平均的二次型界与柯西—施瓦茨不等式得到），对各链求和并代入归一化条件即得结论。完整证明由 Lean 内核检查。
 :::
 
-右端的 $\cos\frac{\pi}{m+2}$ 正是单位圆内接正 $(m+2)$ 边形的边心距（[@ex-liu-hui-polygon-sagitta]），它严格小于 $1$。所以答案是否定的：有限格的指针一旦被平移，就一定留下痕迹。下面的定理把这道痕迹换算成任何恢复操作都补不回来的误差。
+记 $m = \lfloor N/\lvert\ell\rvert\rfloor$。当 $m \ge 1$ 时，右端的 $\cos\frac{\pi}{m+2}$ 正是单位圆内接正 $(m+2)$ 边形的边心距（[@ex-liu-hui-polygon-sagitta]）；它是重叠模长的上界，并非每个指针都取到的值。当 $m = 0$，即 $\lvert\ell\rvert > N$ 时，支撑区间与平移后的副本不相交，$\gamma(\ell) = 0$。两种情形下重叠模长都严格小于 $1$。所以答案是否定的：有限格的指针一旦被非零平移，就一定留下痕迹。下面的定理把这道痕迹换算成对每个恢复信道都成立的输入误差上确界下界。
 
 ::: {.theorem #thm-finite-record-cosine-obstruction title="有限记录信道的恢复误差具有严格为正的余弦下界" lean="D5/S3/Quantum/QuantumChannels/FiniteRecordCosineObstruction.finite_record_cosine_obstruction"}
 设 $\iota$ 为有限类型（`[Fintype ι]`、`[DecidableEq ι]`），$N \in \mathbb{N}$，$c : \mathbb{Z} \to \mathbb{C}$，$q : \iota \to \mathbb{Z}$，并设 $c$ 满足 [@lem-finite-support-autocorrelation-cosine] 的两条前提 `hsupport` 与 `hnorm`。记
@@ -359,10 +359,12 @@ $$
 \mathrm{bound} \;=\; \frac12\Bigl(1 - \cos\frac{\pi}{m + 2}\Bigr), \qquad m = \Bigl\lfloor \frac{N}{\lvert\ell\rvert} \Bigr\rfloor,
 $$
 
-是单位圆内接正 $(m+2)$ 边形弓高的一半。$m = 0$（指针一步就被移出自己的支撑）时它等于 $\frac12$；$m = 1, 2, 4, 10, 98$ 时分别为 $0.2500$、$0.1464$、$0.0670$、$0.0170$、$2.47\times10^{-4}$；$m$ 很大时它按 $\frac{\pi^2}{4(m+2)^2}$ 趋于零。指针越长，记录可以越轻，留下的不可恢复误差越小，但对每个有限的 $N$ 它都严格为正。这条定理只针对这一种平移记录信道与一对标签差非零的分支，并不断言其他编码方式下也有同样的下界。
+当 $m \ge 1$ 时，它是单位圆内接正 $(m+2)$ 边形弓高的一半。$m = 0$（指针一步就被移出自己的支撑）时它恰为 $\frac12$；$m = 1, 2, 4, 10, 98$ 时的下界按所示精度四舍五入后分别为 $0.2500$、$0.1464$、$0.0670$、$0.0170$、$2.47\times10^{-4}$（其中 $m = 1$ 时的 $0.2500$ 为精确值）；$m$ 很大时它按 $\frac{\pi^2}{4(m+2)^2}$ 趋于零。固定非零平移 $\ell$，增加允许的指针格数只使这一下界阶梯式不增：只有 $m$ 增大时，下界才下降；这并不保证实际恢复误差变小。对每个有限的 $N$，下界都严格为正。
+
+例如取归一化指针 $c(0) = 1$、其余 $c(k) = 0$，它对任意允许的 $N \ge 0$ 都满足支撑条件，而对每个非零平移都有 $\gamma(\ell) = 0$；只增加允许的格数，重叠与记录信道均不改变。还要留意量词：下界针对每个恢复信道在所有输入上的误差上确界，不是每个输入的误差，也不声称取等号。事实上，标签基底中的对角密度态经记录后不变，取恒等恢复信道时误差为零。这条定理只针对这一种平移记录信道与一对标签差非零的分支，并不断言其他编码方式下也有同样的下界。
 
 ::: {.viz src="sphere-escape" preset="pointer" height="500"}
-**有限指针的重叠就是多边形的边心距。** 青色是 $9$ 格指针的正弦形振幅，品红的轮廓是它平移 $\ell = 1$ 格的副本；两者的重叠 $\lvert\gamma(1)\rvert = 0.9511$（琥珀色的点）恰好落在正 $10$ 边形的边上，即边心距 $\cos\frac{\pi}{10}$，离圆上的 $1$ 还差一段品红的弓高。换指针的形状与长度、加大 $\ell$，琥珀色的点都越不过那条边（[@lem-finite-support-autocorrelation-cosine]、[@thm-finite-record-cosine-obstruction]；正弦形取到等号是页面的数值结果）。
+**有限指针的重叠不超过相应多边形的边心距。** 默认青色是 $9$ 格指针的正弦形振幅，品红的轮廓是它平移 $\ell = 1$ 格的副本；两者的重叠 $\lvert\gamma(1)\rvert = \cos\frac{\pi}{10} \approx 0.9511$（琥珀色的点）恰好落在正 $10$ 边形的边上，离圆上的 $1$ 还差一段品红的弓高。换指针的形状与长度、加大 $\ell$，应按当前 $m = \lfloor N/\lvert\ell\rvert\rfloor$ 重算多边形；琥珀色的点都越不过相应的边。页面仅支持 $1 \le \ell \le N$，故始终有 $m \ge 1$（[@lem-finite-support-autocorrelation-cosine]、[@thm-finite-record-cosine-obstruction]；默认正弦形在 $\ell = 1$ 取到等号是页面的数值结果）。
 :::
 
 **有限门计数的硬下界。** 回到第 2 条论断本身。那里只说内接多面体与球皮之间“留着”残差，没有说至少留多少。一行球冠面积就能给出答案。
@@ -400,7 +402,7 @@ $$
 **反过来读。** 要让球面上每一点离可达点集的角距离都小于 $\varepsilon$，必须 $2^{L+1} - 1 \ge \frac{2}{1 - \cos\varepsilon}$，即 $L \ge \log_2\bigl(\frac{2}{1 - \cos\varepsilon} + 1\bigr) - 1 \approx 2\log_2\frac{1}{\varepsilon} + 1$。对 $\varepsilon = 10^{-2}, 10^{-3}, 10^{-6}$（弧度）分别给出 $L \ge 15, 21, 41$。这是一个只靠计数得到的下界：门长至少随 $\log\frac{1}{\varepsilon}$ 线性增长。Solovay–Kitaev 定理（[@rem-solovay-kitaev-literature]，文献结果）给出的是与之配对的上界：$L = O\bigl(\log^c\frac{1}{\varepsilon}\bigr)$，$c \approx 3.97$，关于 $\log\frac{1}{\varepsilon}$ 是多项式而不是线性的。
 :::
 
-把四种残差尺度并排放：正 $n$ 边形的弓高为 $1 - \cos\frac{\pi}{n} = 2\sin^2\frac{\pi}{2n}$（[@ex-liu-hui-polygon-sagitta]）；$N + 1$ 格指针的不可恢复误差至少是正 $(m+2)$ 边形弓高的一半（[@thm-finite-record-cosine-obstruction]）；$N$ 个顶点的内接多面体覆盖下界见 [@ex-cap-covering-gate-count]；前 $N$ 项余弦多项式的余项受 [@lem-exp-tail-le] 的阶乘界 $\frac{|\theta|^{2N}}{(2N)!}e^{|\theta|}$ 控制（数值对照见 [@ex-taylor-remainder-three-bounds]）。它们都随资源增长而趋于零，而对有限记录信道与有限算例均呈严格正残差。序曲里那句“我们以为我们得到了一个球，但实际只是近似得到一个球”，在这四个场合各有一个可以核对的数。
+把四种残差尺度并排放：正 $n$ 边形的弓高为 $1 - \cos\frac{\pi}{n} = 2\sin^2\frac{\pi}{2n}$（[@ex-liu-hui-polygon-sagitta]）；$N + 1$ 格指针信道对每个恢复信道的输入误差上确界，至少是正 $(m+2)$ 边形弓高的一半（$m \ge 1$；$m = 0$ 时下界为 $\frac12$，见 [@thm-finite-record-cosine-obstruction]）；$N$ 个顶点的内接多面体覆盖下界见 [@ex-cap-covering-gate-count]；前 $N$ 项余弦多项式的余项受 [@lem-exp-tail-le] 的阶乘界 $\frac{|\theta|^{2N}}{(2N)!}e^{|\theta|}$ 控制（数值对照见 [@ex-taylor-remainder-three-bounds]）。固定非零平移 $\ell$ 与角度 $\theta$，随各自资源增长，上述弓高、指针误差下界、覆盖下界与余项上界均趋于零；下界趋零并不保证实际残差趋零。有限记录下界始终为正，表中算例的实际残差也严格为正。序曲里那句“我们以为我们得到了一个球，但实际只是近似得到一个球”，在这四个场合各有一个可以核对的数。
 
 ::: {.viz src="sphere-escape" preset="liuhui" height="500"}
 **刘徽割圆。** 边数从 $6$ 翻倍到 $192$，多边形越来越像圆；右侧的放大镜始终把一条边与圆弧之间的缝放大到看得见。这条缝 $1 - \cos\frac{\pi}{n}$ 每翻一倍缩到约四分之一，对任何有限的 $n$ 都大于零（[@ex-liu-hui-polygon-sagitta]）。
@@ -412,7 +414,7 @@ $$
 
 在单比特布洛赫球面 $S^2$ 上，能否设计出一套全局连续、无奇点的切向基准标架（给每一个纯态 $\vv{a} \in S^2$ 都连续指定一根垂直起跑方向 $\vv{v}(\vv{a}) \perp \vv{a}$）？在仅由度 $5$ 与度 $6$ 顶点拼成的封闭分片欧氏等边三角剖分球面（或其对偶的封闭三价富勒烯球笼）上，五重缺陷的个数受到怎样的拓扑约束？进而，若要求整座 $m$ 维切丛 $TS^m$ 拥有一套由 **$m$ 根处处线性无关切向量场组成的全局平行化标架（parallelization）**，究竟哪些维数的球面能够满足条件？
 
-让我们在下面的经典文献注记中，把这三座横跨多面体组合学、微分拓扑与代数K理论的丰碑一次看清。
+让我们在下面的经典文献注记中，把这三座横跨多面体组合学、微分拓扑与拓扑 K 理论的丰碑一次看清。
 
 ::: {.remark #rem-hairy-ball-adams-literature title="欧拉示性数、笛卡尔 720° 多面体总角亏、毛球定理与 Adams 可平行化球面定理（文献结果，未在本书形式化）"}
 **文献结果，未在本书形式化。** 以下四项经典几何与拓扑定理从组合多面体、光滑切丛与赋范除法代数三个角度，严格锁定了球面内蕴标架的拓扑阻塞与维数奇迹：
@@ -424,14 +426,14 @@ $$
    $$
 
    例如，正二十面体（icosahedron）拥有 $V = 12$ 个顶点、$E = 30$ 条棱与 $F = 20$ 个正三角形面，精确满足 $12 - 30 + 20 = 2$。
-2. **笛卡尔总角亏定理与 $12 \times 60^\circ = 720^\circ = 4\pi$ 五边形缺陷锁（Descartes's total angular defect）**：需要严格区分**光滑圆球面上的球面测地线三角形**与**分片平坦（piecewise-Euclidean）多面体表面上的欧氏平面三角形**——在常曲率 $+1$ 的光滑圆球面 $S^2$ 上，非退化球面测地线三角形具有正的球面角盈 $\alpha + \beta + \gamma > \pi$（例如球面正二十面体剖分中每个球面正三角形内角为 $72^\circ$，$5$ 个角在光滑顶点处拼成 $5 \times 72^\circ = 360^\circ$，因为 $4\pi$ 的高斯曲率均匀分布在弯曲面片内部）；相反，考察同胚于 $S^2$ 的**封闭分片欧氏等边三角剖分多面体表面**，其每个面都是内角为 $\pi/3 = 60^\circ$ 的平坦欧氏等边三角形，所有高斯曲率都浓缩为顶点处的离散角亏。若某个顶点周围汇集了 $6$ 个平坦等边三角形（度为 $6$），其环绕内角和为 $6 \times 60^\circ = 360^\circ = 2\pi$，局部角亏（angular defect）为 $\delta_6 = 0$，因此纯由度 $6$ 顶点组成的平坦三角网格只能铺成欧氏平面或平坦环面（$\chi(T^2) = 0$），绝不可能合拢成封闭球面！若该封闭分片欧氏等边三角剖分球面仅含度 $5$ 与度 $6$ 顶点，则每个度为 $5$ 的顶点处环绕内角和为 $5 \times 60^\circ = 300^\circ$，留出局部正角亏
+2. **笛卡尔总角亏定理与 $12 \times 60^\circ = 720^\circ = 4\pi$ 五边形缺陷锁（Descartes's total angular defect）**：需要严格区分**光滑圆球面上的球面测地线三角形**与**分片平坦（piecewise-Euclidean）多面体表面上的欧氏平面三角形**——在常曲率 $+1$ 的光滑圆球面 $S^2$ 上，非退化球面测地线三角形具有正的球面角盈 $\alpha + \beta + \gamma > \pi$（例如球面正二十面体剖分中每个球面正三角形内角为 $72^\circ$，$5$ 个角在光滑顶点处拼成 $5 \times 72^\circ = 360^\circ$，因为 $4\pi$ 的高斯曲率均匀分布在弯曲面片内部）；相反，考察同胚于 $S^2$ 的**封闭分片欧氏等边三角剖分多面体表面**，其每个面都是内角为 $\pi/3 = 60^\circ$ 的平坦欧氏等边三角形，所有高斯曲率都浓缩为顶点处的离散角亏。若某个顶点周围汇集了 $6$ 个平坦等边三角形（度为 $6$），其环绕内角和为 $6 \times 60^\circ = 360^\circ = 2\pi$，局部角亏（angular defect）为 $\delta_6 = 0$，因此顶点全为度 $6$ 的封闭等边三角剖分曲面总角亏为 $0$，故 $\chi = 0$，绝不可能合拢成 $\chi(S^2) = 2$ 的球面！欧氏平面与平坦环面（$\chi(T^2) = 0$）是这种局部平坦网格的例子。若该封闭分片欧氏等边三角剖分球面仅含度 $5$ 与度 $6$ 顶点，则每个度为 $5$ 的顶点处环绕内角和为 $5 \times 60^\circ = 300^\circ$，留出局部正角亏
 
    $$
    \delta_5 = 2\pi - 5\times\frac{\pi}{3} = \frac{\pi}{3} = 60^\circ.
    $$
 
    由笛卡尔多面体总角亏定理（高斯—博内定理 $\int_{S^2} K\,dA = 2\pi\chi(S^2) = 4\pi$ 的离散原型），任何同胚于 $S^2$ 的封闭多面体所有顶点的角亏总和恒等于 $2\pi\chi(S^2) = 4\pi = 720^\circ$。既然度 $6$ 顶点角亏为 $0$，而每个度 $5$ 顶点贡献恰好 $60^\circ$ 角亏，整颗封闭分片平坦三角剖分球面上就**必须不多不少恰好存在 $720^\circ / 60^\circ = 12$ 个度 $5$ 角亏顶点**（$12 \times 60^\circ = 720^\circ = 4\pi$）！对偶地，在由正五边形（$F_5$ 个）与正六边形（$F_6$ 个）拼成的任意**封闭三价富勒烯多面体笼**（每个顶点度为 $3$，故 $3V = 2E = 5F_5 + 6F_6$）上，欧拉公式 $6(V - E + F) = 6F - 2E = (6-5)F_5 + (6-6)F_6 = 12$ 同样严格锁定**恰好存在 $F_5 = 12$ 个五边形面**。这正是[序曲](README.md)与本章“割圆多面体近似”在组合拓扑上的铁证：有限分片平坦多面体要想弯曲合拢成球，就必须把 $4\pi$ 的总曲率集中为离散顶点上的角亏接缝。
-3. **庞加莱—布劳威尔毛球定理与奇偶维球面切向量场（Poincaré–Brouwer Hairy Ball Theorem）**：球面 $S^m$ 的欧拉示性数为 $\chi(S^m) = 1 + (-1)^m$。对任意**偶数维球面** $S^{2n}$，由于 $\chi(S^{2n}) = 2 \neq 0$（特别地 $\chi(S^2) = 2$），由庞加莱—霍普夫（Poincaré–Hopf）向量场指标定理，$S^{2n}$ 上的任何连续切向量场 $v : S^{2n} \to TS^{2n}$ 必然至少在一个奇点 $x_0 \in S^{2n}$ 处归零（$v(x_0) = 0$）；在量子力学中，这意味着单量子比特纯态流形 $S^2 \cong \mathbb{CP}^1$ 的切丛（以及其上的 $U(1)$ 霍普夫主丛 $S^3 \to S^2$）不存在全局连续无奇点的截面（狄拉克磁单极与贝里相位奇点的拓扑根源正在于此）。反之，对任意**奇数维球面** $S^{2n-1} \subset \mathbb{C}^n$，由于 $\chi(S^{2n-1}) = 0$，它总能容许**至少一根**处处非零的连续单位切向量场——例如将复坐标乘以虚数单位 $v(z) = iz$（在实坐标下即 $v(x_1, x_2, \dots, x_{2n-1}, x_{2n}) = (-x_2, x_1, \dots, -x_{2n}, x_{2n-1})$，如在 $S^5$ 上即无奇点）。
+3. **庞加莱—布劳威尔毛球定理与奇偶维球面切向量场（Poincaré–Brouwer Hairy Ball Theorem）**：球面 $S^m$ 的欧拉示性数为 $\chi(S^m) = 1 + (-1)^m$。对任意**偶数维球面** $S^{2n}$，由于 $\chi(S^{2n}) = 2 \neq 0$（特别地 $\chi(S^2) = 2$），由庞加莱—霍普夫（Poincaré–Hopf）向量场指标定理，$S^{2n}$ 上的任何连续切向量场 $v : S^{2n} \to TS^{2n}$ 必然至少在一个奇点 $x_0 \in S^{2n}$ 处归零（$v(x_0) = 0$）；在量子力学中，这意味着单量子比特纯态流形 $S^2 \cong \mathbb{CP}^1$ 的切丛不存在全局连续无奇点的截面。另一条独立的事实是：其上的 $U(1)$ 霍普夫主丛 $S^3 \to S^2$ 因第一陈数为 $\pm 1$（符号依约定）而没有全局截面——狄拉克磁单极与贝里相位奇点的拓扑根源在于这后一条，而不是由毛球定理推出。反之，对任意**奇数维球面** $S^{2n-1} \subset \mathbb{C}^n$，由于 $\chi(S^{2n-1}) = 0$，它总能容许**至少一根**处处非零的连续单位切向量场——例如将复坐标乘以虚数单位 $v(z) = iz$（在实坐标下即 $v(x_1, x_2, \dots, x_{2n-1}, x_{2n}) = (-x_2, x_1, \dots, -x_{2n}, x_{2n-1})$，如在 $S^5$ 上即无奇点）。
 4. **Hurwitz 赋范除法代数与 Adams 可平行化球面定理（Adams, 1962）**：注意“存在**一根**无奇点切向量场”（所有奇数维球面 $S^{2n-1}$ 均具备）与“存在 **$m$ 根处处线性无关的全局切向量场标架**”（即切丛 $TS^m$ 全局平凡、流形**可平行化** parallelizable）之间的本质区别！例如 $S^5$ 虽有一根无奇点切场，却无法凑齐 $5$ 根处处线性无关的全局切标架。究竟哪些维数的单位球面 $S^m$ 是可平行化的？由 Hurwitz 定理，实数域 $\mathbb{R}$ 上的有限维赋范除法代数（满足乘积模长守恒 $\|xy\| = \|x\|\|y\|$）只有四个：**实数 $\mathbb{R}$（$1$ 维）、复数 $\mathbb{C}$（$2$ 维）、四元数 $\mathbb{H}$（$4$ 维）与八元数 $\mathbb{O}$（$8$ 维）**。它们的单位球面分别是零维球 $S^0 \subset \mathbb{R}^1$、一维圆周 $S^1 \subset \mathbb{C} \cong \mathbb{R}^2$、三维超球面 $S^3 \subset \mathbb{H} \cong \mathbb{R}^4$ 与七维超球面 $S^7 \subset \mathbb{O} \cong \mathbb{R}^8$，利用除法代数的虚部基元左乘即可直接构造出完备的全局正交切标架。J. Frank Adams 于 1962 年利用拓扑 K 理论确定了球面上处处线性无关向量场的最大数目，严格证明：**在所有正维数球面中，唯有 $S^1, S^3, S^7$（连同零维伴侣 $S^0$）是可平行化的！**
 
 将本注记的第 3 条与第 4 条并读，便可从经典拓扑视角回望[第一章](ch01-measurement.md)的几何伏笔：单比特观测球面 $S^2$（偶维数 $2 \notin \{0, 1, 3, 7\}$，$\chi(S^2) = 2$）上不存在处处非零的连续切向量场；而通过霍普夫纤维化包覆其外的三维超球面 $S^3 \cong \mathrm{SU}(2)$（四元数单位球面，属于 Adams 可平行化名单 $\{S^0, S^1, S^3, S^7\}$；注意 $S^3$ 的圆球黎曼度规仍具常正截面曲率 $+1$，并非欧氏平坦度规），其切丛 $TS^3$ 则借助四元数左不变标架获得了全局拓扑平凡化。

@@ -56,6 +56,28 @@ Let $c \in [0, 1]$ be a real coherence-retention coefficient, and let $\mathcal{
 Claim 1 follows by induction on $N$: $N = 0$ is the identity ($c^0 = 1$), and step $N \to N + 1$ leaves diagonal entries $i = j$ untouched while multiplying off-diagonal entries $i \neq j$ by one more factor of $c$ to give $c^{N+1}\rho_{ij}$. For claim 2, evaluating claim 1 on $\rho_+$ at $(0, 1)$ gives $\frac{1}{2}c^N$; since $0 \le c < 1$, $|c| < 1$ implies $c^N \to 0$ as $N \to \infty$, and scaling by $\frac{1}{2}$ preserves convergence to $0$. The full proof is checked by the Lean kernel.
 :::
 
+In [@prop-phase-damping-decay], the north–south computational basis serves as the decoherence-free pointer axis because `phaseDamping` preserves diagonal entries directly in computational coordinates. If phase damping acts instead in Fourier (Hadamard) coordinates, the fixed-point spine rotates onto the equatorial axis. To state this change of frame precisely on `QubitMatrix := Matrix (Fin 2) (Fin 2) ℂ` with closed-interval damping parameter `DampingCoefficient := Set.Icc (0 : ℝ) 1` ($c \in [0, 1]$), recall that $(\operatorname{phaseDamping}(c,\rho))_{ij}$ equals $\rho_{ij}$ for $i = j$ and $c\,\rho_{ij}$ for $i \neq j$, and for any coordinate equivalence `coordinates : QubitMatrix ≃ QubitMatrix` define $\operatorname{phaseDampingInBasis}(\mathrm{coordinates}, c, \rho) := \mathrm{coordinates}^{-1}\bigl(\operatorname{phaseDamping}(c, \mathrm{coordinates}(\rho))\bigr)$. Taking the self-inverse Hadamard coordinate map
+
+$$
+\operatorname{hadamardCoordinates}(\rho) := \begin{pmatrix} \dfrac{\rho_{00} + \rho_{01} + \rho_{10} + \rho_{11}}{2} & \dfrac{\rho_{00} - \rho_{01} + \rho_{10} - \rho_{11}}{2} \\[6pt] \dfrac{\rho_{00} + \rho_{01} - \rho_{10} - \rho_{11}}{2} & \dfrac{\rho_{00} - \rho_{01} - \rho_{10} + \rho_{11}}{2} \end{pmatrix},
+$$
+
+whose forward and inverse maps coincide (forming the involutive equivalence `hadamardCoordinateEquiv`), we set $\operatorname{fourierPhaseDamping}(c, \rho) := \operatorname{phaseDampingInBasis}(\mathrm{hadamardCoordinateEquiv}, c, \rho)$. A quick hand check at the complete-dephasing endpoint $c = 0$ contrasts the two axes: for the equatorial state $\rho_+ = \lvert +\rangle\langle +\rvert = \frac{1}{2}\bigl(\begin{smallmatrix} 1 & 1 \\ 1 & 1 \end{smallmatrix}\bigr)$, $\operatorname{hadamardCoordinates}(\rho_+) = \bigl(\begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix}\bigr)$ already has zero off-diagonal entries, is fixed by $\operatorname{phaseDamping}(0, \cdot)$, and transforms back to $\rho_+$; by contrast, for the north-pole state $\rho_0 = \lvert 0\rangle\langle 0\rvert = \bigl(\begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix}\bigr)$, $\operatorname{hadamardCoordinates}(\rho_0) = \frac{1}{2}\bigl(\begin{smallmatrix} 1 & 1 \\ 1 & 1 \end{smallmatrix}\bigr)$ loses its off-diagonals at $c = 0$ to become $\frac{1}{2}I_2$, which transforms back to the maximally mixed center $\frac{1}{2}I_2 \neq \rho_0$. The theorem below extends this fixed-point characterization to every nontrivial damping coefficient $c \neq 1$.
+
+::: {.theorem #thm-fourier-pointer-fixed title="Fixed Points of Fourier Pointer-Basis Damping" lean="D5/S3/Quantum/PointerBasis.fourier_phase_damping_fixed_iff"}
+Let $c \in [0, 1]$ (`c : DampingCoefficient`) satisfy $(c : \mathbb{R}) \neq 1$, and let $\rho \in M_2(\mathbb{C})$ (`rho : QubitMatrix`). Then $\rho$ is a fixed point of Fourier phase damping if and only if every off-diagonal entry of its Hadamard coordinate matrix vanishes:
+
+$$
+\operatorname{fourierPhaseDamping}(c, \rho) = \rho \iff \forall i, j \in \mathrm{Fin}\,2,\; i \neq j \implies \operatorname{hadamardCoordinates}(\rho)_{i,j} = 0.
+$$
+:::
+
+::: proof
+Unfolding `fourierPhaseDamping` and applying the bijection `hadamardCoordinateEquiv` to both sides reduces $\operatorname{fourierPhaseDamping}(c, \rho) = \rho$ to the matrix equality $\operatorname{phaseDamping}(c, \operatorname{hadamardCoordinates}(\rho)) = \operatorname{hadamardCoordinates}(\rho)$. Checking entries on `Fin 2`, the diagonal positions $i = j$ hold automatically, while for $i \neq j$ the equality reads $c \cdot \operatorname{hadamardCoordinates}(\rho)_{i,j} = \operatorname{hadamardCoordinates}(\rho)_{i,j}$, or equivalently $(c - 1)\operatorname{hadamardCoordinates}(\rho)_{i,j} = 0$. Because $(c : \mathbb{R}) \neq 1$ ensures $c - 1 \neq 0$ in $\mathbb{C}$, cancellation in $\mathbb{C}$ shows that this holds for all $i \neq j$ if and only if $\operatorname{hadamardCoordinates}(\rho)_{i,j} = 0$. The full proof is checked by the Lean kernel.
+:::
+
+Two scope boundaries deserve emphasis. First, the hypothesis $(c : \mathbb{R}) \neq 1$ is indispensable: at the noiseless endpoint $c = 1$, $\operatorname{fourierPhaseDamping}(1, \cdot)$ is the identity on all of $M_2(\mathbb{C})$ and fixes matrices such as $\lvert 0\rangle\langle 0\rvert$ whose off-diagonal Hadamard coordinates are nonzero. Second, although `hadamardCoordinates` agrees with unitary Hadamard conjugation $H\rho H$ on $M_2(\mathbb{C})$, the general combinator `phaseDampingInBasis` accepts an arbitrary bijection `QubitMatrix ≃ QubitMatrix` (not necessarily a physical unitary channel), and this theorem characterizes the fixed-point subspace of the Fourier phase-damping model rather than declaring $\{\lvert +\rangle, \lvert -\rangle\}$ a universal pointer basis for arbitrary physical environments.
+
 The qubit formula above compresses the environment's action into one real number $c$. What if the system has many branches and complex phases enter the overlaps? Attach a unit environment vector $E_i$ to each system address $i$. After the controlled recording map $V\lvert i\rangle=\lvert i\rangle\otimes\lvert E_i\rangle$, tracing out the environment multiplies entry $(i,j)$ by $G_{ij}=\sum_a E_i(a)\overline{E_j(a)}$, the entry formula of [`environment_marginal_channel`](lean:D5/S3/Quantum/Decoherence/EnvironmentMarginalChannel.environment_marginal_channel). Exact orthogonality can therefore be relaxed to a sufficient condition with a quantitative error bound.
 
 ::: {.theorem #thm-repeated-record-decay title="Exponential Error Bound for Repeated Finite Records and Record-Class Pinching" lean="D5/S3/Quantum/Decoherence/RepeatedRecordExponentialDecay.repeated_record_exponential_decay"}
@@ -731,7 +753,7 @@ $$
 
 Thus these matrices fail at the fifth step; they do not exclude another qutrit construction. Exact minimum dimensions for general windows, realization of general compatible trace moments, and the full approximate resource–error tradeoff remain unresolved; the next remark preserves the weighted history interface under small leakage. This construction does not extend to the balanced ten-dimensional source channel. It supplies neither a full retained-environment joint-history identity nor a process-tensor identity with inserted interventions, and it establishes no experimental support or model universality.
 
-**What finite unitary dilation still leaves to prove.** Farenick's [finite-power unitary dilation theorem, Corollary 3.2](https://doi.org/10.1007/s44146-024-00170-6), represents any prescribed finite window of powers of a contraction as compressions of the powers of one unitary on a containing space. If the original space is finite-dimensional, the dilating space can also be chosen finite-dimensional. This is a literature result, not formalized in this book. The theorem permits a choice of dilating space; it does not fix the three-dimensional environment required here or supply one pair of branch unitaries and one positive semidefinite initial state. Finite-power dilatability therefore does not yet answer the fifth-step question. The missing construction must preserve these common-realization constraints, beyond the existence of scalar moments.
+**What finite unitary dilation still leaves to prove.** Farenick's [finite-power unitary dilation theorem, Corollary 3.2](https://doi.org/10.1007/s44146-024-00170-6), represents any prescribed finite window of powers of a contraction as compressions of the powers of one unitary on a containing space. If the original space is finite-dimensional, the dilating space can also be chosen finite-dimensional. The theorem permits a choice of dilating space; it does not fix the three-dimensional environment required here or supply one pair of branch unitaries and one positive semidefinite initial state. Finite-power dilatability therefore does not yet answer the fifth-step question. The missing construction must preserve these common-realization constraints, beyond the existence of scalar moments.
 
 :::
 
@@ -1062,42 +1084,6 @@ $$
 
 Thus no pair $A,B\in U(3)$ satisfies $f_n=r^n$ for $0\le n\le8$. This excludes every unitary pair, including noncommuting pairs; it is not a failed parametrization or numerical optimization. The argument does not even use all the compatibility conditions imposed by the grid of spectral ratios and weights that are squared moduli of a unitary.
 
-**Spectral-grid exclusion for every positive interior parameter.** The following ordinary written derivation is also not formalized in this book. Let $0<r<1$ and suppose the same $A,B\in U(3)$ satisfy $f_n=r^n$ for $0\le n\le8$. The [research question](https://github.com/the-omega-institute/trureturing/issues/31174) fixes this common-pair quantifier. The saturated-moment argument above supplies nine distinct ratio nodes $z_{ij}=a_i b_j^{-1}$ and their monic annihilator
-
-$$
-P(z)=z^9-rz^8+c(1-rz),\qquad |c|=1.
-$$
-
-Newton's identities therefore give the **unweighted** grid sums $S_k=\sum_{i,j}z_{ij}^k=r^k$ for $k=1,2,3$. These are root identities for $P$; they do not replace the original weighted trace moments. Put $d_j=b_j^{-1}$ and
-
-$$
-x=\sum_i a_i,\quad y=\sum_j d_j,\quad
-\alpha=\prod_i a_i,\quad\beta=\prod_j d_j.
-$$
-
-Then $xy=S_1=r\ne0$. For three unit-modulus numbers, the second and third power sums are
-
-$$
-p_2=x^2-2\alpha\overline{x},\qquad
-p_3=x^3-3\alpha|x|^2+3\alpha,
-$$
-
-with the same formulas for $y,\beta$. Define
-
-$$
-u=\frac{x^2}{\alpha\overline{x}},\quad
-v=\frac{y^2}{\beta\overline{y}},\quad
-s=|x|^2=|u|^2,\quad t=|y|^2=|v|^2,\quad |uv|=r.
-$$
-
-The equations $S_2=r^2$ and $S_3=r^3$, together with $|\alpha|=|\beta|=1$ and $xy=r$, allow cancellation of nonzero factors and give
-
-$$
-u+v=2,\qquad us+vt+st+3-3(s+t)=0.
-$$
-
-If $\operatorname{Im}u\ne0$, the imaginary part of the second identity gives $s=t$. Since $v=2-u$ and $|u|=|v|$, this forces $\operatorname{Re}u=1$, and then $r=|uv|=|u|^2>1$, a contradiction. If $u,v$ are real, then $s=u^2$ and $t=v^2$; setting $q=uv$ and using $u+v=2$ reduces the second identity to $q^2=1$, so $r=|uv|=1$, again a contradiction. Thus, conditional on the preceding saturated-moment lemma, every strictly interior parameter $0<r<1$ is excluded. The argument keeps one common pair of possibly noncommuting branch unitaries on the same three-dimensional environment and the maximally mixed initial state. It says nothing about $r=0$, endpoints, negative parameters, arbitrary initial densities, or the general-density window $n\le5$; it is an ordinary proof proposal, not Lean verification or a full physical-history result.
-
 **Zero and negative parameters, and a two-level environment.** Replacing $A$ by $-A$ replaces $f_n$ by $(-1)^nf_n$, so the parameter $r=-999/1000$ is also impossible in the same dimension. Zero has a different boundary: a saturated window exists for every positive integer $d$. Set
 
 $$
@@ -1156,6 +1142,28 @@ The squared Hilbert–Schmidt norm is the sum of the squared moduli of all entri
 Orthogonal polynomials on the unit circle provide a neighboring classical framework: see Barry Simon, [arXiv:math/0405111](https://arxiv.org/abs/math/0405111), §1 for the recurrence and §2.1(c) for the Bernstein–Szegő case. Those passages are not cited as a theorem supplying this entire obstruction to the restricted realization. All node, phase, and capacity arguments needed here have been given explicitly. No worldwide novelty or physical universality is claimed. No complete Lean proof of this conclusion is available for citation in the book; this ordinary derivation does not constitute kernel verification.
 
 :::
+
+::: {.theorem #thm-positive-interior-grid-algebraic-obstruction title="An algebraic obstruction for an interior spectral grid" lean="D5/S3/Quantum/Analysis/PositiveInteriorGridObstruction.positive_interior_grid_algebraic_obstruction"}
+Fix $0<r<1$, take complex numbers $u,v$, and take real numbers $s,t$. The following relations are incompatible:
+
+$$
+\begin{aligned}
+u+v&=2,\\
+us+vt+st+3-3(s+t)&=0,\\
+s&=|u|^2,\qquad t=|v|^2,\qquad |uv|^2=r^2.
+\end{aligned}
+$$
+
+The Lean statement splits the first two complex equations into real and imaginary parts and expresses each squared modulus as a sum of squares in real coordinates.
+:::
+
+::: {.proof #pf-positive-interior-grid-algebraic-obstruction}
+If $\operatorname{Im}u\ne0$, then $v=2-u$ and the imaginary part of the second equation give $s=t$. Equal squared moduli force $\operatorname{Re}u=1$, so $r=|uv|=s>1$. If $u$ is real, then $v$ is real as well. Set $q=uv$ and use $u+v=2$ to write $s+t=4-2q$, $us+vt=u^3+v^3=8-6q$, and $st=q^2$. The second equation reduces to $q^2=1$, contradicting $r<1$.
+:::
+
+In the maximally mixed spectral grid above, suppose saturation identifies nine distinct ratio nodes as the roots of $P(z)=z^9-rz^8+\eta(1-rz)$. Newton's identities give the unweighted grid sums $S_k=r^k$ for $k=1,2,3$. Write the two triples of unit-circle factors as $a_i,d_j$, with $d_j=b_j^{-1}$, and set $x=\sum_i a_i$, $y=\sum_j d_j$, $\alpha=\prod_i a_i$, and $\beta=\prod_j d_j$. Since $xy=r$, we can set $u=x^2/(\alpha\overline{x})$ and $v=y^2/(\beta\overline{y})$. The two second power sums are $x^2-2\alpha\overline x$ and $y^2-2\beta\overline y$. The third power sums are $x^3-3\alpha|x|^2+3\alpha$ and $y^3-3\beta|y|^2+3\beta$. Substituting these expressions in $S_2$ and $S_3$ and cancelling the nonzero factors gives the two complex equations in [@thm-positive-interior-grid-algebraic-obstruction], with $s=|x|^2$, $t=|y|^2$, and $|uv|=r$.
+
+The Lean reference covers the contradiction from the reduced equations. The passage from trace moments of one pair of qutrit unitaries to saturated nodes, the grid, and the reduced equations remains a written derivation. Feasibility for arbitrary initial densities and shorter windows requires separate arguments. [Upstream proof and scope](https://github.com/the-omega-institute/trureturing/pull/31199)
 
 Alongside energy-conserving $T_2$ dephasing stands energy-relaxing **amplitude damping** ($T_1$ spontaneous emission): an excited state at the south pole ($-1$) emits a quantum of energy into a cold bath and relaxes toward the ground state at the north pole ($+1$). Geometrically, the Bloch ball does not merely shrink around the origin — its center **drifts upward** along the vertical axis via the affine map [`dampedAxis`](lean:D5/S3/QuantumChannels/AmplitudeDampingContraction.dampedAxis) $u \mapsto u' = (1 - \gamma)u + \gamma$ ($0 \le \gamma < 1$).
 

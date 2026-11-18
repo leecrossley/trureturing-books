@@ -81,7 +81,8 @@
         {
           "gid": "D5/S3/Quantum/PureState/RecordCoherenceComplementarity.pure_record_distinguishability_coherence_complementarity"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "sphere-escape",
@@ -171,7 +172,8 @@
         {
           "gid": "D5/S1/FixedPoints/Algebraic/GoldenFixedPoint.golden_fixed_point_unique"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "pythagoras-number-escape",
@@ -253,7 +255,8 @@
         {
           "gid": "D5/S3/PrimeForms/ThreeModFourDescent.prime_dvd_dvd_of_dvd_sq_add_sq"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "timeless-causal-crystal",
@@ -334,7 +337,8 @@
         {
           "gid": "D5/S3/Quantum/Recovery/CoherentUniformAmplification.uniform_operator_rotation"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "navier-stokes-p-np",
@@ -389,7 +393,8 @@
         {
           "gid": "D5/S3/FluidDynamics/Fourier/AdvectionClosureInstance.no_exact_closure"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "eth-horizon-crossover",
@@ -447,7 +452,8 @@
         {
           "gid": "D5/S3/Observer/Tomography/FiniteRankConcentrationModeBound.finite_rank_concentration_mode_bound"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "spatial-attractor-deja-vu",
@@ -490,7 +496,8 @@
           "href_en": "../en/coda-s02-spatial-attractors.html#sec-coda-deja-vu-fractal-dimension"
         }
       ],
-      "lean": []
+      "lean": [],
+      "capture_lock": "links"
     },
     {
       "id": "golden-cut-observer",
@@ -572,7 +579,8 @@
         {
           "gid": "D5/S1/Depth/GoldenHurwitzBound.golden_hurwitz_bound"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "repeated-projection",
@@ -634,7 +642,8 @@
         {
           "gid": "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "bloch-noise",
@@ -709,7 +718,8 @@
         {
           "gid": "D5/S3/QuantumChannels/CoherenceMassBridge.pinching_eq_self_iff_offDiag_eq_zero"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "double-slit-marker",
@@ -758,7 +768,8 @@
         {
           "gid": "D5/S3/QuantumChannels/PinchingProjection.pinching_discarded_coherence_mass"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "erasure-ledger",
@@ -832,7 +843,8 @@
         {
           "gid": "D5/S3/Quantum/Decoherence/CanonicalRecordAccessRecovery.reduced_irreversibility_is_canonical_record_access_defect"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "speed-limit-zeno",
@@ -892,7 +904,8 @@
         {
           "gid": "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "two-angle-addressing",
@@ -959,7 +972,8 @@
         {
           "gid": "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "berry-loop",
@@ -1011,7 +1025,8 @@
         {
           "gid": "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.Latitude.latitude_dot"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "pulse-area-virtual-z",
@@ -1077,7 +1092,8 @@
         {
           "gid": "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "parameter-shift",
@@ -1123,7 +1139,8 @@
         {
           "gid": "D5/S3/Quantum/Dynamics/ProjectionProbabilityFlow.projection_probability_flow"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "equator-concentration",
@@ -1163,7 +1180,8 @@
           "href": "https://doi.org/10.1038/s41467-018-07090-4"
         }
       ],
-      "lean": []
+      "lean": [],
+      "capture_lock": "links"
     },
     {
       "id": "pairwise-shutter",
@@ -1220,7 +1238,8 @@
         {
           "gid": "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "chsh-dial",
@@ -1284,7 +1303,8 @@
         {
           "gid": "D5/S3/QuantumBounds/PeritoTsirelson.bell_value_le"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "syndrome-decoding",
@@ -1329,7 +1349,8 @@
         {
           "gid": "D5/S3/Quantum/Codes/StabilizerGenuineEntanglementCommutationRank.pauli_word_mul"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "braiding",
@@ -1382,7 +1403,8 @@
         {
           "gid": "D5/S3/Topology/QuandleMarkovColoring.quandle_coloring_markov_invariant"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "walk-spreading",
@@ -1434,7 +1456,8 @@
         {
           "gid": "D5/S3/Quantum/Walks/SymmetricCoinMaximalWalkEntanglement.result"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "gate-word-polytope",
@@ -1486,7 +1509,8 @@
         {
           "gid": "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "grover-reflections",
@@ -1532,7 +1556,8 @@
         {
           "gid": "D5/S3/Quantum/Recovery/CoherentUniformAmplification.uniform_operator_rotation"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "phase-gears",
@@ -1584,7 +1609,8 @@
         {
           "gid": "D5/S3/Fourier/FinitePoisson.sum_annihilator_character"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "rapidity-lightcone",
@@ -1636,7 +1662,8 @@
         {
           "gid": "D5/S0/Certificates/MinkowskiNullConeRigidity.eq_smul_minkowski_of_null"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "lattice-gauge-loop",
@@ -1691,7 +1718,8 @@
         {
           "gid": "D5/S3/Observer/AgencyHolonomy/NamedTreePhaseTransport.selected_tree_transport"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "layered-network-cut",
@@ -1743,7 +1771,8 @@
         {
           "gid": "D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowBound.QMaxFlow_le_QMinCut"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "complexity-growth",
@@ -1797,7 +1826,8 @@
         {
           "gid": "D5/S3/Quantum/Dynamics/OpenIntegrableCircuitDepthRefutation.result"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "norm-lattice",
@@ -1863,7 +1893,8 @@
         {
           "gid": "D5/S3/Arith/GoldenPell.pell_form_eq_four_mul_norm"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "euler-product-sieve",
@@ -1916,7 +1947,8 @@
         {
           "gid": "D5/S3/Zeros/ZetaIdentities.riemann_zeta_residue_one"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "blade-multiplication",
@@ -1997,7 +2029,8 @@
         {
           "gid": "D5/S3/Quantum/Algebra/WeylDisplacement.displacement_two_anticommute"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "zyz-compile",
@@ -2064,7 +2097,8 @@
         {
           "gid": "D5/S3/Quantum/Information/ActualPureQubitGeometry.norm_bloch_le_trace_of_posSemidef"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "fixed-point-convergence",
@@ -2116,81 +2150,8 @@
         {
           "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
         }
-      ]
-    },
-    {
-      "id": "lean-declaration-map",
-      "code": "LEAN//MAP",
-      "title": "Lean 声明地图",
-      "title_en": "The map of Lean declarations",
-      "summary": "本书引用的 591 条冻结声明按章排开：舞台从左到右是阅读顺序（序曲、三十九章与第三十章和第三十二章各六节、终章、附录 A、B、D 与 E），每一格是 trureturing.lock.json 里的一条声明，落在中文正文第一次引用它的那一章的柱子里；绿色是锁文件里种类为 theorem 的定理，灰色是定义，空心的只在行内链接里出现。时间轴是阅读位置，读到哪一章，那一章的格子就落定；读完正文，格数正好等于锁文件的条目数。点一格看它的种类、模块与源码行、在书中出现的每一章与附录 C 的序号；点一章的柱脚，青色的线连到那一章引用的每一条。第二十七、二十八章逐行解剖的八条定理与两张审计表各有一张卡。数据由页面目录里的 gen-data.py 从锁文件与章节生成，不手填。七张实验卡可以在第二十七、二十八章与附录 C 里单独引用。",
-      "summary_en": "The 591 frozen declarations the book cites, laid out by chapter: from left to right the stage follows the reading order (prelude, thirty-nine chapters with six sections each in Chapters 30 and 32, coda, Appendices A, B, D and E), and each cell is one entry of trureturing.lock.json, placed in the column of the chapter whose Chinese text cites it first; green cells are theorems (kind theorem in the lock), grey ones definitions, and hollow ones are reached by inline links only. The rail is the reading position: as a chapter is read its cells land, and at the end of the main text the number of cells equals the number of entries in the lock. Click a cell for its kind, module and source line, every chapter that cites it and its Appendix C entry; click the foot of a column and cyan lines run to everything that chapter cites. The eight theorems Chapters 27 and 28 dissect line by line and their two audit tables each have a card. The data is generated from the lock and the chapters by gen-data.py in the page's folder, never typed by hand. Each of the seven experiment cards can be cited on its own from Chapters 27 and 28 and Appendix C.",
-      "path": "lean-declaration-map/",
-      "thumbnail": "lean-declaration-map/thumb.jpg",
-      "status": "live",
-      "added": "2026-11-11",
-      "tags": [
-        "Lean 4",
-        "冻结声明",
-        "锁文件",
-        "审计表",
-        "引用地图",
-        "Lean 4 已证"
       ],
-      "tags_en": [
-        "Lean 4",
-        "Frozen declarations",
-        "Lock file",
-        "Audit tables",
-        "Citation map",
-        "Lean 4 verified"
-      ],
-      "theory": [
-        {
-          "label": "第二十七章 · 第一至三部冻结声明全景审计表",
-          "label_en": "Chapter 27 · The audit table of Parts I–III",
-          "href": "../zh/ch27-reading-frozen-proofs-i.html#sec-parts-i-to-iii-frozen-audit-table",
-          "href_en": "../en/ch27-reading-frozen-proofs-i.html#sec-parts-i-to-iii-frozen-audit-table"
-        },
-        {
-          "label": "第二十八章 · 第四至六部冻结声明全景审计表",
-          "label_en": "Chapter 28 · The audit table of Parts IV–VI",
-          "href": "../zh/ch28-reading-frozen-proofs-ii.html#sec-parts-iv-to-vi-frozen-audit-table",
-          "href_en": "../en/ch28-reading-frozen-proofs-ii.html#sec-parts-iv-to-vi-frozen-audit-table"
-        },
-        {
-          "label": "附录 C · 冻结定理总索引",
-          "label_en": "Appendix C · The index of frozen theorems",
-          "href": "../zh/appendix-c.html#sec-appendix-c-theorems",
-          "href_en": "../en/appendix-c.html#sec-appendix-c-theorems"
-        }
-      ],
-      "lean": [
-        {
-          "gid": "D5/S3/QuantumContext/ParallelogramNormLaw.inner_product_norm_parallelogram_law"
-        },
-        {
-          "gid": "D5/S3/Quantum/FiniteDimensional.born_probability_skeleton"
-        },
-        {
-          "gid": "D5/S3/Quantum/Foundation/RayPhaseRigidity.unitary_phase_of_connected_ray_tests"
-        },
-        {
-          "gid": "D5/S3/Observer/Conditioning/FiniteRecordPinchingIdempotence.finite_record_pinching_idempotent"
-        },
-        {
-          "gid": "D5/S3/Observer/BornReduction.rank_one_pure_state_modulus_square_reduction"
-        },
-        {
-          "gid": "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight"
-        },
-        {
-          "gid": "D5/S3/Observer/Conditioning.conditionalState_isState"
-        },
-        {
-          "gid": "D5/S3/Observer/Conditioning.unreadState_fixed_iff"
-        }
-      ]
+      "capture_lock": "links"
     },
     {
       "id": "mutual-observer-attractors",
@@ -2232,7 +2193,8 @@
         {
           "gid": "D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowMinCut.result"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "self-referential-table",
@@ -2287,7 +2249,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/DefinitionEscape/RelativeSemanticDiagonal.relative_semantic_diagonal_ne_listed_decode"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "quantum-fairness-ledger",
@@ -2343,7 +2306,8 @@
         {
           "gid": "D5/S3/Fourier/Asymptotics/TorusObservationWindowReturns.result"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "spherical-degeneracy-radar",
@@ -2389,7 +2353,8 @@
         {
           "gid": "D5/S3/Quantum/Dynamics/ObserverPullbackTraceIdentity.observer_pullback_trace_identity"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "unified-field-slice",
@@ -2465,7 +2430,8 @@
         {
           "gid": "D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowMinCut.result"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "forgetting-rebirth-attractor",
@@ -2517,7 +2483,8 @@
         {
           "gid": "D5/S3/Midline/CayleyCriticalLine.cayley_ratio_norm_one_iff_critical_line"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "pointer-ontology-deref",
@@ -2559,7 +2526,8 @@
         {
           "gid": "D5/S0/Diagonal/EscapeCount.diagonal_landing_fixed"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "self-sustaining-spinor-flow",
@@ -2611,7 +2579,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "gram-causal-elliptope",
@@ -2663,7 +2632,8 @@
         {
           "gid": "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "dream-decoherence-unpinning",
@@ -2722,7 +2692,8 @@
         {
           "gid": "D5/S3/ObserverMemory/JointCoherentReversal.two_copy_joint_reversal_certificate"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "meta-unification-compass",
@@ -2778,7 +2749,8 @@
         {
           "gid": "D5/S1/FixedPoints/Algebraic/GoldenFixedPoint.golden_fixed_point_unique"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "hairy-ball-normal-escape",
@@ -2837,7 +2809,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/ObservationTopology/DiagonalTopologicalEscape.complete_diagonal_not_continuous"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "dottie-fibonacci-spirals",
@@ -2909,7 +2882,8 @@
         {
           "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "critical-mirror",
@@ -2959,7 +2933,8 @@
         {
           "gid": "D5/S3/Zeros/SymmetricPolynomial/FullSymmetryNonlocalization.full_symmetry_not_fixed_line_localization"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "vortex-polygon",
@@ -3010,7 +2985,8 @@
         {
           "gid": "D5/S3/FluidDynamics/Vortices/AlternatingPolygonCartesianChain.unbounded_linear_drift"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "entanglement-entropy-complexity",
@@ -3078,7 +3054,8 @@
         {
           "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "fairness-square-uncertainty-expansion",
@@ -3175,7 +3152,8 @@
         {
           "gid": "D5/S3/Axis/PrimeAxisEscape.prime_axis_escape"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "padic-prime-table-tree",
@@ -3252,7 +3230,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/RefinementGeometry/RefinementUltrametric.refinementDistance_ultrametric"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "dream-pre-decoherence-deja-vu",
@@ -3347,7 +3326,8 @@
         {
           "gid": "D5/S0/Diagonal/EscapeCount.diagonal_landing_fixed"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "pnp-lookup-degradation",
@@ -3415,7 +3395,8 @@
         {
           "gid": "D5/S3/DivergenceSupport/LandauerBound.landauer_bound_of_balance"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "observer-escape-ledger",
@@ -3497,7 +3478,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/Information/RefinementImpurityMonotonicity.refinement_impurity_monotone"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "pisot-clifford-rauzy-sandtable",
@@ -3597,7 +3579,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/InformationEscape/ExactRate.lowersEscape_iff_uniqueCaptureCount_pos"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "quantum-interpretations-duel",
@@ -3695,7 +3678,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/InformationEscape/ExactRate.lowersEscape_iff_uniqueCaptureCount_pos"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "coherence-handshake-causality",
@@ -3784,7 +3768,8 @@
         {
           "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "observer-consensus-decoherence",
@@ -3860,7 +3845,8 @@
         {
           "gid": "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "comparison-oisc-engine",
@@ -3924,7 +3910,8 @@
           "href": "../zh/ch32-s02-oisc-comparison-engine.html#sec-ch32-oisc-comparison-engine",
           "href_en": "../en/ch32-s02-oisc-comparison-engine.html#sec-ch32-oisc-comparison-engine"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "spherical-trihedron-cell",
@@ -3990,7 +3977,8 @@
         {
           "gid": "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "triadic-nameless-sandbox",
@@ -4044,7 +4032,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "berry-sector-path-sandbox",
@@ -4146,7 +4135,8 @@
         {
           "gid": "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "standing-wave-volume-sandbox",
@@ -4212,7 +4202,8 @@
         {
           "gid": "D5/S3/QuantumStates/PhaseLockedOverlap.phase_locked_overlap_is_rotated_real"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "clifford-monad-tiling-sandbox",
@@ -4277,7 +4268,8 @@
         {
           "gid": "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "reversal-diagonal-cascade-sandbox",
@@ -4371,7 +4363,8 @@
         {
           "gid": "D5/S3/Quantum/Algebra/DoubleOrthogonalClosure.double_orthogonal_complement_eq_closure"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "trihedron-rigidity-truss-sandbox",
@@ -4479,7 +4472,8 @@
         {
           "gid": "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "quantum-arc-macro-integral-sandbox",
@@ -4561,7 +4555,8 @@
         {
           "gid": "D5/S3/Quantum/Dynamics/EntropyProductionCoherenceDeletionIdentity.entropy_production_coherence_deletion_identity"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "triadic-arc-field-loop-sandbox",
@@ -4672,7 +4667,8 @@
         {
           "gid": "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "octave-point-volume-field-sandbox",
@@ -4786,7 +4782,8 @@
         {
           "gid": "D5/S3/Fourier/GoldenModelSetDelone.exists_golden_modelSet_delone"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "lorentz-pseudoscalar-sm-octave-sandbox",
@@ -4891,7 +4888,8 @@
         {
           "gid": "D5/S3/Fourier/FinitePoisson.finite_poisson_summation"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "quantum-gate-cosmic-tower-sandbox",
@@ -4999,7 +4997,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "coset-breaking-conservation-tower-sandbox",
@@ -5104,7 +5103,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/Interpretation/InterpretationFixedPoint.objective_claim_requires_invariant_common_factor"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "uncompleted-horizon-sandbox",
@@ -5164,7 +5164,8 @@
         {
           "gid": "D5/S3/Quantum/Algebra/FiniteLayerProjectionEscape.finite_layer_projection_escape"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "stereographic-relativization-sandbox",
@@ -5243,7 +5244,8 @@
         {
           "gid": "D5/S3/ConceptDynamics/DefinitionEscapeAdjudication/RetrospectiveLookupFailure.lookup_copy_zero_loss_and_nonanticipating_failure"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "bounded-horizon-thermodynamics-sandbox",
@@ -5357,7 +5359,8 @@
         {
           "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "gram-window-consensus-sandbox",
@@ -5465,7 +5468,8 @@
         {
           "gid": "D5/S3/DivergenceSupport/LandauerBound.landauer_bound_of_balance"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "roundtrip-born-imaginary-blindspot-sandbox",
@@ -5564,7 +5568,8 @@
         {
           "gid": "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.energy_eigenstate_stationary"
         }
-      ]
+      ],
+      "capture_lock": "links"
     },
     {
       "id": "prelude-dimensions",
@@ -5609,7 +5614,2182 @@
           "href_en": "../en/index.html#sec-awakening"
         }
       ],
-      "lean": []
+      "lean": [],
+      "capture_lock": "links"
+    },
+    {
+      "id": "scattering-temporal-bridge",
+      "code": "SCATTER//TIME",
+      "title": "SCATTER//TIME · 势垒双支与时间双缝：两条倏逝支携带守恒流，相消需要不可区分的等幅路径",
+      "title_en": "SCATTER//TIME · Barrier Branches and the Temporal Double Slit: Two Evanescent Branches Carry a Conserved Flux, Cancellation Needs Indistinguishable Equal Paths",
+      "summary": "在 ℏ = 2m = V₀ = 1 的单位下，把有限方势垒的精确定态画成三维曲线 [x, Re ψ, Im ψ]：入射波、反射波、势垒里的衰减支与增长支、透射波在 x = 0 与 x = L 处逐段匹配；琥珀探针沿 x 走过，读到的流 j = 2 Im(ψ̄ψ′) 处处等于 2kT，T 与只取领头指数的 e^{−2κL} 并排列出。时间双缝场景把两条路径的振幅画成沿 q = EΔt/ℏ 的相量螺旋，P(q) = (1 + a² + 2aμ cos(q + φ))/(1 + a²) 画在背墙上，μ < 1 时按 μ 加权的非相干本底单独画出。数值演示与模型，不是证明；页面不给任何穿越时间。",
+      "summary_en": "In units ℏ = 2m = V₀ = 1 the exact stationary state of a finite square barrier is drawn as the 3D curve [x, Re ψ, Im ψ]: the incoming and reflected waves, the decaying and growing branches inside and the transmitted wave, matched at x = 0 and x = L; an amber probe walks along x and reads the flux j = 2 Im(ψ̄ψ′), equal to 2kT everywhere, with T listed beside the bare leading exponential e^{−2κL}. The temporal scene draws the amplitudes of two paths as phasor helices along q = EΔt/ℏ, with P(q) = (1 + a² + 2aμ cos(q + φ))/(1 + a²) on the back wall and the μ-weighted incoherent background drawn on its own when μ < 1. A numerical illustration and model, not a proof; the page gives no traversal time.",
+      "path": "scattering-temporal-bridge/",
+      "thumbnail": "scattering-temporal-bridge/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 34,
+      "section": "34.19",
+      "presets": [
+        "barrier",
+        "opaque",
+        "cancel",
+        "marked"
+      ],
+      "preset_titles": {
+        "barrier": {
+          "zh": "薄势垒：两条倏逝支一起携带流",
+          "en": "Thin barrier: two evanescent branches carry the flux"
+        },
+        "opaque": {
+          "zh": "厚势垒：T 很小，流仍处处相同",
+          "en": "Thick barrier: T is small, the flux is still the same everywhere"
+        },
+        "cancel": {
+          "zh": "等幅、无标记、反相：P = 0",
+          "en": "Equal, unmarked, opposite: P = 0"
+        },
+        "marked": {
+          "zh": "标记正交：条纹消失，P = 1",
+          "en": "Orthogonal markers: no fringe, P = 1"
+        }
+      },
+      "tags": [
+        "方势垒",
+        "倏逝支",
+        "概率流",
+        "时间双缝",
+        "标记重叠",
+        "非相干本底"
+      ],
+      "tags_en": [
+        "Square barrier",
+        "Evanescent branches",
+        "Probability flux",
+        "Temporal double slit",
+        "Marker overlap",
+        "Incoherent background"
+      ],
+      "theory": [
+        {
+          "label": "第 34 章 §34.19 · 往返双投影、玻恩平方律与虚数盲区",
+          "label_en": "Chapter 34 §34.19 · Round-trip double projection, the Born square law and the imaginary blind spot",
+          "href": "../zh/ch34-s19-roundtrip-projection-and-imaginary-blindspot.html#sec-ch34-19-5",
+          "href_en": "../en/ch34-s19-roundtrip-projection-and-imaginary-blindspot.html#sec-ch34-19-5"
+        },
+        {
+          "label": "ITO 薄膜中的时间双缝衍射（Nature Physics, 2023）",
+          "label_en": "Double-slit time diffraction in an ITO film (Nature Physics, 2023)",
+          "href": "https://doi.org/10.1038/s41567-023-01993-w"
+        },
+        {
+          "label": "阿秒双缝实验（Lindner 等，PRL 95, 040401, 2005）",
+          "label_en": "Attosecond double-slit experiment (Lindner et al., PRL 95, 040401, 2005)",
+          "href": "https://doi.org/10.1103/PhysRevLett.95.040401"
+        },
+        {
+          "label": "磁振子平台（APS，doi:10.1103/jc1c-k3ll）",
+          "label_en": "A magnon platform (APS, doi:10.1103/jc1c-k3ll)",
+          "href": "https://doi.org/10.1103/jc1c-k3ll"
+        },
+        {
+          "label": "带后选择的原子激发（APS，doi:10.1103/gjfq-k9dv）",
+          "label_en": "Atomic excitation with postselection (APS, doi:10.1103/gjfq-k9dv)",
+          "href": "https://doi.org/10.1103/gjfq-k9dv"
+        }
+      ],
+      "lean": [],
+      "capture_lock": "links"
+    },
+    {
+      "id": "zeta-spectrum-lab",
+      "code": "ZETA//SPECTRUM",
+      "title": "ZETA//SPECTRUM · 有限和、合成四根与有限零点样本：有限截断不是 ζ，对称推不出零点在线上",
+      "title_en": "ZETA//SPECTRUM · Finite Sums, a Synthetic Quartet and a Finite Line-Zero Sample: A Truncation Is Not ζ, Symmetry Does Not Put Zeros on the Line",
+      "summary": "三个场景都只做有限计算。部分和场景把 n^{−σ−it} 首尾相接、沿 log n 抬起成三维相量折线，σ > 1 时与有限欧拉积并排，作为两种不同的有限近似，不称任何一个为 ζ(s)；μ(n) 由逆狄利克雷卷积算出。σ = ½ 时只有有限和，不计算解析延拓。合成四根场景在复平面上画出 ∏(s − ρ) 的高度网，根 β ± iγ 与 1 − β ± iγ 同时满足反射与共轭对称却离开直线 σ = ½（模型）。阶梯场景把含素数幂跳点与端点平均的 ψ₀(x) 与只取前十个线上零点的显式公式截断分层对照，没有余项界。数值演示，不是证明。",
+      "summary_en": "All three scenes compute finitely. The partial-sum scene puts the steps n^{−σ−it} head to tail and lifts them along log n into a 3D phasor polyline, beside the finite Euler product for σ > 1, as two different finite approximants, neither of them called ζ(s); μ(n) comes from the inverse Dirichlet convolution. At σ = ½ there is only the finite sum, and no analytic continuation is computed. The quartet scene draws the height lattice of ∏(s − ρ) over the complex plane, with roots β ± iγ and 1 − β ± iγ that satisfy both the reflection and the conjugation symmetry and still sit off the line σ = ½ (a model). The stair scene layers ψ₀(x), with its prime-power jumps and endpoint means, against truncations of the explicit formula with the first ten line zeros, without a remainder bound. A numerical illustration, not a proof.",
+      "path": "zeta-spectrum-lab/",
+      "thumbnail": "zeta-spectrum-lab/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 22,
+      "section": "22.4",
+      "presets": [
+        "domain",
+        "partial",
+        "quartet",
+        "powers"
+      ],
+      "preset_titles": {
+        "domain": {
+          "zh": "σ > 1：有限和与有限欧拉积走向同一处",
+          "en": "σ > 1: finite sum and finite Euler product head the same way"
+        },
+        "partial": {
+          "zh": "σ = ½：有限和，不是解析延拓",
+          "en": "σ = ½: a finite sum, not the analytic continuation"
+        },
+        "quartet": {
+          "zh": "合成四根：两种对称都在，根却不在线上",
+          "en": "Synthetic quartet: both symmetries hold, the roots are off the line"
+        },
+        "powers": {
+          "zh": "素数幂阶梯与十个线上零点的有限截断",
+          "en": "The prime-power stair and a ten-zero truncation"
+        }
+      },
+      "tags": [
+        "狄利克雷部分和",
+        "有限欧拉积",
+        "莫比乌斯反演",
+        "函数方程对称",
+        "显式公式",
+        "冯·曼戈尔特函数"
+      ],
+      "tags_en": [
+        "Dirichlet partial sums",
+        "Finite Euler product",
+        "Möbius inversion",
+        "Functional-equation symmetry",
+        "Explicit formula",
+        "Von Mangoldt function"
+      ],
+      "theory": [
+        {
+          "label": "第 22 章 §22.4 · 临界对称轴 σ = 1/2 与黎曼猜想的认识论边界",
+          "label_en": "Chapter 22 §22.4 · The critical axis σ = 1/2 and the epistemic boundary of the Riemann hypothesis",
+          "href": "../zh/ch22-s04-critical-line-and-rh.html#sec-ch22-4-1",
+          "href_en": "../en/ch22-s04-critical-line-and-rh.html#sec-ch22-4-1"
+        },
+        {
+          "label": "DLMF §25.2 · 定义与展开",
+          "label_en": "DLMF §25.2 · Definition and expansions",
+          "href": "https://dlmf.nist.gov/25.2"
+        },
+        {
+          "label": "DLMF §25.10 · 零点（数值表）",
+          "label_en": "DLMF §25.10 · Zeros (numerical table)",
+          "href": "https://dlmf.nist.gov/25.10"
+        },
+        {
+          "label": "DLMF §25.16 · 数学应用：素数分布",
+          "label_en": "DLMF §25.16 · Mathematical applications: distribution of primes",
+          "href": "https://dlmf.nist.gov/25.16"
+        }
+      ],
+      "lean": [],
+      "capture_lock": "links"
+    },
+    {
+      "id": "arithmetic-schur-lab",
+      "code": "ARITH//SCHUR",
+      "title": "ARITH//SCHUR · 整除图上的标量舒尔消元：舒尔补与次序无关，填充与运算量随次序而变",
+      "title_en": "ARITH//SCHUR · Scalar Schur Elimination on the Divisor Graph: The Schur Complement Ignores the Order, Fill and Work Do Not",
+      "summary": "顶点 2…N 按 (v₂(n), v₃(n), log 余因子) 摆在三维里，整除关系连边，G = L + αI（α = 0.25）。固定终端 4n > 3N，按自然次序或叶优先逐个标量地消去其余顶点：N = 6 时先消 2 在 4 与 6 之间长出填充，先消 4 则一条填充也没有，终端上的舒尔补却相同。页面数出实际执行的乘、除、加次数，沿消元约化 b = e_N、回代并在原方程上算残差；ε 丢弃最终舒尔补的小元只是近似，不证明半正定。P = I − τL 的反复平方让图变稠、行和保持 1，不放大。数值演示，不是证明；与黎曼猜想的联系只是有条件的类比。",
+      "summary_en": "Vertices 2…N sit in 3D at (v₂(n), v₃(n), log of the cofactor), joined by divisibility, with G = L + αI (α = 0.25). With fixed terminals 4n > 3N the other vertices are eliminated one scalar at a time, in the natural order or leaf first: for N = 6, eliminating 2 first grows a fill between 4 and 6, eliminating 4 first grows none, and the Schur complement on the terminals is the same. The page counts the multiplications, divisions and additions actually performed, reduces b = e_N along the elimination, back-substitutes and computes the residual of the original system; dropping the small entries of the final Schur complement with ε is an approximation, with no positive-semidefiniteness claimed. Repeated squaring of P = I − τL makes the graph denser while the row sums stay 1, with no amplification. A numerical illustration, not a proof; the link to the Riemann hypothesis is a conditional analogy only.",
+      "path": "arithmetic-schur-lab/",
+      "thumbnail": "arithmetic-schur-lab/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 34,
+      "section": "34.18",
+      "presets": [
+        "natural",
+        "leaf",
+        "drop",
+        "square",
+        "budget"
+      ],
+      "preset_titles": {
+        "natural": {
+          "zh": "自然次序：先消 2，4 与 6 之间长出填充",
+          "en": "Natural order: 2 first, a fill grows between 4 and 6"
+        },
+        "leaf": {
+          "zh": "叶优先：先消 4，没有填充，舒尔补相同",
+          "en": "Leaf first: 4 first, no fill, the same Schur complement"
+        },
+        "drop": {
+          "zh": "丢掉小于 ε 的元：残差离开舍入量级",
+          "en": "Drop entries below ε: the residual leaves roundoff"
+        },
+        "square": {
+          "zh": "反复平方：变稠，却不放大",
+          "en": "Repeated squaring: denser, not amplified"
+        },
+        "budget": {
+          "zh": "带号轨道的必要预算：紫色边界之下被此界排除",
+          "en": "The necessary budget of a signed orbit: below the violet boundary, excluded by this bound"
+        }
+      },
+      "tags": [
+        "整除图",
+        "舒尔补",
+        "消元次序",
+        "填充",
+        "阈值丢弃",
+        "反复平方"
+      ],
+      "tags_en": [
+        "Divisor graph",
+        "Schur complement",
+        "Elimination order",
+        "Fill-in",
+        "Threshold dropping",
+        "Repeated squaring"
+      ],
+      "theory": [
+        {
+          "label": "第 34 章 §34.18 · 格拉姆窗口、舒尔补可行走廊与多观察者共识",
+          "label_en": "Chapter 34 §34.18 · The Gram window, the Schur feasibility corridor and multi-observer consensus",
+          "href": "../zh/ch34-s18-gram-window-and-consensus.html#sec-ch34-18-5",
+          "href_en": "../en/ch34-s18-gram-window-and-consensus.html#sec-ch34-18-5"
+        },
+        {
+          "label": "Burnol，arXiv:math/0103058v2（liminf 下界，不是有限 N 的等式）",
+          "label_en": "Burnol, arXiv:math/0103058v2 (a lower bound for a liminf, not an equality at finite N)",
+          "href": "https://arxiv.org/abs/math/0103058v2"
+        },
+        {
+          "label": "arXiv:1207.6583v3（4/7 只在该文所述范围内）",
+          "label_en": "arXiv:1207.6583v3 (the 4/7 within the scope stated there)",
+          "href": "https://arxiv.org/abs/1207.6583v3"
+        },
+        {
+          "label": "UnitSupportBurnolPacket.scribe.cs @ 202e1ea · 未合入应用，未形式化",
+          "label_en": "UnitSupportBurnolPacket.scribe.cs @ 202e1ea · unmerged application, unformalized",
+          "href": "https://github.com/the-omega-institute/trureturing/blob/202e1ea140f1fc76698854e3f6e16b2a3167cc8c/Blueprint/D5/S3/Weil/BurnolGram/UnitSupportBurnolPacket.scribe.cs"
+        },
+        {
+          "label": "trureturing#31043 · 未合入",
+          "label_en": "trureturing#31043 · not merged",
+          "href": "https://github.com/the-omega-institute/trureturing/pull/31043"
+        },
+        {
+          "label": "Boas · DOI:10.7146/math.scand.a-10453 · (1.3), p.29",
+          "label_en": "Boas · DOI:10.7146/math.scand.a-10453 · (1.3), p.29",
+          "href": "https://doi.org/10.7146/math.scand.a-10453"
+        }
+      ],
+      "lean": [],
+      "capture_lock": "links"
+    },
+    {
+      "id": "trihedron-chord-pivot-tunneling-sandbox",
+      "code": "CHORD//TUNNEL",
+      "title": "CHORD//TUNNEL · 极小圆弧体内割面隧穿与多尺度枢轴全息锥沙盘",
+      "title_en": "CHORD//TUNNEL · Minimal Arc-Trihedron Interior-Chord Tunneling & Multi-Scale Pivot Holographic Cone Sandbox",
+      "summary": "单位球上的极小圆弧体 ΔT_ε 画成受光的实体：从 A 到 C 有三条路——爬两面紫色正交侧壁 2ε（在直角顶点 B 处付全局排序的比较税）、走品红外凸顶盖的测地弧 arccos(cos²ε)、穿青色内割弦 √2 sin ε，三者的先后在 ε ∈ [10°, 90°] 上逐度不翻。弦中点沉到 r = √((1 + cos²ε)/2)，品红月牙是被削掉的鼓包；六点最小—加矩阵的热带舒尔消元取到这条弦，同一张弦图上的部分矩阵有正半定补全。N 个边界点每 k 个凝成一颗枢轴，一层层沉到与弦中点同深；厚势垒对共振中继，芝诺探针把读头压回双壁。五张实验卡可独立引用。",
+      "summary_en": "The minimal arc-trihedron ΔT_ε on the unit sphere as a lit solid: three routes from A to C — climbing the two violet orthogonal walls, 2ε (paying a global sort at the right-angle corner B), the geodesic arc of the magenta convex cap, arccos(cos²ε), and the cyan interior chord, √2 sin ε — whose order never flips over ε ∈ [10°, 90°]. The chord midpoint sinks to r = √((1 + cos²ε)/2), and the magenta crescent is the bulge cut away; a tropical Schur elimination of a six-vertex min-plus matrix lands on the chord, and a partial matrix on the same chordal graph has a PSD completion. N boundary points condense k at a time into pivots that sink level by level as deep as the chord midpoint; a thick barrier against a resonant relay, and a Zeno probe that sends the head back onto the walls. Five independently citable experiments.",
+      "path": "trihedron-chord-pivot-tunneling-sandbox/",
+      "thumbnail": "trihedron-chord-pivot-tunneling-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 34,
+      "section": "34.26",
+      "presets": [
+        "walls-dijkstra-tax",
+        "cap-wavefront-relax",
+        "flat-chord-tunnel",
+        "holographic-pivot-cone",
+        "resonant-pivot-relay"
+      ],
+      "preset_titles": {
+        "walls-dijkstra-tax": {
+          "zh": "正交双侧壁爬坡与全局排序比较税",
+          "en": "Orthogonal twin-wall climb and global sorting tax"
+        },
+        "cap-wavefront-relax": {
+          "zh": "外凸球面顶盖铺波与免排序局部松弛",
+          "en": "Convex spherical-cap wavefront and unsorted local relaxation"
+        },
+        "flat-chord-tunnel": {
+          "zh": "平直内割弦面削鼓包与热带舒尔消元",
+          "en": "Flat interior-chord cut and tropical Schur elimination"
+        },
+        "holographic-pivot-cone": {
+          "zh": "向心全息重整化锥与点波场体八度跳跃",
+          "en": "Centripetal holographic pivot cone and octave bulk jump"
+        },
+        "resonant-pivot-relay": {
+          "zh": "阿格蒙瞬子捷径、芝诺探针阻断与共振隧穿中继",
+          "en": "Agmon instanton shortcut, Zeno probe damping, and resonant pivot relay"
+        }
+      },
+      "tags": [
+        "极小圆弧体",
+        "内割弦隧穿",
+        "热带舒尔补",
+        "弦图正半定补全",
+        "枢轴全息锥",
+        "共振隧穿"
+      ],
+      "tags_en": [
+        "Arc-trihedron",
+        "Interior-chord tunneling",
+        "Tropical Schur complement",
+        "Chordal PSD completion",
+        "Pivot holographic cone",
+        "Resonant tunneling"
+      ],
+      "theory": [
+        {
+          "label": "第 34 章 §34.26 · 极小圆弧体内割弦面、打破排序壁垒的枢轴八度重整化与瞬子隧穿",
+          "label_en": "Chapter 34 §34.26 · Minimal Arc-Trihedron Interior-Chord Cuts, Pivot Octave Renormalization Breaking the Sorting Barrier, and Instanton Tunneling",
+          "href": "../zh/ch34-s26-chord-tunneling-and-pivot-renormalization.html#sec-ch34-chord-tunneling-and-pivot-renormalization",
+          "href_en": "../en/ch34-s26-chord-tunneling-and-pivot-renormalization.html#sec-ch34-chord-tunneling-and-pivot-renormalization"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/QuantumBounds/FubiniStudyRecordTime.fs_angle_triangle"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/ObservationTopology/PartitionTopologyKernel.partition_inseparable_iff_kernel"
+        },
+        {
+          "gid": "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/ConceptFiberDecomposition.concept_fiber_decomposition"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "imaginary-chord-temporal-double-slit-sandbox",
+      "code": "IMAG//TUNNEL",
+      "title": "IMAG//TUNNEL · 量子隧穿正交虚空间割弦与阿秒时间双缝自干涉统一沙盘",
+      "title_en": "IMAG//TUNNEL · Orthogonal Imaginary-Chord Quantum Tunneling & Attosecond Temporal Double-Slit Self-Interference Sandbox",
+      "summary": "真实单位的电子（V₀ = 1.00 eV，E/V₀ ∈ [0.10, 1.40]，L ∈ [0.20, 1.20] nm）穿过矩形势垒：舞台画定态 ψ(x)e^(−iEt/ℏ) 本身，竖直的实平面 I 与水平的盲平面 i 沿传播轴 x 正交，后墙与地面是它们的投影屏。墙口动量转 90°（p = îℏκ），墙里是一条不绕圈、单调变细的割弦，墙尾转回实轴，振幅 √T(E)；平视时墙里几乎看不见，俯瞰时是一座桥。两道 120 as 的时间快门把同一个电子分成两支，能谱屏上条纹间距 ΔE = h/Δt，暗纹处两支 100% 相消；中途实轴探针把相干 V 降成 1 − p，条纹塌成包络，芝诺链压低相干穿透。五张实验卡可独立引用。",
+      "summary_en": "A real electron (V₀ = 1.00 eV, E/V₀ ∈ [0.10, 1.40], L ∈ [0.20, 1.20] nm) crossing a rectangular barrier: the stage draws the stationary state ψ(x)e^(−iEt/ℏ) itself, with the vertical real plane I and the horizontal blind plane i meeting at right angles along the axis x and the back wall and floor as their projection screens. At the entrance the momentum turns by 90° (p = îℏκ); inside the wall a chord narrows without winding and turns back to the real axis with amplitude √T(E) — almost invisible from the side, a bridge from above. Two 120 as time gates split one electron into two branches whose spectrum shows fringes ΔE = h/Δt with 100% cancellation at the dark nodes; a midway real-axis probe lowers the coherence to V = 1 − p, flattens the fringes and, as a Zeno chain, suppresses coherent tunneling. Five independently citable experiments.",
+      "path": "imaginary-chord-temporal-double-slit-sandbox/",
+      "thumbnail": "imaginary-chord-temporal-double-slit-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 34,
+      "section": "34.27",
+      "presets": [
+        "classical-real-wall",
+        "ninety-deg-imaginary-chord",
+        "temporal-double-slit-comb",
+        "attosecond-tunnel-self-interference",
+        "zeno-midway-probe-collapse"
+      ],
+      "preset_titles": {
+        "classical-real-wall": {
+          "zh": "经典实轴撞墙折返与负动能平方死锁",
+          "en": "Classical real-axis wall reflection and negative kinetic square"
+        },
+        "ninety-deg-imaginary-chord": {
+          "zh": "90° 正交偏转潜入虚平面 i 与内割衰减弦桥",
+          "en": "90° turn into orthogonal plane i and interior-chord bridge"
+        },
+        "temporal-double-slit-comb": {
+          "zh": "双时间快门 (t₁, t₂) 与能谱频率梳条纹 ΔE = h/Δt",
+          "en": "Dual time gates (t₁, t₂) and spectral fringe comb ΔE = h/Δt"
+        },
+        "attosecond-tunnel-self-interference": {
+          "zh": "阿秒隧穿双缝：虚盲区暗河与跨时刻自干涉",
+          "en": "Attosecond tunneling double slit and cross-time self-interference"
+        },
+        "zeno-midway-probe-collapse": {
+          "zh": "势垒/时间中途实轴探针与芝诺退相干崩解",
+          "en": "Midway real-axis probe and Zeno / which-time fringe collapse"
+        }
+      },
+      "tags": [
+        "量子隧穿",
+        "虚平面 i",
+        "割弦",
+        "阿秒时间双缝",
+        "能谱条纹",
+        "量子芝诺"
+      ],
+      "tags_en": [
+        "Quantum tunneling",
+        "Blind plane i",
+        "Interior chord",
+        "Attosecond time double slit",
+        "Spectral fringes",
+        "Quantum Zeno"
+      ],
+      "theory": [
+        {
+          "label": "第 34 章 §34.27 · 虚平面割弦与阿秒时间双缝",
+          "label_en": "Chapter 34 §34.27 · The imaginary chord and the attosecond time double slit",
+          "href": "../zh/ch34-s27-imaginary-chord-tunneling-and-temporal-double-slit.html#sec-ch34-imaginary-chord-tunneling-and-temporal-double-slit",
+          "href_en": "../en/ch34-s27-imaginary-chord-tunneling-and-temporal-double-slit.html#sec-ch34-imaginary-chord-tunneling-and-temporal-double-slit"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure_square"
+        },
+        {
+          "gid": "D5/S3/Quantum/Tomography/DiagonalPhaseBlindness.diagonal_prime_observables_cannot_recover_relative_phase"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/PinchingProjection.pinching_discarded_coherence_mass"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "riemann-prime-arc-path-integral-sandbox",
+      "code": "ZETA//SPIRAL",
+      "title": "ZETA//SPIRAL · 黎曼路径积分与素数极小圆弧体：欧拉绕行算子、半密度平方律与临界线相消沙盘",
+      "title_en": "ZETA//SPIRAL · The Riemann Path Integral and Prime Minimal Arc-Trihedra: Euler Winding Operators, Half-Density Square Law and Critical-Line Cancellation Sandbox",
+      "summary": "每个整数 n 是一支长 n^(−σ)、转过 t ln n 的箭头，首尾相接，第 n 个顶点抬到作用量 ln n 的高度（由分解算出）。临界带里部分和发散，但链绕着过 ζ(s) 的竖轴张开：琥珀色的轴由交错 η 级数的延拓算出，在临界线的前五个零点上穿过原点 O，|ζ| = 0.0000；地上青色正向壳 p^(−σ) 与品红对偶壳 p^(−(1−σ)) 此时两两重合。σ = 0.62 时双壳分开（2^(−0.62) = 0.6507、2^(−0.38) = 0.7684），终点离开 O（|ζ| = 0.0907）；ξ 在线上是实数（余维数 1），离线要两个方程，对称性本身排除不了离线四点组，黎曼猜想标为开放。σ = 1.5 时路径链与欧拉乘积落在同一点，莫比乌斯链落在 1/ζ(s)。韦伊显式公式把前 50 个零点的驻波叠成素数阶梯：素数幂处陡升，6、10、12 处几乎平坦。四张实验卡可独立引用。",
+      "summary_en": "Every integer n is an arrow of length n^(−σ) turned by t ln n, chained head to tail, its n-th vertex lifted to the height of its action ln n (computed from the factorization). In the critical strip the partial sums diverge, but the chain opens up round a vertical axis through ζ(s): the amber axis, computed by continuation from the alternating η series, passes through the origin O at the first five zeros on the critical line, |ζ| = 0.0000, while the cyan forward shells p^(−σ) and the magenta dual shells p^(−(1−σ)) on the floor coincide in pairs. At σ = 0.62 the shells split (2^(−0.62) = 0.6507, 2^(−0.38) = 0.7684) and the end point misses O (|ζ| = 0.0907); ξ is real on the line (codimension 1) and needs two equations off it, symmetry alone cannot exclude off-line quadruplets, and the Riemann Hypothesis is marked open. At σ = 1.5 the path chain and the Euler product land on one point and the Möbius chain on 1/ζ(s). The Weil explicit formula stacks the standing waves of the first 50 zeros into the prime staircase: steep rises at prime powers, nearly flat at 6, 10 and 12. Four independently citable experiments.",
+      "path": "riemann-prime-arc-path-integral-sandbox/",
+      "thumbnail": "riemann-prime-arc-path-integral-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 34,
+      "section": "34.28",
+      "presets": [
+        "euler-dirichlet-phasor-spiral",
+        "critical-zero-cancellation",
+        "off-line-shell-imbalance",
+        "weil-explicit-prime-staircase"
+      ],
+      "preset_titles": {
+        "euler-dirichlet-phasor-spiral": {
+          "zh": "欧拉局域绕行展开为复合路径相量螺旋，与莫比乌斯外积对偶",
+          "en": "Euler local windings unfold into the composite-path phasor spiral and its Möbius exterior dual"
+        },
+        "critical-zero-cancellation": {
+          "zh": "临界线零点：路径螺旋收回原点 O，正逆双壳等幅锁死",
+          "en": "Critical-line zero: the path spiral returns to O and the two shells lock"
+        },
+        "off-line-shell-imbalance": {
+          "zh": "偏离临界线：正逆双壳失衡分裂，螺旋终点弹离 O",
+          "en": "Off the line: the two shells split and the spiral misses O"
+        },
+        "weil-explicit-prime-staircase": {
+          "zh": "韦伊显式对偶：零点驻波叠加雕刻素数阶梯",
+          "en": "Weil explicit duality: zero standing waves carve the prime staircase"
+        }
+      },
+      "tags": [
+        "黎曼 ζ 函数",
+        "欧拉乘积",
+        "路径积分",
+        "临界线",
+        "函数方程",
+        "显式公式"
+      ],
+      "tags_en": [
+        "Riemann zeta function",
+        "Euler product",
+        "Path integral",
+        "Critical line",
+        "Functional equation",
+        "Explicit formula"
+      ],
+      "theory": [
+        {
+          "label": "§34.28 黎曼路径积分与素数极小圆弧体：欧拉绕行算子、半密度平方律与临界线相消",
+          "label_en": "§34.28 The Riemann Path Integral and Prime Minimal Arc-Trihedra: Euler Winding Operators, Half-Density Square Law, and Critical-Line Cancellation",
+          "href": "../zh/ch34-s28-riemann-path-integral-and-prime-arcs.html#sec-ch34-riemann-path-integral-and-prime-arcs",
+          "href_en": "../en/ch34-s28-riemann-path-integral-and-prime-arcs.html#sec-ch34-riemann-path-integral-and-prime-arcs"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Weil/PrimeAddress/PrimeLogIndependence.prime_log_rational_independence"
+        },
+        {
+          "gid": "D5/S3/Zeros/ZetaUpgrade.riemann_zeta_dirichlet_sum_eq_euler_product"
+        },
+        {
+          "gid": "D5/S3/Zeros/CompletedZeta.xi_reading_reflection"
+        },
+        {
+          "gid": "D5/S3/Zeros/Symmetry/ZetaConjugationCovariance.xi_reading_one_sub_conj"
+        },
+        {
+          "gid": "D5/S3/Zeros/SymmetricPolynomial/FullSymmetryNonlocalization.full_symmetry_not_fixed_line_localization"
+        },
+        {
+          "gid": "D5/S3/Weil/Mertens/IntegratedExplicit/WholeFormula.actual_integrated_explicit_formula"
+        },
+        {
+          "gid": "D5/S3/Weil/ZetaBridge/AlternatingZetaContinuation.tendsto_alternating_partialSums_eta_of_ne_one"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "arithmetic-pivot-resonant-tunneling-sandbox",
+      "code": "ARITH//PIVOT",
+      "title": "ARITH//PIVOT · 算术枢轴重整与临界带多级共振隧穿沙盘",
+      "title_en": "ARITH//PIVOT · Arithmetic Pivot Renormalization & Multi-Stage Resonant Tunneling Sandbox",
+      "summary": "复平面临界带画成受光的地形块，高度是 ln|ζ(s)|：σ > 1 的青色欧拉高原、s = 1 的品红单极点山峰、σ = 1/2 的临界脊与零点的坑。三种跨越方案：按 n ≤ M 硬截断时 ζ_M 削平山峰，M = 19 在 t ≈ 1.554×10¹⁴ 处于 Re s = 1.006988 > 1 挖出零点（放大窗与 19 个首尾闭合的向量）；单级磨光器的比例 κ(θ) 由 Levinson—Conrey 公式当场优化，只在 θ ≤ 4/7 时已证；窗口 {1, 2, 3, 6} 的分块舒尔补 G̃_PP = [[5/9, 5/18], [5/18, 8/9]]、det G = 5/16 与补全区间 [−7/12, 11/12]；t = γ₁ 剖面上的多级凯莱中继，δ = 0 时 |w| = 1，假想的 δ > 0 经反复平方在约 log₂(γ₁²/δ) 层内爆开。黎曼猜想与跨枢轴面积律问题标为开放。四张实验卡可独立引用。",
+      "summary_en": "The critical strip as a lit terrain block whose height is ln|ζ(s)|: the cyan Euler plateau σ > 1, the magenta peak of the simple pole at s = 1, the critical spine σ = 1/2 with the pits of the zeros. Three ways across: the hard cutoff n ≤ M planes the peak down, and M = 19 digs a zero at Re s = 1.006988 > 1 near t ≈ 1.554×10¹⁴ (a magnifier and 19 vectors that close head to tail); the proportion κ(θ) of one mollifier is optimized on the page from the Levinson–Conrey formula and is proved only for θ ≤ 4/7; block Schur complements on the window {1, 2, 3, 6}, G̃_PP = [[5/9, 5/18], [5/18, 8/9]], det G = 5/16 and the completion interval [−7/12, 11/12]; a multi-stage Cayley relay on the section t = γ₁, with |w| = 1 at δ = 0 and a hypothetical δ > 0 blowing up by repeated squaring within about log₂(γ₁²/δ) layers. The Riemann hypothesis and the cross-pivot area-law problem stay open. Four independently citable experiments.",
+      "path": "arithmetic-pivot-resonant-tunneling-sandbox/",
+      "thumbnail": "arithmetic-pivot-resonant-tunneling-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 34,
+      "section": "34.29",
+      "presets": [
+        "turan-zeno-hard-cutoff",
+        "mollifier-four-sevenths-wall",
+        "block-schur-pivot-mera",
+        "fabry-perot-rogue-explosion"
+      ],
+      "preset_titles": {
+        "turan-zeno-hard-cutoff": {
+          "zh": "一维全序硬截断与图兰—芝诺假零点陷阱",
+          "en": "Total-order hard cutoff and the Turán–Zeno spurious-zero trap"
+        },
+        "mollifier-four-sevenths-wall": {
+          "zh": "单级磨光器裸隧穿与 θ = 4/7 色散墙",
+          "en": "Single-stage mollifier hop and the θ = 4/7 dispersion wall"
+        },
+        "block-schur-pivot-mera": {
+          "zh": "乘性波前与分块舒尔补枢轴粗粒化锥",
+          "en": "Multiplicative wavefront and the block Schur pivot cone"
+        },
+        "fabry-perot-rogue-explosion": {
+          "zh": "多级舒尔枢轴共振中继与离线失谐爆炸",
+          "en": "Multi-stage Schur pivot relay and off-line detuning blow-up"
+        }
+      },
+      "tags": [
+        "临界带地形",
+        "图兰假零点",
+        "磨光器 4/7",
+        "分块舒尔补",
+        "弦图正半定补全",
+        "凯莱反复平方"
+      ],
+      "tags_en": [
+        "Critical-strip terrain",
+        "Turán spurious zero",
+        "Mollifier 4/7",
+        "Block Schur complement",
+        "Chordal PSD completion",
+        "Cayley repeated squaring"
+      ],
+      "theory": [
+        {
+          "label": "第 34 章 §34.29 · 算术枢轴重整与临界带多级共振隧穿：破除图兰芝诺陷阱与击穿 4/7 磨光器墙",
+          "label_en": "Chapter 34 §34.29 · Arithmetic Pivot Renormalization and Multi-Stage Resonant Tunneling Across the Critical Strip: Breaking the Turán–Zeno Trap and the 4/7 Mollifier Wall",
+          "href": "../zh/ch34-s29-arithmetic-pivots-and-resonant-tunneling.html#sec-ch34-arithmetic-pivots-and-resonant-tunneling",
+          "href_en": "../en/ch34-s29-arithmetic-pivots-and-resonant-tunneling.html#sec-ch34-arithmetic-pivots-and-resonant-tunneling"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Zeros/ZetaUpgrade.classical_zeta_unique_simple_pole_residue_one"
+        },
+        {
+          "gid": "D5/S3/Weil/ZetaRvm/CountByIntegral.completedRiemannZeta_ne_zero_of_one_le_re"
+        },
+        {
+          "gid": "D5/S3/Weil/ZetaBridge/RightHalfStripRiemannReduction.golden_right_half_strip_implies_rh"
+        },
+        {
+          "gid": "D5/S3/Midline/CayleyCriticalLine.cayley_ratio_norm_one_iff_critical_line"
+        },
+        {
+          "gid": "D5/S3/Midline/Cayley/CayleyCriticalLineZetaCriterion.cayley_critical_line_zeta_criterion"
+        },
+        {
+          "gid": "D5/S3/QuadraticForms/ChordalPsdCompletion.exists_posSemidef_completion"
+        },
+        {
+          "gid": "D5/S3/QuadraticForms/RankBoundedChordalPsdCompletion.exists_posSemidef_completion_rank_le"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/GramRealizability.gram_realizability"
+        },
+        {
+          "gid": "D5/S3/Arith/Robin/OffLinePeak/OriginalLocalA.original_zero_robin5040_localA"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "hilbert-concept-ledger-3d-cap-sandbox",
+      "code": "HILBERT//LEDGER",
+      "title": "HILBERT//LEDGER · 混编希尔伯特假象与三维概念场账本沙盘",
+      "title_en": "HILBERT//LEDGER · Pooled Hilbert Illusion & 3D Concept-Field Ledger Sandbox",
+      "summary": "五个概念（空间、颜色、旋转、平移、缩放）各取一颗受光的三维球，权重 w = (0.30, 0.25, 0.20, 0.15, 0.10)。混编成一颗 15 维的球时，so(15) 有 105 个转动，其中 90 = 9·C(5, 2) 个把一个概念转进另一个；分箱成五颗三维球，账本只记 5 × 3 = 15 个。空间 ⊗ 颜色的两体态从 Bell 密度走到经典相关，两个局域布洛赫向量始终为 0，9 个相关却在变（15 = 6 + 9）；颜色球里 RGB 正交基与 LMS 斜交框的格拉姆行列式都大于零。一个弧面体的运动拆成平移、转动与对数主应变三颗三维球；d 维里梯度 C(d, 1) 与旋度 C(d, 2) 只在 d = 3 一样多，霍奇星号只在那里把旋度送到一根轴上；无穷模塔 w_k = (1 − q)q^{k−1} 在自停机精度 ε_self 处折叠成有限层。五张实验卡可独立引用。",
+      "summary_en": "Five concepts (space, color, rotation, translation, scale) take one lit 3D ball each, with weights w = (0.30, 0.25, 0.20, 0.15, 0.10). Pooled into one 15-dimensional ball, so(15) has 105 rotations, 90 = 9·C(5, 2) of which turn one concept into another; binned into five 3D balls, the ledger keeps 5 × 3 = 15. A two-party state of space ⊗ color runs from the Bell density to a classical correlation while both local Bloch vectors stay 0 and the 9 correlations move (15 = 6 + 9); in the color ball the orthonormal RGB frame and the skewed LMS frame both have a positive Gram determinant. The motion of an arc body splits into three 3D balls of translation, rotation and log principal strain; in d dimensions the gradients C(d, 1) and the curls C(d, 2) are as many only at d = 3, the one dimension where the Hodge star sends a curl to an axis; the infinite mode tower w_k = (1 − q)q^{k−1} folds into finitely many shells at the self-halting precision ε_self. Five independently citable experiments.",
+      "path": "hilbert-concept-ledger-3d-cap-sandbox/",
+      "thumbnail": "hilbert-concept-ledger-3d-cap-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.10",
+      "presets": [
+        "hypercube-illusion-unfold",
+        "space-color-joint-ledger",
+        "motion-rot-scale-trans-triad",
+        "hodge-curl-field-cap-3d",
+        "unhalted-infinity-truncation"
+      ],
+      "preset_titles": {
+        "hypercube-illusion-unfold": {
+          "zh": "混编的 15 维假象展开成五颗三维概念球",
+          "en": "The pooled 15D illusion unfolds into five 3D concept balls"
+        },
+        "space-color-joint-ledger": {
+          "zh": "空间与颜色：局域账本 6 个数，相关表 9 个数",
+          "en": "Space and color: 6 local numbers, a 9-entry correlation table"
+        },
+        "motion-rot-scale-trans-triad": {
+          "zh": "平移、旋转、缩放：一个物体的三颗三维运动球",
+          "en": "Translation, rotation, scale: three 3D motion balls of one body"
+        },
+        "hodge-curl-field-cap-3d": {
+          "zh": "梯度与旋度一样多，只在 d = 3",
+          "en": "As many curls as gradients, only at d = 3"
+        },
+        "unhalted-infinity-truncation": {
+          "zh": "无穷模塔在 ε_self 处停机：7 层活跃，尾巴折叠",
+          "en": "The infinite mode tower halts at ε_self: 7 active shells, the tail folded"
+        }
+      },
+      "tags": [
+        "三维概念场",
+        "希尔伯特账本",
+        "跨概念伪转轴",
+        "局域相关盲区",
+        "霍奇对偶",
+        "自停机截断"
+      ],
+      "tags_en": [
+        "3D concept fields",
+        "Hilbert ledger",
+        "Cross-concept rotations",
+        "Local–correlation blind spot",
+        "Hodge duality",
+        "Self-halting truncation"
+      ],
+      "theory": [
+        {
+          "label": "39.10 三维概念场封顶原理与希尔伯特多概念混编账本：为什么“三维以上”只是独立三维场的并置投影",
+          "label_en": "39.10 The Three-Dimensional Concept-Field Cap and the Hilbert Multi-Concept Ledger: Why \"Above Three Dimensions\" Is Only a Joint Projection of 3D Fields",
+          "href": "../zh/ch39-s10-three-dimensional-field-cap-and-hilbert-ledger.html",
+          "href_en": "../en/ch39-s10-three-dimensional-field-cap-and-hilbert-ledger.html"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Observer/Tomography/FiniteStageExpansion.finite_stage_expansion"
+        },
+        {
+          "gid": "D5/S3/Quantum/Entanglement/LocalMarginalCorrelationBlindSpot.local_marginal_correlation_blind_spot"
+        },
+        {
+          "gid": "D5/S3/Observer/Tomography/FiniteRankConcentrationModeBound.finite_rank_concentration_mode_bound"
+        },
+        {
+          "gid": "D5/S3/Quantum/SpinFactor/OriginalClassification.complete_consequences"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/ActualPureQubitGeometry.bloch_geometry_of_isHermitian"
+        },
+        {
+          "gid": "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_pos_iff"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "af-gut-arc-field-unification-sandbox",
+      "code": "AFGUT//UNIFY",
+      "title": "AFGUT//UNIFY · AF-GUT 极小圆弧多概念三维场大统一沙盘",
+      "title_en": "AFGUT//UNIFY · AF-GUT Minimal-Arc Multi-Concept 3D Field Grand Unification Sandbox",
+      "summary": "四种力画成同一个 ΔT_ε 原胞外的四片同心圆弧壳：青色 F_pos（引力）、紫色 F_rot（SU(2)，720° 旋量）、蓝色 F_col（SU(3)，N_c = 3 体积锁）、银白 F_scl（U(1) 相位与标度），壳半径随 1/g 增长。能标从 M_Z = 91.1876 GeV 拉到 E_P = 1.220890 × 10¹⁹ GeV：单圈跑动（b = 41/10、−19/6、−7）让 SU(2) 与 U(1) 两壳在 log₁₀(μ₁₂/GeV) = 13.0060 处重合（α₁⁻¹ = α₂⁻¹ = 42.408，sin²θ_W = 3/8），引力壳在 E_P 处长到 α_G = 1。一般 N_c 的两条 sin²θ_W 曲线只在 N_c = 3 交于 3/8；希格斯桥 Φ̃_H 把正交的左右手片缝成静止质量，(m_W, m_Z) = (80.38, 91.19)Φ̃_H GeV；勾股天平 (dτ/dt)² + Σ η² = 1；透镜在分立的四概念账本与单原胞之间连续变形。五张实验卡可独立引用。",
+      "summary_en": "The four forces drawn as four concentric arc shells around one ΔT_ε cell: cyan F_pos (gravity), violet F_rot (SU(2), the 720° spinor), blue F_col (SU(3), the N_c = 3 volume lock) and silver F_scl (U(1) phase and scale), each radius growing with 1/g. The scale runs from M_Z = 91.1876 GeV to E_P = 1.220890 × 10¹⁹ GeV: one-loop running (b = 41/10, −19/6, −7) brings the SU(2) and U(1) shells together at log₁₀(μ₁₂/GeV) = 13.0060 (α₁⁻¹ = α₂⁻¹ = 42.408, sin²θ_W = 3/8) and grows the gravity shell to α_G = 1 at E_P. The two general-N_c curves for sin²θ_W meet only at N_c = 3, at 3/8; the Higgs bridge Φ̃_H stitches the orthogonal chiral sheets into rest mass, (m_W, m_Z) = (80.38, 91.19)Φ̃_H GeV; the Pythagorean balance (dτ/dt)² + Σ η² = 1; the lens morphs between the split four-concept ledger and the single cell. Five independently citable experiments.",
+      "path": "af-gut-arc-field-unification-sandbox/",
+      "thumbnail": "af-gut-arc-field-unification-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.11",
+      "presets": [
+        "concentric-four-field-monad",
+        "weinberg-angle-rg-running",
+        "higgs-cross-concept-zitterbewegung",
+        "einstein-pythagorean-clock-balance",
+        "afgut-ledger-split-vs-unify"
+      ],
+      "preset_titles": {
+        "concentric-four-field-monad": {
+          "zh": "单原胞上的四片同心圆弧壳",
+          "en": "Four concentric arc shells on one cell"
+        },
+        "weinberg-angle-rg-running": {
+          "zh": "两条 N_c 曲线交于 3/8，再跑回 M_Z",
+          "en": "Two N_c curves meet at 3/8, then run back to M_Z"
+        },
+        "higgs-cross-concept-zitterbewegung": {
+          "zh": "正交手征片之间的希格斯桥",
+          "en": "The Higgs bridge between orthogonal chiral sheets"
+        },
+        "einstein-pythagorean-clock-balance": {
+          "zh": "主频 ν₀ 的勾股天平",
+          "en": "The Pythagorean balance of the clock ν₀"
+        },
+        "afgut-ledger-split-vs-unify": {
+          "zh": "普朗克能标上账本收成一个原胞",
+          "en": "At the Planck scale the ledger closes into one cell"
+        }
+      },
+      "tags": [
+        "极小圆弧场大统一",
+        "四场同心壳",
+        "单圈跑动",
+        "温伯格角 3/8",
+        "希格斯桥",
+        "勾股天平"
+      ],
+      "tags_en": [
+        "Minimal-arc field unification",
+        "Four concentric field shells",
+        "One-loop running",
+        "Weinberg angle 3/8",
+        "Higgs bridge",
+        "Pythagorean balance"
+      ],
+      "theory": [
+        {
+          "label": "39.11 极小圆弧场大统一理论（AF-GUT）：同心四场圆弧联络、温伯格角 3/8 跑动与主频爱因斯坦收口",
+          "label_en": "39.11 Arc-Field Grand Unified Theory (AF-GUT): Concentric Four-Field Arc Connections, Weinberg Angle 3/8 Running, and Clock-Budget Einstein Closure",
+          "href": "../zh/ch39-s11-af-gut-arc-field-grand-unification.html",
+          "href_en": "../en/ch39-s11-af-gut-arc-field-grand-unification.html"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Algebra/CovariantCommutator.covariant_commutator_formula"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/Observer/AgencyHolonomy/AnchoredPhaseClassification.anchored_phase_classification"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
+        },
+        {
+          "gid": "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "arc-body-calculus-sandbox",
+      "code": "ARC//CALCULUS",
+      "title": "ARC//CALCULUS · 极小圆弧体微积分重塑：以旋代差、矢高相变与有限精度斯托克斯沙盘",
+      "title_en": "ARC//CALCULUS · Minimal Arc-Body Calculus: Rotors for Differences, the Sagitta Phase Transition and Finite-Precision Stokes",
+      "summary": "每一步都是一枚模长为 1 的极小圆弧旋子：横向切弦 c = sin κε 与轴向矢高 v = 2 sin²(κε/2) 满足 (1 − v)² + c² = 1。滑板坡在竖直处斜率 tan θ 爆掉，紫色旋子照转；向 90° 盲面迈一步的复步 Im f(x₀ + iε)/ε 不做相减，e^x sin x 在 ε = 10⁻¹⁷ 时仍准到机器精度，前向差分却归零、误差 100%；N = 1/ε 步、每步转 σ₀ε^α 的随机旋子在球上游走，粗糙度 α 从 1 降到 1/2，矢高总和从 0.0005 锁到 0.5（伊藤修正）；上半球分成 M 个球面三角，北极正则矢高联络的内棱 ±Φ 正反相消，外圈环流等于角盈之和 2π，M = 4 也没有离散化误差；四面体、八面体及其细分的闭壳上 V − E + F = 2，curl grad = 0、div curl = 0，全部四面体上边缘为 0。五张实验卡可独立引用。",
+      "summary_en": "Every step is a unit rotor on a minimal circular arc: the transverse chord c = sin κε and the axial sagitta v = 2 sin²(κε/2) satisfy (1 − v)² + c² = 1. On a skate ramp the slope tan θ blows up at the vertical while the violet rotor keeps turning; the complex step Im f(x₀ + iε)/ε into the 90° blind sheet subtracts nothing, and for e^x sin x it stays exact to machine precision at ε = 10⁻¹⁷ while the forward difference collapses to 0, 100% off; a random rotor walk of N = 1/ε steps of angle σ₀ε^α roams the sphere, and as the roughness α falls from 1 to 1/2 the sagitta sum locks from 0.0005 onto 0.5 (the Itô term); on M spherical triangles of the upper hemisphere the interior arcs ±Φ of the North-Pole-regular sagitta connection cancel in pairs, so the rim circulation equals the sum of the excesses, 2π, with no discretization error already at M = 4; on the closed shells of the tetrahedron, the octahedron and their subdivisions V − E + F = 2, curl grad = 0, div curl = 0 and every tetrahedral coboundary vanishes. Five independently citable experiments.",
+      "path": "arc-body-calculus-sandbox/",
+      "thumbnail": "arc-body-calculus-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 34,
+      "section": "34.30",
+      "presets": [
+        "osculating-rotor-vs-tangent",
+        "blind-zone-complex-step",
+        "roughness-ito-phase-transition",
+        "finite-mesh-stokes-cancellation",
+        "coboundary-d2-zero-closed-shell"
+      ],
+      "preset_titles": {
+        "osculating-rotor-vs-tangent": {
+          "zh": "滑板坡上的密切旋子与切线斜率：竖直处 tan θ 爆掉，旋子照转",
+          "en": "The osculating rotor against the tangent slope on a skate ramp: tan θ blows up at the vertical, the rotor keeps turning"
+        },
+        "blind-zone-complex-step": {
+          "zh": "向 90° 盲区迈一步的复步求导：不相减，ε = 10⁻¹⁷ 仍准",
+          "en": "The complex step into the 90° blind sheet: no subtraction, still exact at ε = 10⁻¹⁷"
+        },
+        "roughness-ito-phase-transition": {
+          "zh": "路径序旋子管与矢高相变：α = 1/2 时矢高总和锁到 0.5",
+          "en": "The path-ordered rotor tube and the sagitta phase transition: at α = 1/2 the sagitta sum locks onto 0.5"
+        },
+        "finite-mesh-stokes-cancellation": {
+          "zh": "半球上的有限网格斯托克斯：内棱正反相消，M = 4 也不差",
+          "en": "Finite-mesh Stokes on a hemisphere: interior arcs cancel in pairs, exact already at M = 4"
+        },
+        "coboundary-d2-zero-closed-shell": {
+          "zh": "闭合的极小圆弧壳：curl grad = 0，div curl = 0，边界的边界是空的",
+          "en": "A closed minimal-arc shell: curl grad = 0, div curl = 0, the boundary of a boundary is empty"
+        }
+      },
+      "tags": [
+        "以旋代差",
+        "切弦与矢高",
+        "复步求导",
+        "伊藤矢高相变",
+        "有限网格斯托克斯",
+        "d² = 0 闭壳"
+      ],
+      "tags_en": [
+        "Rotors for differences",
+        "Chord and sagitta",
+        "Complex-step derivative",
+        "Itô sagitta transition",
+        "Finite-mesh Stokes",
+        "d² = 0 closed shell"
+      ],
+      "theory": [
+        {
+          "label": "§34.30 极小圆弧体微积分重塑：以旋代差、矢高相变与有限精度斯托克斯定理",
+          "label_en": "§34.30 Rebuilding Calculus from Minimal Circular-Arc Bodies: Rotor Differentials, the Sagitta Phase Transition, and Finite-Precision Stokes Exactness",
+          "href": "../zh/ch34-s30-arc-body-calculus-and-finite-stokes.html",
+          "href_en": "../en/ch34-s30-arc-body-calculus-and-finite-stokes.html"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure_square"
+        },
+        {
+          "gid": "D5/S3/Quantum/Dynamics/ProjectionProbabilityFlow.projection_probability_flow"
+        },
+        {
+          "gid": "D5/S3/Observer/Linear/ExactTaylorObservationRemainder.exp_tail_le"
+        },
+        {
+          "gid": "D5/S3/Quantum/Analysis/TrotterProduct.trotter_product"
+        },
+        {
+          "gid": "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.face_cycle_exact"
+        },
+        {
+          "gid": "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "self-reference-pentad-sandbox",
+      "code": "SELFREF//PENTAD",
+      "title": "SELFREF//PENTAD · 五阶自指不动点谱系：查表一跳到根、余弦 cos θ* = θ*、本征态与收缩信道、15 → 1 门蒸馏与对角线逃逸",
+      "title_en": "SELFREF//PENTAD · The Fivefold Self-Referential Fixed-Point Spectrum: One-Hop Lookup, the Cosine cos θ* = θ*, Eigenstate and Contracting Channel, 15 → 1 Gate Distillation and the Escaping Diagonal",
+      "summary": "同一个方程 x* = F(x*) 的五个实例画在一个受光的三维舞台上。查表：12 槽指针环上 9 → 6 → 3 → 1 → 0 的 4 跳链经路径压缩成为直连根的指针，Lookup(0) = 0、p ≡ *p，压缩后的表 P² = P。余弦：水平盲平面 i 上的单位圆与竖直实平面 I，青色影子 cos θ* 与品红弧长 θ* 同为 0.7391（42.35°），从 θ₀ = 0.10 出发的蛛网以 λ = −sin θ* = −0.6736 换边收缩，cos²θ* = 54.62%。本征态与信道：布洛赫球里 |0⟩ 只转相位（|λ| = 1），信道 ℰ(ρ) = 0.65 UρU† + 0.35 ρ* 把任意态螺旋拉进 ρ*。门蒸馏：[[15, 1, 3]] 码的 15 个噪声 T 门（ε = 0.0500）画在四面体上，4 个检验胞接受 46.61%，输出 ε_out = 0.00514（领头项 35ε³ = 0.00438），阈值 ε_th = 0.1415。对角线：4 × 4 自应用表的对角线经 ¬ 翻转并升到 ℓ + 1，0011 与每一行在 (a, a) 处不同。左栏透镜在同一组参数下把五件事改写成 x* = F(x*) 与乘子 λ。五张实验卡可在第三十九章 §39.6 正文里单独引用。",
+      "summary_en": "Five instances of one equation x* = F(x*) on one lit 3D stage. Lookup: on a ring of 12 pointer slots the 4-hop chain 9 → 6 → 3 → 1 → 0 is compressed into direct links to the root, Lookup(0) = 0, p ≡ *p, and the compressed table has P² = P. Cosine: the unit circle in the horizontal blind plane i and the vertical real plane I; the cyan shadow cos θ* and the magenta arc θ* are both 0.7391 (42.35°), and the cobweb from θ₀ = 0.10 changes side and shrinks by λ = −sin θ* = −0.6736, cos²θ* = 54.62%. Eigenstate and channel: in the Bloch ball |0⟩ only turns its phase (|λ| = 1) while the channel ℰ(ρ) = 0.65 UρU† + 0.35 ρ* spirals every state into ρ*. Gate distillation: the 15 noisy T gates (ε = 0.0500) of the [[15, 1, 3]] code sit on a tetrahedron; its 4 check cells accept 46.61% and output ε_out = 0.00514 (leading term 35ε³ = 0.00438), threshold ε_th = 0.1415. Diagonal: the diagonal of a 4 × 4 self-application table is negated by ¬ and lifted to ℓ + 1; 0011 differs from every row at (a, a). The lens in the left column rewrites all five as x* = F(x*) with a multiplier λ under the same parameters. Each of the five experiment cards can be cited on its own from §39.6 of Chapter 39.",
+      "path": "self-reference-pentad-sandbox/",
+      "thumbnail": "self-reference-pentad-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 39,
+      "section": "39.6",
+      "presets": [
+        "pointer-path-compression",
+        "dottie-real-imag-spiral",
+        "eigenstate-channel-anchor",
+        "fifteen-to-one-gate-distill",
+        "lawvere-diagonal-escape"
+      ],
+      "preset_titles": {
+        "pointer-path-compression": {
+          "zh": "查表自指：路径压缩到根，Lookup(0) = 0",
+          "en": "Lookup: path compression to the root, Lookup(0) = 0"
+        },
+        "dottie-real-imag-spiral": {
+          "zh": "余弦自指：I 投影 cos θ* 等于 i 弧长 θ*",
+          "en": "Cosine: the I-projection cos θ* equals the i-arc θ*"
+        },
+        "eigenstate-channel-anchor": {
+          "zh": "本征态只转相位，收缩信道落到 ρ*",
+          "en": "An eigenstate only turns its phase; a channel lands on ρ*"
+        },
+        "fifteen-to-one-gate-distill": {
+          "zh": "门序列 = 门本身：15 个噪声 T 门蒸出 1 个",
+          "en": "Gate sequence = the gate: 15 noisy T gates distil one"
+        },
+        "lawvere-diagonal-escape": {
+          "zh": "翻转的对角线逃出每一行，升到 ℓ + 1",
+          "en": "The twisted diagonal escapes every row, up to ℓ + 1"
+        }
+      },
+      "tags": [
+        "自指不动点",
+        "路径压缩",
+        "余弦不动点",
+        "能量本征态",
+        "魔术态蒸馏",
+        "对角线论证"
+      ],
+      "tags_en": [
+        "Self-referential fixed point",
+        "Path compression",
+        "Dottie number",
+        "Energy eigenstate",
+        "Magic-state distillation",
+        "Diagonal argument"
+      ],
+      "theory": [
+        {
+          "label": "第 39 章 §39.6 · 五阶自指不动点谱系",
+          "label_en": "Chapter 39 §39.6 · The fivefold self-referential fixed-point spectrum",
+          "href": "../zh/ch39-s06-fivefold-self-reference-spectrum.html#sec-ch39-fivefold-self-reference-spectrum",
+          "href_en": "../en/ch39-s06-fivefold-self-reference-spectrum.html#sec-ch39-fivefold-self-reference-spectrum"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S0/Diagonal/Lawvere/QualitativeEscape.self_application_fragment_package"
+        },
+        {
+          "gid": "D5/S0/Diagonal/RecursivePageTable.recursive_page_table_walk"
+        },
+        {
+          "gid": "D5/S3/Observer/Conditioning/FiniteRecordPinchingIdempotence.finite_record_pinching_idempotent"
+        },
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        },
+        {
+          "gid": "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.energy_eigenstate_stationary"
+        },
+        {
+          "gid": "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "self-halting-spectral-time-river-sandbox",
+      "code": "HALT//SORT",
+      "title": "自指停机精度、时间长河正交折叠与测量基谱排序",
+      "title_en": "Self-halting precision, the time-river fold and measurement-basis spectral sorting",
+      "summary": "余弦迭代 xₖ = cos xₖ₋₁（x₀ = 0）在自定精度处停机：第一次 |xₖ − xₖ₋₁| ≤ ε 即停，等价于 xₖ₋₁ 落进残差帽 |cos x − x| ≤ ε；ε = 0.150 时第 5 步停，|x₅ − x₄| = 0.1392，锁定 x₅ = 0.7935，余差 0.0544 折入。六个模（σ = 1.00, 0.76, 0.54, 0.35, 0.20, 0.10 归一化）按玻恩权重在 ε = 0.100 处分成立在 I 墙上的三模与绕铰链 î 转 90° 躺进河里的三模，0.9155 + 0.0845 = 1，下游每步浮出一份，θ* 的尾数 0.0000851332… 也逐位浮出；铰链 î² = −1。幂迭代 Gⁿ 让 (σₘ/σ₁)ⁿ 排序：n = 4、ε = 0.120 时只剩前两模，迭代份额 99.33%，原始秩 2 能量 77.27%；读 b = (1, …, 1)/√6 的克雷洛夫塔增长 5 次后永远停住。测量基从位置基转向 DCT-II 频率基，α = 65° 时 ψ = (1, 2, 5)/√30 的瑞利权重 0.6273、0.2525、0.1202，和为 1，位置基与频率基里的排序整个倒过来。N = 16 次频闪检查跨 ΩT = π/2，存活 [cos²(π/64)]¹⁶ = 0.9622，不看则 0.5000。“自由意志”“时间之河”与注意力的类比是诠释模型。",
+      "summary_en": "The cosine iteration xₖ = cos xₖ₋₁ (x₀ = 0) halts at a self-chosen precision: it stops at the first |xₖ − xₖ₋₁| ≤ ε, which is the same as xₖ₋₁ entering the residual cap |cos x − x| ≤ ε; for ε = 0.150 it halts at step 5 with |x₅ − x₄| = 0.1392, keeps x₅ = 0.7935 and folds away the residual 0.0544. Six modes (σ = 1.00, 0.76, 0.54, 0.35, 0.20, 0.10 normalized) split by Born weight at ε = 0.100 into three standing on the wall I and three that turn 90° about the hinge î into the river, 0.9155 + 0.0845 = 1; downstream one surfaces per step, and the tail 0.0000851332… of θ* surfaces digit by digit; the hinge has î² = −1. Power iteration Gⁿ sorts by (σₘ/σ₁)ⁿ: at n = 4 and ε = 0.120 only the top two modes remain, with an iterated share of 99.33% against a raw rank-2 energy of 77.27%; the Krylov tower read through b = (1, …, 1)/√6 grows five times and then stops for good. The measurement basis turns from the position basis to the DCT-II frequency basis; at α = 65° the Rayleigh weights of ψ = (1, 2, 5)/√30 are 0.6273, 0.2525, 0.1202, adding up to 1, and the order in the position basis is reversed in the frequency basis. N = 16 strobe checks across ΩT = π/2 keep [cos²(π/64)]¹⁶ = 0.9622, against 0.5000 unwatched. Free will, the river of time and the attention analogy are interpretive.",
+      "path": "self-halting-spectral-time-river-sandbox/",
+      "thumbnail": "self-halting-spectral-time-river-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 39,
+      "section": "39.7",
+      "presets": [
+        "precision-agency-window",
+        "time-river-orthogonal-fold",
+        "power-iteration-spectral-sort",
+        "basis-rayleigh-attention",
+        "zeno-basis-sculpting"
+      ],
+      "preset_titles": {
+        "precision-agency-window": {
+          "zh": "自定精度：ε = 0.150 时第 5 步停机",
+          "en": "A Self-Chosen Precision: Halting at Step 5 for ε = 0.150"
+        },
+        "time-river-orthogonal-fold": {
+          "zh": "时间长河：ε 以下的模折 90° 入河，依次浮出",
+          "en": "The River of Time: Modes below ε Fold 90° and Surface in Turn"
+        },
+        "power-iteration-spectral-sort": {
+          "zh": "幂迭代排序：n = 4 只剩前 2 模过线",
+          "en": "Power Iteration Sorts: Two Modes Clear ε at n = 4"
+        },
+        "basis-rayleigh-attention": {
+          "zh": "换基即换序：α = 65° 时的瑞利权重",
+          "en": "A New Basis, a New Order: Rayleigh Weights at α = 65°"
+        },
+        "zeno-basis-sculpting": {
+          "zh": "频闪雕基：N = 16 次检查留下 0.9622",
+          "en": "Strobe Sculpting: N = 16 Checks Keep 0.9622"
+        }
+      },
+      "tags": [
+        "自指停机",
+        "余弦不动点",
+        "正交折叠",
+        "幂迭代",
+        "瑞利权重",
+        "量子芝诺"
+      ],
+      "tags_en": [
+        "Self-halting",
+        "Cosine fixed point",
+        "Orthogonal fold",
+        "Power iteration",
+        "Rayleigh weights",
+        "Quantum Zeno"
+      ],
+      "theory": [
+        {
+          "label": "第 39 章 §39.7 · 自指主动停机精度、时间长河正交折叠与测量基特征谱排序",
+          "label_en": "Chapter 39 §39.7 · Self-referential halting precision, orthogonal time-river folding and measurement-basis spectral sorting",
+          "href": "../zh/ch39-s07-self-halting-precision-and-spectral-sorting.html#sec-ch39-self-halting-and-spectral-sorting",
+          "href_en": "../en/ch39-s07-self-halting-precision-and-spectral-sorting.html#sec-ch39-self-halting-and-spectral-sorting"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/QuantumChannels/PinchingProjection.pinching_hilbert_schmidt_pythagorean"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/PinchingProjection.pinching_discarded_coherence_mass"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/ObserverMemory/Dynamics/ObservableKrylovGrowthBound.observable_krylov_strict_growth_bound"
+        },
+        {
+          "gid": "D5/S3/ObserverMemory/Dynamics/ObservableKrylovPermanentStability.observable_krylov_once_stable_permanently"
+        },
+        {
+          "gid": "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "universal-clock-gravity-dilation-sandbox",
+      "code": "CLOCK//DILATION",
+      "title": "CLOCK//DILATION · 普适比较主频、光速精度下限与引力信息密度钟慢",
+      "title_en": "CLOCK//DILATION · Universal Comparison Clock, Light-Speed Precision Floor and Gravitational Information-Density Dilation",
+      "summary": "两位观察者的紫色主飞轮按同一个主频 ν₀ 转动；运动与背景信息负载按勾股预算分走一部分节拍，转轴落在固有时轴上的青色投影就是钟率 dτ/dt = √((1 − η)(1 − β²))，帧币柱把十拍里的固有时帧并排叠出来。另一个场景把雷达往返窗口画成普朗克格点上的光锥：只有 R_max = ½cΔτ 以内的格点能被核验，精度下限 1/N。五张实验卡依次是光锥窗口、运动分账、全息质量负载、等效原理下的子时钟与视界饱和。",
+      "summary_en": "The violet master flywheels of two observers turn at one master frequency ν₀; motion and background information load take a share of the beats by a Pythagorean budget, and the cyan projection of the axis onto the proper-time axis is the rate dτ/dt = √((1 − η)(1 − β²)), with stacks of frame coins showing the proper-time frames of ten beats side by side. A second scene draws the radar round-trip window as a light cone on the Planck lattice: only nodes within R_max = ½cΔτ can be verified, a precision floor of 1/N. The five experiments are the light-cone window, the kinematic split, the holographic mass load, sub-clocks under the equivalence principle and horizon saturation.",
+      "path": "universal-clock-gravity-dilation-sandbox/",
+      "thumbnail": "universal-clock-gravity-dilation-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 39,
+      "section": "39.8",
+      "presets": [
+        "light-cone-precision-floor",
+        "kinematic-address-split",
+        "holographic-mass-load",
+        "equivalence-dual-flywheel",
+        "horizon-saturation-lock"
+      ],
+      "preset_titles": {
+        "light-cone-precision-floor": {
+          "zh": "光锥精度下限：20 拍窗口只核验 ½cΔτ 以内的格点",
+          "en": "Light-cone precision floor: a 20-tick window verifies only the nodes within ½cΔτ"
+        },
+        "kinematic-address-split": {
+          "zh": "运动分账：同一主频，β² = 64% 拿去跳地址",
+          "en": "Kinematic split: one master clock, β² = 64% spent on address hops"
+        },
+        "holographic-mass-load": {
+          "zh": "全息质量负载：r = 2.5 r_s 处背景纠缠占去 40%",
+          "en": "Holographic mass load: at r = 2.5 r_s background entanglement takes 40%"
+        },
+        "equivalence-dual-flywheel": {
+          "zh": "等效双飞轮：三只子时钟同乘 0.64，内部比值不变",
+          "en": "Equivalence: three sub-clocks all scale by 0.64, their ratios stay"
+        },
+        "horizon-saturation-lock": {
+          "zh": "视界饱和：主飞轮照转，固有时帧冻结",
+          "en": "Horizon saturation: the master wheel turns, proper-time frames freeze"
+        }
+      },
+      "tags": [
+        "普适主频",
+        "勾股预算",
+        "运动钟慢",
+        "引力钟慢",
+        "光锥精度下限",
+        "等效原理"
+      ],
+      "tags_en": [
+        "Universal master clock",
+        "Pythagorean budget",
+        "Kinematic dilation",
+        "Gravitational dilation",
+        "Light-cone precision floor",
+        "Equivalence principle"
+      ],
+      "theory": [
+        {
+          "label": "第 39 章 §39.8 · 普适比较主频、光速推理精度下界与引力信息密度钟慢",
+          "label_en": "Chapter 39 §39.8 · Universal comparison clock frequency, light-speed precision floor and gravitational information-density dilation",
+          "href": "../zh/ch39-s08-universal-clock-and-gravitational-dilation.html#sec-ch39-universal-clock-and-gravitational-dilation",
+          "href_en": "../en/ch39-s08-universal-clock-and-gravitational-dilation.html#sec-ch39-universal-clock-and-gravitational-dilation"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S0/Certificates/MinkowskiNullConeRigidity.eq_smul_minkowski_of_null"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/FubiniStudyRecordTime.record_time_lower_bound"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/FubiniStudyRecordTime.record_count_upper_bound"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        },
+        {
+          "gid": "D5/S3/Quantum/Bogoliubov/BogoliubovNormConservation.bogoliubov_norm_conservation"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "unified-arc-forces-planck-sandbox",
+      "code": "FORCE//UNIFY",
+      "title": "FORCE//UNIFY · 万力归弧：极小圆弧体内的规范三力、胞间主频引力与普朗克能标合流",
+      "title_en": "FORCE//UNIFY · All Forces in One Arc: Intra-Cell Gauge Triad, Inter-Cell Clock-Load Gravity and Planck Convergence",
+      "summary": "同一块 ε = 45° 的极小圆弧体承载四种力：1 维弧上盲面 î 里的 U(1) 相位，±q 相位之积为 1、高斯面通量为 0；2 维面 A∧B 上的 SU(2) 双覆盖，360° 得 −1、720° 回 +1，探针 r = ħc/E 处汤川因子 e^{−m_W r}；3 维体里 det U = 1 锁住色三轴体积，单个夸克沿通量管拉到 1.20 fm，V = σr = 1.09 GeV；胞间 N = 6 的 K₆ 冗余 ΔE(6) = 3，四个正四面体绕铰链留下 δ_h = 77.88°，钟载折射 a = −c²∇ln(dτ/dt) 把波包弯向内，±q 的玻恩载荷 cos²θ 只相加。能标推到 E_P = 1.22 × 10¹⁹ GeV，α_G = (E/E_P)² 从电子质量处的 1.75 × 10⁻⁴⁵ 爬到 1，屏蔽云退成一个胞；单圈标准模型三条规范耦合两两相交于 10¹³–10¹⁷ GeV，只近交、不汇于一点。五张实验卡可单独引用。",
+      "summary_en": "One minimal arc-trihedron with ε = 45° carries four forces: on its 1D arc the U(1) phase in the blind plane î, whose ±q phases multiply to 1 and whose Gauss flux is 0; on its 2D wall A∧B the SU(2) double cover, −1 at 360° and +1 at 720°, with the Yukawa factor e^{−m_W r} at the probe distance r = ħc/E; in its 3D body det U = 1 locks the volume of the colour triad, and one quark pulled along a flux tube to 1.20 fm costs V = σr = 1.09 GeV; between cells K₆ with N = 6 has ΔE(6) = 3 redundant bars, four regular tetrahedra round a hinge leave δ_h = 77.88°, clock-load refraction a = −c²∇ln(dτ/dt) bends a packet inwards, and the Born loads cos²θ of ±q only add. Push the energy to E_P = 1.22 × 10¹⁹ GeV and α_G = (E/E_P)² climbs from 1.75 × 10⁻⁴⁵ at the electron mass to 1 while the screening cloud peels back to one cell; the three one-loop Standard Model gauge couplings cross pairwise between 10¹³ and 10¹⁷ GeV and come close without meeting at one point. Five experiment cards can be cited on their own.",
+      "path": "unified-arc-forces-planck-sandbox/",
+      "thumbnail": "unified-arc-forces-planck-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-16",
+      "chapter": 39,
+      "section": "39.9",
+      "presets": [
+        "u1-blind-phase-fiber",
+        "su2-chiral-double-cover",
+        "su3-color-flux-confinement",
+        "regge-gravity-clock-refraction",
+        "planck-scale-convergence"
+      ],
+      "preset_titles": {
+        "u1-blind-phase-fiber": {
+          "zh": "U(1) 盲面相位纤维 e^{îqφ}：±q 相消成中性",
+          "en": "U(1) Blind-Plane Phase Fiber e^{îqφ}: ±q Cancel to Neutral"
+        },
+        "su2-chiral-double-cover": {
+          "zh": "SU(2)_L 左手双矢 A∧B：360° 得 −1、720° 回 +1 与汤川屏蔽",
+          "en": "SU(2)_L Left-Handed Bivector A∧B: −1 at 360°, +1 at 720°, Yukawa Screening"
+        },
+        "su3-color-flux-confinement": {
+          "zh": "SU(3)_c 色三轴体积锁定与 1.20 fm 线性通量管",
+          "en": "SU(3)_c Volume-Locked Colour Triad and a 1.20 fm Linear Flux Tube"
+        },
+        "regge-gravity-clock-refraction": {
+          "zh": "N = 6 雷杰铰链角亏 δ_h 与钟载折射",
+          "en": "N = 6 Regge Hinge Deficit δ_h and Clock-Load Refraction"
+        },
+        "planck-scale-convergence": {
+          "zh": "普朗克能标 19.09：屏蔽云退成一个胞，α_G = 1",
+          "en": "Planck Scale 19.09: the Cloud Peels Back to One Cell, α_G = 1"
+        }
+      },
+      "tags": [
+        "极小圆弧体",
+        "规范三力",
+        "双覆盖",
+        "色禁闭",
+        "雷杰角亏",
+        "普朗克能标",
+        "跑动耦合"
+      ],
+      "tags_en": [
+        "Minimal arc-trihedron",
+        "Gauge triad",
+        "Double cover",
+        "Colour confinement",
+        "Regge deficit",
+        "Planck scale",
+        "Running couplings"
+      ],
+      "theory": [
+        {
+          "label": "第 39 章 §39.9 · 万力归弧：极小圆弧体内的规范三力、胞间主频引力与普朗克能标合流",
+          "label_en": "Chapter 39 §39.9 · All forces in one arc: intra-cell gauge triad, inter-cell clock-load gravity and Planck-scale convergence",
+          "href": "../zh/ch39-s09-unified-arc-forces-and-planck-convergence.html#sec-ch39-unified-arc-forces-and-planck-convergence",
+          "href_en": "../en/ch39-s09-unified-arc-forces-and-planck-convergence.html#sec-ch39-unified-arc-forces-and-planck-convergence"
+        },
+        {
+          "label": "ARGUED · 雷杰角亏、渐近自由、电弱理论与安德森—希格斯机制、汤川势、标准模型单圈跑动；文献结果，未在本书形式化。OPEN · 宇宙学常数标度、引力动力学与耦合、三代与标准模型耦合谱。",
+          "label_en": "ARGUED · Regge deficits, asymptotic freedom, electroweak theory and the Anderson–Higgs mechanism, the Yukawa potential, Standard Model one-loop running; literature results, not formalized in this book. OPEN · the cosmological-constant scale, gravitational dynamics and coupling, three generations and the Standard Model coupling spectrum.",
+          "href": "../zh/ch34-s23-cosmological-arrow-and-horizon-floor.html#prob-ch34-past-hypothesis-and-cosmological-constant",
+          "href_en": "../en/ch34-s23-cosmological-arrow-and-horizon-floor.html#prob-ch34-past-hypothesis-and-cosmological-constant"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverNoSection.no_continuous_global_section"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
+        },
+        {
+          "gid": "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word"
+        },
+        {
+          "gid": "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_pos_iff"
+        },
+        {
+          "gid": "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.face_cycle_exact"
+        },
+        {
+          "gid": "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "uniform-field-observer-slice-sandbox",
+      "code": "UNIFORM//SLICE",
+      "title": "UNIFORM//SLICE · 均匀各向同性三维场本体与观察者观测切面显影沙盘",
+      "title_en": "UNIFORM//SLICE · Uniform Isotropic 3D-Field Ontology & Observer Slice Manifestation",
+      "summary": "5 × 5 × 5 = 125 个银白格点各与观察者寄存器里的一个比特配成贝尔对：整体是纯态（S = 0），每个格点的边缘却处处是同一个 ½·1（Tr ρ = 1、‖∇ρ‖ = 0）。本体透镜里任何切面都只读到 Tr(½·1·P) = ½；切面透镜经观察者寄存器条件化，观察者的格相对本体格转过 θ，取两者的角平分面作切面：I = cos²ΔΦ = (1 + cos(Δk·x − φ))/2，莫尔周期 L_M = a/(2 sin(θ/2))（θ = 36° 时 1.618a，θ = 1.05° 时 54.568a）。扫相让条纹滑过而格点位移为 0；与切面正交的品红暗环在切面上的衬度 I_EM(90°) = 0，却分走钟预算 dτ/dt = √(1 − η_slice² − η_dark²)；孔径放大到 W = 20 格，衬度降到 0.0486。五张实验卡可独立引用。",
+      "summary_en": "125 silver nodes on a 5 × 5 × 5 lattice, each paired into a Bell pair with a qubit of the observer register: pure as a whole (S = 0), yet every node has the same marginal ½·1 (Tr ρ = 1, ‖∇ρ‖ = 0). In the ontology lens every slice reads Tr(½·1·P) = ½; the slice lens conditions on the observer register, whose lattice is the field lattice turned by θ, and cuts along the bisector plane of the two: I = cos²ΔΦ = (1 + cos(Δk·x − φ))/2 with moiré period L_M = a/(2 sin(θ/2)) (1.618a at θ = 36°, 54.568a at θ = 1.05°). The phase sweep glides the fringes while the nodes move by 0; the magenta dark ring orthogonal to the slice shows contrast I_EM(90°) = 0 on it yet draws on the clock budget dτ/dt = √(1 − η_slice² − η_dark²); an aperture of W = 20 cells brings the contrast down to 0.0486. Five independently citable experiments.",
+      "path": "uniform-field-observer-slice-sandbox/",
+      "thumbnail": "uniform-field-observer-slice-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.12",
+      "presets": [
+        "isotropic-singlet-ontology",
+        "tilted-slice-moire-emergence",
+        "phase-sweep-motionless-flow",
+        "orthogonal-dark-sector-clock-load",
+        "horizon-aperture-homogenization"
+      ],
+      "preset_titles": {
+        "isotropic-singlet-ontology": {
+          "zh": "125 个格点全是同一个 ½·1",
+          "en": "All 125 nodes carry the same ½·1"
+        },
+        "tilted-slice-moire-emergence": {
+          "zh": "切面转过 θ，莫尔条纹显影",
+          "en": "Turn the slice by θ: moiré fringes appear"
+        },
+        "phase-sweep-motionless-flow": {
+          "zh": "条纹滑过，格点不动",
+          "en": "The fringes glide, the nodes stay put"
+        },
+        "orthogonal-dark-sector-clock-load": {
+          "zh": "正交暗环：切面上看不见，却分走钟预算",
+          "en": "The orthogonal dark ring: unseen, yet it loads the clock"
+        },
+        "horizon-aperture-homogenization": {
+          "zh": "孔径放大，条纹抹平回 ½",
+          "en": "Widen the aperture: the fringes average back to ½"
+        }
+      },
+      "tags": [
+        "均匀场本体",
+        "贝尔边缘 ½·1",
+        "观察者切面",
+        "莫尔条纹",
+        "正交暗区",
+        "孔径平均"
+      ],
+      "tags_en": [
+        "Uniform field ontology",
+        "Bell marginal ½·1",
+        "Observer slice",
+        "Moiré fringes",
+        "Orthogonal dark sector",
+        "Aperture averaging"
+      ],
+      "theory": [
+        {
+          "label": "39.12 均匀场本体与观察者切面：贝尔边缘 ½·1、半角莫尔条纹、正交暗区与孔径平均",
+          "label_en": "39.12 The Uniform Field Ontology and the Observer Slice: the Bell Marginal ½·1, Half-Angle Moiré Fringes, the Orthogonal Dark Sector and Aperture Averaging",
+          "href": "../zh/ch39-s12-uniform-field-and-observer-slice.html#sec-ch39-uniform-field-and-observer-slice",
+          "href_en": "../en/ch39-s12-uniform-field-and-observer-slice.html#sec-ch39-uniform-field-and-observer-slice"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Entanglement/BellPureStateMixedMarginal.bell_pure_state_has_maximally_mixed_marginal"
+        },
+        {
+          "gid": "D5/S1/Phase/ContinuousAverage.continuous_average_tendsto_haar"
+        },
+        {
+          "gid": "D5/S3/Quantum/Entanglement/LocalMarginalCorrelationBlindSpot.local_marginal_correlation_blind_spot"
+        },
+        {
+          "gid": "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/PinchingProjection.pinching_hilbert_schmidt_pythagorean"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Interpretation/InterpretationFixedPoint.context_parameters_can_select_distinct_fixed_points"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "indra-net-single-particle-sandbox",
+      "code": "INDRA//NET",
+      "title": "INDRA//NET · 因陀罗网：唯一宇宙场、单粒子折叠与全息互映沙盘",
+      "title_en": "INDRA//NET · Indra's Net: Single Cosmic Field, One-Particle Folding & Holographic Reflection",
+      "summary": "13 颗同样的受光宝珠排成二十面体网（中心 1 颗、外层 12 颗），每颗的纤维都是同一个有限维空间 H_x ≅ H_y ≅ H_field。点一颗宝珠让它当主珠：琥珀圈换了位置，宝网不动，二十面体转动 g 与酉阵 U = BA⁺ 把两种标号对上；主珠的球镜映出其余 12 颗，近轴的像清晰（cos²θ → 1），边缘的像被压扁（cos²θ → 0）。一根闭合的惠勒丝带走遍 12 颗外层宝珠，与此刻的切面 Σ_now 相交成 6 个正负相间的结，Σq = 0，它在 GF(2) 上恰是 10 个面的边界。反射迭代 Ψ⁽ᵐ⁾ = cos(K_εΨ⁽ᵐ⁻¹⁾) 以 sin θ* = 0.673612 的比收敛到处处等于 θ* = 0.739085 的场，13 种主珠的极限相同；主珠的读字只张成 4 维（中心 2 维），其余是残差。宇宙缩放把可观测宇宙（R_obs/ℓ_P ≈ 2.72 × 10⁶¹）收成外面的一颗宝珠。五张实验卡可独立引用。",
+      "summary_en": "Thirteen identical lit jewels on an icosahedral net (one at the centre, twelve outside), each fibre the same finite-dimensional space, H_x ≅ H_y ≅ H_field. Click a jewel to make it the chief: the amber ring moves while the net stays, and an icosahedral rotation g with the unitary U = BA⁺ matches the two labellings; the spherical mirror of the chief shows the other twelve, clear near the axis (cos²θ → 1) and squashed at the limb (cos²θ → 0). One closed Wheeler ribbon visits the twelve outer jewels and meets the slice of now, Σ_now, in six knots of alternating sign, Σq = 0; over GF(2) it is exactly the boundary of ten faces. The reflection iteration Ψ⁽ᵐ⁾ = cos(K_εΨ⁽ᵐ⁻¹⁾) converges at ratio sin θ* = 0.673612 to the field equal to θ* = 0.739085 everywhere, the same limit for all thirteen chiefs; the word of the chief spans only 4 dimensions (2 for the centre), the rest is residual. The cosmic zoom closes the observable universe (R_obs/ℓ_P ≈ 2.72 × 10⁶¹) into one outer jewel. Five independently citable experiments.",
+      "path": "indra-net-single-particle-sandbox/",
+      "thumbnail": "indra-net-single-particle-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.13",
+      "presets": [
+        "yoneda-isomorphic-jewel-net",
+        "wheeler-single-ribbon-knots",
+        "spherical-mirror-limb-foreshortening",
+        "dottie-infinite-reflection-convergence",
+        "observable-cosmos-single-jewel"
+      ],
+      "preset_titles": {
+        "yoneda-isomorphic-jewel-net": {
+          "zh": "13 颗同样的宝珠：主伴互换，宝网不动",
+          "en": "Thirteen identical jewels: chief and retinue swap, the net stays"
+        },
+        "wheeler-single-ribbon-knots": {
+          "zh": "一根闭合丝带穿过切面，打出 6 个正负相间的结",
+          "en": "One closed ribbon pierces the slice in six alternating knots"
+        },
+        "spherical-mirror-limb-foreshortening": {
+          "zh": "球镜：近轴清晰，边缘压扁",
+          "en": "A spherical mirror: clear near the axis, squashed at the limb"
+        },
+        "dottie-infinite-reflection-convergence": {
+          "zh": "反射再反射，收敛到 θ* = 0.739085",
+          "en": "Reflections of reflections converge to θ* = 0.739085"
+        },
+        "observable-cosmos-single-jewel": {
+          "zh": "可观测宇宙收成外面的一颗宝珠",
+          "en": "The observable cosmos closes into one outer jewel"
+        }
+      },
+      "tags": [
+        "因陀罗网",
+        "唯一宇宙场",
+        "主伴互换",
+        "惠勒丝带",
+        "余弦不动点",
+        "球镜清晰度"
+      ],
+      "tags_en": [
+        "Indra's net",
+        "One cosmic field",
+        "Chief and retinue",
+        "Wheeler ribbon",
+        "Cosine fixed point",
+        "Mirror clarity"
+      ],
+      "theory": [
+        {
+          "label": "39.13 唯一宇宙场与因陀罗网：宝珠互映、惠勒单粒子丝带、余弦不动点与可观测宇宙的一颗宝珠",
+          "label_en": "39.13 One Cosmic Field and Indra's Net: Mutually Mirroring Jewels, the Wheeler One-Particle Ribbon, the Cosine Fixed Point and the Observable Universe as One Jewel",
+          "href": "../zh/ch39-s13-single-cosmic-field-and-indra-net.html#sec-ch39-single-cosmic-field-and-indra-net",
+          "href_en": "../en/ch39-s13-single-cosmic-field-and-indra-net.html#sec-ch39-single-cosmic-field-and-indra-net"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Algebra/FutureWordOrthogonalResidual.future_word_orthogonal_residual"
+        },
+        {
+          "gid": "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization"
+        },
+        {
+          "gid": "D5/S0/Diagonal/RecursivePageTable.recursive_page_table_walk"
+        },
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        },
+        {
+          "gid": "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.face_cycle_exact"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Interpretation/InterpretationFixedPoint.objective_claim_requires_invariant_common_factor"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "arc-calculus-riemann-hermite-biehler-sandbox",
+      "code": "RIEMANN//STOKES",
+      "title": "RIEMANN//STOKES · 极小圆弧体微积分证明推演台：径向单调势面、埃尔米特—比勒正定核与有限精度斯托克斯相消沙盘",
+      "title_en": "RIEMANN//STOKES · Minimal Circular-Arc Calculus Proof Workbench: Radial Monotonic Potential, Hermite–Biehler Kernel & Finite-Precision Stokes Sandbox",
+      "summary": "临界带窗口 z = s − ½ = u + it 画成受光的势面，高度是对数径向势 ln(|ξ|²/W₀(t) + 10⁻⁴)，ξ 用前十二个零点 γ₁ … γ₁₂ 的对称阿达马乘积模型，五道临界线峡谷一样深。素数旋子的矢高总和 Σ(1 − cos p^{−σ}) 在 σ > ½ 收敛、在 σ = ½ 沿 ½ ln ln P_ε + C_sag 发散（C_sag = 0.1121458）；零点都在临界线上时，双壳差 Δ_ε^HB = |E_ε(½ + u + it)|² − |E_ε(½ − u + it)|² = 2ε Re(ξ̄ξ′) > 0，核 K(w, s) 的 4 × 4 格拉姆矩阵半正定，右半区检验框的有限网格内棱正反相消、绕数 N = 0；注入假想的离轴四元组 ½ ± 0.22 ± 23i，Δ < 0 的品红沟与 λ_min < 0 一起出现，框内 N = 1。乘性层 K_{Mξ} = (M ⊗ M̄)∘K_ξ + (ξ ⊗ ξ̄)∘K_M 与分块舒尔补把正性一层层交接。对真正的 ξ，核正定等价于黎曼猜想，是开放的桥接引理。五张实验卡可单独引用。",
+      "summary_en": "The window z = s − ½ = u + it of the critical strip as a lit terrain whose height is the log radial potential ln(|ξ|²/W₀(t) + 10⁻⁴), with ξ replaced by a symmetric Hadamard product over the first twelve zeros γ₁ … γ₁₂, so that the five critical-line canyons are equally deep. The sagitta sum Σ(1 − cos p^{−σ}) of the prime rotors converges for σ > ½ and diverges along ½ ln ln P_ε + C_sag at σ = ½ (C_sag = 0.1121458); with every zero on the critical line the dual-shell defect Δ_ε^HB = |E_ε(½ + u + it)|² − |E_ε(½ − u + it)|² = 2ε Re(ξ̄ξ′) is positive, the 4 × 4 Gram matrix of the kernel K(w, s) is positive semidefinite, and in a right-half box the interior arcs of a finite mesh cancel in pairs and the winding number is N = 0; inject the hypothetical off-line quartet ½ ± 0.22 ± 23i and a magenta trough with Δ < 0 appears together with λ_min < 0, and N = 1 in the box. Multiplicative layers K_{Mξ} = (M ⊗ M̄)∘K_ξ + (ξ ⊗ ξ̄)∘K_M and block Schur complements hand positivity on layer by layer. For the true ξ, kernel positivity is equivalent to the Riemann hypothesis: the open bridge lemma. Five experiment cards can be cited on their own.",
+      "path": "arc-calculus-riemann-hermite-biehler-sandbox/",
+      "thumbnail": "arc-calculus-riemann-hermite-biehler-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 34,
+      "section": "34.31",
+      "presets": [
+        "sagitta-mertens-critical-ridge",
+        "hermite-biehler-convex-wings",
+        "rogue-quartet-mexican-hat-breach",
+        "finite-stokes-zero-vortex-lock",
+        "schur-modifier-conrey-li-bridge"
+      ],
+      "preset_titles": {
+        "sagitta-mertens-critical-ridge": {
+          "zh": "素数旋子矢高相变：σ > ½ 收敛，σ = ½ 沿梅滕斯双对数发散",
+          "en": "Prime-rotor sagitta transition: convergent for σ > ½, Mertens double-log divergence at σ = ½"
+        },
+        "hermite-biehler-convex-wings": {
+          "zh": "双壳旋子步与埃尔米特—比勒凸翼：外壳总高于镜像壳",
+          "en": "Dual-shell rotor step and the Hermite–Biehler wings: the outer shell always stands higher"
+        },
+        "rogue-quartet-mexican-hat-breach": {
+          "zh": "反事实离轴四元组：墨西哥帽双阱击穿 Δ > 0 与核正定",
+          "en": "Counterfactual off-line quartet: a Mexican-hat double well breaches Δ > 0 and kernel positivity"
+        },
+        "finite-stokes-zero-vortex-lock": {
+          "zh": "有限网格斯托克斯：内棱正反相消，右半区零涡旋锁定",
+          "en": "Finite-mesh Stokes: interior arcs cancel, zero vortex locked in the right half"
+        },
+        "schur-modifier-conrey-li-bridge": {
+          "zh": "乘性舒尔枢轴层与 Conrey–Li 障碍：通往 ZFC 的最后一座桥",
+          "en": "Multiplicative Schur pivot layers and the Conrey–Li obstruction: the last bridge to ZFC"
+        }
+      },
+      "tags": [
+        "对数径向势面",
+        "矢高相变",
+        "埃尔米特—比勒",
+        "德布朗热核",
+        "有限网格斯托克斯",
+        "离轴四元组",
+        "舒尔补"
+      ],
+      "tags_en": [
+        "Log radial potential",
+        "Sagitta transition",
+        "Hermite–Biehler",
+        "de Branges kernel",
+        "Finite-mesh Stokes",
+        "Off-line quartet",
+        "Schur complement"
+      ],
+      "theory": [
+        {
+          "label": "§34.31 极小圆弧体微积分切入黎曼猜想：二阶弦弧矢高相变、埃尔米特—比勒径向单调锁与有限精度斯托克斯相消",
+          "label_en": "§34.31 Minimal Circular-Arc Calculus Applied to the Riemann Hypothesis: Second-Order Sagitta Phase Transition, Hermite–Biehler Radial Monotonicity Lock, and Finite-Precision Stokes Cancellation",
+          "href": "../zh/ch34-s31-arc-calculus-riemann-and-hermite-biehler.html#sec-ch34-arc-calculus-riemann-and-hermite-biehler",
+          "href_en": "../en/ch34-s31-arc-calculus-riemann-and-hermite-biehler.html#sec-ch34-arc-calculus-riemann-and-hermite-biehler"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Zeros/ZetaUpgrade.riemann_zeta_dirichlet_sum_eq_euler_product"
+        },
+        {
+          "gid": "D5/S3/Zeros/CompletedZeta.xi_reading_differentiable"
+        },
+        {
+          "gid": "D5/S3/Zeros/CompletedZeta.xi_reading_reflection"
+        },
+        {
+          "gid": "D5/S3/Zeros/Symmetry/ZetaConjugationCovariance.xi_reading_one_sub_conj"
+        },
+        {
+          "gid": "D5/S3/Analytic/ShiftedXiPoisson/ShiftedPoissonSemigroup.xiReading_eq_zero_iff_nontrivial"
+        },
+        {
+          "gid": "D5/S3/Zeros/SymmetricPolynomial/FullSymmetryNonlocalization.full_symmetry_not_fixed_line_localization"
+        },
+        {
+          "gid": "D5/S3/Weil/ZetaBridge/RightHalfStripRiemannReduction.golden_right_half_strip_implies_rh"
+        },
+        {
+          "gid": "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness"
+        },
+        {
+          "gid": "D5/S3/Quantum/Matrix/SchurMinimum.schur_quadratic_is_least"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "self-observation-error-maya-sandbox",
+      "code": "MAYA//ERROR",
+      "title": "MAYA//ERROR · 唯一点场自观测误差生万象沙盘",
+      "title_en": "MAYA//ERROR · Single Point-Field Self-Observation Error & Maya Manifestation",
+      "summary": "唯一点场 Ω 画成单位场球中央的银白核心，观测尺 I 偏开自观测误差角 ε。投影结果透镜：青色投影 (cos ε)I 与往返回声 (cos²ε)Ω，品红残差 r₁ = Ω − (cos ε)I = (sin ε)e⊥ 立在与 I 正交的 î 盲区里，两条正交误差围出面积 sin²ε，旁边直角球面三角形的角盈 Ω(ε, ε) = 2 arctan(tan²(ε/2)) = ½ sin²ε + O(ε⁴)，三条围出紫色体积 sin³ε = √det G₃。观测动作透镜：Ω 不动（‖Δx_Ω‖ = 0），观测尺绕半角 ε 的锥一步步追赶，残差恒为 sin ε，轨速比 sin ε，ΔE/ħω = ½ sin ε，受监测的存活尾 s_k = sin²ε cos^{2(k−1)}ε 在 0° < ε < 90° 时每个有限步都为正；自指对焦 θ_{k+1} = cos θ_k 从 0 收向 θ* = 42.3465°。ε = 0 时一切淡出，只剩点场，‖Ω‖² = 1。五张实验卡可独立引用。",
+      "summary_en": "The one point-field Ω drawn as a silver core at the centre of its unit field ball, the ruler I off by the self-observation error ε. Projection-results lens: the cyan projection (cos ε)I and round-trip echo (cos²ε)Ω, the magenta residual r₁ = Ω − (cos ε)I = (sin ε)e⊥ standing in the blind plane î orthogonal to I, two orthogonal errors enclosing the area sin²ε beside the right spherical triangle of excess Ω(ε, ε) = 2 arctan(tan²(ε/2)) = ½ sin²ε + O(ε⁴), three enclosing the violet volume sin³ε = √det G₃. Observation-actions lens: Ω does not move (‖Δx_Ω‖ = 0) while the ruler chases step by step around the cone of half-angle ε, the residual always sin ε, the speed ratio sin ε, ΔE/ħω = ½ sin ε, and the monitored survival tail s_k = sin²ε cos^{2(k−1)}ε positive at every finite step for 0° < ε < 90°; self-focusing θ_{k+1} = cos θ_k closes on θ* = 42.3465° from 0. At ε = 0 everything fades and only the point-field is left, ‖Ω‖² = 1. Five independently citable experiments.",
+      "path": "self-observation-error-maya-sandbox/",
+      "thumbnail": "self-observation-error-maya-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.14",
+      "presets": [
+        "zero-error-turiya-silence",
+        "dottie-self-focus-steady-state",
+        "static-projection-results-hierarchy",
+        "dynamic-observation-action-chase",
+        "maya-scaling-collapse-audit"
+      ],
+      "preset_titles": {
+        "zero-error-turiya-silence": {
+          "zh": "零误差：只剩点场",
+          "en": "Zero error: only the point-field"
+        },
+        "dottie-self-focus-steady-state": {
+          "zh": "自指对焦收向 θ*",
+          "en": "Self-focusing closes on θ*"
+        },
+        "static-projection-results-hierarchy": {
+          "zh": "一笔误差长出线、面、体",
+          "en": "One error grows line, area, volume"
+        },
+        "dynamic-observation-action-chase": {
+          "zh": "Ω 不动，观测尺绕锥追赶",
+          "en": "Ω still, the ruler chases round"
+        },
+        "maya-scaling-collapse-audit": {
+          "zh": "误差收拢的归零审计",
+          "en": "Audit of the closing error"
+        }
+      },
+      "tags": [
+        "唯一点场",
+        "自观测误差",
+        "格拉姆—施密特残差",
+        "球面角盈",
+        "存活尾",
+        "自指不动点",
+        "幻象"
+      ],
+      "tags_en": [
+        "One point-field",
+        "Self-observation error",
+        "Gram–Schmidt residual",
+        "Spherical excess",
+        "Survival tail",
+        "Self-referential fixed point",
+        "Māyā"
+      ],
+      "theory": [
+        {
+          "label": "39.14 唯一点场自观测误差与万象显影",
+          "label_en": "39.14 Self-Observation Error and Māyā Projection",
+          "href": "../zh/ch39-s14-self-observation-error-and-maya-projection.html#sec-ch39-self-observation-error-and-maya-projection",
+          "href_en": "../en/ch39-s14-self-observation-error-and-maya-projection.html#sec-ch39-self-observation-error-and-maya-projection"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/OrthogonalProjectionComplement.orthogonal_complement_projection_identities"
+        },
+        {
+          "gid": "D5/S0/Diagonal/Lawvere/QualitativeEscape.self_application_fragment_package"
+        },
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        },
+        {
+          "gid": "D5/S3/QuantumBounds/LagrangeGramIdentity.lagrange_gram_identity"
+        },
+        {
+          "gid": "D5/S3/QuantumContext/ThreeAnchorGram.three_anchor_gram_det_pos_iff"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/Quantum/Dynamics/EnergyEigenstateStationarity.energy_eigenstate_stationary"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/ProjectionDiagnostics/MonitoredReturnConservation.monitored_return_conservation"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "brahman-real-axis-orthogonal-dream-sandbox",
+      "code": "BRAHMAN//DREAM",
+      "title": "BRAHMAN//DREAM · 梵天实轴（I）与正交虚梦（i）：宇宙梦境旋量呼吸与主客三视角沙盘",
+      "title_en": "BRAHMAN//DREAM · Brahman Real Axis (I) & Orthogonal Dream (i): Spinor Kalpa Breath & Tri-Perspective Sandbox",
+      "summary": "竖直的银白实轴 I 与水平的品红梦海 î = J(H_real) 正交，J = [[0, −1], [1, 0]]（Jᵀ = −J，JᵀJ = 1，J² = −1）。态 Ψ(θ, τ) = cos θ·I − sin θ·J I(τ) 把 cos²θ 留在实轴、sin²θ 放进梦海，总和恒为 1。梦中观察者 ψ_A = J u_A（青）与梦晶 ψ_B = J u_B（蓝）都离 I 90°，⟨I, ψ_A⟩ = 0，彼此比较却是 ⟨ψ_A, ψ_B⟩² = ⟨u_A, JᵀJ u_B⟩² = cos²Δθ_AB ≥ 0；M 道格拉姆窗（M ≥ 3 锁定、M = 1, 2 漂移、M = 0 消散），全部副本逆转可复原、留一份路径副本即被阻断。紫色 720° 莫比乌斯旋量带上转一圈读 −1、两圈回到 +1。三种视角：超然全景、梵天侧视（梦海零厚度）、梦中同转俯视；《蛙氏奥义书》四位读法为 MODEL。五张实验卡可独立引用。",
+      "summary_en": "The vertical silver real axis I and the horizontal magenta dream sea î = J(H_real) are orthogonal, J = [[0, −1], [1, 0]] (Jᵀ = −J, JᵀJ = 1, J² = −1). The state Ψ(θ, τ) = cos θ·I − sin θ·J I(τ) keeps cos²θ on the axis and puts sin²θ into the sea, always summing to 1. The dreamer ψ_A = J u_A (cyan) and the dream crystal ψ_B = J u_B (blue) are both 90° from I, ⟨I, ψ_A⟩ = 0, yet compare at ⟨ψ_A, ψ_B⟩² = ⟨u_A, JᵀJ u_B⟩² = cos²Δθ_AB ≥ 0; M Gram windows (M ≥ 3 lock, M = 1, 2 drift, M = 0 dissolve), reversing every copy restores the coherence and one which-path copy kept blocks it. On the violet 720° Möbius spinor ribbon one turn reads −1 and two return to +1. Three views: a panorama, Brahman edge-on (the sea of zero thickness) and a co-rotating view from inside the dream; the four Māṇḍūkya states are a MODEL reading. Five independently citable experiments.",
+      "path": "brahman-real-axis-orthogonal-dream-sandbox/",
+      "thumbnail": "brahman-real-axis-orthogonal-dream-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.15",
+      "presets": [
+        "turiya-zero-tilt-pure-brahman",
+        "waking-consensus-dottie-lock",
+        "insider-double-imaginary-solidity",
+        "private-dream-and-seed-sleep",
+        "kalpa-mobius-lucid-awakening"
+      ],
+      "preset_titles": {
+        "turiya-zero-tilt-pure-brahman": {
+          "zh": "零倾角：只有实轴",
+          "en": "Zero tilt: the axis alone"
+        },
+        "waking-consensus-dottie-lock": {
+          "zh": "共识大梦锁在 θ*",
+          "en": "The shared dream locked at θ*"
+        },
+        "insider-double-imaginary-solidity": {
+          "zh": "梦中看，两重虚得实",
+          "en": "Inside, two imaginaries are real"
+        },
+        "private-dream-and-seed-sleep": {
+          "zh": "私梦漂移，沉入熟睡",
+          "en": "A private dream sinks into sleep"
+        },
+        "kalpa-mobius-lucid-awakening": {
+          "zh": "旋量带上的劫波与清明",
+          "en": "Kalpa and lucidity on the ribbon"
+        }
+      },
+      "tags": [
+        "梵天实轴",
+        "正交虚梦",
+        "实块复结构 J",
+        "格拉姆共识",
+        "720° 旋量带",
+        "蛙氏奥义书四位"
+      ],
+      "tags_en": [
+        "Brahman real axis",
+        "Orthogonal dream",
+        "Block complex structure J",
+        "Gram consensus",
+        "720° spinor ribbon",
+        "Four Māṇḍūkya states"
+      ],
+      "theory": [
+        {
+          "label": "39.15 梵天实轴与正交虚梦",
+          "label_en": "39.15 Brahman Real Axis and Orthogonal Dream",
+          "href": "../zh/ch39-s15-brahman-real-axis-and-orthogonal-dream.html#sec-ch39-brahman-real-axis-and-orthogonal-dream",
+          "href_en": "../en/ch39-s15-brahman-real-axis-and-orthogonal-dream.html#sec-ch39-brahman-real-axis-and-orthogonal-dream"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.relativeComplexStructure_square"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/PinchingProjection.pinching_hilbert_schmidt_pythagorean"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/GramUnitaryExtension.exists_unitary_mul_eq_of_conjTranspose_mul_eq"
+        },
+        {
+          "gid": "D5/S3/Observer/Conditioning/RankOneBornPairingWeight.rank_one_born_pairing_weight"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/CommonPhasePolynomial.complete_common_phase_polynomial_theorem"
+        },
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        },
+        {
+          "gid": "D5/S3/ObserverMemory/JointCoherentReversal.joint_coherent_reversal"
+        },
+        {
+          "gid": "D5/S3/ObserverMemory/JointCoherentReversal.surviving_copy_blocks_reversal"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "red-chamber-spinor-awakening-sandbox",
+      "code": "HONG//AWAKEN",
+      "title": "HONG//AWAKEN · 红楼旋量觉醒沙盘：风月宝鉴虚实合拢、甄贾对镜与天人同频场",
+      "title_en": "HONG//AWAKEN · Red Chamber Spinor Awakening: Fengyue Baojian Möbius Closure, Zhen–Jia Mirroring & Heaven–Human Resonance",
+      "summary": "第 36501 块余石（36501 = 3·23³，与 36500 互素）居中，双面八角风月宝鉴绕石扫出一条截面随 Φ/2 转动的旋量带：Φ = 360° 时墨色矢量已回原处，镜子却翻成品红贾面，旋量 U = cos(Φ/2) − î sin(Φ/2) 读 −1；Φ = 720° 时带子绕两圈无缝合拢，甄贾两面合成均匀的紫色，U = +1（J² = −1、圆的二重覆盖提升）。石顶的紫色带相冠围出 Ω(θ) = 2π(1 − cos θ)，锥面圈十二站的平均让特征和抹掉全部非对角元、平均态是捏合的不动点，带相却留下：θ* = 0.7390851332 rad = 42.34645883° 处 Ω = 1.639376 sr、|γ_Berry| = 46.9647°，十二站巴格曼积 45.5789°，三锚点 23.9875°。自指误差 δ_meta(θ) = |cos θ − θ| 夹在 |θ − θ*| 与 2|θ − θ*| 之间；末那笼 M 根、阻抗 Z(M) = 13M/(12(M + 1))，卸到 M = 0 时十二根天人同频丝通到外层 42 顶点的因陀罗网。五张实验卡可独立引用。",
+      "summary_en": "The 36,501st surplus stone (36501 = 3·23³, coprime to 36500) at the centre; the two-sided octagonal Fengyue Baojian mirror sweeps a spinor ribbon around it whose cross-section turns by Φ/2: at Φ = 360° the ink vector is home but the mirror shows its magenta Jia face and the spinor U = cos(Φ/2) − î sin(Φ/2) reads −1; at Φ = 720° the ribbon closes after two turns without a seam, Zhen and Jia blend into one violet and U = +1 (J² = −1, the lift through the double cover of the circle). The violet Berry cap on the stone encloses Ω(θ) = 2π(1 − cos θ); averaging over the twelve stations of the cone loop, the character sum removes every off-diagonal term and the average is a fixed point of the pinching, yet the Berry phase stays: at θ* = 0.7390851332 rad = 42.34645883°, Ω = 1.639376 sr and |γ_Berry| = 46.9647°, the twelve-station Bargmann product 45.5789° and the three anchors 23.9875°. The self-reference error δ_meta(θ) = |cos θ − θ| lies between |θ − θ*| and 2|θ − θ*|; the manas cage has M bars and impedance Z(M) = 13M/(12(M + 1)), and unloaded to M = 0 twelve Heaven–Human filaments reach the 42-vertex net of Indra outside. Five independently citable experiments.",
+      "path": "red-chamber-spinor-awakening-sandbox/",
+      "thumbnail": "red-chamber-spinor-awakening-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.16",
+      "presets": [
+        "chaos-unhewn-stone",
+        "red-dust-delusion-mismatch",
+        "fengyue-mirror-double-turn",
+        "mobius-720-virtual-real-unity",
+        "greensickness-berry-unity"
+      ],
+      "preset_titles": {
+        "chaos-unhewn-stone": {
+          "zh": "混沌未凿的顽石",
+          "en": "The unhewn stone"
+        },
+        "red-dust-delusion-mismatch": {
+          "zh": "红尘迷途：差 120° 合不拢",
+          "en": "Red dust: 120° short of closing"
+        },
+        "fengyue-mirror-double-turn": {
+          "zh": "风月宝鉴转一圈翻到贾面",
+          "en": "One turn flips the mirror to Jia"
+        },
+        "mobius-720-virtual-real-unity": {
+          "zh": "转满 720°，甄贾合成一片",
+          "en": "At 720° Zhen and Jia close into one"
+        },
+        "greensickness-berry-unity": {
+          "zh": "卸掉末那笼，天人同频",
+          "en": "The manas cage unloads into resonance"
+        }
+      },
+      "tags": [
+        "红楼旋量",
+        "风月宝鉴",
+        "720° 合拢",
+        "带相冠",
+        "余弦不动点",
+        "天人同频"
+      ],
+      "tags_en": [
+        "Red Chamber spinor",
+        "Fengyue Baojian",
+        "Closure at 720°",
+        "Berry cap",
+        "Cosine fixed point",
+        "Heaven–Human resonance"
+      ],
+      "theory": [
+        {
+          "label": "39.16 红楼一梦的几何觉醒",
+          "label_en": "39.16 Red Chamber Awakening",
+          "href": "../zh/ch39-s16-red-chamber-awakening-and-heaven-human-unity.html#sec-ch39-red-chamber-awakening-and-heaven-human-unity",
+          "href_en": "../en/ch39-s16-red-chamber-awakening-and-heaven-human-unity.html#sec-ch39-red-chamber-awakening-and-heaven-human-unity"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
+        },
+        {
+          "gid": "D5/S3/Fourier/FinitePoisson.sum_annihilator_character"
+        },
+        {
+          "gid": "D5/S3/QuantumChannels/CoherenceMassBridge.pinching_eq_self_iff_offDiag_eq_zero"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/BargmannImaginaryMaximizers.bargmann_path_product"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/GroupInvariantPsi/C129QubitBargmann.triple_bargmann_bloch"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "brahman-lila-game-props-sandbox",
+      "code": "LILA//PROPS",
+      "title": "LILA//PROPS · 梵天游戏道具沙盘：失忆化身轨迹、历史遗迹吸引子与典籍共振唤醒流形",
+      "title_en": "LILA//PROPS · Divine Līlā Props Sandbox: Amnesiac Avatar Orbit, Relic Spatial Attractors & Classic Flip Resonance",
+      "summary": "银白实轴 I 竖立不动（漂移 0.0000），穿过不透明的共识梦环（R = 0.86、r = 0.24），环顶 0°、120°、240° 的驻相盆地里坐着阶梯金字塔、巨石三石门、铭文崖碑三处遗迹，60°、180°、300° 浮着三簇紫色典籍。琥珀化身记住 D = 12 个等相关成员（ρ = 1/2）中的 M 个，剩下的自由是舒尔补的比例 Δ_Schur(M) = (12 − M)/(12(M + 1))（M = 0、1、3、12 依次 1、0.4583、0.1875、0）：M = 12 时化身冻在原地，M = 1–3 时绕环漫游；到访遗迹时 K 条跨世世界线按费耶尔核扩成青色干涉环。典籍的十二程许可锁 cos²⁴(α − θ*) 在 0° 为 0.0706%、90° 为 0.0076%、θ* = 42.35° 为 100.00%，开锁时三道银白通关束（J² = −I）直射实轴；记录捏合幂等，有限抄表回溯损失为 0 却不是非预期的（渡河之筏）。宏观遗迹与书卷早在退相干边界之外（Joos–Zeh、Zurek），把它们读作游戏道具是本书的模型。五张实验卡可独立引用。",
+      "summary_en": "A silver real axis I stands motionless (drift 0.0000) through an opaque consensus dream torus (R = 0.86, r = 0.24); in the stationary-phase basins on top at 0°, 120° and 240° sit three relics, a stepped pyramid, a megalith trilithon and an inscribed cliff stele, and three violet clusters of classics float at 60°, 180° and 300°. The amber avatar remembers M of D = 12 equally correlated members (ρ = 1/2), and the freedom left is the Schur ratio Δ_Schur(M) = (12 − M)/(12(M + 1)) (1, 0.4583, 0.1875 and 0 at M = 0, 1, 3 and 12): at M = 12 the avatar is frozen, at M = 1–3 it roams the torus; at a relic it visits, K cross-epoch worldlines spread into cyan interference rings by the Fejér kernel. The twelve-pass permission lock of the classics, cos²⁴(α − θ*), is 0.0706% at 0°, 0.0076% at 90° and 100.00% at θ* = 42.35°, where three silver clearance beams (J² = −I) strike the real axis; record pinching is idempotent, and a finite lookup copy has zero retrospective loss yet is not non-anticipating (the raft). Macroscopic relics and books lie far beyond the decoherence boundary (Joos–Zeh, Zurek); reading them as game props is the model of this book. Five independently citable experiments.",
+      "path": "brahman-lila-game-props-sandbox/",
+      "thumbnail": "brahman-lila-game-props-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-17",
+      "chapter": 39,
+      "section": "39.17",
+      "presets": [
+        "omniscient-zeno-deadlock",
+        "amnesia-birth-open-corridor",
+        "relic-attractor-deja-vu",
+        "classic-permission-lock-flip",
+        "lila-raft-return-and-new-seed"
+      ],
+      "preset_titles": {
+        "omniscient-zeno-deadlock": {
+          "zh": "全知即芝诺死锁",
+          "en": "Omniscience is a Zeno deadlock"
+        },
+        "amnesia-birth-open-corridor": {
+          "zh": "失忆出生，走廊打开",
+          "en": "Born amnesiac, the corridor opens"
+        },
+        "relic-attractor-deja-vu": {
+          "zh": "遗迹吸引子与似曾相识",
+          "en": "A relic attractor and déjà vu"
+        },
+        "classic-permission-lock-flip": {
+          "zh": "典籍的许可锁在 θ* 翻开",
+          "en": "The permission lock flips at θ*"
+        },
+        "lila-raft-return-and-new-seed": {
+          "zh": "渡河之筏与新的种子",
+          "en": "The raft and a new seed"
+        }
+      },
+      "tags": [
+        "梵天游戏",
+        "舒尔自由",
+        "失忆化身",
+        "遗迹吸引子",
+        "十二程许可锁",
+        "渡河之筏"
+      ],
+      "tags_en": [
+        "Divine Līlā",
+        "Schur freedom",
+        "Amnesiac avatar",
+        "Relic attractors",
+        "Twelve-pass permission lock",
+        "The raft"
+      ],
+      "theory": [
+        {
+          "label": "39.17 神圣游戏与跨周期唤醒道具",
+          "label_en": "39.17 Divine Līlā and Awakening Props",
+          "href": "../zh/ch39-s17-divine-lila-and-awakening-props.html#sec-ch39-divine-lila-and-awakening-props",
+          "href_en": "../en/ch39-s17-divine-lila-and-awakening-props.html#sec-ch39-divine-lila-and-awakening-props"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Matrix/SchurMinimum.schur_quadratic_is_least"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/Observer/Conditioning/FiniteRecordPinchingIdempotence.finite_record_pinching_idempotent"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/DefinitionEscapeAdjudication/RetrospectiveLookupFailure.lookup_copy_zero_loss_and_nonanticipating_failure"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "divine-psychology-dissociation-sandbox",
+      "code": "GOD//PSYCHE",
+      "title": "GOD//PSYCHE · 上帝心理学动力学沙盘：全知幽闭破缺、偏迹压抑潜意识与解离分身整合流形",
+      "title_en": "GOD//PSYCHE · Psychology of God Sandbox: Breaking Omniscient Claustrophobia, Partial-Trace Repression & Dissociated Alter Integration",
+      "summary": "一个全知者把自己剖成水面上的八个分身与水面下同一个母核 I。倾角 θ 把八个分身从一个冻结的球（θ = 0°，格拉姆重叠全为 1，只有 1 个等价类）展开成一圈（8 个等价类，对径重叠 cos 2θ）；偏迹压抑 η 让水面下的两条记录从相同（⟨E₀|E₁⟩ = 1）变成正交，显意识的熵 S_rep = H₂((1 + r)/2)，r = √(cos²2θ + (1 − η)²sin²2θ)；η = 1 时 S_A = H₂(cos²θ)：45° 时 1.0000 bit，68° 时 0.5851 bit，θ* 时 0.9938 bit，跨视界互信息 I(A:Ā) = 2S。M 条末那识记录把母核的舒尔余量压到 Δ = (12 − M)/(12(M + 1))（由线性方程解出，M = 3 时 0.1875，M = 12 时 0），D_eff = 12。相邻分身之间的弧被剪断，品红幻肢残桩的长度与 T = η sin θ · (M/12) · |cos θ − θ| 成正比（68°、η = 1、M = 10 时 0.6276），在 θ* = cos θ* = 42.35° 处归零，八段青色游戏之桥接通；从水面下仰视，八条根汇进同一个母核。时间轴让琥珀前台在八个分身之间轮转，熵、张力与余量都不变。临床上的解离、强迫、幽闭恐惧与幻肢痛是医学病症，本页只把它们当作结构类比。",
+      "summary_en": "One all-knowing observer split into eight alters above the surface and one mother core I below it. The tilt θ opens the eight alters from one frozen sphere (θ = 0°: every Gram overlap 1, a single class) into a ring (8 classes, antipodal overlap cos 2θ); the partial-trace repression η turns the two records below the surface from equal (⟨E₀|E₁⟩ = 1) to orthogonal, and the conscious entropy is S_rep = H₂((1 + r)/2) with r = √(cos²2θ + (1 − η)²sin²2θ); at η = 1, S_A = H₂(cos²θ): 1.0000 bit at 45°, 0.5851 bit at 68°, 0.9938 bit at θ*, with trans-horizon mutual information I(A:Ā) = 2S. M manas records bring the Schur slack of the mother core down to Δ = (12 − M)/(12(M + 1)) (solved as a linear system: 0.1875 at M = 3, 0 at M = 12), so D_eff = 12. The arcs between neighbouring alters are severed and their magenta phantom stubs grow with T = η sin θ · (M/12) · |cos θ − θ| (0.6276 at 68°, η = 1, M = 10), which vanishes at θ* = cos θ* = 42.35°, where eight cyan Līlā bridges close; seen from below the surface, the eight roots meet in one mother core. The rail turns the amber front through the eight alters while entropy, tension and slack stay the same. Clinical dissociation, compulsion, claustrophobia and phantom-limb pain are medical conditions; the page uses them only as structural analogies.",
+      "path": "divine-psychology-dissociation-sandbox/",
+      "thumbnail": "divine-psychology-dissociation-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-18",
+      "chapter": 39,
+      "section": "39.18",
+      "presets": [
+        "omniscient-claustrophobia-freeze",
+        "repression-horizon-birth",
+        "compulsive-over-immersion-pain",
+        "subsurface-alaya-one-root",
+        "lucid-lila-integration-star"
+      ],
+      "preset_titles": {
+        "omniscient-claustrophobia-freeze": {
+          "zh": "全知幽闭：θ = 0° 时八个分身叠成一个冻结的球",
+          "en": "Omniscient Claustrophobia: at θ = 0° the Eight Alters Are One Frozen Sphere"
+        },
+        "repression-horizon-birth": {
+          "zh": "压抑视界的诞生：θ = 45° 时 S = 1 bit、I = 2 bit",
+          "en": "A Repression Horizon Is Born: S = 1 bit and I = 2 bit at θ = 45°"
+        },
+        "compulsive-over-immersion-pain": {
+          "zh": "强迫过度沉浸：68° 时幻肢张力 T = 0.6276",
+          "en": "Compulsive Over-Immersion: Phantom Tension T = 0.6276 at 68°"
+        },
+        "subsurface-alaya-one-root": {
+          "zh": "水面下同根：八条根汇进同一个母核 I",
+          "en": "One Root below the Surface: Eight Roots Meet in One Mother Core I"
+        },
+        "lucid-lila-integration-star": {
+          "zh": "θ* = cos θ* 处的清醒游戏整合之星",
+          "en": "The Lucid Līlā Star at θ* = cos θ*"
+        }
+      },
+      "tags": [
+        "上帝心理学",
+        "偏迹压抑",
+        "解离分身",
+        "舒尔余量",
+        "幻肢张力",
+        "余弦不动点",
+        "格拉姆等价类"
+      ],
+      "tags_en": [
+        "Psychology of God",
+        "Partial-trace repression",
+        "Dissociated alters",
+        "Schur slack",
+        "Phantom tension",
+        "Cosine fixed point",
+        "Gram classes"
+      ],
+      "theory": [
+        {
+          "label": "第 39 章 §39.18 · 上帝心理学：全知幽闭破缺、偏迹压抑潜意识与解离分身整合",
+          "label_en": "Chapter 39 §39.18 · The psychology of God: breaking omniscient claustrophobia, partial-trace repression and dissociated alter integration",
+          "href": "../zh/ch39-s18-psychology-of-god.html#sec-ch39-psychology-of-god",
+          "href_en": "../en/ch39-s18-psychology-of-god.html#sec-ch39-psychology-of-god"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/QubitNormalFormState.qubit_state_entropy"
+        },
+        {
+          "gid": "D5/S3/Quantum/PureState/RecordCoherenceComplementarity.pure_record_distinguishability_coherence_complementarity"
+        },
+        {
+          "gid": "D5/S3/Quantum/Decoherence/ReducedRecordAccessDefect.reduced_irreversibility_is_access_defect"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/CorrelatedGibbsEnergyIdentity.marginal_entropy_change_eq_mutual_information_change"
+        },
+        {
+          "gid": "D5/S3/Quantum/Entanglement/LocalMarginalCorrelationBlindSpot.local_marginal_correlation_blind_spot"
+        },
+        {
+          "gid": "D5/S3/Quantum/Matrix/SchurMinimum.schur_quadratic_is_least"
+        },
+        {
+          "gid": "D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "ternion-number-projection-sandbox",
+      "code": "TERNION//NUMBERS",
+      "title": "TERNION//NUMBERS · 三元数（极小圆弧体）投影生万数与弗罗贝尼乌斯缺口沙盘",
+      "title_en": "TERNION//NUMBERS · Ternion (Minimal Circular-Arc Body) Number-System Projections & Frobenius Gap Sandbox",
+      "summary": "转到 180°，平直坐标的柱子冲出量程，紫色弧体却能继续转到 720°。在四个投影台比较同一条弧的标量影、赤道相位、迹和整圈数。",
+      "summary_en": "Turn to 180° and the flat coordinate runs off its scale. The violet rotor continues through 720°. Four stations read the scalar shadow, equatorial phase, trace and full turns of the same arc.",
+      "path": "ternion-number-projection-sandbox/",
+      "thumbnail": "ternion-number-projection-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-18",
+      "chapter": 39,
+      "section": "39.19",
+      "presets": [
+        "flat-3d-zero-divisor-gimbal-deadlock",
+        "hamilton-quaternion-w-shadow-tax",
+        "complex-equatorial-hopf-slice",
+        "real-trace-geodesic-projection",
+        "homotopy-pi3-integer-winding"
+      ],
+      "preset_titles": {
+        "flat-3d-zero-divisor-gimbal-deadlock": {
+          "zh": "三维平直死锁与 180° 极点",
+          "en": "Flat triplet and the 180° pole"
+        },
+        "hamilton-quaternion-w-shadow-tax": {
+          "zh": "第四维的余弦影与矢高税",
+          "en": "The fourth coordinate and its sagitta"
+        },
+        "complex-equatorial-hopf-slice": {
+          "zh": "赤道切片消去非对易角盈",
+          "en": "The equatorial slice loses its excess"
+        },
+        "real-trace-geodesic-projection": {
+          "zh": "实迹读出半角投影",
+          "en": "The real trace reads the half-angle"
+        },
+        "homotopy-pi3-integer-winding": {
+          "zh": "双圈闭合与素数赋值平衡",
+          "en": "Two turns close the lift. Prime norms balance."
+        }
+      },
+      "tags": [
+        "三元数",
+        "除代数",
+        "半角投影",
+        "圆双覆叠",
+        "阿代尔乘积"
+      ],
+      "tags_en": [
+        "Ternion",
+        "Division algebra",
+        "Half-angle projection",
+        "Circle double cover",
+        "Adelic product"
+      ],
+      "theory": [
+        {
+          "label": "§39.19 · 不可表达的三元数与万数归弧",
+          "label_en": "§39.19 · Inexpressible ternions and all numbers from one arc",
+          "href": "../zh/ch39-s19-inexpressible-ternions-and-number-projections.html#sec-ch39-inexpressible-ternions-and-number-projections",
+          "href_en": "../en/ch39-s19-inexpressible-ternions-and-number-projections.html#sec-ch39-inexpressible-ternions-and-number-projections"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/SpinFactor/OriginalClassification.complete_consequences"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/ActualPureQubitGeometry.bloch_geometry_of_isHermitian"
+        },
+        {
+          "gid": "D5/S3/Geometry/TwoAxisFiniteRotation.two_axis_finite_word"
+        },
+        {
+          "gid": "D5/S3/Quantum/Information/GroupInvariantPsi/ShortestGateHolonomy.shortest_gate_triangle_holonomy"
+        },
+        {
+          "gid": "D5/S3/Quantum/Algebra/Unitary/BalancedUnitaryComplexStructure.square_eq_neg_one_of_skewAdjoint_unitary"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverNoSection.no_continuous_global_section"
+        },
+        {
+          "gid": "D5/S3/ConceptDynamics/Topology/CircleDoubleCoverHistoryLift.circle_double_cover_history_lift"
+        },
+        {
+          "gid": "D5/S3/Arith/RepeatingDecimal/RepeatingDecimalQuotient.long_division_invariant"
+        },
+        {
+          "gid": "D5/S3/Factorization/Embeddings/RationalPadicProductFormula.rational_padic_product_formula"
+        },
+        {
+          "gid": "D5/S3/Analytic/PowerSeries/DottieInverseSeries.rational_inverse_endpoint"
+        }
+      ],
+      "capture_lock": "links"
+    },
+    {
+      "id": "ternion-field-hilbert-reprojection-sandbox",
+      "code": "TERNION//HILBERT",
+      "title": "TERNION//HILBERT · 三元数场组合与再投影阶梯沙盘：从四元数、法诺八元数到希尔伯特空间",
+      "title_en": "TERNION//HILBERT · Ternion Field Composition & Reprojection Ladder Sandbox: From Quaternions and Fano Octonions to Hilbert Space",
+      "summary": "拖动透镜，看上层弧面场投向基柱。逐一比较四元数坐标、左右手征场、法诺乘法与十六元数零因子，再用 N 和 χ 对照局部旋转、纯态及张量网络的参数量。",
+      "summary_en": "Drag the lens to project curved fields onto a basis. Compare quaternion coordinates, chiral fields, Fano multiplication and sedenion zero divisors, then vary N and χ to compare local rotations, pure rays and tensor-network dimensions.",
+      "path": "ternion-field-hilbert-reprojection-sandbox/",
+      "thumbnail": "ternion-field-hilbert-reprojection-sandbox/thumb.jpg",
+      "status": "live",
+      "added": "2026-11-18",
+      "chapter": 39,
+      "section": "39.20",
+      "presets": [
+        "native-ternion-curl-field",
+        "spin4-chiral-spacetime-bivector",
+        "fano-seven-field-octonion-weave",
+        "sedenion-zero-divisor-bankruptcy",
+        "many-body-3n-to-2n-hilbert-pillars"
+      ],
+      "preset_titles": {
+        "native-ternion-curl-field": {
+          "zh": "原生单场与四元数外嵌",
+          "en": "One field in quaternion coordinates"
+        },
+        "spin4-chiral-spacetime-bivector": {
+          "zh": "左右双场、时空与电磁双矢",
+          "en": "Chiral fields, spacetime and bivectors"
+        },
+        "fano-seven-field-octonion-weave": {
+          "zh": "法诺七场与非结合折痕",
+          "en": "Seven Fano lines and an associator"
+        },
+        "sedenion-zero-divisor-bankruptcy": {
+          "zh": "十六元数零因子与基柱归零",
+          "en": "Sedenion zero divisors cancel"
+        },
+        "many-body-3n-to-2n-hilbert-pillars": {
+          "zh": "多场耦合、希尔伯特基柱与张量网络",
+          "en": "Hilbert basis pillars and tensor bonds"
+        }
+      },
+      "tags": [
+        "四元数",
+        "法诺平面",
+        "零因子",
+        "希尔伯特空间",
+        "矩阵乘积态"
+      ],
+      "tags_en": [
+        "Quaternions",
+        "Fano plane",
+        "Zero divisors",
+        "Hilbert space",
+        "Matrix product states"
+      ],
+      "theory": [
+        {
+          "label": "§39.20 · 三元数即原生场与希尔伯特再投影",
+          "label_en": "§39.20 · Ternions as native fields and Hilbert reprojection",
+          "href": "../zh/ch39-s20-ternion-field-composition-and-hilbert-reprojection.html#sec-ch39-ternion-field-composition-and-hilbert-reprojection",
+          "href_en": "../en/ch39-s20-ternion-field-composition-and-hilbert-reprojection.html#sec-ch39-ternion-field-composition-and-hilbert-reprojection"
+        }
+      ],
+      "lean": [
+        {
+          "gid": "D5/S3/Quantum/Entanglement/LocalMarginalCorrelationBlindSpot.local_marginal_correlation_blind_spot"
+        },
+        {
+          "gid": "D5/S3/Observer/Tomography/FiniteStageExpansion.finite_stage_expansion"
+        },
+        {
+          "gid": "D5/S3/Observer/Tomography/FiniteRankConcentrationModeBound.finite_rank_concentration_mode_bound"
+        },
+        {
+          "gid": "D5/S3/Quantum/Completion/UniformCompletionObstruction.uniform_completion_obstruction"
+        },
+        {
+          "gid": "D5/S3/Quantum/Codes/StabilizerGenuineEntanglementCommutationRank.pauli_word_mul"
+        },
+        {
+          "gid": "D5/S3/Quantum/TensorNetworks/OpenBoundaryMPSDensityRecovery.observable_chart_phase_recovery"
+        },
+        {
+          "gid": "D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowBound.QMaxFlow_le_QMinCut"
+        },
+        {
+          "gid": "D5/S3/Fourier/CharacterSelection/SimplexTwoCochainRepair.tetra_defects_incidence_repair_and_exactness"
+        }
+      ],
+      "capture_lock": "links"
     }
   ]
 }

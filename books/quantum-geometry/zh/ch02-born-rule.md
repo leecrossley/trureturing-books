@@ -74,7 +74,7 @@ $$
 
 不妨亲手试两个反例，看清 [@thm-born-probability-skeleton] 性质 3 为何在锐利投影层面上同时要求 $P^* = P$ 与 $P^2 = P$ 这两条充分条件：
 
-- **撤掉自伴性（$P^* \neq P$）**：取幂等但非正交的斜切矩阵 $Q = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$（满足 $Q^2 = Q$，但 $Q^* \neq Q$），用正 $Y$ 纯态 $\rho_{+Y} = \frac{1}{2}\begin{pmatrix} 1 & -i \\ i & 1 \end{pmatrix}$ 去配对，迹当场冒出纯虚数偏离：
+- **撤掉自伴性（$P^* \neq P$）**：取幂等但非正交的斜切矩阵 $Q = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$（满足 $Q^2 = Q$，但 $Q^* \neq Q$），用正 $Y$ 纯态 $\rho_{+Y} = \frac{1}{2}\begin{pmatrix} 1 & -i \\ i & 1 \end{pmatrix}$ 去配对，迹当场冒出虚数偏离：
 
   $$
   \Tr(\rho_{+Y} Q) = \frac{1 + i}{2} \notin \mathbb{R}!
@@ -86,8 +86,47 @@ $$
   \Tr(\rho_1 Z) = -1 < 0!
   $$
 
-::: {.remark #rem-povm-effect-converse-literature title="广义 POVM 效应界与锐利投影极值边界（文献结果，未在本书形式化）"}
-**文献结果，未在本书形式化。** 这里值得精确区分一般广义测量与锐利投影测量的算子边界：对任意算子 $E \in M_n(\mathbb{C})$ 而言，对一切密度态 $\rho$ 恒有 $\Tr(\rho E) \in [0, 1]$ 的充要条件是 $E$ 满足自伴正半定**效应界** $0 \le E \le I$（即广义 POVM 效应元；例如无偏抛币效应 $E = \frac{1}{2}I$ 虽不幂等 $E^2 = \frac{1}{4}I \neq E$，仍恒给出合法概率权重 $\Tr(\rho E) = \frac{1}{2} \in [0, 1]$，详见章末 [@rem-gleason-literature]）。而在凸效应集 $\{E : 0 \le E \le I\}$ 内部，自伴律 $P^* = P$ 加上幂等律 $P^2 = P$（谱值严格落于 $\{0, 1\}$）不仅自动蕴涵 $0 \le P \le I$，更精准刻画了其中无内在模糊度的一类极值边界——**锐利投影效应**。在本书采用的吕德斯（Lüders）测后更新下，若两次测量之间没有额外演化，就能保证立即复核同一结果；效应元只确定结果概率，并不单独确定测后态。
+::: {.remark #rem-povm-effect-converse-literature title="效应界、投影极点与所选仪器的重复性"}
+**既有结果的解释性应用。** 概率界、锐利性与测后重复性是三个不同层次。以下分别使用原有的迹正性、纯态迹配对、条件态定理与 Mathlib 的极点定理，并注明经典文献来源；整条注记不对应一条独立的冻结定理。
+
+先取任意有限维复矩阵 $E \in M_n(\mathbb{C})$，令 $\mathcal D_n$ 为所有真正的密度矩阵，即正半定且 $\Tr\rho=1$ 的矩阵。那么
+
+$$
+\bigl(\forall\rho\in\mathcal D_n,\ \Tr(\rho E)\in[0,1]\subset\mathbb R\bigr)
+\quad\Longleftrightarrow\quad 0\le E\le I.
+$$
+
+左边要求**复迹本身是实数且落在闭区间内**，右边要求 $E$ 与 $I-E$ 都正半定；不预先假设 $E$ 自伴。也不要求维数非零：空坐标空间没有迹为 $1$ 的密度矩阵，左边真空成立，右边两个矩阵都是唯一的空矩阵，均正半定。例如在 $n>0$ 时，无偏抛币效应 $E = \frac{1}{2}I$ 虽不幂等，$E^2 = \frac{1}{4}I \neq E$，仍对每个密度态给出 $\Tr(\rho E) = \frac{1}{2}$（另见 [@rem-gleason-literature]）。
+
+从效应界到概率界，对 $\rho,E$ 与 $\rho,I-E$ 分别应用原有的 [`Matrix.PosSemidef.trace_mul_nonneg`](lean:D5/S3/Quantum/QuantumChannels/PositiveFilterTransposeRefutation.Matrix.PosSemidef.trace_mul_nonneg)。它给出实际复迹的非负性，后一个迹是 $1-\Tr(\rho E)$，所以同时得到实性与上下界。这个声明的源码注明其 Physlib 来源及适配方式。
+
+反过来，对任意非零复向量 $x$，用**欧氏希尔伯特范数**归一化为 $u=x/\norm{x}$。原有定义 [`rankOneDensity`](lean:D5/S3/Quantum/PureState/PureStateHandshake.rankOneDensity) 就是外积 $uu^*$；Mathlib 的 `Matrix.posSemidef_vecMulVec_self_star` 保证正半定，`Matrix.trace_vecMulVec` 与 $u^*u=1$ 给出迹为 $1$。[`pure_state_handshake`](lean:D5/S3/Quantum/PureState/PureStateHandshake.pure_state_handshake) 的最后一个合取项给出 $u^*Eu=\Tr(Euu^*)$；再用迹交换次序，就能把全密度态假设用于这个实际纯态。上界同样给出 $u^*(I-E)u=1-u^*Eu\ge0$。乘回非负实数 $\norm{x}^2$，便得到所有 $x$ 的两个二次型都实且非负；零向量直接给出零。这里不能把欧氏范数换成裸坐标函数的上确界范数。
+
+所钉 Mathlib 的 [`LinearMap.isPositive_iff_complex`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/InnerProductSpace/Positive.lean#L79) 从这种全向量二次型条件恢复正算子，再经 [`Matrix.isPositive_toEuclideanLin_iff`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/InnerProductSpace/Positive.lean#L211) 得到 $E$ 与 $I-E$ 正半定，自伴性因而是结论。前一个接口把算子放在内积的第一槽；共轭对称性与二次型的实性允许交换两槽。这一推导没有预设“测试密度态等价于测试射线”，也不需要额外的连续性或凸性假设。
+
+若只检验 $\operatorname{Re}\Tr(\rho E)$，结论就错了：在 $n>0$ 时，$E=(\frac12+i)I$ 对每个密度态都给出实部 $\frac12$，却不自伴，因而不是效应。经典的正性刻画见 Watrous《The Theory of Quantum Information》[作者版 PDF](https://cs.uwaterloo.ca/~watrous/TQI/TQI.pdf#page=28) §1.1.2，印刷页 20／PDF 页 28 的第 4、5 项（全二次型与全正矩阵迹配对）。这里是把该标准刻画用于固定的 $E$ 与 $I-E$；它不同于 [@thm-busch-effect-density] 对整个效应概率函数的密度矩阵表示，也不由此指定测量仪器或从经典本体推出矩阵模型。
+
+效应区间 $\mathcal{E}_n = \{E \in M_n(\mathbb{C}) : 0 \le E \le I\}$ 中的序是算子序：$A \le B$ 表示 $B-A$ 自伴正半定，即对所有复向量 $x$ 都有 $x^*(B-A)x \ge 0$。因此效应本身已经自伴，且其特征值都在 $[0,1]$ 中。这里取欧氏空间 $\mathbb{C}^n$ 上的算子范数；对非负的 $E$，$\norm{E} \le 1$ 恰好等价于 $E \le I$，在正维时这是因为算子范数就是最大特征值。于是效应区间正是“非负锥与闭单位球的交集”；这里不能任意替换成逐元素范数或其他矩阵范数。
+
+所谓 $P$ 是 $\mathcal{E}_n$ 的**极点**，是指 $P \in \mathcal{E}_n$，且对任意 $A,B \in \mathcal{E}_n$ 和任意实数 $0<t<1$，只要 $P=tA+(1-t)B$，就必有 $A=B=P$。矩阵与向量仍在复数域上；只有混合权重取实数。这一实凸意义下的极点恰好是满足 $P^*=P$、$P^2=P$ 的**锐利投影效应**，包括 $0$、$I$ 以及任意中间秩的正交投影。零维时区间只含唯一的零矩阵，刻画仍成立。
+
+可以直接看清两方向的机制。若 $E$ 是效应，那么 $E^2$ 与 $2E-E^2$ 也都是效应：它们的特征值分别为 $\lambda^2$ 与 $2\lambda-\lambda^2$，当 $0\le\lambda\le1$ 时都在 $[0,1]$ 中。又因 $E=\frac{1}{2}E^2+\frac{1}{2}(2E-E^2)$，当 $E$ 是极点时便得到 $E^2=E$。反过来，自伴幂等矩阵 $P$ 在正交特征基下的每个特征值都满足 $\lambda^2=\lambda$，故只能是 $0$ 或 $1$，所以 $P$ 确为效应。设 $P=tA+(1-t)B$，其中 $A,B$ 是效应、$0<t<1$。对 $x\in\ker P$，非负数 $x^*Ax$ 与 $x^*Bx$ 的正权和为零，故两者都为零，进而 $Ax=Bx=0$；这里用到正半定矩阵的二次型为零时该向量就在其核中，这在非负特征值的正交特征基下立即可见。对 $x\in\operatorname{ran}P$，把同一论证用于 $I-P=t(I-A)+(1-t)(I-B)$，得到 $Ax=Bx=x$。核与像正交直和为整个空间，所以 $A=B=P$。
+
+极值性这一句直接复用所钉上游依赖 Mathlib 的[极点定理](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/CStarAlgebra/Extreme.lean#L27)，声明名为 `isStarProjection_iff_mem_extremePoints_setOfPred_nonneg_inter_unitClosedBall`。它在更一般的复 C\*-代数中给出上述等价，文件列出的文献来源为 Sakai 的《C\*-algebras and W\*-algebras》。矩阵应用的接口分别来自[算子范数下的复矩阵 C\*-代数实例](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/CStarAlgebra/Matrix.lean#L304)、[`MatrixOrder` 的正半定序](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/Matrix/Order.lean#L44)与[非负元的范数／序等价](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Order.lean#L247)；矩阵的星运算是[共轭转置](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/LinearAlgebra/Matrix/ConjTranspose.lean#L418)，而 [`IsStarProjection`](https://github.com/leanprover-community/mathlib4/blob/56a005855ea17e0b0958f73ec801ae140b0a1679/Mathlib/Algebra/Star/StarProjection.lean#L24) 的两个条件就是自伴与幂等。这是对已有上游结果的应用与解释，不是新的原创极值定理，也没有把整条注记变成本书的一条冻结定理。
+
+测后重复性则要选定仪器。取有限、完备、两两正交的自伴投影族 $P_j$，即原有的 [`IsRecordMeasurement`](lean:D5/S3/Observer/Conditioning.IsRecordMeasurement)，以及实际正半定、迹为 $1$ 的输入态 $\rho$。写 $w_j(\tau)=\Tr(\tau P_j)$，选择 $w_k(\rho)\ne0$ 的结果 $k$，并采用本书的吕德斯（Lüders）更新 [`conditionalState`](lean:D5/S3/Observer/Conditioning.conditionalState)：
+
+$$
+\begin{aligned}
+\sigma&=w_k(\rho)^{-1}P_k\rho P_k,\\
+\sigma P_k&=\sigma,\qquad \sigma P_j=0\quad(j\ne k),\\
+w_k(\sigma)&=1,\qquad w_j(\sigma)=0\quad(j\ne k).
+\end{aligned}
+$$
+
+原有的 [`conditionalState_isState`](lean:D5/S3/Observer/Conditioning.conditionalState_isState) 直接保证这个 $\sigma$ 正半定且迹为 $1$。中间一行只需展开同一个条件态：右乘 $P_k$ 时用 $P_k^2=P_k$，右乘其他 $P_j$ 时用 $P_kP_j=0$；取迹便得最后一行。因此这里的 $\sigma$ 是所选分支的实际输出，不是任意另给的态。输入可以是混态，投影也允许简并；零权重结果不能这样归一化，定义中全函数约定的零逆元不会给它一个迹为 $1$ 的条件态。
+
+文献对应见 Lüders《Concerning the state-change due to the measurement process》的 [Kirkpatrick 英译本](https://arxiv.org/pdf/quant-ph/0403007v2) §2 式 (2a)–(3)、(7)：式 (7) 是未归一化的所选分支 $P_k\rho P_k$，这里再除以它自身的非零迹。§3 式 (9)–(10) 用顺序分支及其他结果的零权重表达确定性。上述应用限于**同一仪器、同一投影测量、无中间演化的立即重复**；效应元只确定结果概率，不单独确定测后态，效应极值性也不唯一选出吕德斯仪器。效应区间的极点定理本身既不陈述前面的全密度态迹逆命题，也不陈述这里的所选分支重复性；未读态映射的幂等性又是另一条结论。
 :::
 
 ## 2.2 到底什么是“点 C”？ {#sec-ch02-2}
@@ -210,6 +249,37 @@ $$
 
 换句话说，**玻恩概率法则在几何上体现为欧几里得—希尔伯特空间勾股定理与典范无坐标基迹配对的自然结合。** 在重叠模长的幂次候选族 $|\langle\phi\mid\psi\rangle|^p$ 之中，正交完备通道总权重恒为 $1$ 的要求唯一挑出了二次幂 $p = 2$；在一般算子层面上，[@thm-born-probability-skeleton] 严格证明了典范迹配对 $\Tr(\rho P)$ 构成合法概率赋值的**充分性**，而若要在任意一般标架函数或广义测量效应中彻底排除非玻恩赋值以获得严格的**唯一性**，则还需补充跨基正交可加或正效应可加前提（有限维效应上的唯一性见下文 [@thm-busch-effect-density]，有限复维投影格上的唯一性见 [@thm-gleason-finite-projection]，更广范围见 [@rem-gleason-literature]）。
 
+二次幂权重还留下一道可直接在多路径干涉中核验的代数印记：拉斐尔·索金（Rafael Sorkin, 1994）提出的多缝干涉层级。当三条两两互斥的分支集合 $A, B, C$ 在同一探测点汇聚时，二次权重不仅在双缝之间产生二阶交叉项，而且使**三阶干涉余项** $I_3$ 恒等于零。不妨先用最简单的三单元狭缝算例亲手验算：取两两不交的三个单元素集合 $A = \{a\}$、$B = \{b\}$、$C = \{c\}$，令每条狭缝振幅均为单位元 $v \equiv 1$。在二次权重下，三缝全开权重为 $(1 + 1 + 1)^2 = 9$，任意两条狭缝同开权重为 $(1 + 1)^2 = 4$，单条狭缝权重为 $1^2 = 1$，七项容斥交错和当场归零：
+
+$$
+I_3 = 9 - 4 - 4 - 4 + 1 + 1 + 1 = 0.
+$$
+
+（作为对照，若把候选权重换成四次幂 $\bigl\lvert\sum_{x \in S} v(x)\bigr\rvert^4$，同一组单位振幅则会给出 $3^4 - 3 \times 2^4 + 3 \times 1^4 = 81 - 48 + 3 = 36 \neq 0$，立即冒出非零三阶干涉项。）在 Lean 模块 `Quantum/SorkinThirdOrder` 中，这一消去机制在无需预设实数序或复分析的纯环论层面上建立：设 $\alpha$ 为具可判等性（`DecidableEq α`）的分支指标类型，$R$ 为带星环对合的交换环（`CommRing R`、`StarRing R`，将星环自同态 `starRingEnd R` 记作 $r \mapsto r^*$），对振幅映射 $v : \alpha \to R$ 与有限子集 $A : \operatorname{Finset}\alpha$，定义二次振幅权重为
+
+$$
+\operatorname{amplitudeWeight}(v, A) := \left(\sum_{x \in A} v(x)\right)\left(\sum_{x \in A} v(x)\right)^*.
+$$
+
+当 $R = \mathbb{C}$ 且星运算取标准复共轭时，$\operatorname{amplitudeWeight}(v, A)$ 恰为复振幅有限和的模平方 $\bigl\lvert\sum_{x \in A} v(x)\bigr\rvert^2$。
+
+::: {.theorem #thm-sorkin-quadratic-cancellation title="二次振幅权重的三阶干涉消去" lean="D5/S3/Quantum/SorkinThirdOrder.sorkin_third_order_cancellation"}
+设 $\alpha$ 为具可判等性的类型，$R$ 为带星环结构的交换环。对任意振幅映射 $v : \alpha \to R$ 以及两两不交的有限子集 $A, B, C : \operatorname{Finset}\alpha$（满足 $\operatorname{Disjoint} A\,B$、$\operatorname{Disjoint} A\,C$ 与 $\operatorname{Disjoint} B\,C$），恒有
+
+$$
+\begin{aligned}
+&\operatorname{amplitudeWeight}(v, A \cup B \cup C) - \operatorname{amplitudeWeight}(v, A \cup B) - \operatorname{amplitudeWeight}(v, A \cup C) - \operatorname{amplitudeWeight}(v, B \cup C) \\
+&\qquad + \operatorname{amplitudeWeight}(v, A) + \operatorname{amplitudeWeight}(v, B) + \operatorname{amplitudeWeight}(v, C) = 0.
+\end{aligned}
+$$
+:::
+
+::: proof
+由两两不交假设 $\operatorname{Disjoint} A\,B$、$\operatorname{Disjoint} A\,C$ 与 $\operatorname{Disjoint} B\,C$（从而 $A \cup B$ 与 $C$ 亦不交），有限集合上的加法和在不交并上拆分为子集和之和：记 $S_A = \sum_{x \in A} v(x)$、$S_B = \sum_{x \in B} v(x)$、$S_C = \sum_{x \in C} v(x)$，则并集上的振幅和依次写为 $S_A + S_B + S_C$ 以及 $S_A + S_B$、$S_A + S_C$、$S_B + S_C$。因 `starRingEnd R` 是保加法的环自同态，共轭因子同步拆为 $S_A^* + S_B^* + S_C^*$ 及相应二项和。在交换环 $R$ 中按分配律展开七个二次乘积后，每个单集对角项 $S_X S_X^*$（$X \in \{A, B, C\}$）的系数为 $1 - 1 - 1 + 1 = 0$，每对跨集交叉项 $S_X S_Y^*$ 与 $S_Y S_X^*$（$X \neq Y$）的系数为 $1 - 1 = 0$，全部项逐一抵消为环零元 $0$。完整证明由 Lean 内核检查。
+:::
+
+研读 [@thm-sorkin-quadratic-cancellation] 时须守住两条精确边界：第一，这是一条值域在任意交换星环 $R$ 中的纯代数恒等式，签名本身并未假定权重取非负实值、总概率归一化或真实物理狭缝之间不存在边值串扰；第二，它确立的是正向蕴涵“两两不交分支上的二次权重必令 $I_3 = 0$”，**不能**倒过来单凭 $I_3 = 0$ 独自推出玻恩概率规则的唯一性。
+
 现在，让我们用 [@prop-qubit-bloch-core] 与 [@thm-rank-one-born-pairing] 联手，兑现第一章末尾留下的承诺，亲手揭开布洛赫球面夹角 $\theta$ 与希尔伯特空间半角 $\theta/2$ 的换算关系。
 
 ::: {.figure src="ch02-half-angle"}
@@ -257,7 +327,7 @@ $$
 | 布洛赫球面夹角 $\theta$ | 希尔伯特半角 $\theta/2$ | 球面相融度 $\vv{a}\cdot\vv{b} = \cos\theta$ | 玻恩通过权重 $\Tr(\rho_{\vv{a}} P_{\vv{b}}) = \cos^2(\theta/2)$ | 几何与物理判读 |
 | :---: | :---: | :---: | :---: | :--- |
 | $0^\circ$ | $0^\circ$ | $+1$ | $1$ | 严格同向，确定性通过 |
-| $60^\circ$ | $30^\circ$ | $+1/2$ | $3/4$ | 偏同向相融（如三体贝尔不等式常见角） |
+| $60^\circ$ | $30^\circ$ | $+1/2$ | $3/4$ | 偏同向相融（如三方向贝尔不等式常见角） |
 | $90^\circ$ | $45^\circ$ | $0$ | $1/2$ | 球面正交赤道盲区，无偏等权分束 |
 | $120^\circ$ | $60^\circ$ | $-1/2$ | $1/4$ | 偏反向排斥（对称三态（trine）的夹角） |
 | $180^\circ$ | $90^\circ$ | $-1$ | $0$ | 球面对跖反向 $\leftrightarrow$ 希尔伯特正交互斥 |
@@ -461,6 +531,8 @@ $$
 
 > 投影只问“是或否”，效应还能问“多少”；一旦能问“多少”，概率就只剩迹配对这一种写法。
 
+当空间维数从二维跨入有限复维 $N \ge 3$ 时，不同标准正交标架开始共享公共的秩一投影轴，从而无需借道非投影效应也能把不同测量轴锁在一起。例如取 $N = 3$ 与对角密度矩阵 $\rho = \operatorname{diag}(1/2, 1/3, 1/6)$，三条标准基秩一星投影上的读数 $\operatorname{Re}\operatorname{Tr}(\rho P_{e_k})$ 依次为 $1/2, 1/3, 1/6$（总和为 $1$）；若在前两维子平面内改取单位向量 $v = (1, 1, 0)/\sqrt{2}$，其秩一星投影 $P_v = v v^*$ 与第三轴投影 $P_{e_3}$ 依然正交，读数则为 $\operatorname{Re}\operatorname{Tr}(\rho P_v) = \frac{1}{2}(1/2 + 1/3) = 5/12$。下面的定理证明，只要同一实值赋值在有限复维 $N \ge 3$ 的全体星投影上满足非负性、单位归一与正交可加性，它就唯一由一个密度矩阵表示：
+
 ::: {.theorem #thm-gleason-finite-projection title="有限复维投影赋值的格里森表示" lean="D5/S3/Quantum/GleasonComplexRepresentation.Gleason.ProjectionPackage.gleason_representation"}
 设 $N$ 为有限自然数且 $3 \le N$。令 $p : M_N(\mathbb{C}) \to \mathbb{R}$ 为定义在全部复矩阵上的实值函数，满足：对每个星投影 $P$（$P^* = P$ 且 $P^2 = P$）有 $p(P) \ge 0$；$p(I) = 1$；若星投影 $P,Q$ 满足 $PQ = 0$，则 $p(P + Q) = p(P) + p(Q)$。则存在唯一 $\rho \in M_N(\mathbb{C})$，使 $\rho$ 半正定、$\operatorname{Tr}(\rho) = 1$，并且对每个星投影 $P$ 都有
 
@@ -471,13 +543,17 @@ $$
 这里的假设只约束 $p$ 在星投影上的取值；它不把 $p$ 在一般效应或其他矩阵上的取值延拓为可加函数。二维纯投影格、实系数空间、无限维空间和全体效应上的可加性分别属于不同的边界，不能由此声明合并得到。
 :::
 
+::: proof
+证明从数据包 `ProjectionPackage N` 的四个字段（定义在全部复矩阵上的实值函数 `p`、星投影非负性 `nonneg`、全空间单位归一 `total_one` 与正交星投影二元可加性 `additive`）出发推进。首先，将每个单位向量 $u \in \mathbb{C}^N$ 关联到其秩一星投影上的读数 $u \mapsto p(u u^*)$；由 `nonneg`、`total_one` 与 `additive`，这组单位向量读数在任意标准正交标架上非负且求和恒等于 $1$，因而构成跨正交标架一致的单位向量赋值。其次，调用源码中已在 $3 \le N$ 条件下证毕的实三维核心步骤 `coreLemma`（目标公开定理已消去该三维核心参数，不留任何外部待证假设），经复实子空间归约把标架一致的单位向量赋值提升为 $\mathbb{C}^N$ 上的厄米二次型，再由极化构造 `polarMatrix` 从该二次型恢复出厄米矩阵 $\rho \in M_N(\mathbb{C})$，使一切秩一星投影 $P_u = u u^*$ 满足 $p(P_u) = \operatorname{Re}\operatorname{Tr}(\rho P_u)$（即 Lean 中的 `((ρ * P).trace).re`，保持矩阵乘积顺序 `ρ * P` 并取复迹实部，无需假定乘积 $\rho P$ 自伴或 $\rho$ 与 $P$ 对易）。接着，秩一读数的非负性 `nonneg` 给出 $\rho$ 半正定（`ρ.PosSemidef`），在任一标准正交标架上对秩一星投影求和并结合 `additive` 与 `total_one` 给出 $\operatorname{Tr}(\rho) = 1$；对任意星投影 $P$（`IsStarProjection P`）取其值域的一组标准正交基作秩一正交分解并逐项施用 `additive`，即可把表示式 $p(P) = \operatorname{Re}\operatorname{Tr}(\rho P)$ 从秩一投影扩展到所有星投影。最后，存在唯一量词 `∃!` 刻画的是代表全体星投影的密度矩阵 $\rho$ 的唯一性：若另一半正定迹一矩阵 $\rho'$ 在所有星投影上给出相同的实部迹读数，则它在全部秩一星投影上与 $\rho$ 一致，从而诱导同一个厄米二次型，由极化唯一性迫使 $\rho' = \rho$；至于总函数 $p$ 在星投影之外的非投影矩阵上如何任意取值，不受公理约束，也不改变 $\rho$ 的唯一性。完整证明由 Lean 内核检查。
+:::
+
 ::: {.remark #rem-gleason-literature title="格里森定理与布施定理的更广文献边界"}
-本章的 [@thm-gleason-finite-projection] 已在 Lean 内核冻结有限复矩阵 $N\ge3$、星投影域上的格里森表示；[@thm-born-probability-skeleton] 则严格证明了从密度矩阵出发的“充分性方向”。下列更广的定义域、标量域和维数范围仍属于文献边界；其中有限维效应上的情形已冻结为 [@thm-busch-effect-density]：
+本章的 [@thm-gleason-finite-projection] 已在 Lean 内核冻结有限复矩阵 $N\ge3$、星投影域上的格里森表示；[@thm-born-probability-skeleton] 与 [@thm-sorkin-quadratic-cancellation] 则分别证明了从密度矩阵出发的“充分性方向”与二次振幅权重的三阶干涉消去 $I_3 = 0$（后者不可单独倒推唯一性）。下列更广的定义域、标量域和维数范围仍属于文献边界；其中有限维效应上的情形已冻结为 [@thm-busch-effect-density]：
 
 - **格里森的更广闭子空间定理**（A. M. Gleason, *Measures on the closed subspaces of a Hilbert space*, J. Math. Mech. **6**, 885–893, 1957）：在可分实或复希尔伯特空间中，维数至少为 $3$ 时，闭子空间（正交投影）格上的相应可数可加结论覆盖比本书定声明更广的空间范围；**当维数为 $2$ 时，纯正交投影格上的格里森结论不成立**，因为二维空间中的每组正交基仅含两个对跖秩一投影 $\{P_{\vv{n}}, P_{-\vv{n}}\}$，不同测量轴之间不存在公共投影元来传递跨基连锁约束，故在 $S^2$ 上可以构造出满足逐对对跖之和为 $1$ 的非玻恩标架函数（frame functions）。
 - **布施定理**（P. Busch, *Quantum states and generalized observables: A simple proof of Gleason's theorem*, Phys. Rev. Lett. **91**, 120403, 2003）：若将可加性定义域从尖锐正交投影扩展到全体正半定广义测量效应（POVM 效应元 $0 \le E_i \le I$，要求每当 $\sum_i E_i \le I$ 时满足可加性 $\mu(\sum_i E_i) = \sum_i \mu(E_i)$），则对**一切维数 $\dim\mathcal{H} \ge 2$**（包含单量子比特 $\dim\mathcal{H} = 2$）唯一性全面恢复：任何广义概率测度必唯一表示为 $E \mapsto \Tr(\rho E)$。有限维情形已冻结，就是 [@thm-busch-effect-density]，它只要求有限可加；仍属文献结果的是无穷维希尔伯特空间上的形式，那里要求可数可加。
 
-本书所钉仓库聚焦于显式有限维矩阵构造与建设性归约（[@thm-born-probability-skeleton]、[@thm-born-modulus-square] 与 [@thm-rank-one-born-pairing]），并冻结了由最小确认出发的结构分解 [@thm-positive-dual-generation]、有限复维投影格里森定理 [@thm-gleason-finite-projection] 与有限维布施定理 [@thm-busch-effect-density]（在[第 32 章 §32.3](ch32-s03-axioms-as-corollaries.md#sec-ch32-6-2) [@cor-ch32-quantum-postulates-core] 与[附录 E §E.5](appendix-e.md#sec-appe-quantum)中，[@thm-busch-effect-density] 将作为桥接假设 `H5`，把两子比较读数在一切有限维 $d \ge 2$ 上精确提升为玻恩规则推论）；格里森定理的更广实空间与无限维形式、以及无限维的布施定理，仍由经典文献给出，不列入本书的 Lean 验证声明账本。
+本书所钉仓库聚焦于显式有限维矩阵构造与建设性归约（[@thm-born-probability-skeleton]、[@thm-born-modulus-square]、[@thm-rank-one-born-pairing] 与 [@thm-sorkin-quadratic-cancellation]），并冻结了由最小确认出发的结构分解 [@thm-positive-dual-generation]、有限复维投影格里森定理 [@thm-gleason-finite-projection] 与有限维布施定理 [@thm-busch-effect-density]（在[第 32 章 §32.3](ch32-s03-axioms-as-corollaries.md#sec-ch32-6-2) [@cor-ch32-quantum-postulates-core] 与[附录 E §E.5](appendix-e.md#sec-appe-quantum)中，[@thm-busch-effect-density] 与 [@thm-gleason-finite-projection] 将作为桥接假设 `H5`，把两子比较读数在有限维上精确提升为玻恩规则推论）；格里森定理的更广实空间与无限维形式、以及无限维的布施定理，仍由经典文献给出，不列入本书的 Lean 验证声明账本。
 :::
 
 ::: {.viz src="pairwise-shutter" height="560"}

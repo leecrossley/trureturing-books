@@ -3,7 +3,7 @@
 theme: ../../../../theme/slides
 preloadImages: false
 title: "Geometric Intuition of Quantum Computing · Overview"
-info: "An overview of Geometric Intuition of Quantum Computing: the four blind spots and the ten-part, thirty-nine-chapter dimensional ladder; for each of the ten parts its core picture, main Lean-verified theorems, literature results and open problems; the counts of the three tiers of warrant; and the full thirty-nine-chapter dependency map."
+info: "An overview of Geometric Intuition of Quantum Computing: the four blind spots and the ten-part dimensional ladder; for each of the ten parts its core picture, main Lean-verified theorems, literature results and open problems; evidence boundaries and suggested reading paths."
 htmlAttrs:
   lang: "en"
 deck:
@@ -11,13 +11,13 @@ deck:
   book: "Geometric Intuition of Quantum Computing"
   title: "Overview"
   version: "0.1.0"
-  blurb: "From pairwise measurement to spheres beyond spheres: the core pictures, main theorems and three tiers of warrant across ten parts and thirty-nine chapters, in one forty-eight-slide deck."
+  blurb: "From pairwise measurement to spheres beyond spheres: the core pictures, main theorems and three tiers of warrant across ten parts, with suggested reading paths."
 layout: cover
 ---
 
 <p class="kicker">Geometric Intuition of Quantum Computing · Overview</p>
 <h1 class="display">From pairwise measurement<br>to <em>ψ = ψ(ψ)</em></h1>
-<p class="lead">Ten parts, thirty-nine chapters, climbing the ladder point → line → plane → sphere → the sphere beyond, rebuild quantum computing as geometry you can work by hand. The book explains why; the Lean kernel guarantees that.</p>
+<p class="lead">Ten parts, climbing the ladder point → line → plane → sphere → the sphere beyond, rebuild quantum computing as geometry you can work by hand. The book explains why; the Lean kernel guarantees that.</p>
 
 ---
 # 02 The book in one sentence
@@ -54,7 +54,7 @@ section: "Reader's guide"
 ---
 
 <div class="body">
-  <p class="kicker">Ten parts, thirty-nine chapters</p>
+  <p class="kicker">Ten parts</p>
   <h2 class="t">Ten parts form a staircase, <em>each one dimension higher</em></h2>
   <img src="./img/prelude-parts.en.svg" alt="Ten bars, one per part, each spanning its chapters and one step above the last." style="display: block; height: 600px; max-width: 100%; margin: 20px auto 0;">
   <p class="lead mt-s">Four chapters apiece across Parts I–IX and three in Part X: point → line, line → plane, plane → sphere, entangled spheres, spacetime sphere, beyond the sphere, construction, synthesis, mutual illumination, non-duality.</p>
@@ -123,8 +123,8 @@ section: "Part I · warrant"
   <div class="g2 mt">
     <div class="card violet">
       <h4>Literature · Chapter 2</h4>
-      <h3>Gleason's theorem and Busch's theorem in infinite dimension</h3>
-      <p>The book proves, in finite dimension, that a probability additive on effects is a trace pairing; Gleason's theorem (dimension at least 3) and the infinite-dimensional case are cited, not formalized here.</p>
+      <h3>Real-space and infinite-dimensional Gleason–Busch theorems</h3>
+      <p>In finite dimension the book verifies both effect additivity and complex projection additivity (dimension at least 3); the real Hilbert-space and infinite-dimensional closed-subspace or effect theorems are cited, not formalized here.</p>
     </div>
     <div class="card violet">
       <h4>Literature · Chapter 4</h4>
@@ -320,14 +320,14 @@ section: "Part IV · theorems"
 ---
 
 <div class="body">
-  <p class="kicker">Theorem 13.10 · Corollary 13.8</p>
+  <p class="kicker">Theorem 13.11 · Corollary 13.9</p>
   <h2 class="t">Classical models cap at <em>2</em>, the CHSH operator at <em>2√2</em></h2>
-<TheoremCard class="compact mt-s" label="Theorem 13.10" title="The CHSH bound of finite deterministic fiber models is exactly 2" gid="D5/S3/QuantumBounds/ClassicalFiberBound.classical_chsh_bound_is_exact" cite="thm-classical-chsh-bound-exact">
+<TheoremCard class="compact mt-s" label="Theorem 13.11" title="The CHSH bound of finite deterministic fiber models is exactly 2" gid="D5/S3/QuantumBounds/ClassicalFiberBound.classical_chsh_bound_is_exact" cite="thm-classical-chsh-bound-exact">
 
 For a nonnegative normalized weight $\mu$ on a finite fiber, every deterministic fiber model has $\lvert\operatorname{classicalCHSH}(\mu, \mathrm{model})\rvert \le 2$, and $2$ is the greatest of these values.
 
 </TheoremCard>
-<TheoremCard class="compact mt-s" label="Corollary 13.8" title="The fixed two-qubit CHSH operator has maximum expectation 2√2" gid="D5/S3/QuantumBounds/TsirelsonTightness.bell_chsh_state_expectation_is_greatest" cite="cor-fixed-chsh-tsirelson">
+<TheoremCard class="compact mt-s" label="Corollary 13.9" title="The fixed two-qubit CHSH operator has maximum expectation 2√2" gid="D5/S3/QuantumBounds/TsirelsonTightness.bell_chsh_state_expectation_is_greatest" cite="cor-fixed-chsh-tsirelson">
 
 Over all two-qubit states $\rho$, the values of $\operatorname{Re}\operatorname{Tr}(\rho \cdot \mathrm{chshOperator})$ have greatest element $2\sqrt2$: some state attains it, none exceeds it.
 
@@ -394,14 +394,14 @@ section: "Part V · theorems"
 ---
 
 <div class="body">
-  <p class="kicker">Proposition 17.4 · Theorem 19.6</p>
+  <p class="kicker">Proposition 17.4 · Theorem 19.7</p>
   <h2 class="t">The light cone fixes the metric; on the bridge graph <em>max-flow equals min-cut</em></h2>
 <TheoremCard class="compact mt-s" label="Proposition 17.4" title="Null-cone quadratic-form rigidity" gid="D5/S0/Certificates/MinkowskiNullConeRigidity.eq_smul_minkowski_of_null" cite="prop-null-cone-rigidity">
 
 Let $S$ be a real quadratic form on $\operatorname{Space}(d)$. If $\operatorname{minkowski}_d(v) = 0$ always implies $S(v) = 0$, then $S = S(1, 0) \cdot \operatorname{minkowski}_d$.
 
 </TheoremCard>
-<TheoremCard class="compact mt-s" label="Theorem 19.6" title="Discrete bridge-graph quantum max-flow min-cut" gid="D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowMinCut.result" cite="thm-bridge-quantum-maxflow-mincut">
+<TheoremCard class="compact mt-s" label="Theorem 19.9" title="Discrete bridge-graph quantum max-flow min-cut" gid="D5/S3/Quantum/TensorNetworks/BridgeGraph/QuantumMaxFlowMinCut.result" cite="thm-bridge-quantum-maxflow-mincut">
 
 For natural numbers $0 < a \le b$, $0 < c \le d$ with $a^2 + b^2 \le 3ab$ and $c^2 + d^2 \le 3cd$, the width-three bridge graph has $\operatorname{QMaxFlow} = \operatorname{QMinCut} = \min(ad, bc)$.
 
@@ -836,49 +836,21 @@ section: "Three tiers"
 <div class="body">
   <p class="kicker">Three tiers of warrant</p>
   <h2 class="t">Three tiers of warrant, <em>three colours</em>, never mixed</h2>
-  <div class="split mt">
-    <img src="./img/prelude-three-tiers.en.svg" alt="Three bars: green counts the theorems with a Lean reference, violet the literature results, red the open conjectures and problems; under the green bar, the number of theorem declarations in the lock file." style="display: block; width: 900px; max-width: 100%;">
-    <div>
-      <ul class="plain">
-        <li><span class="hl-ok">LEAN ✓</span>: theorems, lemmas, propositions and corollaries with lean=</li>
-        <li><span class="hl-violet">Literature</span>: remarks and examples marked “literature result, not formalized”</li>
-        <li><span class="hl-warn">OPEN</span>: open conjectures and problems, with no Lean reference</li>
-      </ul>
-      <p class="lead mt">The counts on the left are computed by the figure script from the text and the lock file <span class="mono">trureturing.lock.json</span>, and follow the book; the lock pins <PinnedCommit />.</p>
-    </div>
-  </div>
+  <ul class="plain mt">
+    <li><span class="hl-ok">LEAN ✓</span>: individual frozen theorems at the pinned commit, with proofs checked by the kernel</li>
+    <li><span class="hl-violet">Written proofs and literature</span>: explicit sources and scope; authors and reviewers are responsible for written proofs</li>
+    <li><span class="hl-warn">OPEN</span>: conjectures and problems retain their unproved status</li>
+  </ul>
+  <p class="lead mt">The text supplies each result's evidence; the pinned commit is <PinnedCommit />.</p>
 </div>
-<Source>Counted from the Chinese edition and trureturing.lock.json · Prelude, prelude-three-tiers · Appendix C</Source>
+<Source>Prelude, “Verification and Honest Attribution” · Appendix C</Source>
 
 ---
-# 47 Dependency map
-section: "Dependency map"
----
-
-<div class="body">
-  <p class="kicker">Reading and dependency map</p>
-  <div class="split">
-    <img src="./img/coda-dependency-tree.en.svg" alt="The dots from top to bottom are the chapters of the book; each curved arrow comes from the chapter it refers back to most." style="display: block; height: 720px; max-width: 100%; margin: 0 auto;">
-    <div>
-      <h2 class="t">Which chapter <em>builds on</em> which</h2>
-      <p class="lead">The curved arrow into each chapter comes from the earlier chapter it refers back to most; the more mentions, the thicker the arrow.</p>
-      <ul class="plain mt">
-        <li><b>Physical intuition:</b> Prelude → Ch. 1–12 → Ch. 17–19 → Ch. 33–34</li>
-        <li><b>Algorithms and compilation:</b> Ch. 2 → Ch. 13–16 → Ch. 25–27 → Ch. 38</li>
-        <li><b>Logic and number theory:</b> Ch. 10 → Ch. 21–24 → Ch. 29–39</li>
-        <li><b>Kernel audit:</b> Prelude → Ch. 25–28 → Appendix C</li>
-      </ul>
-    </div>
-  </div>
-</div>
-<Source>Coda, “Ten-Part, Thirty-Nine-Chapter Reading and Dependency Map” (coda-dependency-tree)</Source>
-
----
-# 48 Closing
+# 47 Closing
 layout: cover
 ---
 
 <p class="kicker">Read · Verify · Watch</p>
 <h1 class="display">The book explains,<br><em>Lean</em> decides</h1>
-<p class="lead">Read online or as PDF and EPUB; ten parts and thirty-nine chapters with static figures, interactive labs and explainer films; check every theorem at the pinned trureturing commit.</p>
-<p class="lead mt mono hl-cyan">Prelude → Ch. 1 · Appendix C: locked index</p>
+<p class="lead">Read online or as PDF and EPUB; ten parts with static figures, interactive labs and explainer films; check every theorem at the pinned trureturing commit.</p>
+<p class="lead mt mono hl-cyan">Prelude → Ch. 1 · Appendix C: verification sources and open-problem boundaries</p>

@@ -113,7 +113,7 @@ The invertible linear change of variables $x_i = (z_i + \bar{z}_i)/2$, $y_i = (z
 Clause 2 of [@thm-ch31-phase-polynomial-quadratic] also makes clear why global-phase invariance is only half the selection story: higher even-degree balanced polynomials such as $|z|^4 = (z\bar{z})^2$ also lie in `quadraticAlgebra`. Common-phase invariance eliminates all degree-1 linear readouts and forces degree $\ge 2$; narrowing `quadraticAlgebra` down to Clause 4's homogeneous degree-2 Hermitian forms requires either selecting minimal nontrivial degree or imposing orthogonal frame additivity.
 
 ::: {.viz src="fairness-square-uncertainty-expansion" preset="fair-square" height="500"}
-**Pairwise Fairness and Quadratic Frame Test (`fair-square`)**: Sweeping a shared angle $\theta$ compares the frame-dependent magenta linear sum $|\cos\theta| + |\sin\theta| \in [1, \sqrt{2}]$ and general power weights $w_p(\theta)$ against the rotation-invariant cyan Pythagorean circle $\cos^2\theta + \sin^2\theta = 1$ (with Clifford reversal $(AB)(BA)$ geometry); amber marks the active angle $\theta$ and exponent $p$. The forward parallelogram law, rank-one Born reduction, and common-phase polynomial theorem carry `LEAN ✓`, Jordan–von Neumann and Gleason are `Literature`, and sampled floating-point residuals are `NUM`.
+**Pairwise Fairness and Quadratic Frame Test (`fair-square`)**: Sweeping a shared angle $\theta$ compares the frame-dependent magenta linear sum $|\cos\theta| + |\sin\theta| \in [1, \sqrt{2}]$ and general power weights $w_p(\theta)$ against the rotation-invariant cyan Pythagorean circle $\cos^2\theta + \sin^2\theta = 1$ (with Clifford reversal $(AB)(BA)$ geometry); amber marks the active angle $\theta$ and exponent $p$. The forward parallelogram law, rank-one Born reduction, common-phase polynomial theorem, finite-complex Gleason theorem ($N \ge 3$, [@thm-gleason-finite-projection]), and finite-dimensional Busch effect theorem ([@thm-busch-effect-density]) carry `LEAN ✓`, the Jordan–von Neumann converse and broader real/infinite-dimensional Gleason forms are `Literature`, and sampled floating-point residuals are `NUM`.
 :::
 
 **Step 2: Squaring folds sign and relative phase, inducing single-basis phase blindness.** Once quadratic pairing is adopted, algebraic folding becomes unavoidable. To prevent conflating distinct mathematical fibers under a single slogan, we separate four distinct maps:
@@ -203,7 +203,7 @@ $$
 
 cannot generate new rank indefinitely; its strict growth steps are capped by the ambient dimension minus the initial readout rank:
 
-::: {.theorem #thm-ch31-krylov-growth-stability title="Sharp Upper Bound on Strict Growth Steps of Finite-Dimensional Observable Krylov Chains" lean="D5/S3/ObserverMemory/Dynamics/ObservableKrylovGrowthBound.observable_krylov_strict_growth_bound"}
+::: {.theorem #thm-ch31-krylov-growth-stability title="Upper Bound on Strict Growth Steps of Finite-Dimensional Observable Krylov Chains" lean="D5/S3/ObserverMemory/Dynamics/ObservableKrylovGrowthBound.observable_krylov_strict_growth_bound"}
 Let $V$ and $Y$ be finite-dimensional inner-product spaces over $\mathbb{K}$ (`[RCLike 𝕜]`), and let $T : V \to_{\mathbb{K}} V$ and $C : V \to_{\mathbb{K}} Y$ be $\mathbb{K}$-linear maps. For the ascending observable Krylov subspace chain $O_m = \operatorname{observableKrylov}(T, C, m)$ ($m \in \mathbb{N}$), the extended cardinality of strict growth stages satisfies
 
 $$

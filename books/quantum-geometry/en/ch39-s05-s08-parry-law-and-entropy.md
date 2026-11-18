@@ -87,7 +87,226 @@ Conversely, every positive-kernel edge of $x\in Y_k$ follows these rules. Tracin
 At each fixed time, the suffix reads at most $k$ preceding bits, the sign reads the anchor and finitely many relation bits, and each inverse relation coordinate reads two adjacent states. These coordinate maps are measurable for the stated product and subspace structures. Finally, moving the origin to time $1$ changes the anchor to $b\oplus\neg r_0$. The shifted sign recurrence and nearest-zero characterization are unchanged; their uniqueness gives clause 4. The full proof is checked by the Lean kernel.
 :::
 
-This supplies measurable coordinates for every supported bilateral path at every integer origin. Its time domain includes negative times, and its target is precisely $Y_k$. The skew shift updates the anchor: fixing $b=\mathrm{false}$ selects a lift of each relation path, but does not yield a fixed sign page commuting with shift. The coding theorem specifies no probability measure on paths; it supplies neither existence of an invariant probability law nor a joint law with a fair independent anchor. It also does not establish a generating-partition interface for full Kolmogorov–Sinai entropy, entropy comparison over all invariant probability measures, or uniqueness in the equality case. These entropy conclusions remain unformalized in this book. Measurable coordinates are available; the entropy interface requires a separate argument.
+This supplies measurable coordinates for every supported bilateral path at every integer origin. Its time domain includes negative times, and its target is precisely $Y_k$. The skew shift updates the anchor: fixing $b=\mathrm{false}$ selects a lift of each relation path, but does not yield a fixed sign page commuting with shift. The coding theorem alone specifies no probability measure on paths; it supplies neither existence of an invariant probability law nor a joint law with a fair independent anchor. The separate law theorem below chooses a coding and measures together, supplying these two probability conclusions. A generating-partition interface for full Kolmogorov–Sinai entropy, entropy comparison over all invariant probability measures, and uniqueness in the maximal-entropy equality case still require separate arguments.
+
+Coordinates describe how to read a path; a probability law must also assign mass to every finite window. Retain $X_k,Y_k,p,w_j,Z_k,\pi_k,P_k$ from above. In the following theorem, abbreviate $S=\operatorname{State}(k)=\mathrm{Bool}\times\operatorname{Fin}k$ and $Z=Z_k=\operatorname{normalizer}(k)$. Let $u=\operatorname{fairAnchor}$ be the fair probability measure on the two signs:
+
+$$
+u(\{\mathrm{false}\})=u(\{\mathrm{true}\})=\frac12.
+$$
+
+For $j,h\in\operatorname{Fin}k$, write $\bar j=j.\mathrm{val}$ and $\bar h=h.\mathrm{val}$. Define the unsigned suffix mass and transition kernel by
+
+$$
+\begin{aligned}
+q_j&=\operatorname{suffixLaw}(k,j)=\frac{p^{\bar j}w_j}{Z},\\
+Q_{jh}&=\operatorname{suffixKernel}(k,j,h)\\
+&=\begin{cases}
+p/w_j,&\bar h=0,\\
+pw_h/w_j,&\bar h\ne0\ \text{and}\ \bar h=\bar j+1,\\
+0,&\text{otherwise}.
+\end{cases}
+\end{aligned}
+$$
+
+These indices always belong to the actual type $\operatorname{Fin}k$. When $\bar j=k-1$, there is no available increment state. For a measurable coding satisfying the four properties above, $e:\mathrm{Bool}\times X_k\simeq_{\mathrm m}Y_k$, put $F_e(b,r)=(e(b,r)).\mathrm{val}\in S^{\mathbb Z}$ and define
+
+$$
+J_t^e(r)=j\bigl(F_e(\mathrm{false},r)_t\bigr)\in\operatorname{Fin}k.
+$$
+
+Thus $J_t^e$ reads the true-bit run immediately before time $t$. The theorem below makes this suffix a function of the entire relation path; choosing $\mathrm{false}$ is only a convention for writing the suffix event. Also write $(\operatorname{shiftPath}x)_t=x_{t+1}$. In the formulas, $\operatorname{ofReal}:\mathbb R\to[0,\infty]$ denotes Lean's `ENNReal.ofReal`: it embeds nonnegative real numbers with their original values and sends negative numbers to $0$.
+
+::: {.theorem #thm-ch39-p2e-native-bilateral-parry-law title="The Actual Bilateral Parry Source, Independent Fair Anchor, and Exact Cylinder Laws" lean="D5/S3/TotalVariation/ParryBilateralLaw.bilateral_parry_law"}
+For every natural number $k\ge2$, there exist a single measurable equivalence $e:\mathrm{Bool}\times X_k\simeq_{\mathrm m}Y_k$, a probability measure $\mu$ on $X_k$, and a probability measure $\nu$ on the full integer-indexed state path space $S^{\mathbb Z}$, satisfying all the following clauses together:
+
+1. This $e$ satisfies all four coding properties of [@thm-ch39-p2e-native-bilateral-reset-coding]. Explicitly, for every $b\in\mathrm{Bool}$, $r\in X_k$, and $t\in\mathbb Z$,
+
+   $$
+   a(F_e(b,r)_t)=\operatorname{signAt}(b,r,t).
+   $$
+
+   Put $j_t=j(F_e(b,r)_t)$. Then $j_t\in\operatorname{Fin}k$, and
+
+   $$
+   \begin{aligned}
+   r_{t-j_t.\mathrm{val}-1}&=\mathrm{false},\\
+   r_{t-i-1}&=\mathrm{true}\quad(i\in\mathbb N,\ i<j_t.\mathrm{val}).
+   \end{aligned}
+   $$
+
+   For every $x\in Y_k$,
+
+   $$
+   \begin{aligned}
+   e^{-1}(x)&=(a(x_0),\operatorname{readRelation}(x)),\\
+   \operatorname{readRelation}(x)_t
+   &=\neg\bigl(a(x_t)\oplus a(x_{t+1})\bigr)\quad(t\in\mathbb Z).
+   \end{aligned}
+   $$
+
+   For all $b,r$ and every $t\in\mathbb Z$,
+
+   $$
+   F_e\bigl(b\oplus\neg r_0,\operatorname{relationShift}r\bigr)_t
+   =F_e(b,r)_{t+1}.
+   $$
+
+2. The two measures are stationary under their respective shifts:
+
+   $$
+   \begin{aligned}
+   (\operatorname{relationShift})_*\mu&=\mu,\\
+   (\operatorname{shiftPath})_*\nu&=\nu.
+   \end{aligned}
+   $$
+
+3. The coding sends the product of the fair anchor and relation source exactly to the signed path law:
+
+   $$
+   (F_e)_*(u\otimes\mu)=\nu.
+   $$
+
+   In particular, the origin sign has law $u$ and is independent of the entire relation path.
+4. For every $\ell\in\mathbb Z$, $m\in\mathbb N$, and word $w:\operatorname{Fin}(m+1)\to S$,
+
+   $$
+   \begin{aligned}
+   &\nu\{x\in S^{\mathbb Z}:\ \forall i\in\operatorname{Fin}(m+1),\ x_{\ell+i.\mathrm{val}}=w_i\}\\
+   &\quad=\operatorname{ofReal}\!\left(
+   \pi_k(w_0)\prod_{i\in\operatorname{Fin}m}
+   P_k\bigl(w_{i.\mathrm{castSucc}},w_{i.\mathrm{succ}}\bigr)\right).
+   \end{aligned}
+   $$
+
+5. For every $\ell\in\mathbb Z$, $m\in\mathbb N$, and word $v:\operatorname{Fin}(m+1)\to\operatorname{Fin}k$,
+
+   $$
+   \begin{aligned}
+   &\mu\{r\in X_k:\ \forall i\in\operatorname{Fin}(m+1),\ J^e_{\ell+i.\mathrm{val}}(r)=v_i\}\\
+   &\quad=\operatorname{ofReal}(q_{v_0})
+   \prod_{i\in\operatorname{Fin}m}
+   \operatorname{ofReal}\!\left(Q_{v_{i.\mathrm{castSucc}},v_{i.\mathrm{succ}}}\right).
+   \end{aligned}
+   $$
+
+Here $i.\mathrm{castSucc},i.\mathrm{succ}\in\operatorname{Fin}(m+1)$ have natural values $i.\mathrm{val}$ and $i.\mathrm{val}+1$, respectively. Clauses 4 and 5 do not require positive transition masses. When $m=0$, the product is empty and equals $1$.
+:::
+
+::: proof
+First form the finite signed Markov word masses from $\pi_k$ and $P_k$. Unit row sums make the masses consistent when the last coordinate is removed; stationarity of $\pi_k$ makes them consistent when the first is removed. Apply the existing inverse-limit probability extension theorem to centered windows $[-n,n]$, then identify coherent windows with paths on the integers to obtain $\nu$. Cropping a sufficiently large centered window gives clause 4 at every integer origin. Two-point cylinders containing a zero-kernel edge have zero mass. Since there are only countably many integer edges, $\nu$ lies in $Y_k$ almost surely.
+
+Use the measurable inverse coding to pull this supported path law back to a probability measure $\rho$ on $\mathrm{Bool}\times X_k$, and let $\mu$ be its relation-path marginal. The finite signed word masses are invariant under complementing every sign. Under this transformation, the inverse coding complements only the origin sign and preserves every relation bit. Uniqueness of the extension with these prescribed finite-dimensional distributions transfers that symmetry to the path law and to $\rho$. Thus, for every measurable $A\subseteq X_k$ and every $b\in\mathrm{Bool}$,
+
+$$
+\rho(\{b\}\times A)=\frac12\mu(A).
+$$
+
+The two anchor slices give $\rho=u\otimes\mu$ and hence clause 3. This independence holds for every measurable event of the entire relation path.
+
+The nearest-zero characterization makes the suffix independent of the anchor sign. Summing finite signed word masses over the signs gives initial mass $q_j$ and transition masses $Q_{jh}$, yielding clause 5. The finite-dimensional laws at every integer origin also establish shift invariance of $\nu$. Apply the coding's skew-shift identity and project to the relation coordinate to obtain shift invariance of $\mu$. The full proof is checked by the Lean kernel.
+:::
+
+The existential quantifier chooses $e,\mu,\nu$ together; the statement does not take an arbitrary preselected coding as input. The measure $\nu$ is defined on all of $S^{\mathbb Z}$, while the product pushforward identity concentrates it on the positive-kernel paths $Y_k$. The measure $\mu$ is defined on the actual bilateral $1^k$-free relation space $X_k$, and its suffix events use the actual second coordinate of $e(\mathrm{false},r)$. Fairness and independence therefore describe a joint probability law; a fair sign marginal alone cannot replace it.
+
+The cylinder formulas retain their distinct source forms: the signed formula applies $\operatorname{ofReal}$ once to the entire real product, while the unsigned formula applies it to each factor before multiplication. All entries of $\pi_k,P_k,q,Q$ here are nonnegative, so ordinary real probabilities are the initial mass times the successive transition probabilities. At $m=0$ the formulas give the one-coordinate masses $\pi_k(w_0)$ and $q_{v_0}$. Any word containing a zero transition, including words forbidden by the corresponding reset rules, has mass $0$. Every integer $\ell$ is covered, including negative times.
+
+Uniqueness of an extension with prescribed finite-dimensional distributions determines the path law for those distributions. We can now ask how probability correlations between two observation windows decay as the windows move apart along the time axis. The next result places the stationary joint law, mixing, and the obstruction to sign selection under a single set of existential quantifiers. Full Kolmogorov–Sinai entropy, entropy comparison over all invariant competitors, uniqueness in the maximal-entropy equality case, and Abramov's formula retain the hypotheses and evidence status of the literature remark below.
+
+Retain $X_k,Y_k,S=\operatorname{State}(k)$, $\pi_k$, $F_e$, and the fair anchor measure $u=\operatorname{fairAnchor}$ from above. Throughout this passage, $P_k=\operatorname{kernel}(k,\operatorname{parryParameter}(k))$ is the transition matrix on **signed states**; $Q$ continues to denote the **unsigned suffix** kernel in the preceding law. For a finite word $w:\operatorname{Fin}(m+1)\to S$, write
+
+$$
+\begin{aligned}
+H_m(w)&=\prod_{i=0}^{m-1}P_k(w_i,w_{i+1}),\\
+L_m(w)&=\pi_k(w_0)H_m(w),\\
+C_{\ell,m}(w)&=\{x\in S^{\mathbb Z}:\ \forall i\in\operatorname{Fin}(m+1),\ x_{\ell+i.\mathrm{val}}=w_i\}.
+\end{aligned}
+$$
+
+Empty products equal $1$. For a finite set $A$ of such words, put $E_{\ell,m}(A)=\bigcup_{w\in A}C_{\ell,m}(w)$; this represents any event on that finite window. For the measures chosen by the existential statement below, write $\nu_{\mathbb R}(D)=(\nu(D)).\operatorname{toReal}$ and $\mu_{\mathbb R}(D)=(\mu(D)).\operatorname{toReal}$, Lean's `Measure.real`. The two original cylinder laws retain their respective $\operatorname{ofReal}$ forms. The joint formula, finite-block estimate, and mixing limit for $\nu$ below use real probabilities. Also put
+
+$$
+\begin{aligned}
+(\sigma x)_t&=x_{t+1},\qquad \tau=\operatorname{relationShift},\\
+\rho&=u\otimes\mu,\\
+T(b,r)&=(b\oplus\neg r_0,\tau r),\\
+\Delta(h)&=\mu_{\mathbb R}\{r\in X_k:\ (h(\tau r)\oplus h(r))\oplus\neg r_0=\mathrm{true}\}.
+\end{aligned}
+$$
+
+Both $\sigma^{-n}B$ and $T^{-n}B$ denote preimages under the corresponding $n$-fold iterate.
+
+::: {.theorem #thm-ch39-p2e-native-bilateral-parry-mixing title="Mixing of the Actual Bilateral Parry Source and an Unattained Zero Selector-Defect Infimum" lean="D5/S3/TotalVariation/ParryBilateralMixing.bilateral_parry_mixing"}
+For every natural number $k\ge2$, there exist a measurable equivalence $e:\mathrm{Bool}\times X_k\simeq_{\mathrm m}Y_k$, a probability measure $\mu$ on $X_k$, and a probability measure $\nu$ on all of $S^{\mathbb Z}$, satisfying all conclusions of [@thm-ch39-p2e-native-bilateral-parry-law] and all clauses below together. Precisely, the nine retained properties are the four coding properties in that theorem's clause 1 (sign reconstruction, the nearest-zero suffix, the inverse map, and the anchored skew shift), the two stationarity identities in clause 2, the independent fair-anchor product pushforward identity in clause 3, and the signed cylinder and unsigned suffix cylinder laws in clauses 4 and 5. Their original quantifiers and measure-valued forms are retained in full.
+
+1. For every $\ell\in\mathbb Z$, $a,b,g\in\mathbb N$, and arbitrary words $w:\operatorname{Fin}(a+1)\to S$ and $v:\operatorname{Fin}(b+1)\to S$,
+
+   $$
+   \begin{aligned}
+   &\nu_{\mathbb R}\bigl(C_{\ell,a}(w)\cap C_{\ell+a+g,b}(v)\bigr)\\
+   &\quad=L_a(w)(P_k^g)(w_a,v_0)H_b(v).
+   \end{aligned}
+   $$
+
+   Here $w_a=w_{\operatorname{Fin.last}(a)}$. The words need not be admissible or have positive mass.
+2. For every $\ell\in\mathbb Z$, $a,b,g\in\mathbb N$, and arbitrary finite word sets $A\subseteq S^{\operatorname{Fin}(a+1)}$ and $B\subseteq S^{\operatorname{Fin}(b+1)}$,
+
+   $$
+   \begin{aligned}
+   \Bigl|&\nu_{\mathbb R}\bigl(E_{\ell,a}(A)\cap E_{\ell+a+g,b}(B)\bigr)\\
+   &-\nu_{\mathbb R}\bigl(E_{\ell,a}(A)\bigr)\nu_{\mathbb R}\bigl(E_{0,b}(B)\bigr)\Bigr|\\
+   &\le\left(\frac34\right)^{\lfloor g/3\rfloor}.
+   \end{aligned}
+   $$
+
+   The exponent $\lfloor g/3\rfloor$ is the quotient from natural-number division.
+3. For every pair of **fixed** measurable sets $A,B\subseteq S^{\mathbb Z}$, the real probabilities satisfy
+
+   $$
+   \lim_{n\to\infty}\nu_{\mathbb R}(A\cap\sigma^{-n}B)
+   =\nu_{\mathbb R}(A)\nu_{\mathbb R}(B),\qquad n\in\mathbb N.
+   $$
+
+4. On the fair anchored extension $(\mathrm{Bool}\times X_k,\rho,T)$, for every pair of fixed measurable sets $A,B$,
+
+   $$
+   \lim_{n\to\infty}\rho(A\cap T^{-n}B)=\rho(A)\rho(B),\qquad n\in\mathbb N.
+   $$
+
+   This limit is taken in $[0,\infty]$, as in the source statement. The transformation $T$ is ergodic with respect to $\rho$.
+5. For **every measurable map** $h:X_k\to\mathrm{Bool}$, the equivariance relation
+
+   $$
+   h(\tau r)=h(r)\oplus\neg r_0
+   $$
+
+   cannot hold for $\mu$-almost every $r$, and $\Delta(h)>0$.
+6. These real defects satisfy
+
+   $$
+   \inf\{\Delta(h):\ h:X_k\to\mathrm{Bool},\ h\text{ measurable}\}=0.
+   $$
+
+   No measurable $h$ attains this infimum.
+:::
+
+::: proof
+Obtain $e,\mu,\nu$ and their nine properties together from the preceding law. For two finite words, sum over all intermediate states between the first word's final state $w_a$ and the second word's initial state $v_0$. This gives the matrix entry $(P_k^g)(w_a,v_0)$. The path weights on either side yield clause 1 without dividing by cylinder masses. At $g=0$, handle the shared endpoint separately using the identity matrix. The map from an endpoint state to the entire future word is a nonnegative probability channel with unit row sums. Total-variation data processing, the existing endpoint mixing estimate, and summation over word sets give clause 2.
+
+Finite-coordinate cylinders approximate every measurable event in symmetric-difference measure. Apply the decay estimate to the two fixed approximating windows, then use shift preservation to control the approximation error at every time. This yields the fixed-event limit in clause 3. The coding $F_e$ is a measurable embedding into the supported paths, with $(F_e)_*\rho=\nu$ and $F_e\circ T=\sigma\circ F_e$, so the mixing limit transfers to the fair anchored extension. Applying that limit to an invariant event equates its probability with its square and gives ergodicity.
+
+If a measurable $h$ satisfied the stated equivariance relation almost everywhere, its graph $G_h=\{(b,r):b=h(r)\}$ would be invariant under $T$ modulo null sets. The fair independent anchor gives $\rho(G_h)=1/2$, contradicting ergodicity. If $\Delta(h)=0$, the Boolean identity would force equivariance almost everywhere. Thus every measurable selector has strictly positive defect.
+
+Conversely, a rule depending on finitely many strictly preceding coordinates defines a measurable map on $X_k$. The exact cylinder law identifies its actual defect with the existing finite stationary defect. The established finite-window construction supplies defect upper bounds tending to zero, using polynomial-geometric decay when $0<p<1$. Every defect is nonnegative, and constant rules make the set of values nonempty, so its infimum is zero. Strict positivity for each selector shows that the infimum is not attained. The full proof is checked by the Lean kernel.
+:::
+
+Here $g$ counts steps from the first window's endpoint to the second window's starting point. At $g=1$ the blocks are adjacent; at $g=0$ they share time $\ell+a$ rather than forming disjoint windows. Since $P_k^0=I$, nonzero joint mass then requires $w_a=v_0$, and a matching endpoint is counted only once. Forbidden words with zero transitions remain within the formula's quantifiers and have mass zero. No additional assumption is needed for $a=0$, $b=0$, or negative integer origins.
+
+The finite-block estimate writes the second marginal at origin $0$, exactly as the source does. Stationarity equates it with the marginal at $\ell+a+g$. This estimate controls events on the specified finite blocks. Clauses 3 and 4 instead fix any two measurable events before sending the time separation to infinity; they supply no common exponential rate for arbitrary full-path events that change with the separation. The waiting time obtained by finite-window approximation may depend on the events and the desired accuracy.
+
+A selector $h$ here may read the entire bilateral relation path. Strictly positive defect is not restricted to finite-window rules: each measurable selector violates the sign-update relation with positive probability in the comparison of two consecutive times. The zero infimum means that changing the rule can make this probability arbitrarily small, while no single measurable rule makes it zero. A measurable coding with an evolving anchor can therefore coexist with the absence of an almost-everywhere equivariant measurable sign selector.
+
+The existential quantifier chooses one triple $e,\mu,\nu$ carrying all conclusions together. It does not take an arbitrary preselected triple as input or assert uniqueness of an invariant probability measure. This citation now supplies mixing and the selector obstruction. Full shift entropy, maximal-entropy comparison and uniqueness, Abramov's formula, a spectral gap, a computable sampling algorithm, and physical realization remain beyond its conclusions. The boundary-collision probabilities, finite escape-pair proportions, and various entropies below retain their separate definitions.
 
 Alongside this stationary reset law stand two independent formal quantitative bounds governing boundary collisions and observational blind spots: first, the boundary cylinder inequality [`parry_boundary_cylinder_bound`](lean:D5/S3/TotalVariation/ParryBoundaryCylinderBound.parry_boundary_cylinder_bound), which proves for any finite collection $C$ of $n \ge 1$ positive run-length pairs (with each `1`-run $< k$ and encoded length at most $R$) that the left- and right-boundary selected-prefix stationary masses are bounded above by $\operatorname{stationaryWordMass}(10)\cdot(1 - S + M)$ and $\operatorname{stationaryWordMass}(01)\cdot(1 - S + M)$ respectively (an exact probability inequality, not a Hausdorff-dimension or entropy formula); second, continuing the ledger of [Chapter 38](ch38-observer-memory-pointer-and-ontological-qram.md) §38.5, the finite-arena information-escape criterion [`lowersEscape_iff_uniqueCaptureCount_pos`](lean:D5/S3/ConceptDynamics/InformationEscape/ExactRate.lowersEscape_iff_uniqueCaptureCount_pos), which proves on a nondegenerate finite arena of cardinality $q \ge 2$ that the set $E(S)$ of ordered distinct state pairs indistinguishable under catalog $S$ defines a normalized rational escape rate $e(S) = |E(S)|/[q(q-1)]$, and that observation $i$ strictly lowers escape rate if and only if its unique-capture count satisfies $|U_i| > 0$ (with exact drop $|U_i|/[q(q-1)]$). Rational ordered-pair escape rate $e(S)$, von Neumann page entropy $S(\sigma_b)$, and infinite-shift ergodic entropy are distinct mathematical quantities and are never conflated here.
 
@@ -109,8 +328,8 @@ Whether the transverse Rauzy boundary Hausdorff dimension $D_F = \dim_H(\partial
 Consider an order-$K \ge 3$ Pisot cut-and-project point set or locally constrained many-body Hamiltonian whose internal acceptance window $\mathcal{R}_K$ has a fractal boundary of Hausdorff dimension strictly exceeding its integer codimension (for instance, at $K = 3$ where literature gives $D_F = \dim_H(\partial\mathcal{R}_3) \approx 1.09336 > 1$). Does there exist a rigorously constructed family of gapped local ground states or cut-and-project encoded states whose bipartite entanglement entropy $S_{\mathrm{ent}}(R)$ across a region of linear scale $R \to \infty$ obeys an anomalous scaling law governed by $D_F$ (such as a leading term $S_{\mathrm{ent}}(R) \asymp R^{D_F}$ or a subleading fractal correction with certified coefficient), together with necessary and sufficient spectral-gap and locality criteria separating standard codimension-one area laws from fractal-boundary enhancement? Throughout this book, any "fractal horizon area law" of the form $S_{\mathrm{ent}} \propto R^{D_F}$ is posed strictly as an open problem (`OPEN`) and heuristic model (`MODEL`), never as a proved theorem or gravitational area law.
 :::
 
-::: {.remark #rem-ch39-p2e-physical-tribonacci-interface title="Physical Tribonacci Hopping Chain and a Finite Open-Chain Interface (Literature model, not formalized in this book)"}
-**Literature model, not formalized in this book.** A concrete physical object to investigate is a nearest-neighbor hopping chain with zero on-site potential. Following Kolehmainen–Lado–Moustaj, *One-dimensional quasicrystals with tensor-network finite-state automata* ([arXiv:2609.06040v1](https://arxiv.org/pdf/2609.06040v1), §III, Eqs. (2)–(3), and Appendix B.2), take the substitution $\sigma(A)=AB$, $\sigma(B)=AC$, $\sigma(C)=A$ and its infinite fixed word starting from $A$, $W=\lim_{j\to\infty}\sigma^j(A)$, indexed from $W_0$. Fix $0<\rho<1$ and use $t_C=1$ as the energy unit, setting $t_A=\rho^2$, $t_B=\rho$, so $t_A/t_B=t_B/t_C=\rho$. For every integer $N\ge2$, define on the single-particle site space $\mathbb{C}^N$, with basis $\{\lvert i\rangle:0\le i<N\}$,
+::: {.remark #rem-ch39-p2e-physical-tribonacci-interface title="The Physical Tribonacci Literature Model and a Finite Slater Prefix Application"}
+**Literature model and boundary conventions.** A concrete physical object to investigate is a nearest-neighbor hopping chain with zero on-site potential. Following Kolehmainen–Lado–Moustaj, *One-dimensional quasicrystals with tensor-network finite-state automata* ([arXiv:2609.06040v1](https://arxiv.org/pdf/2609.06040v1), §III, Eqs. (2)–(3), and Appendix B.2), take the substitution $\sigma(A)=AB$, $\sigma(B)=AC$, $\sigma(C)=A$ and its infinite fixed word starting from $A$, $W=\lim_{j\to\infty}\sigma^j(A)$, indexed from $W_0$. Fix $0<\rho<1$ and use $t_C=1$ as the energy unit, setting $t_A=\rho^2$, $t_B=\rho$, so $t_A/t_B=t_B/t_C=\rho$. For every integer $N\ge2$, define on the single-particle site space $\mathbb{C}^N$, with basis $\{\lvert i\rangle:0\le i<N\}$,
 
 $$
 h_N=\sum_{i=0}^{N-2}t_{W_i}\bigl(\lvert i\rangle\langle i+1\rvert+\lvert i+1\rangle\langle i\rvert\bigr).
@@ -127,16 +346,275 @@ h_{\rho,j}&=h_{N_j}\quad(j\ge1).
 \end{aligned}
 $$
 
-For every fixed $\rho\in(0,1)$, the paper argument below proves that these deterministic open prefixes with an even number of sites satisfy
+On these deterministic open prefixes with an even number of sites, define
 
 $$
-\delta_{\rho,j}:=\min\{\lvert\lambda\rvert:\lambda\in\operatorname{Spec}(h_{\rho,j})\}\longrightarrow0\qquad(j\to\infty).
+\delta_{\rho,j}:=\min\{\lvert\lambda\rvert:\lambda\in\operatorname{Spec}(h_{\rho,j})\}.
 $$
 
-Below, [@ex-ch39-p2e-tribonacci-prefix-rate] gives a quantitative paper derivation of this limit and shows that convergence is uniform over $0<\rho<1$. The complete application remains a paper proof in this book, without a separate Lean verification badge or a claim to resolve a new external conjecture. Finite invertibility, membership of zero in an infinite-volume spectrum, finite-resolution density of states, or criticality in the sense of Anderson localization cannot directly replace this limit question with its specified boundaries and prefix sequence. Krebbekx–Moustaj–Dajani–Morais Smith, *Multifractal Properties of Tribonacci Chains* ([*Phys. Rev. B* **108**, 104204](https://doi.org/10.1103/PhysRevB.108.104204), §§II.B.1, III.A.1, and V), use periodic approximants and perturbative renormalization to study physical spectra and criticality; we do not read this as the finite open-chain statement above for all $\rho\in(0,1)$.
+The standalone statement of [@thm-ch39-p2e-tribonacci-open-chain-zero-gap] gives the full-sequence limit for each fixed $\rho\in(0,1)$. The stronger [@ex-ch39-p2e-tribonacci-prefix-rate] retains the quantitative paper derivation: $\delta_{\rho,j}\le73728/N_j$ for every $j\ge4$ and $0<\rho<1$, yielding convergence uniform in $\rho$. The complete quantitative application remains a paper proof, without a separate Lean verification badge or a claim to resolve a new external conjecture. Finite invertibility, membership of zero in an infinite-volume spectrum, finite-resolution density of states, or criticality in the sense of Anderson localization cannot directly replace the limit proof for these specified boundaries and prefix sequence. Krebbekx–Moustaj–Dajani–Morais Smith, *Multifractal Properties of Tribonacci Chains* ([*Phys. Rev. B* **108**, 104204](https://doi.org/10.1103/PhysRevB.108.104204), §§II.B.1, III.A.1, and V), use periodic approximants and perturbative renormalization to study physical spectra and criticality; we do not read this as the finite open-chain statement above for all $\rho\in(0,1)$.
 
-Entanglement across a physical spatial cut additionally requires a many-body Hamiltonian, filling, and state. If a particle-number-conserving Slater ground state is chosen, its actual occupied projector $P_{\mathrm{occ}}$ must be constructed and its correlation matrix compressed to a chosen set of sites $I$ as $\chi_I P_{\mathrm{occ}}\chi_I$, where $\chi_I$ projects onto those sites. Moustaj–Krebbekx–Morais Smith, *Anomalous Polarization in One-dimensional Aperiodic Insulators* ([doi:10.3390/condmat10010003](https://doi.org/10.3390/condmat10010003), §§IV–V, §V.C, and Appendix B), study a pumping family with on-site terms and specified fillings; their correlation-matrix method depends on the chosen Slater/Gaussian state and subsystem and does not transfer directly to arbitrary encoded states. Here $\delta_{\rho,j}$ is only the single-particle distance to zero energy; a many-body excitation gap also requires a filling, particle-number sector, and gap convention. This limit addresses only the specified single-particle spectral distance. Relating physical length $R$ to internal window coordinates, spatial cuts to the Rauzy boundary, and these objects to entropy scaling requires further work; the full question in [@prob-ch39-p2e-fractal-horizon] remains.
+**Ordered Slater amplitudes and the literal prefix partial trace.** The following finite-dimensional application is independent of the hopping parameter. It allows any natural number $N$, $0\le k\le N$, and complex matrix $V\in\mathbb{C}^{N\times k}$, requiring only $V^\dagger V=I_k$. Keep the original sites in their natural order $0,\ldots,N-1$, and label the orthonormal Boolean occupation basis $\lvert S\rangle$ by its occupied subsets $S$. For $|S|=k$, let $V_S$ retain those rows in increasing site order, with the column order unchanged. Define the same actual many-body vector by
+
+$$
+\langle S\mid\Psi_V\rangle=
+\begin{cases}
+\det(V_S),&\lvert S\rvert=k,\\
+0,&\lvert S\rvert\ne k.
+\end{cases}
+$$
+
+The empty determinant is $1$, so $k=0$ gives the vacuum. The occupation basis is already normalized; no additional factor $1/\sqrt{k!}$ multiplies the amplitudes. Applying the [rectangular Cauchy–Binet identity](lean:D5/S3/Quantum/Schatten/CompoundMatrices.cauchyBinet) to $V^\dagger,V$ in natural site order gives
+
+$$
+\sum_{|S|=k}\overline{\det(V_S)}\det(V_S)
+=\det(V^\dagger V)=1.
+$$
+
+Normalization thus follows from column orthonormality. Dereziński, [*Clifford algebras and fermions*](https://www.fuw.edu.pl/~derezins/clifford.pdf), §§7.1–7.2, Eqs. (7.51)–(7.54), provides the literature background for the CAR, ordered occupation basis, and normalized Slater determinant. To use this vector as a ground state of the hopping chain above, the occupied modes, filling, and many-body Hamiltonian still need to be specified and energy minimization verified.
+
+Specify $0\le\ell\le N$ and the contiguous prefix $I=\{0,\ldots,\ell-1\}$. Let $a,a'\in\{0,1\}^{\ell}$ and $b\in\{0,1\}^{N-\ell}$; $ab$ concatenates the prefix and tail in the original site order. Define
+
+$$
+\begin{aligned}
+\psi_V(a,b)&:=\langle ab\mid\Psi_V\rangle,\\
+M_V((a,b),(a',b'))&:=\psi_V(a,b)\overline{\psi_V(a',b')},\\
+R_V(a,a')&:=\sum_{b\in\{0,1\}^{N-\ell}}
+\psi_V(a,b)\overline{\psi_V(a',b)}.
+\end{aligned}
+$$
+
+This is the ordinary partial trace $R_V=\operatorname{Tr}_{\mathrm{tail}}M_V$ in the ordered site tensor product, retaining all $2^\ell$ prefix occupation strings. The rank-one matrix $M_V$ is positive semidefinite, so [positivity under partial trace](lean:D5/S3/Quantum/Information/PartialTraceMutualInformation.partialTraceRight_posSemidef) gives $R_V\ge0$. Reindexing its diagonal sum by the concatenation bijection and using the normalization above gives $\Tr R_V=1$. Below, $\rho_I$ is the density state whose matrix is this $R_V$.
+
+**Unitary correspondence in the original basis and the complete spectrum.** Write $X=V_I$ for the first $\ell$ rows and $Y$ for the remaining $N-\ell$ rows, and set $A=XX^\dagger$. The full-space projection $P=VV^\dagger$ and $I_N-P$ are both positive semidefinite; compression gives $0\le A\le I_\ell$. Choose an orthonormal eigenvector matrix $Q$ for $A$ and retain all $\ell$ eigenvalues $\nu_i$. Then
+
+$$
+\begin{aligned}
+Q^\dagger Q&=QQ^\dagger=I_\ell,\\
+Q^\dagger A Q&=\operatorname{diag}(\nu_1,\ldots,\nu_\ell),
+\qquad 0\le\nu_i\le1,\\
+\widetilde V&=(Q^\dagger\oplus I_{N-\ell})V.
+\end{aligned}
+$$
+
+The prefix rows of $\widetilde V$ are $\widetilde X=Q^\dagger X$, its tail remains $Y$, and $\widetilde V^\dagger\widetilde V=I_k$. Define $\Gamma_m(B)$ on all $m$-site occupation strings: when the occupied subsets of its two arguments have equal size, its entry is the minor of $B$ with both rows and columns in natural increasing order; otherwise it is zero. The vacuum entry is the empty determinant $1$. Applying Cauchy–Binet in each particle-number sector gives
+
+$$
+\begin{aligned}
+\Gamma_m(BC)&=\Gamma_m(B)\Gamma_m(C),\\
+\Gamma_m(B^\dagger)&=\Gamma_m(B)^\dagger,\qquad
+\Gamma_m(I_m)=I_{2^m}.
+\end{aligned}
+$$
+
+A single-particle unitary therefore lifts to a unitary on the entire Boolean occupation space. Natural order is used throughout. If one instead uses a compound matrix with a fixed classical order, the permutation sign for each of its left and right occupied subsets must be included; the order difference cannot simply be ignored.
+
+Every prefix site precedes every tail site, so the block minors introduce no additional exchange sign, and
+
+$$
+\Gamma_N(B\oplus I_{N-\ell})(ab,a'b')
+=\Gamma_\ell(B)(a,a')\,\delta_{bb'}.
+$$
+
+Apply this identity to the same determinant vector, then use the [local conjugation and partial-trace identity](lean:D5/S3/Quantum/Dynamics/KickedIsingNegativityRefutation.trace_local_right) with the identity as its tail matrix. This gives the relation between the actual marginals
+
+$$
+\begin{aligned}
+G&=\Gamma_\ell(Q^\dagger),\qquad G^\dagger G=GG^\dagger=I_{2^\ell},\\
+R_{\widetilde V}&=G R_V G^\dagger.
+\end{aligned}
+$$
+
+The transformation law follows from the amplitudes and partial trace, without assuming a correlation transformation law or Gaussianity.
+
+The matrix $R_{\widetilde V}$ itself must still be computed. For equal-size occupied prefix subsets $S,T$, put $r=|S|=|T|$, and let $\widetilde X_S,\widetilde X_T$ retain their increasing rows. Stack these rows above $Y$, assigning polynomial weight $t$ to each prefix row and weight $1$ to each tail row. The coefficient of $t^r$ in Cauchy–Binet selects exactly the minors containing every specified prefix row. Thus
+
+$$
+R_{\widetilde V}(S,T)
+=[t^r]\det\bigl(Y^\dagger Y+t\widetilde X_T^\dagger\widetilde X_S\bigr).
+$$
+
+Here $[t^r]$ extracts a coefficient. Let $E_{T,S}$ send the $q$th increasing coordinate of $S$ to the $q$th increasing coordinate of $T$, with all other entries zero. Using $Y^\dagger Y=I_k-\widetilde X^\dagger\widetilde X$ and $\det(I+BC)=\det(I+CB)$, the determinant above equals
+
+$$
+\det\bigl(I_\ell-D+tE_{T,S}D\bigr),
+\qquad D=\operatorname{diag}(\nu_1,\ldots,\nu_\ell).
+$$
+
+Block the matrix by $T$ and its complement. Its coefficient of $t^r$ is the principal minor of $E_{T,S}D$ on $T$, multiplied by $\prod_{i\notin T}(1-\nu_i)$. If $S=T$, that minor is $\prod_{i\in S}\nu_i$; if $S\ne T$, a coordinate in $T\setminus S$ supplies a zero column, so the coefficient vanishes. If $|S|\ne|T|$, the same tail subset cannot make both total particle counts equal $k$, and every summand of the original partial trace is already zero. This computes every entry:
+
+$$
+\begin{aligned}
+b_i(0)&=1-\nu_i,\qquad b_i(1)=\nu_i,\\
+\lambda_a&=\prod_{i=1}^{\ell}b_i(a_i),\qquad a\in\{0,1\}^{\ell},\\
+R_{\widetilde V}&=\operatorname{diag}(\lambda_a),\\
+U&=G^\dagger,\qquad
+R_V=U\operatorname{diag}(\lambda_a)U^\dagger.
+\end{aligned}
+$$
+
+The last line returns to the same $R_V$ in the original site basis. The [spectral permutation theorem for unitary similarity of Hermitian matrices](lean:D5/S3/Quantum/Schatten/MatrixSimilarity.IsHermitian.eigenvalues_eq_of_unitary_similarity_diagonal) therefore identifies all its eigenvalues with $\lambda_a$, indexed by a permutation of the Boolean occupation strings. The multiset has exactly $2^\ell$ entries, retaining repeated values, zero eigenvalues, and impossible occupation sectors with their multiplicities. A completely empty or filled mode still contributes the weight pair $1,0$; selecting the two factors explicitly avoids $0^0$. For $\ell=0$ the empty product is $1$, the sole density eigenvalue.
+
+The $k\times k$ occupied-mode Gram matrix $X^\dagger X$ and $A$ share only their nonzero spectrum; their dimensions can differ. The complete spatial spectrum requires all $\ell$ spatial modes: retain the multiplicities of the nonzero compressed eigenvalues and pad with zeros to $\ell$ entries. The particle-mode count $k$ cannot replace the spatial-mode count. The derivation also covers $N=0$, the vacuum $k=0$, full filling $k=N$, and the full prefix $\ell=N$. The full prefix is still pure, with one density eigenvalue $1$ and all others zero.
+
+**Entropy of the actual density state and correspondence with the literature.** For this $\rho_I$ constructed by partial trace, the [spectral entropy identity](lean:D5/S3/Quantum/Information/PartialTraceMutualInformation.entropy_eq_spectral) gives its von Neumann entropy. Extend $x\log x$ continuously to zero at the origin. Then
+
+$$
+\begin{aligned}
+S(\rho_I)&=-\Tr(\rho_I\log\rho_I)
+=-\sum_{a\in\{0,1\}^{\ell}}\lambda_a\log\lambda_a\\
+&=\sum_{i=1}^{\ell}h(\nu_i),\\
+h(x)&=-x\log x-(1-x)\log(1-x).
+\end{aligned}
+$$
+
+The density matrix used here is $R_V$ in the original basis, rather than a separately chosen realization of the spectrum. The product weights satisfy $\sum_a\lambda_a=\prod_i((1-\nu_i)+\nu_i)=1$. Split the sum by one Boolean coordinate and use $-(xy)\log(xy)=y(-x\log x)+x(-y\log y)$; iterating gives the binary-entropy sum. This identity and the zero convention retain singular density states, so $h(0)=h(1)=0$. Logarithms are natural; entropy in bits requires division by $\log2$. This is an application derived from the original finite-matrix results, with no separate full Slater theorem or independent verification badge.
+
+Peschel, [*Calculation of reduced density matrices from correlation functions*](https://arxiv.org/pdf/cond-mat/0212631v1), Eqs. (8)–(11), gives the mode description of the reduced free-fermion density matrix. Klich, [*Lower entropy bounds and particle number fluctuations in a Fermi sea*](https://arxiv.org/pdf/quant-ph/0406068v2), Eq. (4), Eq. (7) and its subsequent factors $\operatorname{diag}(1-d_i,d_i)$, and Eq. (11), supplies the corresponding projected-mode decomposition, product spectrum, and entropy formula. Here $d_i=\nu_i$, and $\ell$ counts sites in the spatial region. Klich's Eq. (7) uses an appropriate fermionic tensor product; the prefix derivation above additionally makes the correspondence with the literal tensor partial trace in natural site order explicit.
+
+**Two-point functions of the same Slater state.** Keep the actual vector above, write $\psi_V(x)=\langle x\mid\Psi_V\rangle$ and $\rho_V=\lvert\Psi_V\rangle\langle\Psi_V\rvert$, and use the original site order's [`JordanWigner.fullC`](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/JordanWigner.fullC) as $c_i$. Its [occupation-basis entry](lean:D5/S3/Quantum/SpinChains/SupersymmetricFermion/HardCoreCompression.fullC_entry) is nonzero exactly when the input occupies $i$ and the output empties that site, with coefficient $(-1)^{n_S(i)}$, where $n_S(i)=|\{a\in S:a<i\}|$. These original operators and determinant amplitudes directly give
+
+$$
+\begin{aligned}
+K_{ij}&=\Tr\bigl((\rho_V c_j^\dagger)c_i\bigr)=P_{ij},\\
+C_{ij}&=\Tr\bigl((\rho_V c_i^\dagger)c_j\bigr)
+=P_{ji}=\overline{P_{ij}},\\
+C&=P^{\mathsf T}.
+\end{aligned}
+$$
+
+To track the exchange signs, let $E_{j,i}$ have its sole nonzero entry $1$ in row $j$, column $i$. Over the complex polynomial ring, set
+
+$$
+\begin{aligned}
+W(X)&=(I_N+XE_{j,i})V,\\
+W(X)_{j,b}&=V_{j,b}+XV_{i,b}.
+\end{aligned}
+$$
+
+All other rows stay fixed. Define $\psi_{W(X)}(x)$ by the same increasing-row minor rule, without requiring column orthonormality of $W(X)$. For every occupation word,
+
+$$
+[X]\psi_{W(X)}(x)
+=\bigl(c_j^\dagger c_i\Psi_V\bigr)(x).
+$$
+
+Here $[X]$ extracts the linear coefficient. Words of the wrong particle number give zero on both sides because the operator preserves particle number. Now suppose $|S(x)|=k$. If $j\notin S(x)$, the selected minor contains no changing row, and the creation action also vanishes at that output. If $j\in S(x)$, put $R=S(x)\setminus\{j\}$. When $i\in R$, the replacement produces a repeated row, so both the determinant and annihilation action vanish. Otherwise, returning the replacement row to increasing order gives, on both sides,
+
+$$
+(-1)^{n_R(j)+n_R(i)}\det V_{R\cup\{i\}}.
+$$
+
+The two counts record the row exchanges for removing $j$ and inserting $i$, respectively; this includes $i=j$. The original suppliers for this sign correspondence are the private `fullC_sparse` and `fullC_create_sparse` in `D5/S3/Quantum/Fermionic/PeriodicSshExcessPseudoEntropyRefutation.lean`, and the private `sorted_position_count` and `sorted_removeNth` in `D5/S3/Quantum/FermionicCorrelationalBound/PhysicalContractionRdmBridge.lean`, accessible from the [pinned source root](trureturing:). The first pair gives the sparse actions above. The second identifies a row's position in increasing order with the number of smaller elements and preserves increasing order after removal. Its statements use natural-number indices; sending finite site indices to their natural-number values preserves order and gives the row permutation signs used here. These are helpers in the original source, without separate public declaration links.
+
+Now apply the same [Cauchy–Binet identity](lean:D5/S3/Quantum/Schatten/CompoundMatrices.cauchyBinet) to $V^\dagger,W(X)$, this time over $\mathbb C[X]$:
+
+$$
+\begin{aligned}
+F(X)&:=\det\bigl(V^\dagger W(X)\bigr)\\
+&=\sum_{x\in\{0,1\}^N}
+\overline{\psi_V(x)}\,\psi_{W(X)}(x)\\
+&=\det\bigl(I_k+XV^\dagger E_{j,i}V\bigr).
+\end{aligned}
+$$
+
+The last line uses only $V^\dagger V=I_k$. In the determinant expansion, linear terms select exactly one diagonal position, so $[X]\det(I+XB)=\Tr B$. Extracting the coefficient on the sum side and expanding the trace of the rank-one density matrix gives
+
+$$
+\begin{aligned}
+[X]F(X)
+&=\sum_x\overline{\psi_V(x)}
+\bigl(c_j^\dagger c_i\Psi_V\bigr)(x)\\
+&=\Tr\bigl((\rho_V c_j^\dagger)c_i\bigr),\\
+[X]F(X)
+&=\Tr\bigl(V^\dagger E_{j,i}V\bigr)\\
+&=\Tr\bigl(E_{j,i}VV^\dagger\bigr)=P_{ij}.
+\end{aligned}
+$$
+
+This proves $K_{ij}=P_{ij}$ for the same actual state. Exchanging $i,j$ and using $P^\dagger=P$ gives the formula for $C$. No covariance, Gaussianity, or normalization is assumed, and no other density matrix replaces $\rho_V$. Complex phases matter: for $N=2,k=1$ and $V=(3/5,4\mathrm{i}/5)^{\mathsf T}$, $K_{01}=-12\mathrm{i}/25$ whereas $C_{01}=12\mathrm{i}/25$. These finite sums also cover the vacuum ($K=0$), full filling ($K=I_N$), equal sites, and both orders of distinct sites. For $N=0$ there are no site indices $i,j$ to choose. This is a standard application of the original results, without a separate full endpoint theorem or independent verification badge.
+
+Dereziński's [§§7.1–7.2, Eqs. (7.51)–(7.54)](https://www.fuw.edu.pl/~derezins/clifford.pdf) gives the occupation-basis and Slater conventions. His Theorem 8.1, particularly $\omega_\pi(d\Gamma(h))=\Tr(\pi h)$ in Eq. (8.103), gives the corresponding one-body expectation formula. Peschel's Eqs. (7), (9)–(10) use $C$; the transpose in his Eq. (12) cannot be omitted for complex modes. Peschel also notes that, for a non-Slater state, the free-fermion density matrix reconstructed from the same two-point function generally fails to reproduce other expectation values. Correlation agreement therefore does not determine a general density matrix. More general gauge-invariant Gaussian density matrices have the same spectral recipe, but require a separate Gaussianity hypothesis; their scope differs from the derivation starting with the specified determinant amplitudes. When $0$ or $1$ occurs, Peschel's matrix-logarithm formula (12) cannot be applied directly. Arbitrary nonprefix site subsets also involve Jordan–Wigner strings and a choice of fermionic subsystem, whose correspondence requires a separate argument. An address-digit cut still cannot substitute for a physical spatial cut.
+
+Moustaj–Krebbekx–Morais Smith, *Anomalous Polarization in One-dimensional Aperiodic Insulators* ([doi:10.3390/condmat10010003](https://doi.org/10.3390/condmat10010003), §§IV–V, §V.C, and Appendix B), study a pumping family with on-site terms and specified fillings; their correlation-matrix method depends on the chosen Slater/Gaussian state and subsystem and does not transfer directly to arbitrary encoded states. Here $\delta_{\rho,j}$ is only the single-particle distance to zero energy; a many-body excitation gap also requires a filling, particle-number sector, and gap convention. The limit addresses only this single-particle spectral premise. Relating physical length $R$ to internal window coordinates, spatial cuts to the Rauzy boundary, and these objects to entropy scaling requires further work; the full question in [@prob-ch39-p2e-fractal-horizon] remains.
 :::
+
+**A calculation for disjoint sites.** On four sites ordered $0,1,2,3$, take the orthonormal orbitals $u=(e_0+e_2)/\sqrt{2}$ and $v=(e_1+e_3)/\sqrt{2}$ and keep $I=\{0,2\}$. The two-row determinants in increasing site order give
+
+$$
+\lvert\Psi\rangle
+=\tfrac12\bigl(\lvert1100\rangle+\lvert1001\rangle
+-\lvert0110\rangle+\lvert0011\rangle\bigr).
+$$
+
+For the ordinary tensor partial trace, group the amplitudes by the occupation string on $(1,3)$. When those sites have string $10$, the retained amplitude vector is $(\lvert10\rangle-\lvert01\rangle)/2$. For string $01$, it is $(\lvert10\rangle+\lvert01\rangle)/2$. The two vectors are orthogonal and each has squared norm $1/2$, so the reduced density matrix has spectrum $(1/2,1/2,0,0)$ and entropy $\log 2$.
+
+The one-particle compression $P_I=u_Iu_I^\dagger$ of the same state has eigenvalues $1,0$. The fermionic mode product formula gives spectrum $(1,0,0,0)$ and zero entropy. Replacing the second orbital with $e_3$ gives exactly the same $P_I$, while the ordinary partial trace now has only the component with discarded string $01$, leaving a pure state on the retained sites. Thus $P_I$ alone cannot determine the ordinary tensor partial-trace spectrum for this disjoint cut. For occupied sites $1,2$, the row order puts the component of $v$ first and the component of $u$ second, giving the negative determinant. For the role of the Jordan–Wigner string between the two blocks in the reduced state, see Fagotti and Calabrese, [*Entanglement entropy of two disjoint blocks in XY chains*, §2, Eqs. (11)–(19)](https://arxiv.org/pdf/1003.1110).
+
+**When does the product spectrum hold for every state?** On a finite ordered set of sites, let $I$ be the retained side and $J$ the side traced out. Require the ordinary tensor partial trace to have the full fermionic mode product spectrum above for every particle number $0\le k\le N$ and every Slater state with that particle number. This holds exactly when $I$ or $J$ is an interval in the original site order, with the empty set counted as an interval. Equivalently, membership switches sides at most twice as we read the sites in order. With at least three switches, taking one site from each of the first four runs gives an increasing $I,J,I,J$ or $J,I,J,I$.
+
+Write $a\subseteq I$ and $b\subseteq J$ for the occupied sites on the two sides. The amplitudes are supported on $|a|+|b|=k$. Starting with the occupied determinant rows in the original site order, move the rows for $a$ ahead of the rows for $b$, preserving the order within each group. Each $j\in b$ to the left of $i\in a$ crosses $i$ exactly once, so the two amplitudes differ by $(-1)^{c(a,b)}$, where
+
+$$
+c(a,b)=\bigl|\{(i,j)\in a\times b\mid j<i\}\bigr|.
+$$
+
+The grouped amplitudes are precisely the ordered-prefix amplitudes in the site order that lists all of $I$ before $J$. In that order the wedge product of occupation basis vectors puts the retained vectors first and the traced vectors second, so the coefficients in the fermionic tensor product are exactly the grouped determinants. This reorders only the rows of the orbital matrix and gives the same $P_I=V_I V_I^\dagger$ in the original order within $I$. Taking the partial trace of these grouped coefficients gives the spectrum in the fermionic mode product formula above.
+
+If $I$ is a nonempty interval, let $b_{\mathrm{left}}$ consist of the sites of $b$ to its left. Each of those sites crosses every site in $a$, giving $c(a,b)=(k-|b|)|b_{\mathrm{left}}|$. The sign depends only on $b$ and cancels with its conjugate in the trace over $b$. If $J$ is a nonempty interval, let $a_{\mathrm{right}}$ consist of the sites of $a$ to its right. Then $c(a,b)=(k-|a|)|a_{\mathrm{right}}|$. The sign depends only on $a$, so the retained density matrices in the two orderings are related by conjugation with a diagonal unitary. Both cases preserve every eigenvalue with its multiplicity. An empty side gives $c(a,b)=0$.
+
+If four alternating sites exist, put the two orbitals from the example above on those four sites and leave every other site empty. Reversing which side starts the alternation exchanges the retained and traced sides. The two reductions of the four-site pure state have the same nonzero eigenvalues by the Schmidt decomposition. In either orientation the ordinary partial trace has exactly two nonzero eigenvalues, both $1/2$. Meanwhile $P_I$ is the rank-one projection onto the orbital supported entirely on the retained side, so the product spectrum has just one nonzero eigenvalue, $1$. Extra empty sites only add zeros. This gives a two-particle counterexample for every cut containing four alternating sites.
+
+**The criterion at a given filling.** For a given particle number $k$, the product formula holds for every Slater state at every cut if $k\le 1$ or $N-k\le 1$. For $2\le k\le N-2$, it holds for every Slater state at a cut exactly when $I$ or $J$ is an interval.
+
+Write the holes as $a^{\mathrm h}=I\setminus a$ and $b^{\mathrm h}=J\setminus b$. Partition $I\times J$ according to whether each endpoint is occupied or empty, and count the pairs with $j<i$. This gives
+
+$$
+c(a,b)+c(I,J)=c(a,J)+c(I,b)+c(a^{\mathrm h},b^{\mathrm h}).
+$$
+
+The reordering sign of an occupation string and that of the corresponding hole string therefore differ by the separate factors $(-1)^{c(a,J)}$ and $(-1)^{c(I,b)+c(I,J)}$. The first gives diagonal unitary conjugation on the retained side, and the second cancels in the trace over $b$. This accounts for the two filling limits. When $k\le1$, every nonzero amplitude has $c(a,b)=0$. When $N-k\le1$, at least one side has no holes, so the hole term $c(a^{\mathrm h},b^{\mathrm h})$ vanishes.
+
+For $2\le k\le N-2$, choose $k-2$ sites outside the four alternating sites and call their set $T$. In increasing site order, append the corresponding unit vectors to the two original orbitals. The appended orbitals are mutually orthogonal and have support disjoint from the original orbitals. If an occupation set omits a site of $T$, the corresponding appended column in its determinant is zero. If the occupation set contains $T$, its two remaining sites must come from the original four, since any other row is zero.
+
+Write such an occupation set as $a\cup b\cup T$, where $a$ and $b$ are the occupied subsets of the four original sites on sides $I$ and $J$. Move the rows of $T$ to the end in increasing order. They form an identity block on the appended columns, leaving the determinant for the four-site amplitude. The row move crosses each pair $s\in T$, $i\in a\cup b$ with $s<i$ once. With $m_T(i)=|\{s\in T\mid s<i\}|$, the sign is
+
+$$
+(-1)^{\sum_{i\in a}m_T(i)}\,(-1)^{\sum_{j\in b}m_T(j)}.
+$$
+
+Let $D_I,D_J$ be the diagonal sign matrices given by these two factors on the respective occupation bases of the four-site example. Let $E_I$ send the retained basis vector $\lvert a\rangle$ to $\lvert a\cup(T\cap I)\rangle$, and define $E_J$ on the traced side in the same way. The remaining sites stay empty. Both maps send distinct basis vectors to distinct basis vectors and are therefore isometries. Writing $M_0$ and $M_T$ for the four-site and extended amplitude matrices gives
+
+$$
+\begin{aligned}
+M_T&=E_I D_I M_0 D_J E_J^\dagger,\\
+M_T M_T^\dagger&=E_I D_I M_0M_0^\dagger D_I^\dagger E_I^\dagger.
+\end{aligned}
+$$
+
+The ordinary reduced state has the four-site spectrum on the image of $E_I$ and is zero on its orthogonal complement. Its full spectrum therefore still has exactly two nonzero eigenvalues, $1/2,1/2$. The compression $P_I$ adds the coordinate projections for the sites in $T\cap I$ to the original rank-one projection. These projections have mutually orthogonal ranges, so $P_I$ is a projection of rank $1+|T\cap I|$ and all its eigenvalues are $0$ or $1$. The fermionic product spectrum therefore has just one nonzero eigenvalue, $1$.
+
+**When does the one-particle compression determine the reduced spectrum?** Fix the cut and the particle number $k$. Whenever the product-spectrum criterion above holds, $P_I$ determines the full spectrum of the ordinary tensor partial trace. For intermediate fillings at a cut containing four alternating sites, use the four-site construction with the same fixed occupied set $T$. Replace the orbital supported entirely on $J$ with the unit vector at either site in its support. The two orbital matrices agree column by column on $I$, so they give the same $P_I$. After the replacement, every nonzero amplitude has the same occupation string on $J$, consisting of $T\cap J$ and the site of the new orbital. Grouping by the occupation string on $J$ leaves a single amplitude vector, so the reduced state is pure.
+
+Write $D=2^{|I|}$. The two reduced states, before and after the replacement, have characteristic polynomials $x^{D-2}(x-1/2)^2$ and $x^{D-1}(x-1)$, respectively, and entropies $\log 2$ and $0$. This written argument shows that, when the filling and the cut are known, the product-spectrum criterion above is also the exact criterion for $P_I$ to determine the reduced spectrum for every Slater state.
+
+**The alternation matrix for several two-site orbitals.** Take $a$ orbitals supported entirely in $I$ and $b$ supported entirely in $J$, each with amplitude $1/\sqrt{2}$ at its two sites. All pairs of sites are disjoint. Order the retained columns first. Use $x\in\mathbb F_2^a$ and $y\in\mathbb F_2^b$ to encode a choice of the earlier or later endpoint of each pair. Every nonzero determinant selects exactly one site from each pair, so the amplitude matrix vanishes on all other occupations. Let $A_{ij}\in\mathbb F_2$ indicate whether retained pair $i$ and discarded pair $j$ have alternating endpoints.
+
+On these occupations, the row permutation contributes its inversion sign. Inversions within either side depend only on that side's choices. For two pairs across the cut, the sum modulo $2$ of the inversion indicators over the four endpoint choices equals the parity of the number of discarded endpoints strictly between the retained endpoints. Thus the mixed coefficient of $x_i,y_j$ is precisely $A_{ij}$. Absorbing the signs that depend on one side alone gives the amplitude matrix
+
+$$
+M_{xy}=2^{-(a+b)/2}(-1)^{x^\mathsf T A y}.
+$$
+
+Summing over $y$ gives $(MM^\dagger)_{xx'}=2^{-a}$ when $A^\mathsf T x=A^\mathsf T x'$. Otherwise, pair each $y$ with the result of flipping a coordinate that reverses the sign, so the sum vanishes. Put $r=\operatorname{rank}_{\mathbb F_2} A$. Each nonempty fiber of $A^\mathsf T$ has $2^{a-r}$ elements. The marginal therefore has $2^r$ constant blocks, each contributing one eigenvalue $2^{-r}$. Including the zero space on all other occupations gives the full characteristic polynomial
+
+$$
+x^{\,2^{|I|}-2^r}(x-2^{-r})^{2^r}.
+$$
+
+The same binary-rank calculation appears for bipartitions of graph states. Here the matrix entries come from the site order in the Slater determinants. [Hein, Eisert and Briegel, Proposition 3](https://arxiv.org/abs/quant-ph/0307130)
+
+Replace each discarded orbital by the coordinate vector at its earlier endpoint. The retained compression stays the same. The discarded side now has one occupation string, so the ordinary marginal is pure and the entropy difference is $r\log 2$. For example, concatenate $m$ four-site blocks ordered $I,J,I,J$. Endpoints from distinct blocks do not alternate, so $A$ is the $m$-dimensional identity. This gives two $2m$-particle Slater states with equal retained compression at the same cut and ordinary marginal entropies $m\log 2$ and zero.
 
 For this literal word, ordinary letter-count balance and a sum weighted by position parity are different observables. Retain the letter encoding $A=0$, $B=1$, $C=2$ and take integer weights
 
@@ -283,8 +761,192 @@ $$
 contradicting the uniform bound at $s=0$, $m=m_n$. This contradiction covers every positive real $K$. The explicit family starting at zero is a construction within the proof, with no extra hypothesis and no extrapolation from finite samples. The full proof is checked by the Lean kernel.
 :::
 
+The counterexample family shows how charge can accumulate across levels in certain actual prefixes. Controlling intervals of every length at every start also requires control of all prefixes inside each level's blocks. A reusable estimate, independent of the Tribonacci alphabet, supplies this step: at each level, at most one child block remains unfinished, while the charges of the complete children contribute a sum over levels.
+
+The prefix envelope controls every truncated prefix of a general substitution word, and the uniform squared-logarithmic bound controls every interval of the actual Tribonacci word. The later open-chain convergence theorem gives convergence to zero of the minimum absolute eigenvalue along the full sequence of specified even open prefixes for each fixed $0<\rho<1$. The quantitative bound and parameter-uniform convergence in [@ex-ch39-p2e-tribonacci-prefix-rate] remain a paper application and are not supplied by this convergence theorem.
+
+::: {.lemma #lem-ch39-p2e-substitution-prefix-envelope title="A Level Prefix Envelope for Substitution Words" lean="D5/S1/Words/SubstitutionPrefixEnvelope.prefix_envelope"}
+Let $\mathcal A$ be any alphabet, let $w:\mathcal A\to\mathbb Z$ be an integer weight, and let $f$ send each letter to a finite word, extended to finite words by concatenation. Take $f^0(a)$ to be the one-letter word $a$, and set
+
+$$
+Q(v)=\sum_{r=0}^{|v|-1}(-1)^r w(v_r).
+$$
+
+Suppose $M\in\mathbb Z$, $B\in\mathbb N$, and $H:\mathbb N\to\mathbb Z$ satisfy
+
+$$
+\begin{aligned}
+&0\le M,\qquad 0\le H(i)
+&&\text{for every }i\in\mathbb N,\\
+&|w(a)|\le M,\qquad |f(a)|\le B
+&&\text{for every }a\in\mathcal A,\\
+&|Q(f^i(a))|\le H(i)
+&&\text{for every }i\in\mathbb N,\ a\in\mathcal A.
+\end{aligned}
+$$
+
+Then, for every $j,t\in\mathbb N$ and $a\in\mathcal A$,
+
+$$
+\left|Q\bigl(\operatorname{take}_t(f^j(a))\bigr)\right|
+\le P(j):=M+B\sum_{i=0}^{j-1}H(i).
+$$
+
+Here $\operatorname{take}_t$ takes the first $\min(t,|f^j(a)|)$ letters, and the sum is empty at $j=0$. The conclusion includes empty prefixes, whole images, and indices beyond the word's end. It requires neither a finite alphabet, nonempty images, nor any prescribed parity of image lengths.
+:::
+
+::: {.proof #pf-ch39-p2e-substitution-prefix-envelope}
+This proof follows the statement and argument of [the source declaration `prefix_envelope`](lean:D5/S1/Words/SubstitutionPrefixEnvelope.prefix_envelope).
+
+The alternating charge with a local positive first sign satisfies $Q(uv)=Q(u)+(-1)^{|u|}Q(v)$, hence $|Q(uv)|\le|Q(u)|+|Q(v)|$. A level-zero image is a single letter, so every prefix has absolute charge at most $M$. Write $f^{j+1}(a)$ as the concatenation of at most $B$ level-$j$ children specified by $f(a)$. Each prefix consists of complete children followed by at most one child's prefix. The complete part contributes at most $BH(j)$, and induction bounds the unfinished part by $P(j)$, giving $P(j)+BH(j)=P(j+1)$. An index beyond the total length leaves only complete blocks; empty images add no charge. This induction uses absolute values while retaining the exact concatenation phase.
+
+The full proof is checked by the Lean kernel.
+:::
+
+For the literal Tribonacci word, the complete-block charge formulas give a linear $H(j)$, so this estimate yields a quadratic $P(j)$. To obtain a bound independent of the start, we must also place each actual interval inside blocks at a suitable level.
+
+::: {.theorem #thm-ch39-p2e-tribonacci-uniform-log-squared title="A Uniform Squared-Logarithmic Interval Bound for the Actual Tribonacci Word" lean="D5/S1/Words/TribonacciUniformLogSquared.uniform_log_squared"}
+Take $\sigma(A)=AB$, $\sigma(B)=AC$, and $\sigma(C)=A$, and let $W=\lim_{n\to\infty}\sigma^n(A)$ be the infinite word starting from $A$, indexed from zero. Assign integer weights $w(A)=2$, $w(B)=1$, and $w(C)=0$, and define the charge with a positive first sign within each interval:
+
+$$
+F(W_{[s,s+m)})=\sum_{r=0}^{m-1}(-1)^r w(W_{s+r}).
+$$
+
+There exists a real constant $C>0$, independent of both start and length, such that
+
+$$
+\forall s,m\in\mathbb N,\qquad
+\left|F(W_{[s,s+m)})\right|
+\le C\bigl(\log(m+2)\bigr)^2.
+$$
+
+The integer charge and natural-number length are viewed as real numbers in this inequality, and $\log$ is the natural logarithm. The quantifiers include $m=0$, when the charge is zero. The first sign remains positive even when $s$ is odd.
+:::
+
+::: {.proof #pf-ch39-p2e-tribonacci-uniform-log-squared}
+This proof follows the statement and argument of [the source declaration `uniform_log_squared`](lean:D5/S1/Words/TribonacciUniformLogSquared.uniform_log_squared).
+
+**From complete blocks to prefixes.** Retain $\tau=\sigma^4$, whose three image lengths are $13,11,7$. The complete-block charges computed above are $2$, $2-(-1)^j$, and $2-(2j+2)(-1)^j$. Thus, for every letter $X$ and level $j$,
+
+$$
+|F(\tau^j(X))|\le H(j):=2j+4.
+$$
+
+Apply [@lem-ch39-p2e-substitution-prefix-envelope] with $M=2$, $B=13$, and this $H$. Every prefix of every level-$j$ image has the common envelope
+
+$$
+\begin{aligned}
+P(j)&=2+13\sum_{i=0}^{j-1}(2i+4)\\
+&=2+13j^2+39j.
+\end{aligned}
+$$
+
+This controls every truncation position; the constant charge $2$ of a complete $A$ block cannot replace it.
+
+**From prefixes to local intervals.** Let $v$ be a contiguous subword of $T=\tau^j(X)\tau^j(Y)$. Each prefix of $T$ is the concatenation of at most one prefix from each block, so its absolute charge is at most $2P(j)$. If $R$ is the prefix preceding $v$, then both $R$ and $Rv$ are prefixes of $T$, and
+
+$$
+F(Rv)-F(R)=(-1)^{|R|}F(v).
+$$
+
+Taking absolute values gives
+
+$$
+|F(v)|\le4P(j)\le156(j+1)^2\qquad(j\in\mathbb N).
+$$
+
+This two-block estimate requires no odd-length hypothesis and assumes no occurrence of these blocks in the infinite word. An interval contained in a single block also qualifies, since it is a contiguous subword of $\tau^j(X)\tau^j(X)$.
+
+**Containment in the actual word.** Each $\tau$ image has length at least $7$. Starting with length one at level zero, simultaneous induction over all letters concatenates at least seven preceding-level images at every step, giving
+
+$$
+|\tau^j(X)|\ge7^j\qquad\text{for every }j\in\mathbb N,\ X\in\{A,B,C\}.
+$$
+
+Now fix any $s$ and $m>0$. Take $k=\lfloor\log_7 m\rfloor$ and $j=k+1$, so $7^k\le m<7^j$. Choose $N\ge j$ large enough that $s+m\le|\tau^N(A)|$. These $A$ images are actual prefixes of $W$, so $W_{[s,s+m)}$ is exactly the word obtained by dropping the first $s$ letters of $\tau^N(A)$ and taking the next $m$. The concatenation identity for substitution iterates gives
+
+$$
+\tau^N(A)=\tau^j\bigl(\tau^{N-j}(A)\bigr).
+$$
+
+The right side is a concatenation of level-$j$ blocks in their actual order, each strictly longer than $m$. Starting in the block containing its first letter, an interval of length $m$ either stays there or enters the immediately following block. In the latter case its remaining length is less than $m$, so it cannot cross the entire second block. If the starting block is already the last one, the total-length condition ensures that the interval ends inside it. Thus the whole actual interval lies in one block or two adjacent blocks, and the bound $156(j+1)^2$ applies. The higher level $N$ merely accommodates the start $s$; the level $j$ determining the bound depends only on $m$.
+
+**From level to length.** Since $2^k\le7^k\le m$, monotonicity of the logarithm gives
+
+$$
+\begin{aligned}
+k\log2&\le\log(m+2),\\
+\log2&\le\log(m+2),\\
+(j+1)\log2=(k+2)\log2&\le3\log(m+2).
+\end{aligned}
+$$
+
+Both sides are nonnegative and $\log2>0$. Squaring and inserting the interval estimate yields
+
+$$
+\begin{aligned}
+|F(W_{[s,s+m)})|
+&\le156(j+1)^2\\
+&\le\frac{1404}{(\log2)^2}\bigl(\log(m+2)\bigr)^2.
+\end{aligned}
+$$
+
+An empty interval has zero charge and satisfies the same inequality directly. Hence $C=1404/(\log2)^2>0$ is one sufficient witness for the existential statement; no optimization of this constant is asserted.
+
+The full proof is checked by the Lean kernel.
+:::
+
 ::: {.remark #rem-ch39-p2e-tribonacci-refutation-boundaries title="Alternating Discrepancy, Spectral Literature, and Physical Scope"}
-**Literature background and scope, not a formalized physical conclusion of this book.** The square above is a square of the substitution level $n$. The refutation gives no optimal upper bound for all lengths, and neither refutes nor proves a uniform $O((\log(m+2))^2)$ upper bound. The bond-word prefix length $m_n$ cannot be identified directly with the specified even site count $N_j$.
+**Literature background and scope, not a formalized physical conclusion of this book.** The square in the prefix estimate $|q_n|\ge n^2$ is a square of the substitution level $n$, but the existing length estimates also determine the worst-case order. In this remark, write $Q(s,m)=F(W_{[s,s+m)})$, with charges and lengths viewed as real numbers in the following inequalities. For $n\ge1$, we already have $0<\log(m_n+2)\le n\log39$. Both sides are nonnegative and $\log39>0$, so squaring and applying [@thm-ch39-p2e-tribonacci-uniform-log-squared] gives, with one $C>0$,
+
+$$
+\begin{aligned}
+\frac{(\log(m_n+2))^2}{(\log39)^2}
+&\le n^2\le|q_n|=|Q(0,m_n)|\\
+&\le C(\log(m_n+2))^2.
+\end{aligned}
+$$
+
+The recursion gives $m_{n+1}=|\sigma^{4(n+1)}(C)|+m_n>m_n$, since every letter image is nonempty. These actual prefix lengths therefore increase strictly and are unbounded, giving matching squared-logarithmic bounds along this sequence. At $n=0$, we have $m_0=q_0=0$, outside the scope of this positive lower bound.
+
+To distinguish a length cutoff from an exact length, define in this remark
+
+$$
+\begin{aligned}
+P(M)&=\max_{\substack{m\in\mathbb N\\0\le m\le M}}|Q(0,m)|,\\
+R(M)&=\sup_{\substack{s\in\mathbb N\\m\in\mathbb N,\ m\le M}}|Q(s,m)|.
+\end{aligned}
+$$
+
+Here $M\in\mathbb N$; in $R(M)$, the start $s$ ranges over all natural numbers, without a restriction by $M$. The maximum defining $P(M)$ is over a nonempty finite set, and the uniform upper bound makes the nonempty set defining $R(M)$ bounded above. For every positive natural $M$, the same constant $C>0$ satisfies
+
+$$
+\begin{aligned}
+\frac{(\log(M+2))^2}{4(\log39)^2}
+&\le P(M)\le R(M)\\
+&\le C(\log(M+2))^2.
+\end{aligned}
+$$
+
+The lower bound follows directly from the existing prefix estimates. For $M\ge13$, take $n=\lfloor\log_{13}M\rfloor\ge1$. Then $13^n\le M<13^{n+1}$ and $m_n\le13^n\le M$, so $P(M)\ge|Q(0,m_n)|\ge n^2$. Also, $M+2\le3M$ gives
+
+$$
+\begin{aligned}
+\log(M+2)&\le\log3+\log M\\
+&\le\log3+(n+1)\log13\\
+&\le(n+1)\log39\le2n\log39.
+\end{aligned}
+$$
+
+Squaring and dividing by the positive number $4(\log39)^2$ proves the required lower bound. For $1\le M\le12$, use the actual one-letter prefix $W_{[0,1)}=A$, whose charge is $Q(0,1)=2$, so $P(M)\ge2$. Meanwhile, $\log(M+2)\le\log14<\log39$, so the required lower bound's left side is less than $1/4$. For the upper bound, for every $m\le M$ and arbitrary $s\in\mathbb N$, apply the uniform estimate and $0<\log(m+2)\le\log(M+2)$, then take the maximum or supremum. Taking $s=0$ gives $P(M)\le R(M)$. Thus the prefix running maximum and the running supremum over all starts both have squared-logarithmic order: the uniform upper bound has sharp worst-case order. No constant is optimized here. At $M=0$, we have $P(0)=R(0)=0$, so the displayed positive lower bound fails.
+
+Statements at every exact length require a separate distinction. Complete $A$ images supply another family of actual prefixes: put $\ell_n=|\sigma^{4n}(A)|$. The preceding identity $a_n=2$ and actual prefix containment give
+
+$$
+Q(0,\ell_n)=2,\qquad \ell_n\ge4n+1\qquad(n\in\mathbb N).
+$$
+
+The length bound follows from $\sigma^{k+1}(A)=\sigma^k(A)\sigma^k(B)$ for $k\ge0$: every $B$ image is nonempty, so the length starts at one and increases by at least one per step. Hence $\ell_n\to\infty$, while $|Q(0,\ell_n)|/(\log(\ell_n+2))^2\to0$. There are no $c>0$ and $m_0\in\mathbb N$ such that every $m\ge m_0$ satisfies $|Q(0,m)|\ge c(\log(m+2))^2$. Requiring this lower bound simultaneously at all starts also fails, since it includes start zero. If instead the exact length is fixed before taking the supremum over starts, write $E(m)=\sup_{s\in\mathbb N}|Q(s,m)|$. Whether there exist $c>0$ and $m_0\in\mathbb N$ such that every $m\ge m_0$ satisfies $E(m)\ge c(\log(m+2))^2$ is not determined by this argument: constant charge at one start does not control other starts, and a running maximum may select a shorter length. Optimal constants are likewise undetermined here. The bond-word prefix length $m_n$ cannot be identified directly with the specified even site count $N_j$.
 
 Adamczewski, *Symbolic discrepancy and self-similar dynamics* ([doi:10.5802/aif.2079](https://doi.org/10.5802/aif.2079), Theorem 1 and Propositions 10–11), provides a general framework for substitution discrepancy and cancellation in the critical spectrum. The existence of a suitable zero-mean letter weight in its weighted lower bounds does not automatically select the position-alternating weight here. Encoding position parity in an enlarged alphabet would require separate checks of primitivity, frequencies, weights, and cancellation conditions. The proof above computes directly on the original word; it neither uses that existence statement to select its weights nor claims literature novelty for the mechanism or explicit formula.
 
@@ -292,7 +954,7 @@ For physical spectral quantities, Juhász derives an auxiliary-matrix method fro
 
 Hermisson's discussion of multi-letter substitutions with marginal renormalization eigenvalues and infinite dynamical exponent ([doi:10.1088/0305-4470/33/1/304](https://doi.org/10.1088/0305-4470/33/1/304), arXiv:cond-mat/9808238, p. 11) gives no specific scaling for this word in that passage. In Hida's Fibonacci XXZ analysis ([doi:10.1143/JPSJ.73.2296](https://doi.org/10.1143/JPSJ.73.2296), arXiv:cond-mat/0404606v2), the scale $\Delta E\sim\exp[-\kappa(\log N)^2]$ in Eq. (38) comes from perturbative renormalization of the interacting isotropic model with separated strong and weak couplings. The free XY case in Eq. (28) instead gives a finite power-law exponent, $\Delta E\sim N^{-z}$. These conclusions do not replace checks of this chain's actual finite matrices, endpoints, parity truncations, and spectral quantity.
 
-[@thm-ch39-p2e-tribonacci-prefix-log-refutation] rules out using this uniform logarithmic interval bound as a premise for an inverse-matrix estimate. It does not refute a polynomial spectral-gap bound, determine $\delta_{\rho,j}$ or its rate along the specified even open prefixes, construct a many-body state, or prove a spatial-entanglement law. The subsequent route through odd repetition windows and full-inverse mass still requires assembly under its own premises. Relating physical states, spatial cuts, and the Rauzy boundary in [@prob-ch39-p2e-fractal-horizon] remains a separate task.
+[@thm-ch39-p2e-tribonacci-prefix-log-refutation] rules out using the uniform logarithmic interval bound as a premise for an inverse-matrix estimate. [@thm-ch39-p2e-tribonacci-uniform-log-squared] supplies control of alternating charge on the actual word, uniformly over starts. Together with the finite-product identity above, it provides a combinatorial input for analyzing hopping ratios. It gives no full-inverse norm or mass estimate by itself and does not refute a polynomial spectral-gap bound. [@thm-ch39-p2e-tribonacci-open-chain-zero-gap] instead uses explicit positive-charge prefixes and one full-inverse entry to prove $\delta_{\rho,j}\to0$; below, [@ex-ch39-p2e-tribonacci-prefix-rate] already assembles the same actual hoppings, odd repeated windows, and full-inverse mass estimate into the stronger paper application $73728/N_j$, with convergence uniform in the parameter. This does not follow from the alternating-charge bound alone. For the Slater-state route described above, spatial entanglement additionally requires construction of the actual occupied projector and analysis of its spatial compression. Relating physical states, spatial cuts, and the Rauzy boundary, and establishing the entropy scaling in [@prob-ch39-p2e-fractal-horizon], remain separate tasks.
 :::
 
 ::: {.remark #rem-ch39-p2e-tridiagonal-localization title="Tridiagonal Localization with Boundary Residuals (Literature result, not formalized in this book)"}
@@ -306,7 +968,7 @@ $$
 \end{aligned}
 $$
 
-Only the input support is restricted; the output remains on the whole line. The corresponding $(n+2)\times n$ matrix retains both outgoing residual rows and cannot be replaced by the $n\times n$ compression that discards them. The bound takes an infimum over positions; an actual interval and unit vector can be chosen with arbitrary positive slack. This supplies an $\ell^2$ localization tool of order $1/n$, while the preceding Tribonacci open-chain question still requires zero-spectrum membership for the corresponding whole-line model, transplantation of an actual word interval with its neighboring sites into the specified finite open prefixes, and checks of length ratios and small scales. Those interfaces remain unverified in this book.
+Only the input support is restricted; the output remains on the whole line. The corresponding $(n+2)\times n$ matrix retains both outgoing residual rows and cannot be replaced by the $n\times n$ compression that discards them. The bound takes an infimum over positions; an actual interval and unit vector can be chosen with arbitrary positive slack. This supplies an $\ell^2$ localization tool of order $1/n$. Studying the finite Tribonacci open chains by this whole-line route would still require zero-spectrum membership for the corresponding whole-line model, transplantation of an actual word interval with its neighboring sites into the specified finite open prefixes, and checks of length ratios and small scales. Those interfaces remain unverified in this book; the finite-matrix proof of [@thm-ch39-p2e-tribonacci-open-chain-zero-gap] does not depend on them.
 :::
 
 A second finite-matrix route uses an odd repeated block. An odd shift exchanges even and odd bonds, allowing two strings of hopping ratios from forward substitution to be paired. The following bound expresses that cancellation in entries of the actual inverse matrix.
@@ -552,6 +1214,107 @@ This is a paper application of the displayed window construction, full-inverse m
 
 The example gives a paper $1/N_j$ bound and convergence to zero for the specified even open prefixes. Fractal entropy scaling still requires a separate argument involving physical states and spatial cuts; those parts of [@prob-ch39-p2e-fractal-horizon] remain open.
 
+The preceding quantitative paper application already gives a stronger rate. A separate argument needs only the actual prefixes constructed in the proof of [@thm-ch39-p2e-tribonacci-prefix-log-refutation]: their charge is positive and unbounded at odd levels, making one entry of the full inverse sufficiently large.
+
+::: {.theorem #thm-ch39-p2e-tribonacci-open-chain-zero-gap title="Vanishing Spectral Distance for Actual Positive Tribonacci Open Chains" lean="D5/S3/Quantum/Dynamics/TribonacciOpenPathGap.gap_tendsto_zero"}
+Let $W$ be the actual fixed word starting from $A$ for $\sigma(A)=AB$, $\sigma(B)=AC$, $\sigma(C)=A$, with weights $w(A)=2$, $w(B)=1$, $w(C)=0$. For each fixed real $0<\rho<1$, set $t_i=\rho^{w(W_i)}$. For integers $j\ge1$, define
+
+$$
+\begin{aligned}
+L_j&=|\sigma^j(A)|,\qquad N_j=2\lfloor L_j/2\rfloor,\\
+(h_{\rho,j})_{ab}&=\begin{cases}
+t_a,&a+1=b,\\
+t_b,&b+1=a,\\
+0,&\text{otherwise},
+\end{cases}\quad 0\le a,b<N_j,\\
+\delta_{\rho,j}&=\min\{|\lambda|:\lambda\in\operatorname{Spec}(h_{\rho,j})\}.
+\end{aligned}
+$$
+
+The matrix acts on $\mathbb C^{N_j}$, has zero diagonal and only the nearest-neighbor physical bonds $t_0,\ldots,t_{N_j-2}$, and has no closing bond between the endpoints. All its eigenvalues are real. Then
+
+$$
+\lim_{j\to\infty}\delta_{\rho,j}=0.
+$$
+
+Equivalently, for every $\varepsilon>0$ there is an integer $J\ge1$ such that every integer $j\ge J$ satisfies $0\le\delta_{\rho,j}<\varepsilon$.
+:::
+
+::: {.proof #pf-ch39-p2e-tribonacci-open-chain-zero-gap}
+This proof follows the statement and argument of [the source declaration `gap_tendsto_zero`](lean:D5/S3/Quantum/Dynamics/TribonacciOpenPathGap.gap_tendsto_zero).
+
+First fix an actual prefix of odd length, then use that same prefix in every sufficiently long open chain. Recall $\tau=\sigma^4$, $F$, and the words from the proof of [@thm-ch39-p2e-tribonacci-prefix-log-refutation]:
+
+$$
+U_0=\varepsilon,\qquad U_{n+1}=\sigma^{4(n+1)}(C)U_n,\qquad m_n=|U_n|.
+$$
+
+That proof established the literal prefix identity $U_n=W_{[0,m_n)}$ and $F(U_n)=1-(-1)^n(n^2+3n+1)$. Each prepended block $\sigma^{4(n+1)}(C)$ has odd length, so $m_{n+1}\equiv1+m_n\pmod2$. Starting from $m_0=0$, induction gives $m_n\equiv n\pmod2$. Thus for every odd $n$ we can write
+
+$$
+m_n=2q+1,\qquad F(U_n)=(n+1)(n+2)>0.
+$$
+
+Suppose $N_j\ge m_n+1$ and put $M=\lfloor L_j/2\rfloor$, so $N_j=2M$ and $q<M$. Take the entire physical open chain $H=h_{\rho,j}$. Use the bidiagonal block $B=L(t,M)$, positive block $C$, and $D=\operatorname{diag}((-1)^r)_{r=0}^{M-1}$ from [@ex-ch39-p2e-open-chain-residual]. They satisfy
+
+$$
+\begin{aligned}
+B_{r,r}&=t_{2r},\qquad B_{r,r-1}=-t_{2r-1},\\
+D^2&=I,\qquad DCD=B.
+\end{aligned}
+$$
+
+The second entry formula applies for $1\le r<M$. Every $t_i>0$, so $B$ has nonzero diagonal, its ordinary inverse $G=B^{-1}$ exists, and $C^{-1}=DGD$. Ordering the sites as evens $2r$ followed by odds $2r+1$ gives the full chain and its inverse as
+
+$$
+\begin{aligned}
+H&=\begin{pmatrix}0&C\\C^{\mathsf T}&0\end{pmatrix},\\
+H^{-1}&=\begin{pmatrix}0&(C^{-1})^{\mathsf T}\\C^{-1}&0\end{pmatrix}.
+\end{aligned}
+$$
+
+Both displays use the permuted coordinates; they also establish invertibility of $H$. Forward substitution starts the first column at $G_{0,0}=1/t_0$ and gives $t_{2r}G_{r,0}=t_{2r-1}G_{r-1,0}$ for $1\le r<M$. Hence
+
+$$
+G_{q,0}=\frac{\prod_{r=0}^{q-1}t_{2r+1}}{\prod_{r=0}^{q}t_{2r}}>0.
+$$
+
+This is the preceding Green-entry formula at start zero, with empty numerator product $1$ when $q=0$. Returning to physical sites, the signs in $D$ give $(H^{-1})_{2q+1,0}=(-1)^qG_{q,0}$. Substituting the actual hoppings $t_i=\rho^{w(W_i)}$, and retaining the final even bond $t_{2q}$ in the denominator, yields
+
+$$
+\begin{aligned}
+|(H^{-1})_{2q+1,0}|&=G_{q,0}\\
+&=\rho^{-\sum_{i=0}^{2q}(-1)^iw(W_i)}\\
+&=\rho^{-F(U_n)}=\rho^{-(n+1)(n+2)}.
+\end{aligned}
+$$
+
+The physical bonds used are exactly those with indices $0,\ldots,2q$, and site $2q+1<N_j$ is present. The condition $N_j\ge|U_n|+1$ retains this last bond and its right endpoint. This is an entry of the inverse of the full $N_j$-site matrix: all outside sites remain, no inverse of a local compression replaces it, and no boundary bond is added.
+
+The spectral step uses the induced operator norm on complex Euclidean space, $\|T\|_{2\to2}=\sup_{\|v\|_2=1}\|Tv\|_2$. Testing on the unit coordinate vector $e_0$ gives
+
+$$
+|(H^{-1})_{2q+1,0}|\le\|H^{-1}e_0\|_2\le\|H^{-1}\|_{2\to2}.
+$$
+
+This is not the maximum-entry norm. The invertible Hermitian matrix $H$ has a Hermitian inverse whose eigenvalues are the reciprocals of its own. By the finite-dimensional spectral theorem, the Euclidean operator norm of $H^{-1}$ is its largest absolute eigenvalue. Therefore some real eigenvalue $\lambda$ of the original matrix satisfies
+
+$$
+\begin{aligned}
+|\lambda|&=\|H^{-1}\|_{2\to2}^{-1},\\
+0\le\delta_{\rho,j}&\le|\lambda|\le\rho^{(n+1)(n+2)}.
+\end{aligned}
+$$
+
+Finally, given $\varepsilon>0$, choose a natural number $k$ with $\rho^k<\varepsilon$, which is possible since $0<\rho<1$, and fix the odd integer $n=2k+1$. Since $(n+1)(n+2)\ge k$, the bound above is below $\varepsilon$. The actual iterate lengths satisfy $L_j\ge j+1$, hence $N_j\ge L_j-1\ge j$. Thus there is $J\ge1$ such that every $j\ge J$ satisfies $N_j\ge m_n+1$ and admits the estimate from this same prefix. The level $n$ is chosen once from $\rho,\varepsilon$; every subsequent $j\ge J$ then satisfies $0\le\delta_{\rho,j}<\varepsilon$. This proves convergence along all indices, rather than just a selected subsequence.
+
+The source declaration defines `gap` at $j=0$ to be $0$ to avoid the empty eigenvalue set of a zero-dimensional matrix. For $j\ge1$, $L_j\ge2$, and its definition is precisely the minimum absolute value of the nonempty finite real spectrum used here. This single-value convention does not affect the limit.
+
+The full proof is checked by the Lean kernel.
+:::
+
+This standalone convergence theorem states only the full-sequence limit for each fixed positive $\rho$; its single-inverse-entry argument supplies no $1/N_j$ rate. The preceding [@ex-ch39-p2e-tribonacci-prefix-rate] already gives the stronger paper bound $73728/N_j$ and convergence uniform in the parameter, using actual repeated windows and full-inverse mass. The evidence scopes of the two arguments remain distinct; physical states, spatial cuts, and fractal entropy scaling still require further work.
+
 ::: {.viz src="pisot-clifford-rauzy-sandtable" preset="entropy" height="500"}
 **Parry Stationary Weights, Finite Escape Pairs, and Induced-Return Entropy Card (`entropy`)**: Displays side-by-side the cyan Parry stationary weights $\pi_K$ of the signed reset chain, magenta indistinguishable escape pairs $E(S)$ on a finite observation arena, and separately badged readouts for shift entropy $\log_2\beta_K$ and induced-return entropy; amber marks the active order $K$, and a red badge marks the open fractal-horizon scaling problem ([@prob-ch39-p2e-fractal-horizon]). Stationary weights and escape-pair counts carry status `LEAN ✓`, shift entropy and Abramov's formula carry status `Literature`, and fractal area scaling carries status `OPEN`.
 :::
@@ -569,7 +1332,7 @@ We can now gather all eight concepts into a single line-break-free epistemic ali
 | **7. Cross-Cut Direct-Encoder Ranks** | Attainable page-rank rectangle $1 \le r_b \le R_b$ and sharp entropy bound $\ln R_b$ under $\tau(x)+\iota(y)<K$ [`complete_original_direct_rank_entropy`](lean:D5/S3/Quantum/Entanglement/KBonacciDirectRankEntropy.complete_original_direct_rank_entropy) ([@thm-ch39-p2e-direct-encoder-ranks]) with spectral necessity [`actual_encoder_spectral_obstruction`](lean:D5/S3/Quantum/Entanglement/KBonacciDirectSupportObstruction.actual_encoder_spectral_obstruction) | `LEAN ✓` (rank $K$ conditional on $K \le R_b$, not universal) + `NUM` (e.g. $R_0=6, R_1=5$) + `Literature` (golden chain & Rydberg arrays, [@rem-ch39-p2e-rydberg-anyon-literature]) |
 | **8. Parry Law, Escape Pairs & Entropy** | Signed reset-chain Parry stationary law [`parry_stationary_law`](lean:D5/S3/TotalVariation/ParryResetLaw.parry_stationary_law) ([@thm-ch39-p2e-parry-escape-laws]), boundary cylinder bound [`parry_boundary_cylinder_bound`](lean:D5/S3/TotalVariation/ParryBoundaryCylinderBound.parry_boundary_cylinder_bound), and finite escape-pair criterion [`lowersEscape_iff_uniqueCaptureCount_pos`](lean:D5/S3/ConceptDynamics/InformationEscape/ExactRate.lowersEscape_iff_uniqueCaptureCount_pos) | `LEAN ✓` (finite & Markovian laws) + `Literature` ($\log_2\beta_K$ & Abramov formula, [@rem-ch39-p2e-abramov-literature]) + `OPEN` (fractal-horizon scaling, [@prob-ch39-p2e-fractal-horizon]) |
 
-Stepping the order dial from $K = 2$ to $K = 3$ and beyond in the full laboratory below brings the multi-facet geometry of Chapter 39's self-referential ontology $\psi \equiv \psi(\psi)$ into immediate visual focus: at $K = 2$, the transverse contracting space is still a one-dimensional segment; the instant $K$ reaches $3$, complex conjugate roots spin out the three-branch self-covering, null-boundary Rauzy fractal window in the orthogonal plane; and across every order, kernel-verified counts, unit-disk root bounds, refinement ultrametrics, attainable rank rectangles, and Parry stationary weights form the green formal backbone supporting clearly demarcated classical literature, numerical experiments, and geometric synthesis. With all thirty-nine chapters of the main text now complete, let us push open the final door of this book and step into the [Coda](coda.md), *Outside All Spheres*.
+Stepping the order dial from $K = 2$ to $K = 3$ and beyond in the full laboratory below brings the multi-facet geometry of Chapter 39's self-referential ontology $\psi \equiv \psi(\psi)$ into immediate visual focus: at $K = 2$, the transverse contracting space is still a one-dimensional segment; the instant $K$ reaches $3$, complex conjugate roots spin out the three-branch self-covering, null-boundary Rauzy fractal window in the orthogonal plane; and across every order, kernel-verified counts, unit-disk root bounds, refinement ultrametrics, attainable rank rectangles, and Parry stationary weights form the green formal backbone supporting clearly demarcated classical literature, numerical experiments, and geometric synthesis. Beyond this discrete self-referential sandtable, the remaining six sections of Chapter 39 ascend through [§39.6](ch39-s06-fivefold-self-reference-spectrum.md)–[§39.9](ch39-s09-unified-arc-forces-and-planck-convergence.md) (fivefold fixed-point spectra, self-halting time-river sorting, universal clock dilation, and unified arc forces) into [§39.10](ch39-s10-three-dimensional-field-cap-and-hilbert-ledger.md)–[§39.11](ch39-s11-af-gut-arc-field-grand-unification.md) (the three-dimensional concept-field cap, Hilbert multi-concept ledger, and Arc-Field Grand Unified Theory, AF-GUT) before opening the final door of the main text into the [Coda](coda.md), *Outside All Spheres*.
 
 ::: {.viz src="pisot-clifford-rauzy-sandtable" height="640"}
 **Interactive Laboratory `ORTHO//RAUZY`**: Eight-concept Zeckendorf–Pisot–Rauzy sandtable. Switch freely across all eight preset cards above, vary recurrence order $K$, prime radix $p$, word-length horizon, and 3D viewing angle, and drag points across the physical line and internal plane: inspect $1^K$-free word counts, unit-disk Pisot conjugate contraction, mod-$p^k$ residue-tree splitting depth, the $K = 3$ three-branch Rauzy internal window (and computed internal-coordinate sample at $K = 4$), numerical comparison between $\theta^*$ and $|\alpha|_{K=3}$, the cross-cut feasible rank rectangle $[1, R_0] \times [1, R_1]$, and the Parry stationary weights alongside finite escape pairs. Green badges mark Lean-verified theorems exclusively, while literature results, numerical computations, interpretive models, and open problems carry their respective distinct labels.

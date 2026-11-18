@@ -56,6 +56,28 @@
 结论 1 对自然数 $N$ 归纳：$N = 0$ 时 $c^0 = 1$ 为恒等映射；由 $N$ 到 $N+1$ 时，对角位置 $(i = j)$ 保持不变，副对角位置 $(i \neq j)$ 再乘一次因子 $c$，得到 $c \cdot (c^N \rho_{ij}) = c^{N+1}\rho_{ij}$。结论 2 将 $\rho_+$ 代入结论 1，得第 $(0, 1)$ 元为 $\frac{1}{2}c^N$；因 $0 \le c < 1$，实数（及嵌入复数后）的模长满足 $|c| < 1$，故几何级数项 $c^N \to 0$，乘以常数 $\frac{1}{2}$ 后仍收敛于 $0$。完整证明由 Lean 内核检查。
 :::
 
+在 [@prop-phase-damping-decay] 中，南北极计算基之所以充当免受退相干侵蚀的“指针基”，是因为 `phaseDamping` 直接在计算基坐标下保留对角元。若把相位阻尼改放在傅里叶（阿达马）坐标下作用，不动点脊梁就会随之旋转到赤道正交轴上。为精确刻画这一坐标切换，对单比特复矩阵空间 `QubitMatrix := Matrix (Fin 2) (Fin 2) ℂ` 与闭区间阻尼系数 `DampingCoefficient := Set.Icc (0 : ℝ) 1`（即 $c \in [0, 1]$），记单步计算基相位阻尼为 $(\operatorname{phaseDamping}(c,\rho))_{ij} = \rho_{ij}$（$i=j$）及 $c\,\rho_{ij}$（$i\neq j$）；对任意双射等价 `coordinates : QubitMatrix ≃ QubitMatrix`，定义基底变换下的阻尼映射为 $\operatorname{phaseDampingInBasis}(\mathrm{coordinates}, c, \rho) := \mathrm{coordinates}^{-1}\bigl(\operatorname{phaseDamping}(c, \mathrm{coordinates}(\rho))\bigr)$。取自逆的阿达马坐标映射
+
+$$
+\operatorname{hadamardCoordinates}(\rho) := \begin{pmatrix} \dfrac{\rho_{00} + \rho_{01} + \rho_{10} + \rho_{11}}{2} & \dfrac{\rho_{00} - \rho_{01} + \rho_{10} - \rho_{11}}{2} \\[6pt] \dfrac{\rho_{00} + \rho_{01} - \rho_{10} - \rho_{11}}{2} & \dfrac{\rho_{00} - \rho_{01} - \rho_{10} + \rho_{11}}{2} \end{pmatrix},
+$$
+
+其正逆映射均为自身（构成对合等价 `hadamardCoordinateEquiv`），并定义傅里叶相位阻尼为 $\operatorname{fourierPhaseDamping}(c, \rho) := \operatorname{phaseDampingInBasis}(\mathrm{hadamardCoordinateEquiv}, c, \rho)$。我们可以先手算完全退相位端点 $c = 0$ 下的两枚基准纯态：取赤道态 $\rho_+ = \lvert +\rangle\langle +\rvert = \frac{1}{2}\bigl(\begin{smallmatrix} 1 & 1 \\ 1 & 1 \end{smallmatrix}\bigr)$，则 $\operatorname{hadamardCoordinates}(\rho_+) = \bigl(\begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix}\bigr)$ 副对角元全为零，经 $\operatorname{phaseDamping}(0, \cdot)$ 保持不变，再施一次 $\operatorname{hadamardCoordinates}$ 便原封不动退回 $\rho_+$；反之取北极态 $\rho_0 = \lvert 0\rangle\langle 0\rvert = \bigl(\begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix}\bigr)$，则 $\operatorname{hadamardCoordinates}(\rho_0) = \frac{1}{2}\bigl(\begin{smallmatrix} 1 & 1 \\ 1 & 1 \end{smallmatrix}\bigr)$，经 $c = 0$ 抹去副对角元后变为 $\frac{1}{2}I_2$，逆变回来仍是球心最大混合态 $\frac{1}{2}I_2 \neq \rho_0$。下面的定理将这一不动点判据推广到一切严格含噪系数 $c \neq 1$。
+
+::: {.theorem #thm-fourier-pointer-fixed title="傅里叶指针基的相位阻尼不动点" lean="D5/S3/Quantum/PointerBasis.fourier_phase_damping_fixed_iff"}
+设阻尼系数 $c \in [0, 1]$（`c : DampingCoefficient`）满足严格非恒等条件 $(c : \mathbb{R}) \neq 1$，且 $\rho \in M_2(\mathbb{C})$（`rho : QubitMatrix`）。则 $\rho$ 为傅里叶相位阻尼映射的不动点，当且仅当其阿达马坐标矩阵的所有副对角元均为零：
+
+$$
+\operatorname{fourierPhaseDamping}(c, \rho) = \rho \iff \forall i, j \in \mathrm{Fin}\,2,\; i \neq j \implies \operatorname{hadamardCoordinates}(\rho)_{i,j} = 0.
+$$
+:::
+
+::: proof
+由定义，$\operatorname{fourierPhaseDamping}(c, \rho) = \mathrm{hadamardCoordinateEquiv}^{-1}\bigl(\operatorname{phaseDamping}(c, \operatorname{hadamardCoordinates}(\rho))\bigr)$。因 `hadamardCoordinateEquiv` 为双射，两端同时作用正映射后，不动点等式等价于矩阵等式 $\operatorname{phaseDamping}(c, \operatorname{hadamardCoordinates}(\rho)) = \operatorname{hadamardCoordinates}(\rho)$。逐分量核对 `Fin 2` 上的指标：当 $i = j$ 时对角元恒相等；当 $i \neq j$ 时，等式化为 $c \cdot \operatorname{hadamardCoordinates}(\rho)_{i,j} = \operatorname{hadamardCoordinates}(\rho)_{i,j}$，移项即 $(c - 1)\operatorname{hadamardCoordinates}(\rho)_{i,j} = 0$。由于实数 $(c : \mathbb{R}) \neq 1$ 蕴含复数域中 $c - 1 \neq 0$，利用无零因子消去律可知该条件对所有 $i \neq j$ 成立当且仅当 $\operatorname{hadamardCoordinates}(\rho)_{i,j} = 0$。完整证明由 Lean 内核检查。
+:::
+
+这里有两条必须守住的边界：第一，前提 $(c : \mathbb{R}) \neq 1$ 缺一不可——在无噪端点 $c = 1$ 处，$\operatorname{fourierPhaseDamping}(1, \cdot)$ 退化为 $M_2(\mathbb{C})$ 上的恒等映射，任何矩阵（包括阿达马副对角元非零的 $\lvert 0\rangle\langle 0\rvert$）都是不动点；第二，尽管具体的 `hadamardCoordinates` 在 $2\times 2$ 矩阵上恰好等于阿达马幺正共轭 $H\rho H$，一般组合子 `phaseDampingInBasis` 接受的只是抽象类型双射 `QubitMatrix ≃ QubitMatrix`（未必自动代表物理幺正信道），且该定理刻画的是特定傅里叶相位阻尼模型下的不动点子空间，并不声称 $\{\lvert +\rangle, \lvert -\rangle\}$ 是任意环境噪声的普适指针基。
+
 上述单比特公式把环境作用压缩为一个实数 $c$。如果系统有许多分支、环境记录之间还带有复相位，完全正交是否仍是必要的起点？先把每个系统地址 $i$ 配上一个单位环境向量 $E_i$。受控记录映射 $V\lvert i\rangle=\lvert i\rangle\otimes\lvert E_i\rangle$ 对环境求偏迹后，第 $(i,j)$ 个矩阵元恰好乘以 $G_{ij}=\sum_a E_i(a)\overline{E_j(a)}$，即 [`environment_marginal_channel`](lean:D5/S3/Quantum/Decoherence/EnvironmentMarginalChannel.environment_marginal_channel) 的矩阵元公式。于是，“环境记录完全正交”可以放宽为一个带数值误差的充分条件。
 
 ::: {.theorem #thm-repeated-record-decay title="重复有限记录对记录类捏合的指数误差界" lean="D5/S3/Quantum/Decoherence/RepeatedRecordExponentialDecay.repeated_record_exponential_decay"}
@@ -731,7 +753,7 @@ $$
 
 所以这组矩阵不能继续实现第五步；这并不排除另一组三能级矩阵。一般窗口的精确最小维数、一般相容迹矩的实现以及完整近似资源—误差权衡仍未解决；下一个注记保存的是小泄漏下的加权历史接口。本构造不延伸到源理论卷的平衡十维信道，不给出保留环境的完整联合历史或插入干预的过程张量恒等式，也不提供实验支持或模型普适性结论。
 
-**有限酉膨胀仍缺哪一步。** Farenick 的[有限幂酉膨胀定理，Corollary 3.2](https://doi.org/10.1007/s44146-024-00170-6)说明：任意收缩算子的指定有限幂窗，都能由包含原空间的一个酉算子压缩得到；原空间有限维时，膨胀空间也可取有限维。这是文献结果，未在本书形式化。该定理允许选择膨胀空间，没有把它固定为这里的三维环境，也没有提供同一对分支酉矩阵与同一个半正定初态。因而，“有限步可以酉膨胀”尚不能回答上述第五步问题：缺少的是保留这些共同实现约束的构造，而不是标量矩的存在性。
+**有限酉膨胀仍缺哪一步。** Farenick 的[有限幂酉膨胀定理，Corollary 3.2](https://doi.org/10.1007/s44146-024-00170-6)说明：任意收缩算子的指定有限幂窗，都能由包含原空间的一个酉算子压缩得到；原空间有限维时，膨胀空间也可取有限维。该定理允许选择膨胀空间，没有把它固定为这里的三维环境，也没有提供同一对分支酉矩阵与同一个半正定初态。因而，“有限步可以酉膨胀”尚不能回答上述第五步问题：缺少的是保留这些共同实现约束的构造，而不是标量矩的存在性。
 
 :::
 
@@ -1062,42 +1084,6 @@ $$
 
 因此不存在一对 $A,B\in U(3)$ 同时满足 $f_n=r^n$（$0\le n\le8$）。这是对所有酉矩阵对的排除，包含非交换情形；不是某种设参形式或数值优化失败。它甚至未使用谱比值网格及酉矩阵模平方权重所带来的全部相容性限制。
 
-**全部正内部参数的谱网格排除。** 下面给出一个普通书面推导，仍未在本书形式化。设 $0<r<1$，并假设同一对 $A,B\in U(3)$ 满足 $f_n=r^n$（$0\le n\le8$）。[研究问题的精确量词](https://github.com/the-omega-institute/trureturing/issues/31174)固定了同一对矩阵；本注记前面的饱和矩引理给出九个互异的比值节点 $z_{ij}=a_i b_j^{-1}$，以及
-
-$$
-P(z)=z^9-rz^8+c(1-rz),\qquad |c|=1,
-$$
-
-其中 $P$ 是这些节点的首一消去多项式。因而 Newton 恒等式给出无权网格和 $S_k=\sum_{i,j}z_{ij}^k=r^k$（$k=1,2,3$）；这里使用的是多项式的根，而不是把原来的加权迹矩误当成无权矩。令 $d_j=b_j^{-1}$，
-
-$$
-x=\sum_i a_i,\quad y=\sum_j d_j,\quad
-\alpha=\prod_i a_i,\quad\beta=\prod_j d_j,
-$$
-
-则 $xy=S_1=r\ne0$。三个单位圆数的第二、第三幂和分别为
-
-$$
-p_2=x^2-2\alpha\overline{x},\qquad
-p_3=x^3-3\alpha|x|^2+3\alpha,
-$$
-
-并对 $y,\beta$ 有相同公式。定义
-
-$$
-u=\frac{x^2}{\alpha\overline{x}},\quad
-v=\frac{y^2}{\beta\overline{y}},\quad
-s=|x|^2=|u|^2,\quad t=|y|^2=|v|^2,\quad |uv|=r.
-$$
-
-由 $S_2=r^2$、$S_3=r^3$，并使用 $|\alpha|=|\beta|=1$ 与 $xy=r$，约去非零因子得到
-
-$$
-u+v=2,\qquad us+vt+st+3-3(s+t)=0.
-$$
-
-若 $\operatorname{Im}u\ne0$，第二式的虚部给出 $s=t$；再由 $v=2-u$ 与 $|u|=|v|$ 得 $\operatorname{Re}u=1$，于是 $r=|uv|=|u|^2>1$，矛盾。若 $u,v$ 都为实数，则 $s=u^2,t=v^2$；置 $q=uv$，由 $u+v=2$ 化简第二式得 $q^2=1$，从而 $r=|uv|=1$，同样矛盾。因此，在既有饱和矩引理的前提下，所有严格内部参数 $0<r<1$ 都被排除。这保留同一个三维环境、同一对不必交换的分支酉和最大混合初态；它不涉及 $r=0$、端点、负参数、任意初态或 $n\le5$ 的一般密度问题，也不是 Lean 验证或完整物理历史结论。
-
 **零参数、负参数与二级环境。** 将 $A$ 换成 $-A$ 会使 $f_n$ 变成 $(-1)^nf_n$，因而同维参数 $r=-999/1000$ 也不可能。零参数则有完全不同的边界：对每个正整数 $d$ 都能实现饱和窗口。令
 
 $$
@@ -1156,6 +1142,28 @@ $$
 圆周正交多项式提供相邻的经典框架，可参见 Barry Simon，[arXiv:math/0405111](https://arxiv.org/abs/math/0405111) §1 的递推与 §2.1(c) 的 Bernstein–Szegő 情形；这些段落不作为本注记完整受限实现障碍的来源定理。所需节点、相位与容量证明均已在这里给出，不作全球新颖性或物理普适性声明。完整结论尚无本书可引用的完整 Lean 证明；普通推导不构成内核验证。
 
 :::
+
+::: {.theorem #thm-positive-interior-grid-algebraic-obstruction title="正内部谱网格的代数障碍" lean="D5/S3/Quantum/Analysis/PositiveInteriorGridObstruction.positive_interior_grid_algebraic_obstruction"}
+固定 $0<r<1$，取复数 $u,v$ 和实数 $s,t$。以下关系不能同时成立：
+
+$$
+\begin{aligned}
+u+v&=2,\\
+us+vt+st+3-3(s+t)&=0,\\
+s&=|u|^2,\qquad t=|v|^2,\qquad |uv|^2=r^2.
+\end{aligned}
+$$
+
+Lean 声明将前两个复等式分别写成实部与虚部等式，并将模平方写成相应实坐标的平方和。
+:::
+
+::: {.proof #pf-positive-interior-grid-algebraic-obstruction}
+若 $\operatorname{Im}u\ne0$，由 $v=2-u$ 和第二个等式的虚部得到 $s=t$。模平方相等又给出 $\operatorname{Re}u=1$，于是 $r=|uv|=s>1$。若 $u$ 为实数，$v$ 也为实数。令 $q=uv$，用 $u+v=2$ 将 $s+t$ 写成 $4-2q$，将 $us+vt=u^3+v^3$ 写成 $8-6q$，将 $st$ 写成 $q^2$。第二个等式化为 $q^2=1$，与 $r<1$ 矛盾。
+:::
+
+在上面的最大混合谱网格中，如果饱和把九个不同的比值节点确定为 $P(z)=z^9-rz^8+\eta(1-rz)$ 的根，Newton 恒等式就给出无权网格幂和 $S_k=r^k$（$k=1,2,3$）。设两组三个单位圆因子分别为 $a_i,d_j$，其中 $d_j=b_j^{-1}$，并令 $x=\sum_i a_i$、$y=\sum_j d_j$、$\alpha=\prod_i a_i$、$\beta=\prod_j d_j$。由 $xy=r$ 可定义 $u=x^2/(\alpha\overline{x})$ 和 $v=y^2/(\beta\overline{y})$。两组三根的二次幂和分别为 $x^2-2\alpha\overline x$ 与 $y^2-2\beta\overline y$，三次幂和分别为 $x^3-3\alpha|x|^2+3\alpha$ 与 $y^3-3\beta|y|^2+3\beta$。把它们代入 $S_2$ 和 $S_3$，约去非零因子后即可得到 [@thm-positive-interior-grid-algebraic-obstruction] 的两个复等式，此时 $s=|x|^2$、$t=|y|^2$、$|uv|=r$。
+
+这里的 Lean 引用覆盖从约化方程到矛盾这一步。从同一对三阶酉矩阵的迹矩推出饱和节点、网格与约化方程仍属书面推导。任意初始密度与较短窗口的可行性需要各自的论证。[上游证明与适用范围](https://github.com/the-omega-institute/trureturing/pull/31199)
 
 除了“只收腰、不掉高”的相位阻尼外，实验室里还有另一类截然不同的能量耗散过程——**振幅阻尼信道**（amplitude damping，对应自发辐射能量弛豫时间 $T_1$）：处于激发态（南极 $-1$）的量子比特会向低温环境吐出一颗能量光子而跌回基态（北极 $+1$）。因此，在几何上，整颗布洛赫球不仅在往里收缩，而且球心还在往北极 $u = +1$ 方向**整体上漂**：轴向坐标按仿射律 [`dampedAxis`](lean:D5/S3/QuantumChannels/AmplitudeDampingContraction.dampedAxis) $u \mapsto u' = (1 - \gamma)u + \gamma$（阻尼率 $0 \le \gamma < 1$）向 $+1$ 聚拢！
 

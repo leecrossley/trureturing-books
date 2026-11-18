@@ -181,6 +181,46 @@ $$
 
 一个量子比特的态空间是一整张球面，上面有连续统那么多个点；可是能当作记录来用、读出时不出错的，同时只有两个。“存在线”可以指向任何方向，账本上的格子数却由维数说了算。
 
+如本章开篇所注，仅给出效应族 $\{E_a\}$（如上例三叉戟效应 $\sum_k E_k = I$）只确定各读数的发生权重，并不单独规定测量后的分支算子；在一般实验室协议中，同时刻画测量设置 $x$、经典结果 $a$ 与测后未归一变换的操作对象是**有限 Kraus 量子仪器** $\{K_{x,a,k}\}$。不妨先用一个 $2 \times 2$ 对角算例亲手核对分支矩阵的迹与效应玻恩配对的关系：取双结局单分支对角 Kraus 算子与对角初态
+
+$$
+K_0 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \qquad K_1 = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \qquad \rho = \begin{pmatrix} 1/3 & 0 \\ 0 & 2/3 \end{pmatrix}.
+$$
+
+显然完备性 $K_0^* K_0 + K_1^* K_1 = I_2$ 成立；对第一结局 $a = 0$，未归一分支矩阵为 $K_0 \rho K_0^* = \operatorname{diag}(1/3, 0)$，其矩阵迹为 $1/3$，而对应效应 $E_0 = K_0^* K_0 = \operatorname{diag}(1, 0)$ 与 $\rho$ 的玻恩配对 $\Tr(\rho K_0^* K_0)$ 同样等于 $1/3$。
+
+在 Lean 模块 `Quantum/Measurement/FiniteKrausInstrumentBornMarginal` 中，输入态采用 `DensityState n` 子类型（即 $C^*$-矩阵载体 `CStarMatrix n n ℂ` 上满足 $0 \le \rho$ 且 $\Tr(\rho) = 1$ 的密度态，通过逆同构 `CStarMatrix.ofMatrix.symm` 还原为普通复矩阵 $\mathrm{state} \in M_n(\mathbb{C})$），而右边直接调用[第二章](ch02-born-rule.md) [@def-born-probability] 定义的复值迹配对 $\operatorname{bornProbability}(\mathrm{state}, \mathrm{effect}) = \Tr(\mathrm{state}\cdot\mathrm{effect}) \in \mathbb{C}$：
+
+::: {.theorem #thm-kraus-born-marginal title="有限 Kraus 仪器的玻恩边缘权重" lean="D5/S3/Quantum/Measurement/FiniteKrausInstrumentBornMarginal.finite_kraus_instrument_born_marginal"}
+设 $n$ 为非空有限且具可判等性的维数指标类型（`[Fintype n] [Nonempty n] [DecidableEq n]`），$\mathrm{Setting}$ 为测量设置类型，$\mathrm{Outcome}$ 与 $\mathrm{Kraus}$ 为有限指标类型（`[Fintype Outcome] [Fintype Kraus]`）。设带完备归一化证明的有限 Kraus 仪器族为
+
+$$
+\mathrm{instrumentKraus} : \left\{K : \mathrm{Setting} \to \mathrm{Outcome} \to \mathrm{Kraus} \to M_n(\mathbb{C}) \;\middle|\; \forall x,\; \sum_{a \in \mathrm{Outcome}} \sum_{k \in \mathrm{Kraus}} (K_{x,a,k})^* K_{x,a,k} = I\right\},
+$$
+
+并设 $\rho : \operatorname{DensityState}(n)$。则对任意设置 $x : \mathrm{Setting}$ 与任意结果 $a : \mathrm{Outcome}$，记
+
+$$
+\begin{aligned}
+\mathrm{state} &:= \operatorname{CStarMatrix.ofMatrix}^{-1}(\rho.1) \in M_n(\mathbb{C}), \\
+\mathrm{branch} &:= \sum_{k \in \mathrm{Kraus}} K_{x,a,k}\,\mathrm{state}\,(K_{x,a,k})^* \in M_n(\mathbb{C}), \\
+\mathrm{effect} &:= \sum_{k \in \mathrm{Kraus}} (K_{x,a,k})^* K_{x,a,k} \in M_n(\mathbb{C}),
+\end{aligned}
+$$
+
+恒有复数矩阵迹等式
+
+$$
+\Tr(\mathrm{branch}) = \operatorname{bornProbability}(\mathrm{state}, \mathrm{effect}).
+$$
+:::
+
+::: proof
+将三个 `let` 绑定 `state`、`branch`、`effect` 连同 [@def-born-probability] 中的 $\operatorname{bornProbability}(\mathrm{state}, \mathrm{effect}) = \Tr(\mathrm{state} \cdot \mathrm{effect})$ 一并展开。首先利用矩阵迹在有限指标集 `Kraus` 上的加法线性性，把左端化为 $\sum_{k \in \mathrm{Kraus}} \Tr\bigl(K_{x,a,k}\,\mathrm{state}\,(K_{x,a,k})^*\bigr)$；接着对每个求和项应用矩阵乘积结合律与迹的循环对称性 $\Tr(AB) = \Tr(BA)$，得 $\Tr\bigl(K_{x,a,k}\,\mathrm{state}\,(K_{x,a,k})^*\bigr) = \Tr\bigl(\mathrm{state}\cdot (K_{x,a,k})^* K_{x,a,k}\bigr)$。最后再次利用迹的线性性以及左乘矩阵 $\mathrm{state}$ 对有限和的分配律合并求和，即得 $\Tr\bigl(\mathrm{state}\sum_{k \in \mathrm{Kraus}} (K_{x,a,k})^* K_{x,a,k}\bigr) = \operatorname{bornProbability}(\mathrm{state}, \mathrm{effect})$。完整证明由 Lean 内核检查。
+:::
+
+使用 [@thm-kraus-born-marginal] 时需留意三条形式边界：第一，等式两端的 $\Tr(\mathrm{branch})$ 与 $\operatorname{bornProbability}(\mathrm{state}, \mathrm{effect})$ 在声明中均保持复数类型 $\mathbb{C}$，并未额外施加取实部运算 `.re`；第二，$\mathrm{branch}$ 是尚未除以发生权重的**未归一分支矩阵**，当某分支迹为 $0$ 时不能对其进行归一化，因此切勿把 $\mathrm{branch}$ 直接混同于归一化条件态；第三，本定理确立的是归一有限 Kraus 仪器各分支迹与对应累积效应玻恩配对之间的精确迹恒等式，并非对玻恩定则唯一性的推导。
+
 ## 3.2 线与面的伴生宿命（霍奇对偶） {#sec-ch03-2}
 
 但是，往三维球体里钉入一根一维幂等轴线，是要付出几何代价的——更准确地说，它会瞬间唤醒一个与这根轴线如影随形的孪生兄弟。
@@ -280,7 +320,7 @@ $$
 | 双轴互补测量 $\{Z, X\}$（$|L|=2$） | 二维子午面 $\operatorname{span}\{\vv{e}_3, \vv{e}_1\}$ | $\frac{1}{2}(r_z^2 + r_x^2)$ | 一维法线 $\star(\vv{e}_3 \wedge \vv{e}_1) = \vv{e}_2$ | $\frac{1}{2}r_y^2$ |
 | 三元完备层析 $\{X, Y, Z\}$（$|L|=3$） | 整座三维球空间 $\mathbb{R}^3$ | $\frac{1}{2}(r_x^2 + r_y^2 + r_z^2)$ | 零空间 $\{\vv{0}\}$ | $0$（盲区彻底清零） |
 
-你看，为什么单靠两套测量 $\{Z, X\}$ 依然无法唯一确定一颗量子比特的真实状态（$\pm r_y$ 手性正负难辨）？因为二维平面在三维空间里的霍奇对偶 $\star(\vv{e}_3 \wedge \vv{e}_1) = \vv{e}_2$ 还留着最后一根一维法线盲区 $\frac{1}{2}r_y^2$；唯有补齐两两正交的三根上下文轴 $\{X, Y, Z\}$（这正是第三部第九章“三元正交合拢成球”的伏笔），剩余质量才精确归零！
+你看，为什么单靠两套测量 $\{Z, X\}$ 依然无法唯一确定一颗量子比特的真实状态（即便是纯态，$\pm r_y$ 手性也正负难辨）？因为二维平面在三维空间里的霍奇对偶 $\star(\vv{e}_3 \wedge \vv{e}_1) = \vv{e}_2$ 还留着最后一根一维法线盲区 $\frac{1}{2}r_y^2$；唯有补齐两两正交的三根上下文轴 $\{X, Y, Z\}$（这正是第三部第九章“三元正交合拢成球”的伏笔），剩余质量才精确归零！
 
 ::: {.figure src="ch03-tomography-ladder"}
 **每多测一个互补语境，盲区就降一维。** 三颗球是层析表的三行：只测 $Z$，青色的竖轴看得见，品红的赤道面是盲区；测 $Z$、$X$，青色的子午面看得见，只剩品红的 $y$ 轴；测 $X$、$Y$、$Z$，整颗球都是青色，盲区为零（[@thm-complementary-pythagoras]）。
@@ -450,7 +490,7 @@ $$
 记分支权重为 $w_k = \operatorname{recordWeight}(P, \rho, k) = \Tr(\rho P_k)$。由 [@def-record-measurement] 知 $P_k^* = P_k$ 且 $P_k^2 = P_k$，故压缩矩阵 $P_k \rho P_k = P_k \rho P_k^*$ 半正定；同时由迹的循环性与幂等性知 $\Tr(P_k \rho P_k) = \Tr(P_k^2 \rho) = \Tr(\rho P_k) = w_k$。再由[第二章](ch02-born-rule.md)的 [@thm-born-probability-skeleton] 知在复偏序下 $0 \le w_k$（即 $w_k$ 为非负实数）；结合前提 $w_k \neq 0$，其倒数 $w_k^{-1}$ 为严格正实数。正实数倍保持矩阵半正定性，且由迹的线性性得 $\Tr(w_k^{-1} P_k \rho P_k) = w_k^{-1} w_k = 1$。完整证明由 Lean 内核检查。
 :::
 
-当观察者沿着一串彼此不共线的测量轴依次执行 [@thm-conditional-state-valid] 的条件更新时，奇迹发生了：原本在球面上被彻底堵死的路径，竟然因为中间多插入了一次“看一眼并立为新起点”的动作而重新贯通！费曼在讲授量子力学时最爱在课堂上掏出三片廉价的太阳镜偏振片，现场演示下面这个令所有人目瞪口呆的桌面实验。
+当观察者沿着一串彼此不共线的测量轴依次执行 [@thm-conditional-state-valid] 的条件更新时，奇迹发生了：原本在球面上被彻底堵死的路径，竟然因为中间多插入了一次“看一眼并立为新起点”的动作而重新贯通！物理老师最爱在课堂上掏出三片廉价的太阳镜偏振片，现场演示下面这个令所有人目瞪口呆的桌面实验。
 
 要把三片的手算推广到任意有限片数，先看有序外积相乘时留下了什么。
 
@@ -471,7 +511,7 @@ $$
 
 一般有序链的迹是复数，本身不是概率。下面的透射权重来自单位向量组成的特定回文链。
 
-::: {.example #ex-malus-three-polarizers title="费曼的三偏振片级联实验：串行幂等投影如何改写历史"}
+::: {.example #ex-malus-three-polarizers title="三偏振片级联实验：串行幂等投影如何改写历史"}
 取一束沿水平方向线偏振的光子进入实验台（注意光学约定中的一处精妙二倍角：光波电场偏振在物理空间转过夹角 $\alpha$ 时，水平偏振 $\alpha = 0^\circ$ 与竖直偏振 $\alpha = 90^\circ$ 已完全正交互斥，故光学空间角 $\alpha$ 直接对应希尔伯特空间半角 $\theta/2$，而对应的布洛赫球面角为 $\theta = 2\alpha$）。记角度 $\alpha$ 方向的线偏振秩一投影算子为
 
 $$

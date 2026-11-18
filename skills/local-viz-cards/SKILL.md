@@ -29,7 +29,7 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 
 ## 页面与它们的卡
 
-本书有 81 个交互页面，下表按登记表（`books/quantum-geometry/viz/visualizations.json`）的顺序排列。
+下表按登记表（`books/quantum-geometry/viz/visualizations.json`）的顺序排列。
 
 | 页面 | 一句话 | 卡（`preset`） |
 | --- | --- | --- |
@@ -68,7 +68,6 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | `blade-multiplication` | 两块刀片相乘：重复的方向成对抵掉，剩下的是掩码的异或；正负号只看排好顺序要交换几次 | `e2e1` `square` `pseudo` `pauli` `vector` |
 | `zyz-compile` | 绕 z、绕 y、再绕 z 转三段，乘出来只是一枚旋子：绕一根轴的一次转动 | `sandwich` `chain` `h` `fold` |
 | `fixed-point-convergence` | 蛛网每绕一圈，误差乘上不动点处的斜率；连斜率一起读，几步就合拢；有理读数却总差一道缝 | `golden` `far` `rate` `circle` `newton` `rational` `ruler` |
-| `lean-declaration-map` | 书里引用的每一条冻结声明都落在它第一次出场的那一章；读完正文，锁文件里的条目一条不剩全部落定 | `all` `bedrock` `table27` `closure` `table28` `theorems` `inline` |
 | `mutual-observer-attractors` | 两人同时读对方，逐拍可以越过不动点，两拍一轮却从一侧锁进同一个 (θ*, θ*)；两段区间拉近，连通的割在 d_crit 处胜出 | `alone` `round` `apart` `transition` `connected` |
 | `self-referential-table` | 同一张表，横着读是尺子，竖着读是被量的东西；拿它读它自己，读回来的还是它；碰歪一格，它自己回到一张幂等的表 | `reset` `expand_table` `full` `dual_read` `heal` `orthogonal_zero` |
 | `quantum-fairness-ledger` | 没有特权的座位：照见是相互的，得一分就失一分，满额的纠缠与副本分不出第二份，从哪里出发都分到同样的份额 | `haar` `tradeoff` `cloning` `bell` `wstate` `ghz` `ergodic` |
@@ -114,8 +113,39 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | `gram-window-consensus-sandbox` | 每多记一条历史记录就多加一顶相干球冠把可行走廊越收越窄直至锁死，遗忘最旧记录重开走廊，两人同步遗忘才修复共享共识 | `schur-cap-corridor` `golden-triangle-m3` `overconstrained-lock-m9` `forgetting-reopen` `dual-window-consensus` |
 | `roundtrip-born-imaginary-blindspot-sandbox` | 单程投影只给影子 cos θ，往返回到自身轴 I 才读出玻恩回声 cos²θ；垂直于 I 的盲平面在 I 上恒读 0，转进盲区的那一下就是虚数 i | `radar-roundtrip-born` `azimuth-cone-blindspot` `observer-first-person-90` `imaginary-double-turn` `schrodinger-arc-engine` |
 | `prelude-dimensions` | 影子少一维，同一个位置可以藏着不同的运动 | `head-on` `shadow` `compare` `latitude` `normal` `average` `cosine` |
+| `scattering-temporal-bridge` | 势垒内两支指数解共同输运守恒流；时间路径完全相消需要等幅、反相与不可分辨 | `barrier` `opaque` `cancel` `marked` |
+| `zeta-spectrum-lab` | 有限相量、对称零点模型与有限零点谱各有边界，不能由一张图跨到黎曼猜想 | `domain` `partial` `quartet` `powers` |
+| `arithmetic-schur-lab` | 同一整除网络上，精确消元保住终端块，顺序改变填充；带号轨道另有支撑与相对信号范数的必要预算 | `natural` `leaf` `drop` `square` `budget` |
+| `trihedron-chord-pivot-tunneling-sandbox` | 极小圆弧体里走平直内割弦比外凸顶盖弧与两面正交侧壁都短，每 k 个边界点凝成一颗枢轴向球肚逐层下沉 | `walls-dijkstra-tax` `cap-wavefront-relax` `flat-chord-tunnel` `holographic-pivot-cone` `resonant-pivot-relay` |
+| `imaginary-chord-temporal-double-slit-sandbox` | 势垒里动量转过 90° 潜入虚平面 i 化作不绕圈的内割弦，两道阿秒时间快门让同一颗电子在能谱上与自己干涉 | `classical-real-wall` `ninety-deg-imaginary-chord` `temporal-double-slit-comb` `attosecond-tunnel-self-interference` `zeno-midway-probe-collapse` |
+| `riemann-prime-arc-path-integral-sandbox` | 每个整数 n 是一支抬到作用量 ln n 高度的复合路径箭头，临界线零点处延拓竖轴穿过原点 O 且地上正逆双壳两两重合，韦伊显式对偶把前 50 对零点驻波叠成素数阶梯 | `euler-dirichlet-phasor-spiral` `critical-zero-cancellation` `off-line-shell-imbalance` `weil-explicit-prime-staircase` |
+| `arithmetic-pivot-resonant-tunneling-sandbox` | 复平面临界带地形对比一维硬截断 M = 19 图兰越界零点、单级磨光器 θ = 4/7 色散墙与分块舒尔补枢轴及多级凯莱反复平方中继 | `turan-zeno-hard-cutoff` `mollifier-four-sevenths-wall` `block-schur-pivot-mera` `fabry-perot-rogue-explosion` |
+| `hilbert-concept-ledger-3d-cap-sandbox` | 混编 15 维空间展开五颗三维概念球；局域账本的 6 个数看不见 9 个相关；霍奇星号只在 d = 3 把旋度送到一根轴；无穷模塔在 ε<sub>self</sub> 处停机 | `hypercube-illusion-unfold` `space-color-joint-ledger` `motion-rot-scale-trans-triad` `hodge-curl-field-cap-3d` `unhalted-infinity-truncation` |
+| `af-gut-arc-field-unification-sandbox` | 四种力是同一枚 ΔT<sub>ε</sub> 原胞外的四片圆弧壳；单圈跑动在 log<sub>10</sub>(μ<sub>12</sub>/GeV) = 13.0060 处给 sin²θ<sub>W</sub> = 3/8，N<sub>c</sub> = 3 是两条曲线唯一的交点，账本连续收成单胞 | `concentric-four-field-monad` `weinberg-angle-rg-running` `higgs-cross-concept-zitterbewegung` `einstein-pythagorean-clock-balance` `afgut-ledger-split-vs-unify` |
+| `arc-body-calculus-sandbox` | 每一步都是模长为 1 的极小圆弧旋子：切弦在横向、矢高在轴向，竖直处斜率爆掉而旋子照转，复步不相减，粗糙度降到 1/2 时矢高总和锁到 ½σ₀²T，有限网格上内棱正反相消使斯托克斯一步不差 | `osculating-rotor-vs-tangent` `blind-zone-complex-step` `roughness-ito-phase-transition` `finite-mesh-stokes-cancellation` `coboundary-d2-zero-closed-shell` |
+| `self-reference-pentad-sandbox` | 同一个不动点方程 x* = F(x*) 横跨查表路径压缩、余弦实虚等长蛛网、本征相位与收缩信道、15 → 1 门蒸馏三次方提纯及对角翻转逃逸 | `pointer-path-compression` `dottie-real-imag-spiral` `eigenstate-channel-anchor` `fifteen-to-one-gate-distill` `lawvere-diagonal-escape` |
+| `self-halting-spectral-time-river-sandbox` | 自定精度帽让余弦迭代有限步停机，帽下余项转 90° 折入时间长河逐拍浮出，幂迭代与换基瑞利权重重排主次并借频闪检查留住主干 | `precision-agency-window` `time-river-orthogonal-fold` `power-iteration-spectral-sort` `basis-rayleigh-attention` `zeno-basis-sculpting` |
+| `universal-clock-gravity-dilation-sandbox` | 全宇宙同转一枚主频飞轮 ν₀，光锥锁定有限拍精度下界，空间跳址与全息质量纠缠按勾股预算分流固有时帧率并在视界处饱和 | `light-cone-precision-floor` `kinematic-address-split` `holographic-mass-load` `equivalence-dual-flywheel` `horizon-saturation-lock` |
+| `unified-arc-forces-planck-sandbox` | 同一枚极小圆弧体胞内按 1—2—3 维展开电磁盲面相位、弱双覆叠汤川壳与强色三轴通量管，胞间雷吉角亏与钟载折射引力在普朗克能标退回单胞会师 | `u1-blind-phase-fiber` `su2-chiral-double-cover` `su3-color-flux-confinement` `regge-gravity-clock-refraction` `planck-scale-convergence` |
+| `uniform-field-observer-slice-sandbox` | 125 个格点与观察者比特配成贝尔对，整体纯态而每格边缘全是 ½·1；切面转过 θ 显影莫尔条纹 L<sub>M</sub> = a/(2 sin(θ/2))，扫相不移格点，正交暗环 I<sub>EM</sub>(90°) = 0 仍分走钟预算，放大孔径抹平回 ½ | `isotropic-singlet-ontology` `tilted-slice-moire-emergence` `phase-sweep-motionless-flow` `orthogonal-dark-sector-clock-load` `horizon-aperture-homogenization` |
+| `indra-net-single-particle-sandbox` | 二十面体网 13 颗同样的宝珠主伴互换而宝网不动，球镜近轴清晰、边缘压扁，闭合惠勒丝带穿切面打出 6 个正负相间的结（Σq = 0），余弦反射收敛到 θ* = 0.739085，可观测宇宙收成外层一颗宝珠 | `yoneda-isomorphic-jewel-net` `wheeler-single-ribbon-knots` `spherical-mirror-limb-foreshortening` `dottie-infinite-reflection-convergence` `observable-cosmos-single-jewel` |
+| `arc-calculus-riemann-hermite-biehler-sandbox` | 十二零点对称模型的对数径向势面上，素数旋子矢高在 σ > ½ 收敛、在 σ = ½ 沿梅滕斯双对数发散；双壳差 Δ = 2ε Re(ξ̄ξ′) > 0 与 4 × 4 德布朗热核半正定锁住右半区零涡旋 N = 0，假想离轴四元组同时砸出 Δ < 0 与 λ<sub>min</sub> < 0 | `sagitta-mertens-critical-ridge` `hermite-biehler-convex-wings` `rogue-quartet-mexican-hat-breach` `finite-stokes-zero-vortex-lock` `schur-modifier-conrey-li-bridge` |
+| `self-observation-error-maya-sandbox` | 唯一点场不动，误差角 ε 生出青色投影、品红线面残差与紫色体积；观测尺绕锥追赶，收拢 ε 后逐阶归零，单位预算保留 | `zero-error-turiya-silence` `dottie-self-focus-steady-state` `static-projection-results-hierarchy` `dynamic-observation-action-chase` `maya-scaling-collapse-audit` |
+| `brahman-real-axis-orthogonal-dream-sandbox` | 银白实轴与品红梦海分担单位预算，青色观察者与蓝色梦晶保留格拉姆夹角，紫色莫比乌斯带一圈换叶、两圈复归 | `turiya-zero-tilt-pure-brahman` `waking-consensus-dottie-lock` `insider-double-imaginary-solidity` `private-dream-and-seed-sleep` `kalpa-mobius-lucid-awakening` |
+| `red-chamber-spinor-awakening-sandbox` | 银白余石与双面镜共用一条旋量带，一圈换叶、两圈合成紫色；卸去品红末那笼后，十二根同频丝连向因陀罗网，带相冠仍留铭文 | `chaos-unhewn-stone` `red-dust-delusion-mismatch` `fengyue-mirror-double-turn` `mobius-720-virtual-real-unity` `greensickness-berry-unity` |
+| `brahman-lila-game-props-sandbox` | 银白实轴贯穿共识梦环，琥珀化身由满窗死锁转为失忆漫游；遗迹汇聚青色干涉环，紫色典籍同频点亮银白通关束 | `omniscient-zeno-deadlock` `amnesia-birth-open-corridor` `relic-attractor-deja-vu` `classic-permission-lock-flip` `lila-raft-return-and-new-seed` |
+| `divine-psychology-dissociation-sandbox` | 八个分身从冻结球展开在压抑膜上，品红断弧残桩随张力伸缩；从水面下仰视同一母核，θ* 处青色游戏之桥接成整合之星 | `omniscient-claustrophobia-freeze` `repression-horizon-birth` `compulsive-over-immersion-pain` `subsurface-alaya-one-root` `lucid-lila-integration-star` |
+| `ternion-number-projection-sandbox` | 转到 180° 平直罗德里格斯坐标冲出量程，中央紫色圆弧体继续转满 720°，四个投影台分别读出余弦影、赤道切片、半旋量迹与整圈闭合及素数范数平衡 | `flat-3d-zero-divisor-gimbal-deadlock` `hamilton-quaternion-w-shadow-tax` `complex-equatorial-hopf-slice` `real-trace-geodesic-projection` `homotopy-pi3-integer-winding` |
+| `ternion-field-hilbert-reprojection-sandbox` | 上层弧面场穿过透镜投向下层基柱：从单场四元数、左右手征时空双矢、法诺七场折痕、十六元数零因子归零一路对照 3N 局部旋转、MPS 键维与 2ᴺ 希尔伯特基柱 | `native-ternion-curl-field` `spin4-chiral-spacetime-bivector` `fano-seven-field-octonion-weave` `sedenion-zero-divisor-bankruptcy` `many-body-3n-to-2n-hilbert-pillars` |
 
 ### 各页面的依据分层、用语与分工
+
+`scattering-temporal-bridge`（`SCATTER//TIME`）承接 §34.19.5，区别于此前的有限维盲区示意：主舞台直接绘制有限实势垒匹配解的三维复波函数曲线，以及能量—复振幅时间双缝曲线。青色、品红分别给第一支与第二支，紫色给合成轨迹和坐标轴，琥珀只给当前点与拖动手柄。`barrier` 与 `opaque` 保留垒内增长、衰减两支，显示相同的净流；`cancel` 是等幅、反相、标记重叠为一的单能量相消，`marked` 将重叠降至零，相对谱强度回到非相干基线一。相对强度不作为全能量归一的概率密度。匹配、流、谱强度标 `NUM`，实验文献与协议边界标 `ARGUED`，隐藏空间转身标 `MODEL`；无绿色依据框。
+
+`zeta-spectrum-lab`（`ZETA//SPECTRUM`）承接 §22.4.1，与 `critical-mirror` 的冻结对称事实分工：本页的 `domain`、`partial` 直接计算有限狄利克雷相量，`quartet` 是可移动根的合成四次多项式模型，`powers` 将精确素数幂阶梯与十个临界线零点共轭对组成的有限谱并置。青色给有限部分和、精确阶梯，品红给有限谱，紫色给坐标轴，琥珀只给当前采样点与手柄。绝对收敛域、解析延拓与有限求和不混同；有限零点数据不承担完整性或遗漏误差证书。数值标 `NUM`，四元组模型标 `MODEL`，经典公式的适用条件标 `ARGUED`，有限谱外推桥梁标 `OPEN`；无绿色依据框。
+
+`arithmetic-schur-lab`（`ARITH//SCHUR`）承接 §34.18.5，在顶点 2 至 N 的实际整除图上计算 G = L + I/4，区别于前页的抽象格拉姆窗口。三维坐标由 2、3 的素因子赋值与剩余因子对数决定；青色是原始边，品红是消元填充或多步耦合，紫色是坐标轴，琥珀只给当前枢轴与手柄。`natural`、`leaf` 对同一终端集比较顺序，`drop` 明示丢弃量及原系统回代残差，`square` 同时报告 P 的平方层数、次数、乘加与存储。此整除图是模型，不等同 NBB 目标向量的真实 Gram 表。`budget` 切换到独立的三维 (R, |η|, B) 舞台，采用 η = 1/2 − β、B = L/|a|、e = ε|a|，紫色面是 B_min = (1 − ε)/(min(1, R|t|) sinh(R|η|)) 的必要下界，品红区域被此界排除，琥珀点可直接拖动；未排除区域不认证插值存在。该书面推导来自上游未合入的应用，不由既有冻结声明认证；不把卷积深度、通道数、图规模与图平方层数混同。运算标 `NUM`，模型标 `MODEL`，舒尔代数与文献边界标 `ARGUED`，真实算术 Gram 压缩及极限残差桥梁标 `OPEN`；无绿色依据框。
+
 
 `pythagoras-number-escape` 的“模 p 数点”场景按勒让德符号着色：舞台格子里 y ≠ 0 的点（成对 ±y，所在列 χₚ(f(x)) = +1）是青色，y = 0 的分支点是中性色（`sigma`）；右上的自旋环把 x = 0 … p − 1 排成一圈，青色 +1、品红 −1、中性 0，环心写 Σχ 与 p + 1 + Σχ = #E；琥珀只给弗罗贝尼乌斯余弦的指针，绿色不用。下方小图的柱子按 aₚ 的正负着青/品红。y² = x³ − x + 1 的判别式是 −368 = −2⁴·23：p = 23 时页面弹出坏约化提示、圈出奇点 (13, 0)，不给余弦与哈塞界，直方图只用良约化素数（428 个，p < 3000）。“线与面素数”场景区分两种角：格点 (a, b) 的方向角 θ 是希尔伯特夹角（cos²θ + sin²θ = 1），平方后的三角形转过布洛赫极角 2θ；第三章的 `complementary_context_probability_pythagoras` 在第二十九章与终章只以行内链接出现，所以页面只在抽屉里指向第三章，不标绿。`count` 卡的图注写环上的 2 个 +1、8 个 −1、3 个 0。读数里点数与 p + 1 之差一律写 aₚ，不写 a（第二十九章正文的 a 是高斯三角形的边）。d = 5 时舞台上 m² − 5n² = ±4 的两条虚线与 (Fₖ, Lₖ) 圈都用中性灰：第二十三章只以行内链接提到 `pell_pm_four_iff_signed_lucas_fib`，所以佩尔场景只用一段说明写明它在 trureturing 中已冻结、正文未以定理环境引用，不标绿；`sato` 卡把 3000 以内良约化素数的 cos θₚ 直方图（紫）与半圆律（琥珀虚线）放到舞台右侧，𝔽₅₃ 的点阵缩到左侧，自旋环与半圆表盘不画。
 
@@ -175,7 +205,6 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 
 `fixed-point-convergence` 讲“怎样收束、收得多快”；第二十四章的余弦蛛网全部用这一页（`far` 从 x₀ = 3 出发、看全程，第一步落进 [−1, 1]），`sphere-escape` 的余弦场景只留在它的完整实验室里，不再被章节按卡引用。舞台是蛛网图（曲线 y = f(x) 与直线 y = x），“跟着放大”时以不动点为原点重新标尺。绿色框只给第二十四章用 `lean=` 引用的 `golden_fixed_point_unique`（φ 是 1 + 1/x 唯一的正不动点）与 `rational_inverse_endpoint`（只取其中 θ* 的存在、唯一与 0 < θ* < 1）；全局收敛、严格交替的条件与误差比极限 −sin θ* 是第三十三章例 `ex-ch33-mutual-cosine-monotonic-lock` 把端点定理与现成实分析结果接起来的既有结果应用，标 `ARGUED`；[0, 1] 上的压缩常数 sin 1、牛顿二次收敛、残差双边界与 (1 + sin 1)/b² 界按 §24.4–24.5 的文献注记标 `ARGUED`；轨道、残差、“单纯迭代要走几步”与连分数部分商都以 70 位定点整数实算（`NUM`）。`newton` 卡停在第 2 步（视野宽约 10⁻⁴，正确位数 0 → 1 → 4），切线这一步还看得见；第 4 步的精度交给静态图 `ch24-three-speeds`。这一页的青色是曲线 y = f(x)（只读投影）与单位圆上 P 的横坐标 θ*，品红是斜率那一半：不动点处的切线、牛顿沿切线走的那一段、λ = sin θ* 的高度与残差竖线；琥珀只给当前这一步或当前读数；走过的折线是中性墨色，灰色虚线是最陡斜率 −sin 1 与残差的楔形边界。路线图候选“开普勒方程”“半程落体”讲的是 θ* 住在哪里，正文那里没有关于收束快慢的句子，未做成卡；正文讲了而候选没有的“单位圆上的线与面”（`circle`）与“十进制千分尺”（`ruler`）补做成卡。
 
-`lean-declaration-map` 的舞台按阅读顺序排开 44 根柱子（序曲、三十九章、终章、附录 A、B 与 D；附录 C 引用全部条目，不单列一柱，只在读数里给序号），每一格是 `trureturing.lock.json` 的一条声明，落在中文正文第一次引用它的那一章。数据由页面目录里的 `gen-data.py` 从锁文件与中文章节（`:::` 行上的 `lean="…"` 记为环境引用，`(lean:…)` 记为行内引用）生成为不入库的 `data.generated.json`，不手填；`main.js` 启动时把它与锁文件一起读入（登记为 `kit.pending`，测试的 `settle()` 会等到页面建好）。锁文件或章节变了由 `./tbook sync --book quantum-geometry` 重新生成，并重新出图。绿色只给锁文件里种类为 `theorem` 的格子，灰色是定义，空心是只有行内链接的；青色是某一章引用的那些（从它的柱脚连线），琥珀只给选中的一格、连到另外引用它的章的线与阅读位置。依据框里的绿色只给第二十七、二十八章用 `lean=` 逐行解剖的八条定理；格数、种类与出现的章标 `NUM`，“落在首次出场的章”与柱内次序标 `MODEL`。测试按锁文件核对条目数、种类与源码行，并用另一种扫描重读章节核对每一处引用。路线图候选“一部”改为两张审计表卡 `table27`、`table28`（正文的两张表恰好分别覆盖第一至三部与第四至六部），“正文已解剖的那几条”按两章拆成 `bedrock` 与 `closure`，另按附录 C.2.1 加了 `inline`。
 
 `mutual-observer-attractors` 与 `fixed-point-convergence`、`layered-network-cut` 分工：第二十四章讲单个余弦迭代怎样收束，本页讲两个观察者同时互读 (x, y) ↦ (cos y, cos x)：舞台是两人读数的平面，青色是两人的读法 x = cos y 与 y = cos x，灰色方框是走过的各拍，空心的环是每两拍取一次的样本（同一条轨道的偶数拍，按余弦求值次数计并不更快），琥珀只给这一拍；平面下方的窄条带横轴是余弦求值次数，每根灰色细柱是 A 那一拍的有符号误差 x − θ*（对称对数刻度，朝上高于 θ*），偶数拍带环，`alone` 看见逐拍变号、`round` 看见带环的柱全在一侧；第十九章讲层级网络的离散最小割，本页的“极小割”场景是两段边界区间在静态 AdS₃ 真空里的测地线竞争，品红是较短的割，青色是它围出的纠缠楔，琥珀是两段区间 A、B，虚线是落选的割。依据分层：绿色框只给第三十三章用 `lean=` 引用的 `QuantumMaxFlowMinCut.result`，并写明它是离散桥图、不覆盖舞台上的连续图；Ryu–Takayanagi 两区间相变与 ln 形式的测地线长、g = cos∘cos 的压缩与无二周期、每拍 −sin θ* 与每轮 sin²θ* 是例 `ex-ch33-mutual-cosine-monotonic-lock` 的既有结果应用（第 5–9、12–14、20–23 项），与 Ryu–Takayanagi 一样标 `ARGUED`；轨道与割长标 `NUM`；“观察者”“互为故乡”标 `MODEL`。路线图候选里的 `wells`（势阱变形网格）是纯诠释画面，`pinch` 与 `repeated-projection` 重复，`disconnected` 已由 `transition` 的播放起点覆盖，三者未做成卡；候选里的 `finite_record_pinching_idempotent`、`finite_contracting_updates_stabilize` 舞台上没有对应画面，不标绿。
 
@@ -265,7 +294,50 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 
 `roundtrip-born-imaginary-blindspot-sandbox`（`ECHO//IMAGINARY`）与 `pairwise-shutter`、`repeated-projection`、`fairness-square-uncertainty-expansion` 分工：前三页分别讲快门离散抽样计数、布洛赫球未读捏合幂等与开口螺旋算术逃逸，本页讲第三十四章 §34.19 `#sec-ch34-roundtrip-projection-and-imaginary-blindspot` 的全章收官命题——“观察者站在自身轴 I 上看不见 90° 垂直盲平面 span{e₁, e₂}，单程只得青色影子 cos θ，往返双投影 I → (cos θ)V → (cos²θ)I 才给出琥珀玻恩回声 cos²θ，而转进 90° 盲区的那一下正是虚数 i（×i² = −1）与薛定谔保范圆弧时间引擎 e^(−iωt)”：舞台用 `kit.solid` 画观察者轴 I、与 I 垂直的品红盲平面圆盘、等倾角紫色方位锥、两段折返雷达脉冲与盛住画面的下半球碗，顶部切换外部三维、沿 I 轴侧看盲边与转 90° 基俯视盲平面三种视角；青色是单程投影影子 cos θ、两段折返投影线与薛定谔保范圆弧轨迹，品红是 90° 垂直盲平面、逃逸高度 sin θ 与盲区亏量 sin²θ，紫色是 360° 等倾角方位盲锥与 ×i 双直角旋子平面，琥珀只给观察者基准轴 I、可拖动的当前态矢 V 与落回 I 轴的当前玻恩回声点 cos²θ（实数衰减对照线用中性虚线，红色只给抽屉里的测量单结果问题 `OPEN` 标记）。绿色框严格只给页面引用的十条冻结定理（`rank_one_born_pairing_weight`、`born_probability_skeleton`、`lagrange_gram_identity`、`orthogonal_complement_projection_identities`、`partition_inseparable_iff_kernel`、`diagonal_prime_observables_cannot_recover_relative_phase`、`robertson_schrodinger`、`square_eq_neg_one_of_skewAdjoint_unitary`、`projection_probability_flow`、`energy_eigenstate_stationary`）；玻恩定则、马吕斯 cos²θ 偏振律与笛卡尔 1637 年“imaginaires”词源标 `ARGUED`；cos θ、cos²θ、sin²θ、锥冠立体角 2π(1 − cos θ)、盲圆周长 2π sin θ、换位子界 |sin 2θ sin φ|、e^(−2t) 与牛顿法解 θ* 实算标 `NUM`；三维单位向量画法（显式标明布洛赫极角为 2θ）与“对于我 I 看不见即为虚 i”第一人称诠释标 `MODEL`。
 
+`trihedron-chord-pivot-tunneling-sandbox`（`CHORD//TUNNEL`）承接第三十四章 §34.26 `#sec-ch34-chord-tunneling-and-pivot-renormalization`，与 `spherical-trihedron-cell`、`octave-point-volume-field-sandbox`、`arithmetic-schur-lab` 分工：前三页分别讲单枚三面角原胞的“一次/二次正交”球面投影、外代数 1—3—3—1 格点格林互逆与整除图精确高斯舒尔消元，本页讲极小圆弧体 ΔT_ε 的“正交双侧壁爬坡 2ε、外凸球面顶盖测地弧 arccos(cos²ε) 与体内平直割弦 √2 sin ε 三路严格序、六点最小—加热带舒尔消元、向心多尺度枢轴全息锥（Λ⁰_ℓ → Λ²_ℓ → Λ³_ℓ ≡ Λ⁰_{ℓ+1}）及共振枢轴中继对比芝诺排序探针”：舞台把单位球上的 ΔT_ε 画成受光实体；紫色给两面正交侧壁 OAB、OBC（2ε，在直角顶点 B 付全局排序比较税）与枢轴锥层级骨架，品红给外凸球面顶盖测地弧 arccos(cos²ε)、角超 Ω 与被平直内割削掉的新月形鼓包，青色给穿过体内的平直内割弦 √2 sin ε（弦中点半径 r_mid = √((1 + cos²ε)/2)，下沉深度 Δr = 1 − r_mid），琥珀只给可拖动的张角手柄 ε、沿路推进的当前读头与当前选定枢轴（本页无开放问题标记，不用红色）。绿色框严格只给页面引用的五条冻结定理（`fs_angle_triangle`、`lagrange_gram_identity`、`partition_inseparable_iff_kernel`、`exists_posSemidef_completion`、`concept_fiber_decomposition`，其中 `concept_fiber_decomposition` 准确写明是任意读出映射下的余纤维依值求和分解 X ≃ Σ_{b:B} ConceptFiber(q_C, b)，而非内积正交分解；`exists_posSemidef_completion` 只保证弦图团半正定矩阵存在全局半正定补全，不提供构造算法）；Dijkstra（1959）、Fredman–Tarjan（1987）、全序输出 Ω(n log n) 比较下界、Duan–Mao–Mao–Shu–Yin（STOC 2025）无需输出全序的确定性 O(m log^(2/3) n) 单源最短路算法、Agmon（1982）瞬子衰减度规、Tsu–Esaki（1973）共振隧穿、Misra–Sudarshan（1977）量子芝诺效应与弦图团—分隔集补全公式标 `ARGUED`；ε ∈ [10°, 90°] 逐度核对三路严格不等式、Δr_bulk、六点最小—加矩阵克莱尼星对比逐点热带消元、双势垒转移矩阵透射率与芝诺转移 1 − cos²ⁿ(π/2n) 实算标 `NUM`；ΔT_ε 三面寻路解剖、谢尔宾斯基顶盖对分枢轴八度与全息体锥及共振阱珠示意标 `MODEL`。
+
+`imaginary-chord-temporal-double-slit-sandbox`（`IMAG//TUNNEL`）承接第三十四章 §34.27 `#sec-ch34-imaginary-chord-tunneling-and-temporal-double-slit`，与 `roundtrip-born-imaginary-blindspot-sandbox`、`scattering-temporal-bridge`、`double-slit-marker` 分工：`roundtrip-born-imaginary-blindspot-sandbox` 讲有限维单态往返投影 cos²θ 与 90° 盲平面定义虚数 i，`scattering-temporal-bridge`（§34.19.5，无绿色框）专门检验势垒内增长/衰减两支指数解 Ae^(κx) + Be^(−κx) 共同输运守恒流以及单能量标记重叠 ⟨m₁|m₂⟩ 完全相消条件，而本页以真实物理单位电子（V₀ = 1.00 eV，E/V₀ ∈ [0.10, 1.40]，L ∈ [0.20, 1.20] nm）同台打通“空间 90° 虚平面割弦隧穿、阿秒双时间快门 (t₁, t₂) 能谱频率梳 ΔE = h/Δt 与中途实轴探针 / 芝诺退相干崩解”：舞台直接画定态 ψ(x)e^(−iEt/ℏ) 以及沿传播轴 x 正交相交的竖直实平面 I（后墙投影屏）与水平盲平面 i（地面投影屏），顶部切换实轴平视 I、90° 俯瞰虚平面 i 与三维全貌；青色给实平面 I 上的投影影子、出墙透射波与右侧能谱干涉明纹梳，品红给 90° 盲平面 i 上的投影影子、墙内单调不绕圈的内割衰减弦桥（κL ≫ 1 时贴近 e^(−κx)）与被中途捏合丢弃的副对角相干质量，紫色给墙口/墙尾 ±90° 动量偏转四分之一圆弧与条纹间距/相位读数，琥珀只给势垒右缘宽度手柄 L、能谱屏能量游标 E* 与当前时刻波前读头（红色只给抽屉里关于停留时间、Büttiker–Landauer 时间与拉莫尔时间实验对应关系的 `OPEN` 标记）。绿色框严格只给页面引用的六条冻结定理（`orthogonal_complement_projection_identities`、`square_eq_neg_one_of_skewAdjoint_unitary`、`relativeComplexStructure_square`、`diagonal_prime_observables_cannot_recover_relative_phase`、`pinching_discarded_coherence_mass`、`monitored_return_conservation`）；Gamow（1928）势垒隧穿、Misra–Sudarshan（1977）量子芝诺定理、Lindner 等（2005）阿秒光电离时间双缝、Tirole 等（2023）ITO 光学时间双缝衍射、Rao 等（2025）磁振子时间衍射、Angulo 等（2026）原子激发负驻留时间弱值与矩形势垒透射公式 T(E) 标 `ARGUED`；CODATA 电子常数下的 k、κ、κL、T(E) 与 ΔE = h/Δt 实算标 `NUM`；实轴 I 对盲平面 i 割弦桥读法、时间格拉姆窗口 W_Δt、双缝波包中心示意参数与 V = 1 − p 两态芝诺探针链标 `MODEL`。
+
+`riemann-prime-arc-path-integral-sandbox`（`ZETA//SPIRAL`）承接第三十四章 §34.28 `#sec-ch34-riemann-path-integral-and-prime-arcs`，与 `euler-product-sieve`、`critical-mirror`、`zeta-spectrum-lab` 分工：`euler-product-sieve` 讲 σ > 1 有限素数筛余项，`critical-mirror` 讲函数方程四元组对称镜像，`zeta-spectrum-lab`（§22.4.1，无绿色框）专门对勘二维平面部分和、四次多项式模型与 10 对零点有限谱的外推边界，而本页把复平面 ℂ 铺在地面、将每个整数箭头 n^(−s) = n^(−σ)e^(−it ln n) 按素因子分解抬升至竖直作用量高度 ln n = Σ m_p ln p，同台贯通“欧拉局域绕行与莫比乌斯外积对偶、临界线 σ = 1/2 正逆双壳等幅锁相与前五颗真实零点 γ₁–γ₅ 延拓竖轴穿过原点 O、偏轴 σ ≠ 1/2 双壳失衡分裂对比离线四元组反例、以及前 50 对零点三维驻波曲面雕刻切比雪夫素数阶梯 ψ₀(x)”：紫色给复合路径链 Σ n^(−s)、欧拉部分乘积、零点驻波部分和曲面与 `ARGUED` 文献依据，青色给地面正向壳环 p^(−σ)（p = 2, 3, 5, 7）、精确中点阶梯 ψ₀(x) 与 Λ(n) 阶跃，品红给逆向对偶壳环 p^(−(1−σ))、莫比乌斯外积链 Σ μ(n)n^(−s) 与地面零点驻波残差，琥珀只给交错 η 延拓竖轴与落点珠 ζ(s)、当前选定零点胶囊 γ_k、最前排重构剖面 K(t) 及 2^(−σ) / x* 拖动手柄（红色严格只给黎曼猜想 `conj-riemann-hypothesis` 的 `OPEN` 标记）。绿色框严格只给页面引用的七条冻结定理（`prime_log_rational_independence`、`riemann_zeta_dirichlet_sum_eq_euler_product`、`tendsto_alternating_partialSums_eta_of_ne_one`、`xi_reading_reflection`、`xi_reading_one_sub_conj`、`full_symmetry_not_fixed_line_localization`、`actual_integrated_explicit_formula`）；欧拉（1737）乘积、黎曼（1859）函数方程、von Mangoldt（1895）与 Weil（1952）点态显式公式、1/ζ(s) = Σ μ(n)n^(−s)、欧拉—麦克劳林余项、Borwein（2000）η 加速与 Littlewood（1912）等价定理标 `ARGUED`；Borwein 加速 ζ(s)、斯特林 ln Γ 求 ξ(s)、双壳半径与截断/积分显式公式两侧实算标 `NUM`；素数极小圆弧体作用量高度、μ(p²) = 0 外积读法与往返半密度双壳示意标 `MODEL`。
+
+`arithmetic-pivot-resonant-tunneling-sandbox`（`ARITH//PIVOT`）承接第三十四章 §34.29 `#sec-ch34-arithmetic-pivots-and-resonant-tunneling`，与 `arithmetic-schur-lab`、`trihedron-chord-pivot-tunneling-sandbox`、`critical-mirror` 分工：`arithmetic-schur-lab`（§34.18.5，无绿色框）在整除图 G = L + I/4 上清算高斯消元填充与阈值丢弃残差，`trihedron-chord-pivot-tunneling-sandbox` 讲有向图最短路热带舒尔枢轴与平直内割弦，而本页在复平面临界带受光地形块 ln|f(s)| 上正面对比跨越 σ ∈ (1/2, 1] 势垒的三大方案——“一维自然数硬截断 ζ_M 在 M = 19 挖出 Re s ≈ 1.006988 越界图兰零点、单级磨光器 Levinson–Conrey 比例 κ(θ) 止步于 θ = 4/7 色散墙、以及乘性窗口 {1, 2, 3, 6} 分块舒尔补枢轴锥配 t = γ₁ 剖面多级凯莱反复平方中继 |w|^(2^ℓ)”：青色给 σ > 1 欧拉无零点高原、19 支首尾闭合相量链、θ ≤ 4/7 已证单跳隧道与 κ(θ) 实线、内部叶 {1, 2} 与平直内割弦 G̃₃₆ = 5/18、弦图正半定补全区间 [−7/12, 11/12] 及 δ = 0 处的 |w| = 1 幺正锁相环，品红给 s = 1 极点山峰、M = 19 图兰越界零点旗标与含越界零点的截断阶、θ = 4/7 色散墙及墙外未证虚线、以及假想 δ > 0 下的反复平方爆炸柱，紫色给临界带地形、Levinson 基准点、乘性底板与稀疏舒尔枢轴锥、多级中继阱 G̃^(1)–G̃^(4) 及 `ARGUED` 文献依据，琥珀只给当前激活闸门框 M、单跳/中继读头、当前激活枢轴与可拖动参数圆环手柄（红色严格只给 `conj-riemann-hypothesis` 与跨枢轴横向移位面积律问题 `prob-ch34-arithmetic-pivot-area-law` 两枚 `OPEN` 标记）。绿色框严格只给页面引用的九条冻结定理（`classical_zeta_unique_simple_pole_residue_one`、`completedRiemannZeta_ne_zero_of_one_le_re`、`golden_right_half_strip_implies_rh`、`cayley_ratio_norm_one_iff_critical_line`、`cayley_critical_line_zeta_criterion`、`gram_realizability`、`exists_posSemidef_completion`、`exists_posSemidef_completion_rank_le`、`original_zero_robin5040_localA`）；Turán（1948）、Montgomery（1983）、Platt–Trudgian（2016）、Levinson（1974）、Deshouillers–Iwaniec（1982）、Conrey（1989）、Pratt 等（2020）及 Báez-Duarte 等（2000）/ Burnol（2002）对数下界标 `ARGUED`；ζ₁₉ 越界零点复核、三次多项式单纯形优化 κ(θ)（θ = 4/7 得 0.4086）、{1, 2, 3, 6} 精确有理舒尔补/LDL/补全区间与对数反复平方 |w|^(2^ℓ) 实算标 `NUM`；“图兰—芝诺陷阱 / 单跳裸隧穿 / 算术 MERA 多级法布里—珀罗中继”读法及软封顶地形与四阱布局标 `MODEL`。
+
+`hilbert-concept-ledger-3d-cap-sandbox`（`HILBERT//LEDGER`）与 `observer-escape-ledger`、`gram-window-consensus-sandbox` 分工：本页承接第三十九章 §39.10 `#sec-ch39-three-dimensional-field-cap-and-hilbert-ledger` 的混编希尔伯特账本与三维概念场封顶，青色给五颗概念球、梯度轴与保留下来的模层，品红给跨概念弦、相关表与折叠的尾巴，紫色给旋转轴、霍奇对应与体积读法，琥珀只给展开参数 λ、维数 d、停机精度 ε<sub>self</sub> 与当前读头（本页无开放问题标记，不用红色）。绿色框严格只给页面引用的六条冻结定理（`finite_stage_expansion`、`local_marginal_correlation_blind_spot`、`finite_rank_concentration_mode_bound`、`complete_consequences`、`bloch_geometry_of_isHermitian`、`three_anchor_gram_det_pos_iff`）；so(n) 维数、Bell 对角态偏迹判据、Hencky 对数应变与极分解、sl(2, ℝ) 基灵型、四元数与霍奇星号标 `ARGUED`；15 维分块计数、局域与相关密度矩阵、LMS 格拉姆行列式、极分解主应变、模塔部分和与停机层数实算标 `NUM`；五个三维球的混编读法、颜色框架、d 维紧框架投影与自停机尾部折叠标 `MODEL`。
+
+`af-gut-arc-field-unification-sandbox`（`AFGUT//UNIFY`）与 `unified-field-slice`、`quantum-gate-cosmic-tower-sandbox` 分工：本页承接第三十九章 §39.11 `#sec-ch39-af-gut-arc-field-grand-unification` 的极小圆弧场大统一，青色是引力场壳 F<sub>pos</sub> 与勾股天平的时间分量，紫色是 SU(2) 旋量壳，蓝色是 SU(3) 三锚点体积锁，银白是 U(1) 相位与标度，琥珀只给能标 μ、希格斯桥 Φ̃<sub>H</sub> 与账本收拢读头，红色只给抽屉中的开放问题（`prob-ch39-af-gut-threshold-and-proton-stability`）。绿色框严格只给页面引用的六条冻结定理（`covariant_commutator_formula`、`square_eq_neg_one_of_skewAdjoint_unitary`、`anchored_phase_classification`、`circle_double_cover_history_lift`、`tetra_defects_incidence_repair_and_exactness`、`lagrange_gram_identity`）；Georgi–Glashow 统一能标、单圈跑动、希格斯对称破缺与规范场文献标 `ARGUED`；三条耦合的交点、sin²θ<sub>W</sub> = 3/8、N<sub>c</sub> 曲线、手征桥、四面体缺陷计数与勾股天平实算标 `NUM`；四场壳、四概念账本、ΔT<sub>ε</sub> 原胞及连续收拢的读法标 `MODEL`。
+
+`arc-body-calculus-sandbox`（`ARC//CALCULUS`）承接第三十四章 §34.30 `#sec-ch34-arc-body-calculus-and-finite-stokes`，与 `quantum-arc-macro-integral-sandbox`、`clifford-monad-tiling-sandbox`、`roundtrip-born-imaginary-blindspot-sandbox` 分工：`quantum-arc-macro-integral-sandbox`（§34.11）讲宏观积分如何由极小圆弧逐段拼出，`clifford-monad-tiling-sandbox`（§34.8）讲幂零微段 d² = 0 与多胞抵消，`roundtrip-born-imaginary-blindspot-sandbox`（§34.19）讲往返投影与 90° 盲面定义虚数 i，而本页把“以旋代差”落到五个受光的三维场景上——滑板坡上的密切旋子对比切线斜率 tan θ、复平面切片上的复步求导对比前向差分、单位球上的随机旋子路径与矢高相变、半球扇形网格上的北极正则矢高联络斯托克斯、四面体与八面体闭壳上的 d² = 0。颜色：青色给横向切弦 c = sin κε、复步导数 Im f(x₀ + iε)/ε 与存活的外圈边界 ∂Σ；品红给轴向矢高 v = 2 sin²(κε/2)、前向差分的相减塌陷、矢高柱 Σ_sag 与伊藤纬圈 E[z] = (1 − v)^N、球面角盈 Ω(ΔT_k)；紫色给密切旋子圆盘 D̂_ε、路径序旋子管与 90° 盲面 Im f；墨色给平直斜率 tan θ、实轴切片 f(x) 与正反相消的内棱 ±Φ、面环流 ±A；琥珀严格只给激活卡、激活透镜与场景切换段以及舞台上的投影手柄 `#calcHandle`（条带小图的当前游标用中性 sigma，舞台上不用红色）。`.lens-toggle#lensToggleBtn` 的两种读法（几何旋子原语 / 微积分与物理算符）在同一组状态参数下只换标签、读数口径与强调，不改几何。矢高一律按 2 sin²(φ/2) 计算，κε 小于 10⁻⁸ 时读数行写明 cos κε 舍入成 1、1 − cos 会给 0。绿色框严格只给页面引用的八条冻结定理（`lagrange_gram_identity`、`square_eq_neg_one_of_skewAdjoint_unitary`、`relativeComplexStructure_square`、`projection_probability_flow`、`exp_tail_le`、`trotter_product`、`face_cycle_exact`、`tetra_defects_incidence_repair_and_exactness`）；复步求导（Lyness–Moler 1967、Squire–Trapp 1998，含非全纯失效与单复平面二阶导仍有相减）、二元数自动微分与幂零微段、伊藤 / 斯特拉托诺维奇 / Young / Lyons 粗糙路径四相区、吉拉德定理与非阿贝尔生成树锚定标 `ARGUED`；c、v、|D̂_ε|、复步与前向差分误差扫描、Σ_sag 与 (1 − v)^N、吉拉德角盈与分段高斯—勒让德弧积分、闭壳关联矩阵 𝔽₂ 秩与全部 V⁴ 个四面体上边缘实算标 `NUM`；“以旋代差 / 矢高相变 / 有限精度斯托克斯”读法、滑板坡内禀方程、固定种子随机旋子路径、扇形中心与规范函数及 2⁻²⁰ 取整的边上链标 `MODEL`；红色严格只给 §34.24 `prob-ch34-gravity-dynamics-and-coupling` 与 §34.29 `prob-ch34-arithmetic-pivot-area-law` 两枚 `OPEN` 标记。
+
+`self-reference-pentad-sandbox`（`SELFREF//PENTAD`）承接第三十九章 §39.6 `#sec-ch39-fivefold-self-reference-spectrum`，与 `pointer-ontology-deref`、`fixed-point-convergence`、`dottie-fibonacci-spirals`、`sphere-escape` 分工：前几页分别单讲 QRAM 路由树、一维标量收缩率、对数螺旋切角与球面多面体逃逸，本页在同一个三维受光舞台与双透镜（实例物理读法／统一算子读法 `x* = F(x*), λ`）下并置五阶自指形态——12 槽指针环 4 跳链压缩为一跳直达根 `Lookup(0) = 0`（`p ≡ *p`、P² = P，|λ| = 0）、水平盲平面 i 与竖直实平面 I 正交相交处的道蒂不动点 cos θ* = θ* = 0.7391（λ = −sin θ* = −0.6736 蛛网换边收缩，cos²θ* = 54.62% 对 sin²θ* = 45.38%）、布洛赫球内本征态绕盲区圆等模转相（|λ| = 1）对比开放信道横向衰减螺旋锁入 ρ*（|λ| = 0.65）、四面体上 `[[15, 1, 3]]` 码 15 枚带噪 T 门经 4 个 8 比特检验胞蒸馏出 1 枚提纯 T 门（ε = 0.0500 → ε_out = 0.00514，接受率 46.61%，阈值 ε_th = 0.1415），以及 4 × 4 自应用表主对角线经 ¬ 翻转升至 ℓ + 1 逃出全部目录行（0011 ∉ range g）。青色给压缩后一跳直达根箭头与自环、实轴投影 cos θ*、本征不变轴与信道不动点 ρ*、门蒸馏吸引盆与零校验子接受分支、以及有不动点时的目录命中行；品红给压缩前多跳链、盲平面圆弧 θ* 与并排弧长尺、横向退相干衰减、非零校验子丢弃分支与阈值上发散区、以及无不动点逃逸对角线；紫色给 P² = P 幂等盘、交替蛛网螺旋、幺正相位圆纤维、4 个 Reed–Muller 检验胞与升层扭转带；琥珀只给当前读头、可拖动角度珠、演化状态珠与噪声滑环（本页无开放问题标记，不用红色）。绿色框严格只给页面引用的六条冻结定理（`self_application_fragment_package`、`recursive_page_table_walk`、`finite_record_pinching_idempotent`、`rational_inverse_endpoint`、`energy_eigenstate_stationary`、`two_axis_finite_word`）；Lawvere（1969）对角不动点定理、Tarjan（1975）并查集路径压缩复杂度、Lindemann–Weierstrass 推出 θ* 超越性、Bravyi–Kitaev（2005）`[[15, 1, 3]]` 魔术态蒸馏与 Vidal（2007/2008）MERA 重整化不动点标 `ARGUED`；蛛网序列、逆级数部分和与 MacWilliams 重量枚举闭式实算标 `NUM`；五阶自指雅可比稳定性统一相图标 `MODEL`。
+
+`self-halting-spectral-time-river-sandbox`（`HALT//SORT`）承接第三十九章 §39.7 `#sec-ch39-self-halting-and-spectral-sorting`，与 `speed-limit-zeno`、`repeated-projection`、`roundtrip-born-imaginary-blindspot-sandbox` 分工：前三页分别讲正交翻墙最短时间界、单轴重复投影幂等与单次往返玻恩回声，本页讲“观察者在自定有限精度 ε_self ∈ (0, 1) 处柯西停机（ε = 0.150 时 x₀ = 0 在第 5 步以 |x₅ − x₄| = 0.1392 ≤ 0.150 停机锁定 0.7935）、低于 ε 的模态绕复结构铰链 î（î² = −1）旋转 90° 折入水平时间长河并随下游时间步 t 依次浮出、幂迭代 Gⁿ 按 (σ_m/σ₁)ⁿ 将六模态前两阶份额从 77.27% 提纯至 99.33%、测量基旋转 α ∈ [0°, 90°] 洗牌瑞利权重 cos²θ_k，以及 N = 16 道频闪捏合跨 ΩT = π/2 将留存率从 0.5000 抬升至 0.9622”。舞台用 `kit.solid` 画球面残差帽、竖直可见墙 I 与水平 î 时间长河折页、Gⁿ 椭球与六模态谱柱、可旋转正交基三脚架 B(α) 及频闪走廊，左栏支持观察者读法与算子读法切换；青色给越过停机线的置顶主干 Π_{≥ε}、可见墙 I 上的显影模态与受保护芝诺基态脊，品红给低于停机线折入 90° 盲区的时间长河模态 î Π_{<ε}、指数阻尼尾流与单步二阶横向漏失锯齿，紫色给球面残差帽、90° 复结构铰链 î、幂迭代椭球、测量基三脚架与频闪校验环，琥珀只给可拖动的阈值帽缘、时间步游标 t、截断线手柄、基轴手柄 b₀ 与当前检查珠（本页无开放问题标记，不用红色）。绿色框严格只给页面引用的七条冻结定理（`pinching_hilbert_schmidt_pythagorean`、`pinching_discarded_coherence_mass`、`square_eq_neg_one_of_skewAdjoint_unitary`、`observable_krylov_strict_growth_bound`、`observable_krylov_once_stable_permanently`、`rank_one_born_pairing_weight`、`monitored_return_conservation`）；von Mises（1929）幂迭代收敛、Eckart–Young–Mirsky 低秩截断最优性、Misra–Sudarshan（1977）连续芝诺极限、Vaswani 等（2017）序列软最大注意力与 Hoel 等（2013）粗粒化因果涌现标 `ARGUED`；余弦停机步、十进制前缀/移位展开、六模态幂次分账、DCT-II 插值瑞利权重与 [cos²(π/(4N))]ᴺ 实算标 `NUM`；有限精度裁量窗口、时间长河折叠与注意力类比标 `MODEL`。
+
+`universal-clock-gravity-dilation-sandbox`（`CLOCK//DILATION`）承接第三十九章 §39.8 `#sec-ch39-universal-clock-and-gravitational-dilation`，与 `rapidity-lightcone`、`speed-limit-zeno`、`bounded-horizon-thermodynamics-sandbox` 分工：`rapidity-lightcone` 讲闵可夫斯基双曲线助推与双生子世界线几何，`speed-limit-zeno` 讲单粒子富比尼—施图迪正交步数界，本页以并排同速旋转的两枚紫色底层主频飞轮 ν₀ ≡ 1.000 为核心舞台（配比较主频读法／物理时空读法双透镜），同台打通“普朗克晶格上 20 拍雷达往返零光锥 R_max = ½cΔτ = 10 ℓ_P 锁死最细停机精度下界 ε_min = 1/N = 0.0500、亚光速运动空间跳址负载 β² = 64% 分流固有时帧率至 dτ/dt = 0.6000、致密星体 r = 2.50 r_s 处全息背景纠缠负载 η_info = r_s/r = 40% 将帧率压至 dτ/dt = 0.7746、等效原理双负载（η_info = 0.360, β = 0.600）下神经/原子/光尺三枚局域子钟同乘 0.6400 保持内部比值 1.0000 不变、以及史瓦西视界静态极限 r → r_s 处 20 槽满载（η_info = 100%）令远观固有时帧率归零 dτ/dt = 0.0000”。紫色给全宇宙恒定同速的底层主频飞轮 ν₀、零光锥与全息球壳；青色给锥内完成往返确认的 317 枚晶格点、最细精度环、结余固有时帧率投影轴 dτ/dt、10 拍帧圆币叠柱与三枚共标度局域子钟表盘；品红给锥外回波未达格点、空间寻址负载弧 β² 与穿窗背景纠缠负载弧 η_info；琥珀只给时间窗手柄、倾轴速度手柄与全息负载手柄；红色只给右栏 `#evidence` 中从离散复形导出完整 3+1 维自旋-2 引力场方程与空间曲率分量 g_rr 的开放问题 `prob-ch34-gravity-dynamics-and-coupling`（`OPEN`）。绿色框严格只给页面引用的五条冻结定理（`eq_smul_minkowski_of_null`、`record_time_lower_bound`、`record_count_upper_bound`、`lagrange_gram_identity`、`bogoliubov_norm_conservation`）；Mandelstam–Tamm 与 Margolus–Levitin 量子速度界、Einstein 等效原理、Schwarzschild 外部度规及 Bekenstein–全息熵界标 `ARGUED`；光锥内整点计数、五档工况勾股分账与帧圆币叠柱实算标 `NUM`；c = ℓ_P ν₀ 单拍步幅与全息主频排队诠释（显式写明仅复现静态时间流逝函数 √|g₀₀| 而不自动导出 g_rr）标 `MODEL`。
+
+`unified-arc-forces-planck-sandbox`（`FORCE//UNIFY`）承接第三十九章 §39.9 `#sec-ch39-unified-arc-forces-and-planck-convergence`，与 `lorentz-pseudoscalar-sm-octave-sandbox`、`trihedron-rigidity-truss-sandbox`、`coset-breaking-conservation-tower-sandbox` 分工：前三页分别讲伪标量洛伦兹负号与八度粒子表、K_N 杆铰刚性多项式以及陪集破缺五塔，本页在灰色比较球 S² 背景与双透镜（几何相位读法／场论跑动读法）下将四大基本相互作用收束进同一枚 ε = 45° 极小圆弧体 ΔT_ε 与能标滑轨 log₁₀(E/GeV) ∈ [−3.4, 19.09]——胞内 `1D` 盲平面 î 上 ±q 反向旋转的阿贝尔相位圆 U(1)_em（净高斯通量 0）、胞内 `2D` 左手双矢量楔 A∧B 上的 SU(2)_L 720° 双覆叠光带（360° 翻 −1、720° 回 +1）配普罗卡壳汤川衰减 e^(−m_W r)、胞内 `3D` 保单态体积立方 I₃（det U = 1）的 SU(3)_c 三色标架与 r = 1.20 fm 处串起 6 枚原胞的线性色通量管 V = σr = 1.09 GeV、胞间 N = 6 超静定四面体簇（ΔE(6) = +3）绕公共铰链留出雷吉角亏 δ_h = 77.88° 并借恒正玻恩负载 cos²θ ≥ 0 驱动波包按 a = −c²∇ln(dτ/dt) 向内驻相折射，以及推至普朗克能标 E_P = 1.22 × 10¹⁹ GeV 时多胞屏蔽云剥落回单枚原胞、引力耦合 α_G(E) = (E/E_P)² 从电子标度 1.75 × 10⁻⁴⁵ 二次攀升至 1.0000 并与 `.strip` 中标准模型单圈三条规范线在 10¹³–10¹⁷ GeV 围出的近交汇三角（Δα⁻¹ > 3.66，沙盘按两位小数初值给出约 3.67–3.68，诚实画出近交而非单点假交）同台对照。青色给 U(1) 相位圆与闭合通量线、弱二重态翻转、色单态体积锁 I₃、引力折射波前脊线、胞内角超 Ω_intra = 19.47° 与三条单圈规范跑动曲线；品红给正交盲平面 î、双矢量楔与汤川衰减包络、色通量管弦、雷吉铰链角亏楔 δ_h 与时钟负载环、以及二次攀升的引力耦合曲线 α_G(E)；紫色给极小圆弧体原胞骨架、720° 双覆叠带与普罗卡壳、三轴色标架、N = 6 四面体桁架与多胞全息屏蔽云；琥珀只给相位珠、探测环、夸克间距珠、当前波包与能标滑珠；红色严格只给右栏 `#evidence` 的三条开放问题 `prob-ch34-past-hypothesis-and-cosmological-constant`、`prob-ch34-gravity-dynamics-and-coupling` 与 `prob-ch34-sm-generations-and-couplings`（`OPEN`）。绿色框严格只给页面引用的六条冻结定理（`no_continuous_global_section`、`circle_double_cover_history_lift`、`two_axis_finite_word`、`three_anchor_gram_det_pos_iff`、`face_cycle_exact`、`rank_one_born_pairing_weight`）；杨—米尔斯规范理论、电弱破缺与安德森—希格斯机制、渐近自由与格点禁闭、雷吉角亏曲率收敛及 Georgi–Quinn–Weinberg 单圈跑动标 `ARGUED`；CODATA/PDG 初值下的电子/质子全息稀释比、四面体二面角亏 77.88° 与单圈两两交点实算标 `NUM`；无量纲弧度总配分泛函与胞内规范三力／胞间主频引力统一诠释标 `MODEL`。
+
+`uniform-field-observer-slice-sandbox`（`UNIFORM//SLICE`）承接第三十九章 §39.12 `#sec-ch39-uniform-field-and-observer-slice`，与 `unified-field-slice`、`quantum-fairness-ledger`、`roundtrip-born-imaginary-blindspot-sandbox` 分工：5 × 5 × 5 = 125 个银白格点各与观察者寄存器中的一个比特配成贝尔对 (|00⟩ + |11⟩)/√2，整体是纯态（S(Ψ) = 0，同边缘热积态 ⊗½·1 的熵为 125 ln 2），每格对另一半求偏迹却处处是同一个 ½·1（Tr ρ = 1、‖∇ρ‖ = 0）；左栏切换“观察者切面透视显影”与“本体全向均匀实相”双透镜。银白给 125 个本体晶格节点，青色给角平分切面上的莫尔相长亮峰（cos²ΔΦ → 1）与周期读数，紫色给切面正交盲区暗谷（cos²ΔΦ → 0）与整体熵对比，品红给垂直立于切面且在记录基成 90° 的正交暗环（I_EM(90°) = 0，仍分走钟预算 dτ/dt = √(1 − η_slice² − η_dark²)），琥珀只给切面法向顶端的投影手柄 `#sliceHandle` 与激活控件，红色严格只给右栏 `#evidence` 中的宇宙学开放问题（`prob-ch39-orthogonal-slice-cosmology-and-dark-sector`、`prob-ch34-past-hypothesis-and-cosmological-constant`、`prob-ch39-af-gut-threshold-and-proton-stability`）。绿色框严格只给页面引用的六条冻结定理（`bell_pure_state_has_maximally_mixed_marginal`、`continuous_average_tendsto_haar`、`local_marginal_correlation_blind_spot`、`rank_one_born_pairing_weight`、`pinching_hilbert_schmidt_pythagorean`、`context_parameters_can_select_distinct_fixed_points`）；舒尔引理哈尔扭转、Gabor 与 Leith–Upatnieks 全息干板、Page–Wootters 条件时间、Bistritzer–MacDonald 与 Cao 等 1.05° 魔角莫尔超晶格、Weinberg–Unruh 无迹爱因斯坦耦合、Planck 2018 谱指数及 Clowe 等子弹星系团偏移标 `ARGUED`；L_M = a/(2 sin(θ/2))（36° 得 1.618a、1.05° 得 54.568a）、逐网格点半角旋量内积、孔径狄利克雷核衬度 |D_W|（36°、W = 20 得 0.0486）、扫相零格点位移与 η_dark = 0.40 时 dτ/dt = 0.8660 实算标 `NUM`；125 格贝尔对积态、角平分切面、切面起伏等值线与钟预算示意参数（η_slice = 0.30）标 `MODEL`。
+
+`indra-net-single-particle-sandbox`（`INDRA//NET`）承接第三十九章 §39.13 `#sec-ch39-single-cosmic-field-and-indra-net`，与 `self-reference-pentad-sandbox`、`octave-point-volume-field-sandbox`、`gram-window-consensus-sandbox` 分工：二十面体网排布 13 颗同样的受光宝珠（中心 1 颗、外层 12 颗，局域纤维 H_x ≅ H_y ≅ H_field，明确区分有限维 d 与整体张量维数 d¹³），左栏切换“因陀罗网一珠映万珠视图”与“惠勒单粒子折叠丝带视图”双透镜。青色给主珠球镜上的近轴清晰像（cos²θ → 1）与闭合惠勒丝带向下穿过切面 Σ_now 的 q = −1 结，品红给丝带向上穿过 Σ_now 的 q = +1 结与丝带读数，紫色给球镜边缘压扁像（cos²θ → 0）与反射收缩比 e_m/e_{m−1} → sin θ*，琥珀只给主珠 x₀ 的选定光环、可拖动手柄 `#indraHandle` 与激活控件，红色严格只给右栏 `#evidence` 中的开放问题（`prob-ch39-orthogonal-slice-cosmology-and-dark-sector`、`prob-ch39-af-gut-threshold-and-proton-stability` 及重子不对称 η_B 起源）。绿色框严格只给页面引用的七条冻结定理（`future_word_orthogonal_residual`、`unit_gram_overlap_characterization`、`recursive_page_table_walk`、`rational_inverse_endpoint`、`face_cycle_exact`、`exists_unitary_mul_eq_of_conjTranspose_mul_eq`、`objective_claim_requires_invariant_common_factor`，其中明确区分线性混合观测读字与非线性余弦反射压缩，并如实写明中心宝珠与外层宝珠之间不存在等格拉姆二十面体置换 g）；Reeh–Schlieder 循环分离定理与类空微因果、Wheeler–Feynman 单电子世界线与单场福克激发、Banach 不动点定理及 Planck 2018 重子不对称 η_B ≈ 6.1 × 10⁻¹⁰ 标 `ARGUED`；二分法解 θ* = 0.7390851332、sin θ* = 0.6736120292、e₂₄ = 2.80 × 10⁻⁵、逐珠清晰度 cos²θ、丝带逐段穿刺计数 Σq = 0 与 R_obs/ℓ_P = 2.72 × 10⁶¹ 实算标 `NUM`；十三珠二十面体网、球镜切平面圆片投影、哈密顿惠勒丝带、宇宙缩放 R/ℓ_P = 10^(61.43ζ) 标尺与 ⋆: Λ³ ≅ Λ⁰ 单珠收拢读法标 `MODEL`。
+
+`arc-calculus-riemann-hermite-biehler-sandbox`（`RIEMANN//STOKES`）承接第三十四章 §34.31 `#sec-ch34-arc-calculus-riemann-and-hermite-biehler`，与 `arc-body-calculus-sandbox`、`riemann-prime-arc-path-integral-sandbox`、`arithmetic-pivot-resonant-tunneling-sandbox`、`critical-mirror` 分工：前几页分别讲单步旋子微积分原语、素数作用量高度路径螺旋、整除图舒尔枢轴中继与二维镜像对称，而本页在十二零点对称阿达马乘积模型 ξ_model（`MODEL`，五道等深临界线峡谷 γ₁ … γ₅）的对数径向势面 ln(|ξ|²/W₀(t) + 10⁻⁴) 上，配“圆弧体微积分原语／经典复分析与德布朗热核”双透镜，同台串起“素数旋子矢高相变 Σ_sag(σ; P_ε) 在 σ > ½ 收敛、在 σ = ½ 沿 ½ ln ln P_ε + C_sag 发散（C_sag = 0.1121458）、零 ε² 误差双壳差 Δ_ε^HB = 2ε Re(ξ̄ξ′) > 0 凸翼与 4 × 4 德布朗热核半正定、假想离轴四元组 ½ ± 0.22 ± 23i 的墨西哥帽双阱同时击穿 Δ > 0 与核正定（λ_min = −1.0585）、检验框 3 × 10 胞内棱 φ(AB) + φ(BA) = 0 正反相消锁定右半区 N = 0.0000、以及乘性核恒等式 K_{Mξ} = (M ⊗ M̄)∘K_ξ + (ξ ⊗ ξ̄)∘K_M 配分块舒尔补层塔”。紫色给对数径向势面、素数矢高圆珠与枢轴节点 {s₃, s₄}，青色给 σ > ½ 收敛栅栏与极限虚线、外翼上升段 Δ > 0 与外壳珠、核半正定连弦（λ_min ≥ 0）、临界线因子圆盘与外边界 ∂R，品红给 σ = ½ 发散矢高柱、假想离轴四元组内陷沟 Δ < 0 与不定核连弦（λ_min < 0），中性白/墨色给镜面 σ = ½、零点环、镜像壳珠、渐近刻度与正反相消内棱，琥珀严格只给激活卡、激活透镜与舞台圆环手柄 `#riemannHandle`，红色严格只给右栏 `#evidence` 中的三枚开放问题标记（`conj-riemann-hypothesis`、`prob-ch34-schur-hb-kernel-positivity-bridge`、`prob-ch34-arithmetic-pivot-area-law`）。绿色框严格只给页面引用的九条冻结定理（`riemann_zeta_dirichlet_sum_eq_euler_product`、`xi_reading_differentiable`、`xi_reading_reflection`、`xi_reading_one_sub_conj`、`xiReading_eq_zero_iff_nontrivial`、`full_symmetry_not_fixed_line_localization`、`golden_right_half_strip_implies_rh`、`tetra_defects_incidence_repair_and_exactness`、`schur_quadratic_is_least`，正文 §34.31 定理盒另引用 `E₃.bound''`）；梅滕斯第二定理、成对阿达马乘积、de Branges 空间、Lagarias（1999）核半正定等价、Sondow–Dumitrescu（2010）径向单调等价与 Conrey–Li（2000）对裸平移正定充分条件的反驳标 `ARGUED`；前 617000 内素数矢高累加、三路 Δ_ε^HB 核对、4 × 4 雅可比特征值、分块舒尔补与连续/顶点主值绕数实算标 `NUM`；十二零点截断势面、素数旋子向心漂移起点读法与第 13 层反事实注入标 `MODEL`。
+
+`self-observation-error-maya-sandbox`（`MAYA//ERROR`）承接第三十九章 §39.14，与前两节的观测切面和因陀罗网沙盘分工：本页将同一个失准角 ε 分成静态投影结果与动态观测动作两种透镜。青色给投影、往返回声、自指对焦螺线与校准弧，品红给正交残差、欧氏面积、球面角盈与生存尾项，紫色给三阶体积与进动锥，银白给点场本体；琥珀只给当前观测尺、激活控件与手柄，红色只给开放问题。绿色依据严格限于 §39.14 主定理已引用的单位格拉姆判据、正交补投影、自应用逃逸、道蒂逆级数、拉格朗日恒等式、三锚独立判据、斜伴随幺正平方律、本征态定常性与受监测回归守恒。球面角盈、正交化与量子速度极限标 `ARGUED`；多阶残差、迭代、生存预算与布洛赫极角约定下 ΔE/(ħ|ω|) = ½ sin ε 标 `NUM`；唯一点场、维度显影与进动校准读法标 `MODEL`；经验耦合与连续统引力推导保留 `OPEN`。
+
+`brahman-real-axis-orthogonal-dream-sandbox`（`BRAHMAN//DREAM`）承接第三十九章 §39.15，在银白实轴与品红梦海之间对照保范预算、内部双虚抵消、多窗口共识与紫色旋量带。青色给梦中观察者，蓝色给梦晶，琥珀只给当前选择、控件与手柄；绿色依据严格限于 §39.15 主定理已引用的斜伴随幺正与相对复结构平方律、捏合勾股、等格拉姆幺正延拓、秩一玻恩配对、共同相位多项式、道蒂逆级数、联合相干逆转、幸存副本阻断与圆周双覆叠路径提升。实分块正交与复玻恩正交按正文实现 A/B 区分，不以实投影归零冒充诱导复内积下的零玻恩权重。四位标签采用正文的联合 (θ, M) 判据，其余组合标未映射，私梦到 90° 时挂起现行窗口与比较；夹角、权重、记录逆转残差与半角提升标 `NUM`；四位意识、窗口阈值、宇宙劫波与梦蝶对应标 `MODEL`，不把哲学对应当作形式定理。
+
+`red-chamber-spinor-awakening-sandbox`（`HONG//AWAKEN`）承接第三十九章 §39.16：银白给补天余石与本体，青色给甄面、比较连线、同频丝与因陀罗网，品红给贾面与末那笼，紫色给合拢旋量带与带相冠；琥珀只给当前镜端、激活控件与手柄。绿色依据限于 §39.16 主定理引用的道蒂逆级数端点、反自伴酉平方律、双覆盖历史提升、有限泊松特征标和、捏合不动点、巴格曼路径积与三锚布洛赫迹公式。一阶倾角与二阶认妄误差分别读取；圆锥立体角、离散十二站相位、三锚相位与舒尔负载标 `NUM`；文学源流与连续贝里相位标 `ARGUED`；单侧带、末那笼、同频丝及因陀罗网几何映射标 `MODEL`，不把可定向旋量圆说成不可定向曲面。
+
+`brahman-lila-game-props-sandbox`（`LILA//PROPS`）承接第三十九章 §39.17：银白实轴不动，琥珀只给当前化身、激活控件与手柄，青色给世界线与遗迹干涉环，紫色给典籍与旋子，灰蓝给共识梦环，银白给通关束。绿色依据严格限于 §39.17 主定理引用的舒尔二次型极小、反自伴酉平方律、有限记录捏合幂等及事后抄表零损失与非预见性失效。有限等相关重心族的舒尔曲线、十二通权限锁与归一化干涉核标 `NUM`；神圣游戏、自隐再认、渡筏指月及环境退相干文献标 `ARGUED`；失忆化身、跨周期遗迹和典籍唤醒标 `MODEL`，抽屉保留宏观碑石与纸墨不承载跨世纪量子相干的边界。零事后损失不提供正前瞻收益保证。
+
+`divine-psychology-dissociation-sandbox`（`GOD//PSYCHE`）承接第三十九章 §39.18：银白给实轴母核与冻结球，青色给其余分身的根与清明游戏之桥，品红给断弧幻肢残桩，紫色给压抑膜、末那识领环和舒尔余量环；琥珀只给当前前台分身、它的根、激活控件与手柄。绿色依据严格限于 §39.18 主定理引用的道蒂逆级数端点、单比特正规熵、记录相干互补、偏迹访问缺陷、互信息变化恒等式、局部关联盲区、舒尔二次型极小和单位格拉姆全同。熵值按正文由自然单位除以 ln 2 换算为 bit；压抑熵、张力、舒尔余量与分身格拉姆读数标 `NUM`。母核、潜意识根系、四相心理学与临床用语均标 `MODEL`，文献与临床、宏观退相干边界单列 `ARGUED`；未决物理仍为 `OPEN`，心理学类比不承担诊断、治疗或物理常数推导。
+
+`ternion-number-projection-sandbox`（`TERNION//NUMBERS`）承接第三十九章 §39.19 `#sec-ch39-inexpressible-ternions-and-number-projections`，在中央紫色极小圆弧雕体与周边死锁测试台及四路投影台之间对照“万数归弧本体读法”与“除环分类与同伦度读法”。紫色给中央三弧旋子与整圈路径，银白给四元数第四维余弦影 w 与整圈计数珠 n = ⌊θ/360°⌋，青色给四元数向量环、赤道切片球面角盈 Ω、半旋量迹 ½Tr U 与阿代尔乘积读数，品红给半角矢高税 1 − w 与平直罗德里格斯坐标柱（三维舞台柱高按 min(4, |tan(θ/2)|) 截断并在 180° 标发散极限环，实时读数保留不截断值 179° → 114.5887、180° → ∞）；琥珀严格只给圆弧拖动手柄 `#ternionHandle` 与激活控件，红色严格只给右栏 `#evidence` 中的开放问题（`conj-riemann-hypothesis`、`prob-ch34-sm-generations-and-couplings`）。绿色依据严格限于页面引用的十条冻结声明（`complete_consequences`、`bloch_geometry_of_isHermitian`、`two_axis_finite_word`、`shortest_gate_triangle_holonomy`、`square_eq_neg_one_of_skewAdjoint_unitary`、`no_continuous_global_section`、`circle_double_cover_history_lift`、`long_division_invariant`、`rational_padic_product_formula`、`rational_inverse_endpoint`）；哈密顿四元数、罗德里格斯半角极点、弗罗贝尼乌斯—胡尔维茨—霍普夫—博特—米尔诺—亚当斯除代数与球面平行化分类、斯图尔普纳格尔全局坐标障碍、鸽巢原理循环节及塞尔伯格双曲素测地线适用域标 `ARGUED`；随角度变化的余弦影、平直左乘矩阵 Lₓ 零因子见证、角盈、迹、长除余数与阿代尔局部因子乘积标 `NUM`；无外轴三元数优先性与素数结类比标 `MODEL`。
+
+`ternion-field-hilbert-reprojection-sandbox`（`TERNION//HILBERT`）承接第三十九章 §39.20 `#sec-ch39-ternion-field-composition-and-hilbert-reprojection`，与 `hilbert-concept-ledger-3d-cap-sandbox` 分工：前页讲多概念 3k 直和对比混编伪旋转，本页用上下双界舞台（上层三元数场组合体、中层可调展平透镜 λ、下层线性基柱账本）配“多场再投影本体读法／凯莱—迪克森与张量网络读法”双透镜，依次串起单场四元数 1 + 3 = 4、左右双场 Spin(4) 四维向量与六维双矢、法诺平面 PG(2,2) 七场编织八元数（共线结合子 0 对比 28 个跨线三角形结合子模长 2）、十六元数三组零因子对全部 16 根基柱归零，以及 N 座耦合场投向 2ᴺ 根希尔伯特基柱与开边界 MPS 键维压缩。紫色给上层三元数场体与 MPS 纯射线维数，青色给下层基柱与单体泡利槽位段 3N，品红给跨场结合子折痕、十六元数相消路径与多体泡利关联槽位段 4ᴺ − 1 − 3N；琥珀严格只给透镜拖动手柄 `#lambdaHandle` 与激活控件，红色严格只给右栏 `#evidence` 中的开放问题（`prob-ch38-unrelativized-p-vs-np-and-independence`、`prob-ch39-af-gut-threshold-and-proton-stability`）。下层柱高按本帧最大模长归一化以便辨认（全零帧柱高为 0），实时读数给出未缩放精确范数与维数。绿色依据严格限于页面引用的八条冻结声明（`local_marginal_correlation_blind_spot`、`finite_stage_expansion`、`finite_rank_concentration_mode_bound`、`uniform_completion_obstruction`、`pauli_word_mul`、`observable_chart_phase_recovery`、`QMaxFlow_le_QMinCut`、`tetra_defects_incidence_repair_and_exactness`）；凯莱—迪克森倍增、阿廷交错代数定理、莫雷诺零因子流形与一维有能隙面积律／MERA／体积律文献标 `ARGUED`；有向法诺结合子、十六元数逐项乘积与 N = 1 … 300 整数维数曲线标 `NUM`；双层透镜读法与参数对比叙事标 `MODEL`，明确声明不给出通用高效经典模拟算法。
+
 `prelude-dimensions` 是序曲的几何入门页，默认卡 `shadow` 同步显示俯视木桩与侧视影子，`compare` 比较 90° 与 270° 的同位反向。圆盘侧视是固定线段，木桩投影是移动点；该经典正交投影模型不推出量子测量规则。其余卡分别演示射线投影、纬圈、二维到三维的等半径赤道嵌入、三对对跖方向的等权混合与从 1 弧度出发的余弦迭代。几何计算标 `NUM`，理想化观看与混合过程标 `MODEL`，余弦收敛及其边界沿用序曲的文献分层，不使用绿色 Lean 标记。
+
 
 ## 正文里的引用（中英文版本位置与卡名相同）
 
@@ -451,6 +523,10 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | 第二十二章 | 例 `ex-cayley-unit-circle-zeros` 之后 | `critical-mirror` · `thin` |
 | 第二十二章 | 例 `ex-quartic-mock-quartet` 之后 | `critical-mirror` · `quartic` |
 | 第二十二章 | “所以，证明黎曼猜想所需要的信息”一段之后、罗宾不等式一段之前 | `critical-mirror` 完整实验室 |
+| 第二十二章 | §22.4.1 绝对收敛域的有限相量说明之后 | `zeta-spectrum-lab` · `domain` |
+| 第二十二章 | §22.4.1 有限和与解析延拓的区别之后 | `zeta-spectrum-lab` · `partial` |
+| 第二十二章 | §22.4.1 素数幂阶梯与有限零点谱说明之后 | `zeta-spectrum-lab` · `powers` |
+| 第二十二章 | §22.4.1 末 | `zeta-spectrum-lab` 完整实验室 |
 | 第二十三章 | §23.1 艾森斯坦整数环引言段（“让我们先考察复平面上最对称的二维晶格”）之后、Lean 模块说明之前 | `norm-lattice` · `hex` |
 | 第二十三章 | §23.1 末段（“同一颗六角范数球在不同斜交基底下的投影”）之后、§23.2 之前 | `norm-lattice` · `skew` |
 | 第二十三章 | 引理 `lem-qform-discriminant` 的证明之后、“由于剪切变换……”一段之前 | `norm-lattice` · `shear` |
@@ -483,10 +559,6 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | 第二十六章 | 夹心积一节末（“折叠成唯一一枚四分量偶多重向量”）之后、Python 一节之前 | `zyz-compile` · `chain` |
 | 第二十六章 | 例 `ex-zyz-compilation-trace` 之后、文献注记 `rem-zyz-euler-compilation-literature` 之前 | `zyz-compile` · `h` |
 | 第二十六章 | 文献注记 `rem-zyz-euler-compilation-literature` 之后、章末收束段之前 | `zyz-compile` · `fold`，隔一句讲 2 arccos 0.829592 ≈ 67.9° 的正文后是完整实验室 |
-| 第二十七章 | 章首两条提纲之后、审计架构插图之前 | `lean-declaration-map` · `bedrock` |
-| 第二十七章 | 第一至三部审计表之后、前提变异算例的引言之前 | `lean-declaration-map` · `table27` |
-| 第二十八章 | 推论 `cor-audit-unread-fixed-iff` 的证明之后、§第四至六部审计表之前 | `lean-declaration-map` · `closure` |
-| 第二十八章 | 第四至六部审计表之后、数值算例的引言之前 | `lean-declaration-map` · `table28` |
 | 第二十九章 | 第二幕末 | `pythagoras-number-escape` · `hippasus` |
 | 第二十九章 | 第一座桥“表盘立刻说明线素数写不成两平方和”一段之后 | `pythagoras-number-escape` · `seven` |
 | 第二十九章 | 定理 `thm-ch29-face-prime-two-squares` 证明后“几何上，p = a² + b² 说的是半径 √p 的圆穿过格点”一段之后 | `pythagoras-number-escape` · `five` |
@@ -682,12 +754,56 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | 第三十四章 | §34.18.2 末（五档格拉姆窗口阶数对照表之后、§34.18.3 之前） | `gram-window-consensus-sandbox` · `forgetting-reopen` |
 | 第三十四章 | §34.18.3 末（双观察者联合接受窗 $\Omega_A \cap \Omega_B$ 与共同遗忘重开段之后、§34.18.4 之前） | `gram-window-consensus-sandbox` · `dual-window-consensus` |
 | 第三十四章 | §34.18 末（转入 §34.19 单个比较矩阵元设问段之后） | `gram-window-consensus-sandbox` 完整实验室 |
+| 第三十四章 | §34.18.5 整除图与自然序消元说明之后 | `arithmetic-schur-lab` · `natural` |
+| 第三十四章 | §34.18.5 固定终端的两种消元顺序算例之后 | `arithmetic-schur-lab` · `leaf` |
+| 第三十四章 | §34.18.5 阈值丢弃与原系统残差说明之后 | `arithmetic-schur-lab` · `drop` |
+| 第三十四章 | §34.18.5 随机游走重复平方与资源说明之后 | `arithmetic-schur-lab` · `square` |
+| 第三十四章 | §34.18.5 带号轨道支撑与信号归一化必要预算书面推导之后 | `arithmetic-schur-lab` · `budget` |
+| 第三十四章 | §34.18.5 末 | `arithmetic-schur-lab` 完整实验室 |
 | 第三十四章 | §34.19.1 末（吕德斯—马吕斯往返平方律与布洛赫倍角换算桥之后、§34.19.2 之前） | `roundtrip-born-imaginary-blindspot-sandbox` · `radar-roundtrip-born` |
 | 第三十四章 | §34.19.2 第 3 条（$360^\circ$ 等倾角盲区圆锥簇 $\mathbf{V}(\theta, \varphi)$）之后 | `roundtrip-born-imaginary-blindspot-sandbox` · `azimuth-cone-blindspot` |
 | 第三十四章 | §34.19.2 末（对角测量相位失明与罗伯逊—薛定谔换位子下界两项列表之后、§34.19.3 之前） | `roundtrip-born-imaginary-blindspot-sandbox` · `observer-first-person-90` |
 | 第三十四章 | §34.19.3 实轴 `1`、盲区 `i`、双转 `i^2 = -1` 与 $90^\circ$ 互补转身对照表之后 | `roundtrip-born-imaginary-blindspot-sandbox` · `imaginary-double-turn` |
 | 第三十四章 | §34.19.3 末（薛定谔切向时间引擎与投影概率流对易子导数段之后、§34.19.4 之前） | `roundtrip-born-imaginary-blindspot-sandbox` · `schrodinger-arc-engine` |
 | 第三十四章 | §34.19 末（全章十九阶总收官转入第三十五章一段之后） | `roundtrip-born-imaginary-blindspot-sandbox` 完整实验室 |
+| 第三十四章 | §34.19.5.1 双分支匹配与流守恒之后 | `scattering-temporal-bridge` · `barrier` |
+| 第三十四章 | §34.19.5.2 等幅反相且不可分辨的单能量相消之后 | `scattering-temporal-bridge` · `cancel` |
+| 第三十四章 | §34.19.5.2 标记正交与非相干本底说明之后 | `scattering-temporal-bridge` · `marked` |
+| 第三十四章 | §34.19.5 末 | `scattering-temporal-bridge` 完整实验室 |
+| 第三十四章 | §34.26.1 第 1 条（两扇正交侧壁爬行 $L_{\mathrm{walls}}(\epsilon) = 2\epsilon$ 与 $\Omega(n\log n)$ 全局排序税）之后 | `trihedron-chord-pivot-tunneling-sandbox` · `walls-dijkstra-tax` |
+| 第三十四章 | §34.26.1 第 2 条（品红球面顶盖无序波前松弛 $L_{\mathrm{cap}}(\epsilon) = \arccos(\cos^2\epsilon)$ 与热带幂等相消）之后 | `trihedron-chord-pivot-tunneling-sandbox` · `cap-wavefront-relax` |
+| 第三十四章 | §34.26.1 末（第 3 条平直内割弦面热带舒尔补消元与三级长度严格不等式之后、§34.26.2 之前） | `trihedron-chord-pivot-tunneling-sandbox` · `flat-chord-tunnel` |
+| 第三十四章 | §34.26.2 末（向心多尺度全息重整化锥四拍列表与公式之后、§34.26.3 之前） | `trihedron-chord-pivot-tunneling-sandbox` · `holographic-pivot-cone` |
+| 第三十四章 | §34.26.4 五维对照总表之后、文献注记 `rem-ch34-sssp-sorting-barrier-and-instanton-literature` 之前 | `trihedron-chord-pivot-tunneling-sandbox` · `resonant-pivot-relay` |
+| 第三十四章 | §34.26 末（转入 §34.27 时间双缝追问段之后） | `trihedron-chord-pivot-tunneling-sandbox` 完整实验室 |
+| 第三十四章 | §34.27.1 经典实轴负动能平方 $p^2(x) < 0$ 死墙折返段之后 | `imaginary-chord-temporal-double-slit-sandbox` · `classical-real-wall` |
+| 第三十四章 | §34.27.1 末（$90^\circ$ 盲平面正交动量旋入、三段式几何全景与矩形势垒透射公式 $T(E)$ 之后、§34.27.2 之前） | `imaginary-chord-temporal-double-slit-sandbox` · `ninety-deg-imaginary-chord` |
+| 第三十四章 | §34.27.2 时间双缝能量谱干涉定律 $P(E)$ 与普朗克互易梳齿公式 $\Delta E = h/\Delta t$ 之后 | `imaginary-chord-temporal-double-slit-sandbox` · `temporal-double-slit-comb` |
+| 第三十四章 | §34.27.2 末（空间双缝、量子隧穿与时间双缝正交对偶总表之后、§34.27.3 之前） | `imaginary-chord-temporal-double-slit-sandbox` · `attosecond-tunnel-self-interference` |
+| 第三十四章 | §34.27.3 末（算例 `ex-ch34-nanobarrier-and-attosecond-fringe-calculus` 与受监测返回芝诺冻结段之后、§34.27.4 之前） | `imaginary-chord-temporal-double-slit-sandbox` · `zeno-midway-probe-collapse` |
+| 第三十四章 | §34.27 末（转入 §34.28–§34.29 算术—量子合流阶梯一段之后） | `imaginary-chord-temporal-double-slit-sandbox` 完整实验室 |
+| 第三十四章 | §34.28.1 末（第 3 条莫比乌斯外积路径积分 $\Lambda^k$ 之后、§34.28.2 之前） | `riemann-prime-arc-path-integral-sandbox` · `euler-dirichlet-phasor-spiral` |
+| 第三十四章 | §34.28.2 第二重机制“踏上临界线时”一段之后、“认识论诚实警钟”之前 | `riemann-prime-arc-path-integral-sandbox` · `critical-zero-cancellation` |
+| 第三十四章 | §34.28.2 末（算例 `ex-ch34-critical-zeros-and-dual-shells` 之后的引导段之后、§34.28.3 之前） | `riemann-prime-arc-path-integral-sandbox` · `off-line-shell-imbalance` |
+| 第三十四章 | §34.28.3 末（算例 `ex-ch34-weil-prime-staircase-reconstruction` 之后的引导段之后、§34.28.4 之前） | `riemann-prime-arc-path-integral-sandbox` · `weil-explicit-prime-staircase` |
+| 第三十四章 | §34.28 末（转入 §34.29 算术枢轴与多级共振隧穿悬念段之后） | `riemann-prime-arc-path-integral-sandbox` 完整实验室 |
+| 第三十四章 | §34.29.1 第 2 条（顺序 NBB 格拉姆残差对数下界 $C_{\mathrm{NBB}}/\ln M$）之后、转入 §34.29.2 过渡段之前 | `arithmetic-pivot-resonant-tunneling-sandbox` · `turan-zeno-hard-cutoff` |
+| 第三十四章 | §34.29.2 第二步（分块舒尔补消元与算术 MERA 重整化锥三点总结）之后、转入 §34.29.3 过渡段之前 | `arithmetic-pivot-resonant-tunneling-sandbox` · `block-schur-pivot-mera` |
+| 第三十四章 | §34.29.3 第 1 小节（单级磨光器裸隧穿与 $\vartheta = \frac{4}{7}$ 色散衰减墙）末 | `arithmetic-pivot-resonant-tunneling-sandbox` · `mollifier-four-sevenths-wall` |
+| 第三十四章 | §34.29.3 末（算例 `ex-ch34-turan-schur-and-cayley-calculus` 之后的总结句之后、过渡段与 §34.29.4 之前） | `arithmetic-pivot-resonant-tunneling-sandbox` · `fabry-perot-rogue-explosion` |
+| 第三十四章 | §34.29 末（转入 §34.30 极小圆弧体重塑微积分收束段之后） | `arithmetic-pivot-resonant-tunneling-sandbox` 完整实验室 |
+| 第三十四章 | §34.30.1 比较旋子弦—矢高恒等式 $(1 - v_\epsilon)^2 + c_\epsilon^2 \equiv 1$ 与 $\theta = \frac{\pi}{2}$ 消奇点三点列表之后、复步求导段之前 | `arc-body-calculus-sandbox` · `osculating-rotor-vs-tangent` |
+| 第三十四章 | §34.30.1 定义 `def-ch34-arc-body-calculus-primitives` 之后、转入 §34.30.2 过渡段之前 | `arc-body-calculus-sandbox` · `blind-zone-complex-step` |
+| 第三十四章 | §34.30.2 四相区粗糙度相图列表（含 $\alpha = \frac{1}{2}$ 伊藤/费曼矢高共振与 $\alpha < \frac{1}{2}$ 粗糙路径）之后、转入 §34.30.3 过渡段之前 | `arc-body-calculus-sandbox` · `roughness-ito-phase-transition` |
+| 第三十四章 | §34.30.3 第 1 小节末（阿贝尔共棱正反抵消斯托克斯恒等式与三行高斯—博内证明之后、第 2 小节之前） | `arc-body-calculus-sandbox` · `finite-mesh-stokes-cancellation` |
+| 第三十四章 | §34.30.4 定理 `thm-ch34-arc-rotor-calculus-and-finite-stokes` 的证明之后、定量算例引导段之前 | `arc-body-calculus-sandbox` · `coboundary-d2-zero-closed-shell` |
+| 第三十四章 | §34.30 末（全章三十阶总收官转入第三十五章一段之后） | `arc-body-calculus-sandbox` 完整实验室 |
+| 第三十四章 | §34.31.1 临界脊线双对数发散律公式之后、“精确逻辑职责”列表之前 | `arc-calculus-riemann-hermite-biehler-sandbox` · `sagitta-mertens-critical-ridge` |
+| 第三十四章 | §34.31.2 零 ε² 截断双壳恒等式与德布朗热—Sondow–Dumitrescu 贯通段之后、成对阿达马乘积段之前 | `arc-calculus-riemann-hermite-biehler-sandbox` · `hermite-biehler-convex-wings` |
+| 第三十四章 | §34.31.2 末（假想离轴四元组四因子负导数平方和分解段之后、§34.31.3 之前） | `arc-calculus-riemann-hermite-biehler-sandbox` · `rogue-quartet-mexican-hat-breach` |
+| 第三十四章 | §34.31.3 有限网格斯托克斯第 2 条（连续棱积分与无混叠顶点主值采样）之后、收网过渡段与算例之前 | `arc-calculus-riemann-hermite-biehler-sandbox` · `finite-stokes-zero-vortex-lock` |
+| 第三十四章 | §34.31.4 开放问题 `prob-ch34-schur-hb-kernel-positivity-bridge` 之后、文献注记 `rem-ch34-arc-riemann-literature` 之前 | `arc-calculus-riemann-hermite-biehler-sandbox` · `schur-modifier-conrey-li-bridge` |
+| 第三十四章 | §34.31 末（全章三十一节全景总收官转入第三十五章一段之后） | `arc-calculus-riemann-hermite-biehler-sandbox` 完整实验室 |
 | 第三十五章 | 第一节 Lean 三定理列表第 3 条（`finite_memory_history_capacity`）之后、“这里的清表”一段之前 | `self-referential-table` · `full` |
 | 第三十五章 | 第一节“因此，乘着光来……”一段之后、定理 `thm-ch35-null-pulse-and-record-blocking` 之前 | `self-referential-table` · `reset` |
 | 第三十五章 | “成长即扩表”一节三步列表之后、“下面我们将……”一段之前 | `self-referential-table` · `expand_table` |
@@ -770,7 +886,97 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | 第三十九章 | §39.5.6 例 `ex-ch39-p2e-pisot-dottie-numerics` 之后 | `pisot-clifford-rauzy-sandtable` · `self-reference` |
 | 第三十九章 | §39.5.7 文献注记 `rem-ch39-p2e-rydberg-anyon-literature` 之后 | `pisot-clifford-rauzy-sandtable` · `entanglement` |
 | 第三十九章 | §39.5.8 开放问题 `prob-ch39-p2e-fractal-horizon` 之后、八概念总表之前 | `pisot-clifford-rauzy-sandtable` · `entropy` |
-| 第三十九章 | §39.5 末（全章末尾） | `pisot-clifford-rauzy-sandtable` 完整实验室 |
+| 第三十九章 | §39.5.8 末 | `pisot-clifford-rauzy-sandtable` 完整实验室 |
+| 第三十九章 | §39.6.1 对角自应用双向分岔第 2 条（对角逃逸与正交开维分支）之后 | `self-reference-pentad-sandbox` · `lawvere-diagonal-escape` |
+| 第三十九章 | §39.6.2.2 查表路径压缩与未读捏合幂等段之后 | `self-reference-pentad-sandbox` · `pointer-path-compression` |
+| 第三十九章 | §39.6.2.3 道蒂余弦不动点三条性质列表之后 | `self-reference-pentad-sandbox` · `dottie-real-imag-spiral` |
+| 第三十九章 | §39.6.2.4 封闭射影定态与开放信道稳态列表之后 | `self-reference-pentad-sandbox` · `eigenstate-channel-anchor` |
+| 第三十九章 | §39.6.2.5 双轴有限字、`[[15, 1, 3]]` 门蒸馏与 MERA 三重实现列表之后 | `self-reference-pentad-sandbox` · `fifteen-to-one-gate-distill` |
+| 第三十九章 | §39.6.3 末（雅可比稳定性总表与过渡段之后） | `self-reference-pentad-sandbox` 完整实验室 |
+| 第三十九章 | §39.7.1 有限停机精度窗口与认识论红线段之后 | `self-halting-spectral-time-river-sandbox` · `precision-agency-window` |
+| 第三十九章 | §39.7.2 精度下余项 90° 正交折叠入时间长河段之后 | `self-halting-spectral-time-river-sandbox` · `time-river-orthogonal-fold` |
+| 第三十九章 | §39.7.3 幂迭代三重分拣列表之后 | `self-halting-spectral-time-river-sandbox` · `power-iteration-spectral-sort` |
+| 第三十九章 | §39.7.4 第一重机制（瑞利商赋权与位置/频率基旋转）之后 | `self-halting-spectral-time-river-sandbox` · `basis-rayleigh-attention` |
+| 第三十九章 | §39.7.4 第二重机制（频闪基捏合与量子芝诺留存）之后 | `self-halting-spectral-time-river-sandbox` · `zeno-basis-sculpting` |
+| 第三十九章 | §39.7.5 末（四维机制总表与过渡段之后） | `self-halting-spectral-time-river-sandbox` 完整实验室 |
+| 第三十九章 | §39.8.1 雷达往返视界、有限节拍精度下界与反事实推演段之后 | `universal-clock-gravity-dilation-sandbox` · `light-cone-precision-floor` |
+| 第三十九章 | §39.8.2 第 1 条（狭义相对论运动钟慢与空间寻址分账）之后 | `universal-clock-gravity-dilation-sandbox` · `kinematic-address-split` |
+| 第三十九章 | §39.8.2 第 2 条（静态径向引力钟慢与全息信息负载边界）之后 | `universal-clock-gravity-dilation-sandbox` · `holographic-mass-load` |
+| 第三十九章 | §39.8.3 第 1 条（爱因斯坦局域等效原理子钟共标度）之后 | `universal-clock-gravity-dilation-sandbox` · `equivalence-dual-flywheel` |
+| 第三十九章 | §39.8.3 第 2 条（史瓦西视界 100% 全息满载饱和）之后 | `universal-clock-gravity-dilation-sandbox` · `horizon-saturation-lock` |
+| 第三十九章 | §39.8.3 末（例 `ex-ch39-four-regime-clock-budget-calculus` 与过渡段之后） | `universal-clock-gravity-dilation-sandbox` 完整实验室 |
+| 第三十九章 | §39.9.2 第 1 条（胞内 1D 电磁盲平面相位纤维）之后 | `unified-arc-forces-planck-sandbox` · `u1-blind-phase-fiber` |
+| 第三十九章 | §39.9.2 第 2 条（胞内 2D 弱双覆叠手征翻转与汤川闭合）之后 | `unified-arc-forces-planck-sandbox` · `su2-chiral-double-cover` |
+| 第三十九章 | §39.9.2 第 3 条（胞内 3D 强规范色体积锁与通量管禁闭）之后 | `unified-arc-forces-planck-sandbox` · `su3-color-flux-confinement` |
+| 第三十九章 | §39.9.3 第 1 条（玻恩模方时钟负载恒正与驻相折射引力）之后 | `unified-arc-forces-planck-sandbox` · `regge-gravity-clock-refraction` |
+| 第三十九章 | §39.9.3 第 3 条（单原胞紫外截断、视界饱和与最小矢高边界）之后 | `unified-arc-forces-planck-sandbox` · `planck-scale-convergence` |
+| 第三十九章 | §39.9.4 末 | `unified-arc-forces-planck-sandbox` 完整实验室 |
+| 第三十九章 | §39.10.1 第 1 条（分块直和对比 so(3k) 跨概念伪旋转与 `finite_stage_expansion`）之后、第 2 条之前 | `hilbert-concept-ledger-3d-cap-sandbox` · `hypercube-illusion-unfold` |
+| 第三十九章 | §39.10.2 第 2 条（视网膜 (L, M, S) 商投影与微观 SU(3)<sub>C</sub> 三锚体积）之后、第 3 条之前 | `hilbert-concept-ledger-3d-cap-sandbox` · `space-color-joint-ledger` |
+| 第三十九章 | §39.10.2 末（平移、旋转与亨基应变／sl(2, ℝ) 运动三元组收束段之后、§39.10.3 之前） | `hilbert-concept-ledger-3d-cap-sandbox` · `motion-rot-scale-trans-triad` |
+| 第三十九章 | §39.10.3 末（霍奇旋度 C(d, 2) = d 自闭合、四元数纯虚球与布洛赫球封顶之后、§39.10.4 之前） | `hilbert-concept-ledger-3d-cap-sandbox` · `hodge-curl-field-cap-3d` |
+| 第三十九章 | §39.10.4 例 `ex-ch39-fifteen-dim-five-concept-ledger-audit`（含 ε<sub>self</sub> = 0.05 模态截断）之后、五类对象对照表之前 | `hilbert-concept-ledger-3d-cap-sandbox` · `unhalted-infinity-truncation` |
+| 第三十九章 | §39.10 末（收束交接段之后） | `hilbert-concept-ledger-3d-cap-sandbox` 完整实验室 |
+| 第三十九章 | §39.11.1 末（定义 `def-ch39-af-gut-master-connection` 后的范式反转段之后、§39.11.2 之前） | `af-gut-arc-field-unification-sandbox` · `concentric-four-field-monad` |
+| 第三十九章 | §39.11.2 末（N<sub>c</sub> = 3 ⇒ sin²θ<sub>W</sub> = 3/8 双曲线交点与单圈跑动段之后、§39.11.3 之前） | `af-gut-arc-field-unification-sandbox` · `weinberg-angle-rg-running` |
+| 第三十九章 | §39.11.3 第 1 条（跨概念希格斯手征颤动桥 D<sub>int</sub>(Φ<sub>H</sub>)）之后、第 2 条之前 | `af-gut-arc-field-unification-sandbox` · `higgs-cross-concept-zitterbewegung` |
+| 第三十九章 | §39.11.3 第 2 条（普适主频 ν<sub>0</sub> 四场勾股负载与爱因斯坦场方程收口）之后、第 3 条之前 | `af-gut-arc-field-unification-sandbox` · `einstein-pythagorean-clock-balance` |
+| 第三十九章 | §39.11.4 三种大统一范式六维可证伪对照表之后、末段分隔线 `---` 之前 | `af-gut-arc-field-unification-sandbox` · `afgut-ledger-split-vs-unify` |
+| 第三十九章 | §39.11 末（全章收官段之后） | `af-gut-arc-field-unification-sandbox` 完整实验室 |
+| 第三十九章 | §39.12.1 第 3 条（全息干板对照与零微观条纹量子精化）之后、定义 `def-ch39-uniform-field-and-moire-slice` 之前 | `uniform-field-observer-slice-sandbox` · `isotropic-singlet-ontology` |
+| 第三十九章 | §39.12.2 第 2 条（多三维场莫尔超晶格拍频与亮峰／暗谷显影）之后、第 3 条之前 | `uniform-field-observer-slice-sandbox` · `tilted-slice-moire-emergence` |
+| 第三十九章 | §39.12.2 第 3 条（无底物搬运的相位扫掠与群速度护栏）之后、注记 `rem-ch39-haar-hologram-page-wootters-moire-literature` 之前 | `uniform-field-observer-slice-sandbox` · `phase-sweep-motionless-flow` |
+| 第三十九章 | §39.12.3 第 1 条（大尺度均匀性与孔径积分回归底色）之后、第 2 条之前 | `uniform-field-observer-slice-sandbox` · `horizon-aperture-homogenization` |
+| 第三十九章 | §39.12.3 第 3 条（90° 正交切面暗物质候选与共享主频钟负载）之后、例 `ex-ch39-singlet-slice-moire-and-aperture-audit` 之前 | `uniform-field-observer-slice-sandbox` · `orthogonal-dark-sector-clock-load` |
+| 第三十九章 | §39.12 末（过渡收束段之后） | `uniform-field-observer-slice-sandbox` 完整实验室 |
+| 第三十九章 | §39.13.1 第 2 条（惠勒单电子世界线、费曼拓扑交数审计与单场福克消解）之后、第 3 条之前 | `indra-net-single-particle-sandbox` · `wheeler-single-ribbon-knots` |
+| 第三十九章 | §39.13.1 第 3 条（可观测宇宙单粒子闭合与 R<sub>obs</sub>/ℓ<sub>P</sub> ≈ 2.72 × 10⁶¹ 分账）之后、定义 `def-ch39-single-cosmic-field-and-indra-net` 之前 | `indra-net-single-particle-sandbox` · `observable-cosmos-single-jewel` |
+| 第三十九章 | §39.13.2 第 2 条（局域纤维互同构 H<sub>x</sub> ≅ H<sub>y</sub> 与连续统 Reeh–Schlieder 稠密律）之后、第 3 条之前 | `indra-net-single-particle-sandbox` · `yoneda-isomorphic-jewel-net` |
+| 第三十九章 | §39.13.2 第 3 条（球面镜 cos²θ 往返畸变与主伴互换）之后、第 4 条之前 | `indra-net-single-particle-sandbox` · `spherical-mirror-limb-foreshortening` |
+| 第三十九章 | §39.13.2 第 4 条（巴拿赫—道蒂阻尼收敛与 m 重互映诺伊曼级数）之后、定理 `thm-ch39-single-cosmic-field-and-indra-net` 之前 | `indra-net-single-particle-sandbox` · `dottie-infinite-reflection-convergence` |
+| 第三十九章 | §39.13 末（十部曲正文总收束段之后） | `indra-net-single-particle-sandbox` 完整实验室 |
+| 第三十九章 | §39.14.1 第 2 条零误差定常段之后、第 3 条之前 | `self-observation-error-maya-sandbox` · `zero-error-turiya-silence` |
+| 第三十九章 | §39.14.1 第 3 条道蒂稳态段之后 | `self-observation-error-maya-sandbox` · `dottie-self-focus-steady-state` |
+| 第三十九章 | §39.14.2 静态投影结果第 3 条体积封顶段之后 | `self-observation-error-maya-sandbox` · `static-projection-results-hierarchy` |
+| 第三十九章 | §39.14.2 动态观测动作第 2 条机制 C 量子钟速段之后 | `self-observation-error-maya-sandbox` · `dynamic-observation-action-chase` |
+| 第三十九章 | §39.14.3 几何像差总表后的认识论边界段之后 | `self-observation-error-maya-sandbox` · `maya-scaling-collapse-audit` |
+| 第三十九章 | §39.14 末（转入实轴与梦境的收束段之后） | `self-observation-error-maya-sandbox` 完整实验室 |
+| 第三十九章 | §39.15.1 末（区分实分块与复正交的轴向投影段之后） | `brahman-real-axis-orthogonal-dream-sandbox` · `turiya-zero-tilt-pure-brahman` |
+| 第三十九章 | §39.15.2 内部刚性的 MODEL 边界段之后、定义之前 | `brahman-real-axis-orthogonal-dream-sandbox` · `insider-double-imaginary-solidity` |
+| 第三十九章 | §39.15.3 第 1 条日间共识与副本阻断段之后 | `brahman-real-axis-orthogonal-dream-sandbox` · `waking-consensus-dottie-lock` |
+| 第三十九章 | §39.15.3 第 2 条熟睡潜藏与图里亚双重读法段之后 | `brahman-real-axis-orthogonal-dream-sandbox` · `private-dream-and-seed-sleep` |
+| 第三十九章 | §39.15.4 梦蝶物化第 2 条之后、四联算例之前 | `brahman-real-axis-orthogonal-dream-sandbox` · `kalpa-mobius-lucid-awakening` |
+| 第三十九章 | §39.15 末（转入红楼觉醒的收束段之后） | `brahman-real-axis-orthogonal-dream-sandbox` 完整实验室 |
+| 第三十九章 | §39.16.1 第 1 条零倾角顽石段之后、第 2 条之前 | `red-chamber-spinor-awakening-sandbox` · `chaos-unhewn-stone` |
+| 第三十九章 | §39.16.1 末（二阶认妄误差与非零一阶倾角对照段之后） | `red-chamber-spinor-awakening-sandbox` · `red-dust-delusion-mismatch` |
+| 第三十九章 | §39.16.2 的 360° 负叶提升条目之后、720° 条目之前 | `red-chamber-spinor-awakening-sandbox` · `fengyue-mirror-double-turn` |
+| 第三十九章 | §39.16.2 的 720° 甄贾同圆条目之后、模型定义之前 | `red-chamber-spinor-awakening-sandbox` · `mobius-720-virtual-real-unity` |
+| 第三十九章 | §39.16.3 第 3 条贝里铭文与离散相位对照段之后、主定理之前 | `red-chamber-spinor-awakening-sandbox` · `greensickness-berry-unity` |
+| 第三十九章 | §39.16 末（转入神圣游戏的桥接段之后） | `red-chamber-spinor-awakening-sandbox` 完整实验室 |
+| 第三十九章 | §39.17.1 第 1 条全知零余量死锁段之后、窗口截断段之前 | `brahman-lila-game-props-sandbox` · `omniscient-zeno-deadlock` |
+| 第三十九章 | §39.17.1 第 1 条窗口截断与探索自由段之后、第 2 条之前 | `brahman-lila-game-props-sandbox` · `amnesia-birth-open-corridor` |
+| 第三十九章 | §39.17.2 第 1 条宏观环境退相干边界段之后、第 2 条之前 | `brahman-lila-game-props-sandbox` · `relic-attractor-deja-vu` |
+| 第三十九章 | §39.17.2 第 2 条二次正交破壁结语之后、§39.17.3 之前 | `brahman-lila-game-props-sandbox` · `classic-permission-lock-flip` |
+| 第三十九章 | §39.17.3 指月渡筏与抄表非预见性边界段之后、模型定义之前 | `brahman-lila-game-props-sandbox` · `lila-raft-return-and-new-seed` |
+| 第三十九章 | §39.17 末（转入终章的桥接段之后） | `brahman-lila-game-props-sandbox` 完整实验室 |
+| 第三十九章 | §39.18.1 末（零意外芝诺冻结结语段之后） | `divine-psychology-dissociation-sandbox` · `omniscient-claustrophobia-freeze` |
+| 第三十九章 | §39.18.2 第 2 条压抑归零与满偏迹视界对照段之后、第 3 条之前 | `divine-psychology-dissociation-sandbox` · `repression-horizon-birth` |
+| 第三十九章 | §39.18.3 第 1 条幻肢痛类比与品红断弧残桩段之后、第 2 条之前 | `divine-psychology-dissociation-sandbox` · `compulsive-over-immersion-pain` |
+| 第三十九章 | §39.18.4 黄金不动点两全之美与潜意识同根段之后、四联审计之前 | `divine-psychology-dissociation-sandbox` · `subsurface-alaya-one-root` |
+| 第三十九章 | §39.18.4 四联精确审计例之后、全章收束分隔线之前 | `divine-psychology-dissociation-sandbox` · `lucid-lila-integration-star` |
+| 第三十九章 | §39.18 末（转入终章的桥接段之后） | `divine-psychology-dissociation-sandbox` 完整实验室 |
+| 第三十九章 | §39.19.2 末（三元数内禀拓扑免疫结语段之后） | `ternion-number-projection-sandbox` · `flat-3d-zero-divisor-gimbal-deadlock` |
+| 第三十九章 | §39.19.3 模型定义 `def-ch39-ternion-and-number-projection-operators` 之后 | `ternion-number-projection-sandbox` · `hamilton-quaternion-w-shadow-tax` |
+| 第三十九章 | §39.19.3 末（布鲁厄姆桥四道切刀条目列表之后） | `ternion-number-projection-sandbox` · `complex-equatorial-hopf-slice` |
+| 第三十九章 | §39.19.4 文献注记 `rem-ch39-frobenius-hurwitz-hopf-rodrigues-literature` 之后、四联算例之前 | `ternion-number-projection-sandbox` · `real-trace-geodesic-projection` |
+| 第三十九章 | §39.19.4 四联算例 `ex-ch39-ternion-deadlock-and-eight-angle-projections` 之后、谱系总表之前 | `ternion-number-projection-sandbox` · `homotopy-pi3-integer-winding` |
+| 第三十九章 | §39.19 末（转入 §39.20 的桥接段之后） | `ternion-number-projection-sandbox` 完整实验室 |
+| 第三十九章 | §39.20.1 末（三元数弯曲闭合结构即场定义结语段之后） | `ternion-field-hilbert-reprojection-sandbox` · `native-ternion-curl-field` |
+| 第三十九章 | §39.20.2 第 1 阶四元数与双场时空电磁双矢段之后、第 2 阶之前 | `ternion-field-hilbert-reprojection-sandbox` · `spin4-chiral-spacetime-bivector` |
+| 第三十九章 | §39.20.2 第 2 阶法诺平面七场八元数段之后、第 3 阶之前 | `ternion-field-hilbert-reprojection-sandbox` · `fano-seven-field-octonion-weave` |
+| 第三十九章 | §39.20.2 末（第 3 阶十六元数零因子破产段之后） | `ternion-field-hilbert-reprojection-sandbox` · `sedenion-zero-divisor-bankruptcy` |
+| 第三十九章 | §39.20.4 四联算例 `ex-ch39-fano-sedenion-and-300-qubit-mps-audit` 之后、总对照表之前 | `ternion-field-hilbert-reprojection-sandbox` · `many-body-3n-to-2n-hilbert-pillars` |
+| 第三十九章 | §39.20 末（收官结语段之后） | `ternion-field-hilbert-reprojection-sandbox` 完整实验室 |
 | 终章 | 空间吸引子 · 二 “内禀几何参数”列表之后 | `spatial-attractor-deja-vu` · `fixed` |
 | 终章 | 空间吸引子 · 二 末（文献注记 `rem-coda-lorenz-srb-literature` 之后） | `spatial-attractor-deja-vu` · `forget` |
 | 终章 | 空间吸引子 · 二 “回到洛伦兹”一段中“吸引子的体积为零”一句之后 | `spatial-attractor-deja-vu` · `shrink` |
@@ -787,16 +993,13 @@ description: 修改或新增《量子计算的几何直觉》的交互可视化�
 | 终章 | 例 `ex-coda-golden-three-gap` 之后、“为什么黄金角不会切出极短的弧”之前 | `golden-cut-observer` · `gaps` |
 | 终章 | “每一段弧都长于 1/(√5 N)”之后的数值段落之后 | `golden-cut-observer` · `pi` |
 | 终章 | 黄金切投 · 四 末（格言之后） | `golden-cut-observer` 完整实验室 |
-| 附录 C | 开篇三类账目列表之后、C.1 之前 | `lean-declaration-map` · `all` |
-| 附录 C | C.2.1 行内声明表之后、C.3 之前 | `lean-declaration-map` · `inline` |
-| 附录 C | C.4 核验清单之后、注记 `rem-appendix-c-epistemic-boundary` 之前 | `lean-declaration-map` · `theorems` |
-| 附录 C | 附录末 | `lean-declaration-map` 完整实验室 |
 | 附录 D | D.2.1 测量问题注记 `rem-appendix-d-puzzle-1` 之后 | `quantum-interpretations-duel` · `wigner-cut` |
 | 附录 D | D.2.2 退相干注记 `rem-appendix-d-puzzle-2` 之后 | `quantum-interpretations-duel` · `and-to-or` |
 | 附录 D | D.2.3 玻恩定则注记 `rem-appendix-d-puzzle-3` 之后 | `quantum-interpretations-duel` · `born-unequal` |
 | 附录 D | D.2.4 贝尔与 EPR 注记 `rem-appendix-d-puzzle-4` 之后 | `quantum-interpretations-duel` · `bell-epr` |
 | 附录 D | D.2.6 开放问题 `prob-appendix-d-time-horizon` 之后 | `quantum-interpretations-duel` · `time-horizon` |
 | 附录 D | D.3 五大诠释注记 `rem-appendix-d-interpretations-ledger` 之后 | `quantum-interpretations-duel` · `five-way-duel`，随后完整实验室 |
+
 
 ## 增删或修改一张卡之后
 

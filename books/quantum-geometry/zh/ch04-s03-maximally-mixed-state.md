@@ -55,8 +55,8 @@ $$
 
 - **第一章**拆穿了孤立单子与外部第 3 点 $C$ 的双重幻觉，证明单比特矩阵代数无特征标（[@thm-qubit-no-character]），并用幺正射线刚性（[@thm-ray-phase-rigidity]）与布洛赫展开（[@prop-qubit-bloch-core]）把双分量复列向量（四个实坐标）还原为球面上的三维实单位线 $\vv{a} \in S^2$；
 - **第二章**以已知态自身为基，把“点 $C$”还原为内生相融影子 $\vv{c} = (\vv{a}\cdot\vv{b})\vv{a}$，从迹配对与勾股模长守恒严格导出玻恩模平方定则（[@thm-born-modulus-square]、[@thm-rank-one-born-pairing]）及半角换算 $\cos^2(\theta/2) = \frac{1 + \cos\theta}{2}$，并证明在探针上为正的读数可由最小确认逐层剥出（[@thm-positive-dual-generation]），以及有限维里效应上可加的概率必是某个密度矩阵的迹配对（[@thm-busch-effect-density]）；
-- **第三章**指出粒子、概念与经典时间刻度全都是幂等投影线 $P^2 = P$ 的不动点（[@thm-pinching-idempotent]、[@thm-unread-fixed-iff]、[@thm-conditional-state-valid]），用互补勾股定理（[@thm-complementary-pythagoras]）揭示了粒子轴与霍奇对偶波平面的伴生宿命，并给出 $d$ 维系统的记录容量上界 $N \le d$（[@prop-record-capacity]）与互补语境的熵不确定关系（[@prop-collision-entropy-uncertainty]）；
-- **第四章**追踪了视线移开后的偏迹边缘化（[@thm-nonselective-marginal]），证明局部不可逆只是环境访问缺陷（[@thm-reduced-access-defect]），给出了相位阻尼、振幅阻尼与捏合投影的几何收缩图像（[@thm-pinching-pythagorean]、[@prop-phase-damping-decay]、[@prop-amplitude-damping-contraction]、[@cor-pinching-zero-offdiag]），以 Stinespring 扩张（[@thm-stinespring-dilation]）说明表示压缩的结构，以 Sz.-Nagy 酉幂扩张（[@thm-unitary-power-dilation]）说明任意多步的压缩仍是同一个酉演化的影子，并由迹距离在同一有限指标类型上的量子信道下不增（[@prop-trace-distance-metric-contraction]）刻画两态可分辨性的限制。
+- **第三章**把粒子、概念与经典时间刻度全都读作幂等投影线 $P^2 = P$ 的不动点（[@thm-pinching-idempotent]、[@thm-unread-fixed-iff]、[@thm-conditional-state-valid]），用互补勾股定理（[@thm-complementary-pythagoras]）揭示了粒子轴与霍奇对偶波平面的伴生宿命，并给出 $d$ 维系统的记录容量上界 $N \le d$（[@prop-record-capacity]）与互补语境的熵不确定关系（[@prop-collision-entropy-uncertainty]）；
+- **第四章**追踪了视线移开后的偏迹边缘化（[@thm-nonselective-marginal]），在受控拷贝模型中证明局部不可逆只是环境访问缺陷（[@thm-reduced-access-defect]），给出了相位阻尼、振幅阻尼与捏合投影的几何收缩图像（[@thm-pinching-pythagorean]、[@prop-phase-damping-decay]、[@prop-amplitude-damping-contraction]、[@cor-pinching-zero-offdiag]），以 Stinespring 扩张（[@thm-stinespring-dilation]）说明表示压缩的结构，以 Sz.-Nagy 酉幂扩张（[@thm-unitary-power-dilation]）说明任意多步的压缩仍是同一个酉演化的影子，并由迹距离在同一有限指标类型上的量子信道下不增（[@prop-trace-distance-metric-contraction]）刻画两态可分辨性的限制。
 
 ::: {.viz src="bloch-noise" height="560"}
 **完整实验室。** 切换三种噪声、调每一步的强度与 $T_2 / T_1$，或在球皮上拖动 $\rho$ 与 $\sigma$，沿时间轴看青色的球怎样变形、白线怎样只缩不长。
@@ -64,6 +64,6 @@ $$
 
 至此，第一重帷幕“从点到线”已彻底落下。在接下来的**第二部《展翼·从线到面》**中，我们将把目光从静态的一维投影线 $\vv{a} \cdot \vv{b} = \cos\theta$ 抬高三寸，正面迎向那片在第一部里已经频频显露锋芒的**二维有向面积** $\vv{a} \wedge \vv{b} = \sin\theta\,\hat{I}$——看清虚数单位 $i$ 为什么其实就是平面 $90^\circ$ 正交转向算子，并用一行克利福德几何积恒等式 $AB = A\cdot B + A\wedge B$ 将全部单比特量子门与量子力学五大公理一举合拢！
 
-::: {.film src="002-pairwise-born"}
+::: {.film src="pairwise-born"}
 **两子丈量：从一对箭头到玻恩权重（1 分 26 秒）。** 两支相隔 $60^\circ$ 的箭头由平行四边形的两条对角线读出夹角（[@thm-parallelogram-norm-law]）；让 $A$ 自己当轴，垂足 $C$ 成了 $B$ 落在 $A$ 上的青色影子 $\cos\theta$；把影子从 $[-1, 1]$ 压进 $[0, 1]$，就是权重 $\cos^2(\theta/2)$（[@thm-born-modulus-square]）；只有平方能让快门与它的补分完全部权重（[@thm-born-probability-skeleton]）；最后环境记下分支，箭头缩成球内竖轴上的一截短线（[@thm-nonselective-marginal]）。
 :::
