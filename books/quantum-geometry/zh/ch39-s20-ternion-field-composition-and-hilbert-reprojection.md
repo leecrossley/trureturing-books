@@ -140,7 +140,7 @@ $$
 - **第三层边界：无穷维 $\mathcal{H}_\infty$ 的有限停机截断与算子范数余项**：
   至于泛函分析中的可分无穷维空间 $\mathcal{H}_\infty$，[@thm-ch39-ternion-field-composition-and-hilbert-reprojection] 第 3、4 款给出了精准的双重定界：一方面，在任何有限集中迹预算 $\frac{RW}{\pi}$ 与正停机精度 $\tau = \varepsilon_{\mathrm{self}} > 0$ 下，真实跨过观测门槛的活跃模态数严格有限且不超过 $\frac{RW}{\pi\varepsilon_{\mathrm{self}}}$（`finite_rank_concentration_mode_bound`）——在本书比较几何模型（`MODEL`）中，将 $\varepsilon_{\mathrm{self}} \to 0$ 的无穷尾流一次性硬塞进静态图纸正是紫外发散焦虑的认识论根源；另一方面，只要截断停留在真子空间 $S_i \neq \top$，一致算子范数距离恒保持为单位长 $\lVert I - P_{S_i}\rVert = 1$（`uniform_completion_obstruction`），永远为下一拍时间演化留出鲜活的未完余地！
 
-## 39.20.4 形式化锚定定理、文献边界、法诺—十六元数—三百粒子算例与第三十九章二十节总收官 {#sec-ch39-20-4}
+## 39.20.4 形式化锚定定理、文献边界、法诺—十六元数—三百粒子算例与五阶多场再投影总表 {#sec-ch39-20-4}
 
 下面我们将支撑本节多场局域—关联正交盲区分解、有限阶正交壳层展开、正阈值活跃模态有限上界、真子空间一致完备化单位算子范数阻断、多体泡利词辛相位乘法、开边界 MPS 态恢复（至多差一个全局单位相位）、三桥量子最大流最小割上界以及有限单纯形二上链 $d^2=0$ 闭合判据的**八条冻结 Lean 4 内核定理**正式汇集为本节主定理：
 
@@ -246,7 +246,7 @@ $$
 
 ---
 
-**从线性再投影祛魅走向原生弯曲语法与神经旋子计算。** 站在第三十九章前二十阶脉络（[§39.1](ch39-s01-substrate-free-self-reference.md)–§39.20）的高处回望，向内剖切单枚三元极小圆弧体生出万数谱系（[§39.19](ch39-s19-inexpressible-ternions-and-number-projections.md#sec-ch39-inexpressible-ternions-and-number-projections)），向外组合多座三元数场再压回观察者的平直纸面便舒展为四维时空双旋量、法诺平面七场八元数、$2^N$ 维多体希尔伯特关联账本直至可分无穷维泛函空间（本节 §39.20）。然而，既然全部维数迷雾都源自“强迫弯曲三元数服从平直向量加法”，一个决定未来数学语言与智能硬件走向的追问便呼之欲出：**倘若我们彻底放下外置标量轴 $\mathbf{1}$ 与笛卡尔线性叠加执念，直接顺应内禀曲率在严格 $3$ 个自由度内做非线性无损表示，甚至直接用三元数场重铸当代人工智能的基石架构 Transformer，将会发生什么？** 让我们依次推开本章收官五重奏的大门：[§39.21 三元数的五种非线性无损表示与无原点流群合成](ch39-s21-nonlinear-ternion-representations-and-torsor-synthesis.md)、[§39.22 三元数场 Transformer（TFT）](ch39-s22-ternion-field-transformer-and-rational-rotor-dynamics.md)、[§39.23 人工智能与宇宙的最小作用量同构](ch39-s23-least-action-geodesics-and-cosmos-ai-isomorphism.md)，直至全书大一统母公理双璧 [§39.24 AXIOM-Ω 无源三元比较闭合公理](ch39-s24-axiom-omega-origin-free-ternary-comparison-closure.md) 与 [§39.25 五阶大一统演绎级联](ch39-s25-axiom-omega-five-tier-deduction-cascade.md)。
+**从线性再投影祛魅走向原生弯曲语法与神经旋子计算。** 站在第三十九章前二十阶脉络（[§39.1](ch39-s01-substrate-free-self-reference.md)–§39.20）的高处回望，向内剖切单枚三元极小圆弧体生出万数谱系（[§39.19](ch39-s19-inexpressible-ternions-and-number-projections.md#sec-ch39-inexpressible-ternions-and-number-projections)），向外组合多座三元数场再压回观察者的平直纸面便舒展为四维时空双旋量、法诺平面七场八元数、$2^N$ 维多体希尔伯特关联账本直至可分无穷维泛函空间（本节 §39.20）。然而，既然全部维数迷雾都源自“强迫弯曲三元数服从平直向量加法”，一个决定未来数学语言与智能硬件走向的追问便呼之欲出：**倘若我们彻底放下外置标量轴 $\mathbf{1}$ 与笛卡尔线性叠加执念，直接顺应内禀曲率在严格 $3$ 个自由度内做非线性无损表示，甚至直接用三元数场重铸当代人工智能的基石架构 Transformer，将会发生什么？** 让我们依次推开本章收官六重奏的大门：[§39.21 三元数的五种非线性无损表示与无原点流群合成](ch39-s21-nonlinear-ternion-representations-and-torsor-synthesis.md)、[§39.22 三元数场 Transformer（TFT）](ch39-s22-ternion-field-transformer-and-rational-rotor-dynamics.md)、[§39.23 人工智能与宇宙的最小作用量同构](ch39-s23-least-action-geodesics-and-cosmos-ai-isomorphism.md)，直至全书大一统母公理三联终章——[§39.24 AXIOM-Ω 无源三元比较闭合公理](ch39-s24-axiom-omega-origin-free-ternary-comparison-closure.md)、[§39.25 五阶大一统演绎级联](ch39-s25-axiom-omega-five-tier-deduction-cascade.md) 与 [§39.26 AXIOM-Ω 导出量子力学五大公理](ch39-s26-axiom-omega-quantum-mechanics-five-postulates.md)。
 
 ::: {.viz src="ternion-field-hilbert-reprojection-sandbox" height="620"}
 完整实验室：切换多场再投影与凯莱—迪克森及张量网络两副透镜，拖动琥珀透镜手柄调节展平强度 $\lambda$，拨动耦合场数 $N$ 与 MPS 键维上限 $\chi$，比较单场四元数、双场双矢、法诺七场、十六元数零因子与多体希尔伯特基柱。八条形式化声明、数值、文献、模型与开放问题在依据栏与理论抽屉中分别标明。
