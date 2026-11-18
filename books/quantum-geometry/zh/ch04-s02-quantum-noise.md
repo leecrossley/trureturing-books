@@ -1161,7 +1161,13 @@ Lean 声明将前两个复等式分别写成实部与虚部等式，并将模平
 若 $\operatorname{Im}u\ne0$，由 $v=2-u$ 和第二个等式的虚部得到 $s=t$。模平方相等又给出 $\operatorname{Re}u=1$，于是 $r=|uv|=s>1$。若 $u$ 为实数，$v$ 也为实数。令 $q=uv$，用 $u+v=2$ 将 $s+t$ 写成 $4-2q$，将 $us+vt=u^3+v^3$ 写成 $8-6q$，将 $st$ 写成 $q^2$。第二个等式化为 $q^2=1$，与 $r<1$ 矛盾。
 :::
 
-在上面的最大混合谱网格中，如果饱和把九个不同的比值节点确定为 $P(z)=z^9-rz^8+\eta(1-rz)$ 的根，Newton 恒等式就给出无权网格幂和 $S_k=r^k$（$k=1,2,3$）。设两组三个单位圆因子分别为 $a_i,d_j$，其中 $d_j=b_j^{-1}$，并令 $x=\sum_i a_i$、$y=\sum_j d_j$、$\alpha=\prod_i a_i$、$\beta=\prod_j d_j$。由 $xy=r$ 可定义 $u=x^2/(\alpha\overline{x})$ 和 $v=y^2/(\beta\overline{y})$。两组三根的二次幂和分别为 $x^2-2\alpha\overline x$ 与 $y^2-2\beta\overline y$，三次幂和分别为 $x^3-3\alpha|x|^2+3\alpha$ 与 $y^3-3\beta|y|^2+3\beta$。把它们代入 $S_2$ 和 $S_3$，约去非零因子后即可得到 [@thm-positive-interior-grid-algebraic-obstruction] 的两个复等式，此时 $s=|x|^2$、$t=|y|^2$、$|uv|=r$。
+在上面的最大混合谱网格中，如果饱和把九个不同的比值节点确定为 $P(z)=z^9-rz^8+\eta(1-rz)$ 的根，Newton 恒等式就给出无权网格幂和 $S_k=r^k$（$k=1,2,3$）。设两组三个单位圆因子分别为 $a_i,d_j$，其中 $d_j=b_j^{-1}$，并令 $x=\sum_i a_i$、$y=\sum_j d_j$、$\alpha=\prod_i a_i$、$\beta=\prod_j d_j$。由 $xy=r$ 可定义 $u=x^2/(\alpha\overline{x})$ 和 $v=y^2/(\beta\overline{y})$。两组三根的二次幂和分别为 $x^2-2\alpha\overline x$ 与 $y^2-2\beta\overline y$，三次幂和分别为 $x^3-3\alpha|x|^2+3\alpha$ 与 $y^3-3\beta|y|^2+3\beta$。设 $s=|x|^2$、$t=|y|^2$，因此 $s=|u|^2$、$t=|v|^2$，且 $|uv|=r$。将 $S_2=r^2$ 除以 $x^2y^2$ 得到 $(1-2/u)(1-2/v)=1$，也就是 $u+v=2$。将 $S_3=r^3$ 除以 $x^3y^3$ 并乘以 $uvst$，得到
+
+$$
+(us-3s+3)(vt-3t+3)=uvst.
+$$
+
+展开并用 $u+v=2$ 消去 $st(u+v)$，得到 $us+vt+st+3-3(s+t)=0$。这正是 [@thm-positive-interior-grid-algebraic-obstruction] 的另一个复等式。
 
 这里的 Lean 引用覆盖从约化方程到矛盾这一步。从同一对三阶酉矩阵的迹矩推出饱和节点、网格与约化方程仍属书面推导。任意初始密度与较短窗口的可行性需要各自的论证。[上游证明与适用范围](https://github.com/the-omega-institute/trureturing/pull/31199)
 
