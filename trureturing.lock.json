@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "93279cc105e94c6a96e05298c9986beb6bf37603",
-  "pinned_at": "2026-11-19T14:47:25Z",
+  "commit": "352b868d05a6ddba8824065b41466456adc373bd",
+  "pinned_at": "2026-11-19T15:12:59Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1348,6 +1348,30 @@
       "statement_id": "sha256:a94aa2befbb11f506337763d5573ca987344a918c5a17ae8001edb3c6c695459",
       "line": 260,
       "signature": "theorem fixed_neighbor_order_likelihood (G H : SimpleGraph V) (d : V → ℕ) (p : OrderedProtocol d) (g : NeighborOrderTable H d) (μ : PMF (NeighborOrderTable G d)) (hμ : ∀ f, μ f = (Nat.card (NeighborOrderTable G d) : ℝ≥0∞)⁻¹) : let trace"
+    },
+    "D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.nextQuery_of_prefix": {
+      "module": "D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation",
+      "name": "D5.S3.Combinatorics.Graph.Queries.KnownNameSimulation.nextQuery_of_prefix",
+      "kind": "theorem",
+      "statement_id": "sha256:bf038e70f519ca8baee6b74c10c80cefbf2e6a9734a7ddde0a3e8958deee8674",
+      "line": 156,
+      "signature": "theorem nextQuery_of_prefix (read : N → Reply N) (p : Protocol N) (n : ℕ) : let recordedQuery"
+    },
+    "D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.simulated_sent_names_bound": {
+      "module": "D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation",
+      "name": "D5.S3.Combinatorics.Graph.Queries.KnownNameSimulation.simulated_sent_names_bound",
+      "kind": "theorem",
+      "statement_id": "sha256:bf038e70f519ca8baee6b74c10c80cefbf2e6a9734a7ddde0a3e8958deee8674",
+      "line": 84,
+      "signature": "theorem simulated_sent_names_bound (read : N → Reply N) (p : Protocol N) (known : Set N) (n : ℕ) (hn : depthBound p n) : let callCount"
+    },
+    "D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.success_mass_le_simulated_add_guessed_hit": {
+      "module": "D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation",
+      "name": "D5.S3.Combinatorics.Graph.Queries.KnownNameSimulation.success_mass_le_simulated_add_guessed_hit",
+      "kind": "theorem",
+      "statement_id": "sha256:bf038e70f519ca8baee6b74c10c80cefbf2e6a9734a7ddde0a3e8958deee8674",
+      "line": 106,
+      "signature": "theorem success_mass_le_simulated_add_guessed_hit {W : Type*} (μ : PMF W) (read : W → N → Reply N) (p : Protocol N) (known : Set N) (wins : W → Record N → Prop) : let noGuessEvent"
     },
     "D5/S3/Combinatorics/Graph/Queries/NamedNeighborhoodHistory.conditional_unseen_name_hit": {
       "module": "D5/S3/Combinatorics/Graph/Queries/NamedNeighborhoodHistory",

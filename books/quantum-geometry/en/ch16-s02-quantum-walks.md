@@ -583,6 +583,29 @@ The reference naming witnesses a nonempty conditioning event. Each compatible na
 
 The formula only needs the transcript as seen by the strategy and the prescribed initial assignments. The vertices carrying subsequently observed names can vary across compatible namings. With one hidden vertex, two names initially available, and a recorded miss on one of them, the other name hits with probability one. The calculation concerns one next query under the specified oracle. The game reduction in Childs et al. also controls the event that any previously unrevealed name is guessed over an entire bounded run [quant-ph/0209131v2, §IV, Lemma 4](https://arxiv.org/abs/quant-ph/0209131v2).
 
+A strategy can keep queries to unknown names in its own computation and record a synthetic miss. The simulator calls the oracle only when the queried name is already known. In each world both the actual run and the simulation use the oracle determined by that world.
+
+::: {.theorem #thm-known-name-simulation-budget title="Known-name simulation respects the query budget" lean="D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.simulated_sent_names_bound"}
+Fix a query function returning a complete set of neighbor names or a miss marker, and a set of initially known names. If every branch of the deterministic strategy makes at most $q$ queries, then the simulation makes at most $q$ actual oracle calls.
+:::
+
+::: proof
+Each simulated step follows a branch of the strategy, whether its answer came from the oracle or from the simulator. The simulated record has at most $q$ entries. The actual calls count only entries sent to the oracle. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-known-name-simulation-success title="Guessing an unknown name controls the difference in success" lean="D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.success_mass_le_simulated_add_guessed_hit"}
+Take a probability mass function on worlds. Each world determines a query function, and success may depend on that world and the complete record. Let $E$ be the event that at least one query in the actual run hits a name that was unknown at the time. Then
+$$
+\Pr(\text{actual run succeeds})\le \Pr(\text{simulated run succeeds})+\Pr(E).
+$$
+:::
+
+::: proof
+Outside $E$, a query at a known name receives the same answer in the two runs. The actual oracle returns a miss on a query at an unknown name as well. The two runs therefore follow the same continuation and update the same known-name set at every step. As their complete records agree, every actual success lies in the union of simulated success and $E$. The full proof is checked by the Lean kernel.
+:::
+
+The next query can also be recovered partway through the run. Given the actual prefix of length $i$, follow the strategy using each recorded answer. If the strategy has stopped, there is no next query. Otherwise it is the query at zero-based index $i$ in the record, as proved by [`nextQuery_of_prefix`](lean:D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.nextQuery_of_prefix). This allows the one-step law of [@thm-named-neighborhood-fresh-name-hit] to be applied on each prefix when studying $\Pr(E)$ over a whole query budget.
+
 **Which bridges to a classical oracle lower bound remain?** [@thm-directed-forest-cycle-completion] gives the ordinary directed model's static uniform law, and [@thm-alternating-forest-classification] counts the alternating completions, with the conditional law given by [@thm-alternating-completion-law]. Three distinctions separate them from the glued-trees result in [@rem-qsvt-walks-literature]:
 
 1. **Graph distribution and orientation.** Ben-David et al. (*SIAM Journal on Computing* **53**(6), 2024, [doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975), §6.3.2, Lemmas 6.11–6.13, PDF pages 37–39) use one uniform cycle on each side's leaves for the self-weld, and a uniform alternating cycle between the two sides for the weld. [@thm-alternating-forest-classification] gives the alternating completion counts, and [@thm-alternating-completion-law] gives the fixed-edge event mass and conditional law. For ordinary undirected full cycles, [@thm-undirected-cycle-orientation-fibers] now identifies orientations and representation multiplicities over the same actual completed graph: each fiber is exactly a pair of reversed lifts, with edge-insertion events preserved. [@thm-uniform-undirected-cycle-completion] gives the uniform law for ordinary undirected completions of a fixed $F$. [@thm-alternating-connector-mass] gives the conditional probability of a specified alternating connector between distinct components. [@thm-alternating-undirected-completion-law] gives the ambient count and fixed-edge conditional law for undirected alternating cycles.
