@@ -93,6 +93,14 @@
 共享单态越过经典界 2 卡：两座三元数场共享零总自旋单态圆弧，单场边缘缩至球心 $\frac{1}{2}I_2$，而四组 $45^\circ$ 切角将圆弧余弦关联叠至齐雷尔松上界 $2\sqrt{2} > 2$（`bell_pure_state_has_maximally_mixed_marginal`、`classical_chsh_abs_le_two`、`chsh_square_eq_four_of_local_pair_commutes` 与 `bell_chsh_state_expectation_is_greatest` 为 `LEAN ✓`，再生核乘积与局域层析标 `ARGUED`）。
 :::
 
+::: {.remark #rem-ch39-axiom-omega-composites-round-trip title="复合系统中的往返律：纠缠被迫出现，仪器来自辅助系统，单次结果不由结构给出"}
+**往返律延续到复合系统时纠缠被迫出现（`手工推导`）。** 以下三条都是 `MODEL` 假设：复合系统有一个只带单一时钟的核空间；独立射线检验的概率相乘（即振幅在乘积构型上相乘）；复合系统也满足干涉律，即态集合含全体乘积单位向量，且对任意两态 $x, w$ 都有一个态 $s_x(w)$ 对一切乘积检验态 $y$ 满足 §39.1 的干涉律 $c(y, s_x w) + c(y, w) = 2c(w, x)\,c(y, x)$，这相当于一条受限的叠加原理。则 $s_x(w) = 2c(x, w)\,x - w$，全部单位向量都是态，纯态构成 $\mathbb{CP}^{2^N - 1}$，这些反射生成 $\mathrm{O}(V_N)$，其中与复合时钟对易者构成 $\mathrm{U}(2^N)$：每个幺正变换都是往返反射的乘积。例：$N = 2$、$x = \lvert 00\rangle$、$w = \lvert{+}{+}\rangle$ 时 $s_x(w) = \frac{1}{2}(\lvert 00\rangle - \lvert 01\rangle - \lvert 10\rangle - \lvert 11\rangle)$，共生度为 $1$，即最大纠缠；逐分量反射给出乘积态 $\lvert{-}{-}\rangle$，而 $\kappa_2(w, \lvert{-}{-}\rangle) = \frac{1}{2} \ne \frac{1}{4} = c_2(w, x)^2$，违反往返律。
+
+**效应、仪器与完全正性来自辅助系统（`手工推导`）。** 把系统与处于态 $\alpha_0$ 的辅助系统联合，施加幺正 $U$，再对辅助系统做完备检验 $(a)$，令 $K_a\psi := (U(\psi \otimes \alpha_0))_a$（相对态）。则 $\sum_a K_a^\dagger K_a = \mathbf{1}$，结果 $a$ 的玻恩权重为 $\langle\psi, K_a^\dagger K_a\psi\rangle$，给定 $a$ 后的条件态为 $K_a\psi / \lVert K_a\psi\rVert$，$\rho \mapsto \sum_{a \in e} K_a\rho K_a^\dagger$ 完全正；反过来每个克劳斯族都可如此实现，于是所得效应恰为全体 $0 \le E \le \mathbf{1}$。玻恩权重的唯一性（`文献结果`）：在 $\beta$ 的非负函数之中，借助格里森型定理（A. M. Gleason, *J. Math. Mech.* **6**, 885–893, 1957）并要求权重在添加辅助系统后不变，玻恩权重唯一；只对单个系统要求“依赖于射线对、完备检验上和为一、自身射线取一”时，$f(x) = 3x^2 - 2x^3$ 满足 $f(x) + f(1 - x) = 1$，同样合格，所以辅助系统不可少。
+
+**单次结果（`手工推导` + `OPEN`）。** 障碍出现在等权重处：取 $q$ 使 $\beta(q, p) = \frac{1}{2}$，绕 $r_q$ 转 $\pi$ 的旋转固定 $q$ 而交换 $p$ 与 $p^\perp$，所以在等权重的检验上不存在协变的选支规则。给定结果时条件态是确定的；出现哪个结果，结构本身不提供，这与上文 [@prob-ch34-single-outcome-realization] 的 `OPEN` 定位一致。
+:::
+
 ## 39.3.3 形式化锚定主定理、文献与附录 E 边界、五大公理定量核验与迈向无外三元数本体终章 {#sec-ch39-26-3}
 
 我们将 $\mathrm{AXIOM}\text{-}\Omega$ 导出量子力学五大公理的投影映射定义、十八项 Lean 4 内核定理、经典文献边界与定量核验正式确立如下：
@@ -125,6 +133,24 @@
 
 1. **五大教科书公设与霍普夫射影几何**：标准量子力学公理体系源出 P. A. M. Dirac（*The Principles of Quantum Mechanics*, Oxford Univ. Press, 1930）与 J. von Neumann（*Mathematische Grundlagen der Quantenmechanik*, Springer, 1932，区分幺正过程 II 与测量过程 I）；球面纤维丛 $S^1 \hookrightarrow S^3 \to S^2$ 见 H. Hopf（*Math. Ann.* **104**, 637–665, 1931）；不确定性下界见 H. P. Robertson（*Phys. Rev.* **34**, 163–164, 1929）与 E. Schrödinger（*Sitzungsber. Preuss. Akad. Wiss.*, 296–303, 1930）；
 2. **玻恩规则唯一性、吕德斯更新、再生核张量积与非定域极值**：闭子空间投影测度唯一性见 A. M. Gleason（*J. Math. Mech.* **6**, 885–893, 1957），包含 $d = 2$ 的正算子值效应测度唯一性见 P. Busch（*Phys. Rev. Lett.* **91**, 120403, 2003，DOI `10.1103/PhysRevLett.91.120403`）；选言投影更新与开放系统等距扩张见 G. Lüders（*Ann. Phys.* **443**, 322–328, 1950/1951）与 W. F. Stinespring（*Proc. Amer. Math. Soc.* **6**, 211–216, 1955）；乘积正定核诱导张量积希尔伯特空间见 N. Aronszajn（*Trans. Amer. Math. Soc.* **68**, 337–404, 1950），操作局域层析重构见 L. Hardy（2001）与 G. Chiribella, G. M. D'Ariano & P. Perinotti（*Phys. Rev. A* **84**, 012311, 2011）；经典与量子关联界见 J. S. Bell（1964）、J. F. Clauser, M. A. Horne, A. Shimony & R. A. Holt（*Phys. Rev. Lett.* **23**, 880–884, 1969）及 B. S. Cirel'son［Tsirelson］（*Lett. Math. Phys.* **4**, 93–100, 1980，DOI `10.1007/BF00417500`）。本节严格遵守[附录 E §E.5](appendix-e-s05-quantum-postulates.md#sec-appe-quantum) 的全部 `T1–T4` 操作桥接条件与反例边界。
+:::
+
+::: {.remark #rem-ch39-axiom-omega-kappa-versus-born title="母核 $\kappa_{S^3}$ 与玻恩核的精确关系"}
+**两个核，两个角（`手工推导`）。** 母公理选出的核与玻恩核是两个对象，分别写成半角形式：
+
+$$
+\kappa_{S^3}(\psi, \phi) \;=\; \frac{1 + \operatorname{Re}\langle\phi\mid\psi\rangle}{2} \;=\; \cos^2\frac{d_{S^3}(\psi, \phi)}{2}, \qquad \bigl\lvert\langle\phi\mid\psi\rangle\bigr\rvert^2 \;=\; \cos^2 d_{\mathbb{CP}^1}\bigl([\psi], [\phi]\bigr) \;=\; \cos^2\frac{\vartheta_{\mathrm{Bloch}}}{2}.
+$$
+
+前者的角是 $S^3(1)$ 上的测地距离 $d_{S^3} \in [0, \pi]$；后者的角是布洛赫夹角 $\vartheta_{\mathrm{Bloch}}$，它等于两条盲区纤维之间最小距离 $d_{\mathbb{CP}^1} = \min_\chi d_{S^3}(e^{\hat{\mathbf{i}}\chi}\psi, \phi) \in [0, \frac{\pi}{2}]$ 的两倍。两个半角公式用的是两个不同的角。$\kappa_{S^3}$ 在左、右两种迁移下都不变（法则 II）；玻恩核只在左迁移与把盲区纤维映到盲区纤维的那部分右迁移下不变，所以它不满足法则 (II) 的双侧不变条款，充当不了母公理中的 $\kappa$。
+
+**精确关系。** 记 $\langle\phi\mid\psi\rangle = r e^{\hat{\mathbf{i}}\alpha}$，则沿盲区纤维 $2\kappa_{S^3}(e^{\hat{\mathbf{i}}\chi}\psi, \phi) - 1 = r\cos(\chi + \alpha)$，从而
+
+$$
+\bigl\lvert\langle\phi\mid\psi\rangle\bigr\rvert^2 \;=\; \max_{\chi}\bigl(2\kappa_{S^3}(e^{\hat{\mathbf{i}}\chi}\psi, \phi) - 1\bigr)^2 \;=\; 2\cdot\frac{1}{2\pi}\int_0^{2\pi}\bigl(2\kappa_{S^3}(e^{\hat{\mathbf{i}}\chi}\psi, \phi) - 1\bigr)^2\,d\chi .
+$$
+
+玻恩概率是 $(2\kappa_{S^3} - 1)^2$ 沿盲区纤维的最大值，也是其纤维平均的两倍。由 [@rem-ch39-axiom-omega-round-trip-closing-law] 的往返律，$(2\kappa(w, x) - 1)^2 = \kappa\bigl(w, [x, w, x]\bigr)$，所以玻恩概率又等于沿盲区纤维取最大的往返读数 $\max_\chi \kappa\bigl(\phi, [e^{\hat{\mathbf{i}}\chi}\psi, \phi, e^{\hat{\mathbf{i}}\chi}\psi]\bigr)$；§39.3.2 所说“往返双投影”在母核上的精确含义即此。玻恩权重因而是母核在时钟（盲区相位）作用下的领头不变量，这一恒等式是 `手工推导`；把它读作概率是一项约定，把纯态读作时钟轨道（盲区纤维）是单个系统层面的一项选择，二者都标为 `MODEL`。
 :::
 
 下面我们在单一具体算例中对五大公设的关键几何不变量做一行一式精确对账：
