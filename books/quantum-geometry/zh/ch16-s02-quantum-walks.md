@@ -631,7 +631,7 @@ $$
 :::
 
 ::: {.theorem #thm-alternating-successor-set-bound title="相容整圈的后继集合概率上界" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
-对有限的分量标签集，每个标签 $A$ 各有一个源颜色 $s(A)$ 和一个目标颜色 $d(A)$，两种源颜色各至少出现两次。从满足 $s(\pi(A))=d(A)$ 的整圈置换 $\pi$ 中均匀抽样。固定标签 $A$ 和不含 $A$ 的目标集 $T$，令 $c_A$ 为源颜色等于 $d(A)$ 的标签数。则
+对有限的分量标签集，每个标签 $A$ 各有一个源颜色 $s(A)$ 和一个目标颜色 $d(A)$，两种源颜色各至少出现两次。假设至少存在一个对每个标签 $A$ 都满足 $s(\pi(A))=d(A)$ 的整圈置换 $\pi$，并从这些置换中均匀抽样。固定标签 $A$ 和不含 $A$ 的目标集 $T$，令 $c_A$ 为源颜色等于 $d(A)$ 的标签数。则
 $$
 \Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
 $$
@@ -642,7 +642,7 @@ $$
 :::
 
 ::: {.theorem #thm-first-observed-cycle title="探索何时首次看到环" lean="D5/S3/Combinatorics/Graph/Queries/FirstObservedCycle.first_observed_cycle"}
-从有限简单图的根出发，每次查询沿已暴露边从根可达的一个顶点的完整邻居集。某一时刻的暴露图包含原图中至少有一个端点已经被查询的所有边。设查询 $x$ 之前的暴露图无环。这次回答产生环，当且仅当 $x$ 此前未被查询，且 $x$ 有一个也尚未被查询、在查询前已从根可达的邻居。
+从有限简单图的根出发，每次查询沿已暴露边从根可达的一个顶点的完整邻居集。某一时刻的暴露图恰由原图中至少有一个端点已经被查询的边组成。设查询 $x$ 之前的暴露图无环。这次回答产生环，当且仅当 $x$ 此前未被查询，且 $x$ 有一个也尚未被查询、在查询前已从根可达的邻居。
 :::
 
 ::: proof

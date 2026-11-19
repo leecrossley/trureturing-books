@@ -629,7 +629,7 @@ Choose $r$ distinct initially unknown names, query them in a fixed order and sto
 :::
 
 ::: {.theorem #thm-alternating-successor-set-bound title="A successor-set bound for compatible single cycles" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
-Each label $A$ in a finite component set has a source color $s(A)$ and a destination color $d(A)$, and each of the two source colors occurs at least twice. Sample uniformly among the single-cycle permutations $\pi$ satisfying $s(\pi(A))=d(A)$. Fix a label $A$ and a set of targets $T$ excluding $A$. Let $c_A$ count labels whose source color equals $d(A)$. Then
+Each label $A$ in a finite component set has a source color $s(A)$ and a destination color $d(A)$, and each of the two source colors occurs at least twice. Assume at least one single-cycle permutation $\pi$ satisfies $s(\pi(A))=d(A)$ for every label $A$, and sample uniformly among those permutations. Fix a label $A$ and a set of targets $T$ excluding $A$. Let $c_A$ count labels whose source color equals $d(A)$. Then
 $$
 \Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
 $$
