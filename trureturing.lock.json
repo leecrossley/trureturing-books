@@ -3,7 +3,7 @@
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
   "commit": "6f4a1c6da73195efbaa358a230af60fc0e53f0f4",
-  "pinned_at": "2026-11-19T14:15:11Z",
+  "pinned_at": "2026-11-19T14:41:17Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1196,6 +1196,14 @@
       "statement_id": "sha256:f95f74ce1bcbcbfbac459d0e7aaa92848f8d5e139f1c13ccf2c8e76ebf3d473e",
       "line": 226,
       "signature": "theorem connector_mass [Finite C] (s d : C → Bool) (x y : C) (hxy : y ≠ x) (μ : PMF (Compatible s d)) (hμ : ∀ σ, μ σ = (Nat.card (Compatible s d) : ℝ≥0∞)⁻¹) : let R"
+    },
+    "D5/S3/Combinatorics/Graph/LinearForests/AlternatingUndirectedCompletionLaw.alternating_undirected_completion_law": {
+      "module": "D5/S3/Combinatorics/Graph/LinearForests/AlternatingUndirectedCompletionLaw",
+      "name": "D5.S3.Combinatorics.Graph.LinearForests.AlternatingUndirectedCompletionLaw.alternating_undirected_completion_law",
+      "kind": "theorem",
+      "statement_id": "sha256:4522f5506e5c2fb4f816a09711069d70a9046956e54d776900a02f8c77099bcc",
+      "line": 153,
+      "signature": "theorem alternating_undirected_completion_law (k : V → Bool) (F : SimpleGraph V) (n : ℕ) (hnColors : 2 ≤ n) (hr : Nat.card (Side k false) = n) (hb : Nat.card (Side k true) = n) : let A"
     },
     "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.alternating_completion_classification": {
       "module": "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory",
@@ -6276,6 +6284,14 @@
       "statement_id": "sha256:f1def1d45a7ded5fabde68f7c2080b1b30564fff83957726a06255dc4ca220a4",
       "line": 51,
       "signature": "theorem parry_stationary_law (k : ℕ) (hk : 2 ≤ k) : let p"
+    },
+    "D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix": {
+      "module": "D5/S3/TotalVariation/ParryReturnPrefix",
+      "name": "D5.S3.TotalVariation.ParryReturnPrefix.iid_return_prefix",
+      "kind": "theorem",
+      "statement_id": "sha256:218f7a6d4f93c5a0659ce24e932750d775030c7994102bbf024e0ebd589a2d59",
+      "line": 110,
+      "signature": "theorem iid_return_prefix (μ : Measure (RelationPath k)) (weights : Fin k → ℝ≥0∞) (hcyl : ∀ ns : List (Fin k), μ {r | matchesReturnTimes r ns = true} = (ns.map weights).prod) (ns : List (Fin k)) (j : ℕ) : μ {r | matchesReturnPrefix r ns j = true} = (ns.map weights).prod * ∑ i : Fin (k - j), weights (returnTailIndex j i)"
     },
     "D5/S3/TotalVariation/ParrySectionMarginals.section_zero_marginals": {
       "module": "D5/S3/TotalVariation/ParrySectionMarginals",
