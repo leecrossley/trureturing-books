@@ -671,6 +671,23 @@ Start at a root of a finite simple graph. Query the complete neighborhood of a v
 A repeated query adds no edges. For a first query at $x$, its new edges are precisely those to unqueried neighbors. If such a neighbor was already reachable, the new edge closes a path in the earlier exposure. Otherwise all the new neighbors were isolated in the exposed graph. Indeed, every exposed edge meets a previously queried vertex, and all queried vertices are reachable from the root. The query therefore attaches leaves and preserves acyclicity. The full proof is checked by the Lean kernel.
 :::
 
+A collision witness can end with several edges of a fixed binary tree after its last weld edge. The following sum groups the possible leaf endpoints of that weld edge by their distance from the vertex where the two paths meet.
+
+::: {.theorem #thm-binary-tree-weighted-leaf-distance title="The total dyadic weight of the leaves of a complete binary tree" lean="D5/S3/Combinatorics/Graph/Queries/BinaryTreeLeafDistance.weighted_leaf_distance"}
+Identify the vertices of a complete binary tree of depth $k$ with bit strings of length at most $k$. Joining a string to each of its one-bit extensions gives the tree edges. For a vertex $z$ of depth $d$ and each depth-$k$ leaf $y$, let $d_{\rm tree}(z,y)$ be their graph distance. Then
+
+$$
+\sum_{|y|=k} 2^{-d_{\rm tree}(z,y)}
+=\frac32-2^{-(d+1)}.
+$$
+
+The leaf enumeration in the sum lists each depth-$k$ string once.
+:::
+
+::: proof
+A shortest path can go up to the longest common prefix and then down to the target. Each edge changes the remaining prefix distance by at most one, and this route stays within the depth cap. At the root the $2^k$ leaves all contribute $2^{-k}$. If $d>0$, the contribution of the branch containing $z$ is the same sum in a tree of depth $k-1$ from depth $d-1$. Each of the $2^{k-1}$ leaves in the opposite branch is at distance $k+d$, so that branch contributes $2^{-(d+1)}$. The two contributions give the formula by induction. The full proof is checked by the Lean kernel.
+:::
+
 For a random graph, the transcript can also change the graph's distribution. Sample a graph index $g$ from a prior $\pi$ on graphs on the same finite vertex set $V$. Independently choose a uniform injective naming from $V$ into a finite name set $N$, subject to the prescribed initial assignments. Use a reference graph and naming consistent with the initial assignments to fix an actual transcript $\tau$ of a deterministic strategy whose replies are complete unordered neighborhoods or misses. Let $S$ consist of the initial names and the names in successful queries and their replies. Let $B$ be the set of names that received a miss.
 
 A placement is an injection $S\hookrightarrow V$. It is feasible on $g$ if it agrees with the initial assignments and maps every successful reply to the entire neighborhood of the vertex named in the query. Write $F_\tau(g)$ for the number of feasible placements.
