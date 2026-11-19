@@ -797,7 +797,7 @@ Each call records at most two additional weld edges. Given the reference transcr
 An observed slot may depend on the previous steps. In a nonbacktracking walk, the previous vertex determines which incident edge is excluded from the forward choices.
 
 ::: {.theorem #thm-graph-path-posterior title="The graph posterior after disclosing a path" lean="D5/S3/Combinatorics/Graph/Queries/ForwardPathPosterior.graph_path_posterior"}
-Draw a graph world from a prior mass function $\pi$. Every world contains the same initial incoming edge. Fix a finite set of positions, a schedule of position and slot requests, and two distinct candidates for each world, position and incoming pair. Independently of the world, each position uses an independent fair keep-or-swap choice on its two indices. After a slot returns a vertex, the next incoming pair consists of the current vertex and the returned vertex.
+Draw a world from a prior mass function $\pi$. Each world gives a simple undirected graph on a common vertex set $V$ and contains the same initial incoming edge. All incoming endpoints and candidate vertices belong to $V$. Fix a finite set of positions, a schedule of position and slot requests, and two distinct candidates for each world, position and incoming pair. Independently of the world, each position uses an independent fair keep-or-swap choice on its two indices. After a slot returns a vertex, the next incoming pair consists of the current vertex and the returned vertex.
 
 Fix an actual reference disclosure $\tau$ of positive probability. Its rows never return the predecessor, and every occurrence of a given position has the same incoming pair. The partial slot table records exactly the values in the reference rows, and the set of observed positions consists of those with a recorded slot. In each world containing a row's incoming edge, require that the vertex recorded in that row is one of the two candidates exactly when it is adjacent to the current vertex and differs from the predecessor.
 
@@ -810,7 +810,20 @@ $$
 :::
 
 ::: proof
-Replaying the schedule matches the reference rows exactly when it matches the recorded slot values at their reference incoming pairs. The first incoming edge is common to every world, and every recorded outgoing edge supplies the incoming edge for the next row. By induction, the table is compatible exactly in the worlds that contain all the recorded edges. The common likelihood factor from [@thm-partial-forward-order-likelihood] cancels in the posterior. The full proof is checked by the Lean kernel.
+Replaying the schedule matches the reference rows exactly when it matches the recorded slot values at their reference incoming pairs. The first incoming edge is common to every world, and every recorded outgoing edge supplies the incoming edge for the next row. Induction shows that every recorded vertex is available at its row exactly when all recorded edges are present. In the reference run, each position always uses the same incoming pair. Its permutation sends the two slots to distinct candidates, so their recorded values differ whenever both are observed. Together these facts give the compatibility of the table. The common likelihood factor from [@thm-partial-forward-order-likelihood] cancels in the posterior. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-meeting-arms-last-weld title="The forest tail after the last weld crossing" lean="D5/S3/Combinatorics/Graph/Walks/LastWeldCrossing.meeting_arms_last_weld"}
+Let $H$ be a forest and $W$ a weld graph on the same vertices. In their union, take two simple paths from $a$ to $b$ with positive total length. Require their final edges to be distinct whenever both exist. Follow the first path and then the reverse of the second, obtaining a closed walk of length $L$. This walk has an edge of $W$ outside $H$. Number its edges from zero and let $j$ index the last such edge. If $y$ is the vertex reached by that edge, the remaining walk has the same ordered vertex list as a simple path in $H$ from $y$ to $a$, and
+
+$$
+L-(j+1)=d_H(y,a).
+$$
+
+:::
+
+::: proof
+Each arm has no immediate reversal, and the different final edges prevent a reversal at the join. In a forest, a walk without an immediate reversal is a simple path. A nonempty closed walk of this kind must therefore use an edge outside $H$. After the last such edge, the entire suffix lies in $H$ and still has no immediate reversals. Its length equals the distance because it is the unique simple path between its endpoints. The full proof is checked by the Lean kernel.
 :::
 
 **Which bridges to a classical oracle lower bound remain?** [@thm-directed-forest-cycle-completion] gives the ordinary directed model's static uniform law, and [@thm-alternating-forest-classification] counts the alternating completions, with the conditional law given by [@thm-alternating-completion-law]. Three distinctions separate them from the glued-trees result in [@rem-qsvt-walks-literature]:
