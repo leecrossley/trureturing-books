@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "fd79d29a6cc1138829cbfa91e722854eb863d7d4",
-  "pinned_at": "2026-11-19T14:28:02Z",
+  "commit": "6f4a1c6da73195efbaa358a230af60fc0e53f0f4",
+  "pinned_at": "2026-11-19T14:41:17Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1341,6 +1341,14 @@
       "line": 65,
       "signature": "theorem history_eq_iff_extension [Finite V] (G H : SimpleGraph V) (p : PassiveProtocol V (fun _ => Set V)) : runPassiveProtocol readNeighbors p G = runPassiveProtocol readNeighbors p H ↔ revealedEdges (runPassiveProtocol readNeighbors p H) ≤ G ∧ ∀ entry ∈ runPassiveProtocol readNeighbors p H, (G.neighborSet entry.1).ncard ≤ entry.2.ncard"
     },
+    "D5/S3/Combinatorics/Graph/Queries/FixedNeighborOrder.fixed_neighbor_order_likelihood": {
+      "module": "D5/S3/Combinatorics/Graph/Queries/FixedNeighborOrder",
+      "name": "D5.S3.Combinatorics.Graph.Queries.FixedNeighborOrder.fixed_neighbor_order_likelihood",
+      "kind": "theorem",
+      "statement_id": "sha256:a94aa2befbb11f506337763d5573ca987344a918c5a17ae8001edb3c6c695459",
+      "line": 260,
+      "signature": "theorem fixed_neighbor_order_likelihood (G H : SimpleGraph V) (d : V → ℕ) (p : OrderedProtocol d) (g : NeighborOrderTable H d) (μ : PMF (NeighborOrderTable G d)) (hμ : ∀ f, μ f = (Nat.card (NeighborOrderTable G d) : ℝ≥0∞)⁻¹) : let trace"
+    },
     "D5/S3/Combinatorics/Graph/Walks/GallaiRoy.IsDirectedPath": {
       "module": "D5/S3/Combinatorics/Graph/Walks/GallaiRoy",
       "name": "GallaiRoy.IsDirectedPath",
@@ -1476,6 +1484,14 @@
       "statement_id": "sha256:5b848bb8446166bfc5fa762209b5fe0e718b2a43dd83a1365ad59f7362d535ac",
       "line": 539,
       "signature": "theorem rooted_reconstruction (q : {q : Perm X // (∀ x, q x ≠ x) ∧ ∀ c ∈ q.cycleFactorsFinset, Even c.support.card}) : forward (recover q) = q ∧ ∀ x, (recover q).1.val x = (if cyclePhase q.val x then q.val x else q.val⁻¹ x) ∧ (recover q).2.val x = (if cyclePhase q.val x then q.val⁻¹ x else q.val x)"
+    },
+    "D5/S3/Combinatorics/Probability/PartialNameAssignment.uniform_remaining_name_hit": {
+      "module": "D5/S3/Combinatorics/Probability/PartialNameAssignment",
+      "name": "D5.S3.Combinatorics.Probability.PartialNameAssignment.uniform_remaining_name_hit",
+      "kind": "theorem",
+      "statement_id": "sha256:9573e81344ff251dea8a8c4b1e53e1fd510ddb18c1ebc831bb367d5e3753736c",
+      "line": 135,
+      "signature": "theorem uniform_remaining_name_hit [Fintype V] [Fintype N] (K : Finset V) (A : Finset N) (knownNames : K ↪ N) (hsep : ∀ x, knownNames x ∉ A) (h : Nonempty (Candidates K A knownNames)) : let availableCount"
     },
     "D5/S3/CompletionDynamics/GoldenMobius/GoldenHelixParityReadout.golden_helix_two_step_orientation_complete_state_distinct": {
       "module": "D5/S3/CompletionDynamics/GoldenMobius/GoldenHelixParityReadout",
