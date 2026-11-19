@@ -150,7 +150,11 @@
 | **第 38 章** | [@thm-ch39-fiber-reconstruction-and-zeckendorf-thread] | `D5/S3/Observer/GoldenCoding/ZeckendorfRealThread.zeckendorf_real_thread_injective` | 非负实数全尺度齐肯多夫编码线程严格单射定理 |
 | **第 39 章**：大一统母公理（AXIOM-Ω） | [@thm-ch39-axiom-omega-ternary-closure-anchors] | `D5/S3/QuantumBounds/GramRealizability.gram_realizability` | 完备复内积空间上正算子格拉姆伴随平方因式分解充要定理 $0 \le Q \iff \exists O,\; Q = O^\dagger O$ |
 | **第 39 章** | [@thm-ch39-axiom-omega-ternary-closure-anchors] | `D5/S3/Quantum/Algebra/Unitary/BalancedUnitarySum.crossProduct_is_skewAdjoint_of_balanced_sum` | 平衡半范分量构成的幺正和算子迫使交叉乘积严格反自伴 $(AB^\dagger)^\dagger = -AB^\dagger$ |
+| **第 39 章** | [@thm-ch39-axiom-omega-rank-five-unit-quaternion-embedding] | `D5/S3/Quantum/AURICOmega/TernaryComparisonRankFive.exists_unitQuaternion_embedding` | 非交换、链连通、触零且读数可在 $\mathbb{R}^5$ 中实现的三元比较结构单射嵌入单位四元数，保持迁移与读数 |
+| **第 39 章** | [@thm-ch39-axiom-omega-complete-rank-five-isomorphism] | `D5/S3/Quantum/AURICOmega/TernaryComparisonIsomorphism.exists_unitQuaternion_equiv` | 再加读数完备，该结构经把给定点送到 $1$、保持迁移与读数的双射同构于单位四元数 |
+| **第 39 章** | [@thm-ch39-axiom-omega-ray-kernel-born-weight] | `D5/S3/Quantum/AURICOmega/QuaternionRayKernel.rayKernel_eq_bornProbability_spinor` | 单位四元数上由读数构成的两项射线核经旋量坐标等于两个秩一投影的迹配对（玻恩权重） |
 | **第 39 章** | [@thm-ch39-self-contained-ternion-and-no-exterior-anchors] | `D5/S3/Quantum/PureState/UnitGramIndistinguishability.unit_gram_overlap_characterization` | 标量域 `[RCLike 𝕜]` 上单位范数态族的重叠为 $1$ 当且仅当两态严格全同：锚定内禀去嵌入自重合律 $\kappa(x,x)\equiv 1$ |
+| **第 39 章** | [@thm-ch39-axiom-omega-two-point-homogeneity] | `D5/S3/Quantum/AURICOmega/QuaternionTwoPointHomogeneity.exists_mul_mul_eq_of_kappa_eq` | 读数相同的两对单位四元数由某个左右平移 $z \mapsto p z q$ 互相送到 |
 | **铸器与圣殿**：将矩阵化为异或 | [@thm-qubit-weyl-star] | `D5/S3/Quantum/FiniteDimensional.qubit_weyl_star` | 单量子比特外尔算子 $X, Z$ 的反对易、自伴与对合代数律 |
 | **铸器与圣殿** | [@lemma-qubit-no-character] | `D5/S3/Quantum/FiniteDimensional.qubit_matrix_algebra_has_no_character` | $2\times 2$ 量子比特矩阵代数不存在保全局矩阵乘法的复代数特征标 |
 | **铸器与圣殿** | [@prop-pauli-no-common-eigenvector] | `D5/S3/Quantum/QubitWitnesses.pauli_observables_have_no_common_eigenvector` | 非对易泡利可观测量 $X$ 与 $Z$ 不存在公共非零本征态 |
