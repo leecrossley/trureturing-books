@@ -746,6 +746,31 @@ At positive transcript mass, the weld is conditionally uniform over those comple
 Replaying the reference transcript requires every recorded edge outside the fixed graph. Both endpoints of such an edge come from leaves. Conversely, containing $F$ supplies every recorded edge once the fixed graph is added. The reference cycle adds two edges outside the fixed graph at each leaf and adds zero at other vertices. The degree in the candidate union is therefore at most the reference degree at each query. Apply [@thm-complete-neighborhood-history] to recover the full transcript and [@thm-alternating-undirected-completion-law] to count and normalize its event. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-weld-completion-fresh-neighbor title="A fresh weld neighbor with prescribed edges" lean="D5/S3/Combinatorics/Graph/Queries/AlternatingWeldQueryBound.weld_neighbor_mass_le"}
+Split a finite set of at least three vertices into two color classes of size $n$. Let $F$ be a simple graph that extends to an undirected alternating full cycle, and write $f=|E(F)|$. Suppose $f+2\le n$. Draw uniformly among these completions. For a vertex $x$ and a finite target set $S$, the probability that some edge from $x$ to $S$ lies in the completion and outside $F$ is at most
+
+$$
+\frac{2|S|}{n-f-1}.
+$$
+
+:::
+
+::: proof
+Use [@thm-alternating-weld-orientation] to orient the completion and condition on the orientation of $F$. The directed successor estimate bounds the chance of a fresh outgoing edge into $S$ in every such fiber. The same bound holds for an incoming edge by reversal. Every fresh undirected edge is included in the union of those two events. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-weld-query-prefix-bound title="A fresh weld edge after a complete unordered query transcript" lean="D5/S3/Combinatorics/Graph/Queries/AlternatingWeldQueryBound.weld_query_prefix_bound"}
+Use the uniform alternating weld and the complete unordered query model of [@thm-unordered-weld-transcript-law]. Fix a reference transcript of positive probability containing $q$ actual calls, with a reference cycle disjoint in edges from the fixed graph. Let $F$ be the weld edges recorded in that transcript. If $2q+2\le n$, then for any fixed leaf $x$ and set $S$ of leaves, the conditional probability of a weld edge from $x$ to a leaf in $S$ that is absent from $F$ is at most
+
+$$
+\frac{2|S|}{n-2q-1}.
+$$
+:::
+
+::: proof
+Each call records at most two additional weld edges. Given the reference transcript, the weld is uniform over the completions of $F$. Orient a uniform completion and condition on the prescribed directions of the edges of $F$. A fresh outgoing arc of $x$ joins the tail of its component to a head in a different component. The target vertices belong to at most $|S|$ distinct components, so [@thm-alternating-forest-successor-bound] bounds the outgoing probability on each orientation fiber. Averaging recovers the full law on oriented completions. Reversal gives the same bound for incoming arcs, and the union of the two events gives the undirected bound. The full proof is checked by the Lean kernel.
+:::
+
 **Which bridges to a classical oracle lower bound remain?** [@thm-directed-forest-cycle-completion] gives the ordinary directed model's static uniform law, and [@thm-alternating-forest-classification] counts the alternating completions, with the conditional law given by [@thm-alternating-completion-law]. Three distinctions separate them from the glued-trees result in [@rem-qsvt-walks-literature]:
 
 1. **Graph distribution and orientation.** Ben-David et al. (*SIAM Journal on Computing* **53**(6), 2024, [doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975), §6.3.2, Lemmas 6.11–6.13, PDF pages 37–39) use one uniform cycle on each side's leaves for the self-weld, and a uniform alternating cycle between the two sides for the weld. [@thm-alternating-forest-classification] gives the alternating completion counts, and [@thm-alternating-completion-law] gives the fixed-edge event mass and conditional law. For ordinary undirected full cycles, [@thm-undirected-cycle-orientation-fibers] now identifies orientations and representation multiplicities over the same actual completed graph: each fiber is exactly a pair of reversed lifts, with edge-insertion events preserved. [@thm-uniform-undirected-cycle-completion] gives the uniform law for ordinary undirected completions of a fixed $F$. [@thm-alternating-connector-mass] gives the conditional probability of a specified connector, and [@thm-alternating-successor-set-bound] bounds the probability of a whole set of candidate successors. [@thm-alternating-forest-successor-bound] gives the resulting estimate in terms of the number of prescribed directed edges. [@thm-alternating-undirected-completion-law] gives the ambient count and fixed-edge conditional law for undirected alternating cycles. [@thm-alternating-weld-orientation] puts the directed and undirected weld completions on one probability space.
