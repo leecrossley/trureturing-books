@@ -608,10 +608,32 @@ $$
 
 还可以在运行中途拿到下一次查询。对长度 $i$ 的真实前缀，沿每项回答重放策略。如果策略已经停止，下一次查询为空，否则它就是记录中从零开始编号为 $i$ 的查询。这一步由 [`nextQuery_of_prefix`](lean:D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.nextQuery_of_prefix) 给出。由此可以对每个前缀应用 [@thm-named-neighborhood-fresh-name-hit] 的单步概率，再研究整个预算内的 $\Pr(E)$。
 
+现在把单步命中率合成整个运行的概率。仍固定有限简单图和初始给定的名字及其顶点对应，从保留这些对应的单射中均匀抽取命名。设名字总数为 $|N|$，顶点数为 $|V|$，初始已知名字集为 $S_0$。最初尚可猜测的名字有 $L=|N|-|S_0|$ 个，其中 $D=|N|-|V|$ 个未命名任何顶点。令 $r=\min(q,L)$。
+
+::: {.theorem #thm-fresh-name-budget-survival title="自适应猜中新名字的超几何上界" lean="D5/S3/Combinatorics/Graph/Queries/FreshNameGuessBound.fresh_guess_survival_ge"}
+在上述分布下，确定性策略可根据完整无序邻居回答或未命中标记选择下一次查询。将运行截断在至多 $q$ 次查询。每次成功查询的名字都在被查询前已经知晓的概率至少为
+$$
+\frac{\binom{D}{r}}{\binom{L}{r}}.
+$$
+因此，在该预算内猜中至少一个当时未知的名字的概率至多为一减去这个比值。
+:::
+
+::: proof
+把此前尚未猜中新名字的命名按实际前缀分组。每组的下一次查询固定。若查询已经知晓的名字、重复查询已知无效的名字，或策略已经停止，该组在这一步全部保留。否则，若已有 $d$ 个起初未知的有效名字被揭露，且记录中有 $b$ 个不同的未命中名字，[@thm-named-neighborhood-fresh-name-hit] 给出的命中率为 $(L-D-d)/(L-d-b)$。走过 $i$ 次查询时有 $b\le i$。在 $i<D$ 时，该命中率至多为 $(L-D)/(L-i)$。对各组求和，每步的条件存活率至少为 $(D-i)/(L-i)$。将这些下界相乘得到所给比值。若 $r>D$，分子为零。若起初全部有效名字都已知，运行始终满足所求事件。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-fresh-name-budget-attainment title="依次试探互异名字达到上界" lean="D5/S3/Combinatorics/Graph/Queries/FreshNameGuessBound.exists_strategy_attaining_guess_survival"}
+在 [@thm-fresh-name-budget-survival] 的同一模型和预算下，存在一个每条分支至多查询 $q$ 次的确定性策略，使该概率恰好等于 $\binom{D}{r}/\binom{L}{r}$。
+:::
+
+::: proof
+选定 $r$ 个互异的初始未知名字，按固定顺序查询，首次命中即停止。所有查询都未命中的充要条件是所抽命名避开整个名单。未命名顶点的注入计数给出恰好上述比值。完整证明由 Lean 内核检查。
+:::
+
 **通向经典黑盒下界仍需哪些桥梁？** [@thm-directed-forest-cycle-completion] 给出普通有向模型的静态均匀律，[@thm-alternating-forest-classification] 给出交替模型的补全计数，[@thm-alternating-completion-law] 给出固定边集的条件律。它们与 [@rem-qsvt-walks-literature] 的黏合树结果之间还有三层区别：
 
 1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出交替模型中不同分量之间指定连接的条件概率。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。
 2. **条件信息。** 固定边集的概率律以 $E$ 中的边全部出现为条件。标号固定且回答给出完整的无序邻居集合时，[@thm-complete-neighborhood-history] 把记录事件刻画为边包含与度数上界。当候选图逐点度数相同时，记录事件等同于固定边集出现。每个顶点使用固定次序时，有序记录的似然见 [@thm-fixed-neighbor-order-likelihood]。在固定图上，[@thm-uniform-remaining-name-hit] 给出固定部分命名下的命中概率，[@thm-named-neighborhood-fresh-name-hit] 给出实际无序记录下的新名字命中概率。带颜色或同时使用端口与随机命名的条件律还需证明。
 3. **查询、嵌入与成功事件。** Childs 等人 [quant-ph/0209131v2 第 IV 节](https://arxiv.org/abs/quant-ph/0209131v2) 先处理猜中新名字、颜色与已知名字查询的游戏转换，再转向树的随机嵌入，最后分别控制碰撞和 `EXIT` 事件，才得到原文 Theorem 9。Ben-David 等人脚注 14 特别说明：一次回答全部邻居的查询对应嵌入树中的 $O(t)$ 个顶点，并非严格 $t$ 个。其印刷论证中的分量下界 $2^k-2t$、配对界 $2/(2^k-2t)$ 与式 (6.4) 的 $O(t^2/(2^k-t))$ 各按原文保留；这里不将它们拼成未经证明的显式常数或参数范围。
 
-因此，普通收缩律提供静态计数与条件概率环节，交替结果给出实际载体上的分类、计数和固定边集的条件律，[@thm-undirected-cycle-orientation-fibers] 则以书面证明给出普通无向整圈的同图定向纤维、反向取商与加边对应。普通无向补全律见 [@thm-uniform-undirected-cycle-completion]。实际命名记录给出固定图上的单步命中率。随机图与名字的联合条件律、整个预算内的命中概率、查询复杂度和完整经典 `EXIT` 下界仍待证明。[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11) 的更广范围仍未完成。下一节转到量子一侧，考察已经明确给定的加权路径及其端点概率。
+因此，普通收缩律提供静态计数与条件概率环节，交替结果给出实际载体上的分类、计数和固定边集的条件律，[@thm-undirected-cycle-orientation-fibers] 则以书面证明给出普通无向整圈的同图定向纤维、反向取商与加边对应。普通无向补全律见 [@thm-uniform-undirected-cycle-completion]。实际命名记录给出固定图上的单步命中率。整个查询预算内的新名命中界见 [@thm-fresh-name-budget-survival]，[@thm-fresh-name-budget-attainment] 给出达到该界的策略。随机图与名字的联合条件律、查询复杂度和完整经典 `EXIT` 下界仍待证明。[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11) 的更广范围仍未完成。下一节转到量子一侧，考察已经明确给定的加权路径及其端点概率。
