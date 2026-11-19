@@ -630,10 +630,31 @@ $$
 选定 $r$ 个互异的初始未知名字，按固定顺序查询，首次命中即停止。所有查询都未命中的充要条件是所抽命名避开整个名单。未命名顶点的注入计数给出恰好上述比值。完整证明由 Lean 内核检查。
 :::
 
+::: {.theorem #thm-alternating-successor-set-bound title="相容整圈的后继集合概率上界" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
+对有限的分量标签集，每个标签 $A$ 各有一个源颜色 $s(A)$ 和一个目标颜色 $d(A)$，两种源颜色各至少出现两次。假设至少存在一个对每个标签 $A$ 都满足 $s(\pi(A))=d(A)$ 的整圈置换 $\pi$，并从这些置换中均匀抽样。固定标签 $A$ 和不含 $A$ 的目标集 $T$，令 $c_A$ 为源颜色等于 $d(A)$ 的标签数。则
+
+$$
+\Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
+$$
+
+:::
+
+::: proof
+[@thm-alternating-connector-mass] 把指定连接的概率化为收缩前后计数的比值。颜色不相容时概率为零。颜色相容时，将收缩后的转移数代入比值，可得单个目标的概率至多为 $1/(c_A-1)$。再对 $T$ 中的目标求和。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-first-observed-cycle title="探索何时首次看到环" lean="D5/S3/Combinatorics/Graph/Queries/FirstObservedCycle.first_observed_cycle"}
+从有限简单图的根出发，每次查询沿已暴露边从根可达的一个顶点的完整邻居集。某一时刻的暴露图恰由原图中至少有一个端点已经被查询的边组成。设查询 $x$ 之前的暴露图无环。这次回答产生环，当且仅当 $x$ 此前未被查询，且 $x$ 有一个也尚未被查询、在查询前已从根可达的邻居。
+:::
+
+::: proof
+重复查询不增加边。首次查询 $x$ 时，新边恰好通向未查询的邻居。若其中某个邻居此前已经可达，这条边便闭合暴露图中的一条路径。否则，每个由新边触及的邻居原本都是孤立点，因为已暴露的每条边都接到某个先前查询过的顶点，而这些顶点都从根可达。新增边只接入叶子，暴露图仍然无环。完整证明由 Lean 内核检查。
+:::
+
 **通向经典黑盒下界仍需哪些桥梁？** [@thm-directed-forest-cycle-completion] 给出普通有向模型的静态均匀律，[@thm-alternating-forest-classification] 给出交替模型的补全计数，[@thm-alternating-completion-law] 给出固定边集的条件律。它们与 [@rem-qsvt-walks-literature] 的黏合树结果之间还有三层区别：
 
-1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出交替模型中不同分量之间指定连接的条件概率。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。
+1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出指定连接的条件概率，[@thm-alternating-successor-set-bound] 将它转化为整个候选后继集合的概率上界。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。
 2. **条件信息。** 固定边集的概率律以 $E$ 中的边全部出现为条件。标号固定且回答给出完整的无序邻居集合时，[@thm-complete-neighborhood-history] 把记录事件刻画为边包含与度数上界。当候选图逐点度数相同时，记录事件等同于固定边集出现。每个顶点使用固定次序时，有序记录的似然见 [@thm-fixed-neighbor-order-likelihood]。在固定图上，[@thm-uniform-remaining-name-hit] 给出固定部分命名下的命中概率，[@thm-named-neighborhood-fresh-name-hit] 给出实际无序记录下的新名字命中概率。带颜色或同时使用端口与随机命名的条件律还需证明。
-3. **查询、嵌入与成功事件。** Childs 等人 [quant-ph/0209131v2 第 IV 节](https://arxiv.org/abs/quant-ph/0209131v2) 先处理猜中新名字、颜色与已知名字查询的游戏转换，再转向树的随机嵌入，最后分别控制碰撞和 `EXIT` 事件，才得到原文 Theorem 9。Ben-David 等人脚注 14 特别说明：一次回答全部邻居的查询对应嵌入树中的 $O(t)$ 个顶点，并非严格 $t$ 个。其印刷论证中的分量下界 $2^k-2t$、配对界 $2/(2^k-2t)$ 与式 (6.4) 的 $O(t^2/(2^k-t))$ 各按原文保留；这里不将它们拼成未经证明的显式常数或参数范围。
+3. **查询、嵌入与成功事件。** Childs 等人 [quant-ph/0209131v2 第 IV 节](https://arxiv.org/abs/quant-ph/0209131v2) 先处理猜中新名字、颜色与已知名字查询的游戏转换，再转向树的随机嵌入，最后分别控制碰撞和 `EXIT` 事件，才得到原文 Theorem 9。[@thm-first-observed-cycle] 给出已知顶点探索中首次出现环的确定性判据，碰撞概率还取决于随机黏合图在实际查询记录下的条件分布。Ben-David 等人脚注 14 特别说明：一次回答全部邻居的查询对应嵌入树中的 $O(t)$ 个顶点，并非严格 $t$ 个。其印刷论证中的分量下界 $2^k-2t$、配对界 $2/(2^k-2t)$ 与式 (6.4) 的 $O(t^2/(2^k-t))$ 各按原文保留；这里不将它们拼成未经证明的显式常数或参数范围。
 
 因此，普通收缩律提供静态计数与条件概率环节，交替结果给出实际载体上的分类、计数和固定边集的条件律，[@thm-undirected-cycle-orientation-fibers] 则以书面证明给出普通无向整圈的同图定向纤维、反向取商与加边对应。普通无向补全律见 [@thm-uniform-undirected-cycle-completion]。实际命名记录给出固定图上的单步命中率。整个查询预算内的新名命中界见 [@thm-fresh-name-budget-survival]，[@thm-fresh-name-budget-attainment] 给出达到该界的策略。随机图与名字的联合条件律、查询复杂度和完整经典 `EXIT` 下界仍待证明。[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11) 的更广范围仍未完成。下一节转到量子一侧，考察已经明确给定的加权路径及其端点概率。
