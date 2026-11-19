@@ -732,10 +732,32 @@ $$
 
 设查询 $r$ 得到 $\{a,b,c\}$，再查询 $a$ 得到 $\{r,d\}$，五个名字互异。在四边形中，$a$ 可以指向 $0$ 的任一个环上邻居，$b,c$ 可以按两种次序分给其余两个邻居。在三角形中，$a$ 必须指向所接路径的内部顶点，而 $b,c$ 仍有两种次序。因此两类图的可行对应数分别为四和二。每张四边形图的后验概率为 $2/9$，每张三角形图的后验概率为 $1/9$，尽管六张图的先验概率相同，且在每个顶点的度数也相同。
 
+::: {.theorem #thm-alternating-weld-orientation title="黏合环及其方向的共同概率分布" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingWeldOrientationLaw.alternating_weld_orientation_law"}
+在至少有三个顶点且染有两色的有限底集上，固定一个可补全为交替无向整圈的简单图 $F$。交替有向补全的均匀分布在忘掉方向后给出 $F$ 的交替无向补全的均匀分布。每个给定方向含有 $|F|$ 条弧，其中 $|F|$ 是无向边数。给定一个有正概率的方向，完整后继排列在补全该有向关系的所有交替有向整圈中均匀分布。将任一这样的有向补全放回原来的样本空间，保留给定边的方向及完整后继排列。
+:::
+
+::: proof
+无向补全恰有两个互为反向的提升，且忘掉方向前后的交替条件等价。两种分布各自给定交替事件后仍保持投影关系。$F$ 的每条边恰好取得一个方向。固定这些方向后，纤维与该有向关系的交替补全一一对应，而双射保留均匀性。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-unordered-weld-transcript-law title="完整无序查询记录下的黏合环条件分布" lean="D5/S3/Combinatorics/Graph/Queries/UnorderedWeldTranscript.weld_transcript_law"}
+用一个单射将两组互不相交的叶子嵌入固定有限图的顶点集，每组有 $n\ge2$ 个叶子。在叶子上均匀抽取一个交替无向整圈，并将其加入固定图。确定性自适应协议查询顶点，每次得到完整的无序邻居集。固定一个参考交替无向整圈，要求其嵌入后的边与固定图的边互不相交。从参考记录所报告的边中删去固定图的边，再沿单射拉回叶子集，得到图 $F$。
+
+候选整圈产生参考记录的充要条件是它包含 $F$。设共有 $M$ 个无向交替整圈包含 $F$，则参考记录出现的概率是
+$$
+\frac{M}{n!(n-1)!/2}.
+$$
+若记录的概率为正，给定这份记录的黏合环在这些补全上均匀分布。
+:::
+
+::: proof
+重放参考记录必须保留其中每条非固定边。这些边的两个端点都来自叶子集。反过来，包含 $F$ 保证并图包含记录中的所有边。参考整圈在每个叶子处增加两条固定图以外的边，在其他顶点处增加零条。因此候选并图在每个查询点的度数不超过参考并图。应用 [@thm-complete-neighborhood-history] 得到整份记录相同，再用 [@thm-alternating-undirected-completion-law] 计算概率并归一化。完整证明由 Lean 内核检查。
+:::
+
 **通向经典黑盒下界仍需哪些桥梁？** [@thm-directed-forest-cycle-completion] 给出普通有向模型的静态均匀律，[@thm-alternating-forest-classification] 给出交替模型的补全计数，[@thm-alternating-completion-law] 给出固定边集的条件律。它们与 [@rem-qsvt-walks-literature] 的黏合树结果之间还有三层区别：
 
-1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出指定连接的条件概率，[@thm-alternating-successor-set-bound] 将它转化为整个候选后继集合的概率上界。[@thm-alternating-forest-successor-bound] 将这个上界写成给定有向边数的函数。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。
-2. **条件信息。** 固定边集的概率律以 $E$ 中的边全部出现为条件。标号固定且回答给出完整的无序邻居集合时，[@thm-complete-neighborhood-history] 把记录事件刻画为边包含与度数上界。当候选图逐点度数相同时，记录事件等同于固定边集出现。每个顶点使用固定次序时，有序记录的似然见 [@thm-fixed-neighbor-order-likelihood]。在固定图上，[@thm-uniform-remaining-name-hit] 给出固定部分命名下的命中概率，[@thm-named-neighborhood-fresh-name-hit] 给出实际无序记录下的新名字命中概率。图与名字同时随机时，[@thm-joint-named-transcript-posterior] 给出实际完整无序记录下的图后验。带颜色或同时使用端口与随机命名的条件律还需证明。
+1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出指定连接的条件概率，[@thm-alternating-successor-set-bound] 将它转化为整个候选后继集合的概率上界。[@thm-alternating-forest-successor-bound] 将这个上界写成给定有向边数的函数。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。 [@thm-alternating-weld-orientation] 把有向与无向黏合补全放在同一个概率空间中。
+2. **条件信息。** 固定边集的概率律以 $E$ 中的边全部出现为条件。标号固定且回答给出完整的无序邻居集合时，[@thm-complete-neighborhood-history] 把记录事件刻画为边包含与度数上界。当候选图逐点度数相同时，记录事件等同于固定边集出现。每个顶点使用固定次序时，有序记录的似然见 [@thm-fixed-neighbor-order-likelihood]。在固定图上，[@thm-uniform-remaining-name-hit] 给出固定部分命名下的命中概率，[@thm-named-neighborhood-fresh-name-hit] 给出实际无序记录下的新名字命中概率。图与名字同时随机时，[@thm-joint-named-transcript-posterior] 给出实际完整无序记录下的图后验。带颜色或同时使用端口与随机命名的条件律还需证明。 [@thm-unordered-weld-transcript-law] 给出实际无序回复前缀下的无向黏合环条件分布。
 3. **查询、嵌入与成功事件。** Childs 等人 [quant-ph/0209131v2 第 IV 节](https://arxiv.org/abs/quant-ph/0209131v2) 先处理猜中新名字、颜色与已知名字查询的游戏转换，再转向树的随机嵌入，最后分别控制碰撞和 `EXIT` 事件，才得到原文 Theorem 9。[@thm-first-observed-cycle] 给出已知顶点探索中首次出现环的确定性判据，碰撞概率还取决于随机黏合图在实际查询记录下的条件分布。在入口度数为二、最大度数为三的模型中，[@thm-known-name-exploration-size] 给出 $q$ 次实际黑盒调用后的已知名字数上界 $1+2q$。Ben-David 等人脚注 14 特别说明：一次回答全部邻居的查询对应嵌入树中的 $O(t)$ 个顶点，并非严格 $t$ 个。其印刷论证中的分量下界 $2^k-2t$、配对界 $2/(2^k-2t)$ 与式 (6.4) 的 $O(t^2/(2^k-t))$ 各按原文保留；这里不将它们拼成未经证明的显式常数或参数范围。
 
 因此，普通收缩律提供静态计数与条件概率环节，交替结果给出实际载体上的分类、计数和固定边集的条件律，[@thm-undirected-cycle-orientation-fibers] 则以书面证明给出普通无向整圈的同图定向纤维、反向取商与加边对应。普通无向补全律见 [@thm-uniform-undirected-cycle-completion]。实际命名记录给出固定图上的单步命中率。整个查询预算内的新名命中界见 [@thm-fresh-name-budget-survival]，[@thm-fresh-name-budget-attainment] 给出达到该界的策略。查询复杂度和完整经典 `EXIT` 下界仍待证明。[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11) 的更广范围仍未完成。下一节转到量子一侧，考察已经明确给定的加权路径及其端点概率。
