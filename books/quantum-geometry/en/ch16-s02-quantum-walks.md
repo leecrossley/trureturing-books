@@ -588,10 +588,12 @@ At a touched position the first specified value fixes one of the two orders. A s
 :::
 
 ::: {.theorem #thm-partial-forward-order-posterior title="The posterior for a partial forward-order observation" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_posterior"}
-Let a world drawn from a probability mass function $\pi$ determine the available pair at each position. Draw the local orders independently of the world. Let $C$ be the set of worlds compatible with a fixed observation $E$. If $E$ has positive probability, then for every set of worlds $B$,
+Let a world drawn from a probability mass function $\pi$ determine the available pair at each position. Draw the local orders independently and uniformly, independently of the world. Let $C$ be the set of worlds compatible with a fixed observation $E$. If $E$ has positive probability, then for every set of worlds $B$,
+
 $$
 \Pr(B\mid E)=\frac{\pi(B\cap C)}{\pi(C)}.
 $$
+
 :::
 
 ::: proof
