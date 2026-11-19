@@ -147,6 +147,19 @@
 第 1 款分别由有限连通非空有向边简单图上欧拉示性数 $V - E + F = 2$ 的边邻接展开与秩—零化度计数、任意二上链 $F : V^3 \to A$ 上的锚点双重计数及鸽巢平均与固定参考顶点收缩同伦修复界、以及自旋因子带定向符号分类给出（并参 [@thm-ch39-axiom-omega-ternary-closure-anchors] 第 3–4 款）。第 2 款前两项分别由半角连续商映射在连通区间上符号反变（排除连续全局右逆截面）、给定初始纤维上层点 $w_0$ 后任意连续底路径的覆盖空间提升唯一性，以及整圈闭回路 $\operatorname{Circle.exp}(2\pi t)$ 从初值 $+1$ 连续提升抵达对跖叶 $-1$ 的端点求值给出（见 [§38.3](ch39-s03-spinors-and-spacetime.md) [@thm-ch39-double-cover-no-section-and-720-lift]），后两项同 [@thm-ch39-axiom-omega-five-qm-postulates-anchors] 第 1 款，直接展开 $\operatorname{Tr}(\rho_v^2) = 1$ 并构造极角半角旋量原像。第 3 款第一项在实内积空间展开 $\lVert x \pm y\rVert^2 = \lVert x\rVert^2 \pm 2\langle x, y\rangle + \lVert y\rVert^2$ 相加消去交叉项（见 [第 1 章](ch01-measurement.md) [@thm-parallelogram-norm-law]）；第二项同 [@thm-ch39-least-action-geodesics-and-cosmos-ai-anchors] 第 1 款。第 4 款由 $\lVert u - v\rVert^2 = 2 - 2\operatorname{Re}\langle u, v\rangle_{\mathbb{K}}$ 配合柯西—施瓦茨虚部归零、诱导拓扑开邻域交核与解包 `ObjectiveInterpretationClaim` 直接证出（见 [§38.4](ch39-s04-orthogonal-self-folding.md)、[§38.5](ch39-s13-single-cosmic-field-and-indra-net.md#sec-ch39-single-cosmic-field-and-indra-net)）。完整证明由 Lean 内核检查。
 :::
 
+§39.4.3 第 3 条所引的两点齐性（`文献结果`）在单位四元数模型上有一个只用读数陈述、由内核验证的版本：左右平移 $z \mapsto p z q$ 保持读数，读数相同的两对点总能由某个左右平移互相送到。由于 $\kappa = \cos^2\frac{d_{S^3}}{2}$ 在 $d_{S^3} \in [0, \pi]$ 上严格单调，读数相同即测地距离相同（`手工推导`）。
+
+::: {.theorem #thm-ch39-axiom-omega-two-point-homogeneity title="单位四元数模型的两点齐性" lean="D5/S3/Quantum/AURICOmega/QuaternionTwoPointHomogeneity.kappa_mul_mul,D5/S3/Quantum/AURICOmega/QuaternionTwoPointHomogeneity.exists_mul_mul_eq_of_kappa_eq"}
+在单位四元数群 $\mathrm{Sp}(1)$ 上取读数 $\kappa(x, y) = \frac{1 + \langle x, y\rangle}{2}$（[@thm-ch39-axiom-omega-rank-five-unit-quaternion-embedding] 第 3 款的模型），其中 $\langle -, -\rangle$ 为 $\mathbb{H} \cong \mathbb{R}^4$ 上的标准实内积。则：
+
+1. 对一切 $p, q, x, y \in \mathrm{Sp}(1)$，$\kappa(p x q,\, p y q) = \kappa(x, y)$；
+2. 对一切 $x, y, x', y' \in \mathrm{Sp}(1)$，若 $\kappa(x, y) = \kappa(x', y')$，则存在 $p, q \in \mathrm{Sp}(1)$ 使 $p x q = x'$ 且 $p y q = y'$。
+:::
+
+::: proof
+第 1 款：在该模型中 $p x = [p, 1, x]$，$x q = [x, 1, q]$，所以 $p x q$ 由 $x$ 先经左侧迁移、再经右侧迁移得到，两步都保持读数（法则 II 的双侧迁移不变）。第 2 款：由第 1 款取 $p = x^{-1}$、$q = 1$，得 $\kappa(x, y) = \kappa(1, x^{-1}y) = \frac{1 + \operatorname{Re}(x^{-1}y)}{2}$，所以读数相同意味着商 $a := x^{-1}y$ 与 $a' := x'^{-1}y'$ 的实部相同，从而虚部 $v, v'$ 的模长也相同。这样的两个单位四元数由一个单位四元数共轭相连：当 $v' \neq -v$ 时，$w := \lVert v\rVert^2 - v' v$ 非零且满足 $w a = a' w$；当 $v' = -v$ 时，任取与 $v$ 正交的非零纯虚四元数为 $w$，它与 $v$ 反交换，同样有 $w a = a' w$。令 $c := w/\lVert w\rVert$，则 $c a = a' c$。取 $p := x' c x^{-1}$、$q := c^{-1}$，则 $p x q = x'$，$p y q = x'\,(c\,a)\,c^{-1} = x' a' = y'$。完整证明由 Lean 内核检查。
+:::
+
 ::: {.remark #rem-ch39-no-exterior-topology-literature-and-coda-harmony title="平行化球面、斯格明子拓扑孤子、希高德分解、惠施“大一/小一”文献及与终章《在所有的球之外》的双层和谐说明"}
 **文献归属与“本体无外 vs. 有限分辨率多面体近似与条件对角逃逸”层级辨析。**
 

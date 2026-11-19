@@ -171,6 +171,29 @@ $$
 玻恩概率是 $(2\kappa_{S^3} - 1)^2$ 沿盲区纤维的最大值，也是其纤维平均的两倍。由 [@rem-ch39-axiom-omega-round-trip-closing-law] 的往返律，$(2\kappa(w, x) - 1)^2 = \kappa\bigl(w, [x, w, x]\bigr)$，所以玻恩概率又等于沿盲区纤维取最大的往返读数 $\max_\chi \kappa\bigl(\phi, [e^{\hat{\mathbf{i}}\chi}\psi, \phi, e^{\hat{\mathbf{i}}\chi}\psi]\bigr)$；§39.3.2 所说“往返双投影”在母核上的精确含义即此。玻恩权重因而是母核在时钟（盲区相位）作用下的领头不变量，这一恒等式是 `手工推导`；把它读作概率是一项约定，把纯态读作时钟轨道（盲区纤维）是单个系统层面的一项选择，二者都标为 `MODEL`。
 :::
 
+上一条注记中的恒等式在单位四元数模型上有内核验证的版本：在纤维上相隔四分之一圈的两点各取一次读数，平方后相加，所得的两项和只依赖霍普夫像，对相位不变，经旋量坐标等于玻恩权重。定理只陈述这些恒等式；把射线读作态、把这个量读作概率，仍是上一条注记所说的 `MODEL`。
+
+::: {.theorem #thm-ch39-axiom-omega-ray-kernel-born-weight title="单位四元数模型上的射线核：霍普夫像、相位不变与玻恩权重" lean="D5/S3/Quantum/AURICOmega/QuaternionRayKernel.rayKernel_eq_hopf,D5/S3/Quantum/AURICOmega/QuaternionRayKernel.rayKernel_mul_phase_left,D5/S3/Quantum/AURICOmega/QuaternionRayKernel.rayKernel_mul_phase_right,D5/S3/Quantum/AURICOmega/QuaternionRayKernel.rayKernel_eq_one_iff,D5/S3/Quantum/AURICOmega/QuaternionRayKernel.rayKernel_eq_bornProbability_spinor"}
+在单位四元数群 $\mathrm{Sp}(1)$ 上取读数 $\kappa(x, y) = \frac{1 + \langle x, y\rangle}{2}$（[@thm-ch39-axiom-omega-rank-five-unit-quaternion-embedding] 第 3 款的模型），其中 $\langle -, -\rangle$ 为 $\mathbb{H} \cong \mathbb{R}^4$ 上的标准实内积。四元数写作 $q = q_0 + q_1 i + q_2 j + q_3 k$，$\bar{q}$ 为其共轭，$\hat{\mathbf{i}}$ 为复数单位。定义：
+
+- 霍普夫像 $h(x) := x\,i\,\bar{x} \in \mathbb{H}$（$x \in \mathrm{Sp}(1)$）；
+- 射线核 $R(x, y) := \bigl(2\kappa(x, y) - 1\bigr)^2 + \bigl(2\kappa(x, y\,i) - 1\bigr)^2$（$x, y \in \mathrm{Sp}(1)$）；
+- 称 $c \in \mathrm{Sp}(1)$ 为相位，若 $c_2 = c_3 = 0$；
+- $s : \mathbb{H} \to \mathbb{C}^2$ 为实线性等距双射 $s(q) := \bigl(q_0 + q_1\hat{\mathbf{i}},\; -q_2 + q_3\hat{\mathbf{i}}\bigr)$；
+- 对 $v = (v_1, v_2) \in \mathbb{C}^2$，$P_v$ 为 $2 \times 2$ 复矩阵 $(P_v)_{mn} = v_m\bar{v}_n$；对 $v, w \in \mathbb{C}^2$，$\langle v \mid w\rangle := \bar{v}_1 w_1 + \bar{v}_2 w_2$；对 $2 \times 2$ 复矩阵 $A$，$\operatorname{bloch}(A) := \bigl(2\operatorname{Re}A_{12},\; -2\operatorname{Im}A_{12},\; \operatorname{Re}A_{11} - \operatorname{Re}A_{22}\bigr) \in \mathbb{R}^3$。
+
+则对一切 $x, y \in \mathrm{Sp}(1)$：
+
+1. $R(x, y) = \frac{1 + \langle h(x), h(y)\rangle}{2}$；
+2. 对一切相位 $c$，$R(x c, y) = R(x, y)$ 且 $R(x, y c) = R(x, y)$；
+3. $R(x, y) = 1$ 当且仅当存在相位 $c$ 使 $y = x c$；
+4. 对一切 $q \in \mathbb{H}$ 有 $s(q\,i) = \hat{\mathbf{i}}\,s(q)$；$\operatorname{bloch}\bigl(P_{s(x)}\bigr) = \bigl(h(x)_3,\; h(x)_2,\; h(x)_1\bigr)$；$R(x, y) = \bigl\lvert\langle s(x) \mid s(y)\rangle\bigr\rvert^2$；且作为复数，$R(x, y) = \operatorname{Tr}\bigl(P_{s(y)}\,P_{s(x)}\bigr)$。
+:::
+
+::: proof
+第 1 款：$2\kappa(x, y) - 1 = \langle x, y\rangle$，故 $R(x, y) = \langle x, y\rangle^2 + \langle x, y\,i\rangle^2$；对任意四元数 $p, q$，按分量展开有齐次恒等式 $\langle p, q\rangle^2 + \langle p, q\,i\rangle^2 = \frac{1}{2}\bigl(\lVert p\rVert^2\lVert q\rVert^2 + \langle p\,i\,\bar{p},\, q\,i\,\bar{q}\rangle\bigr)$，代入单位范数即得。第 2 款：相位 $c$ 落在 $1$ 与 $i$ 张成的实平面内，与 $i$ 交换，故 $h(x c) = x\,c\,i\,\bar{c}\,\bar{x} = x\,i\,c\,\bar{c}\,\bar{x} = h(x)$，再用第 1 款。第 3 款：令 $c := \bar{x}\,y$，则 $y = x c$；按分量展开有 $c_2^2 + c_3^2 = \lVert x\rVert^2\lVert y\rVert^2 - \bigl(\langle x, y\rangle^2 + \langle x, y\,i\rangle^2\bigr) = 1 - R(x, y)$，所以 $R(x, y) = 1$ 恰好意味着 $c$ 是相位；反之由第 2 款 $R(x, x c) = R(x, x) = \frac{1 + \lVert h(x)\rVert^2}{2} = 1$。第 4 款：$q\,i = -q_1 + q_0 i + q_3 j - q_2 k$，逐分量核对得 $s(q\,i) = \hat{\mathbf{i}}\,s(q)$；$P_{s(x)}$ 的各元素与 $h(x)$ 的各分量直接展开比对，得布洛赫矢量的分量依次是 $h(x)$ 的 $k$、$j$、$i$ 分量；$s$ 是实线性等距，$\langle s(x) \mid s(y)\rangle$ 的实部与虚部的平方和恰为 $\langle x, y\rangle^2 + \langle x, y\,i\rangle^2$；最后由秩一迹公式 $\operatorname{Tr}(P_w P_v) = \lvert\langle v \mid w\rangle\rvert^2$ 得迹的形式。这里的两项和与 [@rem-ch39-axiom-omega-kappa-versus-born] 中“纤维上的最大值”“纤维平均的两倍”是同一个量：记 $\langle s(x) \mid s(y)\rangle = r e^{\hat{\mathbf{i}}\alpha}$，两项分别是 $r^2\cos^2\alpha$ 与 $r^2\sin^2\alpha$，和为 $r^2$。完整证明由 Lean 内核检查。
+:::
+
 ::: {.remark #rem-ch39-axiom-omega-physical-examples title="物理例子"}
 下列例子分三种身份：**精确实例**（某条定理的直接实例，恒等式为 `手工推导`，实验数据为 `文献结果`）、**公设下的实例**（依赖所列 `MODEL` 假设）与**类比**（`MODEL`，不作推论）。共同的恒等式是：绕单位轴 $n$ 转角 $\alpha$ 的自旋旋转 $U = e^{-\hat{\mathbf{i}}\alpha\,n\cdot\boldsymbol{\sigma}/2}$ 对每个旋量 $\psi$ 都有 $\operatorname{Re}\langle\psi\mid U\mid\psi\rangle = \cos\frac{\alpha}{2}$，所以 $\kappa(\psi, U\psi) = \cos^2\frac{\alpha}{4}$ 与态无关。运动学部分与标准量子力学完全一致，所以下列例子都不能区分母公理与标准量子力学；它们表明母公理中的量在何处被测量。
 
