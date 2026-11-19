@@ -275,7 +275,7 @@ Third, consumer transfer (`OriginalSpinConsumers.same_D_consequences`) transport
 
 ## F.5 Conditional Boundaries and Formal Audit Summary {#sec-appendix-f-5}
 
-Stepping back across Sections F.1–F.4—from recentering a planar quadratic disk, through face polarity on abstract exclusion-ball cones and explicit three-ball charts in the qutrit Hermitian cone, to the chiral classification and Pauli matrix interfaces on the four-dimensional spin factor—each verified link closes under explicitly typed hypotheses. To prevent any overreach across modules, the master ledger below records the exact assumptions, verified conclusions, and non-claim boundaries of all four `LEAN ✓` theorems in this appendix.
+Stepping back across Sections F.1–F.4—from recentering a planar quadratic disk, through face polarity on abstract exclusion-ball cones and explicit three-ball charts in the qutrit Hermitian cone, to the chiral classification and Pauli matrix interfaces on the four-dimensional spin factor—each verified link closes under explicitly typed hypotheses. To prevent any overreach across modules, the master ledger below records the exact assumptions, verified conclusions, and non-claim boundaries of the four results in F.1–F.4, each marked `LEAN ✓`.
 
 ::: {.remark #rem-appf-epistemic-boundary title="Conditional Boundaries and Formal Audit Table for Exclusion Balls, Face Polarity, and Spin-Factor Interfaces"}
 **Formal Audit Summary and Epistemic Non-Claim Boundaries.**
@@ -289,3 +289,36 @@ Stepping back across Sections F.1–F.4—from recentering a planar quadratic di
 
 Taken together, under this appendix's axioms this audit pinpoints two explicit (sufficient-direction) geometric thresholds separating generic convex state cones from complex quantum matrix mechanics: first, exclusion sets must shed polyhedral corners and admit strictly convex positive-dimensional Euclidean ball charts (`exclusionBalls`), realized inside the three-level complex Hermitian cone as three-dimensional qubit Bloch balls on orthogonal two-dimensional subspaces ([@thm-appf-exclusion-face-polarity], [@thm-appf-hermitian-exclusion-chart]); second, on a single four-dimensional spin-factor cone, passing from the symmetric real Jordan product to the noncommutative complex matrix algebra $M_2(\mathbb{C})$ uses two-point Gram positivity `P2` and quadrature phase balance `PB` to lock both the Euclidean cross-product norm and a global chiral orientation ([@thm-appf-spin-factor-classification]). Keeping every such hypothesis explicit honors the book's foundational epistemic contract.
 :::
+
+---
+
+## F.6 Affine Center Maps and a Bound on a Fixed Sphere {#sec-appendix-f-6}
+
+Let $K$ be the normalized base from F.2, $D_p$ the original exclusion ball of a pure state $p$, and $c_p$ its center. Two intersecting chords of $D_p$ express their common point as two binary mixtures of pure boundary states. Binary compatibility (BC) requires these mixtures still to agree after replacing each pure state by the center of its exclusion ball. BC ranges over all original pure states and both independent weights in $[0,1]$, including repeated endpoints and zero weights.
+
+::: {.theorem #thm-appf-whole-ball-center-graph title="The Whole-Ball Center Map and Its Rank" lean="D5/S3/Quantum/Foundation/BinaryCenterGraph.whole_ball_center_graph"}
+Assume the finite-dimensional real normed space, closed pointed generating cone, strictly positive normalization functional and positive-dimensional exclusion-ball charts of F.2. Assume BC. For each pure state $p$ and each $d$-dimensional chart of $D_p$, there is a unique affine map $g:\mathbb{R}^d\to V$ that sends each unit-sphere point to the exclusion-ball center of the corresponding pure state. The image of the closed unit ball lies in $K$. If $p$ is the only pure state with exclusion ball $D_p$, then $g$ is injective and its linear part has rank $d$. If another pure state has the same exclusion ball, then $g$ is constant.
+:::
+
+::: proof
+Interpolate the boundary center values along the chords of a chart. BC makes the value independent of the chord. Restricting to the chord through any two distinct points shows that the map is affine. The sphere affinely spans the chart space, giving uniqueness. A nonzero kernel direction would identify the centers at distinct antipodes. Two-point rigidity and the pairing of balls with repeated labels then identify one partner ball for both antipodes. When the label is repeated, every boundary point has that partner ball and hence the same center. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-appf-fixed-sphere-noncollapse title="A Positive Diameter Bound on a Fixed Exclusion Sphere" lean="D5/S3/Quantum/Foundation/BinaryCenterNoncollapse.fixed_sphere_noncollapse"}
+Assume the same cone hypotheses, three-dimensional charts for every original exclusion ball and BC for the resulting charts. Fix any pure state $p$, and let $S_p$ be the pure states on $D_p$. The minimum below is attained on $S_p$ and gives a strictly positive lower bound.
+
+$$
+\delta_p=2\min_{q\in S_p}\lVert p-c_q\rVert,\qquad
+\operatorname{diam}D_q\ge\delta_p\quad(q\in S_p).
+$$
+
+Every sequence of pure states $q_n$ with $\operatorname{diam}D_{q_n}\to0$ eventually avoids this fixed $S_p$. The result applies to singleton and repeated labels.
+:::
+
+::: proof
+The center varies continuously with the pure state on the sphere. The pure state $p$ differs from every nonpure center $c_q$, so the distance function attains a positive minimum on the compact sphere. Symmetry of exclusion gives $p\in D_q$. Central symmetry about $c_q$ places $2c_q-p$ in $D_q$ as well, giving two points at distance $2\lVert p-c_q\rVert$. The full proof is checked by the Lean kernel.
+:::
+
+The lower bound $\delta_p$ depends on the fixed ball. A uniform positive bound requires control of $\inf_p\delta_p$. Both results use exclusions defined by the original effects and the original normalized base.
+
+[Source manuscript XI §138.2 and §138.5](https://github.com/the-omega-institute/trureturing-source-theories/blob/2a39da5107abbfa3a72cc883486dbc15a15994a1/docs/develop/theory/QUANTUM_ORIGIN_EXCLUSION_SEGMENT_RIGIDITY_AND_PURE_LOCUS_TOPOLOGY_XI.md#L1289)

@@ -43,6 +43,7 @@ b^2 \le t(1 - t) \iff \left(t - \frac{1}{2}\right)^2 + b^2 \le \left(\frac{1}{2}
 $$
 :::
 
+
 ::: proof
 在实数域 $\mathbb{R}$ 中（常数分母 $2 \neq 0$），直接展开右端圆盘不等式的左半部并减去右半部：
 
@@ -289,3 +290,36 @@ $$
 
 综合上表可见，量子态空间之所以兼具“局部相干圆盘/布洛赫球截面”与“复矩阵非交换乘法”，在本附录的凸锥与关系公理下精确落定于两道显式门槛（充分条件方向）：第一，排除集必须摆脱多面体棱角而呈现严格凸的正维欧氏球结构（`exclusionBalls`），在三能级复厄米锥中体现为二维正交补子空间上的三维布洛赫球（[@thm-appf-exclusion-face-polarity]、[@thm-appf-hermitian-exclusion-chart]）；第二，在单个四维自旋因子锥上，若要从实对称约当积跨入复希尔伯特矩阵代数 $M_2(\mathbb{C})$，由二点格拉姆正性 `P2` 与相位平衡 `PB` 共同锁定空间三维叉积的模长与全局手征定向（[@thm-appf-spin-factor-classification]）。把每一道门槛如实标出，正是本书认识论诚实契约的题中之义。
 :::
+
+---
+
+## F.6 整球球心图与固定球缘下界 {#sec-appendix-f-6}
+
+设 $K$ 是 F.2 的归一化态底，$D_p$ 是纯态 $p$ 的原始排除球，$c_p$ 是该球的球心。取同一个 $D_p$ 中相交的两条弦。交点可以由两对球缘纯态各作一次二元凸组合得到。二元相容性（BC）要求把各纯态换成其排除球球心后，这两种凸组合仍给出同一点。这里的 BC 对所有原始纯态及两个独立的 $[0,1]$ 权重成立，允许端点重复和权重为零。
+
+::: {.theorem #thm-appf-whole-ball-center-graph title="整球球心图与秩二分" lean="D5/S3/Quantum/Foundation/BinaryCenterGraph.whole_ball_center_graph"}
+沿用 F.2 的有限维实赋范空间、闭尖凸锥、严格正归一化泛函、生成性和正维排除球图表，并设 BC 成立。对每个纯态 $p$ 及其任一维数为 $d$ 的排除球图表，存在唯一仿射映射 $g:\mathbb{R}^d\to V$，使单位球面上的点映到相应纯态的排除球球心。闭单位球的像包含在 $K$ 中。若 $p$ 是 $D_p$ 的唯一纯态标签，则 $g$ 单射且线性部分的秩为 $d$。若另有纯态标签具有相同的排除球，则 $g$ 为常值。
+:::
+
+::: proof
+在图表中沿弦延拓球缘上的球心值。BC 保证不同弦给出的值一致，而同一条直线与闭球的交仍是一条弦，因此所定义的图为仿射图。球面张成整个图表的仿射空间，给出唯一性。非零核方向会把两个不同的对径球缘点送到同一球心，两点相交刚性与重复标签的配对关系把这两个点所在的球识别为同一配对球。重复标签分支中，整个球缘都映向配对球的球心。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-appf-fixed-sphere-noncollapse title="固定排除球缘上的正直径下界" lean="D5/S3/Quantum/Foundation/BinaryCenterNoncollapse.fixed_sphere_noncollapse"}
+沿用上述锥条件，设每个原始排除球有三维图表，且对应的 BC 成立。固定任一纯态 $p$，记 $S_p$ 为 $D_p$ 上的纯态集合。下式的最小值在 $S_p$ 上取得，并给出严格为正的下界。
+
+$$
+\delta_p=2\min_{q\in S_p}\lVert p-c_q\rVert,\qquad
+\operatorname{diam}D_q\ge\delta_p\quad(q\in S_p).
+$$
+
+因此任一满足 $\operatorname{diam}D_{q_n}\to0$ 的纯态序列最终避开这个固定的 $S_p$。结论涵盖单标签与重复标签。
+:::
+
+::: proof
+球心随球缘上的纯态连续变化。纯态 $p$ 与非纯球心 $c_q$ 不同，所以紧球缘上的距离函数取得正最小值。排除的对称性给出 $p\in D_q$，而 $D_q$ 关于 $c_q$ 中心对称，因此 $2c_q-p$ 也在 $D_q$ 中。两点的距离为 $2\lVert p-c_q\rVert$。完整证明由 Lean 内核检查。
+:::
+
+$\delta_p$ 依赖预先固定的球。全域正下界需要控制 $\inf_p\delta_p$。这些结论使用原始效应定义的排除球和原始归一化态底。
+
+[原文 XI §138.2 与 §138.5](https://github.com/the-omega-institute/trureturing-source-theories/blob/2a39da5107abbfa3a72cc883486dbc15a15994a1/docs/develop/theory/QUANTUM_ORIGIN_EXCLUSION_SEGMENT_RIGIDITY_AND_PURE_LOCUS_TOPOLOGY_XI.md#L1289)
