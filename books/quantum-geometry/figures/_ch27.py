@@ -4,17 +4,11 @@ matrices of the chapter maps.
 
 A skeleton only draws what the chapter's proof block names: hypotheses (dashed, dim), steps with the
 Mathlib or source lemma that does them (neutral boxes, the lemma in monospace), and the frozen
-declaration the chapter cites with lean= (green). `lean_box` reads trureturing.lock.json and refuses a
+declaration the chapter cites with lean= (green). `lean_box` reads the resolved lock and refuses a
 declaration that is not there with kind "theorem", so green never lands on anything else.
 """
 
-import json
-from pathlib import Path
-
-from tbook import figkit
-
-ROOT = Path(__file__).resolve().parents[3]
-LOCK = ROOT / "trureturing.lock.json"
+from tbook import figkit, lean
 
 TITLE = 14
 CODE = 13
@@ -26,9 +20,9 @@ WIDTH = 460
 
 
 def lock_kind(gid: str) -> str | None:
-    decls = json.loads(LOCK.read_text(encoding="utf-8"))["declarations"]
-    d = decls.get(gid)
-    return d["kind"] if d else None
+    lock = lean.Lock.load()
+    declaration = lock.get(gid) if lock else None
+    return declaration.kind if declaration else None
 
 
 class Box:

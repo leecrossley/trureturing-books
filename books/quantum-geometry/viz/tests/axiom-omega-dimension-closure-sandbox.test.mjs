@@ -1,3 +1,4 @@
+import { readLock } from '../../../../tools/node/viz-common.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -293,7 +294,7 @@ check(
     same(entry.presets, Object.keys(CARDS)) && same(entry.lean.map((x) => x.gid), GIDS) &&
     entry.theory[0].href === '../zh/' + THEORY && entry.theory[0].href_en === '../en/' + THEORY
 );
-const lock = JSON.parse(fs.readFileSync(path.join(ROOT, 'trureturing.lock.json'), 'utf8'));
+const lock = readLock();
 check('every cited GID is a frozen theorem of the lock', GIDS.every((g) => lock.declarations[g] && lock.declarations[g].kind === 'theorem'));
 check('the evidence panel has argued, model and numerical boxes', ['lean argued', 'lean model', 'lean num'].every((c) => sources['index.html'].includes(`class="${c}"`)));
 check('the probe exposes state, calc and presets', /window\.AXIOM_OMEGA_DEBUG = Object\.freeze\(\{[\s\S]*get state\(\)[\s\S]*calc,[\s\S]*presets:/.test(sources['main.js']));

@@ -3,6 +3,7 @@
 // cosines and Van Oosterom–Strackee for the angles, step-by-step projected transport for the holonomy), never against
 // the page's own functions. Run alone:  node books/quantum-geometry/viz/tests/spherical-trihedron-cell.test.mjs
 // and once with VIZ_SLOW_FRAMES=1000 before trusting it.
+import { readLock } from '../../../../tools/node/viz-common.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -35,7 +36,7 @@ for (const [f, text] of Object.entries(src)) {
 const leanAttrs = [...src['index.html'].matchAll(/data-lean-gid="([^"]+)"/g)].map((m) => m[1]);
 check('source: every data-lean-gid is one of the six locked theorems', leanAttrs.length > 0 && leanAttrs.every((g) => GIDS.includes(g)), leanAttrs.filter((g) => !GIDS.includes(g)).join(' | '));
 check('source: all six locked theorems are cited', GIDS.every((g) => leanAttrs.includes(g)), GIDS.filter((g) => !leanAttrs.includes(g)).join(' | '));
-const lock = JSON.parse(fs.readFileSync(path.join(DIR, '..', '..', '..', '..', 'trureturing.lock.json'), 'utf8'));
+const lock = readLock();
 check('source: the six GIDs are theorems of trureturing.lock.json', GIDS.every((g) => lock.declarations[g] && lock.declarations[g].kind === 'theorem'), GIDS.filter((g) => !lock.declarations[g]).join(' | '));
 const cls = (name) => (src['index.html'].match(new RegExp(`class="(?:[^"]*\\s)?${name}(?:\\s[^"]*)?"`, 'g')) || []).length;
 check('source: every .zh fragment has its .en sibling (equal counts)', cls('zh') === cls('en') && cls('zh') > 20, `${cls('zh')} zh / ${cls('en')} en`);

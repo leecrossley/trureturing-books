@@ -1,5 +1,6 @@
 // MONAD//TILING: shared stage gates, then independent geometry, real matrices and oriented cell chains.
 // Run directly, with VIZ_PHASE1=1 for the cards:false gate, and with VIZ_SLOW_FRAMES=1000 for slow frames.
+import { readLock } from '../../../../tools/node/viz-common.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,7 +45,7 @@ for (const [file, text] of Object.entries(source)) {
   check(`source ${file}: zero hex/rgb/hsl colour literals`, literals.length === 0, literals.join(', '));
 }
 const cited = [...source['index.html'].matchAll(/data-lean-gid="([^"]+)"/g)].map((m) => m[1]);
-const lock = JSON.parse(fs.readFileSync(path.join(ROOT, 'trureturing.lock.json'), 'utf8'));
+const lock = readLock();
 check('source: exactly the six expected frozen theorem citations', GIDS.every((g) => cited.includes(g)) && cited.every((g) => GIDS.includes(g)));
 check('source: all six citations are locked theorems', GIDS.every((g) => lock.declarations[g]?.kind === 'theorem'));
 check('source: exactly the five experiment cards in order', JSON.stringify([...source['index.html'].matchAll(/data-preset="([^"]+)"/g)].map((m) => m[1])) === JSON.stringify(CARDS));

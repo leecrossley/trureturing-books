@@ -20,7 +20,7 @@ en = "Monographs that distinguish Lean kernel verification, written proofs, and 
 [trureturing]
 # 形式化代码所在仓库。Lean 验证结果引用这里已冻结的声明；书面证明与开放问题另行标明。
 repo = "the-omega-institute/trureturing"
-# `./tbook pin` 不带参数时跟随的分支。所钉的确切提交记录在 trureturing.lock.json。
+# `./tbook pin` 不带参数时跟随的分支。当前锁文件记录分支。构建时解析的确切提交记录在站点清单。
 branch = "dev"
 
 [books]

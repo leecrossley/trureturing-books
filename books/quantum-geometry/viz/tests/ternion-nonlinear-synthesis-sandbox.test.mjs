@@ -1,3 +1,4 @@
+import { readLock } from '../../../../tools/node/viz-common.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -298,7 +299,7 @@ check(
     entry.theory[0].href === '../zh/' + THEORY &&
     entry.theory[0].href_en === '../en/' + THEORY
 );
-const lock = JSON.parse(fs.readFileSync(path.join(ROOT, 'trureturing.lock.json'), 'utf8'));
+const lock = readLock();
 check('all eight GIDs are frozen theorems of the pinned commit', GIDS.every((g) => lock.declarations[g] && lock.declarations[g].kind === 'theorem'));
 
 /* ---------- helpers on the page ---------- */
