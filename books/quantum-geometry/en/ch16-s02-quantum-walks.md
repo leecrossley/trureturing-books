@@ -674,7 +674,7 @@ A repeated query adds no edges. For a first query at $x$, its new edges are prec
 A collision witness can end with several edges of a fixed binary tree after its last weld edge. The following sum groups the possible leaf endpoints of that weld edge by their distance from the vertex where the two paths meet.
 
 ::: {.theorem #thm-binary-tree-weighted-leaf-distance title="The total dyadic weight of the leaves of a complete binary tree" lean="D5/S3/Combinatorics/Graph/Queries/BinaryTreeLeafDistance.weighted_leaf_distance"}
-Identify the vertices of a complete binary tree of depth $k$ with bit strings of length at most $k$. Joining a string to each of its one-bit extensions gives the tree edges. For a vertex $z$ of depth $d$ and each depth-$k$ leaf $y$, let $d_{\rm tree}(z,y)$ be their graph distance. Then
+Identify the vertices of a complete binary tree of depth $k$ with bit strings of length at most $k$. Two vertices are adjacent exactly when one string extends the other by one bit. For a vertex $z$ of depth $d$ and each depth-$k$ leaf $y$, let $d_{\rm tree}(z,y)$ be their graph distance. Then
 
 $$
 \sum_{|y|=k} 2^{-d_{\rm tree}(z,y)}

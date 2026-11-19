@@ -676,7 +676,7 @@ $$
 碰撞路径越过最后一条焊边后，还可能沿固定二叉树走若干步。下面的求和按树内距离归类这条焊边的落点，距离从两条路径相遇的顶点算起。
 
 ::: {.theorem #thm-binary-tree-weighted-leaf-distance title="完全二叉树所有叶子的二进权重和" lean="D5/S3/Combinatorics/Graph/Queries/BinaryTreeLeafDistance.weighted_leaf_distance"}
-将深度为 $k$ 的完全二叉树的顶点标为长度至多为 $k$ 的二进制串，每个串与它的两个一位延拓相连。设 $z$ 的深度为 $d$，$d_{\rm tree}(z,y)$ 为 $z$ 到深度为 $k$ 的叶子 $y$ 的图距离。则
+将深度为 $k$ 的完全二叉树的顶点标为长度至多为 $k$ 的二进制串，两个顶点相邻当且仅当其中一个串是另一个串的一位延拓。设 $z$ 的深度为 $d$，$d_{\rm tree}(z,y)$ 为 $z$ 到深度为 $k$ 的叶子 $y$ 的图距离。则
 
 $$
 \sum_{|y|=k} 2^{-d_{\rm tree}(z,y)}
