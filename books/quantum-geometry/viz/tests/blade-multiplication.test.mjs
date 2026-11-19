@@ -5,6 +5,7 @@
 // window.BX_DEBUG and checks every claim against an independent computation written here: 2 × 2 complex matrices
 // (e₁ ↦ X, e₂ ↦ Y, e₃ ↦ Z, and the words Xᵃ Zᵇ), the product identified by searching all ± blades (no XOR, no
 // inversion formula), inversions counted pair by pair in the joined index string, and B(a) from “Rewriting and XOR” squared.
+import { readLock } from '../../../../tools/node/viz-common.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,7 +13,7 @@ import { session, stageFirstChecks, settle, until, cjkLeftovers } from '../../..
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '..', '..');
 const BOOK = 'quantum-geometry', ID = 'blade-multiplication';
-const lock = JSON.parse(fs.readFileSync(path.join(ROOT, 'trureturing.lock.json'), 'utf8'));
+const lock = readLock();
 const chapter = fs.readFileSync(path.join(ROOT, 'books', BOOK, 'zh', 'ch25-rewriting-and-xor.md'), 'utf8');
 
 /* ---------- independent algebra: complex 2 × 2 matrices ---------- */
