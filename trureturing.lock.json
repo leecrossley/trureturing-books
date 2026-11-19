@@ -3,7 +3,7 @@
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
   "commit": "ebfa30d57ed131bc1acc5cee261975594999281b",
-  "pinned_at": "2026-11-19T13:11:44Z",
+  "pinned_at": "2026-11-19T13:22:35Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1236,6 +1236,14 @@
       "statement_id": "sha256:bf77cd8b966db22d542a0a49adabcecce29ed191bf139518c9465306173f3f75",
       "line": 161,
       "signature": "theorem component_path_order [Finite V] (E : V → V → Prop) (hout : Relator.RightUnique E) (hin : Relator.LeftUnique E) (ha : ∀ x, ¬ TransGen E x x) (A : Component E) : ∃! e : Fin (Nat.card (ComponentFiber E A)) ≃ ComponentFiber E A, ∀ i j, E (e i).1 (e j).1 ↔ i.1 + 1 = j.1"
+    },
+    "D5/S3/Combinatorics/Graph/LinearForests/UndirectedCycleCompletionLaw.uniform_undirected_completion": {
+      "module": "D5/S3/Combinatorics/Graph/LinearForests/UndirectedCycleCompletionLaw",
+      "name": "D5.S3.Combinatorics.Graph.LinearForests.UndirectedCycleCompletionLaw.uniform_undirected_completion",
+      "kind": "theorem",
+      "statement_id": "sha256:4ffbf8026bb18962f97ec22c5c4dc518f07e1a4405860e2005be34d617c4eab1",
+      "line": 328,
+      "signature": "theorem uniform_undirected_completion (hn : 3 ≤ Fintype.card V) (F : SimpleGraph V) (hF : Nonempty (CompletedGraph F)) : ∃ (μ : PMF (Lift F)) (ν : PMF (CompletedGraph F)), (∀ l, μ l = (Nat.card (Lift F) : ℝ≥0∞)⁻¹) ∧ (∀ C, ν C = (Nat.card (CompletedGraph F) : ℝ≥0∞)⁻¹) ∧ μ.map (forget hn) = ν"
     },
     "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary.Face": {
       "module": "D5/S3/Combinatorics/Graph/PlanarMatching/RotationBoundary",
