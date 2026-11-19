@@ -2,8 +2,8 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "c9af1a07b59328cd3dc7264173d2e47649a12c1e",
-  "pinned_at": "2026-11-19T11:38:50Z",
+  "commit": "ebfa30d57ed131bc1acc5cee261975594999281b",
+  "pinned_at": "2026-11-19T13:11:44Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1316,6 +1316,14 @@
       "statement_id": "sha256:3a152f066f3a7afb840d54d358cbcf5f27ee53846f33f46c44e3947fb0821127",
       "line": 886,
       "signature": "theorem face_odd_nice_cycle_orientation [Fintype V] [DecidableEq V] [DecidableRel G.Adj] (hc : G.Connected) (he : Nonempty G.Dart) (hEuler : (Fintype.card V : ℤ) - (Nat.card G.edgeSet : ℤ) + (Nat.card R.Face : ℤ) = 2) (hEven : Even (Fintype.card V)) : ∃ ε : G.Dart → ZMod 2, (∀ d, ε d.symm = 1 + ε d) ∧ (∀ f, R.faceOpposition ε f = 1) ∧ ∀ (a : V) (p : G.Walk a a), p.IsCycle → Even p.length → ∀ M : (G.induce {v | v ∉ p.support}).Subgraph, M.IsPerfectMatching → (p.darts.map ε).sum = 1"
+    },
+    "D5/S3/Combinatorics/Graph/Queries/CompleteNeighborhoodHistory.history_eq_iff_extension": {
+      "module": "D5/S3/Combinatorics/Graph/Queries/CompleteNeighborhoodHistory",
+      "name": "D5.S3.Combinatorics.Graph.Queries.CompleteNeighborhoodHistory.history_eq_iff_extension",
+      "kind": "theorem",
+      "statement_id": "sha256:8ebf8c759952e7f6178416ac7f106d4ed38e469eac68706e4424e8c6bcffdd23",
+      "line": 65,
+      "signature": "theorem history_eq_iff_extension [Finite V] (G H : SimpleGraph V) (p : PassiveProtocol V (fun _ => Set V)) : runPassiveProtocol readNeighbors p G = runPassiveProtocol readNeighbors p H ↔ revealedEdges (runPassiveProtocol readNeighbors p H) ≤ G ∧ ∀ entry ∈ runPassiveProtocol readNeighbors p H, (G.neighborSet entry.1).ncard ≤ entry.2.ncard"
     },
     "D5/S3/Combinatorics/Graph/Walks/GallaiRoy.IsDirectedPath": {
       "module": "D5/S3/Combinatorics/Graph/Walks/GallaiRoy",
