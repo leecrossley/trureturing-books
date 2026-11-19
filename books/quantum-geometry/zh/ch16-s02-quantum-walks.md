@@ -411,7 +411,7 @@ $$
 :::
 
 ::: {.theorem #thm-alternating-forest-successor-bound title="交替有向森林中一个分量的后继" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingForestSuccessorBound.mass_of_successor_components"}
-在每种颜色各有 $n$ 个顶点的有限集合上，给定有向关系 $E$，记 $m=|E|$。设 $m+2\le n$，并从补全 $E$ 的交替有向整圈中均匀抽取一个。
+在每种颜色各有 $n$ 个顶点的有限集合上，给定有向关系 $E$，记 $m=|E|$。设 $m+2\le n$，且至少存在一个补全 $E$ 的交替有向整圈。从所有这样的补全中均匀抽取一个。
 
 $E$ 的每个弱连通分量都有唯一首端和尾端。对任意分量 $A$ 及不含 $A$ 的分量集合 $T$，$A$ 的尾端以后继边连到 $T$ 中某个分量首端的概率至多为
 
@@ -421,7 +421,7 @@ $$
 :::
 
 ::: proof
-补全的存在性保证 $E$ 中每个顶点至多有一条入边和一条出边。若 $E$ 有有向环，该环必经过所有顶点，与边数条件矛盾。按 [@thm-alternating-forest-classification] 用端点对分量分类。每条给定边在任一颜色类中至多除去一个首端，因此每类至少有 $n-m$ 个首端。按首端颜色和尾端要求的颜色，将 [@thm-alternating-successor-set-bound] 应用于均匀的分量排列。完整证明由 Lean 内核检查。
+补全的存在性保证 $E$ 中每个顶点至多有一条入边和一条出边。若 $E$ 有有向环，该环必经过所有顶点，与边数条件矛盾。按 [@thm-alternating-forest-classification] 用端点对分量分类。每条给定边在任一颜色类中至多除去一个首端，因此每类至少有 $n-m$ 个首端。按首端颜色和尾端要求的颜色，将 [@thm-alternating-successor-set-bound] 应用于均匀抽取的相容分量整圈排列。完整证明由 Lean 内核检查。
 :::
 
 ## 16.2.3 无向整圈：两个方向与同一完成图 {#sec-undirected-cycle-orientation-fibers}
@@ -634,7 +634,7 @@ $$
 :::
 
 ::: {.theorem #thm-known-name-exploration-size title="已知名字探索揭露的名字数" lean="D5/S3/Combinatorics/Graph/Queries/KnownNameExplorationSize.known_names_card_bound"}
-给定有限的名字空间及顶点到名字的注入。只给出一个根的名字。设根的度数至多为 $b$，所有顶点的度数至多为 $b+1$。运行 [@thm-known-name-simulation-success] 使用的已知名字模拟器，设它向真实黑盒发送了 $q$ 次完整无序邻居查询。运行结束时已知的名字数至多为 $1+bq$。特别地，在根的度数为二、最大度数为三时，该上界为 $1+2q$。
+给定有限的名字空间及顶点到名字的注入。只给出一个根的名字。设根的度数至多为 $b$，所有顶点的度数至多为 $b+1$。运行 [@thm-known-name-simulation-success] 使用的已知名字模拟器，设它向真实黑盒发送了 $q$ 次完整无序邻居查询。每次实际发送的调用都计入 $q$，包括重复调用。运行结束时，已知的不同名字至多有 $1+bq$ 个。特别地，在根的度数为二、最大度数为三时，该上界为 $1+2q$。
 :::
 
 ::: proof

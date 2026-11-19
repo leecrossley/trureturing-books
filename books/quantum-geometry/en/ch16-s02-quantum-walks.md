@@ -409,7 +409,7 @@ $$
 :::
 
 ::: {.theorem #thm-alternating-forest-successor-bound title="The successor of a component in a prescribed alternating forest" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingForestSuccessorBound.mass_of_successor_components"}
-Let $E$ be a directed relation prescribed on a finite set with $n$ vertices of each color, and write $m=|E|$. Suppose $m+2\le n$ and a directed alternating full cycle extending $E$ is sampled uniformly.
+Let $E$ be a directed relation prescribed on a finite set with $n$ vertices of each color, and write $m=|E|$. Suppose $m+2\le n$ and at least one directed alternating full cycle extends $E$. Sample uniformly from those completions.
 
 The weak components of $E$ have unique tails and heads. For a component $A$ and a set $T$ of components that excludes $A$, the probability that the successor of the tail of $A$ is the head of a component in $T$ is at most
 
@@ -419,7 +419,7 @@ $$
 :::
 
 ::: proof
-The existence of a completion gives unique incoming and outgoing edges wherever $E$ prescribes them. Any directed cycle in $E$ would already contain every vertex, which is impossible under the edge count. Classify the components by their endpoints using [@thm-alternating-forest-classification]. Each prescribed edge removes at most one head from a color class, so each class has at least $n-m$ heads. Apply [@thm-alternating-successor-set-bound] to the uniform component permutation with the head colors and the colors required by the tails. The full proof is checked by the Lean kernel.
+In a completion every vertex has one incoming edge and one outgoing edge, so $E$ prescribes at most one of each at every vertex. Any directed cycle in $E$ would already contain every vertex, which is impossible under the edge count. Classify the components by their endpoints using [@thm-alternating-forest-classification]. Each prescribed edge removes at most one head from a color class, so each class has at least $n-m$ heads. Apply [@thm-alternating-successor-set-bound] to the uniform admissible single-cycle permutation of components with the head colors and the colors required by the tails. The full proof is checked by the Lean kernel.
 :::
 
 ## 16.2.3 Undirected full cycles: two orientations of the same completed graph {#sec-undirected-cycle-orientation-fibers}
@@ -632,7 +632,7 @@ Outside $E$, a query at a known name receives the same answer in the two runs. T
 :::
 
 ::: {.theorem #thm-known-name-exploration-size title="How many names a known-name exploration discovers" lean="D5/S3/Combinatorics/Graph/Queries/KnownNameExplorationSize.known_names_card_bound"}
-Fix a finite name space and an injection from vertices into it. Initially only the root name is available. Suppose the root has degree at most $b$ and every vertex has degree at most $b+1$. Run the known-name simulator of [@thm-known-name-simulation-success] and suppose it sends $q$ complete unordered neighborhood queries to the real oracle. It knows at most $1+bq$ names at the end of the run. A degree-two root and maximum degree three give the bound $1+2q$.
+Fix a finite name space and an injection from vertices into it. Initially only the root name is available. Suppose the root has degree at most $b$ and every vertex has degree at most $b+1$. Run the known-name simulator of [@thm-known-name-simulation-success] and suppose it sends $q$ complete unordered neighborhood queries to the real oracle. Count every forwarded call, including repeats. The simulator knows at most $1+bq$ distinct names at the end of the run. A degree-two root and maximum degree three give the bound $1+2q$.
 :::
 
 ::: proof
