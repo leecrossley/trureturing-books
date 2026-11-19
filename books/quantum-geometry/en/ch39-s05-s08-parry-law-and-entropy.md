@@ -541,6 +541,21 @@ For $m=0$ the event is the entire section and the empty product is $1$.
 A return of duration $d$ traces the suffix sequence $0,1,\ldots,d-1,0$. Its final zero also starts the next return. Joining successive blocks at their common zeros identifies the duration event with one suffix cylinder on the original path. Each allowed transition contributes a factor $p$ times the ratio of the destination and origin weights. The ratios telescope because the initial and final suffixes are both zero. Conditioning divides out the initial cylinder mass $\mu(A)$ and leaves one factor $p^d$ per return. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-ch39-p2e-iid-return-prefix title="Raw Windows under Independent Return Durations" lean="D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix"}
+Let $\eta$ be a measure on the native admissible relation paths and take $q_1,\ldots,q_K$ to be its independent, identically distributed duration weights. Specifically, assume that every finite complete-duration cylinder $(d_0,\ldots,d_{m-1})$ has mass $\prod_{i<m}q_{d_i}$. The window begins with those complete blocks $1^{d_i-1}0$ and continues with $j$ true bits, where $j\ge0$. Its mass is
+
+$$
+\eta\bigl([1^{d_0-1}0\cdots 1^{d_{m-1}-1}0\,1^j]\bigr)
+=\left(\prod_{i<m}q_{d_i}\right)\left(\sum_{d>j}q_d\right).
+$$
+
+The last sum runs over $1\le d\le K$.
+:::
+
+::: proof
+The complete durations fix the number of raw steps already read. At the next return origin, the first $j$ bits are true exactly when the next duration is strictly greater than $j$. Partition the window by this next duration. The complete-duration cylinders are disjoint and measurable, and their masses factor by hypothesis. Summing over the next durations gives the formula. The full proof is checked by the Lean kernel.
+:::
+
 The duration distribution also determines the entropy of the induced system. One step here is one return and may span several steps of the original shift.
 
 ::: {.theorem #thm-ch39-p2e-parry-induced-entropy title="Kolmogorov–Sinai Entropy of the Induced Parry Return Map" lean="D5/S3/TotalVariation/ParryInducedEntropy.actual_return_entropy"}

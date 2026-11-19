@@ -541,6 +541,21 @@ $m=0$ 时，事件为整个截面，空乘积为 $1$。
 一次时长为 $d$ 的回返对应后缀序列 $0,1,\ldots,d-1,0$。末尾的零同时是下一段回返的起点。把相邻段的公共零位重合起来，整个时长事件就恰好是原路径上的一个后缀柱集。沿每条允许的转移，后缀核贡献一个 $p$ 和终点权重与起点权重之比。所有权重之比相消，因为首末后缀都是零。柱集概率里的初始质量 $\mu(A)$ 再由条件化约去，留下每段一个 $p^d$。完整证明由 Lean 内核检查。
 :::
 
+::: {.theorem #thm-ch39-p2e-iid-return-prefix title="独立同分布回返时长下的原始窗口" lean="D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix"}
+设 $\eta$ 为原生合法关系路径上的测度，$q_1,\ldots,q_K$ 为独立同分布的回返时长权。具体假设每个有限完整时长柱集 $(d_0,\ldots,d_{m-1})$ 的质量为 $\prod_{i<m}q_{d_i}$。窗口从完整块 $1^{d_i-1}0$ 开始，随后接 $j$ 个真的关系位，其中 $j\ge0$。则其质量为
+
+$$
+\eta\bigl([1^{d_0-1}0\cdots 1^{d_{m-1}-1}0\,1^j]\bigr)
+=\left(\prod_{i<m}q_{d_i}\right)\left(\sum_{d>j}q_d\right).
+$$
+
+最后一项在 $1\le d\le K$ 内求和。
+:::
+
+::: proof
+完整回返时长确定已经读过的原始步数。在下一个回返起点，前 $j$ 位都为真当且仅当下一次回返时长严格大于 $j$。按这次时长划分窗口，得到不交的可测完整时长柱集。由假设，每个柱集的质量是对应权重的乘积。对下一次时长求和即得公式。完整证明由 Lean 内核检查。
+:::
+
 回返时长的分布还能计算诱导系统的熵。这里的一步是一次回返，可能跨过原系统的多个位置。
 
 ::: {.theorem #thm-ch39-p2e-parry-induced-entropy title="帕里零截面诱导映射的柯尔莫哥洛夫–西奈熵" lean="D5/S3/TotalVariation/ParryInducedEntropy.actual_return_entropy"}
