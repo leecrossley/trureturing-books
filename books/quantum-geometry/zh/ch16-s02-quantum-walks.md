@@ -397,6 +397,33 @@ $$
 分量双射把所问事件送到 $\pi(A)=B$。在该事件中的整圈上，删去 $A$ 后，让 $A$ 的前驱直接连到 $B$。将 $B$ 的源颜色改为 $A$ 原来的源颜色，便保留了这条改接边的相容性。逆操作在 $B$ 前紧邻插回 $A$，借由 $s(B)=d(A)$ 保证所插连接相容。辅助跃迁 $s(A)\to d(A)$ 和 $s(B)\to d(B)$ 由 $s(A)\to d(B)$ 取代，故新库存仍平衡。对 $R$ 应用库存计数得到 $M'$。每个原有相容分量整圈的质量都是 $1/M$。
 :::
 
+::: {.theorem #thm-alternating-successor-set-bound title="相容整圈的后继集合概率上界" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
+对有限的分量标签集，每个标签 $A$ 各有一个源颜色 $s(A)$ 和一个目标颜色 $d(A)$，两种源颜色各至少出现两次。假设至少存在一个对每个标签 $A$ 都满足 $s(\pi(A))=d(A)$ 的整圈置换 $\pi$，并从这些置换中均匀抽样。固定标签 $A$ 和不含 $A$ 的目标集 $T$，令 $c_A$ 为源颜色等于 $d(A)$ 的标签数。则
+
+$$
+\Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
+$$
+
+:::
+
+::: proof
+[@thm-alternating-connector-mass] 把指定连接的概率化为收缩前后计数的比值。颜色不相容时概率为零。颜色相容时，将收缩后的转移数代入比值，可得单个目标的概率至多为 $1/(c_A-1)$。再对 $T$ 中的目标求和。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-alternating-forest-successor-bound title="交替有向森林中一个分量的后继" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingForestSuccessorBound.mass_of_successor_components"}
+在每种颜色各有 $n$ 个顶点的有限集合上，给定有向关系 $E$，记 $m=|E|$。设 $m+2\le n$，并从补全 $E$ 的交替有向整圈中均匀抽取一个。
+
+$E$ 的每个弱连通分量都有唯一首端和尾端。对任意分量 $A$ 及不含 $A$ 的分量集合 $T$，$A$ 的尾端以后继边连到 $T$ 中某个分量首端的概率至多为
+
+$$
+\frac{|T|}{n-m-1}.
+$$
+:::
+
+::: proof
+补全的存在性保证 $E$ 中每个顶点至多有一条入边和一条出边。若 $E$ 有有向环，该环必经过所有顶点，与边数条件矛盾。按 [@thm-alternating-forest-classification] 用端点对分量分类。每条给定边在任一颜色类中至多除去一个首端，因此每类至少有 $n-m$ 个首端。按首端颜色和尾端要求的颜色，将 [@thm-alternating-successor-set-bound] 应用于均匀的分量排列。完整证明由 Lean 内核检查。
+:::
+
 ## 16.2.3 无向整圈：两个方向与同一完成图 {#sec-undirected-cycle-orientation-fibers}
 
 五个点排成一个无向整圈，顺时针与逆时针是两个不同的后继置换，却给出完全相同的边。忘掉方向时，必须识别的是这两个实际表示，而不只是把一个计数除以二。下面在原来的标号顶点上完成这个对应；已知边甚至可以已经组成整圈。
@@ -638,33 +665,6 @@ $$
 选定 $r$ 个互异的初始未知名字，按固定顺序查询，首次命中即停止。所有查询都未命中的充要条件是所抽命名避开整个名单。未命名顶点的注入计数给出恰好上述比值。完整证明由 Lean 内核检查。
 :::
 
-::: {.theorem #thm-alternating-successor-set-bound title="相容整圈的后继集合概率上界" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
-对有限的分量标签集，每个标签 $A$ 各有一个源颜色 $s(A)$ 和一个目标颜色 $d(A)$，两种源颜色各至少出现两次。假设至少存在一个对每个标签 $A$ 都满足 $s(\pi(A))=d(A)$ 的整圈置换 $\pi$，并从这些置换中均匀抽样。固定标签 $A$ 和不含 $A$ 的目标集 $T$，令 $c_A$ 为源颜色等于 $d(A)$ 的标签数。则
-
-$$
-\Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
-$$
-
-:::
-
-::: proof
-[@thm-alternating-connector-mass] 把指定连接的概率化为收缩前后计数的比值。颜色不相容时概率为零。颜色相容时，将收缩后的转移数代入比值，可得单个目标的概率至多为 $1/(c_A-1)$。再对 $T$ 中的目标求和。完整证明由 Lean 内核检查。
-:::
-
-::: {.theorem #thm-alternating-forest-successor-bound title="交替有向森林中一个分量的后继" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingForestSuccessorBound.mass_of_successor_components"}
-在每种颜色各有 $n$ 个顶点的有限集合上，给定有向关系 $E$，记 $m=|E|$。设 $m+2\le n$，并从补全 $E$ 的交替有向整圈中均匀抽取一个。
-
-$E$ 的每个弱连通分量都有唯一首端和尾端。对任意分量 $A$ 及不含 $A$ 的分量集合 $T$，$A$ 的尾端以后继边连到 $T$ 中某个分量首端的概率至多为
-
-$$
-\frac{|T|}{n-m-1}.
-$$
-:::
-
-::: proof
-补全的存在性保证 $E$ 中每个顶点至多有一条入边和一条出边。若 $E$ 有有向环，该环必经过所有顶点，与边数条件矛盾。按 [@thm-alternating-forest-classification] 用端点对分量分类。每条给定边在任一颜色类中至多除去一个首端，因此每类至少有 $n-m$ 个首端。按首端颜色和尾端要求的颜色，将 [@thm-alternating-successor-set-bound] 应用于均匀的分量排列。完整证明由 Lean 内核检查。
-:::
-
 ::: {.theorem #thm-first-observed-cycle title="探索何时首次看到环" lean="D5/S3/Combinatorics/Graph/Queries/FirstObservedCycle.first_observed_cycle"}
 从有限简单图的根出发，每次查询沿已暴露边从根可达的一个顶点的完整邻居集。某一时刻的暴露图恰由原图中至少有一个端点已经被查询的边组成。设查询 $x$ 之前的暴露图无环。这次回答产生环，当且仅当 $x$ 此前未被查询，且 $x$ 有一个也尚未被查询、在查询前已从根可达的邻居。
 :::
@@ -713,6 +713,6 @@ $$
 
 1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出指定连接的条件概率，[@thm-alternating-successor-set-bound] 将它转化为整个候选后继集合的概率上界。[@thm-alternating-forest-successor-bound] 将这个上界写成给定有向边数的函数。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。
 2. **条件信息。** 固定边集的概率律以 $E$ 中的边全部出现为条件。标号固定且回答给出完整的无序邻居集合时，[@thm-complete-neighborhood-history] 把记录事件刻画为边包含与度数上界。当候选图逐点度数相同时，记录事件等同于固定边集出现。每个顶点使用固定次序时，有序记录的似然见 [@thm-fixed-neighbor-order-likelihood]。在固定图上，[@thm-uniform-remaining-name-hit] 给出固定部分命名下的命中概率，[@thm-named-neighborhood-fresh-name-hit] 给出实际无序记录下的新名字命中概率。图与名字同时随机时，[@thm-joint-named-transcript-posterior] 给出实际完整无序记录下的图后验。带颜色或同时使用端口与随机命名的条件律还需证明。
-3. **查询、嵌入与成功事件。** Childs 等人 [quant-ph/0209131v2 第 IV 节](https://arxiv.org/abs/quant-ph/0209131v2) 先处理猜中新名字、颜色与已知名字查询的游戏转换，再转向树的随机嵌入，最后分别控制碰撞和 `EXIT` 事件，才得到原文 Theorem 9。[@thm-first-observed-cycle] 给出已知顶点探索中首次出现环的确定性判据，碰撞概率还取决于随机黏合图在实际查询记录下的条件分布。在入口度数为二、最大度数为三的模型中，[@thm-known-name-exploration-size] 给出 $1+2q$ 的已知名字数上界。Ben-David 等人脚注 14 特别说明：一次回答全部邻居的查询对应嵌入树中的 $O(t)$ 个顶点，并非严格 $t$ 个。其印刷论证中的分量下界 $2^k-2t$、配对界 $2/(2^k-2t)$ 与式 (6.4) 的 $O(t^2/(2^k-t))$ 各按原文保留；这里不将它们拼成未经证明的显式常数或参数范围。
+3. **查询、嵌入与成功事件。** Childs 等人 [quant-ph/0209131v2 第 IV 节](https://arxiv.org/abs/quant-ph/0209131v2) 先处理猜中新名字、颜色与已知名字查询的游戏转换，再转向树的随机嵌入，最后分别控制碰撞和 `EXIT` 事件，才得到原文 Theorem 9。[@thm-first-observed-cycle] 给出已知顶点探索中首次出现环的确定性判据，碰撞概率还取决于随机黏合图在实际查询记录下的条件分布。在入口度数为二、最大度数为三的模型中，[@thm-known-name-exploration-size] 给出 $q$ 次实际黑盒调用后的已知名字数上界 $1+2q$。Ben-David 等人脚注 14 特别说明：一次回答全部邻居的查询对应嵌入树中的 $O(t)$ 个顶点，并非严格 $t$ 个。其印刷论证中的分量下界 $2^k-2t$、配对界 $2/(2^k-2t)$ 与式 (6.4) 的 $O(t^2/(2^k-t))$ 各按原文保留；这里不将它们拼成未经证明的显式常数或参数范围。
 
 因此，普通收缩律提供静态计数与条件概率环节，交替结果给出实际载体上的分类、计数和固定边集的条件律，[@thm-undirected-cycle-orientation-fibers] 则以书面证明给出普通无向整圈的同图定向纤维、反向取商与加边对应。普通无向补全律见 [@thm-uniform-undirected-cycle-completion]。实际命名记录给出固定图上的单步命中率。整个查询预算内的新名命中界见 [@thm-fresh-name-budget-survival]，[@thm-fresh-name-budget-attainment] 给出达到该界的策略。查询复杂度和完整经典 `EXIT` 下界仍待证明。[请求 #11](https://github.com/the-omega-institute/trureturing-requests/issues/11) 的更广范围仍未完成。下一节转到量子一侧，考察已经明确给定的加权路径及其端点概率。

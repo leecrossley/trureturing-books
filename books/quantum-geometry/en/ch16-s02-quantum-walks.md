@@ -395,6 +395,33 @@ The conditional probability of the connector is $M'/M$, where $M$ is the origina
 The component bijection identifies the event with $\pi(A)=B$. In such a cycle, the predecessor of $A$ is redirected to $B$ after $A$ is removed. Assigning $B$ the old source color of $A$ preserves compatibility at that redirected edge. The inverse inserts $A$ immediately before $B$, using $s(B)=d(A)$ for the inserted edge. The resulting transition inventory is balanced: the auxiliary transitions $s(A)\to d(A)$ and $s(B)\to d(B)$ are replaced by $s(A)\to d(B)$. The inventory count on $R$ is therefore $M'$. Each original compatible component cycle has mass $1/M$.
 :::
 
+::: {.theorem #thm-alternating-successor-set-bound title="A successor-set bound for compatible single cycles" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
+Each label $A$ in a finite component set has a source color $s(A)$ and a destination color $d(A)$, and each of the two source colors occurs at least twice. Assume at least one single-cycle permutation $\pi$ satisfies $s(\pi(A))=d(A)$ for every label $A$, and sample uniformly among those permutations. Fix a label $A$ and a set of targets $T$ excluding $A$. Let $c_A$ count labels whose source color equals $d(A)$. Then
+
+$$
+\Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
+$$
+
+:::
+
+::: proof
+[@thm-alternating-connector-mass] expresses a prescribed connector's probability as the ratio of the counts after and before contraction. A color mismatch gives probability zero. For a color match, substituting the contracted transition counts into that ratio bounds the mass of a single target by $1/(c_A-1)$. Sum over $T$. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-alternating-forest-successor-bound title="The successor of a component in a prescribed alternating forest" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingForestSuccessorBound.mass_of_successor_components"}
+Let $E$ be a directed relation prescribed on a finite set with $n$ vertices of each color, and write $m=|E|$. Suppose $m+2\le n$ and a directed alternating full cycle extending $E$ is sampled uniformly.
+
+The weak components of $E$ have unique tails and heads. For a component $A$ and a set $T$ of components that excludes $A$, the probability that the successor of the tail of $A$ is the head of a component in $T$ is at most
+
+$$
+\frac{|T|}{n-m-1}.
+$$
+:::
+
+::: proof
+The existence of a completion gives unique incoming and outgoing edges wherever $E$ prescribes them. Any directed cycle in $E$ would already contain every vertex, which is impossible under the edge count. Classify the components by their endpoints using [@thm-alternating-forest-classification]. Each prescribed edge removes at most one head from a color class, so each class has at least $n-m$ heads. Apply [@thm-alternating-successor-set-bound] to the uniform component permutation with the head colors and the colors required by the tails. The full proof is checked by the Lean kernel.
+:::
+
 ## 16.2.3 Undirected full cycles: two orientations of the same completed graph {#sec-undirected-cycle-orientation-fibers}
 
 On an undirected cycle through five labelled vertices, clockwise and counterclockwise traversal give different successor permutations with exactly the same edges. Forgetting direction must identify those two actual representations, rather than merely divide a count by two. The correspondence below keeps the original labelled vertices; the prescribed edges may even already form a complete cycle.
@@ -636,33 +663,6 @@ In the same model and with the same budget as [@thm-fresh-name-budget-survival],
 Choose $r$ distinct initially unknown names, query them in a fixed order and stop at the first hit. Every query misses exactly when the sampled naming avoids the entire list. Counting injections of the remaining vertices gives the stated ratio. The full proof is checked by the Lean kernel.
 :::
 
-::: {.theorem #thm-alternating-successor-set-bound title="A successor-set bound for compatible single cycles" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
-Each label $A$ in a finite component set has a source color $s(A)$ and a destination color $d(A)$, and each of the two source colors occurs at least twice. Assume at least one single-cycle permutation $\pi$ satisfies $s(\pi(A))=d(A)$ for every label $A$, and sample uniformly among those permutations. Fix a label $A$ and a set of targets $T$ excluding $A$. Let $c_A$ count labels whose source color equals $d(A)$. Then
-
-$$
-\Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
-$$
-
-:::
-
-::: proof
-[@thm-alternating-connector-mass] expresses a prescribed connector's probability as the ratio of the counts after and before contraction. A color mismatch gives probability zero. For a color match, substituting the contracted transition counts into that ratio bounds the mass of a single target by $1/(c_A-1)$. Sum over $T$. The full proof is checked by the Lean kernel.
-:::
-
-::: {.theorem #thm-alternating-forest-successor-bound title="The successor of a component in a prescribed alternating forest" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingForestSuccessorBound.mass_of_successor_components"}
-Let $E$ be a directed relation prescribed on a finite set with $n$ vertices of each color, and write $m=|E|$. Suppose $m+2\le n$ and a directed alternating full cycle extending $E$ is sampled uniformly.
-
-The weak components of $E$ have unique tails and heads. For a component $A$ and a set $T$ of components that excludes $A$, the probability that the successor of the tail of $A$ is the head of a component in $T$ is at most
-
-$$
-\frac{|T|}{n-m-1}.
-$$
-:::
-
-::: proof
-The existence of a completion gives unique incoming and outgoing edges wherever $E$ prescribes them. Any directed cycle in $E$ would already contain every vertex, which is impossible under the edge count. Classify the components by their endpoints using [@thm-alternating-forest-classification]. Each prescribed edge removes at most one head from a color class, so each class has at least $n-m$ heads. Apply [@thm-alternating-successor-set-bound] to the uniform component permutation with the head colors and the colors required by the tails. The full proof is checked by the Lean kernel.
-:::
-
 ::: {.theorem #thm-first-observed-cycle title="When an exploration first observes a cycle" lean="D5/S3/Combinatorics/Graph/Queries/FirstObservedCycle.first_observed_cycle"}
 Start at a root of a finite simple graph. Query the complete neighborhood of a vertex reachable from the root through edges already exposed. The exposed graph at any time consists of the original edges incident to at least one queried vertex. Suppose the exposed graph is acyclic just before a query at $x$. The reply creates a cycle exactly when $x$ has never been queried and $x$ has an unqueried neighbor that was already reachable from the root before the query.
 :::
@@ -711,6 +711,6 @@ Suppose the query at $r$ returns $\{a,b,c\}$ and the subsequent query at $a$ ret
 
 1. **Graph distribution and orientation.** Ben-David et al. (*SIAM Journal on Computing* **53**(6), 2024, [doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975), §6.3.2, Lemmas 6.11–6.13, PDF pages 37–39) use one uniform cycle on each side's leaves for the self-weld, and a uniform alternating cycle between the two sides for the weld. [@thm-alternating-forest-classification] gives the alternating completion counts, and [@thm-alternating-completion-law] gives the fixed-edge event mass and conditional law. For ordinary undirected full cycles, [@thm-undirected-cycle-orientation-fibers] now identifies orientations and representation multiplicities over the same actual completed graph: each fiber is exactly a pair of reversed lifts, with edge-insertion events preserved. [@thm-uniform-undirected-cycle-completion] gives the uniform law for ordinary undirected completions of a fixed $F$. [@thm-alternating-connector-mass] gives the conditional probability of a specified connector, and [@thm-alternating-successor-set-bound] bounds the probability of a whole set of candidate successors. [@thm-alternating-forest-successor-bound] gives the resulting estimate in terms of the number of prescribed directed edges. [@thm-alternating-undirected-completion-law] gives the ambient count and fixed-edge conditional law for undirected alternating cycles.
 2. **Conditioning information.** The fixed-edge laws condition on all edges of $E$ being present. For fixed labels and complete unordered replies, [@thm-complete-neighborhood-history] gives the transcript event in terms of edge inclusion and degree bounds. In a degree class this reduces to the fixed-edge event. With one persistent order per vertex, the ordered transcript has the likelihood in [@thm-fixed-neighbor-order-likelihood]. On a fixed graph, [@thm-uniform-remaining-name-hit] gives the hit probability under a fixed partial naming, and [@thm-named-neighborhood-fresh-name-hit] gives the fresh-name hit probability conditioned on the actual unordered transcript. When the graph and its names are both random, [@thm-joint-named-transcript-posterior] gives the graph posterior for the complete unordered transcript. The conditional laws with color information or with joint port orders and random names still require proofs.
-3. **Queries, embeddings, and success events.** In [quant-ph/0209131v2, Section IV](https://arxiv.org/abs/quant-ph/0209131v2), Childs et al. first handle guessed new names, colors, and games restricted to known names, then pass to random tree embeddings and bound collision and `EXIT` events to obtain the original Theorem 9. [@thm-first-observed-cycle] gives a deterministic criterion for the first cycle seen in a known-vertex exploration. Its collision probability still depends on the law of the random weld given the actual queries. [@thm-known-name-exploration-size] bounds the number of known names by $1+2q$ in the degree-two entrance and degree-three model. Ben-David et al.'s footnote 14 explicitly notes that queries returning all neighbors give an embedding tree with $O(t)$ vertices, not literally $t$. Their printed component lower bound $2^k-2t$, pair bound $2/(2^k-2t)$, and equation (6.4), $O(t^2/(2^k-t))$, are retained as separately stated in the source; no unproved explicit constant or parameter range is assembled from them here.
+3. **Queries, embeddings, and success events.** In [quant-ph/0209131v2, Section IV](https://arxiv.org/abs/quant-ph/0209131v2), Childs et al. first handle guessed new names, colors, and games restricted to known names, then pass to random tree embeddings and bound collision and `EXIT` events to obtain the original Theorem 9. [@thm-first-observed-cycle] gives a deterministic criterion for the first cycle seen in a known-vertex exploration. Its collision probability still depends on the law of the random weld given the actual queries. [@thm-known-name-exploration-size] bounds the number of known names by $1+2q$ after $q$ actual oracle calls in the degree-two entrance and maximum-degree-three model. Ben-David et al.'s footnote 14 explicitly notes that queries returning all neighbors give an embedding tree with $O(t)$ vertices, not literally $t$. Their printed component lower bound $2^k-2t$, pair bound $2/(2^k-2t)$, and equation (6.4), $O(t^2/(2^k-t))$, are retained as separately stated in the source; no unproved explicit constant or parameter range is assembled from them here.
 
 The ordinary contraction law supplies static counting and conditioning; the alternating results give classification, counting and the fixed-edge conditional law on the actual carrier. The written proof in [@thm-undirected-cycle-orientation-fibers] adds orientation fibers, the reversal quotient and edge insertion over the same ordinary undirected full cycle. The ordinary undirected probability law is [@thm-uniform-undirected-cycle-completion]. The actual named transcript gives a one-step hit probability on a fixed graph. The whole-budget hit bound is [@thm-fresh-name-budget-survival], and [@thm-fresh-name-budget-attainment] attains it. Query complexity and the full classical `EXIT` lower bound remain to be proved. The broader scope of [request #11](https://github.com/the-omega-institute/trureturing-requests/issues/11) remains unfinished. The next section turns to the quantum side, studying a specified weighted path and its endpoint probability.
