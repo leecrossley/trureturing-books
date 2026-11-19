@@ -586,10 +586,10 @@ A return of duration $d$ traces the suffix sequence $0,1,\ldots,d-1,0$. Its fina
 :::
 
 ::: {.theorem #thm-ch39-p2e-iid-return-prefix title="Raw Windows under Independent Return Durations" lean="D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix"}
-Let $\eta$ be a measure on the native admissible relation paths and take $q_1,\ldots,q_K$ to be its independent, identically distributed duration weights. Specifically, assume that every finite complete-duration cylinder $(d_0,\ldots,d_{m-1})$ has mass $\prod_{i<m}q_{d_i}$. The window begins with those complete blocks $1^{d_i-1}0$ and continues with $j$ true bits, where $j\ge0$. Its mass is
+For $K\in\mathbb{N}$, let $X_K$ be the space of bilateral bit paths with a zero in every block of $K$ consecutive positions. Let $\eta$ be a measure on $X_K$ and let $q_d\in[0,\infty]$ for $1\le d\le K$. Write $[w]_0$ for the cylinder fixing the finite word $w$ from coordinate $0$ onward. All other coordinates are free subject to admissibility, including coordinate $-1$. Assume that for every finite list of durations $d_i\in\{1,\ldots,K\}$, the cylinder of the concatenated blocks $1^{d_i-1}0$ has mass $\prod_{i<m}q_{d_i}$. This includes the empty list and its cylinder $X_K$, with empty product $1$. For any such list and $j\in\mathbb{N}$, the extended window has mass
 
 $$
-\eta\bigl([1^{d_0-1}0\cdots 1^{d_{m-1}-1}0\,1^j]\bigr)
+\eta\bigl([1^{d_0-1}0\cdots 1^{d_{m-1}-1}0\,1^j]_0\bigr)
 =\left(\prod_{i<m}q_{d_i}\right)\left(\sum_{d>j}q_d\right).
 $$
 

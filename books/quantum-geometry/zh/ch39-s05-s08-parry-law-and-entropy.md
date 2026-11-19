@@ -586,10 +586,10 @@ $m=0$ 时，事件为整个截面，空乘积为 $1$。
 :::
 
 ::: {.theorem #thm-ch39-p2e-iid-return-prefix title="独立同分布回返时长下的原始窗口" lean="D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix"}
-设 $\eta$ 为原生合法关系路径上的测度，$q_1,\ldots,q_K$ 为独立同分布的回返时长权。具体假设每个有限完整时长柱集 $(d_0,\ldots,d_{m-1})$ 的质量为 $\prod_{i<m}q_{d_i}$。窗口从完整块 $1^{d_i-1}0$ 开始，随后接 $j$ 个真的关系位，其中 $j\ge0$。则其质量为
+设 $K\in\mathbb{N}$，$X_K$ 为每段连续 $K$ 个位置中至少有一个零的双向比特路径空间。设 $\eta$ 为 $X_K$ 上的测度，对 $1\le d\le K$ 取权重 $q_d\in[0,\infty]$。记 $[w]_0$ 为从坐标 $0$ 起固定有限字 $w$ 的柱集。其余坐标在合法性约束下自由，包括坐标 $-1$。假设对每个有限时长列 $d_i\in\{1,\ldots,K\}$，把各块 $1^{d_i-1}0$ 连接得到的柱集的质量为 $\prod_{i<m}q_{d_i}$。空列也包括在内，其柱集是 $X_K$，空积为 $1$。对这样的时长列及任意 $j\in\mathbb{N}$，延长窗口的质量为
 
 $$
-\eta\bigl([1^{d_0-1}0\cdots 1^{d_{m-1}-1}0\,1^j]\bigr)
+\eta\bigl([1^{d_0-1}0\cdots 1^{d_{m-1}-1}0\,1^j]_0\bigr)
 =\left(\prod_{i<m}q_{d_i}\right)\left(\sum_{d>j}q_d\right).
 $$
 
