@@ -21,7 +21,7 @@ import zipfile
 
 # This constructor is dependency-free and shared with the actual video unit.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from tbook import film_inputs, template as template_metadata
+from tbook import buildcache, film_inputs, template as template_metadata
 from ci import viz_budget, testing, trusted_cache
 
 VERSION = 6
@@ -30,6 +30,18 @@ DEPENDENCIES = "tbook-ci-dependencies-v1"
 MAX_FILM_SHARDS = 16
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 JOBS = ("validate", "browser", "stills", "build", "viz", "viz-slow", "media", "films")
+BUILD_CACHE_ACTION = ".github/actions/build-cache/"
+CACHE_WORKFLOW_TESTS = {
+    "test_ci_cache_store.CacheTransferWorkflowTest",
+    "test_template.WorkflowTests",
+    "test_verification.BuildCacheWorkflowTests",
+    "test_verification.PullRequestCacheTests",
+}
+SCOPED_WORKFLOW_TESTS = {
+    BUILD_CACHE_ACTION: CACHE_WORKFLOW_TESTS,
+    ".github/workflows/release.yml": CACHE_WORKFLOW_TESTS | {"test_hide.ReleasePlanTests"},
+    ".github/workflows/template-release.yml": CACHE_WORKFLOW_TESTS,
+}
 
 
 def git(root, *args):
@@ -137,7 +149,8 @@ def inventory(tree):
                 deps[suite] = patterns
         parts_path = prefix + "viz/tests/execution-parts.json"
         declared = viz_budget.parts(tree.json(parts_path), [PurePosixPath(s).name for s in suites]) if parts_path in tree.files else {}
-        books[slug] = dict(suites=suites, parts=declared, films=films, slides=sorted(decks), deps=deps,
+        has_viz = any(f.startswith(prefix + "viz/") for f in tree.files)
+        books[slug] = dict(has_viz=has_viz, suites=suites, parts=declared, films=films, slides=sorted(decks), deps=deps,
                            outputs=[*( ["html"] if outputs.get("html", True) else []),
                                     *("pdf-" + v for v in pdf), *( ["epub"] if outputs.get("epub", True) else [])])
     return books
@@ -393,6 +406,72 @@ def adopt_unchanged_summaries(current, previous, now, old):
                 prior["deps"][suite] = deps
 
 
+def select_tests(current, previous, paths, *, full):
+    scoped = {p: SCOPED_WORKFLOW_TESTS[BUILD_CACHE_ACTION if p.startswith(BUILD_CACHE_ACTION) else p]
+              for p in paths if p.startswith(BUILD_CACHE_ACTION) or p in SCOPED_WORKFLOW_TESTS}
+    if full or not scoped:
+        return testing.select(current, previous, paths, full=full)
+    selected = testing.select(current, previous, set(paths) - scoped.keys())
+    direct = set().union(*scoped.values())
+    # The shared selector accepts source paths. Feed it the direct test modules,
+    # then keep only the classes that actually read the workflow or action.
+    sources = {f"tools/tests/{test.split('.')[0]}.py" for test in direct}
+    available = testing.select(current, previous, sources)
+    for kind in selected:
+        selected[kind] = sorted(set(selected[kind]) | (set(available[kind]) & direct))
+    return selected
+
+
+def publication_theme_readers(path):
+    """Export formats and deck kinds for theme resources with known consumers."""
+    prefix, _, name = path.rpartition("/")
+    if path.startswith("theme/typst/fonts/") or path == "theme/typst/fonts.sha256":
+        return {"pdf", "epub"}, {"academic"}
+    if prefix == "theme/typst" and buildcache.is_staged_typst_asset(PurePosixPath(name)):
+        return ({"pdf", "epub"} if name == "cover.typ" else {"pdf"}), set()
+    if path == "theme/generated/tokens.typ":
+        return {"pdf", "epub"}, set()
+    if path == "theme/generated/tokens.css":
+        return {"html", "pdf", "epub"}, {"slidev"}
+    if path.startswith("theme/viz/"):
+        return {"pdf", "epub"}, set()
+    for directory, formats, decks in (
+        ("theme/mdbook/", {"html"}, set()), ("theme/epub/", {"epub"}, set()),
+        ("theme/beamer/", set(), {"academic"}), ("theme/slides/", set(), {"slidev"}),
+        ("theme/site/", set(), set()), ("theme/film/", set(), set()),
+        ("theme/typst/", set(), set()),
+        ("tools/filters/", {"pdf", "epub"}, set()),
+    ):
+        if path.startswith(directory):
+            return formats, decks
+    if path == "theme/generated/tokens.mjs":
+        return set(), set()
+    return None
+
+
+def deck_kind(tree, deck):
+    slug, name = deck.split("/")
+    return "academic" if f"books/{slug}/slides/{name}/deck.toml" in tree.files else "slidev"
+
+
+def book_viz_test_reads(tree, slug, *, deck=None):
+    prefix = f"books/{slug}/"
+    raw = tree.toml(prefix + "book.toml")
+    if raw.get("derived", {}).get("command") is not None:
+        return True
+    languages = raw.get("book", {}).get("editions") or tree.toml("site.toml").get("site", {}).get("languages", ["zh", "en"])
+    for path in tree.files:
+        if not path.startswith(prefix):
+            continue
+        name = path.removeprefix(prefix)
+        parts = name.split("/")
+        if deck and len(parts) > 2 and parts[0] == "slides" and parts[1] != deck and not parts[1].startswith(("_", ".")):
+            continue
+        if buildcache.book_viz_test_reader(name, languages, lambda: tree.read(path), slides=deck is not None):
+            return True
+    return False
+
+
 def impact(current, previous, paths, *, full=False, template=False):
     now, old = inventory(current), inventory(previous) if previous else {}
     adopt_unchanged_summaries(current, previous, now, old)
@@ -438,6 +517,7 @@ def impact(current, previous, paths, *, full=False, template=False):
     if full:
         everything("full: explicit mode or unavailable comparable successful coverage")
     readers = []
+    test_readers = {}
     for tree, books in ((current, now), (previous, old)):
         if tree is not None and paths:
             readers.append((tree, books,
@@ -495,6 +575,9 @@ def impact(current, previous, paths, *, full=False, template=False):
             site = True
             reasons.add(f"publication workflow: {p}")
             continue
+        if p.startswith(BUILD_CACHE_ACTION) or p in SCOPED_WORKFLOW_TESTS:
+            reasons.add(f"workflow regression tests: {p}")
+            continue
         if p.startswith(".github/ISSUE_TEMPLATE/") or p in (
                 ".github/pull_request_template.md", ".github/workflows/pr-conventions.yml",
                 ".github/workflows/template-sync.yml", ".github/workflows/trureturing-bump.yml"):
@@ -526,17 +609,29 @@ def impact(current, previous, paths, *, full=False, template=False):
                 everything("unknown book path: ", p)
                 continue
             local = "/".join(parts[2:])
-            test_input = local.startswith("viz/tests/")
+            test_input = buildcache.viz_harness_file(local)
             site |= not test_input
             checks["structure"] = True
             if slug not in now:
                 reasons.add(f"removed book: {slug}; Pages rebuild removes obsolete output")
                 continue
             selected_books.add(slug)
-            if not test_input:
-                export_outputs.update((slug, output) for output in now[slug]["outputs"])
             b = now[slug]
-            checks["viz_static"] = checks["slides_static"] = True
+            exports_read_tests = False
+            test_decks = set()
+            if test_input:
+                if slug not in test_readers:
+                    trees = (current, previous) if previous and slug in old else (current,)
+                    test_decks = {deck for deck in b["slides"] if any(
+                        book_viz_test_reads(tree, slug, deck=deck.split("/")[1]) for tree in trees)}
+                    test_readers[slug] = any(book_viz_test_reads(tree, slug) for tree in trees), test_decks
+                exports_read_tests, test_decks = test_readers[slug]
+                slides.update(test_decks)
+            site |= exports_read_tests
+            if not test_input or exports_read_tests:
+                export_outputs.update((slug, output) for output in now[slug]["outputs"])
+            checks["viz_static"] = True
+            checks["slides_static"] |= not test_input or bool(test_decks)
             # Unregistered suites have unknown file reads: widen to the owning book's suites.
             for suite in b["suites"]:
                 if local != "viz/tests/dependencies.json" and (suite not in b["deps"] or (slug in old and suite not in old[slug]["deps"])):
@@ -583,23 +678,23 @@ def impact(current, previous, paths, *, full=False, template=False):
                     path_reason("book metadata/resource or unknown local dependency: ", p)
             # Academic decks read chapters, figures and viz, beyond slides/ itself.
             for deck in b["slides"]:
-                if not test_input and f"books/{deck.split('/')[0]}/slides/{deck.split('/')[1]}/deck.toml" in current.files:
+                if not test_input and deck_kind(current, deck) == "academic":
                     slides.add(deck)
             continue
         if p.startswith(("tools/", "theme/", "templates/", "i18n/")) or p == ".github/workflows/ci.yml":
-            # These theme resources have distinct publication consumers. Test and
-            # film read edges are independent and are still propagated below.
-            if p.startswith(("theme/mdbook/", "theme/epub/", "theme/site/", "theme/film/", "theme/beamer/", "theme/slides/")):
+            publication = publication_theme_readers(p)
+            if publication is not None:
                 site = True
-                area = p.split("/")[1]
+                formats, decks = publication
                 for slug, book in now.items():
+                    if p.startswith("theme/viz/") and book["has_viz"]:
+                        checks["viz_static"] = True
+                        selected_books.add(slug)
                     for output in book["outputs"]:
-                        if (area, output) in (("mdbook", "html"), ("epub", "epub")):
+                        if output.partition("-")[0] in formats:
                             selected_books.add(slug)
                             export_outputs.add((slug, output))
-                    if area in ("slides", "beamer"):
-                        slides.update(deck for deck in book["slides"] if area == "slides" or
-                                      f"books/{slug}/slides/{deck.split('/')[1]}/deck.toml" in current.files)
+                    slides.update(deck for deck in book["slides"] if deck_kind(current, deck) in decks)
                 path_reason("publication theme: ", p)
             else:
                 shared_outputs("shared consumer input: ", p)
@@ -647,7 +742,7 @@ def impact(current, previous, paths, *, full=False, template=False):
     for (prefix, suffix), (first, count) in path_reasons.items():
         more = f" (+{count - 1} more)" if count > 1 else ""
         reasons.add(f"{prefix}{first}{more}{suffix}")
-    test_selection = testing.select(current, previous, paths, full=all_tests)
+    test_selection = select_tests(current, previous, paths, full=all_tests)
     checks["unit"] = bool(test_selection["unit_tests"])
     checks["browser"] = bool(test_selection["browser_tests"])
     return dict(**test_selection, checks=checks, books=sorted(selected_books), suites=sorted(suites), films=sorted(films),
@@ -719,7 +814,7 @@ def signature(tree, runtime):
         if not entry:
             continue
         name = entry.split(b"\t", 1)[1].decode()
-        if name.startswith(".github/actions/") or name in (
+        if (name.startswith(".github/actions/") and not name.startswith(BUILD_CACHE_ACTION)) or name in (
                 "package-lock.json", "requirements.txt", "theme/film/requirements.txt"):
             digest.update(entry + b"\0")
     return digest.hexdigest()
@@ -830,7 +925,8 @@ def trusted_revision(root, repo, branch, workflow, limit):
 
 
 def plan(root, *, event, payload, repo, branch, ref, workflow="ci", own=True, slow=False,
-         mode="auto", base="", head="", get_baseline=trusted_baseline, get_revision=None, get_deployment=None, runtime="local"):
+         mode="auto", base="", head="", get_baseline=trusted_baseline, get_revision=None, get_deployment=None,
+         runtime="local", pages_branch_head=""):
     if mode not in ("auto", "full"):
         raise ValueError("mode must be auto or full")
     current = Tree(root, "HEAD")
@@ -911,10 +1007,12 @@ def plan(root, *, event, payload, repo, branch, ref, workflow="ci", own=True, sl
             except subprocess.SubprocessError as exc:
                 raise ValueError("cannot determine changed scope; provide --base or explicitly request --mode full") from exc
             reasons.append(f"{profile}: Git diff from {previous.sha}; no inherited coverage")
+        if profile == "pages" and pages_branch_head:
+            paths = sorted(set(paths) | {"trureturing.lock.json"})
         selected = impact(current, previous, paths, full=mode == "full", template=template)
         if profile == "normal":
             stills = image_shards(current, selected["exports"], previous=previous, paths=paths, full=mode == "full")
-        if profile == "pages" and (event == "push" or not (record or deployed_sha)):
+        if profile == "pages" and (event == "push" or pages_branch_head or not (record or deployed_sha)):
             # Advance the live commit even when all publication units can be reused.
             selected["site"] = True
         if not record:
@@ -927,6 +1025,8 @@ def plan(root, *, event, payload, repo, branch, ref, workflow="ci", own=True, sl
                                      paths=paths, comparison=previous.sha if previous else None)
         if profile == "pages" and deployed_sha:
             coverage[profile]["deployment_sha"] = deployed_sha
+        if profile == "pages" and pages_branch_head:
+            coverage[profile]["trureturing_sha"] = pages_branch_head
         if profile in ("normal", "slow"):
             if (comparison or mode == "full") and selected["suites"]:
                 cost_record = lookup(workflow, profile)  # timings can only pack the selected work
@@ -1038,7 +1138,8 @@ def main():
     result = plan(Path.cwd(), event=event, payload=payload, repo=os.environ.get("GITHUB_REPOSITORY", "local/repo"),
                   branch=branch, ref=os.environ.get("GITHUB_REF", "local"), workflow=args.workflow, own=own,
                   slow=os.environ.get("SLOW_FRAMES") == "true", mode=args.mode, base=args.base, head=args.head, runtime=runtime,
-                  get_revision=trusted_revision, get_deployment=active_deployment)
+                  get_revision=trusted_revision, get_deployment=active_deployment,
+                  pages_branch_head=os.environ.get("TBOOK_TRURETURING_SHA", "") if args.workflow == "pages" else "")
     Path("ci-plan.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     write_outputs(result)
     jobs = [name for name, selected in result["tasks"].items() if selected]

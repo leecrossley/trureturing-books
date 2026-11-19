@@ -373,6 +373,28 @@ class PinBranchTests(unittest.TestCase):
         self.addCleanup(patcher.stop)
         return ledger
 
+    def test_follow_writes_branch_and_resolves_at_use(self):
+        self.use(FakeLedger(on_branch=True))
+        with mock.patch.object(lean, "ls_remote", side_effect=[COMMIT, OLD_COMMIT]) as ls:
+            report = pin.pin(follow=True)
+            self.assertTrue(report.written)
+            self.assertEqual(json.loads(paths.LOCK_FILE.read_text()), {
+                "schema": lean.LOCK_SCHEMA, "repo": TRU, "branch": "dev",
+            })
+            resolved = lean.Lock.load()
+            self.assertEqual(resolved.commit, OLD_COMMIT)
+            self.assertIn(GID_3V, resolved.declarations)
+            self.assertEqual(lean.Lock.load().commit, OLD_COMMIT)
+            self.assertEqual(ls.call_args_list, [mock.call(TRU, "refs/heads/dev")] * 2)
+        self.assertTrue(pin.pin(COMMIT, offline=True).written)
+        self.assertEqual(lean.Lock.load().commit, COMMIT)
+
+    def test_follow_rejects_an_untrusted_workflow_sha(self):
+        self.use(FakeLedger(on_branch=False))
+        with self.assertRaisesRegex(lean.LeanError, "cannot verify"):
+            pin.resolve_branch(lean.BranchLock(TRU, "dev"), commit=OLD_COMMIT)
+        self.assertEqual(paths.LOCK_FILE.read_text(encoding="utf-8"), self.before)
+
     def test_off_branch_commit_is_refused(self):
         led = self.use(FakeLedger(on_branch=False))
         report = pin.pin(OLD_COMMIT, offline=True)
@@ -1544,6 +1566,22 @@ class BuildCacheWorkflowTests(unittest.TestCase):
         r, calls = self.run_publish("release.yml", "none", env)
         self.assertNotEqual(r.returncode, 0, "a release without its build cache is not created")
         self.assertEqual(calls, [])
+
+    def test_template_release_accepts_only_successful_ci_or_verified_reuse(self):
+        wf = self.WORKFLOWS / "template-release.yml"
+        lookup = next(s for s in workflow_jobs(wf)["verify"] if s.get("id") == "ci")
+        for selector in ('actions/workflows/ci.yml/runs', 'branch="$DEFAULT_BRANCH"', 'event=push',
+                         'head_sha="$sha"', 'status=success', '.head_repository.full_name == env.GITHUB_REPOSITORY'):
+            self.assertIn(selector, lookup["run"])
+        publish = wf.read_text().split("\n  publish:\n", 1)[1].split("    runs-on:", 1)[0]
+        guard = " ".join(publish.split("    if: >-", 1)[1].split())
+        for ci, verified, expected in (("success", "", True), ("skipped", "123", True),
+                                       ("skipped", "", False), ("failure", "123", False)):
+            ctx = {"needs.verify.result": "success", "needs.site.result": "success", "needs.ci.result": ci,
+                   "needs.verify.outputs.verified_ci": verified}
+            self.assertEqual(gha_if(guard, event="push", ref="refs/tags/v1", context=ctx), expected)
+            ctx["needs.site.result"] = "failure"
+            self.assertFalse(gha_if(guard, event="push", ref="refs/tags/v1", context=ctx))
 
     def test_template_release_attaches_the_example_site_cache(self):
         jobs = workflow_jobs(self.WORKFLOWS / "template-release.yml")
