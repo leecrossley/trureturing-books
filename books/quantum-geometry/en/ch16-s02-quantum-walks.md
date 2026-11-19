@@ -523,6 +523,29 @@ Conversely, suppose $G$ contains $F$ and satisfies the recorded degree bounds. T
 
 Suppose the distribution is supported on graphs with the same degree at each labelled vertex as the reference graph $H$. Every candidate in that class then satisfies the recorded degree bounds. The transcript event is then exactly $F\le G$, and the two events give the same conditional distribution whenever their probability is positive. This model fixes the labels, the deterministic protocol, and the complete unordered replies. Random naming, queries outside the named vertex set, and replies with additional port or color information require their own observation models.
 
+Fix a graph and a deterministic strategy whose query is a name. On a hit, the oracle returns the complete unordered set of neighbor names. On a miss, it returns a separate marker. In the actual record, let $S$ contain the initially supplied names, the names of successful queries, and the returned neighbor names. Let $B$ contain the names that received a miss. The fresh names form $A=N\setminus(S\cup B)$.
+
+::: {.theorem #thm-named-neighborhood-history-fiber title="Consistent namings for one assignment of the observed names" lean="D5/S3/Combinatorics/Graph/Queries/NamedNeighborhoodHistory.history_fiber_iff"}
+Assume all initially supplied names occur in the reference naming. Among injections that agree with the reference naming at the vertices carrying names in $S$, the injections replaying the complete reference record are exactly those that give every remaining vertex a name in $A$.
+:::
+
+::: proof
+Agreement on the successful query names and all the corresponding neighbor names reproduces the hit replies. Avoiding $B$ reproduces the misses. With each reply reproduced, the deterministic strategy makes the same next query. In the other direction, replaying each miss excludes those names from the range, and injectivity reserves $S$ for the already named vertices. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-named-neighborhood-fresh-name-hit title="The conditional hit probability for a fresh name" lean="D5/S3/Combinatorics/Graph/Queries/NamedNeighborhoodHistory.conditional_unseen_name_hit"}
+Take the vertex set $V$ and name set $N$ finite. Choose the naming uniformly among injections and condition on the actual reference record and agreement on the initially supplied names, all of which occur in the reference naming. For each $a\in A$, the probability that a query at $a$ hits a vertex is
+$$
+\frac{|V|-|S|}{|A|}.
+$$
+:::
+
+::: proof
+The reference naming witnesses a nonempty conditioning event. Each compatible naming occupies exactly $|V|-|S|$ fresh names. Swapping two fresh names preserves the initial assignments and every recorded answer, so it defines a bijection between the compatible namings that hit the two names. Counting pairs of a compatible naming and one of its occupied fresh names gives the probability. The full proof is checked by the Lean kernel.
+:::
+
+The formula only needs the transcript as seen by the strategy and the prescribed initial assignments. The vertices carrying subsequently observed names can vary across compatible namings. With one hidden vertex, two names initially available, and a recorded miss on one of them, the other name hits with probability one. The calculation concerns one next query under the specified oracle. The game reduction in Childs et al. also controls the event that any previously unrevealed name is guessed over an entire bounded run [quant-ph/0209131v2, §IV, Lemma 4](https://arxiv.org/abs/quant-ph/0209131v2).
+
 **Which bridges to a classical oracle lower bound remain?** [@thm-directed-forest-cycle-completion] gives the ordinary directed model's static uniform law, and [@thm-alternating-forest-classification] counts the alternating completions, with the conditional law given by [@thm-alternating-completion-law]. Three distinctions separate them from the glued-trees result in [@rem-qsvt-walks-literature]:
 
 1. **Graph distribution and orientation.** Ben-David et al. (*SIAM Journal on Computing* **53**(6), 2024, [doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975), §6.3.2, Lemmas 6.11–6.13, PDF pages 37–39) use one uniform cycle on each side's leaves for the self-weld, and a uniform alternating cycle between the two sides for the weld. [@thm-alternating-forest-classification] gives the alternating completion counts, and [@thm-alternating-completion-law] gives the fixed-edge event mass and conditional law. For ordinary undirected full cycles, [@thm-undirected-cycle-orientation-fibers] now identifies orientations and representation multiplicities over the same actual completed graph: each fiber is exactly a pair of reversed lifts, with edge-insertion events preserved. [@thm-uniform-undirected-cycle-completion] gives the uniform law for ordinary undirected completions of a fixed $F$. [@thm-alternating-connector-mass] gives the conditional probability of a specified alternating connector between distinct components.
