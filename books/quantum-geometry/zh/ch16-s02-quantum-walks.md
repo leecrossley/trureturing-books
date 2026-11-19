@@ -632,9 +632,11 @@ $$
 
 ::: {.theorem #thm-alternating-successor-set-bound title="相容整圈的后继集合概率上界" lean="D5/S3/Combinatorics/Graph/LinearForests/AlternatingSuccessorSetBound.successor_set_mass_le"}
 对有限的分量标签集，每个标签 $A$ 各有一个源颜色 $s(A)$ 和一个目标颜色 $d(A)$，两种源颜色各至少出现两次。假设至少存在一个对每个标签 $A$ 都满足 $s(\pi(A))=d(A)$ 的整圈置换 $\pi$，并从这些置换中均匀抽样。固定标签 $A$ 和不含 $A$ 的目标集 $T$，令 $c_A$ 为源颜色等于 $d(A)$ 的标签数。则
+
 $$
 \Pr(\pi(A)\in T)\le\frac{|T|}{c_A-1}.
 $$
+
 :::
 
 ::: proof
