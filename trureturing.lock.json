@@ -3,7 +3,7 @@
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
   "commit": "fd79d29a6cc1138829cbfa91e722854eb863d7d4",
-  "pinned_at": "2026-11-19T13:58:27Z",
+  "pinned_at": "2026-11-19T14:28:02Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -6268,6 +6268,14 @@
       "statement_id": "sha256:f1def1d45a7ded5fabde68f7c2080b1b30564fff83957726a06255dc4ca220a4",
       "line": 51,
       "signature": "theorem parry_stationary_law (k : ℕ) (hk : 2 ≤ k) : let p"
+    },
+    "D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix": {
+      "module": "D5/S3/TotalVariation/ParryReturnPrefix",
+      "name": "D5.S3.TotalVariation.ParryReturnPrefix.iid_return_prefix",
+      "kind": "theorem",
+      "statement_id": "sha256:218f7a6d4f93c5a0659ce24e932750d775030c7994102bbf024e0ebd589a2d59",
+      "line": 110,
+      "signature": "theorem iid_return_prefix (μ : Measure (RelationPath k)) (weights : Fin k → ℝ≥0∞) (hcyl : ∀ ns : List (Fin k), μ {r | matchesReturnTimes r ns = true} = (ns.map weights).prod) (ns : List (Fin k)) (j : ℕ) : μ {r | matchesReturnPrefix r ns j = true} = (ns.map weights).prod * ∑ i : Fin (k - j), weights (returnTailIndex j i)"
     },
     "D5/S3/TotalVariation/ParrySectionMarginals.section_zero_marginals": {
       "module": "D5/S3/TotalVariation/ParrySectionMarginals",
