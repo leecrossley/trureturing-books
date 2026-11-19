@@ -577,6 +577,29 @@ If a reported edge is absent, the transcript cannot occur. If all reported edges
 
 At positive transcript probability the same factor multiplies each candidate graph that extends $F_\tau$, so the posterior graph law is the prior conditioned on that extension event. An independent fresh ordering on each query would describe a different experiment, with the product indexed by query occurrences.
 
+A path may reveal only one of the two forward slots at a vertex of the abstract exploration tree. Give each abstract position an independent uniform ordering of its two available values. The available pair may change with the underlying graph.
+
+::: {.theorem #thm-partial-forward-order-likelihood title="Likelihood of partial observations of binary forward orders" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_likelihood"}
+Fix finitely many positions, each with two distinct available values. An observation at a position may specify neither, one, or both ordered slots. Call the observation compatible if every specified value is available at its position, and two specified slots at one position have distinct values. If $s$ positions have at least one specified slot, the observation has probability $2^{-s}$ when compatible and zero otherwise.
+:::
+
+::: proof
+At a touched position the first specified value fixes one of the two orders. A second specified value agrees precisely when it is the other available value. Compatibility thus determines one independent local order at every touched position, leaving all other orders free. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-partial-forward-order-posterior title="The posterior for a partial forward-order observation" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_posterior"}
+Let a world drawn from a probability mass function $\pi$ determine the available pair at each position. At each position, flip an independent fair coin to keep or swap the two indices. The coin flips are independent of the world. Apply them to the available values supplied by that world. Let $C$ be the set of worlds compatible with a fixed observation $E$. If $E$ has positive probability, then for every set of worlds $B$,
+
+$$
+\Pr(B\mid E)=\frac{\pi(B\cap C)}{\pi(C)}.
+$$
+
+:::
+
+::: proof
+The same positions are touched in every world. By [@thm-partial-forward-order-likelihood], the joint mass associated with worlds in $B$ is $2^{-s}\pi(B\cap C)$, and the total observation mass is $2^{-s}\pi(C)$. Their ratio gives the claimed law. The full proof is checked by the Lean kernel.
+:::
+
 ::: {.theorem #thm-uniform-remaining-name-hit title="Guessing an available name after a partial observation" lean="D5/S3/Combinatorics/Probability/PartialNameAssignment.uniform_remaining_name_hit"}
 Choose an injection uniformly from a finite vertex set into a finite name set. Fix an injective naming on a subset $K$ and a set $A$ of available names disjoint from the names already fixed. Assume at least one injection agrees with the fixed naming and assigns names in $A$ to all other vertices. Conditional on those requirements, the law is uniform over the consistent injections. Under this same law, for each $a\in A$ the probability that some remaining vertex receives $a$ is the number of remaining vertices divided by $|A|$.
 :::
