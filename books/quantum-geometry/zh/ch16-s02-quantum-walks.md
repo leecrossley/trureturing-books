@@ -585,6 +585,29 @@ $$
 
 该公式采用策略能看到的记录和给定的初始命名。在不同相容命名中，后来看到的名字可以属于不同顶点。若有一个隐藏顶点和两个最初可用的名字，对其中一个名字查询未命中后，另一个名字必定命中。这里计算的是该黑盒下下一次查询的概率。Childs 等人的游戏转换还控制整个有界查询过程内猜中任一尚未揭露名字的事件，见 [quant-ph/0209131v2 第 IV 节引理 4](https://arxiv.org/abs/quant-ph/0209131v2)。
 
+策略可以把未知名字的查询留在自己的计算里，并在模拟记录中填入未命中。只有查询已经知道的名字时，模拟器才调用黑盒。每个世界确定同一个查询黑盒，真实运行和模拟运行都使用它。
+
+::: {.theorem #thm-known-name-simulation-budget title="只查询已知名字的模拟守住查询预算" lean="D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.simulated_sent_names_bound"}
+给定返回完整邻居名字集或未命中标记的查询函数，以及初始已知名字集合。若确定性策略的每个分支最多发出 $q$ 次查询，则上述模拟实际调用黑盒的次数最多为 $q$。
+:::
+
+::: proof
+每个模拟步骤都沿策略的一条分支推进，无论回答来自黑盒还是由模拟器填入。模拟记录最多有 $q$ 项，实际调用只计其中发给黑盒的查询。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-known-name-simulation-success title="模拟与真实运行的成功概率之差由猜中新名的事件控制" lean="D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.success_mass_le_simulated_add_guessed_hit"}
+给定具有概率质量函数的世界集合。每个世界给出查询函数，成功条件可以依赖世界和整份记录。设 $E$ 为真实运行中至少一次查询命中当时未知的名字的事件，则
+$$
+\Pr(\text{真实运行成功})\le \Pr(\text{模拟运行成功})+\Pr(E).
+$$
+:::
+
+::: proof
+在 $E$ 的补集里，对已知名字的查询，两条运行接收同一回答。对未知名字的查询，真实黑盒也返回未命中。每步给出同一回答，因而递归地选中同一个后继，更新同一份已知名字集合。整个记录相同，所以真实运行成功的世界落在模拟成功事件与 $E$ 的并集中。完整证明由 Lean 内核检查。
+:::
+
+还可以在运行中途拿到下一次查询。对长度 $i$ 的真实前缀，沿每项回答重放策略。如果策略已经停止，下一次查询为空，否则它就是记录中从零开始编号为 $i$ 的查询。这一步由 [`nextQuery_of_prefix`](lean:D5/S3/Combinatorics/Graph/Queries/KnownNameSimulation.nextQuery_of_prefix) 给出。由此可以对每个前缀应用 [@thm-named-neighborhood-fresh-name-hit] 的单步概率，再研究整个预算内的 $\Pr(E)$。
+
 **通向经典黑盒下界仍需哪些桥梁？** [@thm-directed-forest-cycle-completion] 给出普通有向模型的静态均匀律，[@thm-alternating-forest-classification] 给出交替模型的补全计数，[@thm-alternating-completion-law] 给出固定边集的条件律。它们与 [@rem-qsvt-walks-literature] 的黏合树结果之间还有三层区别：
 
 1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出交替模型中不同分量之间指定连接的条件概率。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。
