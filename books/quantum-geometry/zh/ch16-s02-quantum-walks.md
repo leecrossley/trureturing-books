@@ -579,6 +579,27 @@ $$
 
 在记录概率为正时，同一个因子乘到每张包含 $F_\tau$ 的候选图上，因此图的后验律为先验在该边延拓事件下的条件律。若每次查询都独立重新排列邻居，那是另一种实验，乘积按查询次数而非不同标号计。
 
+在抽象探索树中，披露一条路径时，有些位置只观察到两个前向槽位之一。给每个抽象位置独立选取两个可用值的均匀排列。可用的两个值可以随底层图改变。
+
+::: {.theorem #thm-partial-forward-order-likelihood title="部分前向顺序观察的似然" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_likelihood"}
+固定有限个位置，每个位置有两个互异的可用值。观察可以指定其中零个、一个或两个有序槽位。若每个指定的值在该位置可用，且同一位置的两个指定槽位取值不同，则称观察相容。若有 $s$ 个位置至少有一个槽位被指定，相容观察的概率为 $2^{-s}$，不相容观察的概率为零。
+:::
+
+::: proof
+每个被观察的位置，第一个指定值已确定两个排列中的一个。若还指定第二个值，它必须是另一个可用值。因此，相容观察独立地固定每个被观察位置的一个排列，其余位置的排列保持自由。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-partial-forward-order-posterior title="部分前向顺序观察下的后验" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_posterior"}
+从先验概率质量函数 $\pi$ 抽取一个世界，由它决定每个位置的两个可用值。局部排列独立于世界抽取。固定观察 $E$，设 $C$ 是与它相容的世界组成的集合。若 $E$ 的概率为正，则对任意世界集合 $B$，
+$$
+\Pr(B\mid E)=\frac{\pi(B\cap C)}{\pi(C)}.
+$$
+:::
+
+::: proof
+在每个世界中，被观察的位置相同。由 [@thm-partial-forward-order-likelihood]，世界落在 $B$ 且观察吻合的联合概率为 $2^{-s}\pi(B\cap C)$，观察的总概率为 $2^{-s}\pi(C)$。二者相除即得所述分布。完整证明由 Lean 内核检查。
+:::
+
 ::: {.theorem #thm-uniform-remaining-name-hit title="给定部分命名后猜中可用名字的概率" lean="D5/S3/Combinatorics/Probability/PartialNameAssignment.uniform_remaining_name_hit"}
 从有限顶点集到有限名字集的所有单射中均匀选取一个。固定顶点子集 $K$ 上的单射命名，并取一个与所有已固定名字不相交的可用名字集 $A$。假设至少有一个单射符合固定命名，并将其余顶点的名字全部取自 $A$。在这些条件下，所有相容单射等概率。在同一个条件分布下，对每个 $a\in A$，它被分配给某个剩余顶点的概率等于剩余顶点数除以 $|A|$。
 :::
