@@ -3,7 +3,7 @@
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
   "commit": "93279cc105e94c6a96e05298c9986beb6bf37603",
-  "pinned_at": "2026-11-19T14:28:01Z",
+  "pinned_at": "2026-11-19T14:47:25Z",
   "declarations": {
     "D5/S0/Automata/BinaryZeckendorfLanguage.base_success_iff_noAdjacentOnes": {
       "module": "D5/S0/Automata/BinaryZeckendorfLanguage",
@@ -1197,6 +1197,14 @@
       "line": 226,
       "signature": "theorem connector_mass [Finite C] (s d : C → Bool) (x y : C) (hxy : y ≠ x) (μ : PMF (Compatible s d)) (hμ : ∀ σ, μ σ = (Nat.card (Compatible s d) : ℝ≥0∞)⁻¹) : let R"
     },
+    "D5/S3/Combinatorics/Graph/LinearForests/AlternatingUndirectedCompletionLaw.alternating_undirected_completion_law": {
+      "module": "D5/S3/Combinatorics/Graph/LinearForests/AlternatingUndirectedCompletionLaw",
+      "name": "D5.S3.Combinatorics.Graph.LinearForests.AlternatingUndirectedCompletionLaw.alternating_undirected_completion_law",
+      "kind": "theorem",
+      "statement_id": "sha256:4522f5506e5c2fb4f816a09711069d70a9046956e54d776900a02f8c77099bcc",
+      "line": 153,
+      "signature": "theorem alternating_undirected_completion_law (k : V → Bool) (F : SimpleGraph V) (n : ℕ) (hnColors : 2 ≤ n) (hr : Nat.card (Side k false) = n) (hb : Nat.card (Side k true) = n) : let A"
+    },
     "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory.alternating_completion_classification": {
       "module": "D5/S3/Combinatorics/Graph/LinearForests/CompatibleCycleInventory",
       "name": "D5.S3.Combinatorics.Graph.LinearForests.CompatibleCycleInventory.alternating_completion_classification",
@@ -1332,6 +1340,14 @@
       "statement_id": "sha256:8ebf8c759952e7f6178416ac7f106d4ed38e469eac68706e4424e8c6bcffdd23",
       "line": 65,
       "signature": "theorem history_eq_iff_extension [Finite V] (G H : SimpleGraph V) (p : PassiveProtocol V (fun _ => Set V)) : runPassiveProtocol readNeighbors p G = runPassiveProtocol readNeighbors p H ↔ revealedEdges (runPassiveProtocol readNeighbors p H) ≤ G ∧ ∀ entry ∈ runPassiveProtocol readNeighbors p H, (G.neighborSet entry.1).ncard ≤ entry.2.ncard"
+    },
+    "D5/S3/Combinatorics/Graph/Queries/FixedNeighborOrder.fixed_neighbor_order_likelihood": {
+      "module": "D5/S3/Combinatorics/Graph/Queries/FixedNeighborOrder",
+      "name": "D5.S3.Combinatorics.Graph.Queries.FixedNeighborOrder.fixed_neighbor_order_likelihood",
+      "kind": "theorem",
+      "statement_id": "sha256:a94aa2befbb11f506337763d5573ca987344a918c5a17ae8001edb3c6c695459",
+      "line": 260,
+      "signature": "theorem fixed_neighbor_order_likelihood (G H : SimpleGraph V) (d : V → ℕ) (p : OrderedProtocol d) (g : NeighborOrderTable H d) (μ : PMF (NeighborOrderTable G d)) (hμ : ∀ f, μ f = (Nat.card (NeighborOrderTable G d) : ℝ≥0∞)⁻¹) : let trace"
     },
     "D5/S3/Combinatorics/Graph/Queries/NamedNeighborhoodHistory.conditional_unseen_name_hit": {
       "module": "D5/S3/Combinatorics/Graph/Queries/NamedNeighborhoodHistory",
@@ -1484,6 +1500,14 @@
       "statement_id": "sha256:5b848bb8446166bfc5fa762209b5fe0e718b2a43dd83a1365ad59f7362d535ac",
       "line": 539,
       "signature": "theorem rooted_reconstruction (q : {q : Perm X // (∀ x, q x ≠ x) ∧ ∀ c ∈ q.cycleFactorsFinset, Even c.support.card}) : forward (recover q) = q ∧ ∀ x, (recover q).1.val x = (if cyclePhase q.val x then q.val x else q.val⁻¹ x) ∧ (recover q).2.val x = (if cyclePhase q.val x then q.val⁻¹ x else q.val x)"
+    },
+    "D5/S3/Combinatorics/Probability/PartialNameAssignment.uniform_remaining_name_hit": {
+      "module": "D5/S3/Combinatorics/Probability/PartialNameAssignment",
+      "name": "D5.S3.Combinatorics.Probability.PartialNameAssignment.uniform_remaining_name_hit",
+      "kind": "theorem",
+      "statement_id": "sha256:9573e81344ff251dea8a8c4b1e53e1fd510ddb18c1ebc831bb367d5e3753736c",
+      "line": 135,
+      "signature": "theorem uniform_remaining_name_hit [Fintype V] [Fintype N] (K : Finset V) (A : Finset N) (knownNames : K ↪ N) (hsep : ∀ x, knownNames x ∉ A) (h : Nonempty (Candidates K A knownNames)) : let availableCount"
     },
     "D5/S3/CompletionDynamics/GoldenMobius/GoldenHelixParityReadout.golden_helix_two_step_orientation_complete_state_distinct": {
       "module": "D5/S3/CompletionDynamics/GoldenMobius/GoldenHelixParityReadout",
@@ -6276,6 +6300,14 @@
       "statement_id": "sha256:f1def1d45a7ded5fabde68f7c2080b1b30564fff83957726a06255dc4ca220a4",
       "line": 51,
       "signature": "theorem parry_stationary_law (k : ℕ) (hk : 2 ≤ k) : let p"
+    },
+    "D5/S3/TotalVariation/ParryReturnPrefix.iid_return_prefix": {
+      "module": "D5/S3/TotalVariation/ParryReturnPrefix",
+      "name": "D5.S3.TotalVariation.ParryReturnPrefix.iid_return_prefix",
+      "kind": "theorem",
+      "statement_id": "sha256:218f7a6d4f93c5a0659ce24e932750d775030c7994102bbf024e0ebd589a2d59",
+      "line": 110,
+      "signature": "theorem iid_return_prefix (μ : Measure (RelationPath k)) (weights : Fin k → ℝ≥0∞) (hcyl : ∀ ns : List (Fin k), μ {r | matchesReturnTimes r ns = true} = (ns.map weights).prod) (ns : List (Fin k)) (j : ℕ) : μ {r | matchesReturnPrefix r ns j = true} = (ns.map weights).prod * ∑ i : Fin (k - j), weights (returnTailIndex j i)"
     },
     "D5/S3/TotalVariation/ParrySectionMarginals.section_zero_marginals": {
       "module": "D5/S3/TotalVariation/ParrySectionMarginals",
