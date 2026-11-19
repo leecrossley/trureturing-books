@@ -590,7 +590,7 @@ $$
 :::
 
 ::: {.theorem #thm-partial-forward-order-posterior title="部分前向顺序观察下的后验" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_posterior"}
-从先验概率质量函数 $\pi$ 抽取一个世界，由它决定每个位置的两个可用值。各位置的排列独立均匀抽取，也独立于世界。固定观察 $E$，设 $C$ 是与它相容的世界组成的集合。若 $E$ 的概率为正，则对任意世界集合 $B$，
+从先验概率质量函数 $\pi$ 抽取一个世界，由它决定每个位置的两个可用值。在每个位置独立抛一枚公平硬币，决定保留还是交换两个索引。硬币独立于世界，排列后的值由世界给出的两个可用值决定。固定观察 $E$，设 $C$ 是与它相容的世界组成的集合。若 $E$ 的概率为正，则对任意世界集合 $B$，
 
 $$
 \Pr(B\mid E)=\frac{\pi(B\cap C)}{\pi(C)}.
