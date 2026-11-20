@@ -587,6 +587,16 @@ Fix finitely many positions, each with two distinct available values. An observa
 At a touched position the first specified value fixes one of the two orders. A second specified value agrees precisely when it is the other available value. Compatibility thus determines one independent local order at every touched position, leaving all other orders free. The full proof is checked by the Lean kernel.
 :::
 
+After conditioning on the observed positions, a later segment that reads entirely unused positions still contributes one factor of one half per position.
+
+::: {.theorem #thm-fresh-forward-suffix title="The conditional likelihood of slots at unused positions" lean="D5/S3/Combinatorics/Graph/Queries/ForwardSuffixLaw.suffix_after_prefix"}
+Fix two distinct values at each of finitely many positions and give each position an independent uniform order. Consider two fixed partial observations whose sets of observed positions are disjoint. Assume the earlier observation is compatible in the sense of [@thm-partial-forward-order-likelihood]. Given that observation, the later observation has probability $2^{-s}$ if compatible and zero otherwise, where $s$ is its number of observed positions.
+:::
+
+::: proof
+The joint event matches the combined observation because the two tables constrain disjoint sets of positions. Its likelihood has one factor of one half for every position observed by either table, and it vanishes if the later table is incompatible. Dividing by the earlier observation's positive likelihood cancels all factors for its positions. The full proof is checked by the Lean kernel.
+:::
+
 ::: {.theorem #thm-partial-forward-order-posterior title="The posterior for a partial forward-order observation" lean="D5/S3/Combinatorics/Graph/Queries/PartialForwardOrderLaw.partial_forward_order_posterior"}
 Let a world drawn from a probability mass function $\pi$ determine the available pair at each position. At each position, flip an independent fair coin to keep or swap the two indices. The coin flips are independent of the world. Apply them to the available values supplied by that world. Let $C$ be the set of worlds compatible with a fixed observation $E$. If $E$ has positive probability, then for every set of worlds $B$,
 
@@ -835,6 +845,29 @@ $$
 ::: proof
 Each arm has no immediate reversal, and the different final edges prevent a reversal at the join. In a forest, a walk without an immediate reversal is a simple path. A nonempty closed walk of this kind must therefore use an edge outside $H$. After the last such edge, the entire suffix lies in $H$ and still has no immediate reversals. Its length equals the distance because it is the unique simple path between its endpoints. The full proof is checked by the Lean kernel.
 :::
+
+The length identity gives a way to sum over possible last crossings. Once the arrival leaf is fixed, its tree distance to the target determines the crossing index. The next bound combines this observation with a tail estimate for each leaf.
+
+::: {.theorem #thm-weighted-tree-tail-bound title="Summing crossing events by arrival leaf" lean="D5/S3/Combinatorics/Graph/Queries/WeightedTreeTailBound.mass_of_weighted_tail"}
+In a complete binary tree of height $k$, fix a target vertex $z$ of depth $d$ and a total path length $r$. The common bound $\alpha$ is an extended nonnegative real. For each step index $j$ and leaf $y$, consider a crossing event $C_{j,y}$ and a tail event $T_{j,y}$ on the outcome type of one probability mass function. Measure all events by its induced outer measure $\mu$. Suppose a collision event $A$ satisfies three conditions.
+
+- Every outcome in $A$ belongs to some $C_{j,y}\cap T_{j,y}$ with $j+1+d_{\mathrm{tree}}(z,y)=r$.
+- Each crossing event has mass at most $\alpha$.
+- Each intersection $C_{j,y}\cap T_{j,y}$ has mass at most $\mu(C_{j,y})2^{-d_{\mathrm{tree}}(z,y)}$.
+
+Then
+
+$$
+\mu(A)\leq \alpha\left(\frac32-2^{-(d+1)}\right).
+$$
+
+:::
+
+::: proof
+For a leaf that can witness a collision, its distance to $z$ fixes the index $j$. Subadditivity therefore counts at most one event for each leaf. Multiply the crossing bound by the tail weight for that leaf and sum using [@thm-binary-tree-weighted-leaf-distance]. The full proof is checked by the Lean kernel.
+:::
+
+Applying the estimate to a concrete welded-tree exploration still requires the crossing and joint tail bounds for the given query prefix.
 
 ::: {.theorem #thm-fresh-meeting-arm title="The next edge on the second arm is fresh" lean="D5/S3/Combinatorics/Graph/Walks/FreshMeetingArm.fresh_edge_after_first_arm"}
 In a single simple undirected graph, take two simple paths starting at the same vertex. If the first path is nonempty, require the two first edges to differ. Every internal vertex of the second path lies outside the first path, and its terminal vertex may lie on the first path. Reveal the edges of the first path and a strict prefix of the second. The next edge on the second path is absent from the revealed edges.
