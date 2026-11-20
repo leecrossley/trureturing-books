@@ -628,6 +628,16 @@ Let $\iota$ inject a finite index set $Z$ into the remaining vertices. The names
 Use the bijection from consistent completions to residual injections in [@thm-uniform-remaining-name-hit]. For any two specified restricted namings, extend their name-to-name bijection to a permutation of the whole set $A$. Postcomposing each residual injection with that permutation pairs the two completion fibers bijectively. Their masses are equal, and the probabilities of the possible restricted namings sum to one. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-uniform-naming-update title="Uniform completions after an expanded naming" lean="D5/S3/Combinatorics/Probability/NamingUpdate.uniform_after_reveal"}
+Let the vertex and name sets both be finite. Fix an injective naming on a vertex subset $K$ and require all remaining vertices to use names from a set $A$. Choose a set $L$ containing $K$ and an expanded injective naming on $L$. It preserves the fixed names on $K$ and gives each vertex in $L\setminus K$ a name in $A$. Suppose at least one original completion agrees with the expanded naming.
+
+The original completions agreeing with the expanded naming correspond bijectively to the completions of that naming using the remaining available names. The remaining available names are the elements of $A$ after removing every name used by the expanded assignment. The correspondence preserves the full vertex naming. Thus the original uniform completion law conditioned on agreement with the expanded assignment equals the uniform law on the new completions when both are read as distributions of full namings.
+:::
+
+::: proof
+If a full naming agrees with the expanded assignment on $L$, injectivity prevents any vertex outside $L$ from using one of those assigned values. Conversely, a completion of the expanded assignment uses names from $A$ at the newly assigned vertices and continues to use names from $A$ outside $L$. The correspondence reads the same injection under the two sets of constraints. Conditioning the finite uniform law makes it uniform on the agreeing completions. The full proof is checked by the Lean kernel.
+:::
+
 For example, two unnamed vertices and five available names give a hit probability of $2/5$ for any specified available name. To use the law after an adaptive graph query, one must identify the naming constraints imposed by the actual replies. Childs et al. use a sparse name space to bound guesses outside the known names in [quant-ph/0209131v2, Section IV](https://arxiv.org/abs/quant-ph/0209131v2).
 
 Fix a graph and a deterministic strategy whose query is a name. On a hit, the oracle returns the complete unordered set of neighbor names. On a miss, it returns a separate marker. In the actual record, let $S$ contain the initially supplied names, the names of successful queries, and the returned neighbor names. Let $B$ contain the names that received a miss. The fresh names form $A=N\setminus(S\cup B)$.
@@ -731,6 +741,14 @@ The leaf enumeration in the sum lists each depth-$k$ string once.
 A shortest path can go up to the longest common prefix and then down to the target. Each edge changes the remaining prefix distance by at most one, and this route stays within the depth cap. At the root the $2^k$ leaves all contribute $2^{-k}$. If $d>0$, the contribution of the branch containing $z$ is the same sum in a tree of depth $k-1$ from depth $d-1$. Each of the $2^{k-1}$ leaves in the opposite branch is at distance $k+d$, so that branch contributes $2^{-(d+1)}$. The two contributions give the formula by induction. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-bounded-word-tree-cut title="The two components after a parent edge is deleted" lean="D5/S3/Combinatorics/Graph/Queries/WordTreeCut.bounded_reachable_after_extension_cut"}
+In a binary word tree with depth cap $k$, fix a parent word $p$ and a bit $a$ such that the child word $pa$, formed by appending $a$, has length at most $k$. Delete the edge between $p$ and $pa$. Two vertices remain connected exactly when both have prefix $pa$ or both lack that prefix.
+:::
+
+::: proof
+Every tree edge appends or removes the final bit. The only edge across the prefix boundary joins $p$ and $pa$. Inside the subtree, removing final bits leads to $pa$. Outside the subtree it leads to the empty word. These paths stay within the depth cap and avoid the deleted edge. The full proof is checked by the Lean kernel.
+:::
+
 For a random graph, the transcript can also change the graph's distribution. Sample a graph index $g$ from a prior $\pi$ on graphs on the same finite vertex set $V$. Independently choose a uniform injective naming from $V$ into a finite name set $N$, subject to the prescribed initial assignments. Use a reference graph and naming consistent with the initial assignments to fix an actual transcript $\tau$ of a deterministic strategy whose replies are complete unordered neighborhoods or misses. Let $S$ consist of the initial names and the names in successful queries and their replies. Let $B$ be the set of names that received a miss.
 
 A placement is an injection $S\hookrightarrow V$. It is feasible on $g$ if it agrees with the initial assignments and maps every successful reply to the entire neighborhood of the vertex named in the query. Write $F_\tau(g)$ for the number of feasible placements.
@@ -831,6 +849,22 @@ $$
 
 ::: proof
 Replaying the schedule matches the reference rows exactly when it matches the recorded slot values at their reference incoming pairs. The first incoming edge is common to every world, and every recorded outgoing edge supplies the incoming edge for the next row. Induction shows that every recorded vertex is available at its row exactly when all recorded edges are present. In the reference run, each position always uses the same incoming pair. Its permutation sends the two slots to distinct candidates, so their recorded values differ whenever both are observed. Together these facts give the compatibility of the table. The common likelihood factor from [@thm-partial-forward-order-likelihood] cancels in the posterior. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-branching-path-posterior title="The graph posterior after a branching disclosure" lean="D5/S3/Combinatorics/Graph/Queries/BranchingPathPosterior.graph_branching_posterior"}
+Draw a world from the prior $\pi$. Each world gives a simple graph on a common vertex set, and all graphs contain the same initial edge. Fix a schedule of slot requests over finitely many positions. Draw an independent uniform permutation of two slots at each position, independently of the world. Each visit uses its position's permutation to select between two distinct candidate vertices.
+
+The position and current record length select an earlier directed edge as the incoming pair. An index outside the record selects the initial edge. Each reply prepends the edge from the incoming endpoint to the returned vertex. Fix a reference run in which every reference row at a given position uses the same incoming pair and returns a vertex different from the start of that pair. The observation table records exactly the positions, slots and values returned in the reference rows. Its seen set contains exactly the positions with recorded slots. For any candidate world containing a reference row's incoming edge $(u,v)$, the row's returned value $y$ is among the row's two candidates exactly when $y$ is adjacent to $v$ and $y\ne u$.
+
+Let $H$ be the event that replay gives the reference disclosure, and let $C$ consist of worlds containing all the reference reply edges. If $H$ has positive probability, then for every world event $B$,
+
+$$
+\Pr(B\mid H)=\frac{\pi(B\cap C)}{\pi(C)}.
+$$
+:::
+
+::: proof
+Check replay along the reference record. When the earlier recorded edges are present, the selected incoming edge is present. Availability of the returned value is then equivalent to presence of its recorded reply edge. Repeated visits at one position share the reference pair and permutation, so its two recorded slots have distinct values whenever both are observed. Compatible worlds all have the same likelihood determined by the number of seen positions. That common factor cancels in the posterior. The full proof is checked by the Lean kernel.
 :::
 
 ::: {.theorem #thm-meeting-arms-last-weld title="The forest tail after the last weld crossing" lean="D5/S3/Combinatorics/Graph/Walks/LastWeldCrossing.meeting_arms_last_weld"}
