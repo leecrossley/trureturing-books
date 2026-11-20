@@ -131,6 +131,13 @@
 **有限种子的二元校准（手工推导）。** 给定整数 $m\ge1$，在概率 $k/m$（$0\le k\le m$）上用同一份有限种子分布校准二元结果。令 $E_k$ 为返回标签 $1$ 的种子集合，要求 $\Pr(E_k)=k/m$。若 $E_0\subseteq E_1\subseteq\cdots\subseteq E_m$，每个差集 $E_{k+1}\setminus E_k$ 都有质量 $1/m$。这些差集两两不交，各自至少含一个正权重种子，所以至少需要 $m$ 个正权重种子。取等概率的种子 $i=0,\ldots,m-1$，以 $i<k$ 决定返回标签 $1$，即可达到下界。有理权重的阈值事件校准由 [`uniformThreshold_prefix`](lean:D5/S3/ConceptDynamics/CausalMoments/SharedThresholdResponseCoupling.uniformThreshold_prefix) 给出。交换二元标签时同时把 $k$ 换成 $m-k$、把 $i$ 换成 $m-1-i$，判定恰好翻转，种子分布保持不变。
 
 去掉逐级嵌套，$m=5$ 时用权重分别为 $1/5,2/5,2/5$ 的三个种子 $a,b,c$ 即可。按 $k=0,\ldots,5$ 依次取 $\varnothing,\{a\},\{b\},\{a,b\},\{b,c\},\{a,b,c\}$，质量恰为 $k/5$。交换 $b,c$ 并固定 $a$，会把 $E_k$ 送到 $E_{5-k}$ 的补集。这里的种子分布是模型的附加输入。
+
+**最小种子分布的权重约束（手工推导）。** 设分母为 $m$ 的完整二元网格由同一份种子分布恰好校准，并由一个固定的保权重对合实现逐点标签交换协变。奇数 $m$ 时，至少满足 $2^n\ge m+1$ 的种子预算 $n$ 可以达到。偶数 $m$ 时，至少满足 $3^r\ge m+1$ 的配对预算 $r$ 可以达到。这两个达到性结论给出最小支撑下的严格界 $m+1>2^{n-1}$ 与 $m+1>3^{r-1}$。把种子权重乘以 $m$，各事件的质量便是整数。奇数 $m$ 时，若最小支撑中有一个缩放权重不是整数，则对其余种子的每一种子集选择，加入或不加入这个种子的两种质量至多有一种是整数。$n$ 个种子因此至多给出 $2^{n-1}$ 个整数质量，达不到最小支撑所需的 $m+1$ 档。
+
+偶数 $m$ 时，中点事件把种子分成 $r$ 对，每对等权。若某对的共同缩放权重为 $a$，且 $2a$ 不是整数，那么对其余各对的固定选择，加上 $0,a,2a$ 所得三个质量至多有一个是整数。这会把整数质量数限制在 $3^{r-1}$，同样达不到最小支撑所需的 $m+1$ 档。半整数确实可以出现。取 $m=4$，两对种子的权重分别为 $(1/8,1/8)$ 与 $(3/8,3/8)$。四分之一事件选第一对，二分之一事件每对选一个，四分之三事件选第二对。逐对交换满足协变，且三档内部概率与两个端点共需五个不同质量，一对至多给出三个。
+
+一般的 $b$ 元数字情形由 [`exists_integral_multiple_of_capacity_gap`](lean:D5/S3/Combinatorics/SubsetSpectrum/IntegralDigitWeights.exists_integral_multiple_of_capacity_gap) 给出。奇数分母与偶数分母的网格分别取 $b=2$ 和 $b=3$。
+
 :::
 
 **无嵌套条件时的最小种子数（手工推导）。** 给定分母 $m\ge1$，对所有 $0\le k\le m$，用同一份有限种子分布和一族质量为 $k/m$ 的事件 $E_k$。要求有一个固定的保权重对合 $\sigma$，使 $s\in E_k$ 当且仅当 $\sigma(s)\notin E_{m-k}$。在这个条件下，奇数 $m$ 所需的最小种子数是满足 $m+1\le 2^n$ 的最小 $n$。偶数 $m$ 所需的最小种子数是 $2r$，其中 $r$ 是满足 $m+1\le 3^r$ 的最小整数。 两种预算的充要条件分别见 [`odd_support_budget_iff`](lean:D5/S3/ConceptDynamics/Attribution/CovariantGridSupport.odd_support_budget_iff), [`even_support_budget_iff`](lean:D5/S3/ConceptDynamics/Attribution/CovariantGridSupport.even_support_budget_iff)。
