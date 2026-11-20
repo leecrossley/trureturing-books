@@ -638,6 +638,16 @@ The original completions agreeing with the expanded naming correspond bijectivel
 If a full naming agrees with the expanded assignment on $L$, injectivity prevents any vertex outside $L$ from using one of those assigned values. Conversely, a completion of the expanded assignment uses names from $A$ at the newly assigned vertices and continues to use names from $A$ outside $L$. The correspondence reads the same injection under the two sets of constraints. Conditioning the finite uniform law makes it uniform on the agreeing completions. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-ordered-naming-reply title="The probability of an ordered naming reply" lean="D5/S3/Combinatorics/Probability/OrderedNamingReply.ordered_reply_mass"}
+Let the vertex set $V$ and the name set $N$ be finite. Fix an injective naming on a subset of $V$ and choose a set of available names $A\subseteq N$ disjoint from the fixed names. Suppose at least one injective completion uses only names in $A$ for the other vertices. Sample uniformly from these completions.
+
+Fix a request map $r\colon I\to V$ and return the name of $r(i)$ at position $i$. Let $U$ be the set of distinct requested vertices without a fixed name. A reply $a\colon I\to N$ is consistent exactly when it returns the fixed name at each position with one, returns a name in $A$ at every other position, and satisfies $a(i)=a(j)$ if and only if $r(i)=r(j)$ for all $i,j$. Every consistent reply has probability $1/|\operatorname{Inj}(U,A)|$. Every inconsistent reply has probability zero.
+:::
+
+::: proof
+For each vertex of $U$, read its name from any request position that selects it. Consistency makes the choice of position immaterial and gives different names to distinct vertices. Each consistent reply therefore determines a unique injection from $U$ into $A$. Conversely, this injection and the fixed names reconstruct the reply at every position. Transfer the uniform distribution in [@thm-uniform-residual-naming-restriction] along this correspondence. The full proof is checked by the Lean kernel.
+:::
+
 For example, two unnamed vertices and five available names give a hit probability of $2/5$ for any specified available name. To use the law after an adaptive graph query, one must identify the naming constraints imposed by the actual replies. Childs et al. use a sparse name space to bound guesses outside the known names in [quant-ph/0209131v2, Section IV](https://arxiv.org/abs/quant-ph/0209131v2).
 
 Fix a graph and a deterministic strategy whose query is a name. On a hit, the oracle returns the complete unordered set of neighbor names. On a miss, it returns a separate marker. In the actual record, let $S$ contain the initially supplied names, the names of successful queries, and the returned neighbor names. Let $B$ contain the names that received a miss. The fresh names form $A=N\setminus(S\cup B)$.
