@@ -1004,10 +1004,14 @@ $$
 
 The first product ranges over the other biased orbitals. Each $b_k$ is at most $1$, so the product in the purity difference is at least this product whenever $Cw=e$, where $e$ takes value $1$ in row $i$ and zero in every other balanced row. Strict decrease guarantees that $e$ belongs to the column space of $C$. Fix the difference bits outside $J$ and subtract their contribution from $e$. The residual is still in the column space, so the basis columns uniquely determine the required bits in $J$. At each $j\in J$, the probability of a $1$ is $2q_j(1-q_j)\le 1/2$, which also lower bounds the probability of either prescribed bit. Multiply these bounds using independence and average over the bits outside $J$. This gives the claimed purity bound. When one retained pair alternates with one discarded pair, $C=(1)$ and the constraint asks for the sole discarded bit to be $1$, so equality holds.
 
+The [purity-drop lower bound](lean:D5/S3/Quantum/Fermionic/WeightedSlaterPurityDropBound.orderedMarginal_purity_drop_lower_bound) formalizes this inequality for the ordinary marginal.
+
 **When the bound is attained (written derivation).** Under strict decrease, write $a_k$ for retained row $k$ restricted to $L$, and let $S$ be the span of the other balanced restricted rows. Write $e_j$ for the row with a $1$ in coordinate $j$ and zeros elsewhere. For a given column basis $J$, the bound is attained exactly when both conditions hold.
 
 - For every retained orbital with $k\ne i$, $0<p_k<1$ and $p_k\ne 1/2$, the row $a_k$ belongs to the affine coset $a_i+S$.
 - For every basis column $j\in J$ with $q_j\ne 1/2$, the coordinate row $e_j$ belongs to $a_i+S$.
+
+The [per-basis equality criterion](lean:D5/S3/Quantum/Fermionic/OrderedSlaterPurityDropEquality.orderedMarginal_purity_drop_eq_iff) formalizes the equivalence between attainment and these two conditions.
 
 Every assignment of the bits in $L\setminus J$ has positive probability and extends uniquely to a solution of $Cw=e$ on $L$. At each solution, every basis-bit probability and every other biased retained factor is at least the positive lower bound used in the proof. Equality in the sum requires equality in every factor at every solution. A retained orbital with $0<p_k<1$ and $p_k\ne 1/2$ has $0<b_k<1$, so its factor reaches the lower bound exactly when $a_k\cdot w=1$. For a basis column with $q_j\ne 1/2$, bit $1$ is strictly less probable than bit zero, so the required bit must be $e_j\cdot w=1$. A deterministic retained endpoint has $b_k=1$. A balanced discarded orbital gives probability $1/2$ to each difference bit.
 
@@ -1024,6 +1028,47 @@ In that case, take any column basis of $C_Q$ and add every column indexed by $K$
 The remaining columns span $e$ after deletion of column $j$ exactly when $Cw=e$ has a solution with $w_j=0$. Thus $K$ consists precisely of the unbalanced indices whose difference bits are $1$ in every solution. For $j\in K$, the other columns cannot span column $j$, since that would let us delete it without changing the column space. Each of these columns therefore belongs to every column basis, and together they are linearly independent modulo the column space of $C_Q$. The equality criterion permits only columns in $Q\cup K$. Their span has dimension $\operatorname{rank}C_Q+|K|$ and fills the entire column space exactly when this dimension equals the rank of $C$.
 
 Take retained pairs $(0,2)$ and $(4,5)$ and discarded pair $(1,3)$, each with later-endpoint probability $1/4$. Balancing $(0,2)$ decreases purity by $3/32$, with a lower bound of $3/128$. The second retained pair has zero restricted row, so the first condition fails. Next take retained pair $(2,5)$ and discarded pairs $(0,3)$ and $(1,4)$, again with probabilities $1/4$. Now $C=(1\ \ 1)$ and either singleton column basis gives a bound of $3/32$. Only unequal difference bits contribute, giving a drop of $15/128$. Both coordinate rows lie outside the coset, so the second condition fails.
+
+**Improving the lower bound with parity probabilities (written derivation).** Assume strict decrease and fix a column basis $J$. Write $B_J$ for the product lower bound above. Set $F=L\setminus J$ and $t_j=2q_j(1-q_j)$. Draw the free difference bits $Y_j$ on $F$ independently, with probability $t_j$ of a $1$, and extend them uniquely to the solution $w(Y)$ of $Cw=e$.
+
+For a basis column $j\in J$, divide its probability factor by its lower bound $t_j$. The result is $1$ plus $(1-2t_j)/t_j$ times the indicator of $w_j(Y)=0$. The factor for each other biased retained orbital $k$, divided by its lower bound $b_k$, is $1$ plus $(1-b_k)/b_k$ times the indicator of $a_k\cdot w(Y)=0$. Write $\Delta$ for the purity decrease. Keeping the constant and linear terms in the product of these normalized factors gives
+
+$$
+\begin{aligned}
+\Delta &\ge B_J(1+S_J),\\
+S_J &=
+\sum_{j\in J}\frac{1-2t_j}{t_j}\Pr[w_j(Y)=0]\\
+&\quad+
+\sum_{\substack{k\ne i\\p_k\ne 1/2}}
+\frac{1-b_k}{b_k}\Pr[a_k\cdot w(Y)=0].
+\end{aligned}
+$$
+
+Every term is nonnegative. If the original bound for this basis is strictly below the actual decrease, then $S_J>0$ because every free-bit assignment has positive probability. The improved bound is attained exactly when each assignment makes at most one factor exceed its lower bound. If two factors exceed their lower bounds at the same assignment, the product expansion contains a quadratic term that is positive there. Events with zero coefficient play no role in equality.
+
+The extension $w(Y)$ is affine, so each event has the form $\sum_{j\in H}Y_j=d$ over $\mathbb F_2$, where $H\subseteq F$. Its indicator is $(1+(-1)^d\prod_{j\in H}(-1)^{Y_j})/2$. Independence gives
+
+$$
+\Pr\!\left[\sum_{j\in H}Y_j=d\right]
+=\frac{1+(-1)^d\prod_{j\in H}(1-2t_j)}{2}.
+$$
+
+For empty $H$, this probability is $1$ for $d=0$ and zero for $d=1$. Two nonempty events are disjoint exactly when they have the same support $H$ and opposite right-hand sides $d$. Distinct nonzero binary linear forms are linearly independent, so there is an assignment satisfying both equations. If one equation holds everywhere, its event intersects every nonempty event. Checking these pairs among the nonempty events with positive coefficients decides whether the improved bound is attained.
+
+In the example above with $C=(1\ \ 1)$, the basis bit is zero precisely when the free bit is $1$, which has probability $3/8$. The basis-bit coefficient is $2/3$, so $S_J=1/4$ and the improved bound $(3/32)(1+1/4)=15/128$ equals the actual decrease.
+
+**Choosing a column basis (worked example).** Take retained pairs $(1,5)$ and $(6,10)$ and discarded pairs $(0,2)$, $(7,11)$, and $(3,8)$, in that order. Their later-endpoint probabilities are $(1/4,1/2)$ and $(1/8,1/4,1/4)$ respectively. When balancing the first retained orbital,
+
+$$
+C=\begin{pmatrix}
+1&0&1\\
+0&1&1
+\end{pmatrix},
+\qquad e=\begin{pmatrix}1\\0\end{pmatrix},
+\qquad (t_1,t_2,t_3)=(7/32,3/8,3/8).
+$$
+
+The two solutions of $Cw=e$ are $(1,0,0)$ and $(0,1,1)$. Add their probabilities and multiply by $b_1=1/4$ to obtain the actual drop of $25/512$. Columns $2,3$ give the largest original bound, $9/256$. Whenever the free bit $w_1=1$, both basis bits are zero and each contributes a relative excess of $2/3$. The first-order bound keeps the two linear terms and gives $(9/256)(1+2(7/32)(2/3))=93/2048$. Columns $1,2$ give an original bound of $21/1024$. Exactly one basis bit is zero at either solution, so the first-order bound reaches $25/512$.
 
 For example, suppose both retained pairs alternate with the sole discarded pair and its endpoint probability satisfies $0<q<1$. Both restricted rows are $(1)$. When the first retained orbital is already balanced, balancing the second leaves purity unchanged. When all three later-endpoint probabilities start at $1/4$, balancing just the second retained orbital lowers purity from $83/128$ to $5/8$.
 
