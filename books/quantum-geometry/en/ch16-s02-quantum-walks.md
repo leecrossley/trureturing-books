@@ -611,7 +611,7 @@ The same positions are touched in every world. By [@thm-partial-forward-order-li
 :::
 
 ::: {.theorem #thm-world-mixed-forward-suffix title="Bounding a fresh suffix across graph worlds" lean="D5/S3/Combinatorics/Graph/Queries/WorldMixedForwardSuffix.joint_fresh_suffix_bound"}
-Draw a graph world $w$ from a prior. Each world supplies two distinct values at every position of a finite set. Choose a uniform order at each position, independently of the other positions and the world. Fix a partial prefix table and let $E$ be the event that the orders match it. Specify a partial suffix table for each world, using positions disjoint from those of the prefix table. Let $F$ be the event that the orders match the suffix table for the sampled world.
+Draw a graph world $w$ from an arbitrary probability mass function. Each world supplies two distinct indexed values at every position of a finite set. At each position, flip a fair coin to keep or swap the two indices. The flips are independent of one another and of the world. Apply the permutations to the sampled world's values. Fix a partial prefix table and let $E$ be the event that the resulting slot values match it. Specify a partial suffix table for each world, using positions disjoint from those of the prefix table. Let $F$ be the event that the slot values match the suffix table for the sampled world.
 
 Let $B$ be any set of worlds whose suffix tables each observe at least $n$ distinct positions. If $\Pr(E)>0$, then
 
@@ -619,7 +619,7 @@ $$
 \Pr(w\in B,\ F\mid E)\le \Pr(w\in B\mid E)\,2^{-n}.
 $$
 
-Lean writes the two sides using probability ratios in the extended nonnegative reals. These ratios are also defined when the prefix has probability zero.
+Lean states the bound using probability ratios in the extended nonnegative reals. If the prefix has probability zero, both numerator events are contained in $E$ and also have probability zero. With the convention $0/0=0$, the ratio bound holds with equality in this case.
 :::
 
 ::: proof
