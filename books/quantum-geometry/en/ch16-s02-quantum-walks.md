@@ -609,7 +609,7 @@ All consistent injections have the same prior mass, so conditioning gives them t
 :::
 
 ::: {.theorem #thm-uniform-residual-naming-restriction title="Joint uniformity of the names on a fixed remaining selection" lean="D5/S3/Combinatorics/Probability/NamingRestrictionLaw.uniform_residual_restriction"}
-Fix an injective assignment of names to some vertices of a finite vertex set. Let $A$ be the finite set of available names, disjoint from the fixed names. Suppose at least one injective naming extends the fixed assignment and uses only names from $A$ on the other vertices. Draw uniformly from these extensions.
+Let the vertex set and the name set $N$ both be finite. Fix an injective assignment of names in $N$ to some vertices, and choose a set of available names $A \subseteq N$ disjoint from the fixed names. Suppose at least one injective naming extends the fixed assignment and uses only names from $A$ on the other vertices. Draw uniformly from these extensions.
 
 Let $\iota$ inject a finite index set $Z$ into the remaining vertices. The names at the vertices selected by $\iota$, read together as an injection $g\colon Z\hookrightarrow A$, have the uniform law on all such injections. Each $g$ has probability $1/|\operatorname{Inj}(Z,A)|$.
 :::

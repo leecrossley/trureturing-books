@@ -611,7 +611,7 @@ $$
 :::
 
 ::: {.theorem #thm-uniform-residual-naming-restriction title="一组指定剩余顶点的联合均匀命名律" lean="D5/S3/Combinatorics/Probability/NamingRestrictionLaw.uniform_residual_restriction"}
-在有限顶点集上，固定部分顶点的单射命名。设 $A$ 为与固定名字不交的有限可用名字集。假设至少有一种单射命名延拓固定命名，并且其余顶点的名字都取自 $A$。从这些延拓中均匀抽样。
+设顶点集与名字集 $N$ 都有限。固定部分顶点到 $N$ 的单射命名，取与固定名字不交的可用名字集 $A \subseteq N$。假设至少有一种单射命名延拓固定命名，并且其余顶点的名字都取自 $A$。从这些延拓中均匀抽样。
 
 以单射 $\iota$ 将有限指标集 $Z$ 嵌入剩余顶点集。按 $\iota$ 读取的名字共同给出单射 $g\colon Z\hookrightarrow A$。该单射在所有从 $Z$ 到 $A$ 的单射上均匀分布，每个 $g$ 的概率为 $1/|\operatorname{Inj}(Z,A)|$。
 :::
