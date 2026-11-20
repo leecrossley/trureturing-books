@@ -969,6 +969,8 @@ $$
 
 On the supported occupation basis, $(MM^\dagger)_{xx'}$ is $\sqrt{\mu(x)\mu(x')}$ times $\mathbb E_{y\sim\nu}[(-1)^{z^\mathsf{T}Ay}]$. Independence factors the expectation over $y_j$. Each coordinate with $(A^\mathsf{T}z)_j=1$ contributes $1-2q_j$, and every other coordinate contributes $1$. The trace of the square of a Hermitian matrix is the sum of the squared moduli of its entries. Summing over $x,x'$ gives the formula. Conjugating by the diagonal unitary of retained phases and inserting zero rows and columns for the other occupations preserve the trace. The empty product equals $1$, so the purity is $1$ when $A$ is zero.
 
+The [purity formula for the ordinary occupation marginal](lean:D5/S3/Quantum/Fermionic/WeightedSlaterPairCut.orderedMarginal_purity) allows arbitrary complex endpoint amplitudes, including zeros. When their squared moduli are normalized endpoint probabilities, the retained mass autocorrelations give the distribution of $z$.
+
 When one retained pair alternates with one discarded pair, $A=(1)$. Adding the terms for $z=0$ and $z=1$ gives purity $1-8p(1-p)q(1-q)$. For instance, $p=q=1/4$ gives $23/32$, while $p=q=1/2$ gives $1/2$.
 
 **Purity excess and the two endpoint laws (written derivation).** Return to the two image spaces of size $d=2^r$ with laws $P,Q$. Write $\Delta_P=\sum_u(P(u)-1/d)^2$ and define $\Delta_Q$ in the same way. Let $m=\min_u P(u)$. Then
@@ -981,6 +983,19 @@ $$
 The bound also holds with the two sides exchanged and the coefficient calculated from $\min_v Q(v)$. Equality holds in the displayed bound when $P$ exceeds $m$ at at most one site. For a single alternating pair on each side with $p=q=1/4$, the two deviations are both $1/8$. The right side is $7/32$, exactly $23/32-1/2$.
 
 Set $C=H\operatorname{diag}(Q)H^\mathsf T$. This real symmetric matrix has $C_{uu}=1$. Since $H^\mathsf T H=dI$ and $H_{uv}^2=1$, each row has squared norm $d\sum_v Q(v)^2$. Removing the diagonal contribution leaves $d\Delta_Q$ in every row and column. The marginal purity is $\sum_{u,u'}P(u)P(u')C_{uu'}^2$. On the off-diagonal terms, write $P(u)=m+R(u)$. The constant and linear terms contribute $(dm^2+2m\sum_u R(u))d\Delta_Q$. Using $\sum_u R(u)=1-dm$ and subtracting the uniform-spectrum purity $1/d$ gives the displayed right side plus the nonnegative remainder $\sum_{u\ne u'}R(u)R(u')C_{uu'}^2$. This remainder vanishes when the surplus is concentrated at one site. Transposing the amplitude matrix exchanges the sides and preserves the nonzero spectrum, so the same calculation controls the other law.
+
+**Does balancing one orbital lower purity?** Define $A$ using all the pairs, including any orbital that originally occupies a fixed endpoint. Keep the discarded probabilities $q_j$ and the other retained orbitals fixed. Making retained orbital $i$ balanced when $p_i\ne1/2$ weakly decreases purity. Let $L=\{j:0<q_j<1\}$. The decrease is strict exactly when row $i$ restricted to $L$ lies outside the $\mathbb F_2$-span of the other balanced retained rows restricted to $L$.
+
+Take two independent discarded endpoint strings and let $w$ be their binary difference. Write $b_k=(1-2p_k)^2$. The two marginals have the same nonzero spectrum, so the preceding purity formula can be applied on the discarded side. A fixed endpoint on that side has difference bit zero. A fixed endpoint on the other side contributes a squared factor of $1$. Thus the formula uses the full $A$. Making orbital $i$ balanced sets $b_i$ to zero, and the purity before balancing minus the purity afterward is
+
+$$
+b_i\sum_{w:\,(Aw)_i=1}\Pr(w)
+  \prod_{\substack{k\ne i\\(Aw)_k=1}} b_k .
+$$
+
+Every term is nonnegative. The support of $w$ consists of all binary strings that vanish off $L$. The decrease is strictly positive precisely when one of these strings has dot product $1$ with row $i$ and dot product zero with every other balanced row. Such a string cannot exist if the restricted row is in their span. Otherwise append the restricted row to a basis of that span and extend to a basis of $\mathbb F_2^L$. The functional taking value $1$ on the appended row and zero on the other basis vectors gives the required string under the dot product.
+
+For example, suppose both retained pairs alternate with the sole discarded pair and its endpoint probability satisfies $0<q<1$. Both restricted rows are $(1)$. When the first retained orbital is already balanced, balancing the second leaves purity unchanged. When all three later-endpoint probabilities start at $1/4$, balancing just the second retained orbital lowers purity from $83/128$ to $5/8$.
 
 For this literal word, ordinary letter-count balance and a sum weighted by position parity are different observables. Retain the letter encoding $A=0$, $B=1$, $C=2$ and take integer weights
 
