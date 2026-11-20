@@ -608,6 +608,16 @@ Choose an injection uniformly from a finite vertex set into a finite name set. F
 All consistent injections have the same prior mass, so conditioning gives them the same mass. Restricting to the remaining vertices gives a bijection with injections into $A$: extending by the fixed names preserves injectivity because those names lie outside $A$. At any remaining vertex, swapping two names from $A$ exchanges the sets of injections assigning those names there. A specified name therefore has probability $1/|A|$ at each remaining vertex, and it can occur at most once in an injection. Adding the disjoint probabilities over those vertices gives the formula. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-uniform-residual-naming-restriction title="Joint uniformity of the names on a fixed remaining selection" lean="D5/S3/Combinatorics/Probability/NamingRestrictionLaw.uniform_residual_restriction"}
+Fix an injective assignment of names to some vertices of a finite vertex set. Let $A$ be the finite set of available names, disjoint from the fixed names. Suppose at least one injective naming extends the fixed assignment and uses only names from $A$ on the other vertices. Draw uniformly from these extensions.
+
+Let $\iota$ inject a finite index set $Z$ into the remaining vertices. The names at the vertices selected by $\iota$, read together as an injection $g\colon Z\hookrightarrow A$, have the uniform law on all such injections. Each $g$ has probability $1/|\operatorname{Inj}(Z,A)|$.
+:::
+
+::: proof
+Use the bijection from consistent completions to residual injections in [@thm-uniform-remaining-name-hit]. For any two specified restricted namings, extend their name-to-name bijection to a permutation of the whole set $A$. Postcomposing each residual injection with that permutation pairs the two completion fibers bijectively. Their masses are equal, and the probabilities of the possible restricted namings sum to one. The full proof is checked by the Lean kernel.
+:::
+
 For example, two unnamed vertices and five available names give a hit probability of $2/5$ for any specified available name. To use the law after an adaptive graph query, one must identify the naming constraints imposed by the actual replies. Childs et al. use a sparse name space to bound guesses outside the known names in [quant-ph/0209131v2, Section IV](https://arxiv.org/abs/quant-ph/0209131v2).
 
 Fix a graph and a deterministic strategy whose query is a name. On a hit, the oracle returns the complete unordered set of neighbor names. On a miss, it returns a separate marker. In the actual record, let $S$ contain the initially supplied names, the names of successful queries, and the returned neighbor names. Let $B$ contain the names that received a miss. The fresh names form $A=N\setminus(S\cup B)$.
