@@ -794,6 +794,38 @@ $$
 Each call records at most two additional weld edges. Given the reference transcript, the weld is uniform over the completions of $F$. Orient a uniform completion and condition on the prescribed directions of the edges of $F$. A fresh outgoing arc of $x$ joins the tail of its component to a head in a different component. The target vertices belong to at most $|S|$ distinct components, so [@thm-alternating-forest-successor-bound] bounds the outgoing probability on each orientation fiber. Averaging recovers the full law on oriented completions. Reversal gives the same bound for incoming arcs, and the union of the two events gives the undirected bound. The full proof is checked by the Lean kernel.
 :::
 
+An observed slot may depend on the previous steps. In a nonbacktracking walk, the previous vertex determines which incident edge is excluded from the forward choices.
+
+::: {.theorem #thm-graph-path-posterior title="The graph posterior after disclosing a path" lean="D5/S3/Combinatorics/Graph/Queries/ForwardPathPosterior.graph_path_posterior"}
+Draw a world from a prior mass function $\pi$. Each world gives a simple undirected graph on a common vertex set $V$ and contains the same initial incoming edge. All incoming endpoints and candidate vertices belong to $V$. Fix a finite set of positions, a schedule of position and slot requests, and two distinct candidates for each world, position and incoming pair. Independently of the world, each position uses an independent fair keep-or-swap choice on its two indices. After a slot returns a vertex, the next incoming pair consists of the current vertex and the returned vertex.
+
+Fix an actual reference disclosure $\tau$ of positive probability. Its rows never return the predecessor, and every occurrence of a given position has the same incoming pair. The partial slot table records exactly the values in the reference rows, and the set of observed positions consists of those with a recorded slot. In each world containing a row's incoming edge, require that the vertex recorded in that row is one of the two candidates exactly when it is adjacent to the current vertex and differs from the predecessor.
+
+Let $C_\tau$ be the set of worlds containing every recorded edge from a current vertex to its returned vertex. Then for every set of worlds $B$,
+
+$$
+\Pr(B\mid \tau)=\frac{\pi(B\cap C_\tau)}{\pi(C_\tau)}.
+$$
+
+:::
+
+::: proof
+Replaying the schedule matches the reference rows exactly when it matches the recorded slot values at their reference incoming pairs. The first incoming edge is common to every world, and every recorded outgoing edge supplies the incoming edge for the next row. Induction shows that every recorded vertex is available at its row exactly when all recorded edges are present. In the reference run, each position always uses the same incoming pair. Its permutation sends the two slots to distinct candidates, so their recorded values differ whenever both are observed. Together these facts give the compatibility of the table. The common likelihood factor from [@thm-partial-forward-order-likelihood] cancels in the posterior. The full proof is checked by the Lean kernel.
+:::
+
+::: {.theorem #thm-meeting-arms-last-weld title="The forest tail after the last weld crossing" lean="D5/S3/Combinatorics/Graph/Walks/LastWeldCrossing.meeting_arms_last_weld"}
+Let $H$ be a forest and $W$ a weld graph on the same vertices. In their union, take two simple paths from $a$ to $b$ with positive total length. Require their final edges to be distinct whenever both exist. Follow the first path and then the reverse of the second, obtaining a closed walk of length $L$. This walk has an edge of $W$ outside $H$. Number its edges from zero and let $j$ index the last such edge. If $y$ is the vertex reached by that edge, the remaining walk has the same ordered vertex list as a simple path in $H$ from $y$ to $a$, and
+
+$$
+L-(j+1)=d_H(y,a).
+$$
+
+:::
+
+::: proof
+Each arm has no immediate reversal, and the different final edges prevent a reversal at the join. In a forest, a walk without an immediate reversal is a simple path. A nonempty closed walk of this kind must therefore use an edge outside $H$. After the last such edge, the entire suffix lies in $H$ and still has no immediate reversals. Its length equals the distance because it is the unique simple path between its endpoints. The full proof is checked by the Lean kernel.
+:::
+
 **Which bridges to a classical oracle lower bound remain?** [@thm-directed-forest-cycle-completion] gives the ordinary directed model's static uniform law, and [@thm-alternating-forest-classification] counts the alternating completions, with the conditional law given by [@thm-alternating-completion-law]. Three distinctions separate them from the glued-trees result in [@rem-qsvt-walks-literature]:
 
 1. **Graph distribution and orientation.** Ben-David et al. (*SIAM Journal on Computing* **53**(6), 2024, [doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975), §6.3.2, Lemmas 6.11–6.13, PDF pages 37–39) use one uniform cycle on each side's leaves for the self-weld, and a uniform alternating cycle between the two sides for the weld. [@thm-alternating-forest-classification] gives the alternating completion counts, and [@thm-alternating-completion-law] gives the fixed-edge event mass and conditional law. For ordinary undirected full cycles, [@thm-undirected-cycle-orientation-fibers] now identifies orientations and representation multiplicities over the same actual completed graph: each fiber is exactly a pair of reversed lifts, with edge-insertion events preserved. [@thm-uniform-undirected-cycle-completion] gives the uniform law for ordinary undirected completions of a fixed $F$. [@thm-alternating-connector-mass] gives the conditional probability of a specified connector, and [@thm-alternating-successor-set-bound] bounds the probability of a whole set of candidate successors. [@thm-alternating-forest-successor-bound] gives the resulting estimate in terms of the number of prescribed directed edges. [@thm-alternating-undirected-completion-law] gives the ambient count and fixed-edge conditional law for undirected alternating cycles. [@thm-alternating-weld-orientation] puts the directed and undirected weld completions on one probability space.

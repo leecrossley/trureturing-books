@@ -796,6 +796,38 @@ $$
 每次调用至多新记录两条黏合边。给定参考记录，黏合环在 $F$ 的所有补全中均匀分布。给均匀补全定向，再对 $F$ 中给定边的方向取条件。$x$ 的新出弧连接所在分量的尾端和另一分量的首端。目标顶点至多分属 $|S|$ 个分量，所以 [@thm-alternating-forest-successor-bound] 约束每个方向纤维上的出弧概率。对方向取平均得到全部有向补全上的分布，反向后得到同样的入弧概率界。对两种事件取并集即得无向概率界。完整证明由 Lean 内核检查。
 :::
 
+观察到的槽位取值可以依赖先前的步。在非回溯游走中，前一个顶点决定了哪条相邻边要从前向选择中排除。
+
+::: {.theorem #thm-graph-path-posterior title="披露路径后的图后验" lean="D5/S3/Combinatorics/Graph/Queries/ForwardPathPosterior.graph_path_posterior"}
+从先验概率质量函数 $\pi$ 抽取一个世界。每个世界给出同一顶点集 $V$ 上的一张简单无向图，并包含同一条初始入边。所有入边端点和候选顶点均取自 $V$。固定有限个位置和一份按顺序请求位置与槽位的清单。每个世界、位置与入边端点对给出两个互异的候选顶点。每个位置独立抛一枚公平硬币来决定保留还是交换两个索引，抛掷也独立于世界。槽位返回一个顶点后，当前顶点与返回的顶点组成下一步的入边端点对。
+
+固定一份概率为正的实际参考披露 $\tau$。其中每一行都不返回前驱顶点，同一个位置的每次出现都有相同的入边端点对。部分槽位表恰好记录参考各行的取值，观察位置集合恰好由至少记录了一个槽位的位置组成。在包含某行入边的每个世界中，该行记录的顶点是两个候选之一，当且仅当它与当前顶点相邻且不同于前驱顶点。
+
+令 $C_\tau$ 为含有全部记录边的世界集合。每条记录边连接该行的当前顶点与返回顶点。对任意世界集合 $B$，
+
+$$
+\Pr(B\mid \tau)=\frac{\pi(B\cap C_\tau)}{\pi(C_\tau)}.
+$$
+
+:::
+
+::: proof
+按清单重放恰好再现参考各行，当且仅当在各行的参考入边端点对处匹配记录的槽位取值。第一条入边为所有世界共有，此后每条记录的出边都给下一行提供入边。沿路径归纳可知，所有记录顶点都是各行的候选，当且仅当所有记录边都存在。参考运行在同一位置始终使用同一个入边端点对。两个槽位经同一个二元排列选中两个互异候选，因此如果两个槽位都已观察，记录值也互异。这给出了槽位表相容的其余条件。由 [@thm-partial-forward-order-likelihood] 得到的公共似然因子在后验比值中约去。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-meeting-arms-last-weld title="最后一次黏合跨越之后的森林尾段" lean="D5/S3/Combinatorics/Graph/Walks/LastWeldCrossing.meeting_arms_last_weld"}
+设 $H$ 为森林，$W$ 为同一顶点集上的黏合图。取并图中两条从 $a$ 到 $b$ 的简单路径，要求总长度为正，且两条路径都有末边时末边不同。先走第一条，再反向走第二条，得到长度为 $L$ 的闭游走。这个游走至少有一条属于 $W$ 且不属于 $H$ 的边。将边从零编号，令 $j$ 为最后一条这样的边的编号。若该边抵达 $y$，则余下的游走与 $H$ 中一条从 $y$ 到 $a$ 的简单路径具有相同的有序顶点序列，并且
+
+$$
+L-(j+1)=d_H(y,a).
+$$
+
+:::
+
+::: proof
+两条路径都没有立即折返，末边互异排除了交接处的折返。森林中没有立即折返的游走是一条简单路径。因此，这样的非空闭游走必经过一条不属于 $H$ 的边。越过最后一条这样的边后，整个尾段都在 $H$ 中，并且仍不立即折返。它是两端之间唯一的简单路径，长度等于森林距离。完整证明由 Lean 内核检查。
+:::
+
 **通向经典黑盒下界仍需哪些桥梁？** [@thm-directed-forest-cycle-completion] 给出普通有向模型的静态均匀律，[@thm-alternating-forest-classification] 给出交替模型的补全计数，[@thm-alternating-completion-law] 给出固定边集的条件律。它们与 [@rem-qsvt-walks-literature] 的黏合树结果之间还有三层区别：
 
 1. **图的分布与方向。** Ben-David 等人（*SIAM Journal on Computing* **53**(6)，2024，[doi:10.1137/23M1573975](https://doi.org/10.1137/23M1573975)，§6.3.2，Lemmas 6.11–6.13，PDF 第 37–39 页）在 self-weld 中使用每侧叶子上的一个均匀整圈，在 weld 中使用两侧叶子间的均匀交替整圈。[@thm-alternating-forest-classification] 给出交替补全的分类与基数，[@thm-alternating-completion-law] 给出固定延拓事件的概率和条件律。普通无向整圈的定向与表示重数现由 [@thm-undirected-cycle-orientation-fibers] 在同一实际完成图上给出：每个纤维恰为一对反向提升，并保留加边事件。[@thm-uniform-undirected-cycle-completion] 进一步给出固定 $F$ 下普通无向补全的均匀律。[@thm-alternating-connector-mass] 给出指定连接的条件概率，[@thm-alternating-successor-set-bound] 将它转化为整个候选后继集合的概率上界。[@thm-alternating-forest-successor-bound] 将这个上界写成给定有向边数的函数。[@thm-alternating-undirected-completion-law] 给出无向交替整圈的总数和固定边条件律。 [@thm-alternating-weld-orientation] 把有向与无向黏合补全放在同一个概率空间中。
