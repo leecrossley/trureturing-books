@@ -140,6 +140,12 @@
 
 :::
 
+对于有限结果的检验，判据是每组权重中是否有某个允许选择的标签，其权重只出现一次。设检验域在标签置换下封闭，而且允许选择的标签随置换一起变换。这样的检验域上，确定性协变选择存在，当且仅当每个权重向量都有上述标签。如果所选标签的权重还出现在另一个标签上，交换这两个标签会固定权重向量，却改变所选标签，违反协变。反过来，可以从允许选择且权重只出现一次的标签中取权重最大者。这个标签唯一，也随置换一起变换。协变选择判据见 [`exists_equivariant_selector_iff`](lean:D5/S3/ConceptDynamics/Attribution/FiniteWeightSelector.exists_equivariant_selector_iff)。
+
+例如权重为 $(2/5,2/5,1/5)$ 时，若三个标签均允许选择，就可以协变地选择 $1/5$ 对应的标签。若要求选最大权重，协变规则存在当且仅当每组权重的最大值只出现一次。这个例子有两个最大权重，相互交换仍得到同一权重向量。
+
+连续性提出了另一个问题。有至少三个标签时，所有严格正、总和为一且含有唯一权重的向量构成一个路径连通的区域。证明先在严格正权重的锥内绕开有限多个子空间，再用除以权重总和把路径送到概率单纯形。每个要绕开的子空间都由同权关系给出，并且至少有两个独立的等式。一个连续规则若取值于离散标签，在整个区域上只能选同一个标签。标签置换可以移动它，所以该规则无法同时满足连续与协变。二元检验中，去掉等权点后，选择较大权重给出了连续的协变规则。路径连通性见 [`pathConnected_normalized_profiles`](lean:D5/S3/ConceptDynamics/Attribution/FiniteSimplexSelection.pathConnected_normalized_profiles)。
+
 **无嵌套条件时的最小种子数（手工推导）。** 给定分母 $m\ge1$，对所有 $0\le k\le m$，用同一份有限种子分布和一族质量为 $k/m$ 的事件 $E_k$。要求有一个固定的保权重对合 $\sigma$，使 $s\in E_k$ 当且仅当 $\sigma(s)\notin E_{m-k}$。在这个条件下，奇数 $m$ 所需的最小种子数是满足 $m+1\le 2^n$ 的最小 $n$。偶数 $m$ 所需的最小种子数是 $2r$，其中 $r$ 是满足 $m+1\le 3^r$ 的最小整数。 两种预算的充要条件分别见 [`odd_support_budget_iff`](lean:D5/S3/ConceptDynamics/Attribution/CovariantGridSupport.odd_support_budget_iff), [`even_support_budget_iff`](lean:D5/S3/ConceptDynamics/Attribution/CovariantGridSupport.even_support_budget_iff)。
 
 奇数情形中，$n$ 个种子至多提供 $2^n$ 个不同的事件质量。偶数情形中，中点事件 $E_{m/2}$ 从每个交换对中恰好取一个种子。对合没有固定点，每对的两个种子等权。每个事件只能从每对取零个、一个或两个种子，$r$ 对因此至多提供 $3^r$ 个不同的事件质量。
