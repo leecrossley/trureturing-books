@@ -648,6 +648,16 @@ Fix a request map $r\colon I\to V$ and return the name of $r(i)$ at position $i$
 For each vertex of $U$, read its name from any request position that selects it. Consistency makes the choice of position immaterial and gives different names to distinct vertices. Each consistent reply therefore determines a unique injection from $U$ into $A$. Conversely, this injection and the fixed names reconstruct the reply at every position. Transfer the uniform distribution in [@thm-uniform-residual-naming-restriction] along this correspondence. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-joint-ordered-reply-completion title="The joint law of an ordered reply and the full naming" lean="D5/S3/Combinatorics/Probability/JointNamingReplyCompletion.joint_ordered_reply_completion"}
+Fix an injective naming on a subset $K$ of a finite vertex set $V$ with names from a finite set $N$. Let $A\subseteq N$ be a set of available names disjoint from the fixed names, and suppose there is at least one injective completion that uses only names from $A$ outside $K$. Fix a request map $r\colon I\to V$, and set $L=K\cup r(I)$ and $U=r(I)\setminus K$.
+
+Draw a full naming $f$ uniformly from these completions and read the reply $a=f\circ r$. With consistency as in [@thm-ordered-naming-reply], every consistent reply has probability $1/|\operatorname{Inj}(U,A)|$, and every other reply has probability zero. For each positive-probability reply there is an expanded injective naming on $L$ that returns the reply at all request positions and admits at least one completion whose names outside $L$ come from $A$ after removing all names assigned on $L$. There is a conditional sampling rule that draws uniformly from those completions at each positive-probability reply. Sampling the reply first and then using this rule gives the same joint distribution of $(a,f)$ as sampling the full naming first and then reading the reply.
+:::
+
+::: proof
+Among the original completions, giving a specified reply is equivalent to agreeing with the expanded naming on $L$. By [@thm-uniform-naming-update], the conditional law on that event is the uniform completion law using the remaining available names. Multiplying the probability of each reply by the corresponding conditional completion probability recovers the joint probability of every pair of reply and full naming. The full proof is checked by the Lean kernel.
+:::
+
 For example, two unnamed vertices and five available names give a hit probability of $2/5$ for any specified available name. To use the law after an adaptive graph query, one must identify the naming constraints imposed by the actual replies. Childs et al. use a sparse name space to bound guesses outside the known names in [quant-ph/0209131v2, Section IV](https://arxiv.org/abs/quant-ph/0209131v2).
 
 Fix a graph and a deterministic strategy whose query is a name. On a hit, the oracle returns the complete unordered set of neighbor names. On a miss, it returns a separate marker. In the actual record, let $S$ contain the initially supplied names, the names of successful queries, and the returned neighbor names. Let $B$ contain the names that received a miss. The fresh names form $A=N\setminus(S\cup B)$.
