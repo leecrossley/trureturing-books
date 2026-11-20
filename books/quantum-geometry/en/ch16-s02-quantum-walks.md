@@ -610,6 +610,22 @@ $$
 The same positions are touched in every world. By [@thm-partial-forward-order-likelihood], the joint mass associated with worlds in $B$ is $2^{-s}\pi(B\cap C)$, and the total observation mass is $2^{-s}\pi(C)$. Their ratio gives the claimed law. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-world-mixed-forward-suffix title="Bounding a fresh suffix across graph worlds" lean="D5/S3/Combinatorics/Graph/Queries/WorldMixedForwardSuffix.joint_fresh_suffix_bound"}
+Draw a graph world $w$ from a prior. Each world supplies two distinct values at every position of a finite set. Choose a uniform order at each position, independently of the other positions and the world. Fix a partial prefix table and let $E$ be the event that the orders match it. Specify a partial suffix table for each world, using positions disjoint from those of the prefix table. Let $F$ be the event that the orders match the suffix table for the sampled world.
+
+Let $B$ be any set of worlds whose suffix tables each observe at least $n$ distinct positions. If $\Pr(E)>0$, then
+
+$$
+\Pr(w\in B,\ F\mid E)\le \Pr(w\in B\mid E)\,2^{-n}.
+$$
+
+Lean writes the two sides using probability ratios in the extended nonnegative reals. These ratios are also defined when the prefix has probability zero.
+:::
+
+::: proof
+Fix a world. If it is incompatible with the prefix, the prefix and all of its subevents have probability zero there. If it is compatible, [@thm-fresh-forward-suffix] gives the conditional probability of matching the suffix. In each world of $B$, the suffix specifies at least $n$ new positions, so that probability is at most $2^{-n}$. Average the joint probabilities using the prior and divide by the total prefix probability. The full proof is checked by the Lean kernel.
+:::
+
 ::: {.theorem #thm-uniform-remaining-name-hit title="Guessing an available name after a partial observation" lean="D5/S3/Combinatorics/Probability/PartialNameAssignment.uniform_remaining_name_hit"}
 Choose an injection uniformly from a finite vertex set into a finite name set. Fix an injective naming on a subset $K$ and a set $A$ of available names disjoint from the names already fixed. Assume at least one injection agrees with the fixed naming and assigns names in $A$ to all other vertices. Conditional on those requirements, the law is uniform over the consistent injections. Under this same law, for each $a\in A$ the probability that some remaining vertex receives $a$ is the number of remaining vertices divided by $|A|$.
 :::
