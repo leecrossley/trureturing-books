@@ -149,6 +149,8 @@ $$
 
 把平方读数看作 $u=y^2$ 的函数。其亚纯延拓是 $\sum_{\gamma>0}m_\gamma/[L(0)(u+\gamma^2)]$。离开极点的紧集上级数一致收敛，因为尾项可由 $2m_\gamma/[L(0)\gamma^2]$ 控制。任一正实开区间上的**精确曲线**由恒等定理唯一确定这个延拓。每个极点 $u=-\gamma^2$ 给出一个正纵坐标，留数 $m_\gamma/L(0)$ 的比给出相对重数。若把每个重数都乘同一正整数，归一化曲线保持不变。对于黎曼零点，黎曼–冯·曼戈尔特公式给出按重数计的正零点数 $N(T)\sim T\log T/(2\pi)$，其首项固定了整体比例。[@rem-ch34-li-toeplitz-superexponential-collapse]
 
+Voros 将完备 $L$ 函数的对数导数写成关于零点纵坐标平方的和。对判别式为 $d=2{,}380{,}853$ 的二次特征，Crossley 在 GRH 下利用三个实点处的对数导数值，证明最小正零点纵坐标 $g$ 满足 $0.4480<g\log(3d)<0.4524$，且 $|\gamma|\log(3d)\le1$ 范围内恰有一对共轭零点。[Voros，式 (69)](https://arxiv.org/pdf/math/0311029#page=15)。[Crossley 的三点计算](https://github.com/leecrossley/quadratic-mertens-first-crossings/blob/near-central-zeros-v1/results/signed-prime-tails/NEAR-CENTRAL.md#three-real-measurements-in-the-late-field)（[证明存档](https://doi.org/10.5281/zenodo.24422027)）。
+
 **哪些球壳夹角可以由两个实谱节点精确取到？** 固定任一实节点 $s>1/2$，让第二个实节点 $t$ 从 $s$ 向右移动。记归一化谱向量为 $x(t)$，内积为 $h(s,t)$。由核公式，$h$ 连续且 $h(s,s)=1$。当 $t>s$ 时，共轭对坐标严格为正，二节点格拉姆矩阵严格正定，故 $0<h(s,t)<1$。下面证明 $t\to\infty$ 时 $h(s,t)\to0$。
 
 写 $v=t-1/2$。在上面的坐标公式中约去公共因子 $\xi(t)$，再把各坐标乘以 $v$。归一化以前，所有坐标的平方和为
