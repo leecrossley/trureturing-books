@@ -675,6 +675,8 @@ $$
    \Lambda(n) \;=\; \frac{n}{h}\,\Delta_h^2\bigl(U(x) + x\log x\bigr)\Big|_{x=n} \;=\; \frac{n}{h}\,\Delta_h^2(x\log x)\Big|_{x=n} \;+\; \frac{n}{h}\sum_{\rho}\frac{(n+h)^\rho - 2n^\rho + (n-h)^\rho}{\rho(1-\rho)} \;-\; \frac{n}{h}\,\Delta_h^2 T(n).
    $$
 
+   Dudek、Grenié 和 Molteni 用这个二阶差分，以三角权重对算术级数中的素数幂计数。Crossley 对 547/727 素理想竞赛中间距为 $1/4$ 的三个相邻样本取同一差分。对每个良奇素数 $p$，由此恢复的迹与 $p$ 模 $16$ 的剩余类共同确定局部欧拉因子的分母。参见 [Dudek、Grenié 和 Molteni，第 3 节](https://arxiv.org/pdf/1606.08616#page=4) 和 [Crossley 的三个素数竞赛样本定理](https://doi.org/10.5281/zenodo.24413208)。
+
    300 比特 Arb 区间算术在 $n = 2, \dots, 10$ 上按下表采用的步长方案（$n = 2$ 取 $h = \frac{1}{2}$，$n = 3, \dots, 10$ 取 $h = 1$）直接验算了该算术差分恒等式（无穷零点和通过冻结积分公式代换），全部残差落入半径小于 $1.1 \times 10^{-86}$ 的含零区间。
 3. **基于冻结总谱质量 $2\lambda_1$ 的双轨可计算尾项证书（RH 轨与完全无条件轨）**：冻结定理 [`actual_complex_pairWeight_hasSum`](lean:D5/S3/Weil/ZeroData/ActualReciprocalSquareBounds.actual_complex_pairWeight_hasSum) 确立了全体非平凡零点（按重数计）的精确谱权总量
 

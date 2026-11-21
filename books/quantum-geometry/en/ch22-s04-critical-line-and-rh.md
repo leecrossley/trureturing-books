@@ -675,6 +675,8 @@ and moving right from the midpoint $\psi_0(8)$ contributes the remaining half-ju
    \Lambda(n) \;=\; \frac{n}{h}\,\Delta_h^2\bigl(U(x) + x\log x\bigr)\Big|_{x=n} \;=\; \frac{n}{h}\,\Delta_h^2(x\log x)\Big|_{x=n} \;+\; \frac{n}{h}\sum_{\rho}\frac{(n+h)^\rho - 2n^\rho + (n-h)^\rho}{\rho(1-\rho)} \;-\; \frac{n}{h}\,\Delta_h^2 T(n).
    $$
 
+   Dudek, Grenié and Molteni use this second difference to count prime powers with a triangular weight in arithmetic progressions. Crossley applies it to three consecutive quarter-grid samples of the 547/727 prime-ideal race. At each good odd prime $p$, the recovered trace and $p$ modulo $16$ determine the local Euler denominator. [Dudek, Grenié and Molteni, §3](https://arxiv.org/pdf/1606.08616#page=4) and [Crossley, *Three finite prime-race scores determine a local Euler factor*](https://doi.org/10.5281/zenodo.24413208).
+
    Using 300-bit Arb interval arithmetic across $n = 2, \dots, 10$ under the step schedule used in the table below ($h = \frac{1}{2}$ at $n = 2$ and $h = 1$ at $n = 3, \dots, 10$, evaluating the infinite zero sum via the frozen integrated identity), every stencil residual is enclosed in a zero-containing interval of radius below $1.1 \times 10^{-86}$.
 3. **Dual computable tail certificates from the frozen total spectral mass $2\lambda_1$ (RH track and completely unconditional track)**: The frozen theorem [`actual_complex_pairWeight_hasSum`](lean:D5/S3/Weil/ZeroData/ActualReciprocalSquareBounds.actual_complex_pairWeight_hasSum) establishes the exact total reciprocal-quadratic spectral mass over all nontrivial zeros (counted with multiplicity):
 
