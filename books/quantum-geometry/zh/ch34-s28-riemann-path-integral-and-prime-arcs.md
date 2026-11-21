@@ -525,6 +525,54 @@ $$
 在 RH 下，对归一化余项 $U(x)/\sqrt{x}$ 的绝对包络取正损失 $C-M$，即得充分大 $x$ 处的上界 $C\sqrt{x}$。反过来，对任意 $\kappa>0$，起点取得足够大时，整个窗口上都有 $C\le x^\kappa$。同一窗口因此满足逐点幂界，由 [@thm-ch31-mangoldt-pointwise-power-window] 得到 RH。完整证明由 Lean 内核检查。
 :::
 
+临界系数 $C=M$ 涉及原始余项与曲线 $M\sqrt{x}$ 的**可加差额**。将其除以 $\sqrt{x}$ 会掩去固定尺度的节省。
+
+::: {.theorem #thm-ch31-mangoldt-critical-gap title="临界包络下的可加差额趋于正无穷" lean="D5/S3/Weil/Mertens/IntegratedExplicit/MangoldtCriticalGap.rh_iff_critical_gap_tendsto_atTop"}
+令 $M=2+\gamma_{\mathrm{EM}}-\ln(4\pi)$。黎曼假设成立，当且仅当沿实数 $x\to+\infty$ 有
+
+$$
+M\sqrt{x}-U(x)\longrightarrow+\infty.
+$$
+
+换言之，对每个固定实数 $D$，存在 $X$，使所有实数 $x\ge X$ 都满足 $U(x)\le M\sqrt{x}-D$。
+:::
+
+::: proof
+令 $y=\ln x$。在 RH 下，归一化零点和的实部可写成 $F(y)=\sum_k a_k\cos(\gamma_k y)$，其中 $a_k\ge0$ 且 $\sum_k a_k=M$。记 $d(y)=M-F(y)$。利用 $(1-\cos(\gamma_k y))(1+\cos(\gamma_k h))\ge0$ 并逐项求和，得到
+
+$$
+2d(h)-4d(y)\le2F(y)-F(y+h)-F(y-h).
+$$
+
+在原点右侧，显式公式给出 $d(h)/h\to+\infty$。在远端取 $h=e^{-y/2}$。各个 Mangoldt 斜坡的带权中点不等式与归一化余项的显式公式误差一起，将右端从上方控制为 $O(h)$。除以 $h$，得到 $d(y)/h\to+\infty$。由于 $|e^{-y/2}U(e^y)-F(y)|=O(e^{-y/2})$，换回 $x=e^y$ 后，可加差额与 $d(y)/h$ 只差一个有界量。
+
+反过来，差额趋于正无穷蕴含 $U(x)\le M\sqrt{x}$ 在整个尾部成立。对任意 $\kappa>0$，充分大时 $M\le x^\kappa$，从而满足 [@thm-ch31-mangoldt-pointwise-power-window] 的逐点幂窗条件。完整证明由 Lean 内核检查。
+:::
+
+**手工推导。** 固定 $b>1$。对每个实数 $R$ 都存在 $Y\ge\max\{R,2\}$，使同一个 $[Y,Y^b]$ 上每一点都满足 $U(x)\le M\sqrt{x}$，这一条件等价于 RH。在 RH 下取上一定理中的 $D=0$，每个充分晚的窗口都成立。反向只假设任意晚存在这样的窗口。给定 $\kappa>0$，把起点下界提到 $x^\kappa\ge M$ 的阈值以上，再取这样一个窗口，应用 [@thm-ch31-mangoldt-pointwise-power-window] 即可。
+
+::: {.theorem #thm-ch31-mangoldt-bounded-gap-peak title="归一化余项在整数对数时间上有界间隔地回近临界质量" lean="D5/S3/Weil/Mertens/IntegratedExplicit/MangoldtWindowPhase.bounded_gap_actual_G_peak"}
+设 RH 成立，记 $G(y)=e^{-y/2}U(e^y)$。对每个 $\delta>0$ 存在自然数 $L$，使每个自然数 $n$ 都有某个自然数 $k\le L$ 满足
+
+$$
+|G(n+k)-M|<\delta.
+$$
+:::
+
+::: proof
+在 RH 下，归一化零点和是相位紧群上连续函数沿整数次幂的取值，单位元处的函数值为 $M$。取单位元的开邻域，使其上相位和到 $M$ 的距离小于 $\delta/2$。在相位生成的循环子群的闭包上，回到这个邻域所需的非负整数步数有统一上界，这来自开覆盖的有限子覆盖。归一化余项与零点和实部之差最终小于 $\delta/2$，故有界等待时间内的一个整数对数时刻给出所需估计。增大 $L$ 可把有限的初始时段一并计入。完整证明由 Lean 内核检查。
+:::
+
+::: {.theorem #thm-ch31-mangoldt-no-windows-below-mass title="低于第一 Li 质量的系数排除任意晚的整窗" lean="D5/S3/Weil/Mertens/IntegratedExplicit/MangoldtWindowPhase.no_windows_below_mass"}
+固定实数 $b>1$ 与 $C<M$。无条件地，存在实数 $R$，使每个 $Y\ge\max\{R,2\}$ 都有某个 $x\in[Y,Y^b]$ 满足 $U(x)>C\sqrt{x}$。
+:::
+
+::: proof
+若任意晚都有一个整窗满足 $U(x)\le C\sqrt{x}$，同一批窗口也满足较大的系数 $M+1$ 的上界。由 [@thm-ch31-mangoldt-pointwise-sqrt-window] 得到 RH。取 $\delta=M-C>0$，在 [@thm-ch31-mangoldt-bounded-gap-peak] 中从 $n=\lceil\ln Y\rceil$ 出发。充分大的 $Y$ 满足 $(b-1)\ln Y\ge L+1$，故 $n+k\in[\ln Y,b\ln Y]$。取 $x=e^{n+k}$，便在同一窗内得到 $U(x)/\sqrt{x}>M-\delta=C$，与假设矛盾。完整证明由 Lean 内核检查。
+:::
+
+**手工推导。** 令 $P_b(Y)=\max_{Y\le x\le Y^b}U(x)/\sqrt{x}$。对 $Y\ge2$，归一化余项连续，故闭窗上能取到最大值。对任意 $a<M$，上一条定理给出充分大 $Y$ 处的 $P_b(Y)>a$。在 RH 下，绝对包络对每个 $c>M$ 又给出充分大的 $Y$ 处 $P_b(Y)<c$，所以 $P_b(Y)\to M$。若 RH 不成立，给定任意实数 $T$，取 $C=\max\{T,M+1\}$，则 [@thm-ch31-mangoldt-pointwise-sqrt-window] 的逆否命题给出充分大的 $Y$ 处 $P_b(Y)>C\ge T$。此时 $P_b(Y)\to+\infty$。[整窗最大值的外部内核重放](https://github.com/the-omega-institute/trureturing/issues/32551#issuecomment-7060137372)
+
 ::: {.theorem #thm-ch31-wide-prime-window title="宽窗口质量的下界与 RH 失败时的一致发散" lean="D5/S3/Weil/Mertens/IntegratedExplicit/WidePrimeWindowMass.prime_tail_wide_window_mass"}
 对于实际素数尾项，记实端点 $2\le A\le B$ 的窗口质量为
 
