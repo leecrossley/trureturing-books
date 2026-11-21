@@ -1208,6 +1208,52 @@ $$
 
 The coset law thus determines the product of the bias factors for each nonzero column. With the offset fixed, those products in turn determine all sign moments, which determine the law. A zero column has no effect on the output. Repeated nonzero columns enter only through their product. For example, factors $(3/4,1/3)$ on one column and $(1/2,1/2)$ on the same column both give $1/4$. Every bias can be recovered individually exactly when the projected columns are nonzero and pairwise distinct.
 
+**An error bound for bias recovery (written derivation).** Let $P,Q$ be two coset laws with the same projected columns and possibly different affine offsets. Suppose that all absolute sign moments of both laws are at least $\varepsilon>0$. Write $q_a(P),q_a(Q)$ for their bias products on a nonzero column $a$. Then
+
+$$
+\left|\log q_a(P)-\log q_a(Q)\right|
+  \le \frac{2}{\varepsilon}\operatorname{TV}(P,Q).
+$$
+
+For each $\lambda$, let $m_P,m_Q$ be the two sign moments. Write $\log|m_P|-\log|m_Q|=w_\lambda(m_P-m_Q)$, taking $w_\lambda=0$ when the moments agree. The mean value theorem on the positive absolute moments bounds the log difference by $\big||m_P|-|m_Q|\big|/\varepsilon$. The reverse triangle inequality gives $|w_\lambda|\le 1/\varepsilon$ even when the two moments have opposite signs. Substitution into the recovery formula gives
+
+$$
+\begin{aligned}
+\log q_a(P)-\log q_a(Q)&=\sum_{x\in C}K_a(x)(P(x)-Q(x)),\\
+K_a(x)&=-\frac{2}{|C|}\sum_{\lambda\in C^*}
+    \chi_\lambda(a)\,w_\lambda\,\chi_\lambda(x).
+\end{aligned}
+$$
+
+For $x\ne y$, exactly half of the characters distinguish $x$ from $y$. Each such sign difference has absolute value $2$, so $|K_a(x)-K_a(y)|\le 2/\varepsilon$. Subtract the midpoint of the maximum and minimum of $K_a$. The displayed sum stays the same because $\sum_x(P(x)-Q(x))=0$, and the shifted function has absolute value at most $1/\varepsilon$. The claimed estimate follows.
+
+A one-bit quotient already approaches the constant $2$. Fix $0<\varepsilon<1$ and take bias factors $\varepsilon$ and $\varepsilon+h$ with $0<h<1-\varepsilon$. The total variation is $h/2$, and the log difference is $\log(1+h/\varepsilon)$. Its ratio to $\operatorname{TV}(P,Q)/\varepsilon$ tends to $2$ as $h\downarrow0$.
+
+**The finite-distance bound and its equality condition (written derivation).** Write $N=|C|\ge 2$, $\beta=1-1/N$, and $\delta=\operatorname{TV}(P,Q)$. With the same moment floor as above, the tighter bound is
+
+$$
+\left|\log q_a(P)-\log q_a(Q)\right|
+  \le 2\beta\log\!\left(1+\frac{\delta}{\beta\varepsilon}\right).
+$$
+
+Let $u_\lambda=|m_P(\lambda)-m_Q(\lambda)|$. Choose $r_\lambda\in\{-1,1\}$ so that $r_\lambda(m_P(\lambda)-m_Q(\lambda))=u_\lambda$. Then $\sum_\lambda u_\lambda$ is the difference of the expectations of $\sum_\lambda r_\lambda\chi_\lambda(x)$ under the two laws. This function has oscillation at most $N$, since each pair of distinct points has sign difference $2$ at exactly $N/2$ characters. Centering the function at the midpoint of its range gives $\sum_\lambda u_\lambda\le N\delta$. The trivial character contributes zero to this sum.
+
+The absolute log difference at a character is the logarithm of the larger absolute moment divided by the smaller one. It is at most $\log(1+u_\lambda/\varepsilon)$ by the moment floor and the reverse triangle inequality. Concavity of $\log$ bounds the sum over the $N-1$ nontrivial characters by $(N-1)\log(1+N\delta/((N-1)\varepsilon))$. Multiplying by $2/N$ in the recovery formula gives the claimed bound.
+
+For $\delta>0$, let $h=\log(1+\delta/(\beta\varepsilon))$ and $B=\log\varepsilon$. Equality in the last bound requires the mean of the $u_\lambda$ over nontrivial $\lambda$ to be $\delta/\beta$. Strict concavity forces each of them to equal that positive mean. At each nontrivial character, equality in the scalar bound then forces the moments to have the same sign, with one absolute moment equal to $\varepsilon$ and the other to $\varepsilon e^h$. The moment signs determine the offset because the factors are positive and the characters separate points. The triangle inequality in the recovery formula is an equality only if the signed log differences align. After interchanging the laws if needed, the nontrivial characters with $\chi_\lambda(a)=1$ have log magnitudes $B+h$ in $P$ and $B$ in $Q$. Those with $\chi_\lambda(a)=-1$ have the reversed values. The recovery formula therefore gives $\log q_a(Q)=2B/N+h$. If the target column $a$ is present with factors strictly below $1$, this log product is negative, so $\varepsilon e^{Nh/2}<1$.
+
+Conversely, suppose $\varepsilon e^{Nh/2}<1$. Use offset zero and one input bit for each nonzero $c\in C$. Assign their log factors by
+
+$$
+\log q_c(P)=\frac{2(B+h)}{N}-h\,\mathbf 1_{\{c=a\}},
+\qquad
+\log q_c(Q)=\frac{2B}{N}+h\,\mathbf 1_{\{c=a\}}.
+$$
+
+All these log factors are negative. Each nontrivial character multiplies the factors of exactly $N/2$ columns, so these choices give exactly the two log magnitude profiles above. Their moment difference is $\varepsilon(e^h-1)\chi_\lambda(a)$ on nontrivial characters and zero at the trivial one. Fourier inversion gives $P(x)-Q(x)=\varepsilon(e^h-1)(\mathbf 1_{\{x=a\}}-1/N)$, which has total variation $\delta$. The log gap on $a$ is $2\beta h$, so this family attains the bound. Thus, with freedom to choose the common columns and with $a$ present, the strict condition on $\varepsilon e^{Nh/2}$ is both necessary and sufficient.
+
+For example, take a two-dimensional quotient with the nonzero columns ordered as $a,b,a+b$ and both offsets zero. Use bias factors $(1/32,1/8,1/8)$ for $P$ and $(1/4,1/16,1/16)$ for $Q$. At every nontrivial character, one sign moment is $1/256$ and the other is $1/64$. Taking $\varepsilon=1/256$, the inversion formula above gives $\delta=(3/4)(1/64-1/256)=9/1024$. The target bias products have ratio $8$, whose logarithm equals the bound $(3/2)\log 4$.
+
 **Why pairwise moment inequalities stop deciding representability on eight points (written derivation).** The factorization above gives a necessary inequality for every pair of characters of an affine independent-bit law, $|m_\lambda|\,|m_\nu|\le |m_{\lambda+\nu}|$. A column selected by both characters contributes a squared absolute bias, at most $1$, on the left and cancels on the right. Each remaining factor agrees on the two sides. An affine offset affects only the signs.
 
 On $\mathbb F_2^3$, fix $u\ne0$. Assign probabilities $99/512$ at $0$, $35/512$ at $u$, and $63/512$ at each of the six other points. The probabilities sum to $1$ and are all strictly positive. This is a constant mass $63/512$ plus corrections of $36/512$ at $0$ and $-28/512$ at $u$. Each nontrivial character sums to zero over the group, so its moment equals $1/8$ if $\chi_\lambda(u)=-1$ and $1/64$ otherwise. If both characters in the pairwise inequality are nontrivial, its left side is at most $1/64$ and its right side at least $1/64$. If either character is trivial, there is equality.
