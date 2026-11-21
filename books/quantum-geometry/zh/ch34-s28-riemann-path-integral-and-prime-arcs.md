@@ -989,6 +989,29 @@ $$
 
 若某个非平凡零点取到最大实部 $\beta>1/2$，且实部小于 $\beta$ 的非平凡零点都满足 $\operatorname{Re}\rho\le1/2$，则 $G_\beta=0$。第一 Li 系数满足 $C<1/3$，故可取 $d=1$。现在令 $W=W_*$。更宽窗口的下极限严格为正，排除了第三项，所以每个充分晚的临界宽度窗口都有严格正的质量。任何同一右端点、更宽且左端点至少为 $2$ 的窗口都包含这个临界窗口，因而质量也严格为正。临界宽度的归一化质量仍可任意接近零。若存在实部严格介于 $1/2$ 和 $\beta$ 的零点，临界宽度下精确零质量窗口是否反复出现仍待确定。
 
+::: {.theorem #thm-ch31-growing-prime-tail-clusters title="增长对数宽度的全部簇值" lean="D5/S3/Weil/Mertens/IntegratedExplicit/PrimeGrowingWidthCluster.prime_tail_growing_width_cluster_iff_of_upper_bound"}
+设 $β>1/2$ 是所有非平凡零点实部的上界。仍取 $p=\beta-1/2>0$ 和同一轨道闭包 $H$。设实数左端点 $A(B)$ 对所有充分大的 $B$ 满足 $2\le A(B)\le B$，且 $\ln(B/A(B))\to+\infty$。$N(A(B),B)/B^p$ 的簇集为
+$$
+\left\{I_\infty(h):h\in H\right\},\qquad
+I_\infty(h)=\int_0^\infty e^{-ps}\max(-F_h(-s),0)\,ds .
+$$
+其中包括 $A(B)=2$，也允许 $A(B)$ 随 $B$ 非连续或非单调地变化。
+:::
+
+固定 $L\ge0$。当 $B$ 充分大，窗口包含 $[Be^{-L},B]$。存在充分大的 $X\ge2$，使负部密度在 $[X,\infty)$ 上由 $Cx^{p-1}$ 控制。在 $\max(A(B),X)$ 处分开 $Be^{-L}$ 左侧的部分，归一化后的贡献至多为 $N(2,X)/B^p+(C/p)e^{-pL}$。相位积分在 $L$ 之后的尾部至多为 $(S/p)e^{-pL}$，其中 $S=\sum_k |1/(\rho_k(1-\rho_k))|$。前一个估计对允许的左端点一致成立，后一个对相位一致成立。先选 $L$，再令 $B$ 增长，便得到由 $\ln B$ 处实际相位给出的近似，与固定宽度情形相同。有限宽度相位积分的一致收敛给出 $I_\infty$ 的连续性。轨道闭包紧且连通，故簇集是紧区间。当实部为 $\beta$ 的直线没有零点时，相位积分恒为零，归一化质量趋于零。
+
+::: {.theorem #thm-ch31-growing-prime-tail-error title="同一右端点下的统一误差界" lean="D5/S3/Weil/Mertens/IntegratedExplicit/PrimeGrowingWidthCluster.prime_tail_window_extent_bound_of_upper_bound"}
+仍设 $\beta>1/2$ 是所有非平凡零点实部的上界。存在依赖于 $\beta$ 的 $K\ge0$，使对每个 $\varepsilon>0$，当 $B$ 充分大时，所有 $a\in[2,B]$ 都满足
+$$
+\left|\frac{N(a,B)}{B^p}-I_\infty(\phi(\ln B))\right|
+\le \varepsilon+K(a/B)^p .
+$$
+有符号误差 $N(a,B)/B^p-I_\infty(\phi(\ln B))$ 也至多为 $\varepsilon$。
+:::
+
+先与从 $2$ 开始的累积质量比较。移去 $[2,a]$ 时，质量减少 $N(2,a)$。沿用早期区间的固定积分与后期的幂函数界，可得 $N(2,a)\le Ka^p$。因此幂函数项控制移动左端点损失的质量，$\varepsilon$ 来自累积质量的相位近似。省略质量的误差随对数宽度指数衰减。移去的质量非负，所以有符号误差的上界没有幂函数项。
+
+
 - **经典的 von Mangoldt–Weil 点态中点显式公式（`文献结果，未在本书形式化`：von Mangoldt, 1895；Weil, 1952）**：记切比雪夫素数幂阶梯函数为 $\psi(x) := \sum_{n \le x}\Lambda(n) = \sum_{p^m \le x}\ln p = \ln\operatorname{lcm}(1, 2, \dots, \lfloor x\rfloor)$，并在整数跃迁点处取左右极限算术平均定义吉布斯（Gibbs）中点阶梯 $\psi_0(x) := \frac{1}{2}\bigl(\psi(x^+) + \psi(x^-)\bigr) = \psi(x) - \frac{1}{2}\Lambda(x)$（当 $x \in \mathbb{N}_{\ge 2}$ 为素数幂 $p^m$ 时减去半阶跃 $\frac{1}{2}\ln p$，为无素数幂合数时 $\Lambda(x) = 0$ 故 $\psi_0(x) = \psi(x)$），则对一切 $x > 1$，对称截断极限给出：
 
   $$
