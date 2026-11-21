@@ -211,6 +211,14 @@ $$
 
 一颗种子的两次读出给出一对 $(i,B)$。固定 $B$ 的换位只能交换 $B$ 内的两个标签，或交换补集内的两个标签。两者中恰有一个也固定标签 $i$。由于种子律在 $S_4$ 下不变，六个共轭换位固定读出对的质量相同，每个都是 $1/6$。固定种子的换位也固定这颗种子的两个读出，所以 $H$ 固定的种子质量至多为 $1/6$。给 24 个读出对各分配权重 $1/24$，令 $S_4$ 对这两个坐标同时作用，以两个坐标投影作为读出。这份乘积律达到 $1/6$。[上界](lean:D5/S3/ConceptDynamics/Attribution/TranspositionFixedMass.seeded_transposition_mass_le)与[达到上界的乘积律](lean:D5/S3/ConceptDynamics/Attribution/TranspositionFixedMass.uniform_label_pair_attains)共同给出精确值。
 
+**正规子群固定的种子。** 设群 $G$ 作用于非空有限输入集 $X$ 和有限输出集 $Y$，$P$ 是 $G$-协变概率核，且 $H\triangleleft G$。在采用正的 $G$-不变权重与逐点 $G$-协变读出的所有有限校准律中，由 $H$ 固定的种子的最大总权重为
+$$
+\min_{x\in X}\sum_{y\in Y^{H\cap G_x}}P(x,y).
+$$
+其中 $G_x$ 是输入 $x$ 的稳定子，$Y^{H\cap G_x}$ 是被 $H\cap G_x$ 每个元素固定的输出集合。由协变性，任何由 $H$ 固定的种子在 $x$ 处的读出都落在这个集合，因而每一行都给出一个上界。 [正规子群固定质量定理](lean:D5/S3/ConceptDynamics/Attribution/NormalSubgroupFixedMass.maximal_normal_subgroup_fixed_seed_mass).
+
+为达到该上界，先把输入与输出的群作用限制到 $H$，对 $H$ 应用全群固定质量定理。把每个种子映到它的整张确定性读出表 $t:X\to Y$，所得表分布保留每一行的边缘分布，而且每个被 $H$ 固定的种子都映到被 $H$ 固定的表。表作用 $(g\cdot t)(x)=g\cdot t(g^{-1}\cdot x)$ 的像是有限群。对该有限群平移后的表分布取均值。每个平移都由协变性保留边缘 $P$，而正规性使每个平移都保留 $H$ 固定表的集合，故取均值后该集合的质量仍至少为原来的 $H$ 固定种子质量。以正权重的表为种子，在 $x$ 处求值作为读出，逐行上界保证达到等号。这里的有限平均是对称线性约束下的轨道平均。[Bödi、Herr 与 Joswig，命题 13](https://arxiv.org/html/1012.4941#Thmtheorem13)
+
 ## 39.3.3 形式化锚定主定理、文献与附录 E 边界、五大公理定量核验与迈向无外三元数本体 {#sec-ch39-26-3}
 
 我们将 $\mathrm{AXIOM}\text{-}\Omega$ 导出量子力学五大公理的投影映射定义、两个定理盒中的二十三项 Lean 4 内核定理、经典文献边界与定量核验正式确立如下：
