@@ -967,6 +967,28 @@ The product of unit circles is compact. The integer-time phases return arbitrari
 
 The cluster set is a compact interval because the real phase orbit has connected closure and the window functional is continuous. If no zero has real part $\beta$, or if $W=0$, the interval is the singleton $\{0\}$. When a nontrivial zero attains the maximum $\beta>1/2$ and $W>0$, the lower endpoint is the lower limit in the critical-width theorem. A zero cluster value allows the normalized mass to approach zero along arbitrarily late windows.
 
+**Zero-mass windows and intermediate zeros.** Let $\beta>1/2$ bound the real parts of all nontrivial zeros, put $p=\beta-1/2$, and let $C=2+\gamma_{\mathrm E}-\ln(4\pi)$, where $\gamma_{\mathrm E}$ is Euler's constant. For the zero occurrences $\rho_k$ above, define
+
+$$
+G_\beta(u)=
+\sum_{1/2<\operatorname{Re}\rho_k<\beta}
+\frac{\exp((\operatorname{Re}\rho_k-1/2)u)}{|\rho_k(1-\rho_k)|}.
+$$
+
+::: {.theorem #thm-ch31-prime-critical-residual title="A late window and the intermediate spectrum" lean="D5/S3/Weil/Mertens/IntegratedExplicit/PrimeCriticalResidual.prime_tail_mass_pos_or_intermediate_or_wider_zero_cluster"}
+Use the intermediate sum $G_\beta$ defined above. Fix $0<d<2-C$. There is a real threshold $T$ that works for every upper bound $\beta$ as above. Every window with $W>0$ and $t-W\ge T$ satisfies at least one of the following.
+
+- $N(e^{t-W},e^t)>0$.
+- Some $u\in[t-W,t]$ satisfies $G_\beta(u)\ge d$.
+- There is a width $W'>W$ at which zero is a cluster value of $N(Be^{-W'},B)/B^p$ as real $B\to+\infty$.
+:::
+
+[The square-root residual bound](lean:D5/S3/Weil/Mertens/IntegratedExplicit/PrimeCriticalResidual.eventually_prime_tail_root_scale).
+
+At the square-root scale, the correction for prime powers subtracted from the complete tail tends to $2$. The critical-line coefficients are positive reals with total at most the first Li coefficient $C$. The terms from zeros strictly to the left of the critical line each decay as $u\to+\infty$. Summability of the coefficient norms gives decay of their sum. The intermediate budget $G_\beta(u)$ bounds the contributions from the remaining zeros below the upper-bound line. For all sufficiently large $u$, the contribution from the upper-bound line plus $G_\beta(u)-d$ is therefore an upper bound for $e^{u/2}Q_\vartheta(e^u)$. If the mass is zero and $G_\beta<d$ throughout the window, continuity gives $Q_\vartheta\ge0$ there, so the phase profile on the upper-bound line is strictly positive throughout. Continuity at the left endpoint extends the positive interval a little farther to the left. Its negative-part mass stays zero at the wider width, and the fixed-width cluster formula realizes this zero as a cluster value. Each intermediate summand is nondecreasing in $u$. If the right endpoint satisfies $G_\beta(t)\le d<2-C$, choose $d<d'<2-C$ and use the threshold for $d'$ to obtain a strict margin throughout the window.
+
+Suppose a nontrivial zero attains the maximum $\beta>1/2$ and every nontrivial zero with real part below $\beta$ has real part at most $1/2$. Then $G_\beta=0$. The first Li coefficient satisfies $C<1/3$, so we can take $d=1$. At $W=W_*$, the strictly positive lower limit at every wider width rules out the third case, so every sufficiently late critical-width window has strictly positive mass. Every wider window with the same right endpoint and a left endpoint at least $2$ contains this critical window and also has strictly positive mass. The normalized mass at the critical width can still approach zero arbitrarily closely. If there are zeros with real parts strictly between $1/2$ and $\beta$, the recurrence of exact zero mass at the critical width remains open here.
+
 - **Classical pointwise von Mangoldt–Weil midpoint explicit formula (`Literature result, not formalized in this book`: von Mangoldt, 1895; Weil, 1952)**: Writing $\psi(x) := \sum_{n \le x}\Lambda(n) = \sum_{p^m \le x}\ln p = \ln\operatorname{lcm}(1, 2, \dots, \lfloor x\rfloor)$ for Chebyshev's prime-power staircase and $\psi_0(x) := \frac{1}{2}\bigl(\psi(x^+) + \psi(x^-)\bigr) = \psi(x) - \frac{1}{2}\Lambda(x)$ for its Gibbs midpoint normalization (subtracting the half-jump $\frac{1}{2}\ln p$ when $x \in \mathbb{N}_{\ge 2}$ is a prime power $p^m$, while $\psi_0(x) = \psi(x)$ at non-prime-power composites where $\Lambda(x) = 0$), symmetric truncation gives for every $x > 1$:
 
   $$
