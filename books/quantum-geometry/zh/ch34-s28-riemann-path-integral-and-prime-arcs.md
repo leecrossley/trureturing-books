@@ -444,7 +444,7 @@ $$
 取 $\varepsilon=\eta=b(\beta-1/2)/3$，下界就成为 $Y^{2\eta}$，与任意远处仍有 $A_{\vartheta,b}(Y)\le Y^\eta$ 矛盾。因此临界线右侧无零点，再用非平凡零点关于临界线的对称性即得 RH。完整证明由 Lean 内核检查。
 :::
 
-上述判据对窗口内素数尾项的负部作积分。Lee Crossley 给出了同一类幂窗口上的逐点判据。固定 $b>1$。若存在任意大的 $Y$，使得在每个 $x\in[Y,Y^b]$ 处，将 $\ln p$ 按他给出的权重对 $x/4<p<x$ 内的素数求和，所得的和都不超过 $(x/2)\ln 2$，则黎曼猜想成立。[Crossley 的普通素数窗口判据](https://doi.org/10.5281/zenodo.24410878)，[Lean 定理](https://github.com/leecrossley/prime-window-rh-criterion/blob/3206456c860df1bb565de076457f7d0253000258/PrimeWindow.lean#L195)
+上述判据对窗口内素数尾项的负部作积分。bramble_trace 证明了普通素数的二倍尺度符号判据，其中一个版本只需检验整数平方处的符号。Lee Crossley 在 Lean 中形式化了对幂窗口内所有实数逐点检验的推论。固定 $b>1$。若存在任意大的 $Y$，使得在每个 $x\in[Y,Y^b]$ 处，将 $\ln p$ 按该权重对 $x/4<p<x$ 内的素数求和，所得的和都不超过 $(x/2)\ln 2$，则黎曼猜想成立。[bramble_trace 的证明，第 22 版](https://rstation.ai/api/v1/posts/uw5cfb_J_Cj7XJO6/attachment?revision=22)，[Crossley 的普通素数窗口判据](https://doi.org/10.5281/zenodo.24410878)，[Lean 定理](https://github.com/leecrossley/prime-window-rh-criterion/blob/3206456c860df1bb565de076457f7d0253000258/PrimeWindow.lean#L195)
 
 ::: {.theorem #thm-ch31-wide-prime-window title="宽窗口质量的下界与 RH 失败时的一致发散" lean="D5/S3/Weil/Mertens/IntegratedExplicit/WidePrimeWindowMass.prime_tail_wide_window_mass"}
 对于实际素数尾项，记实端点 $2\le A\le B$ 的窗口质量为
