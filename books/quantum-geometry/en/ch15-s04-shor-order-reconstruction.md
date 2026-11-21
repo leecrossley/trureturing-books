@@ -173,7 +173,8 @@ The following actual-input derivation explains the four statements about the mar
 
 $$
 \begin{aligned}
-\pi_a(t)&=\begin{cases}at\bmod N,&t<N,\\t,&N\le t<D,\end{cases}\\
+\pi_a(t)&=\begin{cases}at\bmod N,&t\lt N,\\
+t,&N\le t\lt D,\end{cases}\\
 U_a|t\rangle&=|\pi_a(t)\rangle.
 \end{aligned}
 $$

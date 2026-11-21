@@ -149,9 +149,9 @@ To see how the slices move a column, define the output route for an input index 
 $$
 \rho(j,k)=
 \begin{cases}
-(j,k),&j<a,\\
-\bigl(2(j-a),\,2q+k\bigr),&j\ge a,\ k<q,\\
-\bigl(2(j-a)+1,\,q+k\bigr),&j\ge a,\ q\le k.
+(j,k),&j\lt a,\\
+\bigl(2(j-a),\thinspace 2q+k\bigr),&j\ge a,\ k\lt q,\\
+\bigl(2(j-a)+1,\thinspace q+k\bigr),&j\ge a,\ q\le k.
 \end{cases}
 $$
 
@@ -285,9 +285,9 @@ The differences $j-a$ and $k-q$ matter only when $j\ge a$ and $k\ge q$, respecti
 $$
 \rho(j,k)=
 \begin{cases}
-(j,k),&j<a,\\
-\bigl(2(j-a),\,c+k\bigr),&j\ge a,\ k<q,\\
-\bigl(2(j-a)+1,\,c+(k-q)\bigr),&j\ge a,\ q\le k.
+(j,k),&j\lt a,\\
+\bigl(2(j-a),\thinspace c+k\bigr),&j\ge a,\ k\lt q,\\
+\bigl(2(j-a)+1,\thinspace c+(k-q)\bigr),&j\ge a,\ q\le k.
 \end{cases}
 $$
 
