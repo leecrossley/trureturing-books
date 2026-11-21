@@ -442,6 +442,22 @@ $$
 取 $\varepsilon=\eta=b(\beta-1/2)/3$，下界就成为 $Y^{2\eta}$，与任意远处仍有 $A_{\vartheta,b}(Y)\le Y^\eta$ 矛盾。因此临界线右侧无零点，再用非平凡零点关于临界线的对称性即得 RH。完整证明由 Lean 内核检查。
 :::
 
+::: {.theorem #thm-ch31-wide-prime-window title="宽窗口质量的下界与 RH 失败时的一致发散" lean="D5/S3/Weil/Mertens/IntegratedExplicit/WidePrimeWindowMass.prime_tail_wide_window_mass"}
+对于实际素数尾项，记实端点 $2\le A\le B$ 的窗口质量为
+
+$$
+N(A,B)=\int_A^B \frac{\max\{-Q_\vartheta(x),0\}}{\sqrt x}\,dx .
+$$
+
+固定 $b>1$。在 $2\le A$、$A^b\le B$ 的范围内，存在一个只依赖于 $b$ 的常数 $C_b\ge0$，使 $N(A,B)\ge 2\ln(B/A)-C_b$。如果 RH 不成立，对每个实数 $K$，存在一个右端点阈值 $S$，对所有 $B\ge S$ 及所有满足上述条件的 $A$，都有 $N(A,B)-2\ln(B/A)\ge K$。
+:::
+
+::: proof
+为看出阈值为何与 $A$ 无关，从右端点取 $Y=B^{1/b}$。条件 $A^b\le B$ 保证 $[Y,B]=[Y,Y^b]\subseteq[A,B]$，同一非负被积函数使大窗的质量至少等于子窗的质量。RH 若失败，对称性给出实部 $\beta>1/2$ 的零点。固定幂窗口的下界允许任意正的指数损失，所以可取损失 $b(\beta-1/2)/2$，对所有充分大的 $B$ 及所有允许的 $A$ 给出 $N(A,B)\ge B^{(\beta-1/2)/2}$。当 $B$ 增大时，此幂超过 $2\ln B$ 加任意固定常数。用 $2\ln(B/A)\le2\ln B$ 即得一致发散。在阈值以下，对数项有界且质量非负，故可补齐下界。RH 成立时，所有 $2\le A\le B$ 上的有界余项直接给出所需下界。 完整证明由 Lean 内核检查。
+:::
+
+这里需要预先固定 $b>1$。在对数坐标下，$B\ge A^b$ 仍要求随尺度增大而加宽窗口。对于固定比率 $B/A$ 的窗口，当前推导的子窗包含关系未提供相同结论。
+
 **在哪些尺度上能选到特征标和小的素数？** 固定 $\varepsilon>0$。对整数 $k\ge1$，把素数的上界定为 $X_k=2^k$，再选 $x_k=(k\ln2)^{5/\varepsilon}$，于是 $\exp(x_k^{\varepsilon/5})=X_k$。这一块只用 $X_k/2\le q<X_k$ 中模 $8$ 余 $3$ 的素数。第 $k$ 块与第 $k+1$ 块互不相交。对足够大的 $k$，块的下端已超过 $\sqrt{X_k}$，所以它整个落在外库为 $q$ 指定的大小范围内。
 
 为计算二次矩，对块内每个正奇整数 $q$ 都用 Jacobi 符号定义这个和。取 $N_k=\lfloor x_k^{400}\rfloor$，记

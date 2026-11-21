@@ -442,6 +442,22 @@ Conversely, suppose $\zeta(\rho)=0$ with $\beta=\operatorname{Re}\rho>1/2$. For 
 Take $\varepsilon=\eta=b(\beta-1/2)/3$. The lower bound becomes $Y^{2\eta}$, in contradiction with $A_{\vartheta,b}(Y)\le Y^\eta$ on arbitrarily late windows. This excludes zeros to the right of the critical line. Reflection of the nontrivial zeros across that line gives RH. The full proof is checked by the Lean kernel.
 :::
 
+::: {.theorem #thm-ch31-wide-prime-window title="A lower mass bound on wide windows and uniform divergence if RH fails" lean="D5/S3/Weil/Mertens/IntegratedExplicit/WidePrimeWindowMass.prime_tail_wide_window_mass"}
+For the actual prime-only tail, write the mass at real endpoints $2\le A\le B$ as
+
+$$
+N(A,B)=\int_A^B \frac{\max\{-Q_\vartheta(x),0\}}{\sqrt x}\,dx .
+$$
+
+Fix $b>1$. There is a constant $C_b\ge0$ such that $N(A,B)\ge 2\ln(B/A)-C_b$ whenever $2\le A$ and $A^b\le B$. If RH fails, for each real $K$ a single right-endpoint threshold $S$ gives $N(A,B)-2\ln(B/A)\ge K$ for every $B\ge S$ and every admissible $A$.
+:::
+
+::: proof
+The threshold can be chosen independently of $A$ by setting $Y=B^{1/b}$. Since $A^b\le B$, the interval $[Y,B]=[Y,Y^b]$ lies inside $[A,B]$. Integrating the same nonnegative function over the larger interval can only increase the mass. If RH fails, symmetry supplies a zero with real part $\beta>1/2$. The fixed-power estimate allows any positive exponent loss, so choosing $b(\beta-1/2)/2$ gives $N(A,B)\ge B^{(\beta-1/2)/2}$ for every sufficiently large $B$, uniformly in admissible $A$. This power eventually exceeds $2\ln B$ plus any fixed constant. Since $2\ln(B/A)\le2\ln B$, the discrepancy diverges uniformly. Below the right-endpoint threshold the logarithmic term is bounded and the mass is nonnegative, which extends the lower bound to the whole domain. If RH holds, the bounded remainder for all $2\le A\le B$ gives the same lower bound directly. The full proof is checked by the Lean kernel.
+:::
+
+The exponent $b>1$ is fixed in advance. In logarithmic coordinates the condition $B\ge A^b$ requires the window to widen with the scale. At fixed ratio $B/A$, the inclusion used above gives no corresponding bound.
+
 **At which scales can one choose a prime with a small character sum?** Fix $\varepsilon>0$. For each integer $k\ge1$ take the prime upper bound $X_k=2^k$ and the height $x_k=(k\ln2)^{5/\varepsilon}$, so $\exp(x_k^{\varepsilon/5})=X_k$. The block contains the primes $X_k/2\le q<X_k$ congruent to $3$ modulo $8$. Consecutive blocks are disjoint. For sufficiently large $k$ the lower endpoint exceeds $\sqrt{X_k}$, so the whole block fits the size band for $q$ in the reference.
 
 For the second moment, define the sum for every positive odd integer $q$ in the block using the Jacobi symbol. Let $N_k=\lfloor x_k^{400}\rfloor$ and put
