@@ -149,9 +149,9 @@ $$
 $$
 \rho(j,k)=
 \begin{cases}
-(j,k),&j<a,\\
-\bigl(2(j-a),\,2q+k\bigr),&j\ge a,\ k<q,\\
-\bigl(2(j-a)+1,\,q+k\bigr),&j\ge a,\ q\le k.
+(j,k),&j\lt a,\\
+\bigl(2(j-a),2q+k\bigr),&j\ge a,\ k\lt q,\\
+\bigl(2(j-a)+1,q+k\bigr),&j\ge a,\ q\le k.
 \end{cases}
 $$
 
@@ -285,9 +285,9 @@ $$
 $$
 \rho(j,k)=
 \begin{cases}
-(j,k),&j<a,\\
-\bigl(2(j-a),\,c+k\bigr),&j\ge a,\ k<q,\\
-\bigl(2(j-a)+1,\,c+(k-q)\bigr),&j\ge a,\ q\le k.
+(j,k),&j\lt a,\\
+\bigl(2(j-a),c+k\bigr),&j\ge a,\ k\lt q,\\
+\bigl(2(j-a)+1,c+(k-q)\bigr),&j\ge a,\ q\le k.
 \end{cases}
 $$
 
