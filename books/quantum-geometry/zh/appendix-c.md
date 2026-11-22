@@ -25,7 +25,7 @@
 
 行内 Lean 链接用于给出辅助结果或源码定位，核对时仍须阅读对应声明的种类与完整前提。书面证明显式标为 `status="written-proof"`，并提供完整证明及文献来源或源论文仓库、原文定位和形式化请求。
 
-例如 [@thm-central-defect-endpoint-average] 及其[书面证明](ch16-s03-central-defect-spectrum.md#pf-central-defect-endpoint-average) 随正文登记 DOI 与[形式化请求 #10](https://github.com/the-omega-institute/trureturing-requests/issues/10)，不因此取得 Lean 验证身份。
+例如，[@thm-ch31-cyclotomic-tz] 的书面证明将 Thorner 和 Zaman 的定理 1.4 和 3.3 用于分圆域。形式化请求列出了所需的一致估计和例外零点界。[本书的证明](ch34-s28-riemann-path-integral-and-prime-arcs.md#pf-ch31-cyclotomic-tz) [期刊论文](https://doi.org/10.2140/ant.2019.13.1039) [形式化请求](https://github.com/the-omega-institute/trureturing-requests/issues/455)
 
 ## C.4 开放问题与文献边界 {#sec-appendix-c-open-register}
 

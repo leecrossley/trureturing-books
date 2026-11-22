@@ -25,7 +25,7 @@ Source links for definitions, structures and inductive types explain how objects
 
 Inline Lean links identify auxiliary results or source locations; checking them still requires reading the declaration's kind and full hypotheses. Written proofs explicitly use `status="written-proof"` and provide a complete proof, a literature source or source-paper repository, a source location and a formalization request.
 
-For example, [@thm-central-defect-endpoint-average] and its [written proof](ch16-s03-central-defect-spectrum.md#pf-central-defect-endpoint-average) record a DOI and [formalization request #10](https://github.com/the-omega-institute/trureturing-requests/issues/10) in the text. This does not confer Lean verification.
+For example, the written proof of [@thm-ch31-cyclotomic-tz] specialises Theorems 1.4 and 3.3 of Thorner and Zaman to a cyclotomic field. The formalisation request specifies the uniform estimate and the exceptional-zero bound. [Book proof](ch34-s28-riemann-path-integral-and-prime-arcs.md#pf-ch31-cyclotomic-tz) [Journal article](https://doi.org/10.2140/ant.2019.13.1039) [Formalisation request](https://github.com/the-omega-institute/trureturing-requests/issues/455)
 
 ## C.4 Open Problems and Literature Boundaries {#sec-appendix-c-open-register}
 
